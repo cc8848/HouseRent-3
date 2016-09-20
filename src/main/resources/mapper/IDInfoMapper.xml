@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.magic.rent.mapper.IDInfoMapper">
+    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.IDInfo">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="number" property="number" jdbcType="VARCHAR"/>
+        <result column="validity" property="validity" jdbcType="DATE"/>
+        <result column="issuer" property="issuer" jdbcType="VARCHAR"/>
+        <association property="idType" javaType="com.magic.rent.pojo.IDType"
+                     resultMap="com.magic.rent.mapper.IDTypeMapper.BaseResultMap"/>
+    </resultMap>
+    <select id="selectALLIDInfo" resultMap="BaseResultMap">
+      SELECT TB_ID_INFO.id,TB_ID_TYPE.typeName,TB_ID_INFO.number,TB_ID_INFO.validity,TB_ID_INFO.`issuer`
+      FROM TB_ID_INFO,TB_ID_TYPE
+      WHERE TB_ID_INFO.IDType_id=TB_ID_TYPE.id
+    </select>
+</mapper>

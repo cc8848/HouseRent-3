@@ -1,0 +1,114 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<component name="dataSourceStorage">
+  <data-source name="MySQL - db_house_rent@localhost" uuid="298098bd-d30c-4ad9-8b5a-0d57b65ce3f0">
+    <database-info product="MySQL" version="5.7.12" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.38 ( Revision: fe541c166cec739c74cc727c5da96c1028b4834a )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="mixed" quoted-identifiers="upper"/>
+    <database-model serializer="dbm" rdbms="MYSQL" format-version="2.4">
+      <schema id="1" name="db_house_rent"/>
+      <table id="2" parent="1" name="TB_USER"/>
+      <table id="3" parent="1" name="TB_ID_INFO"/>
+      <table id="4" parent="1" name="TB_ID_TYPE"/>
+      <column id="5" parent="2" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="6" parent="2" name="phone">
+        <comment>电话</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="7" parent="2" name="password">
+        <comment>密码</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="8" parent="2" name="email">
+        <comment>邮件</comment>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <column id="9" parent="2" name="userName">
+        <comment>用户昵称</comment>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="10" parent="2" name="sex">
+        <comment>性别</comment>
+        <data-type>int(2)</data-type>
+      </column>
+      <column id="11" parent="2" name="job">
+        <comment>工作</comment>
+        <data-type>varchar(20)</data-type>
+      </column>
+      <column id="12" parent="2" name="IDInfo_id">
+        <comment>证件信息</comment>
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <index id="13" parent="2" name="ID_info_id">
+        <columns>IDInfo_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="14" parent="2" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="15" parent="2" name="FK_TB_USER_TB_ID_INFO">
+        <columns>IDInfo_id</columns>
+        <ref-key>~.TB_ID_INFO.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="16" parent="3" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="17" parent="3" name="IDType_id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="18" parent="3" name="number">
+        <comment>证件号码</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <column id="19" parent="3" name="validity">
+        <comment>有效期</comment>
+        <mandatory>1</mandatory>
+        <data-type>date</data-type>
+      </column>
+      <column id="20" parent="3" name="issuer">
+        <comment>发证机关</comment>
+        <mandatory>1</mandatory>
+        <data-type>varchar(50)</data-type>
+      </column>
+      <index id="21" parent="3" name="type_id">
+        <columns>IDType_id</columns>
+        <desc-columns></desc-columns>
+      </index>
+      <key id="22" parent="3" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+      <foreign-key id="23" parent="3" name="FK_TB_ID_INFO_TB_ID_TYPE">
+        <columns>IDType_id</columns>
+        <ref-key>~.TB_ID_TYPE.PRIMARY</ref-key>
+        <cascade-update-rule>restrict</cascade-update-rule>
+        <cascade-delete-rule>restrict</cascade-delete-rule>
+      </foreign-key>
+      <column id="24" parent="4" name="id">
+        <mandatory>1</mandatory>
+        <data-type>int(11)</data-type>
+      </column>
+      <column id="25" parent="4" name="typeName">
+        <mandatory>1</mandatory>
+        <data-type>varchar(30)</data-type>
+      </column>
+      <key id="26" parent="4" name="PRIMARY">
+        <columns>id</columns>
+        <primary>1</primary>
+      </key>
+    </database-model>
+  </data-source>
+</component>
