@@ -20,6 +20,7 @@ public class UserController {
     @Autowired
     private IUserService iUserService;
 
+
     public ModelAndView login(HttpServletRequest request) {
         ModelAndView modelAndView = new ModelAndView();
         String phone = request.getParameter("phone");

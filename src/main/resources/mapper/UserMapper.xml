@@ -51,4 +51,8 @@
         </where>
         ORDER BY TB_USER.id
     </select>
+    
+    <insert id="insertUser" parameterType="com.magic.rent.pojo.User">
+        INSERT INTO TB_USER
+    </insert>
 </mapper>
