@@ -11,4 +11,6 @@ public interface UserMapper {
     List<User> selectBySelective(User user);
 
     int insertUser(User user);
+
+    int insertUserSelective(User user);
 }

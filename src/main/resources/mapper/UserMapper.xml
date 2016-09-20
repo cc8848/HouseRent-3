@@ -51,8 +51,71 @@
         </where>
         ORDER BY TB_USER.id
     </select>
-    
+
     <insert id="insertUser" parameterType="com.magic.rent.pojo.User">
-        INSERT INTO TB_USER
+        <selectKey keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        INSERT INTO TB_USER (phone, password)
+        VALUES (#{phone,jdbcType=VARCHAR}, #{password,jdbcType=VARCHAR})
+    </insert>
+
+    <insert id="insertUserSelective" parameterType="com.magic.rent.pojo.User">
+        <selectKey keyProperty="id" order="AFTER">
+            SELECT LAST_INSERT_ID()
+        </selectKey>
+        insert into TB_USER
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null and id != ''">
+                id,
+            </if>
+            <if test="phone != null and phone != ''">
+                phone,
+            </if>
+            <if test="password != null and password != ''">
+                password,
+            </if>
+            <if test="email != null and email !=''">
+                email,
+            </if>
+            <if test="userName != null and userName != ''">
+                username,
+            </if>
+            <if test="sex != null and sex !=''">
+                sex,
+            </if>
+            <if test="job != null and job != ''">
+                job,
+            </if>
+            <if test="idInfo != null and idInfo.id != ''">
+                IDInfo_id,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null and id != ''">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="phone != null and phone != ''">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="password != null and password != ''">
+                #{password,jdbcType=VARCHAR},
+            </if>
+            <if test="email != null and email !=''">
+                #{email,jdbcType=VARCHAR},
+            </if>
+            <if test="userName != null and userName != ''">
+                #{username,jdbcType=VARCHAR},
+            </if>
+            <if test="sex != null and sex !=''">
+                #{sex,jdbcType=INTEGER},
+            </if>
+            <if test="job != null and job != ''">
+                #{job,jdbcType=VARCHAR},
+            </if>
+            <if test="idInfo != null and idInfo.id != ''">
+                #{idInfo.id,jdbcType=INTEGER},
+            </if>
+        </trim>
     </insert>
 </mapper>
