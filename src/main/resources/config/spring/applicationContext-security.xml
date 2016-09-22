@@ -1,0 +1,17 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:sec="http://www.springframework.org/schema/security"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
+          http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security.xsd">
+    <!--不进行拦截的静态资源-->
+    <sec:http pattern="css/*.css" security="none"/>
+    <sec:http pattern="img/*.jpg" security="none"/>
+    <sec:http pattern="img/*.png" security="none"/>
+    <sec:http pattern="img/*.jpeg" security="none"/>
+    <sec:http pattern="img/*.gif" security="none"/>
+    <sec:http pattern="js/*.js" security="none"/>
+
+    <sec:http pattern="/index.jsp" security="none"/>
+</beans>
