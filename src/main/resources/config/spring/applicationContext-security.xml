@@ -12,6 +12,31 @@
     <sec:http pattern="img/*.jpeg" security="none"/>
     <sec:http pattern="img/*.gif" security="none"/>
     <sec:http pattern="js/*.js" security="none"/>
-
+    <!--不进行拦截的页面-->
     <sec:http pattern="/index.jsp" security="none"/>
+    <sec:http pattern="/WEB-INF/views/login.jsp" security="none"/>
+    <sec:http pattern="/getCode" security="none"/><!-- 不过滤验证码 -->
+    <sec:http pattern="/test/**" security="none"/><!-- 不过滤测试内容 -->
+    <!--权限配置及自定义登录界面-->
+    <sec:http auto-config="true" use-expressions="true">
+        <sec:intercept-url pattern="/WEB-INF/admin/**" access="hasRole('admin')"/>
+        <sec:form-login
+                login-page="/WEB-INF/views/login.jsp"
+                authentication-failure-url="/WEB-INF/error/authority.jsp"
+                default-target-url="/index.jsp"
+                authentication-success-handler-ref="authenticationSuccessHandlerImpl"
+                authentication-failure-handler-ref="authenticationFailHandlerImpl"/>
+    </sec:http>
+    <!--登录成功跳转处理器-->
+    <bean id="authenticationSuccessHandlerImpl"
+          class="com.magic.rent.service.security.AuthenticationSuccessHandlerImpl"/>
+    <!--登录失败跳转处理器-->
+    <bean id="authenticationFailHandlerImpl"
+          class="com.magic.rent.service.security.AuthenticationFailHandlerImpl"/>
+    <!--国际化配置-->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="config.messages"/>
+    </bean>
+
 </beans>
