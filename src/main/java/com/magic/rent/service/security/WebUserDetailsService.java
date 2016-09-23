@@ -6,12 +6,17 @@ package com.magic.rent.service.security;
  * 类说明:
  */
 
+import com.magic.rent.pojo.SysRoles;
+import com.magic.rent.pojo.SysUserLoginDetails;
+import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
+import com.magic.rent.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Role;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.core.userdetails.UsernameNotFoundException;
@@ -30,35 +35,32 @@ public class WebUserDetailsService implements UserDetailsService {
     private MessageSource messageSource;
 
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-        boolean accountNonExpired = true;
-        boolean credentialsNonExpired = true;
-        boolean accountNonLocked = true;
-        boolean enabled = true;
+        SysUsers sysUsers = null;
 
-        User user = null;
+        //此处后续需要加入从缓存中获取User信息
+
         try {
-            user = iUserService.getUserByUsername(s);
+            sysUsers = iUserService.findSysUserByUserName(s);
         } catch (Exception e) {
-            e.printStackTrace();ff
-
-
+            e.printStackTrace();
         }
 
-        if(user == null){
-            throw new UsernameNotFoundException("User account : " + s + " not found!");
+        if (sysUsers == null) {
+            throw new UsernameNotFoundException(this.messageSource.getMessage(
+                    "UserDetailsService.userNotFount", new Object[]{s}, null));
         }
 
         //封装该用户具有什么角色
         Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
-        if(user.getRoles() != null && !user.getRoles().isEmpty()){
-            for(Role role : user.getRoles()){
-                GrantedAuthority ga = new SimpleGrantedAuthority(role.getName());
+        if (sysUsers.getSysRoles() != null && !sysUsers.getSysRoles().isEmpty()) {
+            for (SysRoles role : sysUsers.getSysRoles()) {
+                GrantedAuthority ga = new SimpleGrantedAuthority(role.getRoleName());
                 authorities.add(ga);
             }
         }
+        Log.info(WebUserDetailsService.class, "账户名:" + s, sysUsers.getSysRoles().toString());
 
-        UserLoginDetails userLoginDetails =  new UserLoginDetails(user.getUsername(), user.getPassword(), authorities, accountNonExpired, accountNonLocked, credentialsNonExpired, enabled);
-
+        SysUserLoginDetails userLoginDetails = new SysUserLoginDetails(authorities, sysUsers.getPassword(), sysUsers.getUsername(), sysUsers.isAccountNonExpired(), sysUsers.isAccountNonLocked(), sysUsers.isCredentialsNonExpired(), sysUsers.isEnabled());
         return userLoginDetails;
     }
 }

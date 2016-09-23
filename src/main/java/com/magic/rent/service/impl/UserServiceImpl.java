@@ -1,5 +1,7 @@
 package com.magic.rent.service.impl;
 
+import com.magic.rent.mapper.SysUsersMapper;
+import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -15,26 +17,12 @@ import java.util.List;
 public class UserServiceImpl implements IUserService {
 
     @Autowired
-    private UserMapper userMapper;
+    private SysUsersMapper sysUsersMapper;
 
-    public User findUserByID(User user) throws Exception {
-        List<User> userList = userMapper.selectBySelective(user);
-        return userList.get(0);
+
+    public SysUsers findSysUserByUserName(String userName) {
+        SysUsers sysUsers = new SysUsers();
+        sysUsers.setUsername(userName);
+        return sysUsersMapper.selectBySelective(sysUsers);
     }
-
-    public boolean phoneIsExist(User user) throws Exception {
-        List<User> userList = userMapper.selectBySelective(user);
-        return userList.size() > 0;
-    }
-
-    public User loginCheck(User user) throws Exception {
-        List<User> userList = userMapper.selectBySelective(user);
-        if (null != userList && userList.size() == 1) {
-            return userList.get(0);
-        } else {
-            return null;
-        }
-    }
-
-
 }

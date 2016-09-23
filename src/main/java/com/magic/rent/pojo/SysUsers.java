@@ -1,39 +1,50 @@
 package com.magic.rent.pojo;
 
 import java.util.Date;
+import java.util.List;
 
 public class SysUsers {
-    private Integer userId;
+    private Integer userId;//用户id
 
-    private String username;
+    private String username;//账户名
 
-    private String name;
+    private String name;//用户姓名
 
-    private String password;
+    private String password;//密码
 
-    private Date dtCreate;
+    private Date dtCreate;//创建日期
 
-    private Date lastLogin;
+    private Date lastLogin;//最后登录日期
 
-    private Date deadline;
+    private Date deadline;//截止日期
 
-    private String loginIp;
+    private String loginIp;//最后登录IP
 
-    private String vQzjgid;
+    private String vQzjgid;//所属机构id
 
-    private String vQzjgmc;
+    private String vQzjgmc;//所属机构名称
 
-    private String depId;
+    private String depId;//地区编号
 
-    private String depName;
+    private String depName;//地区名字
 
-    private Integer enabled;
+    private boolean enabled;//账户是否可用
 
-    private Integer accountNonExpired;
+    private boolean accountNonExpired;//账户是否过期
 
-    private Integer accountNonLocked;
+    private boolean accountNonLocked;//账户是否锁定
 
-    private Integer credentialsNonExpired;
+    private boolean credentialsNonExpired;//用户证书是否有效
+
+    private List<SysRoles> sysRoles;//用户权限
+
+    public List<SysRoles> getSysRoles() {
+        return sysRoles;
+    }
+
+    public void setSysRoles(List<SysRoles> sysRoles) {
+        this.sysRoles = sysRoles;
+    }
 
     public Integer getUserId() {
         return userId;
@@ -131,35 +142,35 @@ public class SysUsers {
         this.depName = depName == null ? null : depName.trim();
     }
 
-    public Integer getEnabled() {
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Integer enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
-    public Integer getAccountNonExpired() {
+    public boolean isAccountNonExpired() {
         return accountNonExpired;
     }
 
-    public void setAccountNonExpired(Integer accountNonExpired) {
+    public void setAccountNonExpired(boolean accountNonExpired) {
         this.accountNonExpired = accountNonExpired;
     }
 
-    public Integer getAccountNonLocked() {
+    public boolean isAccountNonLocked() {
         return accountNonLocked;
     }
 
-    public void setAccountNonLocked(Integer accountNonLocked) {
+    public void setAccountNonLocked(boolean accountNonLocked) {
         this.accountNonLocked = accountNonLocked;
     }
 
-    public Integer getCredentialsNonExpired() {
+    public boolean isCredentialsNonExpired() {
         return credentialsNonExpired;
     }
 
-    public void setCredentialsNonExpired(Integer credentialsNonExpired) {
+    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
         this.credentialsNonExpired = credentialsNonExpired;
     }
 }
