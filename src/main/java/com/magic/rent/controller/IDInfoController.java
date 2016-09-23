@@ -1,6 +1,5 @@
 package com.magic.rent.controller;
 
-import com.magic.rent.pojo.IDInfo;
 import com.magic.rent.service.IIDInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;

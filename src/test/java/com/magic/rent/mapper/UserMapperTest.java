@@ -1,6 +1,5 @@
 package com.magic.rent.mapper;
 
-import com.magic.rent.pojo.User;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;

@@ -1,0 +1,523 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.magic.rent.mapper.SysModulesMapper">
+  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysModules">
+    <id column="MODULE_ID" jdbcType="INTEGER" property="moduleId" />
+    <result column="MODULE_NAME" jdbcType="VARCHAR" property="moduleName" />
+    <result column="MODULE_DESC" jdbcType="VARCHAR" property="moduleDesc" />
+    <result column="MODULE_TYPE" jdbcType="VARCHAR" property="moduleType" />
+    <result column="PARENT" jdbcType="VARCHAR" property="parent" />
+    <result column="MODULE_URL" jdbcType="VARCHAR" property="moduleUrl" />
+    <result column="I_LEVEL" jdbcType="DECIMAL" property="iLevel" />
+    <result column="LEAF" jdbcType="DECIMAL" property="leaf" />
+    <result column="APPLICATION" jdbcType="VARCHAR" property="application" />
+    <result column="CONTROLLER" jdbcType="VARCHAR" property="controller" />
+    <result column="ENABLE" jdbcType="DECIMAL" property="enable" />
+    <result column="PRIORITY" jdbcType="DECIMAL" property="priority" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MODULE_ID, MODULE_NAME, MODULE_DESC, MODULE_TYPE, PARENT, MODULE_URL, I_LEVEL, LEAF, 
+    APPLICATION, CONTROLLER, ENABLE, PRIORITY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_MODULES
+    where MODULE_ID = #{moduleId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from SYS_MODULES
+    where MODULE_ID = #{moduleId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.magic.rent.pojo.SysModules">
+    insert into SYS_MODULES (MODULE_ID, MODULE_NAME, MODULE_DESC, 
+      MODULE_TYPE, PARENT, MODULE_URL, 
+      I_LEVEL, LEAF, APPLICATION, 
+      CONTROLLER, ENABLE, PRIORITY
+      )
+    values (#{moduleId,jdbcType=INTEGER}, #{moduleName,jdbcType=VARCHAR}, #{moduleDesc,jdbcType=VARCHAR}, 
+      #{moduleType,jdbcType=VARCHAR}, #{parent,jdbcType=VARCHAR}, #{moduleUrl,jdbcType=VARCHAR}, 
+      #{iLevel,jdbcType=DECIMAL}, #{leaf,jdbcType=DECIMAL}, #{application,jdbcType=VARCHAR}, 
+      #{controller,jdbcType=VARCHAR}, #{enable,jdbcType=DECIMAL}, #{priority,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysModules">
+    insert into SYS_MODULES
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleId != null">
+        MODULE_ID,
+      </if>
+      <if test="moduleName != null">
+        MODULE_NAME,
+      </if>
+      <if test="moduleDesc != null">
+        MODULE_DESC,
+      </if>
+      <if test="moduleType != null">
+        MODULE_TYPE,
+      </if>
+      <if test="parent != null">
+        PARENT,
+      </if>
+      <if test="moduleUrl != null">
+        MODULE_URL,
+      </if>
+      <if test="iLevel != null">
+        I_LEVEL,
+      </if>
+      <if test="leaf != null">
+        LEAF,
+      </if>
+      <if test="application != null">
+        APPLICATION,
+      </if>
+      <if test="controller != null">
+        CONTROLLER,
+      </if>
+      <if test="enable != null">
+        ENABLE,
+      </if>
+      <if test="priority != null">
+        PRIORITY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="moduleId != null">
+        #{moduleId,jdbcType=INTEGER},
+      </if>
+      <if test="moduleName != null">
+        #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleDesc != null">
+        #{moduleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleType != null">
+        #{moduleType,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        #{parent,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleUrl != null">
+        #{moduleUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="iLevel != null">
+        #{iLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="leaf != null">
+        #{leaf,jdbcType=DECIMAL},
+      </if>
+      <if test="application != null">
+        #{application,jdbcType=VARCHAR},
+      </if>
+      <if test="controller != null">
+        #{controller,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=DECIMAL},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysModules">
+    update SYS_MODULES
+    <set>
+      <if test="moduleName != null">
+        MODULE_NAME = #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleDesc != null">
+        MODULE_DESC = #{moduleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleType != null">
+        MODULE_TYPE = #{moduleType,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        PARENT = #{parent,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleUrl != null">
+        MODULE_URL = #{moduleUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="iLevel != null">
+        I_LEVEL = #{iLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="leaf != null">
+        LEAF = #{leaf,jdbcType=DECIMAL},
+      </if>
+      <if test="application != null">
+        APPLICATION = #{application,jdbcType=VARCHAR},
+      </if>
+      <if test="controller != null">
+        CONTROLLER = #{controller,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        ENABLE = #{enable,jdbcType=DECIMAL},
+      </if>
+      <if test="priority != null">
+        PRIORITY = #{priority,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where MODULE_ID = #{moduleId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysModules">
+    update SYS_MODULES
+    set MODULE_NAME = #{moduleName,jdbcType=VARCHAR},
+      MODULE_DESC = #{moduleDesc,jdbcType=VARCHAR},
+      MODULE_TYPE = #{moduleType,jdbcType=VARCHAR},
+      PARENT = #{parent,jdbcType=VARCHAR},
+      MODULE_URL = #{moduleUrl,jdbcType=VARCHAR},
+      I_LEVEL = #{iLevel,jdbcType=DECIMAL},
+      LEAF = #{leaf,jdbcType=DECIMAL},
+      APPLICATION = #{application,jdbcType=VARCHAR},
+      CONTROLLER = #{controller,jdbcType=VARCHAR},
+      ENABLE = #{enable,jdbcType=DECIMAL},
+      PRIORITY = #{priority,jdbcType=DECIMAL}
+    where MODULE_ID = #{moduleId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysModules">
+    <id column="MODULE_ID" jdbcType="VARCHAR" property="moduleId" />
+    <result column="MODULE_NAME" jdbcType="VARCHAR" property="moduleName" />
+    <result column="MODULE_DESC" jdbcType="VARCHAR" property="moduleDesc" />
+    <result column="MODULE_TYPE" jdbcType="VARCHAR" property="moduleType" />
+    <result column="PARENT" jdbcType="VARCHAR" property="parent" />
+    <result column="MODULE_URL" jdbcType="VARCHAR" property="moduleUrl" />
+    <result column="I_LEVEL" jdbcType="DECIMAL" property="iLevel" />
+    <result column="LEAF" jdbcType="DECIMAL" property="leaf" />
+    <result column="APPLICATION" jdbcType="VARCHAR" property="application" />
+    <result column="CONTROLLER" jdbcType="VARCHAR" property="controller" />
+    <result column="ENABLE" jdbcType="DECIMAL" property="enable" />
+    <result column="PRIORITY" jdbcType="DECIMAL" property="priority" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MODULE_ID, MODULE_NAME, MODULE_DESC, MODULE_TYPE, PARENT, MODULE_URL, I_LEVEL, LEAF, 
+    APPLICATION, CONTROLLER, ENABLE, PRIORITY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_MODULES
+    where MODULE_ID = #{moduleId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SYS_MODULES
+    where MODULE_ID = #{moduleId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.magic.rent.pojo.SysModules">
+    insert into SYS_MODULES (MODULE_ID, MODULE_NAME, MODULE_DESC, 
+      MODULE_TYPE, PARENT, MODULE_URL, 
+      I_LEVEL, LEAF, APPLICATION, 
+      CONTROLLER, ENABLE, PRIORITY
+      )
+    values (#{moduleId,jdbcType=VARCHAR}, #{moduleName,jdbcType=VARCHAR}, #{moduleDesc,jdbcType=VARCHAR}, 
+      #{moduleType,jdbcType=VARCHAR}, #{parent,jdbcType=VARCHAR}, #{moduleUrl,jdbcType=VARCHAR}, 
+      #{iLevel,jdbcType=DECIMAL}, #{leaf,jdbcType=DECIMAL}, #{application,jdbcType=VARCHAR}, 
+      #{controller,jdbcType=VARCHAR}, #{enable,jdbcType=DECIMAL}, #{priority,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysModules">
+    insert into SYS_MODULES
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleId != null">
+        MODULE_ID,
+      </if>
+      <if test="moduleName != null">
+        MODULE_NAME,
+      </if>
+      <if test="moduleDesc != null">
+        MODULE_DESC,
+      </if>
+      <if test="moduleType != null">
+        MODULE_TYPE,
+      </if>
+      <if test="parent != null">
+        PARENT,
+      </if>
+      <if test="moduleUrl != null">
+        MODULE_URL,
+      </if>
+      <if test="iLevel != null">
+        I_LEVEL,
+      </if>
+      <if test="leaf != null">
+        LEAF,
+      </if>
+      <if test="application != null">
+        APPLICATION,
+      </if>
+      <if test="controller != null">
+        CONTROLLER,
+      </if>
+      <if test="enable != null">
+        ENABLE,
+      </if>
+      <if test="priority != null">
+        PRIORITY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="moduleId != null">
+        #{moduleId,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleName != null">
+        #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleDesc != null">
+        #{moduleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleType != null">
+        #{moduleType,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        #{parent,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleUrl != null">
+        #{moduleUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="iLevel != null">
+        #{iLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="leaf != null">
+        #{leaf,jdbcType=DECIMAL},
+      </if>
+      <if test="application != null">
+        #{application,jdbcType=VARCHAR},
+      </if>
+      <if test="controller != null">
+        #{controller,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=DECIMAL},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysModules">
+    update SYS_MODULES
+    <set>
+      <if test="moduleName != null">
+        MODULE_NAME = #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleDesc != null">
+        MODULE_DESC = #{moduleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleType != null">
+        MODULE_TYPE = #{moduleType,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        PARENT = #{parent,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleUrl != null">
+        MODULE_URL = #{moduleUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="iLevel != null">
+        I_LEVEL = #{iLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="leaf != null">
+        LEAF = #{leaf,jdbcType=DECIMAL},
+      </if>
+      <if test="application != null">
+        APPLICATION = #{application,jdbcType=VARCHAR},
+      </if>
+      <if test="controller != null">
+        CONTROLLER = #{controller,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        ENABLE = #{enable,jdbcType=DECIMAL},
+      </if>
+      <if test="priority != null">
+        PRIORITY = #{priority,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where MODULE_ID = #{moduleId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysModules">
+    update SYS_MODULES
+    set MODULE_NAME = #{moduleName,jdbcType=VARCHAR},
+      MODULE_DESC = #{moduleDesc,jdbcType=VARCHAR},
+      MODULE_TYPE = #{moduleType,jdbcType=VARCHAR},
+      PARENT = #{parent,jdbcType=VARCHAR},
+      MODULE_URL = #{moduleUrl,jdbcType=VARCHAR},
+      I_LEVEL = #{iLevel,jdbcType=DECIMAL},
+      LEAF = #{leaf,jdbcType=DECIMAL},
+      APPLICATION = #{application,jdbcType=VARCHAR},
+      CONTROLLER = #{controller,jdbcType=VARCHAR},
+      ENABLE = #{enable,jdbcType=DECIMAL},
+      PRIORITY = #{priority,jdbcType=DECIMAL}
+    where MODULE_ID = #{moduleId,jdbcType=VARCHAR}
+  </update>
+  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysModules">
+    <id column="MODULE_ID" jdbcType="VARCHAR" property="moduleId" />
+    <result column="MODULE_NAME" jdbcType="VARCHAR" property="moduleName" />
+    <result column="MODULE_DESC" jdbcType="VARCHAR" property="moduleDesc" />
+    <result column="MODULE_TYPE" jdbcType="VARCHAR" property="moduleType" />
+    <result column="PARENT" jdbcType="VARCHAR" property="parent" />
+    <result column="MODULE_URL" jdbcType="VARCHAR" property="moduleUrl" />
+    <result column="I_LEVEL" jdbcType="DECIMAL" property="iLevel" />
+    <result column="LEAF" jdbcType="DECIMAL" property="leaf" />
+    <result column="APPLICATION" jdbcType="VARCHAR" property="application" />
+    <result column="CONTROLLER" jdbcType="VARCHAR" property="controller" />
+    <result column="ENABLE" jdbcType="DECIMAL" property="enable" />
+    <result column="PRIORITY" jdbcType="DECIMAL" property="priority" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    MODULE_ID, MODULE_NAME, MODULE_DESC, MODULE_TYPE, PARENT, MODULE_URL, I_LEVEL, LEAF, 
+    APPLICATION, CONTROLLER, ENABLE, PRIORITY
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_MODULES
+    where MODULE_ID = #{moduleId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SYS_MODULES
+    where MODULE_ID = #{moduleId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.magic.rent.pojo.SysModules">
+    insert into SYS_MODULES (MODULE_ID, MODULE_NAME, MODULE_DESC, 
+      MODULE_TYPE, PARENT, MODULE_URL, 
+      I_LEVEL, LEAF, APPLICATION, 
+      CONTROLLER, ENABLE, PRIORITY
+      )
+    values (#{moduleId,jdbcType=VARCHAR}, #{moduleName,jdbcType=VARCHAR}, #{moduleDesc,jdbcType=VARCHAR}, 
+      #{moduleType,jdbcType=VARCHAR}, #{parent,jdbcType=VARCHAR}, #{moduleUrl,jdbcType=VARCHAR}, 
+      #{iLevel,jdbcType=DECIMAL}, #{leaf,jdbcType=DECIMAL}, #{application,jdbcType=VARCHAR}, 
+      #{controller,jdbcType=VARCHAR}, #{enable,jdbcType=DECIMAL}, #{priority,jdbcType=DECIMAL}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysModules">
+    insert into SYS_MODULES
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="moduleId != null">
+        MODULE_ID,
+      </if>
+      <if test="moduleName != null">
+        MODULE_NAME,
+      </if>
+      <if test="moduleDesc != null">
+        MODULE_DESC,
+      </if>
+      <if test="moduleType != null">
+        MODULE_TYPE,
+      </if>
+      <if test="parent != null">
+        PARENT,
+      </if>
+      <if test="moduleUrl != null">
+        MODULE_URL,
+      </if>
+      <if test="iLevel != null">
+        I_LEVEL,
+      </if>
+      <if test="leaf != null">
+        LEAF,
+      </if>
+      <if test="application != null">
+        APPLICATION,
+      </if>
+      <if test="controller != null">
+        CONTROLLER,
+      </if>
+      <if test="enable != null">
+        ENABLE,
+      </if>
+      <if test="priority != null">
+        PRIORITY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="moduleId != null">
+        #{moduleId,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleName != null">
+        #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleDesc != null">
+        #{moduleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleType != null">
+        #{moduleType,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        #{parent,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleUrl != null">
+        #{moduleUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="iLevel != null">
+        #{iLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="leaf != null">
+        #{leaf,jdbcType=DECIMAL},
+      </if>
+      <if test="application != null">
+        #{application,jdbcType=VARCHAR},
+      </if>
+      <if test="controller != null">
+        #{controller,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        #{enable,jdbcType=DECIMAL},
+      </if>
+      <if test="priority != null">
+        #{priority,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysModules">
+    update SYS_MODULES
+    <set>
+      <if test="moduleName != null">
+        MODULE_NAME = #{moduleName,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleDesc != null">
+        MODULE_DESC = #{moduleDesc,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleType != null">
+        MODULE_TYPE = #{moduleType,jdbcType=VARCHAR},
+      </if>
+      <if test="parent != null">
+        PARENT = #{parent,jdbcType=VARCHAR},
+      </if>
+      <if test="moduleUrl != null">
+        MODULE_URL = #{moduleUrl,jdbcType=VARCHAR},
+      </if>
+      <if test="iLevel != null">
+        I_LEVEL = #{iLevel,jdbcType=DECIMAL},
+      </if>
+      <if test="leaf != null">
+        LEAF = #{leaf,jdbcType=DECIMAL},
+      </if>
+      <if test="application != null">
+        APPLICATION = #{application,jdbcType=VARCHAR},
+      </if>
+      <if test="controller != null">
+        CONTROLLER = #{controller,jdbcType=VARCHAR},
+      </if>
+      <if test="enable != null">
+        ENABLE = #{enable,jdbcType=DECIMAL},
+      </if>
+      <if test="priority != null">
+        PRIORITY = #{priority,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where MODULE_ID = #{moduleId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysModules">
+    update SYS_MODULES
+    set MODULE_NAME = #{moduleName,jdbcType=VARCHAR},
+      MODULE_DESC = #{moduleDesc,jdbcType=VARCHAR},
+      MODULE_TYPE = #{moduleType,jdbcType=VARCHAR},
+      PARENT = #{parent,jdbcType=VARCHAR},
+      MODULE_URL = #{moduleUrl,jdbcType=VARCHAR},
+      I_LEVEL = #{iLevel,jdbcType=DECIMAL},
+      LEAF = #{leaf,jdbcType=DECIMAL},
+      APPLICATION = #{application,jdbcType=VARCHAR},
+      CONTROLLER = #{controller,jdbcType=VARCHAR},
+      ENABLE = #{enable,jdbcType=DECIMAL},
+      PRIORITY = #{priority,jdbcType=DECIMAL}
+    where MODULE_ID = #{moduleId,jdbcType=VARCHAR}
+  </update>
+</mapper>

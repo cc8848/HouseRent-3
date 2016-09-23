@@ -1,7 +1,5 @@
 package com.magic.rent.service;
 
-import com.magic.rent.pojo.IDInfo;
-
 import java.util.List;
 
 /**

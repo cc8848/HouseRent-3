@@ -1,0 +1,661 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.magic.rent.mapper.SysUsersMapper">
+  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysUsers">
+    <id column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="DT_CREATE" jdbcType="TIMESTAMP" property="dtCreate" />
+    <result column="LAST_LOGIN" jdbcType="TIMESTAMP" property="lastLogin" />
+    <result column="DEADLINE" jdbcType="TIMESTAMP" property="deadline" />
+    <result column="LOGIN_IP" jdbcType="VARCHAR" property="loginIp" />
+    <result column="V_QZJGID" jdbcType="VARCHAR" property="vQzjgid" />
+    <result column="V_QZJGMC" jdbcType="VARCHAR" property="vQzjgmc" />
+    <result column="DEP_ID" jdbcType="VARCHAR" property="depId" />
+    <result column="DEP_NAME" jdbcType="VARCHAR" property="depName" />
+    <result column="ENABLED" jdbcType="DECIMAL" property="enabled" />
+    <result column="ACCOUNT_NON_EXPIRED" jdbcType="DECIMAL" property="accountNonExpired" />
+    <result column="ACCOUNT_NON_LOCKED" jdbcType="DECIMAL" property="accountNonLocked" />
+    <result column="CREDENTIALS_NON_EXPIRED" jdbcType="DECIMAL" property="credentialsNonExpired" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    USER_ID, USERNAME, NAME, PASSWORD, DT_CREATE, LAST_LOGIN, DEADLINE, LOGIN_IP, V_QZJGID, 
+    V_QZJGMC, DEP_ID, DEP_NAME, ENABLED, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_USERS
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from SYS_USERS
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.magic.rent.pojo.SysUsers">
+    insert into SYS_USERS (USER_ID, USERNAME, NAME, 
+      PASSWORD, DT_CREATE, LAST_LOGIN, 
+      DEADLINE, LOGIN_IP, V_QZJGID, 
+      V_QZJGMC, DEP_ID, DEP_NAME, 
+      ENABLED, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, 
+      CREDENTIALS_NON_EXPIRED)
+    values (#{userId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{dtCreate,jdbcType=TIMESTAMP}, #{lastLogin,jdbcType=TIMESTAMP}, 
+      #{deadline,jdbcType=TIMESTAMP}, #{loginIp,jdbcType=VARCHAR}, #{vQzjgid,jdbcType=VARCHAR}, 
+      #{vQzjgmc,jdbcType=VARCHAR}, #{depId,jdbcType=VARCHAR}, #{depName,jdbcType=VARCHAR}, 
+      #{enabled,jdbcType=DECIMAL}, #{accountNonExpired,jdbcType=DECIMAL}, #{accountNonLocked,jdbcType=DECIMAL}, 
+      #{credentialsNonExpired,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysUsers">
+    insert into SYS_USERS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="dtCreate != null">
+        DT_CREATE,
+      </if>
+      <if test="lastLogin != null">
+        LAST_LOGIN,
+      </if>
+      <if test="deadline != null">
+        DEADLINE,
+      </if>
+      <if test="loginIp != null">
+        LOGIN_IP,
+      </if>
+      <if test="vQzjgid != null">
+        V_QZJGID,
+      </if>
+      <if test="vQzjgmc != null">
+        V_QZJGMC,
+      </if>
+      <if test="depId != null">
+        DEP_ID,
+      </if>
+      <if test="depName != null">
+        DEP_NAME,
+      </if>
+      <if test="enabled != null">
+        ENABLED,
+      </if>
+      <if test="accountNonExpired != null">
+        ACCOUNT_NON_EXPIRED,
+      </if>
+      <if test="accountNonLocked != null">
+        ACCOUNT_NON_LOCKED,
+      </if>
+      <if test="credentialsNonExpired != null">
+        CREDENTIALS_NON_EXPIRED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="dtCreate != null">
+        #{dtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLogin != null">
+        #{lastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null">
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="vQzjgid != null">
+        #{vQzjgid,jdbcType=VARCHAR},
+      </if>
+      <if test="vQzjgmc != null">
+        #{vQzjgmc,jdbcType=VARCHAR},
+      </if>
+      <if test="depId != null">
+        #{depId,jdbcType=VARCHAR},
+      </if>
+      <if test="depName != null">
+        #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNonExpired != null">
+        #{accountNonExpired,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNonLocked != null">
+        #{accountNonLocked,jdbcType=DECIMAL},
+      </if>
+      <if test="credentialsNonExpired != null">
+        #{credentialsNonExpired,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysUsers">
+    update SYS_USERS
+    <set>
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="dtCreate != null">
+        DT_CREATE = #{dtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLogin != null">
+        LAST_LOGIN = #{lastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null">
+        DEADLINE = #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null">
+        LOGIN_IP = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="vQzjgid != null">
+        V_QZJGID = #{vQzjgid,jdbcType=VARCHAR},
+      </if>
+      <if test="vQzjgmc != null">
+        V_QZJGMC = #{vQzjgmc,jdbcType=VARCHAR},
+      </if>
+      <if test="depId != null">
+        DEP_ID = #{depId,jdbcType=VARCHAR},
+      </if>
+      <if test="depName != null">
+        DEP_NAME = #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        ENABLED = #{enabled,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNonExpired != null">
+        ACCOUNT_NON_EXPIRED = #{accountNonExpired,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNonLocked != null">
+        ACCOUNT_NON_LOCKED = #{accountNonLocked,jdbcType=DECIMAL},
+      </if>
+      <if test="credentialsNonExpired != null">
+        CREDENTIALS_NON_EXPIRED = #{credentialsNonExpired,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysUsers">
+    update SYS_USERS
+    set USERNAME = #{username,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      DT_CREATE = #{dtCreate,jdbcType=TIMESTAMP},
+      LAST_LOGIN = #{lastLogin,jdbcType=TIMESTAMP},
+      DEADLINE = #{deadline,jdbcType=TIMESTAMP},
+      LOGIN_IP = #{loginIp,jdbcType=VARCHAR},
+      V_QZJGID = #{vQzjgid,jdbcType=VARCHAR},
+      V_QZJGMC = #{vQzjgmc,jdbcType=VARCHAR},
+      DEP_ID = #{depId,jdbcType=VARCHAR},
+      DEP_NAME = #{depName,jdbcType=VARCHAR},
+      ENABLED = #{enabled,jdbcType=DECIMAL},
+      ACCOUNT_NON_EXPIRED = #{accountNonExpired,jdbcType=DECIMAL},
+      ACCOUNT_NON_LOCKED = #{accountNonLocked,jdbcType=DECIMAL},
+      CREDENTIALS_NON_EXPIRED = #{credentialsNonExpired,jdbcType=DECIMAL}
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysUsers">
+    <id column="USER_ID" jdbcType="INTEGER" property="userId" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="DT_CREATE" jdbcType="TIMESTAMP" property="dtCreate" />
+    <result column="LAST_LOGIN" jdbcType="TIMESTAMP" property="lastLogin" />
+    <result column="DEADLINE" jdbcType="TIMESTAMP" property="deadline" />
+    <result column="LOGIN_IP" jdbcType="VARCHAR" property="loginIp" />
+    <result column="V_QZJGID" jdbcType="VARCHAR" property="vQzjgid" />
+    <result column="V_QZJGMC" jdbcType="VARCHAR" property="vQzjgmc" />
+    <result column="DEP_ID" jdbcType="VARCHAR" property="depId" />
+    <result column="DEP_NAME" jdbcType="VARCHAR" property="depName" />
+    <result column="ENABLED" jdbcType="DECIMAL" property="enabled" />
+    <result column="ACCOUNT_NON_EXPIRED" jdbcType="DECIMAL" property="accountNonExpired" />
+    <result column="ACCOUNT_NON_LOCKED" jdbcType="DECIMAL" property="accountNonLocked" />
+    <result column="CREDENTIALS_NON_EXPIRED" jdbcType="DECIMAL" property="credentialsNonExpired" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    USER_ID, USERNAME, NAME, PASSWORD, DT_CREATE, LAST_LOGIN, DEADLINE, LOGIN_IP, V_QZJGID, 
+    V_QZJGMC, DEP_ID, DEP_NAME, ENABLED, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_USERS
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from SYS_USERS
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.magic.rent.pojo.SysUsers">
+    insert into SYS_USERS (USER_ID, USERNAME, NAME, 
+      PASSWORD, DT_CREATE, LAST_LOGIN, 
+      DEADLINE, LOGIN_IP, V_QZJGID, 
+      V_QZJGMC, DEP_ID, DEP_NAME, 
+      ENABLED, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, 
+      CREDENTIALS_NON_EXPIRED)
+    values (#{userId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{dtCreate,jdbcType=TIMESTAMP}, #{lastLogin,jdbcType=TIMESTAMP}, 
+      #{deadline,jdbcType=TIMESTAMP}, #{loginIp,jdbcType=VARCHAR}, #{vQzjgid,jdbcType=VARCHAR}, 
+      #{vQzjgmc,jdbcType=VARCHAR}, #{depId,jdbcType=VARCHAR}, #{depName,jdbcType=VARCHAR}, 
+      #{enabled,jdbcType=DECIMAL}, #{accountNonExpired,jdbcType=DECIMAL}, #{accountNonLocked,jdbcType=DECIMAL}, 
+      #{credentialsNonExpired,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysUsers">
+    insert into SYS_USERS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="dtCreate != null">
+        DT_CREATE,
+      </if>
+      <if test="lastLogin != null">
+        LAST_LOGIN,
+      </if>
+      <if test="deadline != null">
+        DEADLINE,
+      </if>
+      <if test="loginIp != null">
+        LOGIN_IP,
+      </if>
+      <if test="vQzjgid != null">
+        V_QZJGID,
+      </if>
+      <if test="vQzjgmc != null">
+        V_QZJGMC,
+      </if>
+      <if test="depId != null">
+        DEP_ID,
+      </if>
+      <if test="depName != null">
+        DEP_NAME,
+      </if>
+      <if test="enabled != null">
+        ENABLED,
+      </if>
+      <if test="accountNonExpired != null">
+        ACCOUNT_NON_EXPIRED,
+      </if>
+      <if test="accountNonLocked != null">
+        ACCOUNT_NON_LOCKED,
+      </if>
+      <if test="credentialsNonExpired != null">
+        CREDENTIALS_NON_EXPIRED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=INTEGER},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="dtCreate != null">
+        #{dtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLogin != null">
+        #{lastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null">
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="vQzjgid != null">
+        #{vQzjgid,jdbcType=VARCHAR},
+      </if>
+      <if test="vQzjgmc != null">
+        #{vQzjgmc,jdbcType=VARCHAR},
+      </if>
+      <if test="depId != null">
+        #{depId,jdbcType=VARCHAR},
+      </if>
+      <if test="depName != null">
+        #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNonExpired != null">
+        #{accountNonExpired,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNonLocked != null">
+        #{accountNonLocked,jdbcType=DECIMAL},
+      </if>
+      <if test="credentialsNonExpired != null">
+        #{credentialsNonExpired,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysUsers">
+    update SYS_USERS
+    <set>
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="dtCreate != null">
+        DT_CREATE = #{dtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLogin != null">
+        LAST_LOGIN = #{lastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null">
+        DEADLINE = #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null">
+        LOGIN_IP = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="vQzjgid != null">
+        V_QZJGID = #{vQzjgid,jdbcType=VARCHAR},
+      </if>
+      <if test="vQzjgmc != null">
+        V_QZJGMC = #{vQzjgmc,jdbcType=VARCHAR},
+      </if>
+      <if test="depId != null">
+        DEP_ID = #{depId,jdbcType=VARCHAR},
+      </if>
+      <if test="depName != null">
+        DEP_NAME = #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        ENABLED = #{enabled,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNonExpired != null">
+        ACCOUNT_NON_EXPIRED = #{accountNonExpired,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNonLocked != null">
+        ACCOUNT_NON_LOCKED = #{accountNonLocked,jdbcType=DECIMAL},
+      </if>
+      <if test="credentialsNonExpired != null">
+        CREDENTIALS_NON_EXPIRED = #{credentialsNonExpired,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysUsers">
+    update SYS_USERS
+    set USERNAME = #{username,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      DT_CREATE = #{dtCreate,jdbcType=TIMESTAMP},
+      LAST_LOGIN = #{lastLogin,jdbcType=TIMESTAMP},
+      DEADLINE = #{deadline,jdbcType=TIMESTAMP},
+      LOGIN_IP = #{loginIp,jdbcType=VARCHAR},
+      V_QZJGID = #{vQzjgid,jdbcType=VARCHAR},
+      V_QZJGMC = #{vQzjgmc,jdbcType=VARCHAR},
+      DEP_ID = #{depId,jdbcType=VARCHAR},
+      DEP_NAME = #{depName,jdbcType=VARCHAR},
+      ENABLED = #{enabled,jdbcType=DECIMAL},
+      ACCOUNT_NON_EXPIRED = #{accountNonExpired,jdbcType=DECIMAL},
+      ACCOUNT_NON_LOCKED = #{accountNonLocked,jdbcType=DECIMAL},
+      CREDENTIALS_NON_EXPIRED = #{credentialsNonExpired,jdbcType=DECIMAL}
+    where USER_ID = #{userId,jdbcType=INTEGER}
+  </update>
+  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysUsers">
+    <id column="USER_ID" jdbcType="VARCHAR" property="userId" />
+    <result column="USERNAME" jdbcType="VARCHAR" property="username" />
+    <result column="NAME" jdbcType="VARCHAR" property="name" />
+    <result column="PASSWORD" jdbcType="VARCHAR" property="password" />
+    <result column="DT_CREATE" jdbcType="TIMESTAMP" property="dtCreate" />
+    <result column="LAST_LOGIN" jdbcType="TIMESTAMP" property="lastLogin" />
+    <result column="DEADLINE" jdbcType="TIMESTAMP" property="deadline" />
+    <result column="LOGIN_IP" jdbcType="VARCHAR" property="loginIp" />
+    <result column="V_QZJGID" jdbcType="VARCHAR" property="vQzjgid" />
+    <result column="V_QZJGMC" jdbcType="VARCHAR" property="vQzjgmc" />
+    <result column="DEP_ID" jdbcType="VARCHAR" property="depId" />
+    <result column="DEP_NAME" jdbcType="VARCHAR" property="depName" />
+    <result column="ENABLED" jdbcType="DECIMAL" property="enabled" />
+    <result column="ACCOUNT_NON_EXPIRED" jdbcType="DECIMAL" property="accountNonExpired" />
+    <result column="ACCOUNT_NON_LOCKED" jdbcType="DECIMAL" property="accountNonLocked" />
+    <result column="CREDENTIALS_NON_EXPIRED" jdbcType="DECIMAL" property="credentialsNonExpired" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    USER_ID, USERNAME, NAME, PASSWORD, DT_CREATE, LAST_LOGIN, DEADLINE, LOGIN_IP, V_QZJGID, 
+    V_QZJGMC, DEP_ID, DEP_NAME, ENABLED, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.String" resultMap="BaseResultMap">
+    select 
+    <include refid="Base_Column_List" />
+    from SYS_USERS
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.String">
+    delete from SYS_USERS
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="com.magic.rent.pojo.SysUsers">
+    insert into SYS_USERS (USER_ID, USERNAME, NAME, 
+      PASSWORD, DT_CREATE, LAST_LOGIN, 
+      DEADLINE, LOGIN_IP, V_QZJGID, 
+      V_QZJGMC, DEP_ID, DEP_NAME, 
+      ENABLED, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, 
+      CREDENTIALS_NON_EXPIRED)
+    values (#{userId,jdbcType=VARCHAR}, #{username,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
+      #{password,jdbcType=VARCHAR}, #{dtCreate,jdbcType=TIMESTAMP}, #{lastLogin,jdbcType=TIMESTAMP}, 
+      #{deadline,jdbcType=TIMESTAMP}, #{loginIp,jdbcType=VARCHAR}, #{vQzjgid,jdbcType=VARCHAR}, 
+      #{vQzjgmc,jdbcType=VARCHAR}, #{depId,jdbcType=VARCHAR}, #{depName,jdbcType=VARCHAR}, 
+      #{enabled,jdbcType=DECIMAL}, #{accountNonExpired,jdbcType=DECIMAL}, #{accountNonLocked,jdbcType=DECIMAL}, 
+      #{credentialsNonExpired,jdbcType=DECIMAL})
+  </insert>
+  <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysUsers">
+    insert into SYS_USERS
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        USER_ID,
+      </if>
+      <if test="username != null">
+        USERNAME,
+      </if>
+      <if test="name != null">
+        NAME,
+      </if>
+      <if test="password != null">
+        PASSWORD,
+      </if>
+      <if test="dtCreate != null">
+        DT_CREATE,
+      </if>
+      <if test="lastLogin != null">
+        LAST_LOGIN,
+      </if>
+      <if test="deadline != null">
+        DEADLINE,
+      </if>
+      <if test="loginIp != null">
+        LOGIN_IP,
+      </if>
+      <if test="vQzjgid != null">
+        V_QZJGID,
+      </if>
+      <if test="vQzjgmc != null">
+        V_QZJGMC,
+      </if>
+      <if test="depId != null">
+        DEP_ID,
+      </if>
+      <if test="depName != null">
+        DEP_NAME,
+      </if>
+      <if test="enabled != null">
+        ENABLED,
+      </if>
+      <if test="accountNonExpired != null">
+        ACCOUNT_NON_EXPIRED,
+      </if>
+      <if test="accountNonLocked != null">
+        ACCOUNT_NON_LOCKED,
+      </if>
+      <if test="credentialsNonExpired != null">
+        CREDENTIALS_NON_EXPIRED,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="username != null">
+        #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="dtCreate != null">
+        #{dtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLogin != null">
+        #{lastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null">
+        #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null">
+        #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="vQzjgid != null">
+        #{vQzjgid,jdbcType=VARCHAR},
+      </if>
+      <if test="vQzjgmc != null">
+        #{vQzjgmc,jdbcType=VARCHAR},
+      </if>
+      <if test="depId != null">
+        #{depId,jdbcType=VARCHAR},
+      </if>
+      <if test="depName != null">
+        #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        #{enabled,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNonExpired != null">
+        #{accountNonExpired,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNonLocked != null">
+        #{accountNonLocked,jdbcType=DECIMAL},
+      </if>
+      <if test="credentialsNonExpired != null">
+        #{credentialsNonExpired,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysUsers">
+    update SYS_USERS
+    <set>
+      <if test="username != null">
+        USERNAME = #{username,jdbcType=VARCHAR},
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="password != null">
+        PASSWORD = #{password,jdbcType=VARCHAR},
+      </if>
+      <if test="dtCreate != null">
+        DT_CREATE = #{dtCreate,jdbcType=TIMESTAMP},
+      </if>
+      <if test="lastLogin != null">
+        LAST_LOGIN = #{lastLogin,jdbcType=TIMESTAMP},
+      </if>
+      <if test="deadline != null">
+        DEADLINE = #{deadline,jdbcType=TIMESTAMP},
+      </if>
+      <if test="loginIp != null">
+        LOGIN_IP = #{loginIp,jdbcType=VARCHAR},
+      </if>
+      <if test="vQzjgid != null">
+        V_QZJGID = #{vQzjgid,jdbcType=VARCHAR},
+      </if>
+      <if test="vQzjgmc != null">
+        V_QZJGMC = #{vQzjgmc,jdbcType=VARCHAR},
+      </if>
+      <if test="depId != null">
+        DEP_ID = #{depId,jdbcType=VARCHAR},
+      </if>
+      <if test="depName != null">
+        DEP_NAME = #{depName,jdbcType=VARCHAR},
+      </if>
+      <if test="enabled != null">
+        ENABLED = #{enabled,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNonExpired != null">
+        ACCOUNT_NON_EXPIRED = #{accountNonExpired,jdbcType=DECIMAL},
+      </if>
+      <if test="accountNonLocked != null">
+        ACCOUNT_NON_LOCKED = #{accountNonLocked,jdbcType=DECIMAL},
+      </if>
+      <if test="credentialsNonExpired != null">
+        CREDENTIALS_NON_EXPIRED = #{credentialsNonExpired,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysUsers">
+    update SYS_USERS
+    set USERNAME = #{username,jdbcType=VARCHAR},
+      NAME = #{name,jdbcType=VARCHAR},
+      PASSWORD = #{password,jdbcType=VARCHAR},
+      DT_CREATE = #{dtCreate,jdbcType=TIMESTAMP},
+      LAST_LOGIN = #{lastLogin,jdbcType=TIMESTAMP},
+      DEADLINE = #{deadline,jdbcType=TIMESTAMP},
+      LOGIN_IP = #{loginIp,jdbcType=VARCHAR},
+      V_QZJGID = #{vQzjgid,jdbcType=VARCHAR},
+      V_QZJGMC = #{vQzjgmc,jdbcType=VARCHAR},
+      DEP_ID = #{depId,jdbcType=VARCHAR},
+      DEP_NAME = #{depName,jdbcType=VARCHAR},
+      ENABLED = #{enabled,jdbcType=DECIMAL},
+      ACCOUNT_NON_EXPIRED = #{accountNonExpired,jdbcType=DECIMAL},
+      ACCOUNT_NON_LOCKED = #{accountNonLocked,jdbcType=DECIMAL},
+      CREDENTIALS_NON_EXPIRED = #{credentialsNonExpired,jdbcType=DECIMAL}
+    where USER_ID = #{userId,jdbcType=VARCHAR}
+  </update>
+</mapper>

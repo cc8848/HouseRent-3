@@ -1,4 +1,4 @@
-package com.magic.rent.pojo;
+package com.magic.rent.util;
 
 /**
  * Created by wuxinzhe on 16/9/20.

@@ -1,7 +1,5 @@
 package com.magic.rent.service.impl;
 
-import com.magic.rent.mapper.IDInfoMapper;
-import com.magic.rent.pojo.IDInfo;
 import com.magic.rent.service.IIDInfoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

@@ -6,7 +6,6 @@ package com.magic.rent.service.security;
  * 类说明:
  */
 
-import com.magic.rent.pojo.User;
 import com.magic.rent.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

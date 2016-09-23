@@ -1,7 +1,5 @@
 package com.magic.rent.service.impl;
 
-import com.magic.rent.mapper.UserMapper;
-import com.magic.rent.pojo.User;
 import com.magic.rent.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
