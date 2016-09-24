@@ -35,6 +35,7 @@ public class WebUserDetailsService implements UserDetailsService {
     private MessageSource messageSource;
 
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
+
         SysUsers sysUsers = null;
 
         //此处后续需要加入从缓存中获取User信息

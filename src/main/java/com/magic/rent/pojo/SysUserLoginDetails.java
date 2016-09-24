@@ -62,5 +62,4 @@ public class SysUserLoginDetails implements UserDetails {
         return enabled;
     }
 
-
 }
