@@ -1,6 +1,6 @@
 package com.magic.rent.mapper;
 
-import mybatis.pojo.SysAuthorities;
+import com.magic.rent.pojo.SysAuthorities;
 
 public interface SysAuthoritiesMapper {
     int deleteByPrimaryKey(Integer authorityId);

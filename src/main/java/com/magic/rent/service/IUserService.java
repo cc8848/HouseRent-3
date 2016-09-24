@@ -10,4 +10,5 @@ import com.magic.rent.pojo.SysUsers;
 public interface IUserService {
 
     SysUsers findSysUserByUserName(String userName);
+
 }

@@ -1,6 +1,7 @@
 package com.magic.rent.service.impl;
 
 import com.magic.rent.mapper.SysUsersMapper;
+import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -21,8 +22,13 @@ public class UserServiceImpl implements IUserService {
 
 
     public SysUsers findSysUserByUserName(String userName) {
-        SysUsers sysUsers = new SysUsers();
-        sysUsers.setUsername(userName);
-        return sysUsersMapper.selectBySelective(sysUsers);
+
+        SysUsers sysUsers = sysUsersMapper.selectByUserName(userName);
+
+        List<SysRoles> sysRolesList = sysUsersMapper.selectRolesByUserId(sysUsers.getUserId());
+
+        sysUsers.setSysRoles(sysRolesList);
+
+        return sysUsers;
     }
 }

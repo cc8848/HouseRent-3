@@ -1,6 +1,7 @@
 package com.magic.rent.mapper;
 
-import mybatis.pojo.PersistentLogins;
+
+import com.magic.rent.pojo.PersistentLogins;
 
 public interface PersistentLoginsMapper {
     int deleteByPrimaryKey(String series);

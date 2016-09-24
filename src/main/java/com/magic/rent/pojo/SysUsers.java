@@ -173,4 +173,27 @@ public class SysUsers {
     public void setCredentialsNonExpired(boolean credentialsNonExpired) {
         this.credentialsNonExpired = credentialsNonExpired;
     }
+
+    @Override
+    public String toString() {
+        return "SysUsers{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", dtCreate=" + dtCreate +
+                ", lastLogin=" + lastLogin +
+                ", deadline=" + deadline +
+                ", loginIp='" + loginIp + '\'' +
+                ", vQzjgid='" + vQzjgid + '\'' +
+                ", vQzjgmc='" + vQzjgmc + '\'' +
+                ", depId='" + depId + '\'' +
+                ", depName='" + depName + '\'' +
+                ", enabled=" + enabled +
+                ", accountNonExpired=" + accountNonExpired +
+                ", accountNonLocked=" + accountNonLocked +
+                ", credentialsNonExpired=" + credentialsNonExpired +
+                ", sysRoles=" + sysRoles +
+                '}';
+    }
 }

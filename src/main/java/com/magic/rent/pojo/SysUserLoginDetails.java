@@ -62,4 +62,16 @@ public class SysUserLoginDetails implements UserDetails {
         return enabled;
     }
 
+    @Override
+    public String toString() {
+        return "SysUserLoginDetails{" +
+                "grantedAuthority=" + grantedAuthority +
+                ", password='" + password + '\'' +
+                ", userName='" + userName + '\'' +
+                ", accountNonExpired=" + accountNonExpired +
+                ", accountNonLocked=" + accountNonLocked +
+                ", credentialsNonExpired=" + credentialsNonExpired +
+                ", enabled=" + enabled +
+                '}';
+    }
 }

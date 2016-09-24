@@ -60,4 +60,16 @@ public class SysRoles {
     public void setModuleId(Integer moduleId) {
         this.moduleId = moduleId;
     }
+
+    @Override
+    public String toString() {
+        return "SysRoles{" +
+                "roleId=" + roleId +
+                ", roleName='" + roleName + '\'' +
+                ", roleDesc='" + roleDesc + '\'' +
+                ", enable=" + enable +
+                ", issys=" + issys +
+                ", moduleId=" + moduleId +
+                '}';
+    }
 }
