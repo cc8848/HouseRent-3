@@ -15,6 +15,26 @@
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>
     </listener>
 
+    <!-- JCaptcha`s filter -->
+    <filter>
+        <filter-name>JCaptchaFilter</filter-name>
+        <filter-class>com.magic.rent.service.JCaptcha.JCaptchaFilter</filter-class>
+        <init-param>
+            <param-name>failureUrl</param-name>
+            <param-value>/WEB-INF/views/login.jsp</param-value>
+        </init-param>
+    </filter>
+    <!-- JCaptcha图片生成URL. -->
+    <filter-mapping>
+        <filter-name>JCaptchaFilter</filter-name>
+        <url-pattern>/JCaptcha.jpg</url-pattern>
+    </filter-mapping>
+    <!-- JCaptcha登录表单处理URL.必须放在springSecurityFilter的filter-mapping定义之前 -->
+    <filter-mapping>
+        <filter-name>JCaptchaFilter</filter-name>
+        <url-pattern>/j_spring_security_check</url-pattern>
+    </filter-mapping>
+
     <!-- SpringSecurity 核心过滤器配置 -->
     <filter>
         <filter-name>springSecurityFilterChain</filter-name>

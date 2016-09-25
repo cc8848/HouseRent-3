@@ -20,7 +20,7 @@
     <!--不进行拦截的页面-->
     <sec:http pattern="/index.jsp" security="none"/>
     <sec:http pattern="/WEB-INF/views/login.jsp" security="none"/>
-    <sec:http pattern="/getCode" security="none"/><!-- 不过滤验证码 -->
+    <sec:http pattern="/JCaptcha.jpg" security="none"/><!-- 不过滤验证码 -->
     <sec:http pattern="/test/**" security="none"/><!-- 不过滤测试内容 -->
     <!--过滤资源 end-->
 
@@ -29,7 +29,6 @@
         <sec:intercept-url pattern="/WEB-INF/admin/**" access="hasRole('admin')"/>
         <sec:form-login
                 login-page="/WEB-INF/views/login.jsp"
-                login-processing-url="/login"
                 authentication-failure-url="/WEB-INF/error/authority.jsp"
                 authentication-success-handler-ref="authenticationSuccessHandlerImpl"
                 authentication-failure-handler-ref="authenticationFailHandlerImpl"/>
@@ -37,9 +36,9 @@
         <sec:session-management invalid-session-url="WEB-INF/views/login.jsp">
             <sec:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>
         </sec:session-management>
+        <!--资源拦截器配置-->
         <sec:custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
     </sec:http>
-
 
     <bean id="authenticationSuccessHandlerImpl"
           class="com.magic.rent.service.security.AuthenticationSuccessHandlerImpl"> <!--登录成功跳转处理器-->
@@ -109,8 +108,13 @@
         <aop:advisor advice-ref="methodSecurityInterceptor" pointcut-ref="servicePointcut" order="1"/>
     </aop:config>
     <!--方法拦截器 end-->
-    <bean id="authenticationEntryPoint"
-          class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
-        <constructor-arg name="loginFormUrl" value="/login.jsp"/>
+
+    <bean id="captchaService"
+          class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
+        <property name="captchaEngine">
+            <bean class="com.magic.rent.service.JCaptcha.GMailEngine"/>
+        </property>
+        <!-- 默认生成的图片180秒过期 , 可另行设置-->
+        <property name="minGuarantedStorageDelayInSeconds" value="180"/>
     </bean>
 </beans>

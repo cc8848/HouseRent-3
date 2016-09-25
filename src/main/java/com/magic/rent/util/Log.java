@@ -19,4 +19,16 @@ public class Log {
                 .append(infoEnd);
         logger.info(stringBuffer.toString());
     }
+
+    public static void error(Class clazz,String tittle, String text) {
+        org.apache.commons.logging.Log logger = LogFactory.getLog(clazz);
+        String infoStart = "————————————————————————————————————————[Info Start]——\n";
+        String infoEnd = "信息: ————————————————————————————————————————[Info   End]——\n";
+        StringBuffer stringBuffer = new StringBuffer(infoStart);
+        stringBuffer.append("标题:" + tittle + "\n内容:")
+                .append(text + "\n")
+                .append(infoEnd);
+        logger.error(stringBuffer.toString());
+    }
+
 }
