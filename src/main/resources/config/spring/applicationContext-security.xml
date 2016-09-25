@@ -28,7 +28,6 @@
                 login-page="/WEB-INF/views/login.jsp"
                 login-processing-url="/login"
                 authentication-failure-url="/WEB-INF/error/authority.jsp"
-                default-target-url="/index.jsp"
                 authentication-success-handler-ref="authenticationSuccessHandlerImpl"
                 authentication-failure-handler-ref="authenticationFailHandlerImpl"/>
     </sec:http>
@@ -38,7 +37,6 @@
         <property name="defaultTargetUrl" value="/index.jsp"/>
         <property name="forwardToDestination" value="true"/>
     </bean>
-
     <!--登录失败跳转处理器-->
     <bean id="authenticationFailHandlerImpl"
           class="com.magic.rent.service.security.AuthenticationFailHandlerImpl"/>
@@ -51,6 +49,7 @@
     <bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
         <property name="hideUserNotFoundExceptions" value="false"/>
         <property name="userDetailsService" ref="webUserDetailsService"/>
+        <!--用于使用缓存-->
         <!--<property name="userCache" ref="userCache" />-->
         <property name="messageSource" ref="messageSource"/>
         <property name="passwordEncoder" ref="passwordEncode"/>

@@ -20,7 +20,7 @@
         <result column="CREDENTIALS_NON_EXPIRED" jdbcType="DECIMAL" property="credentialsNonExpired"/>
     </resultMap>
     <sql id="Base_Column_List">
-    USER_ID, USERNAME, NAME, PASSWORD, DT_CREATE, LAST_LOGIN, DEADLINE, LOGIN_IP, V_QZJGID, 
+    USER_ID, USERNAME, NAME , PASSWORD, DT_CREATE, LAST_LOGIN, DEADLINE, LOGIN_IP, V_QZJGID,
     V_QZJGMC, DEP_ID, DEP_NAME, ENABLED, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
@@ -34,13 +34,13 @@
     where USER_ID = #{userId,jdbcType=INTEGER}
   </delete>
     <insert id="insert" parameterType="com.magic.rent.pojo.SysUsers">
-    insert into SYS_USERS (USER_ID, USERNAME, NAME, 
+    insert into SYS_USERS ( USERNAME, NAME,
       PASSWORD, DT_CREATE, LAST_LOGIN, 
       DEADLINE, LOGIN_IP, V_QZJGID, 
       V_QZJGMC, DEP_ID, DEP_NAME, 
       ENABLED, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, 
       CREDENTIALS_NON_EXPIRED)
-    values (#{userId,jdbcType=INTEGER}, #{userName,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+    values (#{userName,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
       #{password,jdbcType=VARCHAR}, #{dtCreate,jdbcType=TIMESTAMP}, #{lastLogin,jdbcType=TIMESTAMP}, 
       #{deadline,jdbcType=TIMESTAMP}, #{loginIp,jdbcType=VARCHAR}, #{vQzjgid,jdbcType=VARCHAR}, 
       #{vQzjgmc,jdbcType=VARCHAR}, #{depId,jdbcType=VARCHAR}, #{depName,jdbcType=VARCHAR}, 
@@ -153,9 +153,6 @@
     <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysUsers">
         update SYS_USERS
         <set>
-            <if test="userName != null">
-                USERNAME = #{userName,jdbcType=VARCHAR},
-            </if>
             <if test="name != null">
                 NAME = #{name,jdbcType=VARCHAR},
             </if>
@@ -203,7 +200,7 @@
     </update>
     <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysUsers">
     update SYS_USERS
-    set USERNAME = #{userName,jdbcType=VARCHAR},
+    set
       NAME = #{name,jdbcType=VARCHAR},
       PASSWORD = #{password,jdbcType=VARCHAR},
       DT_CREATE = #{dtCreate,jdbcType=TIMESTAMP},

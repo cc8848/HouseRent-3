@@ -31,4 +31,11 @@ public class UserServiceImpl implements IUserService {
 
         return sysUsers;
     }
+
+    public int updateUserInfo(SysUsers sysUsers) {
+
+        int userID=sysUsersMapper.updateByPrimaryKeySelective(sysUsers);
+
+        return userID;
+    }
 }
