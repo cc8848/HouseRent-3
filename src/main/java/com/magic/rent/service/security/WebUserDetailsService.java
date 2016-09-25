@@ -14,6 +14,7 @@ import com.magic.rent.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.context.annotation.Role;
+import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.User;
@@ -26,6 +27,8 @@ import java.util.HashSet;
 import java.util.Set;
 @Service
 public class WebUserDetailsService implements UserDetailsService {
+
+    private DaoAuthenticationProvider daoAuthenticationProvider;
 
     @Autowired
     private IUserService iUserService;
@@ -60,7 +63,7 @@ public class WebUserDetailsService implements UserDetailsService {
         }
         Log.info(WebUserDetailsService.class, "账户名:" + s, sysUsers.getSysRoles().toString());
 
-        SysUserLoginDetails userLoginDetails = new SysUserLoginDetails(authorities, sysUsers.getPassword(), sysUsers.getUsername(), sysUsers.isAccountNonExpired(), sysUsers.isAccountNonLocked(), sysUsers.isCredentialsNonExpired(), sysUsers.isEnabled());
+        SysUserLoginDetails userLoginDetails = new SysUserLoginDetails(authorities, sysUsers.getPassword(), sysUsers.getUserName(), sysUsers.isAccountNonExpired(), sysUsers.isAccountNonLocked(), sysUsers.isCredentialsNonExpired(), sysUsers.isEnabled());
         return userLoginDetails;
     }
 }

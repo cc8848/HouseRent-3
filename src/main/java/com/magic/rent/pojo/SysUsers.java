@@ -6,7 +6,7 @@ import java.util.List;
 public class SysUsers {
     private Integer userId;//用户id
 
-    private String username;//账户名
+    private String userName;//账户名
 
     private String name;//用户姓名
 
@@ -54,12 +54,12 @@ public class SysUsers {
         this.userId = userId;
     }
 
-    public String getUsername() {
-        return username;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setUsername(String username) {
-        this.username = username == null ? null : username.trim();
+    public void setUserName(String userName) {
+        this.userName = userName == null ? null : userName.trim();
     }
 
     public String getName() {
@@ -178,7 +178,7 @@ public class SysUsers {
     public String toString() {
         return "SysUsers{" +
                 "userId=" + userId +
-                ", username='" + username + '\'' +
+                ", userName='" + userName + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", dtCreate=" + dtCreate +

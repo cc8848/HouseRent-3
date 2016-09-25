@@ -5,6 +5,8 @@
           http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
           http://www.springframework.org/schema/security
           http://www.springframework.org/schema/security/spring-security.xsd">
+
+    <!--过滤资源 start-->
     <!--不进行拦截的静态资源-->
     <sec:http pattern="css/*.css" security="none"/>
     <sec:http pattern="img/*.jpg" security="none"/>
@@ -17,7 +19,9 @@
     <sec:http pattern="/WEB-INF/views/login.jsp" security="none"/>
     <sec:http pattern="/getCode" security="none"/><!-- 不过滤验证码 -->
     <sec:http pattern="/test/**" security="none"/><!-- 不过滤测试内容 -->
-    <!--权限配置及自定义登录界面-->
+    <!--过滤资源 end-->
+
+    <!--权限配置及自定义登录界面 start-->
     <sec:http auto-config="true" use-expressions="true">
         <sec:intercept-url pattern="/WEB-INF/admin/**" access="hasRole('admin')"/>
         <sec:form-login
@@ -33,10 +37,30 @@
     <!--登录失败跳转处理器-->
     <bean id="authenticationFailHandlerImpl"
           class="com.magic.rent.service.security.AuthenticationFailHandlerImpl"/>
+    <!--权限配置及自定义登录界面 end-->
+
+    <!--解决UsernameNotFoundException无法被捕获的问题 start-->
+    <sec:authentication-manager>
+        <sec:authentication-provider ref="authenticationProvider" />
+    </sec:authentication-manager>
+    <bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+        <property name="hideUserNotFoundExceptions" value="false" />
+        <property name="userDetailsService" ref="webUserDetailsService" />
+        <!--<property name="userCache" ref="userCache" />-->
+        <property name="messageSource" ref="messageSource" />
+        <property name="passwordEncoder" ref="passwordEncode" />
+        <property name="saltSource" ref="saltSource" />
+    </bean>
+    <!-- 配置密码加密类 -->
+    <bean id="passwordEncode" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+    <bean id="saltSource" class="org.springframework.security.authentication.dao.ReflectionSaltSource">
+        <property name="userPropertyToUse" value="userName"/>
+    </bean>
     <!--国际化配置-->
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
         <property name="basename" value="config.messages"/>
     </bean>
+    <!--解决UsernameNotFoundException无法被捕获的问题 end-->
 
 </beans>
