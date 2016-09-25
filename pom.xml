@@ -10,7 +10,7 @@
     <build>
         <finalName>ssm</finalName>
         <plugins>
-            <!--config.mybatis 逆向工程插件-->
+            <!--Mybatis 逆向工程插件-->
             <plugin>
                 <groupId>org.mybatis.generator</groupId>
                 <artifactId>mybatis-generator-maven-plugin</artifactId>
@@ -155,32 +155,46 @@
             <scope>test</scope>
         </dependency>
 
-        <!--config.mybatis-->
+        <!--Mybatis-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
             <version>3.3.0</version>
         </dependency>
-        <!--config.mybatis spring整合-->
+        <!--Mybatis Spring整合-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis-spring</artifactId>
             <version>1.2.3</version>
         </dependency>
 
-        <!--mysql driver-->
+        <!--MySQL Driver-->
         <dependency>
             <groupId>mysql</groupId>
             <artifactId>mysql-connector-java</artifactId>
             <version>5.1.6</version>
         </dependency>
 
-        <!--jstl-->
         <dependency>
             <groupId>jstl</groupId>
             <artifactId>jstl</artifactId>
             <version>1.2</version>
         </dependency>
+
+        <!-- https://mvnrepository.com/artifact/com.octo.captcha/jcaptcha -->
+        <!--<dependency>-->
+            <!--<groupId>com.octo.captcha</groupId>-->
+            <!--<artifactId>jcaptcha</artifactId>-->
+            <!--<version>1.0</version>-->
+        <!--</dependency>-->
+        <!--&lt;!&ndash; https://mvnrepository.com/artifact/com.jhlabs/imaging &ndash;&gt;-->
+        <dependency>
+            <groupId>com.jhlabs</groupId>
+            <artifactId>imaging</artifactId>
+            <version>01012005</version>
+        </dependency>
+
+
 
     </dependencies>
 </project>
