@@ -30,6 +30,8 @@
                 authentication-failure-url="/WEB-INF/error/authority.jsp"
                 authentication-success-handler-ref="authenticationSuccessHandlerImpl"
                 authentication-failure-handler-ref="authenticationFailHandlerImpl"/>
+
+        <sec:custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
     </sec:http>
     <!--登录成功跳转处理器-->
     <bean id="authenticationSuccessHandlerImpl"
@@ -66,5 +68,14 @@
         <property name="basename" value="config.messages"/>
     </bean>
     <!--解决UsernameNotFoundException无法被捕获的问题 end-->
+
+    <bean id="filterSecurityInterceptor" class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+        <property name="accessDecisionManager" ref="accessDecisionManager" />
+        <property name="authenticationManager" ref="authenticationManager" />
+        <property name="securityMetadataSource" ref="securityMetadataSource" />
+    </bean>
+
+    <bean id="securityMetadataSource"
+          class="com.magic.rent.service.security.URLFilterInvocationSecurityMetadataSource"/>
 
 </beans>

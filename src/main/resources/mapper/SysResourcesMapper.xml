@@ -1,32 +1,32 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.magic.rent.mapper.SysResourcesMapper">
-  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysResources">
-    <id column="RESOURCE_ID" jdbcType="INTEGER" property="resourceId" />
-    <result column="RESOURCE_TYPE" jdbcType="VARCHAR" property="resourceType" />
-    <result column="RESOURCE_NAME" jdbcType="VARCHAR" property="resourceName" />
-    <result column="RESOURCE_DESC" jdbcType="VARCHAR" property="resourceDesc" />
-    <result column="RESOURCE_PATH" jdbcType="VARCHAR" property="resourcePath" />
-    <result column="PRIORITY" jdbcType="VARCHAR" property="priority" />
-    <result column="ENABLE" jdbcType="DECIMAL" property="enable" />
-    <result column="ISSYS" jdbcType="DECIMAL" property="issys" />
-    <result column="MODULE_ID" jdbcType="INTEGER" property="moduleId" />
-  </resultMap>
-  <sql id="Base_Column_List">
+    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysResources">
+        <id column="RESOURCE_ID" jdbcType="INTEGER" property="resourceId"/>
+        <result column="RESOURCE_TYPE" jdbcType="VARCHAR" property="resourceType"/>
+        <result column="RESOURCE_NAME" jdbcType="VARCHAR" property="resourceName"/>
+        <result column="RESOURCE_DESC" jdbcType="VARCHAR" property="resourceDesc"/>
+        <result column="RESOURCE_PATH" jdbcType="VARCHAR" property="resourcePath"/>
+        <result column="PRIORITY" jdbcType="VARCHAR" property="priority"/>
+        <result column="ENABLE" jdbcType="DECIMAL" property="enable"/>
+        <result column="ISSYS" jdbcType="DECIMAL" property="issys"/>
+        <result column="MODULE_ID" jdbcType="INTEGER" property="moduleId"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     RESOURCE_ID, RESOURCE_TYPE, RESOURCE_NAME, RESOURCE_DESC, RESOURCE_PATH, PRIORITY, 
     ENABLE, ISSYS, MODULE_ID
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from SYS_RESOURCES
-    where RESOURCE_ID = #{resourceId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from SYS_RESOURCES
+        where RESOURCE_ID = #{resourceId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from SYS_RESOURCES
     where RESOURCE_ID = #{resourceId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.magic.rent.pojo.SysResources">
+    <insert id="insert" parameterType="com.magic.rent.pojo.SysResources">
     insert into SYS_RESOURCES (RESOURCE_ID, RESOURCE_TYPE, RESOURCE_NAME, 
       RESOURCE_DESC, RESOURCE_PATH, PRIORITY, 
       ENABLE, ISSYS, MODULE_ID
@@ -36,100 +36,100 @@
       #{enable,jdbcType=DECIMAL}, #{issys,jdbcType=DECIMAL}, #{moduleId,jdbcType=INTEGER}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysResources">
-    insert into SYS_RESOURCES
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="resourceId != null">
-        RESOURCE_ID,
-      </if>
-      <if test="resourceType != null">
-        RESOURCE_TYPE,
-      </if>
-      <if test="resourceName != null">
-        RESOURCE_NAME,
-      </if>
-      <if test="resourceDesc != null">
-        RESOURCE_DESC,
-      </if>
-      <if test="resourcePath != null">
-        RESOURCE_PATH,
-      </if>
-      <if test="priority != null">
-        PRIORITY,
-      </if>
-      <if test="enable != null">
-        ENABLE,
-      </if>
-      <if test="issys != null">
-        ISSYS,
-      </if>
-      <if test="moduleId != null">
-        MODULE_ID,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="resourceId != null">
-        #{resourceId,jdbcType=INTEGER},
-      </if>
-      <if test="resourceType != null">
-        #{resourceType,jdbcType=VARCHAR},
-      </if>
-      <if test="resourceName != null">
-        #{resourceName,jdbcType=VARCHAR},
-      </if>
-      <if test="resourceDesc != null">
-        #{resourceDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="resourcePath != null">
-        #{resourcePath,jdbcType=VARCHAR},
-      </if>
-      <if test="priority != null">
-        #{priority,jdbcType=VARCHAR},
-      </if>
-      <if test="enable != null">
-        #{enable,jdbcType=DECIMAL},
-      </if>
-      <if test="issys != null">
-        #{issys,jdbcType=DECIMAL},
-      </if>
-      <if test="moduleId != null">
-        #{moduleId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysResources">
-    update SYS_RESOURCES
-    <set>
-      <if test="resourceType != null">
-        RESOURCE_TYPE = #{resourceType,jdbcType=VARCHAR},
-      </if>
-      <if test="resourceName != null">
-        RESOURCE_NAME = #{resourceName,jdbcType=VARCHAR},
-      </if>
-      <if test="resourceDesc != null">
-        RESOURCE_DESC = #{resourceDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="resourcePath != null">
-        RESOURCE_PATH = #{resourcePath,jdbcType=VARCHAR},
-      </if>
-      <if test="priority != null">
-        PRIORITY = #{priority,jdbcType=VARCHAR},
-      </if>
-      <if test="enable != null">
-        ENABLE = #{enable,jdbcType=DECIMAL},
-      </if>
-      <if test="issys != null">
-        ISSYS = #{issys,jdbcType=DECIMAL},
-      </if>
-      <if test="moduleId != null">
-        MODULE_ID = #{moduleId,jdbcType=INTEGER},
-      </if>
-    </set>
-    where RESOURCE_ID = #{resourceId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysResources">
-    update SYS_RESOURCES
-    set RESOURCE_TYPE = #{resourceType,jdbcType=VARCHAR},
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysResources">
+        insert into SYS_RESOURCES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="resourceId != null">
+                RESOURCE_ID,
+            </if>
+            <if test="resourceType != null">
+                RESOURCE_TYPE,
+            </if>
+            <if test="resourceName != null">
+                RESOURCE_NAME,
+            </if>
+            <if test="resourceDesc != null">
+                RESOURCE_DESC,
+            </if>
+            <if test="resourcePath != null">
+                RESOURCE_PATH,
+            </if>
+            <if test="priority != null">
+                PRIORITY,
+            </if>
+            <if test="enable != null">
+                ENABLE,
+            </if>
+            <if test="issys != null">
+                ISSYS,
+            </if>
+            <if test="moduleId != null">
+                MODULE_ID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="resourceId != null">
+                #{resourceId,jdbcType=INTEGER},
+            </if>
+            <if test="resourceType != null">
+                #{resourceType,jdbcType=VARCHAR},
+            </if>
+            <if test="resourceName != null">
+                #{resourceName,jdbcType=VARCHAR},
+            </if>
+            <if test="resourceDesc != null">
+                #{resourceDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="resourcePath != null">
+                #{resourcePath,jdbcType=VARCHAR},
+            </if>
+            <if test="priority != null">
+                #{priority,jdbcType=VARCHAR},
+            </if>
+            <if test="enable != null">
+                #{enable,jdbcType=DECIMAL},
+            </if>
+            <if test="issys != null">
+                #{issys,jdbcType=DECIMAL},
+            </if>
+            <if test="moduleId != null">
+                #{moduleId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysResources">
+        UPDATE SYS_RESOURCES
+        <set>
+            <if test="resourceType != null">
+                RESOURCE_TYPE = #{resourceType,jdbcType=VARCHAR},
+            </if>
+            <if test="resourceName != null">
+                RESOURCE_NAME = #{resourceName,jdbcType=VARCHAR},
+            </if>
+            <if test="resourceDesc != null">
+                RESOURCE_DESC = #{resourceDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="resourcePath != null">
+                RESOURCE_PATH = #{resourcePath,jdbcType=VARCHAR},
+            </if>
+            <if test="priority != null">
+                PRIORITY = #{priority,jdbcType=VARCHAR},
+            </if>
+            <if test="enable != null">
+                ENABLE = #{enable,jdbcType=DECIMAL},
+            </if>
+            <if test="issys != null">
+                ISSYS = #{issys,jdbcType=DECIMAL},
+            </if>
+            <if test="moduleId != null">
+                MODULE_ID = #{moduleId,jdbcType=INTEGER},
+            </if>
+        </set>
+        WHERE RESOURCE_ID = #{resourceId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysResources">
+    UPDATE SYS_RESOURCES
+    SET RESOURCE_TYPE = #{resourceType,jdbcType=VARCHAR},
       RESOURCE_NAME = #{resourceName,jdbcType=VARCHAR},
       RESOURCE_DESC = #{resourceDesc,jdbcType=VARCHAR},
       RESOURCE_PATH = #{resourcePath,jdbcType=VARCHAR},
@@ -137,6 +137,18 @@
       ENABLE = #{enable,jdbcType=DECIMAL},
       ISSYS = #{issys,jdbcType=DECIMAL},
       MODULE_ID = #{moduleId,jdbcType=INTEGER}
-    where RESOURCE_ID = #{resourceId,jdbcType=INTEGER}
+    WHERE RESOURCE_ID = #{resourceId,jdbcType=INTEGER}
   </update>
+    <resultMap id="resourceResultMap" type="java.util.HashMap">
+        <result column="RESOURCE_PATH" jdbcType="VARCHAR" property="resourcePath"/>
+        <result column="AUTHORITY_MARK" jdbcType="VARCHAR" property="authorityMark"/>
+    </resultMap>
+    <select id="getURLResourceMapping" resultMap="resourceResultMap">
+            SELECT SYS_RESOURCES.RESOURCE_PATH,SYS_AUTHORITIES.AUTHORITY_MARK
+            FROM SYS_AUTHORITIES_RESOURCES
+            JOIN SYS_AUTHORITIES ON SYS_AUTHORITIES_RESOURCES.AUTHORITY_ID = SYS_AUTHORITIES.AUTHORITY_ID
+            JOIN SYS_RESOURCES ON SYS_AUTHORITIES_RESOURCES.RESOURCE_ID = SYS_RESOURCES.RESOURCE_ID
+            WHERE SYS_RESOURCES.RESOURCE_TYPE='URL'
+            ORDER BY SYS_RESOURCES.PRIORITY DESC
+    </select>
 </mapper>
