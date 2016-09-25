@@ -61,8 +61,7 @@ public class WebUserDetailsService implements UserDetailsService {
                 authorities.add(ga);
             }
         }
-        Log.info(WebUserDetailsService.class, "账户名:" + s, sysUsers.getSysRoles().toString());
-
+        Log.info(WebUserDetailsService.class, "获取用户角色", "账户名:" + s+sysUsers.getSysRoles().toString());
         SysUserLoginDetails userLoginDetails = new SysUserLoginDetails(authorities, sysUsers.getPassword(), sysUsers.getUserName(), sysUsers.isAccountNonExpired(), sysUsers.isAccountNonLocked(), sysUsers.isCredentialsNonExpired(), sysUsers.isEnabled());
         return userLoginDetails;
     }

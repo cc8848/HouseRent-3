@@ -26,6 +26,7 @@
         <sec:intercept-url pattern="/WEB-INF/admin/**" access="hasRole('admin')"/>
         <sec:form-login
                 login-page="/WEB-INF/views/login.jsp"
+                login-processing-url="/login"
                 authentication-failure-url="/WEB-INF/error/authority.jsp"
                 default-target-url="/index.jsp"
                 authentication-success-handler-ref="authenticationSuccessHandlerImpl"
@@ -33,7 +34,11 @@
     </sec:http>
     <!--登录成功跳转处理器-->
     <bean id="authenticationSuccessHandlerImpl"
-          class="com.magic.rent.service.security.AuthenticationSuccessHandlerImpl"/>
+          class="com.magic.rent.service.security.AuthenticationSuccessHandlerImpl">
+        <property name="defaultTargetUrl" value="/index.jsp"/>
+        <property name="forwardToDestination" value="true"/>
+    </bean>
+
     <!--登录失败跳转处理器-->
     <bean id="authenticationFailHandlerImpl"
           class="com.magic.rent.service.security.AuthenticationFailHandlerImpl"/>
@@ -41,18 +46,18 @@
 
     <!--解决UsernameNotFoundException无法被捕获的问题 start-->
     <sec:authentication-manager>
-        <sec:authentication-provider ref="authenticationProvider" />
+        <sec:authentication-provider ref="authenticationProvider"/>
     </sec:authentication-manager>
     <bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
-        <property name="hideUserNotFoundExceptions" value="false" />
-        <property name="userDetailsService" ref="webUserDetailsService" />
+        <property name="hideUserNotFoundExceptions" value="false"/>
+        <property name="userDetailsService" ref="webUserDetailsService"/>
         <!--<property name="userCache" ref="userCache" />-->
-        <property name="messageSource" ref="messageSource" />
-        <property name="passwordEncoder" ref="passwordEncode" />
-        <property name="saltSource" ref="saltSource" />
+        <property name="messageSource" ref="messageSource"/>
+        <property name="passwordEncoder" ref="passwordEncode"/>
+        <property name="saltSource" ref="saltSource"/>
     </bean>
     <!-- 配置密码加密类 -->
-    <bean id="passwordEncode" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder" />
+    <bean id="passwordEncode" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
     <bean id="saltSource" class="org.springframework.security.authentication.dao.ReflectionSaltSource">
         <property name="userPropertyToUse" value="userName"/>
     </bean>

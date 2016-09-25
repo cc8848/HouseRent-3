@@ -11,12 +11,11 @@ public class Log {
 
     public static void info(Class clazz,String tittle, String text) {
         org.apache.commons.logging.Log logger = LogFactory.getLog(clazz);
-
         String infoStart = "————————————————————————————————————————[Info Start]——\n";
         String infoEnd = "信息: ————————————————————————————————————————[Info   End]——\n";
         StringBuffer stringBuffer = new StringBuffer(infoStart);
-        stringBuffer.append("\t标题\n\t\t" + tittle + "\n\t内容:\n")
-                .append("\t\t" + text + "\n")
+        stringBuffer.append("标题:" + tittle + "\n内容:")
+                .append(text + "\n")
                 .append(infoEnd);
         logger.info(stringBuffer.toString());
     }
