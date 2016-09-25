@@ -22,29 +22,28 @@
     <!--过滤资源 end-->
 
     <!--权限配置及自定义登录界面 start-->
-    <sec:http auto-config="true" use-expressions="true" access-decision-manager-ref="accessDecisionManager">
-        <sec:intercept-url pattern="/WEB-INF/admin/**" access="hasRole('admin')"/>
-        <sec:form-login
-                login-page="/WEB-INF/views/login.jsp"
-                login-processing-url="/login"
-                authentication-failure-url="/WEB-INF/error/authority.jsp"
-                authentication-success-handler-ref="authenticationSuccessHandlerImpl"
-                authentication-failure-handler-ref="authenticationFailHandlerImpl"/>
-        <sec:logout invalidate-session="true" logout-success-url="/index.jsp"/>
-        <sec:session-management invalid-session-url="WEB-INF/views/login.jsp">
-            <sec:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>
-        </sec:session-management>
-        <sec:custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
-    </sec:http>
-    <!--登录成功跳转处理器-->
+    <!--<sec:http auto-config="true" use-expressions="true" access-decision-manager-ref="accessDecisionManager">-->
+    <!--<sec:intercept-url pattern="/WEB-INF/admin/**" access="hasRole('admin')"/>-->
+    <!--<sec:form-login-->
+    <!--login-page="/WEB-INF/views/login.jsp"-->
+    <!--login-processing-url="/login"-->
+    <!--authentication-failure-url="/WEB-INF/error/authority.jsp"-->
+    <!--authentication-success-handler-ref="authenticationSuccessHandlerImpl"-->
+    <!--authentication-failure-handler-ref="authenticationFailHandlerImpl"/>-->
+    <!--<sec:logout invalidate-session="true" logout-success-url="/index.jsp"/>-->
+    <!--<sec:session-management invalid-session-url="WEB-INF/views/login.jsp">-->
+    <!--<sec:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>-->
+    <!--</sec:session-management>-->
+    <!--<sec:custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>-->
+    <!--</sec:http>-->
+    <sec:http access-decision-manager-ref="accessDecisionManager" entry-point-ref="authenticationEntryPoint"/>
+
+
     <bean id="authenticationSuccessHandlerImpl"
-          class="com.magic.rent.service.security.AuthenticationSuccessHandlerImpl">
+          class="com.magic.rent.service.security.AuthenticationSuccessHandlerImpl"> <!--登录成功跳转处理器-->
         <property name="defaultTargetUrl" value="/index.jsp"/>
         <property name="forwardToDestination" value="true"/>
     </bean>
-    <!--登录失败跳转处理器-->
-    <bean id="authenticationFailHandlerImpl"
-          class="com.magic.rent.service.security.AuthenticationFailHandlerImpl"/>
     <!--权限配置及自定义登录界面 end-->
 
     <!--解决UsernameNotFoundException无法被捕获的问题 start-->
@@ -54,29 +53,22 @@
     <bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
         <property name="hideUserNotFoundExceptions" value="false"/>
         <property name="userDetailsService" ref="webUserDetailsService"/>
-        <!--用于使用缓存-->
-        <!--<property name="userCache" ref="userCache" />-->
+        <!--<property name="userCache" ref="userCache" />--><!--用于使用缓存-->
         <property name="messageSource" ref="messageSource"/>
         <property name="passwordEncoder" ref="passwordEncode"/>
         <property name="saltSource" ref="saltSource"/>
     </bean>
-    <!-- 配置密码加密类 -->
-    <bean id="passwordEncode" class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/>
+    <bean id="passwordEncode"
+          class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/><!-- 配置密码加密类 -->
     <bean id="saltSource" class="org.springframework.security.authentication.dao.ReflectionSaltSource">
         <property name="userPropertyToUse" value="userName"/>
     </bean>
-    <!--国际化配置-->
     <bean id="messageSource"
-          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource"><!--国际化配置-->
         <property name="basename" value="config.messages"/>
     </bean>
     <!--解决UsernameNotFoundException无法被捕获的问题 end-->
-    <bean id="filterSecurityInterceptor"
-          class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
-        <property name="accessDecisionManager" ref="accessDecisionManager"/>
-        <property name="authenticationManager" ref="authenticationManager"/>
-        <property name="securityMetadataSource" ref="URLFilterInvocationSecurityMetadataSource"/>
-    </bean>
+
     <!--决策管理器 start-->
     <bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
         <constructor-arg name="decisionVoters">
@@ -92,18 +84,31 @@
     </bean>
     <bean id="authenticatedVoter" class="org.springframework.security.access.vote.AuthenticatedVoter"/>
     <!--决策管理器 end-->
+
+    <!--资源拦截器 start-->
+    <bean id="filterSecurityInterceptor"
+          class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
+        <property name="accessDecisionManager" ref="accessDecisionManager"/>
+        <property name="authenticationManager" ref="authenticationManager"/>
+        <property name="securityMetadataSource" ref="URLFilterInvocationSecurityMetadataSource"/>
+    </bean>
+    <!--资源拦截器 end-->
+
+    <!--方法拦截器 start-->
     <bean id="methodSecurityInterceptor"
           class="org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor">
-        <property name="accessDecisionManager" ref="accessDecisionManager" />
-        <property name="authenticationManager" ref="authenticationManager" />
-        <property name="securityMetadataSource" ref="methodSecurityMetadataSource" />
+        <property name="accessDecisionManager" ref="accessDecisionManager"/>
+        <property name="authenticationManager" ref="authenticationManager"/>
+        <property name="securityMetadataSource" ref="methodSecurityMetadataSource"/>
     </bean>
-
-
     <aop:config>
         <aop:pointcut id="servicePointcut"
                       expression="execution(* com.magic.rent.service.*.*(..))"/>
         <aop:advisor advice-ref="methodSecurityInterceptor" pointcut-ref="servicePointcut" order="1"/>
     </aop:config>
-
+    <!--方法拦截器 end-->
+    <bean id="authenticationEntryPoint"
+          class="org.springframework.security.web.authentication.LoginUrlAuthenticationEntryPoint">
+        <constructor-arg name="loginFormUrl" value="/login.jsp"/>
+    </bean>
 </beans>

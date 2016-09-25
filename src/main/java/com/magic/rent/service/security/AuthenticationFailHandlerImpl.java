@@ -2,6 +2,7 @@ package com.magic.rent.service.security;
 
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
+import org.springframework.stereotype.Service;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -13,6 +14,7 @@ import java.io.IOException;
  * 创建者: wu   创建时间: 16/9/22
  * 类说明:登录验证失败后需要执行的页面
  */
+@Service
 public class AuthenticationFailHandlerImpl implements AuthenticationFailureHandler {
 
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {

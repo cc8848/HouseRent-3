@@ -10,6 +10,7 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
+import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -25,6 +26,7 @@ import java.util.Date;
  * 创建者: wu   创建时间: 16/9/22
  * 类说明:登录成功后需要执行的页面
  */
+
 public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHandler, InitializingBean {
 
     private String defaultTargetUrl;
