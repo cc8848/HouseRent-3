@@ -22,4 +22,6 @@ public interface SysResourcesMapper {
     int updateByPrimaryKey(SysResources record);
 
     List<Map<String, String>> getURLResourceMapping();
+
+    List<Map<String,String>> getMethodResourceMapping();
 }

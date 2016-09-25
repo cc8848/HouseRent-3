@@ -28,8 +28,6 @@ import java.util.Set;
 @Service
 public class WebUserDetailsService implements UserDetailsService {
 
-    private DaoAuthenticationProvider daoAuthenticationProvider;
-
     @Autowired
     private IUserService iUserService;
 
