@@ -6,6 +6,7 @@ package com.magic.rent.service.security;
  * 类说明:
  */
 
+import com.magic.rent.mapper.SysUsersMapper;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUserLoginDetails;
 import com.magic.rent.pojo.SysUsers;
@@ -24,12 +25,14 @@ import org.springframework.security.core.userdetails.UsernameNotFoundException;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
+import java.util.List;
 import java.util.Set;
+
 @Service
 public class WebUserDetailsService implements UserDetailsService {
 
     @Autowired
-    private IUserService iUserService;
+    private SysUsersMapper sysUsersMapper;
 
     @Autowired
     private MessageSource messageSource;
@@ -41,7 +44,12 @@ public class WebUserDetailsService implements UserDetailsService {
         //此处后续需要加入从缓存中获取User信息
 
         try {
-            sysUsers = iUserService.findSysUserByUserName(s);
+            sysUsers = sysUsersMapper.selectByUserName(s);
+
+            List<SysRoles> sysRolesList = sysUsersMapper.selectRolesByUserId(sysUsers.getUserId());
+
+            sysUsers.setSysRoles(sysRolesList);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -59,7 +67,7 @@ public class WebUserDetailsService implements UserDetailsService {
                 authorities.add(ga);
             }
         }
-        Log.info(WebUserDetailsService.class, "获取用户角色", "账户名:" + s+sysUsers.getSysRoles().toString());
+        Log.info(WebUserDetailsService.class, "获取用户角色", "账户名:" + s + sysUsers.getSysRoles().toString());
         SysUserLoginDetails userLoginDetails = new SysUserLoginDetails(authorities, sysUsers.getPassword(), sysUsers.getUserName(), sysUsers.isAccountNonExpired(), sysUsers.isAccountNonLocked(), sysUsers.isCredentialsNonExpired(), sysUsers.isEnabled());
         return userLoginDetails;
     }

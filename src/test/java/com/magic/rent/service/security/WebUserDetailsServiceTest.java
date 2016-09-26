@@ -17,13 +17,17 @@ public class WebUserDetailsServiceTest {
 
     @Before
     public void setUp() throws Exception {
-        applicationContext = new ClassPathXmlApplicationContext(new String[]{"classpath:config/spring/applicationContext-dao.xml", "classpath:config/spring/applicationContext-service.xml" });
+        applicationContext = new ClassPathXmlApplicationContext(new String[]{"classpath:config/spring/applicationContext-dao.xml",
+                "classpath:config/spring/applicationContext-service.xml",
+                "classpath:config/spring/applicationContext-JCaptcha.xml",
+                "classpath:config/spring/applicationContext-security.xml",
+                "classpath:config/spring/applicationContext-transaction.xml",});
     }
 
     @Test
     public void testLoadUserByUsername() throws Exception {
         WebUserDetailsService webUserDetailsService = (WebUserDetailsService) applicationContext.getBean("webUserDetailsService");
-        SysUserLoginDetails sysUserLoginDetails = (SysUserLoginDetails)webUserDetailsService.loadUserByUsername("18650155502");
+        SysUserLoginDetails sysUserLoginDetails = (SysUserLoginDetails) webUserDetailsService.loadUserByUsername("18650155502");
         System.out.print(sysUserLoginDetails);
     }
 }

@@ -46,16 +46,15 @@
         <property name="forwardToDestination" value="true"/>
     </bean>
     <!--权限配置及自定义登录界面 end-->
-
-    <sec:authentication-manager alias="authenticationManager">
+    <sec:authentication-manager id="myAuthenticationManager">
         <sec:authentication-provider user-service-ref="webUserDetailsService">
-            <sec:password-encoder ref="passwordEncode">
+            <sec:password-encoder hash="md5">
                 <sec:salt-source user-property="username"/>
             </sec:password-encoder>
         </sec:authentication-provider>
     </sec:authentication-manager>
-    <bean id="passwordEncode"
-          class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/><!-- 配置密码加密类 -->
+
+
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource"><!--国际化配置-->
         <property name="basename" value="config.messages"/>
@@ -81,7 +80,7 @@
     <bean id="filterSecurityInterceptor"
           class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
         <property name="accessDecisionManager" ref="accessDecisionManager"/>
-        <property name="authenticationManager" ref="authenticationManager"/>
+        <property name="authenticationManager" ref="myAuthenticationManager"/>
         <property name="securityMetadataSource" ref="URLFilterInvocationSecurityMetadataSource"/>
     </bean>
     <!--资源拦截器 end-->
@@ -90,7 +89,7 @@
     <bean id="methodSecurityInterceptor"
           class="org.springframework.security.access.intercept.aopalliance.MethodSecurityInterceptor">
         <property name="accessDecisionManager" ref="accessDecisionManager"/>
-        <property name="authenticationManager" ref="authenticationManager"/>
+        <property name="authenticationManager" ref="myAuthenticationManager"/>
         <property name="securityMetadataSource" ref="methodSecurityMetadataSource"/>
     </bean>
     <aop:config>
@@ -101,7 +100,7 @@
     <!--方法拦截器 end-->
 
     <bean id="loginFilter" class="com.magic.rent.service.security.CaptchaSecurityFilter">
-        <property name="authenticationManager" ref="authenticationManager"/>
+        <property name="authenticationManager" ref="myAuthenticationManager"/>
         <property name="authenticationSuccessHandler">
             <bean class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
                 <property name="defaultTargetUrl" value="/index.jsp"/>

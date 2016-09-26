@@ -11,7 +11,7 @@ public class Log {
 
     public static void info(Class clazz,String tittle, String text) {
         org.apache.commons.logging.Log logger = LogFactory.getLog(clazz);
-        String infoStart = "————————————————————————————————————————[Info Start]——\n";
+        String infoStart = "\n————————————————————————————————————————[Info Start]——\n";
         String infoEnd = "信息: ————————————————————————————————————————[Info   End]——\n";
         StringBuffer stringBuffer = new StringBuffer(infoStart);
         stringBuffer.append("标题:" + tittle + "\n内容:")
@@ -22,7 +22,7 @@ public class Log {
 
     public static void error(Class clazz,String tittle, String text) {
         org.apache.commons.logging.Log logger = LogFactory.getLog(clazz);
-        String infoStart = "————————————————————————————————————————[Info Start]——\n";
+        String infoStart = "\n————————————————————————————————————————[Info Start]——\n";
         String infoEnd = "信息: ————————————————————————————————————————[Info   End]——\n";
         StringBuffer stringBuffer = new StringBuffer(infoStart);
         stringBuffer.append("标题:" + tittle + "\n内容:")

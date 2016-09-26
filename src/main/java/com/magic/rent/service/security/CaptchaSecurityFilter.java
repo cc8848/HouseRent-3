@@ -18,7 +18,6 @@ import javax.servlet.http.HttpServletResponse;
  * 创建者: wu   创建时间: 16/9/26
  * 类说明:
  */
-@Service
 public class CaptchaSecurityFilter extends UsernamePasswordAuthenticationFilter {
 
     @Autowired
