@@ -31,6 +31,7 @@
     <sec:http auto-config="true" access-decision-manager-ref="accessDecisionManager">
         <sec:form-login
                 login-page="/WEB-INF/views/login.jsp"
+                login-processing-url="/login.do"
                 authentication-failure-url="/WEB-INF/error/authority.jsp"
                 authentication-success-handler-ref="authenticationSuccessHandlerImpl"
                 authentication-failure-handler-ref="authenticationFailHandlerImpl"/>

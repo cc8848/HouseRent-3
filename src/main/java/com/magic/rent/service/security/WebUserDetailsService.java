@@ -46,20 +46,16 @@ public class WebUserDetailsService implements UserDetailsService {
 
         try {
             sysUsers = sysUsersMapper.selectByUserName(s);
-
-            List<SysRoles> sysRolesList = sysUsersMapper.selectRolesByUserId(sysUsers.getUserId());
-
-            sysUsers.setSysRoles(sysRolesList);
-
         } catch (Exception e) {
             e.printStackTrace();
         }
 
         if (sysUsers == null) {
-            throw new UsernameNotFoundException(this.messageSource.getMessage(
-                    "UserDetailsService.userNotFount", new Object[]{s}, null));
+            throw new UsernameNotFoundException(
+                    "UserDetailsService.userNotFount");
         }
-
+        List<SysRoles> sysRolesList = sysUsersMapper.selectRolesByUserId(sysUsers.getUserId());
+        sysUsers.setSysRoles(sysRolesList);
         //封装该用户具有什么角色
         Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
         if (sysUsers.getSysRoles() != null && !sysUsers.getSysRoles().isEmpty()) {

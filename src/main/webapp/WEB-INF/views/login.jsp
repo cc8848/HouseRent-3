@@ -11,54 +11,42 @@
 <html>
 <head>
     <title>Title</title>
+    <sec:csrfMetaTags/>
     <link href="/css/bootstrap.css" rel="stylesheet">
 
 </head>
 <body>
 
-<center>
     <div class="error">
         ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message }</div>
     <form name='f' id='f'
-          action='<%=request.getContextPath()%>/j_spring_security_check'
+          action='<%=request.getContextPath()%>/login.do'
           method='POST'>
-        <table style="width: 50%">
+        <table style="width: 70%">
             <tr>
-                <td style="text-align: right; width: 35%">用户名称 :</td>
+                <td style="text-align: right; width: 25%">用户名称 :</td>
                 <td style="text-align: left">
-                    <input type='text' name='j_username' value=''></td>
+                    <input type='text' name='username' value=''></td>
             </tr>
             <tr>
                 <td style="text-align: right">密码 :</td>
                 <td style="text-align: left">
-                    <input type='password' name='j_password'/></td>
+                    <input type='password' name='password'/></td>
             </tr>
             <tr>
                 <td style="text-align: right">
-                    <label for="j_captcha"> 验证码: </label></td>
+                    <label for="captcha"> 验证码: </label></td>
                 <td>
-                    <input type='text' name='j_captcha' class="required"
-                           size='5'/>
-                    <img id="imageF" src="<c:url value="/resource/image.jsp"/>"/>
-                    <a href="#" id="flashImage">看不清楚换一张</a>
-
+                    <input type="text" id="captcha" name="captcha" />
                 </td>
             </tr>
             <tr>
-                <td align="right"><input id="_spring_security_remember_me"
-                                         name="_spring_security_remember_me" type="checkbox" value="true"/>
-
-                </td>
-                <td><label for="_spring_security_remember_me">Remember Me?</label>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: center"><input
-                        type="submit" name="submit" value="登录"/></td>
+                <td colspan="2" style="text-align: center">
+                    <sec:csrfInput/>
+                    <input type="submit" name="submit" value="登录"/></td>
             </tr>
         </table>
-    </form>
-</center>
+    </form><img src="/getCaptchaImage" onclick="this.src='/getCaptchaImage?d='+new Date().getTime()" border="1"/>
 <script type="text/javascript">
 
     document.f.j_username.focus();
@@ -66,14 +54,6 @@
         alert("用户名或密码错误");
     }
 
-    jQuery(function ($) {
-
-
-        $("#flashImage").click(function () {
-
-            $('#imageF').hide().attr('src', '<c:url value="/resource/image.jsp"/>' + '?' + Math.floor(Math.random() * 100)).fadeIn();
-        });
-    });
 
 
 </script>

@@ -17,19 +17,8 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/user")
 public class UserController {
 
-    @Autowired
-    private IUserService iUserService;
-
-
-    public ModelAndView login(HttpServletRequest request) {
-        ModelAndView modelAndView = new ModelAndView();
-        String phone = request.getParameter("phone");
-        String password = request.getParameter("password");
-        if (null==phone||null==password){
-
-        }
-
-
-        return modelAndView;
+    @RequestMapping("login")
+    public String login() {
+        return "login";
     }
 }
