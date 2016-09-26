@@ -11,6 +11,7 @@ import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUserLoginDetails;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
+import com.magic.rent.service.impl.UserServiceImpl;
 import com.magic.rent.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;

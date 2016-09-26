@@ -21,7 +21,6 @@
             <tx:method name="add*" propagation="REQUIRED"/>
         </tx:attributes>
     </tx:advice>
-
     <aop:config>
         <aop:advisor advice-ref="txAdvice" pointcut="execution(* com.magic.rent.service.*.*(..))"/>
     </aop:config>

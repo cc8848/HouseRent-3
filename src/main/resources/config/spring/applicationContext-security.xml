@@ -2,13 +2,16 @@
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:sec="http://www.springframework.org/schema/security"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
           http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
           http://www.springframework.org/schema/aop
           http://www.springframework.org/schema/aop/spring-aop.xsd
           http://www.springframework.org/schema/security
-          http://www.springframework.org/schema/security/spring-security.xsd">
+          http://www.springframework.org/schema/security/spring-security.xsd
+          http://www.springframework.org/schema/tx
+          http://www.springframework.org/schema/tx/spring-tx.xsd">
 
     <!--过滤资源 start-->
     <!--不进行拦截的静态资源-->
@@ -93,9 +96,8 @@
         <property name="securityMetadataSource" ref="methodSecurityMetadataSource"/>
     </bean>
     <aop:config>
-        <aop:pointcut id="servicePointcut"
-                      expression="execution(* com.magic.rent.service.*.*(..))"/>
-        <aop:advisor advice-ref="methodSecurityInterceptor" pointcut-ref="servicePointcut" order="1"/>
+        <aop:advisor advice-ref="methodSecurityInterceptor" pointcut="execution(* com.magic.rent.service.*.*(..))"
+                     order="1"/>
     </aop:config>
     <!--方法拦截器 end-->
 
@@ -111,5 +113,9 @@
                 <property name="defaultFailureUrl" value="/login.jsp"/>
             </bean>
         </property>
+    </bean>
+
+    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"/>
     </bean>
 </beans>

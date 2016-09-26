@@ -1,6 +1,5 @@
 package com.magic.rent.service.impl;
 
-import com.magic.rent.mapper.SysUsersMapper;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
 import org.junit.Before;
@@ -11,7 +10,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 import static org.junit.Assert.*;
 
 /**
- * Created by wuxinzhe on 16/9/24.
+ * Created by wuxinzhe on 16/9/27.
  */
 public class UserServiceImplTest {
 
@@ -28,11 +27,13 @@ public class UserServiceImplTest {
 
     @Test
     public void testFindSysUserByUserName() throws Exception {
+        IUserService userService = (IUserService)applicationContext.getBean("userServiceImpl");
+        SysUsers sysUsers=userService.findSysUserByUserName("18650155502");
+        System.out.print(sysUsers);
+    }
 
-        UserServiceImpl iUserService = (UserServiceImpl) applicationContext.getBean("userServiceImpl");
+    @Test
+    public void testUpdateUserInfo() throws Exception {
 
-        SysUsers sysUsers = iUserService.findSysUserByUserName("18650155502");
-
-        System.out.print(sysUsers.toString());
     }
 }

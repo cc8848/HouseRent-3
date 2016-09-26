@@ -80,8 +80,8 @@
     </bean>
 
     <bean id="colorDimGrey" class="java.awt.Color">
-        <constructor-arg name="r" type="int" value="100"/>
-        <constructor-arg name="g" type="int" value="100"/>
-        <constructor-arg name="b" type="int" value="100"/>
+        <constructor-arg name="r" type="int" value="0"/>
+        <constructor-arg name="g" type="int" value="0"/>
+        <constructor-arg name="b" type="int" value="0"/>
     </bean>
 </beans>
