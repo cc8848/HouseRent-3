@@ -1,42 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" ?>
 <beans xmlns="http://www.springframework.org/schema/beans"
        xmlns:sec="http://www.springframework.org/schema/security"
-       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
-          http://www.springframework.org/schema/beans/spring-beans-3.0.xsd
-          http://www.springframework.org/schema/security
-          http://www.springframework.org/schema/security/spring-security.xsd
+          http://www.springframework.org/schema/beans/spring-beans-4.1.xsd
           http://www.springframework.org/schema/aop
-          http://www.springframework.org/schema/aop/spring-aop.xsd">
+          http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/security
+          http://www.springframework.org/schema/security/spring-security.xsd">
 
     <!--过滤资源 start-->
     <!--不进行拦截的静态资源-->
-    <sec:http pattern="css/*.css" security="none"/>
-    <sec:http pattern="img/*.jpg" security="none"/>
-    <sec:http pattern="img/*.png" security="none"/>
-    <sec:http pattern="img/*.jpeg" security="none"/>
-    <sec:http pattern="img/*.gif" security="none"/>
-    <sec:http pattern="js/*.js" security="none"/>
+
+    <sec:http pattern="/css/bootstrap.css" security="none"/>
+    <sec:http pattern="/img/*.jpg" security="none"/>
+    <sec:http pattern="/img/*.png" security="none"/>
+    <sec:http pattern="/img/*.jpeg" security="none"/>
+    <sec:http pattern="/img/*.gif" security="none"/>
+    <sec:http pattern="/js/bootstrap.min.js" security="none"/>
     <!--不进行拦截的页面-->
     <sec:http pattern="/index.jsp" security="none"/>
     <sec:http pattern="/WEB-INF/views/login.jsp" security="none"/>
-    <sec:http pattern="/JCaptcha.jpg" security="none"/><!-- 不过滤验证码 -->
-    <sec:http pattern="/test/**" security="none"/><!-- 不过滤测试内容 -->
     <!--过滤资源 end-->
 
     <!--权限配置及自定义登录界面 start-->
-    <sec:http auto-config="true" use-expressions="true" access-decision-manager-ref="accessDecisionManager">
-        <sec:intercept-url pattern="/WEB-INF/admin/**" access="hasRole('admin')"/>
+    <sec:http auto-config="true" access-decision-manager-ref="accessDecisionManager">
         <sec:form-login
                 login-page="/WEB-INF/views/login.jsp"
                 authentication-failure-url="/WEB-INF/error/authority.jsp"
                 authentication-success-handler-ref="authenticationSuccessHandlerImpl"
                 authentication-failure-handler-ref="authenticationFailHandlerImpl"/>
         <sec:logout invalidate-session="true" logout-success-url="/index.jsp"/>
-        <sec:session-management invalid-session-url="WEB-INF/views/login.jsp">
+        <sec:session-management invalid-session-url="/WEB-INF/views/login.jsp">
             <sec:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>
         </sec:session-management>
         <!--资源拦截器配置-->
+        <sec:custom-filter ref="loginFilter" before="FORM_LOGIN_FILTER"/>
         <sec:custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
     </sec:http>
 
@@ -47,28 +47,19 @@
     </bean>
     <!--权限配置及自定义登录界面 end-->
 
-    <!--解决UsernameNotFoundException无法被捕获的问题 start-->
     <sec:authentication-manager alias="authenticationManager">
-        <sec:authentication-provider ref="authenticationProvider"/>
+        <sec:authentication-provider user-service-ref="webUserDetailsService">
+            <sec:password-encoder ref="passwordEncode">
+                <sec:salt-source user-property="username"/>
+            </sec:password-encoder>
+        </sec:authentication-provider>
     </sec:authentication-manager>
-    <bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
-        <property name="hideUserNotFoundExceptions" value="false"/>
-        <property name="userDetailsService" ref="webUserDetailsService"/>
-        <!--<property name="userCache" ref="userCache" />--><!--用于使用缓存-->
-        <property name="messageSource" ref="messageSource"/>
-        <property name="passwordEncoder" ref="passwordEncode"/>
-        <property name="saltSource" ref="saltSource"/>
-    </bean>
     <bean id="passwordEncode"
           class="org.springframework.security.authentication.encoding.Md5PasswordEncoder"/><!-- 配置密码加密类 -->
-    <bean id="saltSource" class="org.springframework.security.authentication.dao.ReflectionSaltSource">
-        <property name="userPropertyToUse" value="userName"/>
-    </bean>
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource"><!--国际化配置-->
         <property name="basename" value="config.messages"/>
     </bean>
-    <!--解决UsernameNotFoundException无法被捕获的问题 end-->
 
     <!--决策管理器 start-->
     <bean id="accessDecisionManager" class="org.springframework.security.access.vote.AffirmativeBased">
@@ -109,12 +100,17 @@
     </aop:config>
     <!--方法拦截器 end-->
 
-    <bean id="captchaService"
-          class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
-        <property name="captchaEngine">
-            <bean class="com.magic.rent.service.JCaptcha.GMailEngine"/>
+    <bean id="loginFilter" class="com.magic.rent.service.security.CaptchaSecurityFilter">
+        <property name="authenticationManager" ref="authenticationManager"/>
+        <property name="authenticationSuccessHandler">
+            <bean class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
+                <property name="defaultTargetUrl" value="/index.jsp"/>
+            </bean>
         </property>
-        <!-- 默认生成的图片180秒过期 , 可另行设置-->
-        <property name="minGuarantedStorageDelayInSeconds" value="180"/>
+        <property name="authenticationFailureHandler">
+            <bean class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
+                <property name="defaultFailureUrl" value="/login.jsp"/>
+            </bean>
+        </property>
     </bean>
 </beans>
