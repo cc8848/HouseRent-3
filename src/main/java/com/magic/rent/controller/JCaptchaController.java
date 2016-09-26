@@ -35,9 +35,9 @@ public class JCaptchaController {
             response.setHeader("Cache-Control", "no-store");
             response.setHeader("Pragma", "no-cache");
             response.setDateHeader("Expires", 0L);
-            response.setContentType("image/jpeg");
+            response.setContentType("image/png");
 
-            ImageIO.write(challenge, "jpeg", jpegOutputStream);
+            ImageIO.write(challenge, "png", jpegOutputStream);
             byte[] captchaChallengeAsJpeg = jpegOutputStream.toByteArray();
 
             ServletOutputStream respOs = response.getOutputStream();
@@ -45,7 +45,7 @@ public class JCaptchaController {
             respOs.flush();
             respOs.close();
         } catch (IOException e) {
-            Log.error(JCaptchaController.class, "获取验证码", e.getMessage());
+            Log.error(JCaptchaController.class, "获取验证码失败", e.getMessage());
         }
     }
 

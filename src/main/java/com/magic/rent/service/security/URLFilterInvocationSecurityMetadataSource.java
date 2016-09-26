@@ -43,7 +43,7 @@ public class URLFilterInvocationSecurityMetadataSource implements FilterInvocati
             }
         }
 
-        Log.info(URLFilterInvocationSecurityMetadataSource.class, "获取URL资源", "URL资源：" + request.getRequestURI() + " -> " + attrs);
+        Log.info(URLFilterInvocationSecurityMetadataSource.class, "URL资源-权限", "URL：" + request.getRequestURI() + " -> 权限:" + attrs);
         return attrs;
     }
 

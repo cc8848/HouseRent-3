@@ -18,9 +18,6 @@
             </list>
         </constructor-arg>
     </bean>
-
-    <bean id="imageCaptchaService" class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService"/>
-
     <bean id="captchaFactory" class="com.octo.captcha.image.gimpy.GimpyFactory">
         <constructor-arg name="generator" ref="wordGenerator"/>
         <constructor-arg name="word2image" ref="wordToImage"/>
@@ -37,87 +34,54 @@
     </bean>
 
     <bean id="fontGenRandom" class="com.octo.captcha.component.image.fontgenerator.RandomFontGenerator">
-        <constructor-arg name="minFontSize" value="20"/>
-        <constructor-arg name="maxFontSize" value="20"/>
+        <constructor-arg name="minFontSize" value="14"/>
+        <constructor-arg name="maxFontSize" value="18"/>
         <constructor-arg name="fontsList">
             <list>
                 <bean class="java.awt.Font">
                     <constructor-arg name="name" value="Arial"/>
                     <constructor-arg name="style" value="0"/>
-                    <constructor-arg name="size" value="20"/>
+                    <constructor-arg name="size" value="18"/>
                 </bean>
             </list>
         </constructor-arg>
     </bean>
 
     <bean id="backGenUni" class="com.octo.captcha.component.image.backgroundgenerator.UniColorBackgroundGenerator">
-        <!--背景宽度-->
-        <constructor-arg index="0">
-            <value>80</value>
-        </constructor-arg>
-        <!--背景高度-->
-        <constructor-arg index="1">
-            <value>32</value>
-        </constructor-arg>
+        <constructor-arg name="width" value="80"/>
+        <constructor-arg name="height" value="25"/>
+        <constructor-arg name="color" value="WHITE"/>
     </bean>
 
     <bean id="decoratedPaster" class="com.octo.captcha.component.image.textpaster.DecoratedRandomTextPaster">
-        <!--最大字符长度-->
-        <constructor-arg type="java.lang.Integer" index="0">
-            <value>4</value>
-        </constructor-arg>
-        <!--最小字符长度-->
-        <constructor-arg type="java.lang.Integer" index="1">
-            <value>4</value>
-        </constructor-arg>
-        <!--文本颜色-->
-        <constructor-arg index="2">
-            <ref bean="colorGen"/>
-        </constructor-arg>
-        <!--文本混淆-->
-        <constructor-arg index="3">
+        <constructor-arg name="minAcceptedWordLength" value="4"/>
+        <constructor-arg name="maxAcceptedWordLength" value="4"/>
+        <constructor-arg name="colorGenerator" ref="colorGen"/>
+        <constructor-arg name="decorators">
             <list>
-                <!--<ref bean="baffleDecorator"/>-->
+                <ref bean="baffleDecorator"/>
             </list>
         </constructor-arg>
     </bean>
 
     <bean id="baffleDecorator" class="com.octo.captcha.component.image.textpaster.textdecorator.BaffleTextDecorator">
-        <constructor-arg type="java.lang.Integer" index="0">
-            <value>1</value>
-        </constructor-arg>
-        <constructor-arg type="java.awt.Color" index="1">
-            <ref bean="colorWrite"/>
-        </constructor-arg>
+        <constructor-arg name="numberOfHolesPerGlyph" value="1"/>
+        <constructor-arg name="holesColor" ref="colorWrite"/>
     </bean>
 
     <bean id="colorGen" class="com.octo.captcha.component.image.color.SingleColorGenerator">
-        <constructor-arg type="java.awt.Color" index="0">
-            <ref bean="colorDimGrey"/>
-        </constructor-arg>
+        <constructor-arg name="color" ref="colorDimGrey"/>
     </bean>
 
     <bean id="colorWrite" class="java.awt.Color">
-        <constructor-arg type="int" index="0">
-            <value>255</value>
-        </constructor-arg>
-        <constructor-arg type="int" index="1">
-            <value>255</value>
-        </constructor-arg>
-        <constructor-arg type="int" index="2">
-            <value>255</value>
-        </constructor-arg>
+        <constructor-arg name="r" type="int" value="255"/>
+        <constructor-arg name="g" type="int" value="255"/>
+        <constructor-arg name="b" type="int" value="255"/>
     </bean>
 
     <bean id="colorDimGrey" class="java.awt.Color">
-        <constructor-arg type="int" index="0">
-            <value>105</value>
-        </constructor-arg>
-        <constructor-arg type="int" index="1">
-            <value>105</value>
-        </constructor-arg>
-        <constructor-arg type="int" index="2">
-            <value>105</value>
-        </constructor-arg>
+        <constructor-arg name="r" type="int" value="100"/>
+        <constructor-arg name="g" type="int" value="100"/>
+        <constructor-arg name="b" type="int" value="100"/>
     </bean>
 </beans>
