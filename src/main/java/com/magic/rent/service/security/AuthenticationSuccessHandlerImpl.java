@@ -46,10 +46,10 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
         this.saveLoginInfo(request, authentication);
 
         if (this.forwardToDestination) {
-            Log.info(AuthenticationSuccessHandlerImpl.class, "登录成功", "Login success,Forwarding to [" + this.defaultTargetUrl + "]");
+            Log.info(this, "登录成功", "Login success,Forwarding to [" + this.defaultTargetUrl + "]");
             request.getRequestDispatcher(this.defaultTargetUrl).forward(request, response);
         } else {
-            Log.info(AuthenticationSuccessHandlerImpl.class, "登录成功", "Login success,Redirecting to [" + this.defaultTargetUrl + "]");
+            Log.info(this, "登录成功", "Login success,Redirecting to [" + this.defaultTargetUrl + "]");
             this.redirectStrategy.sendRedirect(request, response, this.defaultTargetUrl);
         }
     }
@@ -64,7 +64,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
             user.setLoginIp(ip);
             iUserService.updateUserInfo(user);
         } catch (DataAccessException e) {
-            Log.info(AuthenticationSuccessHandlerImpl.class, "保存登录数据", "保存登录数据失败:" + e.toString());
+            Log.info(this, "保存登录数据", "保存登录数据失败:" + e.toString());
         }
     }
 
@@ -98,6 +98,6 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
 
     public void afterPropertiesSet() throws Exception {
         if (StringUtils.isEmpty(defaultTargetUrl))
-        throw new ExceptionInInitializerError("You must configure defaultTargetUrl");
+            throw new ExceptionInInitializerError("You must configure defaultTargetUrl");
     }
 }

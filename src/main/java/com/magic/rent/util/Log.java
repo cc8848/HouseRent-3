@@ -9,8 +9,8 @@ import org.apache.commons.logging.LogFactory;
  */
 public class Log {
 
-    public static void info(Class clazz,String tittle, String text) {
-        org.apache.commons.logging.Log logger = LogFactory.getLog(clazz);
+    public static void info(Object object, String tittle, String text) {
+        org.apache.commons.logging.Log logger = LogFactory.getLog(object.getClass());
         String infoStart = "\n————————————————————————————————————————————————————————[Info Start]——\n";
         String infoEnd = "————————————————————————————————————————————————————————[Info   End]——\n";
         StringBuffer stringBuffer = new StringBuffer(infoStart);
@@ -20,8 +20,8 @@ public class Log {
         logger.info(stringBuffer.toString());
     }
 
-    public static void error(Class clazz,String tittle, String text) {
-        org.apache.commons.logging.Log logger = LogFactory.getLog(clazz);
+    public static void error(Object object, String tittle, String text) {
+        org.apache.commons.logging.Log logger = LogFactory.getLog(object.getClass());
         String infoStart = "\n————————————————————————————————————————————————————————[Info Start]——\n";
         String infoEnd = "————————————————————————————————————————————————————————[Info   End]——\n";
         StringBuffer stringBuffer = new StringBuffer(infoStart);

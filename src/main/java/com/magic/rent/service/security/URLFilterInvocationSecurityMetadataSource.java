@@ -43,7 +43,7 @@ public class URLFilterInvocationSecurityMetadataSource implements FilterInvocati
             }
         }
 
-        Log.info(URLFilterInvocationSecurityMetadataSource.class, "URL资源-权限", "URL：" + request.getRequestURI() + " -> 权限:" + attrs);
+        Log.info(this, "URL资源-权限", "URL：" + request.getRequestURI() + " -> 权限:" + attrs);
         return attrs;
     }
 
@@ -94,7 +94,7 @@ public class URLFilterInvocationSecurityMetadataSource implements FilterInvocati
 
     public void afterPropertiesSet() throws Exception {
         this.requestMap = this.bindRequestMap();
-        Log.info(URLFilterInvocationSecurityMetadataSource.class, "获取权限列表", "资源权限列表" + this.requestMap);
+        Log.info(this, "获取权限列表", "资源权限列表" + this.requestMap);
     }
 
     public void refreshResuorceMap() {

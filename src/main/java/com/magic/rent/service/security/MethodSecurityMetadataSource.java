@@ -47,7 +47,7 @@ public class MethodSecurityMetadataSource extends AbstractMethodSecurityMetadata
             }
         }
 
-        Log.info(MethodSecurityMetadataSource.class, "获取METHOD资源", "METHOD资源：" + key.getFullMethodName() + " -> " + attrs);
+        Log.info(this, "获取METHOD资源", "METHOD资源：" + key.getFullMethodName() + " -> " + attrs);
         return attrs;
     }
 

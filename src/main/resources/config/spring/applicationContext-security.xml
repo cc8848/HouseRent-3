@@ -36,7 +36,6 @@
             <sec:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>
         </sec:session-management>
         <!--资源拦截器配置-->
-        <sec:custom-filter ref="loginFilter" after="FILTER_SECURITY_INTERCEPTOR"/>
         <sec:custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
     </sec:http>
 
@@ -113,21 +112,4 @@
     </aop:config>
     <!--方法拦截器 end-->
 
-    <bean id="loginFilter" class="com.magic.rent.service.security.CaptchaSecurityFilter">
-        <property name="authenticationManager" ref="myAuthenticationManager"/>
-        <property name="authenticationSuccessHandler">
-            <bean class="org.springframework.security.web.authentication.SavedRequestAwareAuthenticationSuccessHandler">
-                <property name="defaultTargetUrl" value="/index.jsp"/>
-            </bean>
-        </property>
-        <property name="authenticationFailureHandler">
-            <bean class="org.springframework.security.web.authentication.SimpleUrlAuthenticationFailureHandler">
-                <property name="defaultFailureUrl" value="/login.jsp"/>
-            </bean>
-        </property>
-    </bean>
-
-    <bean id="dataSourceTransactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
-        <property name="dataSource" ref="dataSource"/>
-    </bean>
 </beans>

@@ -17,45 +17,49 @@
 </head>
 <body>
 
-    <div class="error">
-        ${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message }</div>
-    <form name='f' id='f'
-          action='<%=request.getContextPath()%>/login.do'
-          method='POST'>
-        <table style="width: 70%">
-            <tr>
-                <td style="text-align: right; width: 25%">用户名称 :</td>
-                <td style="text-align: left">
-                    <input type='text' name='username' value=''></td>
-            </tr>
-            <tr>
-                <td style="text-align: right">密码 :</td>
-                <td style="text-align: left">
-                    <input type='password' name='password'/></td>
-            </tr>
-            <tr>
-                <td style="text-align: right">
-                    <label for="captcha"> 验证码: </label></td>
-                <td>
-                    <input type="text" id="captcha" name="captcha" />
-                </td>
-            </tr>
-            <tr>
-                <td colspan="2" style="text-align: center">
-                    <sec:csrfInput/>
-                    <input type="submit" name="submit" value="登录"/></td>
-            </tr>
-        </table>
-    </form><img src="/getCaptchaImage" onclick="this.src='/getCaptchaImage?d='+new Date().getTime()" border="1"/>
-<script type="text/javascript">
+<div class="error">${sessionScope.SPRING_SECURITY_LAST_EXCEPTION.message }</div>
+<form name='f' id='f' action="<c:url value="/login.do" />" method='POST'>
+    <table style="width: 70%">
+        <tr>
+            <td style="text-align: right; width: 25%">用户名称 :</td>
+            <td style="text-align: left">
+                <input type='text' name='username' value=''></td>
+        </tr>
+        <tr>
+            <td style="text-align: right">密码 :</td>
+            <td style="text-align: left">
+                <input type='password' name='password'/>
+            </td>
+        </tr>
+        <tr>
+            <td style="text-align: right">
+                <label for="captcha"> 验证码: </label></td>
+            <td>
+                <input type="text" id="captcha" name="captcha"/>
+                <img src="<c:url value="/jcaptcha.jpg"/>"
+                     href="javascript:refreshCaptcha()" border="1"/>
+            </td>
+        </tr>
+        <tr>
+            <td colspan="2" style="text-align: center">
+                <sec:csrfInput/>
+                <input type="submit" name="submit" value="登录"/>
+            </td>
+        </tr>
+    </table>
+</form>
 
-    document.f.j_username.focus();
+<script type="text/javascript">
+    document.f.username.focus();
     if ('${message}' == 1) {
         alert("用户名或密码错误");
     }
-
-
-
+    function refreshCaptcha() {
+        $('#captchaImg').hide().attr(
+                'src',
+                '<c:url value="/jcaptcha.jpg"/>' + '?' + Math
+                        .floor(Math.random() * 100)).fadeIn();
+    }
 </script>
 <link href="/js/jquery-3.1.0.min.js">
 <link href="/js/bootstrap.js">
