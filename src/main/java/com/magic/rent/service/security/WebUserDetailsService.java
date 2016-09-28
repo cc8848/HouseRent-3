@@ -19,10 +19,7 @@ import org.springframework.context.annotation.Role;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.userdetails.User;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.security.core.userdetails.UserDetailsService;
-import org.springframework.security.core.userdetails.UsernameNotFoundException;
+import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
@@ -39,21 +36,19 @@ public class WebUserDetailsService implements UserDetailsService {
     private MessageSource messageSource;
 
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
-
         SysUsers sysUsers = null;
-
-        //此处后续需要加入从缓存中获取User信息
-
         try {
+            //从数据中查找数据
             sysUsers = sysUsersMapper.selectByUserName(s);
         } catch (Exception e) {
             e.printStackTrace();
         }
-
+        //如果查找不到用户信息,则抛出异常
         if (sysUsers == null) {
             throw new UsernameNotFoundException(
                     "UserDetailsService.userNotFount");
         }
+        //根据用户ID查询用户所有角色
         List<SysRoles> sysRolesList = sysUsersMapper.selectRolesByUserId(sysUsers.getUserId());
         sysUsers.setSysRoles(sysRolesList);
         //封装该用户具有什么角色
@@ -65,7 +60,8 @@ public class WebUserDetailsService implements UserDetailsService {
             }
         }
         Log.info(WebUserDetailsService.class, "获取用户角色", "账户名:" + s + sysUsers.getSysRoles().toString());
-        SysUserLoginDetails userLoginDetails = new SysUserLoginDetails(authorities, sysUsers.getPassword(), sysUsers.getUserName(), sysUsers.isAccountNonExpired(), sysUsers.isAccountNonLocked(), sysUsers.isCredentialsNonExpired(), sysUsers.isEnabled());
-        return userLoginDetails;
+        //拼装SysUserLoginDetails对象
+        return new SysUserLoginDetails(authorities, sysUsers.getPassword(), sysUsers.getUserName(), sysUsers.isAccountNonExpired(), sysUsers.isAccountNonLocked(), sysUsers.isCredentialsNonExpired(), sysUsers.isEnabled());
+
     }
 }

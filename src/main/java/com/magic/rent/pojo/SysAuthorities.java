@@ -1,6 +1,8 @@
 package com.magic.rent.pojo;
 
-public class SysAuthorities {
+import java.io.Serializable;
+
+public class SysAuthorities implements Serializable {
     private Integer authorityId;
 
     private String authorityMark;

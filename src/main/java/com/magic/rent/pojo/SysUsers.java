@@ -1,9 +1,10 @@
 package com.magic.rent.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 import java.util.List;
 
-public class SysUsers {
+public class SysUsers implements Serializable {
     private Integer userId;//用户id
 
     private String userName;//账户名

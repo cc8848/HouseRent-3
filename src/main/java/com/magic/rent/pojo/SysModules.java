@@ -1,6 +1,8 @@
 package com.magic.rent.pojo;
 
-public class SysModules {
+import java.io.Serializable;
+
+public class SysModules implements Serializable{
     private Integer moduleId;
 
     private String moduleName;

@@ -1,8 +1,9 @@
 package com.magic.rent.pojo;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class PersistentLogins {
+public class PersistentLogins implements Serializable {
     private String series;
 
     private String username;

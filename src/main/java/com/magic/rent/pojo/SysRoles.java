@@ -1,6 +1,8 @@
 package com.magic.rent.pojo;
 
-public class SysRoles {
+import java.io.Serializable;
+
+public class SysRoles implements Serializable {
     private Integer roleId;
 
     private String roleName;

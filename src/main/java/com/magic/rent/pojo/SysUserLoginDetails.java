@@ -3,12 +3,13 @@ package com.magic.rent.pojo;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import java.io.Serializable;
 import java.util.Collection;
 
 /**
  * Created by wuxinzhe on 16/9/24.
  */
-public class SysUserLoginDetails implements UserDetails {
+public class SysUserLoginDetails implements UserDetails,Serializable {
 
     private Collection<? extends GrantedAuthority> grantedAuthority;//权限列表
 

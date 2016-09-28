@@ -30,7 +30,6 @@
                 <value>classpath*:/mapper/*.xml</value>
             </list>
         </property>
-
     </bean>
 
     <!--自动扫描mapper接口，并注入sqlsession-->
@@ -39,10 +38,6 @@
         <property name="sqlSessionFactoryBeanName" value="sqlSession"/>
     </bean>
 
-    <!-- 使用ehcache缓存 -->
-    <bean id="ehCacheManager" class="org.springframework.cache.ehcache.EhCacheManagerFactoryBean">
-        <property name="configLocation" value="classpath:config/mybatis/ehcache.xml"/>
-        <property name="shared" value="true"/>
-    </bean>
+
 
 </beans>

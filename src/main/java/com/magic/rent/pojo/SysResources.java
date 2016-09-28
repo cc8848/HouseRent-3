@@ -1,6 +1,8 @@
 package com.magic.rent.pojo;
 
-public class SysResources {
+import java.io.Serializable;
+
+public class SysResources implements Serializable {
     private Integer resourceId;
 
     private String resourceType;

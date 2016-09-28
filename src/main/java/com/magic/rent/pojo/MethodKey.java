@@ -2,12 +2,13 @@ package com.magic.rent.pojo;
 
 import org.springframework.util.StringUtils;
 
+import java.io.Serializable;
 import java.lang.reflect.Method;
 
 /**
  * Created by wuxinzhe on 16/9/25.
  */
-public class MethodKey {
+public class MethodKey implements Serializable{
     private String className;
     private String methodName;
 
