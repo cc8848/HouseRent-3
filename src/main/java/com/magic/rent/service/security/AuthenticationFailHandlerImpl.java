@@ -23,6 +23,6 @@ public class AuthenticationFailHandlerImpl implements AuthenticationFailureHandl
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
         Log.info(this, "登录失败", "");
-        httpServletRequest.getRequestDispatcher("/index.jsp").forward(httpServletRequest, httpServletResponse);
+        httpServletRequest.getRequestDispatcher("/user/login").forward(httpServletRequest, httpServletResponse);
     }
 }

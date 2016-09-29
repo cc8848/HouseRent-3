@@ -44,16 +44,24 @@
         <property name="defaultTargetUrl" value="/index.jsp"/>
         <property name="forwardToDestination" value="true"/>
     </bean>
-    <!--权限配置及自定义登录界面 end-->
+
     <sec:authentication-manager id="myAuthenticationManager">
-        <sec:authentication-provider ref="authenticationProvider"/>
+        <sec:authentication-provider user-service-ref="webUserDetailsService">
+            <sec:password-encoder hash="md5">
+                <sec:salt-source ref="saltSource" user-property="username"/>
+            </sec:password-encoder>
+        </sec:authentication-provider>
     </sec:authentication-manager>
-    <bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
-        <property name="userDetailsService" ref="cachingUserDetailsService"/>
-        <property name="hideUserNotFoundExceptions" value="false"/>
-        <property name="passwordEncoder" ref="passwordEncode"/>
-        <property name="saltSource" ref="saltSource"/>
-    </bean>
+
+    <!--权限配置及自定义登录界面 end-->
+    <!--<sec:authentication-manager id="myAuthenticationManager">-->
+    <!--<sec:authentication-provider ref="authenticationProvider"/>-->
+    <!--</sec:authentication-manager>-->
+    <!--<bean id="authenticationProvider" class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">-->
+    <!--<property name="userDetailsService" ref="cachingUserDetailsService"/>-->
+    <!--<property name="hideUserNotFoundExceptions" value="false"/>-->
+    <!--<property name="saltSource" ref="saltSource"/>-->
+    <!--</bean>-->
     <bean id="cachingUserDetailsService"
           class="org.springframework.security.config.authentication.CachingUserDetailsService">
         <constructor-arg name="delegate" ref="webUserDetailsService"/>

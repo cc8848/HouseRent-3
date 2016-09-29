@@ -4,7 +4,7 @@
     <cache-ref namespace="com.magic.rent.mapper.SysUsersMapper"/>
     <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysUsers">
         <id column="USER_ID" jdbcType="INTEGER" property="userId"/>
-        <result column="USERNAME" jdbcType="VARCHAR" property="userName"/>
+        <result column="USERNAME" jdbcType="VARCHAR" property="username"/>
         <result column="NAME" jdbcType="VARCHAR" property="name"/>
         <result column="PASSWORD" jdbcType="VARCHAR" property="password"/>
         <result column="DT_CREATE" jdbcType="TIMESTAMP" property="dtCreate"/>
@@ -41,7 +41,7 @@
       V_QZJGMC, DEP_ID, DEP_NAME, 
       ENABLED, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, 
       CREDENTIALS_NON_EXPIRED)
-    values (#{userName,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
+    values (#{username,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR},
       #{password,jdbcType=VARCHAR}, #{dtCreate,jdbcType=TIMESTAMP}, #{lastLogin,jdbcType=TIMESTAMP}, 
       #{deadline,jdbcType=TIMESTAMP}, #{loginIp,jdbcType=VARCHAR}, #{vQzjgid,jdbcType=VARCHAR}, 
       #{vQzjgmc,jdbcType=VARCHAR}, #{depId,jdbcType=VARCHAR}, #{depName,jdbcType=VARCHAR}, 
@@ -54,7 +54,7 @@
             <if test="userId != null">
                 USER_ID,
             </if>
-            <if test="userName != null">
+            <if test="username != null">
                 USERNAME,
             </if>
             <if test="name != null">
@@ -104,8 +104,8 @@
             <if test="userId != null">
                 #{userId,jdbcType=INTEGER},
             </if>
-            <if test="userName != null">
-                #{userName,jdbcType=VARCHAR},
+            <if test="username != null">
+                #{username,jdbcType=VARCHAR},
             </if>
             <if test="name != null">
                 #{name,jdbcType=VARCHAR},
@@ -221,9 +221,9 @@
 
     <select id="selectByUserName" parameterType="com.magic.rent.pojo.SysUsers"
             resultMap="BaseResultMap">
-    SELECT SYS_USERS.USER_ID,SYS_USERS.USERNAME username,SYS_USERS.PASSWORD password,SYS_USERS.ACCOUNT_NON_EXPIRED,SYS_USERS.ACCOUNT_NON_LOCKED,SYS_USERS.CREDENTIALS_NON_EXPIRED
+    SELECT SYS_USERS.USER_ID,SYS_USERS.USERNAME username,SYS_USERS.PASSWORD password,SYS_USERS.ENABLED,SYS_USERS.ACCOUNT_NON_EXPIRED,SYS_USERS.ACCOUNT_NON_LOCKED,SYS_USERS.CREDENTIALS_NON_EXPIRED
     FROM SYS_USERS
-    WHERE SYS_USERS.USERNAME=#{userName}
+    WHERE SYS_USERS.USERNAME=#{username}
     </select>
     <select id="selectRolesByUserId" parameterType="int" resultMap="com.magic.rent.mapper.SysRolesMapper.BaseResultMap">
     SELECT SYS_ROLES.ROLE_ID,SYS_ROLES.ROLE_NAME,SYS_ROLES.ROLE_DESC,SYS_ROLES.ISSYS,SYS_ROLES.ENABLE

@@ -1,13 +1,17 @@
 package com.magic.rent.pojo;
 
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
+
 import java.io.Serializable;
+import java.util.Collection;
 import java.util.Date;
 import java.util.List;
 
-public class SysUsers implements Serializable {
+public class SysUsers implements UserDetails, Serializable {
     private Integer userId;//用户id
 
-    private String userName;//账户名
+    private String username;//账户名
 
     private String name;//用户姓名
 
@@ -39,6 +43,16 @@ public class SysUsers implements Serializable {
 
     private List<SysRoles> sysRoles;//用户权限
 
+    private Collection<? extends GrantedAuthority> Authorities;//权限列表
+
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return Authorities;
+    }
+
+    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+        Authorities = authorities;
+    }
+
     public List<SysRoles> getSysRoles() {
         return sysRoles;
     }
@@ -55,12 +69,12 @@ public class SysUsers implements Serializable {
         this.userId = userId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName == null ? null : userName.trim();
+    public void setUsername(String username) {
+        this.username = username == null ? null : username.trim();
     }
 
     public String getName() {
@@ -179,7 +193,7 @@ public class SysUsers implements Serializable {
     public String toString() {
         return "SysUsers{" +
                 "userId=" + userId +
-                ", userName='" + userName + '\'' +
+                ", username='" + username + '\'' +
                 ", name='" + name + '\'' +
                 ", password='" + password + '\'' +
                 ", dtCreate=" + dtCreate +
@@ -195,6 +209,7 @@ public class SysUsers implements Serializable {
                 ", accountNonLocked=" + accountNonLocked +
                 ", credentialsNonExpired=" + credentialsNonExpired +
                 ", sysRoles=" + sysRoles +
+                ", Authorities=" + Authorities +
                 '}';
     }
 }
