@@ -14,6 +14,7 @@ public class BaseException extends RuntimeException {
     public MessageSource messageSource;
 
     public BaseException(String message) {
+
         super(message);
     }
 

@@ -3,94 +3,10 @@
        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans-3.0.xsd">
-
-    <!--<bean id="captchaService" class="com.octo.captcha.service.multitype.GenericManageableCaptchaService">-->
-    <!--<constructor-arg name="captchaEngine" ref="imageEngine"/>-->
-    <!--<constructor-arg name="minGuarantedStorageDelayInSeconds" value="180"/>-->
-    <!--<constructor-arg name="maxCaptchaStoreSize" value="100000"/>-->
-    <!--<constructor-arg name="captchaStoreLoadBeforeGarbageCollection" value="75000"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="imageEngine" class="com.octo.captcha.engine.GenericCaptchaEngine">-->
-    <!--<constructor-arg index="0">-->
-    <!--<list>-->
-    <!--<ref bean="captchaFactory"/>-->
-    <!--</list>-->
-    <!--</constructor-arg>-->
-    <!--</bean>-->
-    <!--<bean id="captchaFactory" class="com.octo.captcha.image.gimpy.GimpyFactory">-->
-    <!--<constructor-arg name="generator" ref="wordGenerator"/>-->
-    <!--<constructor-arg name="word2image" ref="wordToImage"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="wordGenerator" class="com.octo.captcha.component.word.wordgenerator.RandomWordGenerator">-->
-    <!--<constructor-arg name="acceptedChars" value="0123456789abcdefghijklmnopqrstuvwxyz"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="wordToImage" class="com.octo.captcha.component.image.wordtoimage.ComposedWordToImage">-->
-    <!--<constructor-arg name="fontGenerator" ref="fontGenRandom"/>-->
-    <!--<constructor-arg name="background" ref="backGenUni"/>-->
-    <!--<constructor-arg name="textPaster" ref="decoratedPaster"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="fontGenRandom" class="com.octo.captcha.component.image.fontgenerator.RandomFontGenerator">-->
-    <!--<constructor-arg name="minFontSize" value="14"/>-->
-    <!--<constructor-arg name="maxFontSize" value="18"/>-->
-    <!--<constructor-arg name="fontsList">-->
-    <!--<list>-->
-    <!--<bean class="java.awt.Font">-->
-    <!--<constructor-arg name="name" value="Arial"/>-->
-    <!--<constructor-arg name="style" value="0"/>-->
-    <!--<constructor-arg name="size" value="18"/>-->
-    <!--</bean>-->
-    <!--</list>-->
-    <!--</constructor-arg>-->
-    <!--</bean>-->
-
-    <!--<bean id="backGenUni" class="com.octo.captcha.component.image.backgroundgenerator.UniColorBackgroundGenerator">-->
-    <!--<constructor-arg name="width" value="80"/>-->
-    <!--<constructor-arg name="height" value="25"/>-->
-    <!--<constructor-arg name="color" value="WHITE"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="decoratedPaster" class="com.octo.captcha.component.image.textpaster.DecoratedRandomTextPaster">-->
-    <!--<constructor-arg name="minAcceptedWordLength" value="4"/>-->
-    <!--<constructor-arg name="maxAcceptedWordLength" value="4"/>-->
-    <!--<constructor-arg name="colorGenerator" ref="colorGen"/>-->
-    <!--<constructor-arg name="decorators">-->
-    <!--<list>-->
-    <!--<ref bean="baffleDecorator"/>-->
-    <!--</list>-->
-    <!--</constructor-arg>-->
-    <!--</bean>-->
-
-    <!--<bean id="baffleDecorator" class="com.octo.captcha.component.image.textpaster.textdecorator.BaffleTextDecorator">-->
-    <!--<constructor-arg name="numberOfHolesPerGlyph" value="1"/>-->
-    <!--<constructor-arg name="holesColor" ref="colorWrite"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="colorGen" class="com.octo.captcha.component.image.color.SingleColorGenerator">-->
-    <!--<constructor-arg name="color" ref="colorDimGrey"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="colorWrite" class="java.awt.Color">-->
-    <!--<constructor-arg name="r" type="int" value="255"/>-->
-    <!--<constructor-arg name="g" type="int" value="255"/>-->
-    <!--<constructor-arg name="b" type="int" value="255"/>-->
-    <!--</bean>-->
-
-    <!--<bean id="colorDimGrey" class="java.awt.Color">-->
-    <!--<constructor-arg name="r" type="int" value="0"/>-->
-    <!--<constructor-arg name="g" type="int" value="0"/>-->
-    <!--<constructor-arg name="b" type="int" value="0"/>-->
-    <!--</bean>-->
-
     <!-- Jcaptcha相关的配置 -->
     <bean id="captchaService"
           class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
         <property name="captchaEngine" ref="GMailEngine"/>
-        <!-- 默认生成的图片180秒过期 , 可另行设置
-        <property name="minGuarantedStorageDelayInSeconds" value="180" />
-        -->
+        <property name="minGuarantedStorageDelayInSeconds" value="180"/>
     </bean>
 </beans>
