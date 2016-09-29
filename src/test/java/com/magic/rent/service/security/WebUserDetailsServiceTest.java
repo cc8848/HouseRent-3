@@ -1,12 +1,10 @@
 package com.magic.rent.service.security;
 
-import com.magic.rent.pojo.SysUserLoginDetails;
+import com.magic.rent.pojo.SysUsers;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by wuxinzhe on 16/9/24.
@@ -27,7 +25,7 @@ public class WebUserDetailsServiceTest {
     @Test
     public void testLoadUserByUsername() throws Exception {
         WebUserDetailsService webUserDetailsService = (WebUserDetailsService) applicationContext.getBean("webUserDetailsService");
-        SysUserLoginDetails sysUserLoginDetails = (SysUserLoginDetails) webUserDetailsService.loadUserByUsername("18650155502");
+        SysUsers sysUserLoginDetails = (SysUsers) webUserDetailsService.loadUserByUsername("18650155502");
         System.out.print(sysUserLoginDetails);
     }
 }

@@ -10,9 +10,12 @@ import org.springframework.security.authentication.encoding.MessageDigestPasswor
  */
 public class StringLength {
 
-    public static void  main(String[] args){
-        MessageDigestPasswordEncoder messageDigestPasswordEncoder =new MessageDigestPasswordEncoder("MD5");
-        String passwordMD5=messageDigestPasswordEncoder.encodePassword("199176","18650155502");
-        Log.info(StringLength.class,"MD5加密",passwordMD5);
+    public static void main(String[] args) {
+//        MessageDigestPasswordEncoder messageDigestPasswordEncoder =new MessageDigestPasswordEncoder("MD5");
+//        String passwordMD5=messageDigestPasswordEncoder.encodePassword("199176","18650155502");
+//        Log.info(StringLength.class,"MD5加密",passwordMD5);
+        String st = "123456789";
+        System.out.print(st.substring(0,9));
+
     }
 }

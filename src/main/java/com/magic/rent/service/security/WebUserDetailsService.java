@@ -8,15 +8,10 @@ package com.magic.rent.service.security;
 
 import com.magic.rent.mapper.SysUsersMapper;
 import com.magic.rent.pojo.SysRoles;
-import com.magic.rent.pojo.SysUserLoginDetails;
 import com.magic.rent.pojo.SysUsers;
-import com.magic.rent.service.IUserService;
-import com.magic.rent.service.impl.UserServiceImpl;
 import com.magic.rent.util.Log;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
-import org.springframework.context.annotation.Role;
-import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.*;
