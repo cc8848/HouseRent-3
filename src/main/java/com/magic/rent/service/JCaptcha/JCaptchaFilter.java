@@ -135,7 +135,7 @@ public class JCaptchaFilter implements Filter {
             ImageIO.write(challenge, "jpg", out);
             out.flush();
         } catch (CaptchaServiceException e) {
-            Log.error(this, "获取验证码图片异常", e.getMessage());
+            Log.error(this, "获取验证码图片异常", e.getMessage(),e);
         } finally {
             out.close();
         }
@@ -156,7 +156,7 @@ public class JCaptchaFilter implements Filter {
             }
             return captchaService.validateResponseForID(captchaID, challengeResponse);
         } catch (CaptchaServiceException e) {
-            Log.error(this, "校验验证码异常", e.getMessage());
+            Log.error(this, "校验验证码异常", e.getMessage(),e);
             return false;
         }
     }

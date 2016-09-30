@@ -6,4 +6,6 @@
 
     <!--扫描service-->
     <context:component-scan base-package="com.magic.rent.service"/>
+    <!--注册统一异常控制-->
+    <bean id="exception" class="com.magic.rent.exception.exhandler.CustomExceptionHandler"/>
 </beans>

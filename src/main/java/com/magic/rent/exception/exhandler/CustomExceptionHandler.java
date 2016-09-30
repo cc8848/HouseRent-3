@@ -16,7 +16,7 @@ import java.util.Map;
  * 创建者: wu   创建时间: 16/9/29
  * 类说明:
  */
-@Service
+
 public class CustomExceptionHandler implements HandlerExceptionResolver {
 
     public ModelAndView resolveException(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception ex) {
