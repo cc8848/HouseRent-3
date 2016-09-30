@@ -45,7 +45,7 @@ public class JCaptchaController {
             respOs.flush();
             respOs.close();
         } catch (IOException e) {
-            Log.error(JCaptchaController.class, "获取验证码失败", e.getMessage());
+            Log.error(JCaptchaController.class, "获取验证码失败", e.getMessage(),e);
         }
     }
 

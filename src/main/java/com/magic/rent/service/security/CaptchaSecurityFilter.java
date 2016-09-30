@@ -33,7 +33,7 @@ public class CaptchaSecurityFilter extends UsernamePasswordAuthenticationFilter 
         Boolean isResponseCorrect = imageCaptchaService.validateResponseForID(request.getSession().getId(), captcha);
 
         if (!isResponseCorrect) {
-            Log.error(CaptchaSecurityFilter.class, "验证码校验", "验证码出错,输入的验证码为:" + captcha);
+            Log.info(CaptchaSecurityFilter.class, "验证码校验", "验证码出错,输入的验证码为:" + captcha);
             throw new CaptchaException(
                     this.messageSource.getMessage("AbstractUserDetailsAuthenticationProvider.badCaptcha", null, "Default", null));
         }

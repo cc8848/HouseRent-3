@@ -20,7 +20,7 @@ public class Log {
         logger.info(stringBuffer.toString());
     }
 
-    public static void error(Object object, String tittle, String text) {
+    public static void error(Object object, String tittle, String text, Throwable t) {
         org.apache.commons.logging.Log logger = LogFactory.getLog(object.getClass());
         String infoStart = "\n————————————————————————————————————————————————————————[Info Start]——\n";
         String infoEnd = "————————————————————————————————————————————————————————[Info   End]——\n";
@@ -28,7 +28,18 @@ public class Log {
         stringBuffer.append("标题:" + tittle + "\n内容:")
                 .append(text + "\n")
                 .append(infoEnd);
-        logger.error(stringBuffer.toString());
+        logger.error(stringBuffer.toString(), t);
+    }
+
+    public static void debug(Object object, String tittle, String text) {
+        org.apache.commons.logging.Log logger = LogFactory.getLog(object.getClass());
+        String infoStart = "\n————————————————————————————————————————————————————————[Info Start]——\n";
+        String infoEnd = "————————————————————————————————————————————————————————[Info   End]——\n";
+        StringBuffer stringBuffer = new StringBuffer(infoStart);
+        stringBuffer.append("标题:" + tittle + "\n内容:")
+                .append(text + "\n")
+                .append(infoEnd);
+        logger.debug(stringBuffer.toString());
     }
 
 }
