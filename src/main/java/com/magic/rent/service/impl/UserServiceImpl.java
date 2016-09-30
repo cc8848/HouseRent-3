@@ -35,14 +35,20 @@ public class UserServiceImpl implements IUserService {
     }
 
     public int updateUserLoginInfo(SysUsers sysUsers) {
-        if(StringUtils.isEmpty(sysUsers.getLastLogin()))
-            throw new ParameterException("");
-        return 0;
+        if (StringUtils.isEmpty(sysUsers.getUserId()))
+            throw new ParameterException("用户ID为空", this);
+        if (StringUtils.isEmpty(sysUsers.getLoginIp()))
+            throw new ParameterException("用户登录IP为空", this);
+        if (null == sysUsers.getLastLogin())
+            throw new ParameterException("用户登录时间为空", this);
+
+        int userID = sysUsersMapper.updateByPrimaryKeySelective(sysUsers);
+        return userID;
     }
 
     public int updateUserInfo(SysUsers sysUsers) {
 
-        int userID=sysUsersMapper.updateByPrimaryKeySelective(sysUsers);
+        int userID = sysUsersMapper.updateByPrimaryKeySelective(sysUsers);
 
         return userID;
     }

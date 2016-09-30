@@ -13,5 +13,7 @@ public interface IUserService {
 
     int updateUserInfo(SysUsers sysUsers);
 
+    int changePassword(SysUsers sysUsers);
+
     int updateUserLoginInfo(SysUsers sysUsers);
 }

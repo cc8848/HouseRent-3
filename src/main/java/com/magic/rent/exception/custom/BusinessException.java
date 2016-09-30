@@ -10,8 +10,8 @@ import com.magic.rent.util.Log;
  */
 public class BusinessException extends BaseException {
 
-    public BusinessException(String message, Throwable cause, Object trade) {
-        super(message, cause, trade);
-        Log.error(trade, "业务逻辑异常", message, cause);
+    public BusinessException(String message, Object trade) {
+        super(message, trade);
+        Log.error(trade, "业务逻辑异常", message, this);
     }
 }

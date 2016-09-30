@@ -9,8 +9,8 @@ public class BaseException extends RuntimeException {
 
     private Object trade;
 
-    public BaseException(String message, Throwable cause, Object trade) {
-        super(message, cause);
+    public BaseException(String message, Object trade) {
+        super(message);
         this.trade = trade;
     }
 }

@@ -9,8 +9,8 @@ import com.magic.rent.util.Log;
  * 类说明:
  */
 public class ParameterException extends BaseException {
-    public ParameterException(String message, Throwable cause, Object trade) {
-        super(message, cause, trade);
-        Log.error(trade, "参数设置异常", message, cause);
+    public ParameterException(String message, Object trade) {
+        super(message, trade);
+        Log.error(trade, "参数设置异常", message, this);
     }
 }

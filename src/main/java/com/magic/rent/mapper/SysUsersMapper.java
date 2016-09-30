@@ -3,6 +3,7 @@ package com.magic.rent.mapper;
 
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
+import org.springframework.stereotype.Repository;
 
 import java.util.List;
 

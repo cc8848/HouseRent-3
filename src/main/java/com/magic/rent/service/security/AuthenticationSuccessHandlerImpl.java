@@ -62,7 +62,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
             Date date = new Date();
             user.setLastLogin(date);
             user.setLoginIp(ip);
-            iUserService.updateUserInfo(user);
+            iUserService.updateUserLoginInfo(user);
         } catch (DataAccessException e) {
             Log.info(this, "保存登录数据", "保存登录数据失败:" + e.toString());
         }
