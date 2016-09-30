@@ -1,11 +1,13 @@
 package com.magic.rent.service.impl;
 
+import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.mapper.SysUsersMapper;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -30,6 +32,12 @@ public class UserServiceImpl implements IUserService {
         sysUsers.setSysRoles(sysRolesList);
 
         return sysUsers;
+    }
+
+    public int updateUserLoginInfo(SysUsers sysUsers) {
+        if(StringUtils.isEmpty(sysUsers.getLastLogin()))
+            throw new ParameterException("");
+        return 0;
     }
 
     public int updateUserInfo(SysUsers sysUsers) {

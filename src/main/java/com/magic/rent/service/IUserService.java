@@ -12,4 +12,6 @@ public interface IUserService {
     SysUsers findSysUserByUserName(String userName);
 
     int updateUserInfo(SysUsers sysUsers);
+
+    int updateUserLoginInfo(SysUsers sysUsers);
 }
