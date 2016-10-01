@@ -6,6 +6,7 @@ package com.magic.rent.service.security;
  * 类说明:
  */
 
+import com.magic.rent.mapper.SysRolesMapper;
 import com.magic.rent.mapper.SysUsersMapper;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
@@ -28,6 +29,9 @@ public class WebUserDetailsService implements UserDetailsService {
     private SysUsersMapper sysUsersMapper;
 
     @Autowired
+    private SysRolesMapper sysRolesMapper;
+
+    @Autowired
     private MessageSource messageSource;
 
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
@@ -44,7 +48,7 @@ public class WebUserDetailsService implements UserDetailsService {
                     "UserDetailsService.userNotFount");
         }
         //根据用户ID查询用户所有角色
-        List<SysRoles> sysRolesList = sysUsersMapper.selectRolesByUserId(sysUsers.getUserId());
+        List<SysRoles> sysRolesList = sysRolesMapper.selectRolesByUserId(sysUsers.getUserId());
         sysUsers.setSysRoles(sysRolesList);
         //封装该用户具有什么角色
         Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();

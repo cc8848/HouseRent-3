@@ -58,7 +58,7 @@
         <constructor-arg name="delegate" ref="webUserDetailsService"/>
         <property name="userCache">
             <bean class="org.springframework.security.core.userdetails.cache.EhCacheBasedUserCache">
-                <property name="cache" ref="userCache"/>
+                <property name="cache" ref="userEhCacheFactory"/>
             </bean>
         </property>
     </bean>

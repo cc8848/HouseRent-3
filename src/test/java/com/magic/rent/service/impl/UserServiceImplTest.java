@@ -43,7 +43,8 @@ public class UserServiceImplTest {
     public void testRegister() throws Exception {
         IUserService userService = (IUserService) applicationContext.getBean("userServiceImpl");
         SysUsers sysUsers = new SysUsers();
-        sysUsers.setUsername("18695685502");
-        sysUsers.setPassword("123456");
+        sysUsers.setUsername("18695685503");
+        sysUsers.setPassword("199176");
+
     }
 }

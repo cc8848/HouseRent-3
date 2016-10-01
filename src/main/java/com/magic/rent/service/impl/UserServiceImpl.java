@@ -5,6 +5,7 @@ import com.magic.rent.mapper.SysUsersMapper;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
@@ -32,6 +33,7 @@ public class UserServiceImpl implements IUserService {
      * @return 用户信息
      * @throws Exception
      */
+    @Cacheable(value = "userCache")
     public SysUsers findSysUserByUserName(String userName) throws Exception {
         return sysUsersMapper.selectByUserName(userName);
     }
@@ -42,6 +44,7 @@ public class UserServiceImpl implements IUserService {
      * @param userID
      * @return 用户信息
      */
+    @Cacheable(value = "userCache")
     public SysUsers findUserByUserID(int userID) throws Exception {
         return sysUsersMapper.selectByPrimaryKey(userID);
     }

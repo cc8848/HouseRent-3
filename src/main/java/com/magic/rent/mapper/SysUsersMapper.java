@@ -1,11 +1,8 @@
 package com.magic.rent.mapper;
 
 
-import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface SysUsersMapper {
@@ -24,6 +21,4 @@ public interface SysUsersMapper {
     SysUsers selectBySelective(SysUsers sysUsers);
 
     SysUsers selectByUserName(String userName);
-
-    List<SysRoles> selectRolesByUserId(Integer userID);
 }

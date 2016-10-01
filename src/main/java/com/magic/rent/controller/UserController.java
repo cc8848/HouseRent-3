@@ -26,13 +26,12 @@ public class UserController {
     @Autowired
     private IUserService iUserService;
 
-    @Autowired
-    private UserCache userCache;
-
     @RequestMapping("login")
     public String login() {
         return "login";
     }
+
+
 
     @ResponseBody
     @RequestMapping
@@ -49,16 +48,15 @@ public class UserController {
         if (null != iUserService.findSysUserByUserName(username))
             return JsonResult.error("用户名已存在!");
 
+        //封装对象
         SysUsers sysUsers = new SysUsers();
         sysUsers.setUsername(username);
-        sysUsers.setPassword(password);//将加密后的密码,装入对象
+        sysUsers.setPassword(password);
+
         //将用户信息写入数据库
         int userID = iUserService.register(sysUsers);
         if (userID <= 0)
             return JsonResult.error("用户注册失败!");
-
-        sysUsers = iUserService.findUserByUserID(userID);
-        userCache.putUserInCache(sysUsers);
 
         return JsonResult.success();
     }
