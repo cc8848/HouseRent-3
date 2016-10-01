@@ -94,7 +94,7 @@ public class URLFilterInvocationSecurityMetadataSource implements FilterInvocati
 
     public void afterPropertiesSet() throws Exception {
         this.requestMap = this.bindRequestMap();
-        Log.info(this, "获取权限列表", "资源权限列表" + this.requestMap);
+        Log.info(this, "初始化参数", "资源权限列表" + this.requestMap);
     }
 
     public void refreshResuorceMap() {

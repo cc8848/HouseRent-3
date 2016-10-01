@@ -93,7 +93,7 @@ public class JCaptchaFilter implements Filter {
             throw new IllegalArgumentException("CaptchaFilter缺少failureUrl参数");
         }
         failureUrl = fConfig.getInitParameter(PARAM_FAILURE_URL);
-        Log.info(this, "验证失败URL:", "FailureURL:" + failureUrl);
+        Log.info(this, "初始化参数", "验证失败URL:" + failureUrl);
         if (StringUtils.isNotBlank(fConfig.getInitParameter(PARAM_FILTER_PROCESSES_URL))) {
             filterProcessesUrl = fConfig.getInitParameter(PARAM_FILTER_PROCESSES_URL);
         }
