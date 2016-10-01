@@ -6,7 +6,6 @@ import org.springframework.security.core.userdetails.UserDetails;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
-import java.util.List;
 
 public class SysUsers implements UserDetails, Serializable {
     private Integer userId;//用户id
@@ -41,23 +40,23 @@ public class SysUsers implements UserDetails, Serializable {
 
     private boolean credentialsNonExpired;//用户证书是否有效
 
-    private List<SysRoles> sysRoles;//用户权限
+    private Collection<? extends SysRoles> sysRoles;//用户权限
 
-    private Collection<? extends GrantedAuthority> Authorities;//权限列表
+    private Collection<? extends GrantedAuthority> SysAuthorities;//权限列表
 
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return Authorities;
+        return SysAuthorities;
     }
 
     public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
-        Authorities = authorities;
+        SysAuthorities = authorities;
     }
 
-    public List<SysRoles> getSysRoles() {
+    public Collection<? extends SysRoles> getSysRoles() {
         return sysRoles;
     }
 
-    public void setSysRoles(List<SysRoles> sysRoles) {
+    public void setSysRoles(Collection<? extends SysRoles> sysRoles) {
         this.sysRoles = sysRoles;
     }
 
@@ -209,7 +208,7 @@ public class SysUsers implements UserDetails, Serializable {
                 ", accountNonLocked=" + accountNonLocked +
                 ", credentialsNonExpired=" + credentialsNonExpired +
                 ", sysRoles=" + sysRoles +
-                ", Authorities=" + Authorities +
+                ", Authorities=" + SysAuthorities +
                 '}';
     }
 }

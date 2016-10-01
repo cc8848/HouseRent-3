@@ -54,6 +54,7 @@ public class WebUserDetailsService implements UserDetailsService {
                 authorities.add(ga);
             }
         }
+
         //装载权限列表
         sysUsers.setAuthorities(authorities);
 

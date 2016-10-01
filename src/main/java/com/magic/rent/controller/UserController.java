@@ -1,12 +1,18 @@
 package com.magic.rent.controller;
 
+import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
+import com.magic.rent.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder;
+import org.springframework.security.core.userdetails.UserCache;
 import org.springframework.stereotype.Controller;
+import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.servlet.ModelAndView;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -17,8 +23,43 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/user")
 public class UserController {
 
+    @Autowired
+    private IUserService iUserService;
+
+    @Autowired
+    private UserCache userCache;
+
     @RequestMapping("login")
     public String login() {
         return "login";
+    }
+
+    @ResponseBody
+    @RequestMapping
+    public JsonResult register(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String username = request.getParameter("username");
+        String password = request.getParameter("password");
+
+        if (StringUtils.isEmpty(username))
+            return JsonResult.error("用户名不能为空!");
+
+        if (StringUtils.isEmpty(password))
+            return JsonResult.error("密码不能为空!");
+
+        if (null != iUserService.findSysUserByUserName(username))
+            return JsonResult.error("用户名已存在!");
+
+        SysUsers sysUsers = new SysUsers();
+        sysUsers.setUsername(username);
+        sysUsers.setPassword(password);//将加密后的密码,装入对象
+        //将用户信息写入数据库
+        int userID = iUserService.register(sysUsers);
+        if (userID <= 0)
+            return JsonResult.error("用户注册失败!");
+
+        sysUsers = iUserService.findUserByUserID(userID);
+        userCache.putUserInCache(sysUsers);
+
+        return JsonResult.success();
     }
 }

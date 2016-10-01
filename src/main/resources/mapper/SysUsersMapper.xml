@@ -51,9 +51,6 @@
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysUsers">
         insert into SYS_USERS
         <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="userId != null">
-                USER_ID,
-            </if>
             <if test="username != null">
                 USERNAME,
             </if>
@@ -101,9 +98,6 @@
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="userId != null">
-                #{userId,jdbcType=INTEGER},
-            </if>
             <if test="username != null">
                 #{username,jdbcType=VARCHAR},
             </if>

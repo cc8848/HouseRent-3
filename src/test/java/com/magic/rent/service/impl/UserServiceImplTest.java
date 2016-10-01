@@ -2,6 +2,7 @@ package com.magic.rent.service.impl;
 
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
+import com.magic.rent.util.JsonResult;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -22,18 +23,27 @@ public class UserServiceImplTest {
                 "classpath:config/spring/applicationContext-service.xml",
                 "classpath:config/spring/applicationContext-JCaptcha.xml",
                 "classpath:config/spring/applicationContext-security.xml",
-                "classpath:config/spring/applicationContext-transaction.xml",});
+                "classpath:config/spring/applicationContext-transaction.xml",
+                "classpath:config/spring/applicationContext-ehcache.xml"});
     }
 
     @Test
     public void testFindSysUserByUserName() throws Exception {
-        IUserService userService = (IUserService)applicationContext.getBean("userServiceImpl");
-        SysUsers sysUsers=userService.findSysUserByUserName("18650155502");
+        IUserService userService = (IUserService) applicationContext.getBean("userServiceImpl");
+        SysUsers sysUsers = userService.findSysUserByUserName("18650155502");
         System.out.print(sysUsers);
     }
 
     @Test
     public void testUpdateUserInfo() throws Exception {
 
+    }
+
+    @Test
+    public void testRegister() throws Exception {
+        IUserService userService = (IUserService) applicationContext.getBean("userServiceImpl");
+        SysUsers sysUsers = new SysUsers();
+        sysUsers.setUsername("18695685502");
+        sysUsers.setPassword("123456");
     }
 }

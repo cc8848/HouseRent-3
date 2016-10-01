@@ -9,11 +9,15 @@ import com.magic.rent.pojo.SysUsers;
  */
 public interface IUserService {
 
-    SysUsers findSysUserByUserName(String userName);
+    SysUsers findSysUserByUserName(String userName) throws Exception;
 
-    int updateUserInfo(SysUsers sysUsers);
+    SysUsers findUserByUserID(int userID) throws Exception;
 
-    int changePassword(SysUsers sysUsers);
+    int changePassword(SysUsers sysUsers) throws Exception;
 
-    int updateUserLoginInfo(SysUsers sysUsers);
+    int updateUserLoginInfo(SysUsers sysUsers) throws Exception;
+
+    int register(SysUsers sysUsers) throws Exception;
+
+
 }

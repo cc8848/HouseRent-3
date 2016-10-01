@@ -5,7 +5,7 @@ package com.magic.rent.util;
  */
 public class JsonResult {
 
-    private Boolean status = true;
+    private boolean status = true;
     private String message;
     private Object data;
 
@@ -16,11 +16,11 @@ public class JsonResult {
         this.data = data;
     }
 
-    public Boolean getStatus() {
+    public boolean getStatus() {
         return status;
     }
 
-    public JsonResult setStatus(Boolean status) {
+    public JsonResult setStatus(boolean status) {
         this.status = status;
         return this;
     }
@@ -59,4 +59,12 @@ public class JsonResult {
         return error().setMessage(message);
     }
 
+    @Override
+    public String toString() {
+        return "JsonResult{" +
+                "status=" + status +
+                ", message='" + message + '\'' +
+                ", data=" + data +
+                '}';
+    }
 }

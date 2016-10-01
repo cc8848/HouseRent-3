@@ -1,5 +1,6 @@
 package com.magic.rent.service.security;
 
+import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
 import com.magic.rent.util.Log;
@@ -43,7 +44,11 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
                                         HttpServletResponse response, Authentication authentication)
             throws IOException, ServletException {
 
-        this.saveLoginInfo(request, authentication);
+        try {
+            this.saveLoginInfo(request, authentication);
+        } catch (Exception e) {
+            Log.error(this, "保存用户登录信息异常", "用户登录信息保存失败!", e);
+        }
 
         if (this.forwardToDestination) {
             Log.info(this, "登录成功", "Login success,Forwarding to [" + this.defaultTargetUrl + "]");
@@ -55,7 +60,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
     }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
-    public void saveLoginInfo(HttpServletRequest request, Authentication authentication) {
+    public void saveLoginInfo(HttpServletRequest request, Authentication authentication) throws Exception {
         SysUsers user = (SysUsers) authentication.getPrincipal();
         try {
             String ip = this.getIpAddress(request);
