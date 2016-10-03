@@ -12,12 +12,11 @@
 
     <!--过滤资源 start-->
     <!--不进行拦截的静态资源-->
-    <sec:http pattern="/css/bootstrap.css" security="none"/>
-    <sec:http pattern="/img/*.jpg" security="none"/>
-    <sec:http pattern="/img/*.png" security="none"/>
-    <sec:http pattern="/img/*.jpeg" security="none"/>
-    <sec:http pattern="/img/*.gif" security="none"/>
-    <sec:http pattern="/js/bootstrap.min.js" security="none"/>
+    <sec:http pattern="/css/*" security="none"/>
+    <sec:http pattern="/images/*" security="none"/>
+    <sec:http pattern="/images/**" security="none"/>
+    <sec:http pattern="/js/*" security="none"/>
+    <sec:http pattern="/fonts/*" security="none"/>
     <!--不进行拦截的页面-->
     <sec:http pattern="/index.jsp" security="none"/>
     <sec:http pattern="/WEB-INF/views/login.jsp" security="none"/>

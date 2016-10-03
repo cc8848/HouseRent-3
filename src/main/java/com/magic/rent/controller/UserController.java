@@ -32,9 +32,8 @@ public class UserController {
     }
 
 
-
     @ResponseBody
-    @RequestMapping
+    @RequestMapping("register")
     public JsonResult register(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
