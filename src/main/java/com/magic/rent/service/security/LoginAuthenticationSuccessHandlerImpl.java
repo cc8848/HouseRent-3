@@ -28,7 +28,7 @@ import java.util.Date;
  * 类说明:登录成功后需要执行的页面
  */
 
-public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHandler, InitializingBean {
+public class LoginAuthenticationSuccessHandlerImpl implements AuthenticationSuccessHandler, InitializingBean {
 
     private String defaultTargetUrl;
 
@@ -47,7 +47,7 @@ public class AuthenticationSuccessHandlerImpl implements AuthenticationSuccessHa
         try {
             this.saveLoginInfo(request, authentication);
         } catch (Exception e) {
-            Log.error(this, "保存用户登录信息异常", "用户登录信息保存失败!", e);
+            Log.error(this, "登录异常", "用户登录信息保存失败!", e);
         }
 
         if (this.forwardToDestination) {

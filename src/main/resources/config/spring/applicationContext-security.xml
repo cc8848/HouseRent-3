@@ -28,8 +28,8 @@
                 login-page="/WEB-INF/views/login.jsp"
                 login-processing-url="/login.do"
                 authentication-failure-url="/WEB-INF/error/authority.jsp"
-                authentication-success-handler-ref="authenticationSuccessHandlerImpl"
-                authentication-failure-handler-ref="authenticationFailHandlerImpl"/>
+                authentication-success-handler-ref="loginController"
+                authentication-failure-handler-ref="loginController"/>
         <sec:logout invalidate-session="true" logout-success-url="/index.jsp"/>
         <sec:session-management invalid-session-url="/WEB-INF/views/login.jsp">
             <sec:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>
@@ -38,11 +38,12 @@
         <sec:custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
     </sec:http>
 
-    <bean id="authenticationSuccessHandlerImpl"
-          class="com.magic.rent.service.security.AuthenticationSuccessHandlerImpl"> <!--登录成功跳转处理器-->
-        <property name="defaultTargetUrl" value="/index.jsp"/>
-        <property name="forwardToDestination" value="true"/>
-    </bean>
+    <!--<bean id="authenticationSuccessHandlerImpl"-->
+    <!--class="com.magic.rent.service.security.LoginAuthenticationSuccessHandlerImpl"> &lt;!&ndash;登录成功跳转处理器&ndash;&gt;-->
+    <!--<property name="defaultTargetUrl" value="/index.jsp"/>-->
+    <!--<property name="forwardToDestination" value="true"/>-->
+    <!--</bean>-->
+    <bean id="loginController" class="com.magic.rent.controller.LoginAuthenticationController"/>
 
     <sec:authentication-manager id="myAuthenticationManager">
         <sec:authentication-provider user-service-ref="webUserDetailsService">

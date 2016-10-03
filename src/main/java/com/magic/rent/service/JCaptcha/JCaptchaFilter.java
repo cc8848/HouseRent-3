@@ -6,6 +6,8 @@ package com.magic.rent.service.JCaptcha;
  * 类说明:
  */
 
+import com.alibaba.fastjson.JSON;
+import com.magic.rent.util.JsonResult;
 import com.magic.rent.util.Log;
 import com.octo.captcha.service.CaptchaService;
 import com.octo.captcha.service.CaptchaServiceException;
@@ -20,6 +22,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * 针对 JCaptcha 专门的过滤器(Filter)
@@ -135,7 +138,7 @@ public class JCaptchaFilter implements Filter {
             ImageIO.write(challenge, "jpg", out);
             out.flush();
         } catch (CaptchaServiceException e) {
-            Log.error(this, "获取验证码图片异常", e.getMessage(),e);
+            Log.error(this, "获取验证码图片异常", e.getMessage(), e);
         } finally {
             out.close();
         }
@@ -156,20 +159,25 @@ public class JCaptchaFilter implements Filter {
             }
             return captchaService.validateResponseForID(captchaID, challengeResponse);
         } catch (CaptchaServiceException e) {
-            Log.error(this, "校验验证码异常", e.getMessage(),e);
+            Log.error(this, "校验验证码异常", e.getMessage(), e);
             return false;
         }
     }
 
     /**
-     * 跳转到失败页面.
-     * <p>
-     * 可在子类进行扩展, 比如在session中放入SpringSecurity的Exception.
+     * 验证失败跳转页面
+     *
+     * @param request
+     * @param response
+     * @throws IOException
      */
     protected void redirectFailureUrl(final HttpServletRequest request, final HttpServletResponse response)
             throws IOException {
-        Log.info(this, "验证失败跳转", "失败URL:" + request.getContextPath() + failureUrl);
-        response.sendRedirect(request.getContextPath() + failureUrl);
+//        Log.info(this, "验证失败跳转", "失败URL:" + request.getContextPath() + failureUrl);
+//        response.sendRedirect(request.getContextPath() + failureUrl);
+        Log.info(this, "验证码验证", "验证失败,IP地址:" + getIP(request));
+        String jsonStr = JSON.toJSONString(JsonResult.error("验证码输入错误!"));
+        returnJson(response, jsonStr);
     }
 
     /**
@@ -183,5 +191,51 @@ public class JCaptchaFilter implements Filter {
         response.setHeader("Cache-Control", "no-cache, no-store, max-age=0");
     }
 
+    /**
+     * 返回Json
+     *
+     * @param response
+     * @param jsonString
+     */
+    private void returnJson(HttpServletResponse response, String jsonString) {
+        response.setCharacterEncoding("UTF-8");
+        response.setContentType("application/json; charset=utf-8");
+        PrintWriter out = null;
+        try {
+            out = response.getWriter();
+            out.write(jsonString);
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            if (out != null) {
+                out.close();
+            }
+        }
+    }
 
+    /**
+     * 获取IP地址
+     *
+     * @param request
+     * @return IP地址
+     */
+    private String getIP(HttpServletRequest request) {
+        String ip = request.getHeader("x-forwarded-for");
+        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("Proxy-Client-IP");
+        }
+        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("WL-Proxy-Client-IP");
+        }
+        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_CLIENT_IP");
+        }
+        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
+        }
+        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
+            ip = request.getRemoteAddr();
+        }
+        return ip;
+    }
 }

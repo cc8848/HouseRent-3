@@ -17,8 +17,7 @@ import java.io.IOException;
  * 创建者: wu   创建时间: 16/9/22
  * 类说明:登录验证失败后需要执行的页面
  */
-@Service
-public class AuthenticationFailHandlerImpl implements AuthenticationFailureHandler {
+public class LoginAuthenticationFailHandlerImpl implements AuthenticationFailureHandler {
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public void onAuthenticationFailure(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, AuthenticationException e) throws IOException, ServletException {
