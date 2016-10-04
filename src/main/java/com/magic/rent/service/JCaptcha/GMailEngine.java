@@ -31,11 +31,11 @@ import java.awt.image.ImageFilter;
 public class GMailEngine extends ListImageCaptchaEngine {
     @Override
     protected void buildInitialFactories() {
-        int minWordLength = 4;
-        int maxWordLength = 5;
-        int fontSize = 50;
-        int imageWidth = 250;
-        int imageHeight = 100;
+        int minWordLength = 6;
+        int maxWordLength = 6;
+        int fontSize = 14;
+        int imageWidth = 130;
+        int imageHeight = 30;
         WordGenerator dictionnaryWords = new ComposeDictionaryWordGenerator(
                 new FileDictionary("toddlist"));
 

@@ -1,9 +1,10 @@
 package com.magic.rent.service.security;
 
-import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
-import com.magic.rent.util.Log;
+import com.magic.rent.util.HttpUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
@@ -11,7 +12,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
-import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -36,6 +36,7 @@ public class LoginAuthenticationSuccessHandlerImpl implements AuthenticationSucc
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
 
+    private static Logger logger = LoggerFactory.getLogger(LoginAuthenticationSuccessHandlerImpl.class);
     @Autowired
     private IUserService iUserService;
 
@@ -47,14 +48,14 @@ public class LoginAuthenticationSuccessHandlerImpl implements AuthenticationSucc
         try {
             this.saveLoginInfo(request, authentication);
         } catch (Exception e) {
-            Log.error(this, "登录异常", "用户登录信息保存失败!", e);
+            logger.error("登录异常:用户登录信息报错失败!", e);
         }
 
         if (this.forwardToDestination) {
-            Log.info(this, "登录成功", "Login success,Forwarding to [" + this.defaultTargetUrl + "]");
+            logger.info("登录成功:Forwarding to [{}]", defaultTargetUrl);
             request.getRequestDispatcher(this.defaultTargetUrl).forward(request, response);
         } else {
-            Log.info(this, "登录成功", "Login success,Redirecting to [" + this.defaultTargetUrl + "]");
+            logger.info("登录成功:Redirecting to [{}]", defaultTargetUrl);
             this.redirectStrategy.sendRedirect(request, response, this.defaultTargetUrl);
         }
     }
@@ -63,35 +64,16 @@ public class LoginAuthenticationSuccessHandlerImpl implements AuthenticationSucc
     public void saveLoginInfo(HttpServletRequest request, Authentication authentication) throws Exception {
         SysUsers user = (SysUsers) authentication.getPrincipal();
         try {
-            String ip = this.getIpAddress(request);
+            String ip = HttpUtil.getIP(request);
             Date date = new Date();
             user.setLastLogin(date);
             user.setLoginIp(ip);
             iUserService.updateUserLoginInfo(user);
         } catch (DataAccessException e) {
-            Log.info(this, "保存登录数据", "保存登录数据失败:" + e.toString());
+            logger.info("保存登录信息失败:{}",e.getMessage());
         }
     }
 
-    public String getIpAddress(HttpServletRequest request) {
-        String ip = request.getHeader("x-forwarded-for");
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("Proxy-Client-IP");
-        }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("WL-Proxy-Client-IP");
-        }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("HTTP_CLIENT_IP");
-        }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-        }
-        if (ip == null || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getRemoteAddr();
-        }
-        return ip;
-    }
 
     public void setDefaultTargetUrl(String defaultTargetUrl) {
         this.defaultTargetUrl = defaultTargetUrl;

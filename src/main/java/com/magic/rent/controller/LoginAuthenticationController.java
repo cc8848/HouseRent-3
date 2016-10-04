@@ -3,8 +3,10 @@ package com.magic.rent.controller;
 import com.alibaba.fastjson.JSON;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
+import com.magic.rent.util.HttpUtil;
 import com.magic.rent.util.JsonResult;
-import com.magic.rent.util.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataAccessException;
 import org.springframework.security.core.Authentication;
@@ -18,7 +20,6 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
-import java.io.PrintWriter;
 import java.util.Date;
 
 /**
@@ -31,87 +32,37 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
     @Autowired
     private IUserService iUserService;
 
+    private static Logger logger = LoggerFactory.getLogger(LoginAuthenticationController.class);
+
+    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         SysUsers users;
         String jsonStr;
         try {
-            users = this.saveLoginInfo(request, authentication);
+            users = (SysUsers) authentication.getPrincipal();
+            Date date = new Date();
+            users.setLastLogin(date);
+            users.setLoginIp(HttpUtil.getIP(request));
+            try {
+                iUserService.updateUserLoginInfo(users);
+            } catch (DataAccessException e) {
+                logger.error("登录异常:保存登录数据失败!", e);
+            }
         } catch (Exception e) {
             jsonStr = JSON.toJSONString(JsonResult.error("用户登录信息保存失败!"));
-            returnJson(response, jsonStr);
-            Log.error(this, "登录异常", "用户登录信息保存失败!", e);
+            HttpUtil.returnJson(response, jsonStr);
+            logger.error("登录异常:用户登录信息保存失败!", e);
             return;
         }
         jsonStr = JSON.toJSONString(JsonResult.success(users));
-        returnJson(response, jsonStr);
-    }
-
-
-    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-        Log.info(this, "登录失败", "登录IP" + getIP(request) + "\n失败原因:" + exception.toString());
-        String jsonStr = JSON.toJSONString(JsonResult.error("登录失败:" + exception.toString()));
-        returnJson(response, jsonStr);
+        HttpUtil.returnJson(response, jsonStr);
     }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
-    public SysUsers saveLoginInfo(HttpServletRequest request, Authentication authentication) throws Exception {
-        SysUsers user = (SysUsers) authentication.getPrincipal();
-        Date date = new Date();
-        user.setLastLogin(date);
-        user.setLoginIp(getIP(request));
-        try {
-            iUserService.updateUserLoginInfo(user);
-        } catch (DataAccessException e) {
-            Log.error(this, "登录异常", "保存登录数据失败!", e);
-        }
-        return user;
+    public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
+        logger.info("登录失败:请求IP地址[{}];\n失败原因:{};", HttpUtil.getIP(request), exception.getMessage());
+        String jsonStr = JSON.toJSONString(JsonResult.error("登录失败:" + exception.getMessage()));
+        HttpUtil.returnJson(response, jsonStr);
     }
 
-    /**
-     * 返回Json
-     *
-     * @param response
-     * @param jsonString
-     */
-    private void returnJson(HttpServletResponse response, String jsonString) {
-        response.setCharacterEncoding("UTF-8");
-        response.setContentType("application/json; charset=utf-8");
-        PrintWriter out = null;
-        try {
-            out = response.getWriter();
-            out.write(jsonString);
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            if (out != null) {
-                out.close();
-            }
-        }
-    }
-
-    /**
-     * 获取IP地址
-     *
-     * @param request
-     * @return IP地址
-     */
-    private String getIP(HttpServletRequest request) {
-        String ip = request.getHeader("x-forwarded-for");
-        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("Proxy-Client-IP");
-        }
-        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("WL-Proxy-Client-IP");
-        }
-        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("HTTP_CLIENT_IP");
-        }
-        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getHeader("HTTP_X_FORWARDED_FOR");
-        }
-        if (null == ip || ip.length() == 0 || "unknown".equalsIgnoreCase(ip)) {
-            ip = request.getRemoteAddr();
-        }
-        return ip;
-    }
 }

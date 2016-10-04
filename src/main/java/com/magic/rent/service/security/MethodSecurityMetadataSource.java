@@ -2,7 +2,8 @@ package com.magic.rent.service.security;
 
 import com.magic.rent.mapper.SysResourcesMapper;
 import com.magic.rent.pojo.MethodKey;
-import com.magic.rent.util.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
@@ -25,6 +26,8 @@ public class MethodSecurityMetadataSource extends AbstractMethodSecurityMetadata
 
     private Map<MethodKey, Collection<ConfigAttribute>> requestMap;
 
+    private static Logger logger = LoggerFactory.getLogger(MethodSecurityMetadataSource.class);
+
     @Autowired
     private SysResourcesMapper sysResourcesMapper;
 
@@ -46,8 +49,7 @@ public class MethodSecurityMetadataSource extends AbstractMethodSecurityMetadata
                 break;
             }
         }
-
-        Log.info(this, "获取METHOD资源", "METHOD资源：" + key.getFullMethodName() + " -> " + attrs);
+        logger.info("获取Method-资源:[{}]->[{}]", key.getFullMethodName(), attrs);
         return attrs;
     }
 

@@ -10,7 +10,8 @@ import com.magic.rent.mapper.SysRolesMapper;
 import com.magic.rent.mapper.SysUsersMapper;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
-import com.magic.rent.util.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
 import org.springframework.security.core.GrantedAuthority;
@@ -19,7 +20,6 @@ import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 
 import java.util.HashSet;
-import java.util.List;
 import java.util.Set;
 
 @Service
@@ -31,8 +31,8 @@ public class WebUserDetailsService implements UserDetailsService {
     @Autowired
     private SysRolesMapper sysRolesMapper;
 
-    @Autowired
-    private MessageSource messageSource;
+    private static Logger logger = LoggerFactory.getLogger(WebUserDetailsService.class);
+
 
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         SysUsers sysUsers = null;
@@ -47,10 +47,10 @@ public class WebUserDetailsService implements UserDetailsService {
             throw new UsernameNotFoundException(
                     "UserDetailsService.userNotFount");
         }
-        //根据用户ID查询用户所有角色
-        List<SysRoles> sysRolesList = sysRolesMapper.selectRolesByUserId(sysUsers.getUserId());
-        sysUsers.setSysRoles(sysRolesList);
-        //封装该用户具有什么角色
+        //查询用户角色
+        sysUsers.setSysRoles(sysRolesMapper.selectRolesByUserId(sysUsers.getUserId()));
+
+        //查询并封装该用户具有什么权限
         Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
         if (sysUsers.getSysRoles() != null && !sysUsers.getSysRoles().isEmpty()) {
             for (SysRoles role : sysUsers.getSysRoles()) {
@@ -58,11 +58,9 @@ public class WebUserDetailsService implements UserDetailsService {
                 authorities.add(ga);
             }
         }
-
         //装载权限列表
         sysUsers.setAuthorities(authorities);
-
-        Log.info(this, "获取用户角色", "账户名:" + s + sysUsers.getSysRoles().toString());
+        logger.info("读取用户角色:账户名[{}]-权限[{}]", s, sysUsers.getAuthorities().toString());
         //拼装SysUserLoginDetails对象
         return sysUsers;
     }

@@ -1,7 +1,8 @@
 package com.magic.rent.exception.custom;
 
 import com.magic.rent.exception.BaseException;
-import com.magic.rent.util.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -9,8 +10,11 @@ import com.magic.rent.util.Log;
  * 类说明:
  */
 public class ParameterException extends BaseException {
+
+    private static Logger logger = LoggerFactory.getLogger(BusinessException.class);
+
     public ParameterException(String message, Object trade) {
         super(message, trade);
-        Log.error(trade, "参数设置异常", message, this);
+        logger.error("参数设置异常:{}", message);
     }
 }

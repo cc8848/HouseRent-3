@@ -1,0 +1,29 @@
+body {
+    padding-top: 70px;
+}
+
+.white-divider-xs, .white-divider-sm, .white-divider-md, .white-divider-lg .white-divider-xl {
+    height: 1px;
+    overflow: hidden;
+}
+
+.white-divider-xs {
+    margin: 3px 0;
+}
+
+.white-divider-sm {
+    margin: 5px 0;
+}
+
+.white-divider-md {
+    margin: 7px 0;
+}
+
+.white-divider-lg {
+    margin: 9px 0;
+}
+
+.white-divider-xl{
+    margin: 15px 0;
+}
+

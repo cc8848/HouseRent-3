@@ -1,7 +1,8 @@
 package com.magic.rent.service.security;
 
 import com.magic.rent.mapper.SysResourcesMapper;
-import com.magic.rent.util.Log;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.access.ConfigAttribute;
@@ -26,6 +27,8 @@ public class URLFilterInvocationSecurityMetadataSource implements FilterInvocati
     //权限集合
     private Map<RequestMatcher, Collection<ConfigAttribute>> requestMap;
 
+    private static Logger logger = LoggerFactory.getLogger(URLFilterInvocationSecurityMetadataSource.class);
+
     @Autowired
     private SysResourcesMapper sysResourcesMapper;
 
@@ -43,7 +46,7 @@ public class URLFilterInvocationSecurityMetadataSource implements FilterInvocati
             }
         }
 
-        Log.info(this, "URL资源-权限", "URL：" + request.getRequestURI() + " -> 权限:" + attrs);
+        logger.info("获取URL-资源:[{}]->[{}]", request.getRequestURI(), attrs);
         return attrs;
     }
 
@@ -94,7 +97,7 @@ public class URLFilterInvocationSecurityMetadataSource implements FilterInvocati
 
     public void afterPropertiesSet() throws Exception {
         this.requestMap = this.bindRequestMap();
-        Log.info(this, "初始化参数", "资源权限列表" + this.requestMap);
+        logger.info("URL资源权限参数初始化:资源列表[{}]", requestMap);
     }
 
     public void refreshResuorceMap() {

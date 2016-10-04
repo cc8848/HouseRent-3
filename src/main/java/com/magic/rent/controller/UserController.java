@@ -4,8 +4,6 @@ import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
 import com.magic.rent.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder;
-import org.springframework.security.core.userdetails.UserCache;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -37,6 +35,9 @@ public class UserController {
     public JsonResult register(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
+        String captcha = request.getParameter("captcha");
+
+        System.out.println(username + "-" + password);
 
         if (StringUtils.isEmpty(username))
             return JsonResult.error("用户名不能为空!");

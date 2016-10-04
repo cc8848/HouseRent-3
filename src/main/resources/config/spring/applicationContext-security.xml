@@ -19,30 +19,23 @@
     <sec:http pattern="/fonts/*" security="none"/>
     <!--不进行拦截的页面-->
     <sec:http pattern="/index.jsp" security="none"/>
-    <sec:http pattern="/WEB-INF/views/login.jsp" security="none"/>
+    <sec:http pattern="WEB-INF/views/login.jsp" security="none"/>
     <!--过滤资源 end-->
 
     <!--权限配置及自定义登录界面 start-->
     <sec:http auto-config="true" access-decision-manager-ref="accessDecisionManager">
         <sec:form-login
-                login-page="/WEB-INF/views/login.jsp"
                 login-processing-url="/login.do"
-                authentication-failure-url="/WEB-INF/error/authority.jsp"
                 authentication-success-handler-ref="loginController"
                 authentication-failure-handler-ref="loginController"/>
         <sec:logout invalidate-session="true" logout-success-url="/index.jsp"/>
-        <sec:session-management invalid-session-url="/WEB-INF/views/login.jsp">
+        <sec:session-management invalid-session-url="/WEB-INF/common/loginTest.jsp">
             <sec:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>
         </sec:session-management>
         <!--资源拦截器配置-->
         <sec:custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
     </sec:http>
 
-    <!--<bean id="authenticationSuccessHandlerImpl"-->
-    <!--class="com.magic.rent.service.security.LoginAuthenticationSuccessHandlerImpl"> &lt;!&ndash;登录成功跳转处理器&ndash;&gt;-->
-    <!--<property name="defaultTargetUrl" value="/index.jsp"/>-->
-    <!--<property name="forwardToDestination" value="true"/>-->
-    <!--</bean>-->
     <bean id="loginController" class="com.magic.rent.controller.LoginAuthenticationController"/>
 
     <sec:authentication-manager id="myAuthenticationManager">
@@ -70,7 +63,7 @@
     <!--国际化配置-->
     <bean id="messageSource"
           class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="config.zhmessages"/>
+        <property name="basename" value="config.messages"/>
     </bean>
 
     <!--决策管理器 start-->
