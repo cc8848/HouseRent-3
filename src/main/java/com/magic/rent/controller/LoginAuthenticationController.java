@@ -54,14 +54,14 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
             logger.error("登录异常:用户登录信息保存失败!", e);
             return;
         }
-        jsonStr = JSON.toJSONString(JsonResult.success(users));
+        jsonStr = JSON.toJSONString(JsonResult.success("登录验证成功!", users));
         HttpUtil.returnJson(response, jsonStr);
     }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         logger.info("登录失败:请求IP地址[{}];\n失败原因:{};", HttpUtil.getIP(request), exception.getMessage());
-        String jsonStr = JSON.toJSONString(JsonResult.error("登录失败:" + exception.getMessage()));
+        String jsonStr = JSON.toJSONString(JsonResult.error("登录失败:" + exception.getMessage() + "!"));
         HttpUtil.returnJson(response, jsonStr);
     }
 

@@ -33,9 +33,9 @@ public class GMailEngine extends ListImageCaptchaEngine {
     protected void buildInitialFactories() {
         int minWordLength = 6;
         int maxWordLength = 6;
-        int fontSize = 14;
-        int imageWidth = 130;
-        int imageHeight = 30;
+        int fontSize = 12;
+        int imageWidth = 100;
+        int imageHeight = 20;
         WordGenerator dictionnaryWords = new ComposeDictionaryWordGenerator(
                 new FileDictionary("toddlist"));
 

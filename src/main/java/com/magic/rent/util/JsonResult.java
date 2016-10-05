@@ -1,5 +1,8 @@
 package com.magic.rent.util;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * Created by wuxinzhe on 16/9/20.
  */
@@ -8,6 +11,7 @@ public class JsonResult {
     private boolean status = true;
     private String message;
     private Object data;
+    private static Logger logger = LoggerFactory.getLogger(JsonResult.class);
 
     public JsonResult() {
     }
@@ -47,8 +51,10 @@ public class JsonResult {
         return new JsonResult().setStatus(true);
     }
 
-    public static JsonResult success(Object data) {
-        return success().setData(data);
+    public static JsonResult success(String message, Object data) {
+        JsonResult jsonResult = success().setData(data).setMessage(message);
+        logger.info(jsonResult.toString());
+        return jsonResult;
     }
 
     public static JsonResult error() {
@@ -56,7 +62,9 @@ public class JsonResult {
     }
 
     public static JsonResult error(String message) {
-        return error().setMessage(message);
+        JsonResult jsonResult = error().setMessage(message);
+        logger.info(jsonResult.toString());
+        return jsonResult;
     }
 
     @Override

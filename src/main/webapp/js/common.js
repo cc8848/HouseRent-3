@@ -75,16 +75,17 @@ function register(phoneVal, passwordVal, captchaVal) {
         username: phoneVal,
         password: passwordVal,
         captcha: captchaVal
-    }, function (data, status) {
+    }, function (data) {
         //判断请求是否成功
         var errorMessage = $("#register-errorMessage");
+        //清空字段
+        var reset = errorMessage.children();
+        errorMessage.html(reset);
         //请求失败
-        if (status = "fail") {
-            errorMessage.removeClass("hidden").html(data.message);
-        } else if (status == "success" && data.status == "false") {//请求成功,注册失败
-            errorMessage.removeClass("hidden").html(data.message);
-        } else if (status == "success" && data.status == "true") {//请求成功,注册成功
-            errorMessage.removeClass("alert-danger hidden").addClass("alert-success").html("注册成功,请登录!");
+        if (data.status == true) {
+            errorMessage.removeClass("alert-danger hidden").addClass("alert-success").append(data.message);
+        } else {
+            errorMessage.removeClass("alert-success hidden").addClass("alert-danger").append(data.message);
         }
     });
 }

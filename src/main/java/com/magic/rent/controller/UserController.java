@@ -58,6 +58,6 @@ public class UserController {
         if (userID <= 0)
             return JsonResult.error("用户注册失败!");
 
-        return JsonResult.success();
+        return JsonResult.success("注册成功,请登录!", null);
     }
 }

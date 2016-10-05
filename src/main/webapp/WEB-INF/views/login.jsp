@@ -54,6 +54,7 @@
                 <div class="tab-pane active" id="register-content">
                     <div class="col-xs-1 col-sm-2"></div>
                     <div class="col-xs-10 col-sm-8">
+                        <%--注册 start--%>
                         <form id="register-form" class="form" role="form">
                             <div class="white-divider-xl"></div>
                             <!--用户名-->
@@ -83,11 +84,13 @@
                                 </span>
                             </div>
                             <div class="white-divider-xs"></div>
+                            <%--注册按钮--%>
                             <div class="form-group">
                                 <button type="button" class="btn btn-sm btn-primary btn-block"
                                         onclick="registerCheck()">注册
                                 </button>
                             </div>
+                            <!--提示信息-->
                             <div class="form-group">
                                 <div id="register-errorMessage" class="alert alert-danger alert-dismissible hidden"
                                      role="alert">
@@ -99,12 +102,14 @@
                                 </div>
                             </div>
                         </form>
+                        <%--注册 end--%>
                     </div>
                     <div class="col-xs-1 col-sm-2"></div>
                 </div>
                 <div class="tab-pane " id="login-content">
                     <div class="col-xs-1 col-sm-2"></div>
                     <div class="col-xs-10 col-sm-8">
+                        <%--登录 start--%>
                         <form id="login-form" class="form" role="form" method="post" action="/login.do">
                             <div class="white-divider-xl"></div>
                             <!--用户名-->
@@ -129,10 +134,10 @@
                                 </div>
                                 <input id="login-captcha" type="text" name="captcha" class="form-control"
                                        placeholder="验证码">
-                                <span class="input-group-btn">
-                                     <img src="/jcaptcha.jpg" class="img-responsive img-thumbnail"
-                                          onclick="refreshCaptcha()">
-                                </span>
+                                <div class="input-group-btn">
+                                    <img src="<c:url value="/jcaptcha.jpg"/>" class="img-thumbnail"
+                                         onclick="refreshCaptcha()">
+                                </div>
                             </div>
                             <div class="white-divider-xs"></div>
                             <div class="form-group">
@@ -151,6 +156,7 @@
                                 </div>
                             </div>
                         </form>
+                        <%--登录 end--%>
                     </div>
                     <div class="col-xs-1 col-sm-2"></div>
                 </div>
