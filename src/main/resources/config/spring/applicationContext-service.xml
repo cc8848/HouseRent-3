@@ -13,4 +13,12 @@
           class="org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder">
         <constructor-arg name="algorithm" value="MD5"/>
     </bean>
+    <!--国际化配置-->
+    <bean id="messageSource"
+          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+        <property name="basename" value="messages"/>
+    </bean>
+    <bean id="messageSourceAccessor" class="org.springframework.context.support.MessageSourceAccessor">
+        <constructor-arg ref="messageSource"/>
+    </bean>
 </beans>

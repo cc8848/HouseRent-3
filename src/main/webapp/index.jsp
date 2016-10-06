@@ -26,5 +26,6 @@
 <script src="<c:url value="js/jquery.js"/>"></script>
 <script src="<c:url value="js/common.js"/>"></script>
 <script src="<c:url value="js/bootstrap.min.js"/>"></script>
+
 </body>
 </html>

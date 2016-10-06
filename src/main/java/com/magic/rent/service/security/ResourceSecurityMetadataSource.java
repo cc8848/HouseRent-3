@@ -20,14 +20,14 @@ import java.util.*;
  * Created by wuxinzhe on 16/9/25.
  */
 @Service
-public class URLFilterInvocationSecurityMetadataSource implements FilterInvocationSecurityMetadataSource, InitializingBean {
+public class ResourceSecurityMetadataSource implements FilterInvocationSecurityMetadataSource, InitializingBean {
 
     private final static List<ConfigAttribute> NULL_CONFIG_ATTRIBUTE = Collections.emptyList();
 
     //权限集合
     private Map<RequestMatcher, Collection<ConfigAttribute>> requestMap;
 
-    private static Logger logger = LoggerFactory.getLogger(URLFilterInvocationSecurityMetadataSource.class);
+    private static Logger logger = LoggerFactory.getLogger(ResourceSecurityMetadataSource.class);
 
     @Autowired
     private SysResourcesMapper sysResourcesMapper;

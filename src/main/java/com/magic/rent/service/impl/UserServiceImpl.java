@@ -88,10 +88,10 @@ public class UserServiceImpl implements IUserService {
         //初始化用户信息
         Date createDate = new Date();
         sysUsers.setDtCreate(createDate);//账户创建日期
-        sysUsers.setEnabled(true);//账户可用
-        sysUsers.setAccountNonExpired(false);//账户未过期
-        sysUsers.setAccountNonLocked(false);//账户不锁定
-        sysUsers.setCredentialsNonExpired(true);//证书有效
+        sysUsers.setEnabled(true);//账户可用:true-可用,false-不可用
+        sysUsers.setAccountNonExpired(true);//账户未过期:true-未过期,false-过期
+        sysUsers.setAccountNonLocked(true);//账户未锁定:true-未锁定,false-锁定
+        sysUsers.setCredentialsNonExpired(false);//证书未过期:true-未过期,false-过期
         //对密码进行MD5加密
         String passwordMD5 = passwordEncoder.encodePassword(sysUsers.getPassword(), sysUsers.getUsername());
         sysUsers.setPassword(passwordMD5);

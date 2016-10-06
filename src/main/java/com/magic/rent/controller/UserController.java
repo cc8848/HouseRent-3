@@ -24,20 +24,22 @@ public class UserController {
     @Autowired
     private IUserService iUserService;
 
-    @RequestMapping("login")
+    @RequestMapping("/login")
     public String login() {
         return "login";
     }
 
+    @RequestMapping("/timeout")
+    public String timeOut() {
+        return "timeOut";
+    }
 
     @ResponseBody
-    @RequestMapping("register")
+    @RequestMapping("/register")
     public JsonResult register(HttpServletRequest request, HttpServletResponse response) throws Exception {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String captcha = request.getParameter("captcha");
-
-        System.out.println(username + "-" + password);
 
         if (StringUtils.isEmpty(username))
             return JsonResult.error("用户名不能为空!");
@@ -60,4 +62,6 @@ public class UserController {
 
         return JsonResult.success("注册成功,请登录!", null);
     }
+
+
 }

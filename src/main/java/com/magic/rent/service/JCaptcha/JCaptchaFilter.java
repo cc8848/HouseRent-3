@@ -6,7 +6,6 @@ package com.magic.rent.service.JCaptcha;
  * 类说明:
  */
 
-import com.alibaba.fastjson.JSON;
 import com.magic.rent.util.HttpUtil;
 import com.magic.rent.util.JsonResult;
 import com.octo.captcha.service.CaptchaService;
@@ -15,6 +14,8 @@ import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
+import org.springframework.security.web.DefaultRedirectStrategy;
+import org.springframework.security.web.RedirectStrategy;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.imageio.ImageIO;
@@ -32,7 +33,7 @@ import java.io.IOException;
 public class JCaptchaFilter implements Filter {
 
     //web.xml中的参数名定义
-    public static final String PARAM_CAPTCHA_PARAMTER_NAME = "captchaParamterName";
+    public static final String PARAM_CAPTCHA_PARAMETER_NAME = "captchaParameterName";
     public static final String PARAM_CAPTCHA_SERVICE_ID = "captchaServiceId";
     public static final String PARAM_FILTER_PROCESSES_URL = "filterProcessesUrl";
     public static final String PARAM_FAILURE_URL = "failureUrl";
@@ -41,26 +42,23 @@ public class JCaptchaFilter implements Filter {
     //默认值定义
     public static final String DEFAULT_FILTER_PROCESSES_URL = "/login.do";
     public static final String DEFAULT_CAPTCHA_SERVICE_ID = "captchaService";
-    public static final String DEFAULT_CAPTCHA_PARAMTER_NAME = "captcha";
+    public static final String DEFAULT_CAPTCHA_PARAMETER_NAME = "captcha";
 
     private String failureUrl;
     private String filterProcessesUrl = DEFAULT_FILTER_PROCESSES_URL;
     private String captchaServiceId = DEFAULT_CAPTCHA_SERVICE_ID;
-    private String captchaParamterName = DEFAULT_CAPTCHA_PARAMTER_NAME;
+    private String captchaParameterName = DEFAULT_CAPTCHA_PARAMETER_NAME;
     private String autoPassValue;
 
     private CaptchaService captchaService;
 
+    private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+
     private static Logger logger = LoggerFactory.getLogger(JCaptchaFilter.class);
 
-    /**
-     * Filter回调初始化函数.
-     */
     public void init(FilterConfig filterConfig) throws ServletException {
-        // TODO Auto-generated method stub
         initParameters(filterConfig);
         initCaptchaService(filterConfig);
-
     }
 
     public void doFilter(ServletRequest theRequest, ServletResponse theResponse,
@@ -85,19 +83,20 @@ public class JCaptchaFilter implements Filter {
      * Filter回调退出函数.
      */
     public void destroy() {
-        // TODO Auto-generated method stub
 
     }
 
     /**
      * 初始化web.xml中定义的filter init-param.
+     *
+     * @param fConfig
      */
     protected void initParameters(final FilterConfig fConfig) {
         if (StringUtils.isBlank(fConfig.getInitParameter(PARAM_FAILURE_URL))) {
             throw new IllegalArgumentException("CaptchaFilter缺少failureUrl参数");
         }
         failureUrl = fConfig.getInitParameter(PARAM_FAILURE_URL);
-        logger.info("[JCaptchaFilter]参数初始化:验证失败后跳转链接[{}]", failureUrl);
+        logger.info("参数初始化:验证失败后跳转链接[{}]", failureUrl);
 
         if (StringUtils.isNotBlank(fConfig.getInitParameter(PARAM_FILTER_PROCESSES_URL))) {
             filterProcessesUrl = fConfig.getInitParameter(PARAM_FILTER_PROCESSES_URL);
@@ -107,8 +106,8 @@ public class JCaptchaFilter implements Filter {
             captchaServiceId = fConfig.getInitParameter(PARAM_CAPTCHA_SERVICE_ID);
         }
 
-        if (StringUtils.isNotBlank(fConfig.getInitParameter(PARAM_CAPTCHA_PARAMTER_NAME))) {
-            captchaParamterName = fConfig.getInitParameter(PARAM_CAPTCHA_PARAMTER_NAME);
+        if (StringUtils.isNotBlank(fConfig.getInitParameter(PARAM_CAPTCHA_PARAMETER_NAME))) {
+            captchaParameterName = fConfig.getInitParameter(PARAM_CAPTCHA_PARAMETER_NAME);
         }
 
         if (StringUtils.isNotBlank(fConfig.getInitParameter(PARAM_AUTO_PASS_VALUE))) {
@@ -118,6 +117,8 @@ public class JCaptchaFilter implements Filter {
 
     /**
      * 从ApplicatonContext获取CaptchaService实例.
+     *
+     * @param fConfig
      */
     protected void initCaptchaService(final FilterConfig fConfig) {
         ApplicationContext context = WebApplicationContextUtils.getWebApplicationContext(fConfig.getServletContext());
@@ -125,7 +126,11 @@ public class JCaptchaFilter implements Filter {
     }
 
     /**
-     * 生成验证码图片.
+     * 生成验证码图片
+     *
+     * @param request
+     * @param response
+     * @throws IOException
      */
     protected void genernateCaptchaImage(final HttpServletRequest request, final HttpServletResponse response)
             throws IOException {
@@ -147,12 +152,15 @@ public class JCaptchaFilter implements Filter {
     }
 
     /**
-     * 验证验证码.
+     * 验证验证码
+     *
+     * @param request
+     * @return
      */
     protected boolean validateCaptchaChallenge(final HttpServletRequest request) {
         try {
             String captchaID = request.getSession().getId();
-            String challengeResponse = request.getParameter(captchaParamterName);
+            String challengeResponse = request.getParameter(captchaParameterName);
             //自动通过值存在时,检验输入值是否等于自动通过值
             if (StringUtils.isNotBlank(autoPassValue) && autoPassValue.equals(challengeResponse)) {
                 return true;
@@ -173,14 +181,20 @@ public class JCaptchaFilter implements Filter {
      */
     protected void redirectFailureUrl(final HttpServletRequest request, final HttpServletResponse response)
             throws IOException {
-//        response.sendRedirect(request.getContextPath() + failureUrl);
         logger.info("验证码验证失败:请求IP地址[{}]", HttpUtil.getIP(request));
-        String jsonStr = JSON.toJSONString(JsonResult.error("验证码输入错误!"));
-        HttpUtil.returnJson(response, jsonStr);
+        JsonResult jsonResult = JsonResult.error("验证码输入错误!");
+        request.getSession().setAttribute("loginResult", jsonResult);
+        try {
+            this.redirectStrategy.sendRedirect(request, response, "user/login");
+        } catch (Exception e) {
+            logger.error("验证码验证失败后跳转", e);
+        }
     }
 
     /**
-     * 设置禁止客户端缓存的Header.
+     * 设置禁止客户端缓存的Header
+     *
+     * @param response
      */
     public static void setDisableCacheHeader(HttpServletResponse response) {
         //Http 1.0 header

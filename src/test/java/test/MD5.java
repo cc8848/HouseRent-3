@@ -11,7 +11,7 @@ public class MD5 {
 
     public static void main(String[] args) {
         MessageDigestPasswordEncoder messageDigestPasswordEncoder =new MessageDigestPasswordEncoder("MD5");
-        String passwordMD5=messageDigestPasswordEncoder.encodePassword("199176","18650155502");
+        String passwordMD5=messageDigestPasswordEncoder.encodePassword("199176","18695685502");
         System.out.print(passwordMD5);
     }
 }

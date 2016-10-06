@@ -1,17 +1,6 @@
 /**
  * Created by wuxinzhe on 16/10/2.
  */
-function getCaptcha() {
-    $("#captcha-box").removeClass("hidden");
-}
-
-function refreshCaptcha() {
-    $("#captcha-img").hide().attr(
-        'src',
-        '<c:url value="/jcaptcha.jpg"/>' + '?' + Math
-            .floor(Math.random() * 100)).fadeIn();
-}
-
 function getSMS() {
     var phone = $("#register-phone");
     if (phone.val().length == 0) {
@@ -46,7 +35,7 @@ function login() {
     }
 }
 
-function registerCheck() {
+function register() {
     var phone = $("#register-phone");
     var password = $("#register-password");
     var captcha = $("#register-captcha");
@@ -66,26 +55,23 @@ function registerCheck() {
         captcha.removeClass("alert alert-danger").attr("placeholder", "验证码");
     }
     if (!(phone.val().trim().length == 0) && !(password.val().trim().length == 0) && !(captcha.val().trim().length == 0)) {
-        register(phone.val(), password.val(), captcha.val());
-    }
-}
+        $.getJSON("register", {
+            username: phone.val(),
+            password: password.val(),
+            captcha: captcha.val()
+        }, function (data) {
+            //判断请求是否成功
+            var errorMessage = $("#register-errorMessage");
+            //清空字段
+            var reset = errorMessage.children();
+            errorMessage.html(reset);
+            //请求失败
+            if (data.status == true) {
+                errorMessage.removeClass("alert-danger hidden").addClass("alert-success").append(data.message);
+            } else {
+                errorMessage.removeClass("alert-success hidden").addClass("alert-danger").append(data.message);
+            }
+        });
 
-function register(phoneVal, passwordVal, captchaVal) {
-    $.getJSON("register", {
-        username: phoneVal,
-        password: passwordVal,
-        captcha: captchaVal
-    }, function (data) {
-        //判断请求是否成功
-        var errorMessage = $("#register-errorMessage");
-        //清空字段
-        var reset = errorMessage.children();
-        errorMessage.html(reset);
-        //请求失败
-        if (data.status == true) {
-            errorMessage.removeClass("alert-danger hidden").addClass("alert-success").append(data.message);
-        } else {
-            errorMessage.removeClass("alert-success hidden").addClass("alert-danger").append(data.message);
-        }
-    });
+    }
 }

@@ -13,11 +13,22 @@
 <head>
     <meta charset="UTF-8">
     <title>登录</title>
+    <sec:csrfMetaTags/>
 </head>
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../../css/common.css">
 <script src="../../js/jquery.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var loginErrorMessage = $("#login-errorMessage");
+        if (${sessionScope.loginResult!=null}) {
+            loginErrorMessage.removeClass("hidden");
+        } else {
+            loginErrorMessage.addClass("hidden");
+        }
+    });
+</script>
 <body>
 <div class="container-fluid">
     <div class="col-xs-0 col-sm-3"></div>
@@ -40,18 +51,75 @@
         <span class="col-xs-0 col-sm-4"></span>
         <span class="col-xs-12 col-sm-4">
             <ul class="nav nav-tabs">
-                <li id="register-tab" class="active">
-                    <a href="#register-content" data-toggle="tab">注册</a>
-                </li>
-                <li id="login-tab">
+                <li id="login-tab" class="active">
                     <a href="#login-content" data-toggle="tab">登录</a>
+                </li>
+                <li id="register-tab">
+                    <a href="#register-content" data-toggle="tab">注册</a>
                 </li>
                 <li id="reset-tab">
                     <a href="#reset-content" data-toggle="tab">找回密码</a>
                 </li>
             </ul>
             <div class="tab-content">
-                <div class="tab-pane active" id="register-content">
+                <div class="tab-pane active" id="login-content">
+                    <div class="col-xs-1 col-sm-2"></div>
+                    <div class="col-xs-10 col-sm-8">
+                        <%--登录 start--%>
+                        <form id="login-form" class="form" role="form" method="post" action="/login.do">
+                            <div class="white-divider-xl"></div>
+                            <!--用户名-->
+                            <div class="form-group input-group input-group-sm">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                                <input id="login-phone" name="username" type="text" class="form-control"
+                                       placeholder="手机号">
+                            </div>
+                            <div class="white-divider-xs"></div>
+                            <!--密码-->
+                            <div class="form-group input-group input-group-sm">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>
+                                </div>
+                                <input id="login-password" type="password" name="password" class="form-control"
+                                       placeholder="密码">
+                            </div>
+                            <div class="white-divider-xs"></div>
+                            <!--手机验证码-->
+                            <div class="form-group input-group input-group-sm">
+                                <div class="input-group-addon">
+                                    <span class="glyphicon glyphicon-qrcode"></span>
+                                </div>
+                                <input id="login-captcha" type="text" name="captcha" class="form-control"
+                                       placeholder="验证码">
+                                <div class="captcha">
+                                    <img id="captcha-img" src="<c:url value="/jcaptcha.jpg"/>"
+                                         class="img-thumbnail pull-right"
+                                         onclick="refreshCaptcha()">
+                                </div>
+                            </div>
+                            <div class="white-divider-xs"></div>
+                            <div class="form-group">
+                                <sec:csrfInput/>
+                                <button type="button" class="btn btn-sm btn-primary btn-block"
+                                        onclick="login()">登录
+                                </button>
+                            </div>
+                            <div class="form-group">
+                                <div id="login-errorMessage" class="alert alert-danger alert-dismissible"
+                                     role="alert">
+                                    <button type="button" class="close" data-dismiss="alert">
+                                        <span aria-hidden="true">&times;</span>
+                                        <span class="sr-only">Close</span>
+                                    </button>
+                                    <span class="glyphicon glyphicon-remove-circle"></span>
+                                    <c:out value="${sessionScope.loginResult.message}"/>
+                                </div>
+                            </div>
+                        </form>
+                        <%--登录 end--%>
+                    </div>
+                    <div class="col-xs-1 col-sm-2"></div>
+                </div>
+                <div class="tab-pane" id="register-content">
                     <div class="col-xs-1 col-sm-2"></div>
                     <div class="col-xs-10 col-sm-8">
                         <%--注册 start--%>
@@ -87,7 +155,7 @@
                             <%--注册按钮--%>
                             <div class="form-group">
                                 <button type="button" class="btn btn-sm btn-primary btn-block"
-                                        onclick="registerCheck()">注册
+                                        onclick="register()">注册
                                 </button>
                             </div>
                             <!--提示信息-->
@@ -103,60 +171,6 @@
                             </div>
                         </form>
                         <%--注册 end--%>
-                    </div>
-                    <div class="col-xs-1 col-sm-2"></div>
-                </div>
-                <div class="tab-pane " id="login-content">
-                    <div class="col-xs-1 col-sm-2"></div>
-                    <div class="col-xs-10 col-sm-8">
-                        <%--登录 start--%>
-                        <form id="login-form" class="form" role="form" method="post" action="/login.do">
-                            <div class="white-divider-xl"></div>
-                            <!--用户名-->
-                            <div class="form-group input-group input-group-sm">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                                <input id="login-phone" name="username" type="text" class="form-control"
-                                       placeholder="手机号">
-                            </div>
-                            <div class="white-divider-xs"></div>
-                            <!--密码-->
-                            <div class="form-group input-group input-group-sm">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>
-                                </div>
-                                <input id="login-password" type="password" name="password" class="form-control"
-                                       placeholder="密码">
-                            </div>
-                            <div class="white-divider-xs"></div>
-                            <!--手机验证码-->
-                            <div class="form-group input-group input-group-sm">
-                                <div class="input-group-addon">
-                                    <span class="glyphicon glyphicon-qrcode"></span>
-                                </div>
-                                <input id="login-captcha" type="text" name="captcha" class="form-control"
-                                       placeholder="验证码">
-                                <div class="input-group-btn">
-                                    <img src="<c:url value="/jcaptcha.jpg"/>" class="img-thumbnail"
-                                         onclick="refreshCaptcha()">
-                                </div>
-                            </div>
-                            <div class="white-divider-xs"></div>
-                            <div class="form-group">
-                                <button type="button" class="btn btn-sm btn-primary btn-block"
-                                        onclick="login()">登录
-                                </button>
-                            </div>
-                            <div class="form-group">
-                                <div id="login-errorMessage" class="alert alert-danger alert-dismissible hidden"
-                                     role="alert">
-                                    <button type="button" class="close" data-dismiss="alert">
-                                        <span aria-hidden="true">&times;</span>
-                                        <span class="sr-only">Close</span>
-                                    </button>
-                                    <span class="glyphicon glyphicon-remove-circle"></span>
-                                </div>
-                            </div>
-                        </form>
-                        <%--登录 end--%>
                     </div>
                     <div class="col-xs-1 col-sm-2"></div>
                 </div>
@@ -192,8 +206,7 @@
                                        placeholder="密码">
                             </div>
                             <div class="form-group">
-                                <button id="reset-submit" type="button" class="btn btn-sm btn-primary btn-block"
-                                        onclick="registerCheck()">提交
+                                <button id="reset-submit" type="button" class="btn btn-sm btn-primary btn-block">提交
                                 </button>
                             </div>
                             <div class="form-group">
@@ -217,5 +230,13 @@
 </div>
 <script src="../../js/common.js"></script>
 <script src="../../js/bootstrap.min.js"></script>
+<script type="text/javascript">
+    function refreshCaptcha() {
+        $('#captcha-img').hide().attr(
+                'src',
+                '<c:url value="/jcaptcha.jpg"/>' + '?' + Math
+                        .floor(Math.random() * 100)).fadeIn();
+    }
+</script>
 </body>
 </html>

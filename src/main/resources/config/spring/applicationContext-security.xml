@@ -25,27 +25,33 @@
     <!--权限配置及自定义登录界面 start-->
     <sec:http auto-config="true" access-decision-manager-ref="accessDecisionManager">
         <sec:form-login
+                login-page="/WEB-INF/views/login.jsp"
                 login-processing-url="/login.do"
                 authentication-success-handler-ref="loginController"
                 authentication-failure-handler-ref="loginController"/>
-        <sec:logout invalidate-session="true" logout-success-url="/index.jsp"/>
-        <sec:session-management invalid-session-url="/WEB-INF/common/loginTest.jsp">
-            <sec:concurrency-control max-sessions="1" error-if-maximum-exceeded="true"/>
-        </sec:session-management>
+        <!--登出-->
+        <sec:logout invalidate-session="true" logout-url="/logout" logout-success-url="/index.jsp"/>
+        <!--session管理及单点登录-->
+        <sec:session-management session-authentication-strategy-ref="concurrentSessionControlStrategy"/>
         <!--资源拦截器配置-->
         <sec:custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
+        <sec:custom-filter ref="concurrencyFilter" position="CONCURRENT_SESSION_FILTER"/>
     </sec:http>
 
-    <bean id="loginController" class="com.magic.rent.controller.LoginAuthenticationController"/>
+    <!--自定义验证结果控制器-->
+    <bean id="loginController" class="com.magic.rent.controller.LoginAuthenticationController">
+        <property name="successURL" value="/user/home"/>
+        <property name="failURL" value="/user/login"/>
+        <property name="attrName" value="loginResult"/>
+        <property name="byForward" value="false"/>
+    </bean>
 
     <sec:authentication-manager id="myAuthenticationManager">
-        <sec:authentication-provider user-service-ref="webUserDetailsService">
-            <sec:password-encoder hash="md5">
-                <sec:salt-source ref="saltSource" user-property="username"/>
-            </sec:password-encoder>
-        </sec:authentication-provider>
+        <sec:authentication-provider ref="daoAuthenticationProvider"/>
     </sec:authentication-manager>
 
+
+    <!--权限查询服务-->
     <bean id="cachingUserDetailsService"
           class="org.springframework.security.config.authentication.CachingUserDetailsService">
         <constructor-arg name="delegate" ref="webUserDetailsService"/>
@@ -56,14 +62,18 @@
         </property>
     </bean>
 
-    <bean id="saltSource" class="org.springframework.security.authentication.dao.ReflectionSaltSource">
-        <property name="userPropertyToUse" value="username"/>
+    <bean id="daoAuthenticationProvider"
+          class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
+        <property name="messageSource" ref="messageSource"/>
+        <property name="passwordEncoder" ref="messageDigestPasswordEncoder"/>
+        <property name="userDetailsService" ref="cachingUserDetailsService"/>
+        <property name="saltSource" ref="saltSource"/>
+        <property name="hideUserNotFoundExceptions" value="false"/>
     </bean>
 
-    <!--国际化配置-->
-    <bean id="messageSource"
-          class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
-        <property name="basename" value="config.messages"/>
+    <!--MD5加密盐值-->
+    <bean id="saltSource" class="org.springframework.security.authentication.dao.ReflectionSaltSource">
+        <property name="userPropertyToUse" value="username"/>
     </bean>
 
     <!--决策管理器 start-->
@@ -87,9 +97,8 @@
           class="org.springframework.security.web.access.intercept.FilterSecurityInterceptor">
         <property name="accessDecisionManager" ref="accessDecisionManager"/>
         <property name="authenticationManager" ref="myAuthenticationManager"/>
-        <property name="securityMetadataSource" ref="URLFilterInvocationSecurityMetadataSource"/>
+        <property name="securityMetadataSource" ref="resourceSecurityMetadataSource"/>
     </bean>
-    <!--资源拦截器 end-->
 
     <!--方法拦截器 start-->
     <bean id="methodSecurityInterceptor"
@@ -104,4 +113,18 @@
     </aop:config>
     <!--方法拦截器 end-->
 
+    <!--session管理器 start-->
+    <bean id="concurrencyFilter" class="org.springframework.security.web.session.ConcurrentSessionFilter">
+        <constructor-arg name="sessionRegistry" ref="sessionRegistry"/>
+        <constructor-arg name="expiredUrl" value="/user/timeout"/>
+    </bean>
+
+    <bean id="concurrentSessionControlStrategy"
+          class="org.springframework.security.web.authentication.session.ConcurrentSessionControlAuthenticationStrategy">
+        <constructor-arg name="sessionRegistry" ref="sessionRegistry"/>
+        <property name="maximumSessions" value="1"/>
+    </bean>
+
+    <bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl"/>
+    <!--session管理器 end-->
 </beans>

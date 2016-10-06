@@ -23,7 +23,12 @@ body {
     margin: 9px 0;
 }
 
-.white-divider-xl{
+.white-divider-xl {
     margin: 15px 0;
 }
 
+.captcha {
+    display: table-cell;
+    white-space: nowrap;
+    vertical-align: middle;
+}

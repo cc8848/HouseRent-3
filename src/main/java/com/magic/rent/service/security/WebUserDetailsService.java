@@ -14,6 +14,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.MessageSource;
+import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.*;
@@ -31,6 +32,9 @@ public class WebUserDetailsService implements UserDetailsService {
     @Autowired
     private SysRolesMapper sysRolesMapper;
 
+    @Autowired
+    private MessageSourceAccessor messageSourceAccessor;
+
     private static Logger logger = LoggerFactory.getLogger(WebUserDetailsService.class);
 
 
@@ -45,7 +49,7 @@ public class WebUserDetailsService implements UserDetailsService {
         //如果查找不到用户信息,则抛出异常
         if (sysUsers == null) {
             throw new UsernameNotFoundException(
-                    "UserDetailsService.userNotFount");
+                    messageSourceAccessor.getMessage("UserDetailsService.userNotFount", "用户未找到!"));
         }
         //查询用户角色
         sysUsers.setSysRoles(sysRolesMapper.selectRolesByUserId(sysUsers.getUserId()));
