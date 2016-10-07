@@ -1,7 +1,12 @@
 package com.magic.rent.mapper;
 
 import com.magic.rent.pojo.SysAuthorities;
+import com.magic.rent.pojo.SysRoles;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+@Repository
 public interface SysAuthoritiesMapper {
     int deleteByPrimaryKey(Integer authorityId);
 
@@ -14,4 +19,6 @@ public interface SysAuthoritiesMapper {
     int updateByPrimaryKeySelective(SysAuthorities record);
 
     int updateByPrimaryKey(SysAuthorities record);
+
+    List<SysAuthorities> selectByRole(SysRoles sysRoles);
 }

@@ -1,30 +1,30 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.magic.rent.mapper.SysAuthoritiesMapper">
-  <cache-ref namespace="com.magic.rent.mapper.SysUsersMapper"/>
-  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysAuthorities">
-    <id column="AUTHORITY_ID" jdbcType="INTEGER" property="authorityId" />
-    <result column="AUTHORITY_MARK" jdbcType="VARCHAR" property="authorityMark" />
-    <result column="AUTHORITY_NAME" jdbcType="VARCHAR" property="authorityName" />
-    <result column="AUTHORITY_DESC" jdbcType="VARCHAR" property="authorityDesc" />
-    <result column="MESSAGE" jdbcType="VARCHAR" property="message" />
-    <result column="ENABLE" jdbcType="DECIMAL" property="enable" />
-    <result column="ISSYS" jdbcType="DECIMAL" property="system" />
-  </resultMap>
-  <sql id="Base_Column_List">
+    <cache-ref namespace="com.magic.rent.mapper.SysUsersMapper"/>
+    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysAuthorities">
+        <id column="AUTHORITY_ID" jdbcType="INTEGER" property="authorityId"/>
+        <result column="AUTHORITY_MARK" jdbcType="VARCHAR" property="authorityMark"/>
+        <result column="AUTHORITY_NAME" jdbcType="VARCHAR" property="authorityName"/>
+        <result column="AUTHORITY_DESC" jdbcType="VARCHAR" property="authorityDesc"/>
+        <result column="MESSAGE" jdbcType="VARCHAR" property="message"/>
+        <result column="ENABLE" jdbcType="DECIMAL" property="enable"/>
+        <result column="ISSYS" jdbcType="DECIMAL" property="system"/>
+    </resultMap>
+    <sql id="Base_Column_List">
     AUTHORITY_ID, AUTHORITY_MARK, AUTHORITY_NAME, AUTHORITY_DESC, MESSAGE, ENABLE, ISSYS, 
   </sql>
-  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    select 
-    <include refid="Base_Column_List" />
-    from SYS_AUTHORITIES
-    where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>
+        from SYS_AUTHORITIES
+        where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from SYS_AUTHORITIES
     where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.magic.rent.pojo.SysAuthorities">
+    <insert id="insert" parameterType="com.magic.rent.pojo.SysAuthorities">
     insert into SYS_AUTHORITIES (AUTHORITY_ID, AUTHORITY_MARK, AUTHORITY_NAME, 
       AUTHORITY_DESC, MESSAGE, ENABLE, 
       ISSYS)
@@ -32,80 +32,80 @@
       #{authorityDesc,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, #{enable,jdbcType=DECIMAL}, 
       #{system,jdbcType=DECIMAL})
   </insert>
-  <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysAuthorities">
-    insert into SYS_AUTHORITIES
-    <trim prefix="(" suffix=")" suffixOverrides=",">
-      <if test="authorityId != null">
-        AUTHORITY_ID,
-      </if>
-      <if test="authorityMark != null">
-        AUTHORITY_MARK,
-      </if>
-      <if test="authorityName != null">
-        AUTHORITY_NAME,
-      </if>
-      <if test="authorityDesc != null">
-        AUTHORITY_DESC,
-      </if>
-      <if test="message != null">
-        MESSAGE,
-      </if>
-      <if test="enable != null">
-        ENABLE,
-      </if>
-      <if test="system != null">
-        ISSYS,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides=",">
-      <if test="authorityId != null">
-        #{authorityId,jdbcType=INTEGER},
-      </if>
-      <if test="authorityMark != null">
-        #{authorityMark,jdbcType=VARCHAR},
-      </if>
-      <if test="authorityName != null">
-        #{authorityName,jdbcType=VARCHAR},
-      </if>
-      <if test="authorityDesc != null">
-        #{authorityDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="message != null">
-        #{message,jdbcType=VARCHAR},
-      </if>
-      <if test="enable != null">
-        #{enable,jdbcType=DECIMAL},
-      </if>
-      <if test="system != null">
-        #{system,jdbcType=DECIMAL},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysAuthorities">
-    update SYS_AUTHORITIES
-    <set>
-      <if test="authorityMark != null">
-        AUTHORITY_MARK = #{authorityMark,jdbcType=VARCHAR},
-      </if>
-      <if test="authorityName != null">
-        AUTHORITY_NAME = #{authorityName,jdbcType=VARCHAR},
-      </if>
-      <if test="authorityDesc != null">
-        AUTHORITY_DESC = #{authorityDesc,jdbcType=VARCHAR},
-      </if>
-      <if test="message != null">
-        MESSAGE = #{message,jdbcType=VARCHAR},
-      </if>
-      <if test="enable != null">
-        ENABLE = #{enable,jdbcType=DECIMAL},
-      </if>
-      <if test="system != null">
-        ISSYS = #{system,jdbcType=DECIMAL},
-      </if>
-    </set>
-    where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysAuthorities">
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysAuthorities">
+        insert into SYS_AUTHORITIES
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="authorityId != null">
+                AUTHORITY_ID,
+            </if>
+            <if test="authorityMark != null">
+                AUTHORITY_MARK,
+            </if>
+            <if test="authorityName != null">
+                AUTHORITY_NAME,
+            </if>
+            <if test="authorityDesc != null">
+                AUTHORITY_DESC,
+            </if>
+            <if test="message != null">
+                MESSAGE,
+            </if>
+            <if test="enable != null">
+                ENABLE,
+            </if>
+            <if test="system != null">
+                ISSYS,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="authorityId != null">
+                #{authorityId,jdbcType=INTEGER},
+            </if>
+            <if test="authorityMark != null">
+                #{authorityMark,jdbcType=VARCHAR},
+            </if>
+            <if test="authorityName != null">
+                #{authorityName,jdbcType=VARCHAR},
+            </if>
+            <if test="authorityDesc != null">
+                #{authorityDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="message != null">
+                #{message,jdbcType=VARCHAR},
+            </if>
+            <if test="enable != null">
+                #{enable,jdbcType=DECIMAL},
+            </if>
+            <if test="system != null">
+                #{system,jdbcType=DECIMAL},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysAuthorities">
+        update SYS_AUTHORITIES
+        <set>
+            <if test="authorityMark != null">
+                AUTHORITY_MARK = #{authorityMark,jdbcType=VARCHAR},
+            </if>
+            <if test="authorityName != null">
+                AUTHORITY_NAME = #{authorityName,jdbcType=VARCHAR},
+            </if>
+            <if test="authorityDesc != null">
+                AUTHORITY_DESC = #{authorityDesc,jdbcType=VARCHAR},
+            </if>
+            <if test="message != null">
+                MESSAGE = #{message,jdbcType=VARCHAR},
+            </if>
+            <if test="enable != null">
+                ENABLE = #{enable,jdbcType=DECIMAL},
+            </if>
+            <if test="system != null">
+                ISSYS = #{system,jdbcType=DECIMAL},
+            </if>
+        </set>
+        where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysAuthorities">
     update SYS_AUTHORITIES
     set AUTHORITY_MARK = #{authorityMark,jdbcType=VARCHAR},
       AUTHORITY_NAME = #{authorityName,jdbcType=VARCHAR},
@@ -115,4 +115,17 @@
       ISSYS = #{system,jdbcType=DECIMAL},
     where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
   </update>
+    <select id="selectByRole" parameterType="com.magic.rent.pojo.SysRoles" resultMap="BaseResultMap">
+    SELECT
+      SYS_AUTHORITIES.AUTHORITY_ID,
+      SYS_AUTHORITIES.AUTHORITY_MARK,
+      SYS_AUTHORITIES.ENABLE,
+      SYS_AUTHORITIES.ISSYS,
+      SYS_AUTHORITIES.AUTHORITY_DESC,
+      SYS_AUTHORITIES.MESSAGE
+    FROM SYS_ROLES_AUTHORITIES
+      JOIN SYS_AUTHORITIES ON SYS_ROLES_AUTHORITIES.AUTHORITY_ID = SYS_AUTHORITIES.AUTHORITY_ID
+      JOIN SYS_ROLES ON SYS_ROLES_AUTHORITIES.ROLE_ID = SYS_ROLES.ROLE_ID
+    WHERE SYS_ROLES.ROLE_ID=#{roleId,jdbcType=INTEGER}
+  </select>
 </mapper>

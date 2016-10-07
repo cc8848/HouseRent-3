@@ -15,15 +15,15 @@ public class CustomGrantedAuthority implements GrantedAuthority, Serializable {
 
     private static final long serialVersionUID = 9188347583387457302L;
 
-    private final String role;
+    private final String authority;
 
     public CustomGrantedAuthority(String role) {
         Assert.hasText(role, "A granted authority textual representation is required");
-        this.role = role;
+        this.authority = role;
     }
 
     public String getAuthority() {
-        return null;
+        return authority;
     }
 
     public boolean equals(Object obj) {
@@ -32,17 +32,17 @@ public class CustomGrantedAuthority implements GrantedAuthority, Serializable {
         }
 
         if (obj instanceof CustomGrantedAuthority) {
-            return role.equals(((CustomGrantedAuthority) obj).role);
+            return authority.equals(((CustomGrantedAuthority) obj).authority);
         }
 
         return false;
     }
 
     public int hashCode() {
-        return this.role.hashCode();
+        return this.authority.hashCode();
     }
 
     public String toString() {
-        return this.role;
+        return this.authority;
     }
 }

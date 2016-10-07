@@ -16,9 +16,7 @@ import org.springframework.stereotype.Service;
 import javax.servlet.http.HttpServletRequest;
 import java.util.*;
 
-/**
- * Created by wuxinzhe on 16/9/25.
- */
+
 @Service
 public class ResourceSecurityMetadataSource implements FilterInvocationSecurityMetadataSource, InitializingBean {
 

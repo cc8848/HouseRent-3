@@ -6,8 +6,10 @@ package com.magic.rent.service.security;
  * 类说明:
  */
 
+import com.magic.rent.mapper.SysAuthoritiesMapper;
 import com.magic.rent.mapper.SysRolesMapper;
 import com.magic.rent.mapper.SysUsersMapper;
+import com.magic.rent.pojo.SysAuthorities;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
 import org.slf4j.Logger;
@@ -20,8 +22,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.stereotype.Service;
 
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 
 @Service
 public class WebUserDetailsService implements UserDetailsService {
@@ -33,7 +34,11 @@ public class WebUserDetailsService implements UserDetailsService {
     private SysRolesMapper sysRolesMapper;
 
     @Autowired
+    private SysAuthoritiesMapper sysAuthoritiesMapper;
+
+    @Autowired
     private MessageSourceAccessor messageSourceAccessor;
+
 
     private static Logger logger = LoggerFactory.getLogger(WebUserDetailsService.class);
 
@@ -56,10 +61,28 @@ public class WebUserDetailsService implements UserDetailsService {
 
         //查询并封装该用户具有什么权限
         Set<GrantedAuthority> authorities = new HashSet<GrantedAuthority>();
+        //用于过滤重复的权限
+        List<String> preAuthorityMarks = new ArrayList<String>();
         if (sysUsers.getSysRoles() != null && !sysUsers.getSysRoles().isEmpty()) {
+            //遍历用户所具有的所有角色
             for (SysRoles role : sysUsers.getSysRoles()) {
-                GrantedAuthority ga = new SimpleGrantedAuthority(role.getRoleName());
-                authorities.add(ga);
+                //根据角色查询单独角色所具有的权限
+                List<SysAuthorities> sysAuthoritiesList = sysAuthoritiesMapper.selectByRole(role);
+                //将权限封装用于后续做判断
+                for (SysAuthorities sysAuthority : sysAuthoritiesList) {
+                    //过滤已经存在的权限
+                    if (preAuthorityMarks.contains(sysAuthority.getAuthorityMark())) {
+                        //过滤
+                        continue;
+                    } else {
+                        //加入用于过滤的集合中
+                        preAuthorityMarks.add(sysAuthority.getAuthorityMark());
+                        //封装如权限集合中
+                        GrantedAuthority ga = new CustomGrantedAuthority(sysAuthority.getAuthorityMark());
+                        authorities.add(ga);
+                    }
+                }
+
             }
         }
         //装载权限列表
