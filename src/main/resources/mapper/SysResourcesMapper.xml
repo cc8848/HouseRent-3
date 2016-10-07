@@ -10,7 +10,7 @@
         <result column="RESOURCE_PATH" jdbcType="VARCHAR" property="resourcePath"/>
         <result column="PRIORITY" jdbcType="VARCHAR" property="priority"/>
         <result column="ENABLE" jdbcType="DECIMAL" property="enable"/>
-        <result column="ISSYS" jdbcType="DECIMAL" property="isSys"/>
+        <result column="ISSYS" jdbcType="DECIMAL" property="system"/>
     </resultMap>
     <sql id="Base_Column_List">
     RESOURCE_ID, RESOURCE_TYPE, RESOURCE_NAME, RESOURCE_DESC, RESOURCE_PATH, PRIORITY, 
@@ -33,7 +33,7 @@
       )
     values (#{resourceId,jdbcType=INTEGER}, #{resourceType,jdbcType=VARCHAR}, #{resourceName,jdbcType=VARCHAR}, 
       #{resourceDesc,jdbcType=VARCHAR}, #{resourcePath,jdbcType=VARCHAR}, #{priority,jdbcType=VARCHAR}, 
-      #{enable,jdbcType=DECIMAL}, #{isSys,jdbcType=DECIMAL}
+      #{enable,jdbcType=DECIMAL}, #{system,jdbcType=DECIMAL}
       )
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysResources">
@@ -60,7 +60,7 @@
             <if test="enable != null">
                 ENABLE,
             </if>
-            <if test="isSys != null">
+            <if test="system != null">
                 ISSYS,
             </if>
 
@@ -87,8 +87,8 @@
             <if test="enable != null">
                 #{enable,jdbcType=DECIMAL},
             </if>
-            <if test="isSys != null">
-                #{isSys,jdbcType=DECIMAL},
+            <if test="system != null">
+                #{system,jdbcType=DECIMAL},
             </if>
         </trim>
     </insert>
@@ -113,8 +113,8 @@
             <if test="enable != null">
                 ENABLE = #{enable,jdbcType=DECIMAL},
             </if>
-            <if test="isSys != null">
-                ISSYS = #{isSys,jdbcType=DECIMAL},
+            <if test="system != null">
+                ISSYS = #{system,jdbcType=DECIMAL},
             </if>
         </set>
         WHERE RESOURCE_ID = #{resourceId,jdbcType=INTEGER}
@@ -127,7 +127,7 @@
       RESOURCE_PATH = #{resourcePath,jdbcType=VARCHAR},
       PRIORITY = #{priority,jdbcType=VARCHAR},
       ENABLE = #{enable,jdbcType=DECIMAL},
-      ISSYS = #{isSys,jdbcType=DECIMAL},
+      ISSYS = #{system,jdbcType=DECIMAL},
     WHERE RESOURCE_ID = #{resourceId,jdbcType=INTEGER}
   </update>
     <resultMap id="resourceResultMap" type="java.util.HashMap">

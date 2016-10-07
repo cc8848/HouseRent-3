@@ -18,7 +18,7 @@ public class SysResources implements Serializable {
 
     private boolean enable;
 
-    private boolean isSys;
+    private boolean system;
 
     public Integer getResourceId() {
         return resourceId;
@@ -76,12 +76,11 @@ public class SysResources implements Serializable {
         this.enable = enable;
     }
 
-    public boolean isSys() {
-        return isSys;
+    public boolean isSystem() {
+        return system;
     }
 
-    public void setSys(boolean sys) {
-        isSys = sys;
+    public void setSystem(boolean system) {
+        this.system = system;
     }
-
 }

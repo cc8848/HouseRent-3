@@ -87,7 +87,7 @@
         <property name="messageSource" ref="messageSource"/>
     </bean>
     <bean id="roleVoter" class="org.springframework.security.access.vote.RoleVoter">
-        <property name="rolePrefix" value=""/>
+        <property name="rolePrefix" value="ROLE"/>
     </bean>
     <bean id="authenticatedVoter" class="org.springframework.security.access.vote.AuthenticatedVoter"/>
     <!--决策管理器 end-->

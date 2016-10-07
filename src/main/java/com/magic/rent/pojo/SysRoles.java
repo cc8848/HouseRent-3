@@ -12,7 +12,7 @@ public class SysRoles implements Serializable {
 
     private boolean enable;//是否可用
 
-    private boolean isSys;//是否系统权限
+    private boolean system;//是否系统权限
 
     public Integer getRoleId() {
         return roleId;
@@ -46,14 +46,13 @@ public class SysRoles implements Serializable {
         this.enable = enable;
     }
 
-    public boolean isSys() {
-        return isSys;
+    public boolean isSystem() {
+        return system;
     }
 
-    public void setSys(boolean sys) {
-        isSys = sys;
+    public void setSystem(boolean system) {
+        this.system = system;
     }
-
 
     @Override
     public String toString() {
@@ -62,7 +61,7 @@ public class SysRoles implements Serializable {
                 ", roleName='" + roleName + '\'' +
                 ", roleDesc='" + roleDesc + '\'' +
                 ", enable=" + enable +
-                ", isSys=" + isSys +
+                ", isSys=" + system +
                 '}';
     }
 }

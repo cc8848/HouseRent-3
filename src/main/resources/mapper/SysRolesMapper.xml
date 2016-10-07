@@ -7,7 +7,7 @@
         <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName"/>
         <result column="ROLE_DESC" jdbcType="VARCHAR" property="roleDesc"/>
         <result column="ENABLE" jdbcType="DECIMAL" property="enable"/>
-        <result column="ISSYS" jdbcType="DECIMAL" property="issys"/>
+        <result column="ISSYS" jdbcType="DECIMAL" property="system"/>
     </resultMap>
     <sql id="Base_Column_List">
     ROLE_ID, ROLE_NAME, ROLE_DESC, ENABLE, ISSYS
@@ -27,7 +27,7 @@
       ENABLE, ISSYS
       )
     values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{roleDesc,jdbcType=VARCHAR}, 
-      #{enable,jdbcType=DECIMAL}, #{issys,jdbcType=DECIMAL}
+      #{enable,jdbcType=DECIMAL}, #{system,jdbcType=DECIMAL}
       )
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysRoles">
@@ -45,7 +45,7 @@
             <if test="enable != null">
                 ENABLE,
             </if>
-            <if test="issys != null">
+            <if test="system != null">
                 ISSYS,
             </if>
         </trim>
@@ -62,8 +62,8 @@
             <if test="enable != null">
                 #{enable,jdbcType=DECIMAL},
             </if>
-            <if test="issys != null">
-                #{issys,jdbcType=DECIMAL},
+            <if test="system != null">
+                #{system,jdbcType=DECIMAL},
             </if>
         </trim>
     </insert>
@@ -79,8 +79,8 @@
             <if test="enable != null">
                 ENABLE = #{enable,jdbcType=DECIMAL},
             </if>
-            <if test="issys != null">
-                ISSYS = #{issys,jdbcType=DECIMAL},
+            <if test="system != null">
+                ISSYS = #{system,jdbcType=DECIMAL},
             </if>
         </set>
         where ROLE_ID = #{roleId,jdbcType=INTEGER}
@@ -90,7 +90,7 @@
     set ROLE_NAME = #{roleName,jdbcType=VARCHAR},
       ROLE_DESC = #{roleDesc,jdbcType=VARCHAR},
       ENABLE = #{enable,jdbcType=DECIMAL},
-      ISSYS = #{issys,jdbcType=DECIMAL},
+      ISSYS = #{system,jdbcType=DECIMAL},
     where ROLE_ID = #{roleId,jdbcType=INTEGER}
   </update>
     <select id="selectRolesByUserId" parameterType="int" resultMap="BaseResultMap">

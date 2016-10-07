@@ -9,7 +9,7 @@
     <result column="AUTHORITY_DESC" jdbcType="VARCHAR" property="authorityDesc" />
     <result column="MESSAGE" jdbcType="VARCHAR" property="message" />
     <result column="ENABLE" jdbcType="DECIMAL" property="enable" />
-    <result column="ISSYS" jdbcType="DECIMAL" property="isSys" />
+    <result column="ISSYS" jdbcType="DECIMAL" property="system" />
   </resultMap>
   <sql id="Base_Column_List">
     AUTHORITY_ID, AUTHORITY_MARK, AUTHORITY_NAME, AUTHORITY_DESC, MESSAGE, ENABLE, ISSYS, 
@@ -30,7 +30,7 @@
       ISSYS)
     values (#{authorityId,jdbcType=INTEGER}, #{authorityMark,jdbcType=VARCHAR}, #{authorityName,jdbcType=VARCHAR}, 
       #{authorityDesc,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, #{enable,jdbcType=DECIMAL}, 
-      #{isSys,jdbcType=DECIMAL})
+      #{system,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysAuthorities">
     insert into SYS_AUTHORITIES
@@ -53,7 +53,7 @@
       <if test="enable != null">
         ENABLE,
       </if>
-      <if test="isSys != null">
+      <if test="system != null">
         ISSYS,
       </if>
     </trim>
@@ -76,8 +76,8 @@
       <if test="enable != null">
         #{enable,jdbcType=DECIMAL},
       </if>
-      <if test="isSys != null">
-        #{isSys,jdbcType=DECIMAL},
+      <if test="system != null">
+        #{system,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
@@ -99,8 +99,8 @@
       <if test="enable != null">
         ENABLE = #{enable,jdbcType=DECIMAL},
       </if>
-      <if test="isSys != null">
-        ISSYS = #{isSys,jdbcType=DECIMAL},
+      <if test="system != null">
+        ISSYS = #{system,jdbcType=DECIMAL},
       </if>
     </set>
     where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
@@ -112,7 +112,7 @@
       AUTHORITY_DESC = #{authorityDesc,jdbcType=VARCHAR},
       MESSAGE = #{message,jdbcType=VARCHAR},
       ENABLE = #{enable,jdbcType=DECIMAL},
-      ISSYS = #{isSys,jdbcType=DECIMAL},
+      ISSYS = #{system,jdbcType=DECIMAL},
     where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
   </update>
 </mapper>

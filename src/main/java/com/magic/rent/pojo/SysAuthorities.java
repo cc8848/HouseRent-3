@@ -17,7 +17,7 @@ public class SysAuthorities implements Serializable {
 
     private boolean enable;//是否可用
 
-    private boolean isSys;//是否系统级
+    private boolean system;//是否系统级
 
     public Integer getAuthorityId() {
         return authorityId;
@@ -67,11 +67,11 @@ public class SysAuthorities implements Serializable {
         this.enable = enable;
     }
 
-    public boolean isSys() {
-        return isSys;
+    public boolean isSystem() {
+        return system;
     }
 
-    public void setSys(boolean sys) {
-        isSys = sys;
+    public void setSystem(boolean system) {
+        this.system = system;
     }
 }
