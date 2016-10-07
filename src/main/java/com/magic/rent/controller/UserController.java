@@ -66,5 +66,11 @@ public class UserController {
         return JsonResult.success("注册成功,请登录!", null);
     }
 
+    @ResponseBody
+    @RequestMapping("/getUserInfo")
+    public JsonResult getUserInfo(HttpServletRequest request) throws Exception {
+        return (JsonResult) request.getSession().getAttribute("userInfo");
+    }
+
 
 }

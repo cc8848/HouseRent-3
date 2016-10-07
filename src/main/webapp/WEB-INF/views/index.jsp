@@ -13,19 +13,21 @@
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
+    <sec:csrfMetaTags/>
 </head>
-<link rel="stylesheet" href="css/bootstrap.min.css">
-<link rel="stylesheet" href="css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="css/common.css">
+<link rel="stylesheet" href="../../css/bootstrap.min.css">
+<link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="../../css/common.css">
+
 <body>
 
 <%--head start--%>
-<c:import url="WEB-INF/common/common_head.jsp"/>
+<c:import url="/WEB-INF/common/common_head.jsp"/>
+
 <%--head end--%>
-
-<script src="<c:url value="js/jquery.js"/>"></script>
-<script src="<c:url value="js/common.js"/>"></script>
-<script src="<c:url value="js/bootstrap.min.js"/>"></script>
-
+<script src="../../js/jquery.js"></script>
+<script src="../../js/index.js"></script>
+<script src="../../js/bootstrap.min.js"></script>
+<script src="../../js/common.js"></script>
 </body>
 </html>

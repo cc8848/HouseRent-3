@@ -18,30 +18,17 @@
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="../../css/common.css">
-<script src="../../js/jquery.js"></script>
-<script type="text/javascript">
-    $(document).ready(function () {
-        var loginErrorMessage = $("#login-errorMessage");
-        if (${sessionScope.loginResult!=null}) {
-            loginErrorMessage.removeClass("hidden");
-        } else {
-            loginErrorMessage.addClass("hidden");
-        }
-    });
-</script>
+
 <body>
 <div class="container-fluid">
     <div class="col-xs-0 col-sm-3"></div>
     <div class="row-fluid col-xs-12 col-sm-6">
         <div class="page-header">
             <h1>易租网
-                <button type="button" class="btn btn-xs btn-primary pull-right">返回首页</button>
                 <small>EasyRent</small>
-
+                <a href="/" class="btn btn-xs btn-primary pull-right active">返回首页</a>
             </h1>
-
         </div>
-
     </div>
     <div class="col-xs-0 col-sm-3"></div>
 </div>
@@ -228,7 +215,18 @@
         <span class="col-xs-0 col-sm-4"></span>
     </div>
 </div>
-<script src="../../js/common.js"></script>
+<script src="../../js/jquery.js"></script>
+<script src="../../js/login.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        var loginErrorMessage = $("#login-errorMessage");
+        if (${sessionScope.loginResult.message!=null}) {
+            loginErrorMessage.removeClass("hidden");
+        } else {
+            loginErrorMessage.addClass("hidden");
+        }
+    });
+</script>
 <script src="../../js/bootstrap.min.js"></script>
 <script type="text/javascript">
     function refreshCaptcha() {
