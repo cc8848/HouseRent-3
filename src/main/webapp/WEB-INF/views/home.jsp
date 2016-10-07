@@ -20,6 +20,7 @@
 <div>
 </div>
 
+${sessionScope.loginResult.data.username}
 
 <script src="../../js/common.js"></script>
 <script src="../../js/bootstrap.min.js"></script>

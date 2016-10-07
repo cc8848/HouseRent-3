@@ -3,21 +3,21 @@ package com.magic.rent.pojo;
 import java.io.Serializable;
 
 public class SysAuthorities implements Serializable {
-    private Integer authorityId;
+    private static final long serialVersionUID = 7358097993806107543L;
 
-    private String authorityMark;
+    private Integer authorityId;//权限ID
 
-    private String authorityName;
+    private String authorityMark;//权限标识(主要,用于判断的)
 
-    private String authorityDesc;
+    private String authorityName;//权限名
 
-    private String message;
+    private String authorityDesc;//权限描述
 
-    private Integer enable;
+    private String message;//提示信息
 
-    private Integer issys;
+    private boolean enable;//是否可用
 
-    private Integer moduleId;
+    private boolean isSys;//是否系统级
 
     public Integer getAuthorityId() {
         return authorityId;
@@ -59,27 +59,19 @@ public class SysAuthorities implements Serializable {
         this.message = message == null ? null : message.trim();
     }
 
-    public Integer getEnable() {
+    public boolean isEnable() {
         return enable;
     }
 
-    public void setEnable(Integer enable) {
+    public void setEnable(boolean enable) {
         this.enable = enable;
     }
 
-    public Integer getIssys() {
-        return issys;
+    public boolean isSys() {
+        return isSys;
     }
 
-    public void setIssys(Integer issys) {
-        this.issys = issys;
-    }
-
-    public Integer getModuleId() {
-        return moduleId;
-    }
-
-    public void setModuleId(Integer moduleId) {
-        this.moduleId = moduleId;
+    public void setSys(boolean sys) {
+        isSys = sys;
     }
 }

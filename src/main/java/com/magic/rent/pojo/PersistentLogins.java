@@ -4,6 +4,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class PersistentLogins implements Serializable {
+    private static final long serialVersionUID = -2275470403904402743L;
     private String series;
 
     private String username;

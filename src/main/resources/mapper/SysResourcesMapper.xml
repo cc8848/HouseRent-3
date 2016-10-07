@@ -10,12 +10,11 @@
         <result column="RESOURCE_PATH" jdbcType="VARCHAR" property="resourcePath"/>
         <result column="PRIORITY" jdbcType="VARCHAR" property="priority"/>
         <result column="ENABLE" jdbcType="DECIMAL" property="enable"/>
-        <result column="ISSYS" jdbcType="DECIMAL" property="issys"/>
-        <result column="MODULE_ID" jdbcType="INTEGER" property="moduleId"/>
+        <result column="ISSYS" jdbcType="DECIMAL" property="isSys"/>
     </resultMap>
     <sql id="Base_Column_List">
     RESOURCE_ID, RESOURCE_TYPE, RESOURCE_NAME, RESOURCE_DESC, RESOURCE_PATH, PRIORITY, 
-    ENABLE, ISSYS, MODULE_ID
+    ENABLE, ISSYS
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
@@ -30,11 +29,11 @@
     <insert id="insert" parameterType="com.magic.rent.pojo.SysResources">
     insert into SYS_RESOURCES (RESOURCE_ID, RESOURCE_TYPE, RESOURCE_NAME, 
       RESOURCE_DESC, RESOURCE_PATH, PRIORITY, 
-      ENABLE, ISSYS, MODULE_ID
+      ENABLE, ISSYS
       )
     values (#{resourceId,jdbcType=INTEGER}, #{resourceType,jdbcType=VARCHAR}, #{resourceName,jdbcType=VARCHAR}, 
       #{resourceDesc,jdbcType=VARCHAR}, #{resourcePath,jdbcType=VARCHAR}, #{priority,jdbcType=VARCHAR}, 
-      #{enable,jdbcType=DECIMAL}, #{issys,jdbcType=DECIMAL}, #{moduleId,jdbcType=INTEGER}
+      #{enable,jdbcType=DECIMAL}, #{isSys,jdbcType=DECIMAL}
       )
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysResources">
@@ -61,12 +60,10 @@
             <if test="enable != null">
                 ENABLE,
             </if>
-            <if test="issys != null">
+            <if test="isSys != null">
                 ISSYS,
             </if>
-            <if test="moduleId != null">
-                MODULE_ID,
-            </if>
+
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="resourceId != null">
@@ -90,11 +87,8 @@
             <if test="enable != null">
                 #{enable,jdbcType=DECIMAL},
             </if>
-            <if test="issys != null">
-                #{issys,jdbcType=DECIMAL},
-            </if>
-            <if test="moduleId != null">
-                #{moduleId,jdbcType=INTEGER},
+            <if test="isSys != null">
+                #{isSys,jdbcType=DECIMAL},
             </if>
         </trim>
     </insert>
@@ -119,11 +113,8 @@
             <if test="enable != null">
                 ENABLE = #{enable,jdbcType=DECIMAL},
             </if>
-            <if test="issys != null">
-                ISSYS = #{issys,jdbcType=DECIMAL},
-            </if>
-            <if test="moduleId != null">
-                MODULE_ID = #{moduleId,jdbcType=INTEGER},
+            <if test="isSys != null">
+                ISSYS = #{isSys,jdbcType=DECIMAL},
             </if>
         </set>
         WHERE RESOURCE_ID = #{resourceId,jdbcType=INTEGER}
@@ -136,8 +127,7 @@
       RESOURCE_PATH = #{resourcePath,jdbcType=VARCHAR},
       PRIORITY = #{priority,jdbcType=VARCHAR},
       ENABLE = #{enable,jdbcType=DECIMAL},
-      ISSYS = #{issys,jdbcType=DECIMAL},
-      MODULE_ID = #{moduleId,jdbcType=INTEGER}
+      ISSYS = #{isSys,jdbcType=DECIMAL},
     WHERE RESOURCE_ID = #{resourceId,jdbcType=INTEGER}
   </update>
     <resultMap id="resourceResultMap" type="java.util.HashMap">

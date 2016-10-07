@@ -9,12 +9,10 @@
     <result column="AUTHORITY_DESC" jdbcType="VARCHAR" property="authorityDesc" />
     <result column="MESSAGE" jdbcType="VARCHAR" property="message" />
     <result column="ENABLE" jdbcType="DECIMAL" property="enable" />
-    <result column="ISSYS" jdbcType="DECIMAL" property="issys" />
-    <result column="MODULE_ID" jdbcType="INTEGER" property="moduleId" />
+    <result column="ISSYS" jdbcType="DECIMAL" property="isSys" />
   </resultMap>
   <sql id="Base_Column_List">
     AUTHORITY_ID, AUTHORITY_MARK, AUTHORITY_NAME, AUTHORITY_DESC, MESSAGE, ENABLE, ISSYS, 
-    MODULE_ID
   </sql>
   <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     select 
@@ -29,10 +27,10 @@
   <insert id="insert" parameterType="com.magic.rent.pojo.SysAuthorities">
     insert into SYS_AUTHORITIES (AUTHORITY_ID, AUTHORITY_MARK, AUTHORITY_NAME, 
       AUTHORITY_DESC, MESSAGE, ENABLE, 
-      ISSYS, MODULE_ID)
+      ISSYS)
     values (#{authorityId,jdbcType=INTEGER}, #{authorityMark,jdbcType=VARCHAR}, #{authorityName,jdbcType=VARCHAR}, 
       #{authorityDesc,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, #{enable,jdbcType=DECIMAL}, 
-      #{issys,jdbcType=DECIMAL}, #{moduleId,jdbcType=INTEGER})
+      #{isSys,jdbcType=DECIMAL})
   </insert>
   <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysAuthorities">
     insert into SYS_AUTHORITIES
@@ -55,11 +53,8 @@
       <if test="enable != null">
         ENABLE,
       </if>
-      <if test="issys != null">
+      <if test="isSys != null">
         ISSYS,
-      </if>
-      <if test="moduleId != null">
-        MODULE_ID,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -81,11 +76,8 @@
       <if test="enable != null">
         #{enable,jdbcType=DECIMAL},
       </if>
-      <if test="issys != null">
-        #{issys,jdbcType=DECIMAL},
-      </if>
-      <if test="moduleId != null">
-        #{moduleId,jdbcType=INTEGER},
+      <if test="isSys != null">
+        #{isSys,jdbcType=DECIMAL},
       </if>
     </trim>
   </insert>
@@ -107,11 +99,8 @@
       <if test="enable != null">
         ENABLE = #{enable,jdbcType=DECIMAL},
       </if>
-      <if test="issys != null">
-        ISSYS = #{issys,jdbcType=DECIMAL},
-      </if>
-      <if test="moduleId != null">
-        MODULE_ID = #{moduleId,jdbcType=INTEGER},
+      <if test="isSys != null">
+        ISSYS = #{isSys,jdbcType=DECIMAL},
       </if>
     </set>
     where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
@@ -123,8 +112,7 @@
       AUTHORITY_DESC = #{authorityDesc,jdbcType=VARCHAR},
       MESSAGE = #{message,jdbcType=VARCHAR},
       ENABLE = #{enable,jdbcType=DECIMAL},
-      ISSYS = #{issys,jdbcType=DECIMAL},
-      MODULE_ID = #{moduleId,jdbcType=INTEGER}
+      ISSYS = #{isSys,jdbcType=DECIMAL},
     where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
   </update>
 </mapper>

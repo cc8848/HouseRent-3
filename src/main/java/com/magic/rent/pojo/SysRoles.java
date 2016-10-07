@@ -3,17 +3,16 @@ package com.magic.rent.pojo;
 import java.io.Serializable;
 
 public class SysRoles implements Serializable {
-    private Integer roleId;
+    private static final long serialVersionUID = -9186978677768047958L;
+    private Integer roleId; //角色ID
 
-    private String roleName;
+    private String roleName;//角色名
 
-    private String roleDesc;
+    private String roleDesc;//角色描述
 
-    private Integer enable;
+    private boolean enable;//是否可用
 
-    private Integer issys;
-
-    private Integer moduleId;
+    private boolean isSys;//是否系统权限
 
     public Integer getRoleId() {
         return roleId;
@@ -39,29 +38,22 @@ public class SysRoles implements Serializable {
         this.roleDesc = roleDesc == null ? null : roleDesc.trim();
     }
 
-    public Integer getEnable() {
+    public boolean isEnable() {
         return enable;
     }
 
-    public void setEnable(Integer enable) {
+    public void setEnable(boolean enable) {
         this.enable = enable;
     }
 
-    public Integer getIssys() {
-        return issys;
+    public boolean isSys() {
+        return isSys;
     }
 
-    public void setIssys(Integer issys) {
-        this.issys = issys;
+    public void setSys(boolean sys) {
+        isSys = sys;
     }
 
-    public Integer getModuleId() {
-        return moduleId;
-    }
-
-    public void setModuleId(Integer moduleId) {
-        this.moduleId = moduleId;
-    }
 
     @Override
     public String toString() {
@@ -70,8 +62,7 @@ public class SysRoles implements Serializable {
                 ", roleName='" + roleName + '\'' +
                 ", roleDesc='" + roleDesc + '\'' +
                 ", enable=" + enable +
-                ", issys=" + issys +
-                ", moduleId=" + moduleId +
+                ", isSys=" + isSys +
                 '}';
     }
 }

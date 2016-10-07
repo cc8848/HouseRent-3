@@ -3,6 +3,7 @@ package com.magic.rent.pojo;
 import java.io.Serializable;
 
 public class SysModules implements Serializable{
+    private static final long serialVersionUID = 2840620148262939662L;
     private Integer moduleId;
 
     private String moduleName;

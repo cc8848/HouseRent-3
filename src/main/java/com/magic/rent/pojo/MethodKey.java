@@ -9,6 +9,7 @@ import java.lang.reflect.Method;
  * Created by wuxinzhe on 16/9/25.
  */
 public class MethodKey implements Serializable{
+    private static final long serialVersionUID = 6060404081067325953L;
     private String className;
     private String methodName;
 

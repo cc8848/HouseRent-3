@@ -8,6 +8,7 @@ import java.util.Collection;
 import java.util.Date;
 
 public class SysUsers implements UserDetails, Serializable {
+    private static final long serialVersionUID = -2056222251872727820L;
     private Integer userId;//用户id
 
     private String username;//账户名

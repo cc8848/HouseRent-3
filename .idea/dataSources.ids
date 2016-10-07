@@ -157,231 +157,229 @@
       <column id="49" parent="5" name="ISSYS">
         <data-type>decimal(8)</data-type>
       </column>
-      <column id="50" parent="5" name="MODULE_ID">
-        <data-type>int(100)</data-type>
-      </column>
-      <index id="51" parent="5" name="FK_Reference_9">
-        <columns>MODULE_ID</columns>
-        <desc-columns></desc-columns>
-      </index>
-      <key id="52" parent="5" name="PRIMARY">
+      <key id="50" parent="5" name="PRIMARY">
         <columns>RESOURCE_ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="53" parent="5" name="FK_Reference_9">
-        <columns>MODULE_ID</columns>
-        <ref-key>~.SYS_MODULES.PRIMARY</ref-key>
-        <cascade-update-rule>restrict</cascade-update-rule>
-        <cascade-delete-rule>restrict</cascade-delete-rule>
-      </foreign-key>
-      <column id="54" parent="6" name="ROLE_ID">
+      <column id="51" parent="6" name="ROLE_ID">
         <mandatory>1</mandatory>
         <data-type>int(100)</data-type>
       </column>
-      <column id="55" parent="6" name="ROLE_NAME">
+      <column id="52" parent="6" name="ROLE_NAME">
         <comment>权限名</comment>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="56" parent="6" name="ROLE_DESC">
+      <column id="53" parent="6" name="ROLE_DESC">
         <comment>权限描述</comment>
         <data-type>varchar(200)</data-type>
       </column>
-      <column id="57" parent="6" name="ENABLE">
+      <column id="54" parent="6" name="ENABLE">
         <comment>是否可用</comment>
         <data-type>decimal(8)</data-type>
       </column>
-      <column id="58" parent="6" name="ISSYS">
+      <column id="55" parent="6" name="ISSYS">
         <comment>是否系统权限</comment>
         <data-type>decimal(8)</data-type>
       </column>
-      <column id="59" parent="6" name="MODULE_ID">
-        <comment>模块</comment>
-        <data-type>int(100)</data-type>
-      </column>
-      <key id="60" parent="6" name="PRIMARY">
+      <key id="56" parent="6" name="PRIMARY">
         <columns>ROLE_ID</columns>
         <primary>1</primary>
       </key>
-      <column id="61" parent="7" name="ID">
+      <column id="57" parent="7" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(100)</data-type>
       </column>
-      <column id="62" parent="7" name="AUTHORITY_ID">
+      <column id="58" parent="7" name="AUTHORITY_ID">
         <mandatory>1</mandatory>
         <data-type>int(100)</data-type>
       </column>
-      <column id="63" parent="7" name="ROLE_ID">
+      <column id="59" parent="7" name="ROLE_ID">
         <mandatory>1</mandatory>
         <data-type>int(100)</data-type>
       </column>
-      <index id="64" parent="7" name="FK_Reference_3">
+      <index id="60" parent="7" name="FK_Reference_3">
         <columns>ROLE_ID</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="65" parent="7" name="FK_Reference_4">
+      <index id="61" parent="7" name="FK_Reference_4">
         <columns>AUTHORITY_ID</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="66" parent="7" name="PRIMARY">
+      <key id="62" parent="7" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="67" parent="7" name="FK_Reference_3">
+      <foreign-key id="63" parent="7" name="FK_Reference_3">
         <columns>ROLE_ID</columns>
         <ref-key>~.SYS_ROLES.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="68" parent="7" name="FK_Reference_4">
+      <foreign-key id="64" parent="7" name="FK_Reference_4">
         <columns>AUTHORITY_ID</columns>
         <ref-key>~.SYS_AUTHORITIES.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="69" parent="8" name="ID">
+      <column id="65" parent="8" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(100)</data-type>
       </column>
-      <column id="70" parent="8" name="MODULE_ID">
+      <column id="66" parent="8" name="MODULE_ID">
         <mandatory>1</mandatory>
         <data-type>int(100)</data-type>
       </column>
-      <column id="71" parent="8" name="ROLE_ID">
+      <column id="67" parent="8" name="ROLE_ID">
         <mandatory>1</mandatory>
         <data-type>int(100)</data-type>
       </column>
-      <index id="72" parent="8" name="FK_Reference_7">
+      <index id="68" parent="8" name="FK_Reference_7">
         <columns>MODULE_ID</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="73" parent="8" name="FK_S_ROLE_REFERENCE_SYS_ROLE">
+      <index id="69" parent="8" name="FK_S_ROLE_REFERENCE_SYS_ROLE">
         <columns>ROLE_ID</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="74" parent="8" name="PRIMARY">
+      <key id="70" parent="8" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="75" parent="8" name="FK_Reference_7">
+      <foreign-key id="71" parent="8" name="FK_Reference_7">
         <columns>MODULE_ID</columns>
         <ref-key>~.SYS_MODULES.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="76" parent="8" name="FK_S_ROLE_REFERENCE_SYS_ROLE">
+      <foreign-key id="72" parent="8" name="FK_S_ROLE_REFERENCE_SYS_ROLE">
         <columns>ROLE_ID</columns>
         <ref-key>~.SYS_ROLES.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="77" parent="9" name="ID">
+      <column id="73" parent="9" name="ID">
         <mandatory>1</mandatory>
         <data-type>int(100)</data-type>
       </column>
-      <column id="78" parent="9" name="ROLE_ID">
+      <column id="74" parent="9" name="ROLE_ID">
         <mandatory>1</mandatory>
         <data-type>int(100)</data-type>
       </column>
-      <column id="79" parent="9" name="USER_ID">
+      <column id="75" parent="9" name="USER_ID">
         <mandatory>1</mandatory>
         <data-type>int(100)</data-type>
       </column>
-      <index id="80" parent="9" name="FK_Reference_1">
+      <index id="76" parent="9" name="FK_Reference_1">
         <columns>USER_ID</columns>
         <desc-columns></desc-columns>
       </index>
-      <index id="81" parent="9" name="FK_Reference_2">
+      <index id="77" parent="9" name="FK_Reference_2">
         <columns>ROLE_ID</columns>
         <desc-columns></desc-columns>
       </index>
-      <key id="82" parent="9" name="PRIMARY">
+      <key id="78" parent="9" name="PRIMARY">
         <columns>ID</columns>
         <primary>1</primary>
       </key>
-      <foreign-key id="83" parent="9" name="FK_Reference_1">
+      <foreign-key id="79" parent="9" name="FK_Reference_1">
         <columns>USER_ID</columns>
         <ref-key>~.SYS_USERS.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <foreign-key id="84" parent="9" name="FK_Reference_2">
+      <foreign-key id="80" parent="9" name="FK_Reference_2">
         <columns>ROLE_ID</columns>
         <ref-key>~.SYS_ROLES.PRIMARY</ref-key>
         <cascade-update-rule>restrict</cascade-update-rule>
         <cascade-delete-rule>restrict</cascade-delete-rule>
       </foreign-key>
-      <column id="85" parent="10" name="USERNAME">
+      <column id="81" parent="10" name="USERNAME">
         <data-type>varchar(64)</data-type>
       </column>
-      <column id="86" parent="10" name="SERIES">
+      <column id="82" parent="10" name="SERIES">
         <mandatory>1</mandatory>
         <data-type>varchar(64)</data-type>
       </column>
-      <column id="87" parent="10" name="TOKEN">
+      <column id="83" parent="10" name="TOKEN">
         <data-type>varchar(64)</data-type>
       </column>
-      <column id="88" parent="10" name="LAST_USED">
+      <column id="84" parent="10" name="LAST_USED">
         <mandatory>1</mandatory>
         <data-type>timestamp</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <key id="89" parent="10" name="PRIMARY">
+      <key id="85" parent="10" name="PRIMARY">
         <columns>SERIES</columns>
         <primary>1</primary>
       </key>
-      <column id="90" parent="11" name="USER_ID">
+      <column id="86" parent="11" name="USER_ID">
         <mandatory>1</mandatory>
         <data-type>int(100)</data-type>
       </column>
-      <column id="91" parent="11" name="USERNAME">
+      <column id="87" parent="11" name="USERNAME">
+        <comment>账号（电话）</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="92" parent="11" name="NAME">
+      <column id="88" parent="11" name="NAME">
+        <comment>用户名</comment>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="93" parent="11" name="PASSWORD">
+      <column id="89" parent="11" name="PASSWORD">
+        <comment>密码</comment>
         <mandatory>1</mandatory>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="94" parent="11" name="DT_CREATE">
+      <column id="90" parent="11" name="DT_CREATE">
+        <comment>创建日期</comment>
         <data-type>datetime</data-type>
         <default-expression>&apos;CURRENT_TIMESTAMP&apos;</default-expression>
       </column>
-      <column id="95" parent="11" name="LAST_LOGIN">
+      <column id="91" parent="11" name="LAST_LOGIN">
+        <comment>最后登录时间</comment>
         <data-type>datetime</data-type>
       </column>
-      <column id="96" parent="11" name="DEADLINE">
+      <column id="92" parent="11" name="DEADLINE">
+        <comment>截止日期</comment>
         <data-type>datetime</data-type>
       </column>
-      <column id="97" parent="11" name="LOGIN_IP">
+      <column id="93" parent="11" name="LOGIN_IP">
+        <comment>最后登录IP</comment>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="98" parent="11" name="V_QZJGID">
+      <column id="94" parent="11" name="V_QZJGID">
+        <comment>所属机构ID</comment>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="99" parent="11" name="V_QZJGMC">
+      <column id="95" parent="11" name="V_QZJGMC">
+        <comment>所属机构名称</comment>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="100" parent="11" name="DEP_ID">
+      <column id="96" parent="11" name="DEP_ID">
+        <comment>地区编号</comment>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="101" parent="11" name="DEP_NAME">
+      <column id="97" parent="11" name="DEP_NAME">
+        <comment>地区名称</comment>
         <data-type>varchar(100)</data-type>
       </column>
-      <column id="102" parent="11" name="ENABLED">
+      <column id="98" parent="11" name="ENABLED">
+        <comment>是否可用</comment>
         <data-type>decimal(8)</data-type>
       </column>
-      <column id="103" parent="11" name="ACCOUNT_NON_EXPIRED">
+      <column id="99" parent="11" name="ACCOUNT_NON_EXPIRED">
+        <comment>是否过期</comment>
         <data-type>decimal(8)</data-type>
       </column>
-      <column id="104" parent="11" name="ACCOUNT_NON_LOCKED">
+      <column id="100" parent="11" name="ACCOUNT_NON_LOCKED">
+        <comment>是否锁定</comment>
         <data-type>decimal(8)</data-type>
       </column>
-      <column id="105" parent="11" name="CREDENTIALS_NON_EXPIRED">
+      <column id="101" parent="11" name="CREDENTIALS_NON_EXPIRED">
+        <comment>证书是否有效</comment>
         <data-type>decimal(8)</data-type>
       </column>
-      <key id="106" parent="11" name="PRIMARY">
+      <key id="102" parent="11" name="PRIMARY">
         <columns>USER_ID</columns>
         <primary>1</primary>
       </key>

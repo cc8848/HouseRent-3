@@ -46,7 +46,7 @@ public class ResourceSecurityMetadataSource implements FilterInvocationSecurityM
             }
         }
 
-        logger.info("获取URL-资源:[{}]->[{}]", request.getRequestURI(), attrs);
+        logger.info("请求资源->资源:[{}]->[{}]", request.getRequestURI(), attrs);
         return attrs;
     }
 
@@ -65,23 +65,22 @@ public class ResourceSecurityMetadataSource implements FilterInvocationSecurityM
     }
 
     private Map<String, String> loadResource() {
-        Map<String, String> map = new LinkedHashMap<String, String>();
+        Map<String, String> resourceLinkMap = new LinkedHashMap<String, String>();
 
-        List<Map<String, String>> list = this.sysResourcesMapper.getURLResourceMapping();
-        Iterator<Map<String, String>> it = list.iterator();
-        while (it.hasNext()) {
-            Map<String, String> rs = it.next();
-            String resourcePath = rs.get("resourcePath");
-            String authorityMark = rs.get("authorityMark");
+        List<Map<String, String>> resourceList = sysResourcesMapper.getURLResourceMapping();
 
-            if (map.containsKey(resourcePath)) {
-                String mark = map.get("resourcePath");
-                map.put(resourcePath, mark + "," + authorityMark);
+        for (Map<String, String> resourceMap : resourceList) {
+            String resourcePath = resourceMap.get("resourcePath");
+            String authorityMark = resourceMap.get("authorityMark");
+            if (resourceLinkMap.containsKey(resourcePath)) {
+                String mark = resourceLinkMap.get("resourcePath");
+                resourceLinkMap.put(resourcePath, mark + "," + authorityMark);
             } else {
-                map.put(resourcePath, authorityMark);
+                resourceLinkMap.put(resourcePath, authorityMark);
             }
         }
-        return map;
+
+        return resourceLinkMap;
     }
 
     protected Map<RequestMatcher, Collection<ConfigAttribute>> bindRequestMap() {
@@ -97,9 +96,12 @@ public class ResourceSecurityMetadataSource implements FilterInvocationSecurityM
 
     public void afterPropertiesSet() throws Exception {
         this.requestMap = this.bindRequestMap();
-        logger.info("URL资源权限参数初始化:资源列表[{}]", requestMap);
+        logger.info("资源文件权限参数初始化:资源列表[{}]", requestMap);
     }
 
+    /**
+     * 手动刷新资源
+     */
     public void refreshResuorceMap() {
         this.requestMap = this.bindRequestMap();
     }

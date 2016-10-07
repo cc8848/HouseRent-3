@@ -8,10 +8,9 @@
         <result column="ROLE_DESC" jdbcType="VARCHAR" property="roleDesc"/>
         <result column="ENABLE" jdbcType="DECIMAL" property="enable"/>
         <result column="ISSYS" jdbcType="DECIMAL" property="issys"/>
-        <result column="MODULE_ID" jdbcType="INTEGER" property="moduleId"/>
     </resultMap>
     <sql id="Base_Column_List">
-    ROLE_ID, ROLE_NAME, ROLE_DESC, ENABLE, ISSYS, MODULE_ID
+    ROLE_ID, ROLE_NAME, ROLE_DESC, ENABLE, ISSYS
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
@@ -25,10 +24,10 @@
   </delete>
     <insert id="insert" parameterType="com.magic.rent.pojo.SysRoles">
     insert into SYS_ROLES (ROLE_ID, ROLE_NAME, ROLE_DESC, 
-      ENABLE, ISSYS, MODULE_ID
+      ENABLE, ISSYS
       )
     values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{roleDesc,jdbcType=VARCHAR}, 
-      #{enable,jdbcType=DECIMAL}, #{issys,jdbcType=DECIMAL}, #{moduleId,jdbcType=INTEGER}
+      #{enable,jdbcType=DECIMAL}, #{issys,jdbcType=DECIMAL}
       )
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysRoles">
@@ -49,9 +48,6 @@
             <if test="issys != null">
                 ISSYS,
             </if>
-            <if test="moduleId != null">
-                MODULE_ID,
-            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="roleId != null">
@@ -68,9 +64,6 @@
             </if>
             <if test="issys != null">
                 #{issys,jdbcType=DECIMAL},
-            </if>
-            <if test="moduleId != null">
-                #{moduleId,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
@@ -89,9 +82,6 @@
             <if test="issys != null">
                 ISSYS = #{issys,jdbcType=DECIMAL},
             </if>
-            <if test="moduleId != null">
-                MODULE_ID = #{moduleId,jdbcType=INTEGER},
-            </if>
         </set>
         where ROLE_ID = #{roleId,jdbcType=INTEGER}
     </update>
@@ -101,7 +91,6 @@
       ROLE_DESC = #{roleDesc,jdbcType=VARCHAR},
       ENABLE = #{enable,jdbcType=DECIMAL},
       ISSYS = #{issys,jdbcType=DECIMAL},
-      MODULE_ID = #{moduleId,jdbcType=INTEGER}
     where ROLE_ID = #{roleId,jdbcType=INTEGER}
   </update>
     <select id="selectRolesByUserId" parameterType="int" resultMap="BaseResultMap">

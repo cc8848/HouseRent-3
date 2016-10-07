@@ -3,23 +3,22 @@ package com.magic.rent.pojo;
 import java.io.Serializable;
 
 public class SysResources implements Serializable {
-    private Integer resourceId;
+    private static final long serialVersionUID = 4082143889231494624L;
+    private Integer resourceId;//资源ID
 
-    private String resourceType;
+    private String resourceType;//资源类型:URL/METHOD
 
-    private String resourceName;
+    private String resourceName;//资源名
 
-    private String resourceDesc;
+    private String resourceDesc;//描述
 
-    private String resourcePath;
+    private String resourcePath;//资源路径
 
     private String priority;
 
-    private Integer enable;
+    private boolean enable;
 
-    private Integer issys;
-
-    private Integer moduleId;
+    private boolean isSys;
 
     public Integer getResourceId() {
         return resourceId;
@@ -69,27 +68,20 @@ public class SysResources implements Serializable {
         this.priority = priority == null ? null : priority.trim();
     }
 
-    public Integer getEnable() {
+    public boolean isEnable() {
         return enable;
     }
 
-    public void setEnable(Integer enable) {
+    public void setEnable(boolean enable) {
         this.enable = enable;
     }
 
-    public Integer getIssys() {
-        return issys;
+    public boolean isSys() {
+        return isSys;
     }
 
-    public void setIssys(Integer issys) {
-        this.issys = issys;
+    public void setSys(boolean sys) {
+        isSys = sys;
     }
 
-    public Integer getModuleId() {
-        return moduleId;
-    }
-
-    public void setModuleId(Integer moduleId) {
-        this.moduleId = moduleId;
-    }
 }
