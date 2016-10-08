@@ -39,32 +39,6 @@
                     <a class="navbar-brand" href="#">查询条件</a>
                 </div>
                 <div class="collapse navbar-collapse" id="search-nav">
-                    <%--地区 start--%>
-                    <ul class="nav navbar-nav">
-                        <li>
-                            <div class="btn-group navbar-btn">
-                                <button type="button" class="btn btn-default">请选择地区</button>
-                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
-                                    <span class="caret"></span>
-                                    <span class="sr-only">Toggle Dropdown</span>
-                                </button>
-                                <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">思明区</a></li>
-                                    <li><a href="#">海沧区</a></li>
-                                    <li><a href="#">湖里区</a></li>
-                                    <li class="divider"></li>
-                                    <li><a href="#">不限</a></li>
-                                </ul>
-                            </div>
-                        </li>
-                    </ul>
-                    <%--地区 end--%>
-                    <form class="navbar-form navbar-right" role="search">
-                        <div class="form-group">
-                            <input type="text" class="form-control" placeholder="Search">
-                        </div>
-                        <button type="submit" class="btn btn-default">Submit</button>
-                    </form>
                 </div>
             </div>
         </nav>
