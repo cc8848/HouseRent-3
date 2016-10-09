@@ -1,82 +1,93 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.magic.rent.mapper.AreaMapper">
-    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Area">
-        <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="areaID" property="areaid" jdbcType="INTEGER"/>
-        <result column="areaName" property="areaname" jdbcType="VARCHAR"/>
-        <result column="cityID" property="cityid" jdbcType="INTEGER"/>
-    </resultMap>
-    <sql id="Base_Column_List">
-    id, areaID, areaName, cityID
+<mapper namespace="com.magic.rent.mapper.AreaMapper" >
+  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Area" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="areaID" property="areaid" jdbcType="INTEGER" />
+    <result column="areaName" property="areaname" jdbcType="VARCHAR" />
+    <result column="cityID" property="cityid" jdbcType="INTEGER" />
+    <result column="enable" property="enable" jdbcType="DECIMAL" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, areaID, areaName, cityID, enable
   </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-        select
-        <include refid="Base_Column_List"/>
-        from AREA
-        where id = #{id,jdbcType=INTEGER}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from AREA
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from AREA
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.magic.rent.pojo.Area">
+  <insert id="insert" parameterType="com.magic.rent.pojo.Area" >
     insert into AREA (id, areaID, areaName, 
-      cityID)
+      cityID, enable)
     values (#{id,jdbcType=INTEGER}, #{areaid,jdbcType=INTEGER}, #{areaname,jdbcType=VARCHAR}, 
-      #{cityid,jdbcType=INTEGER})
+      #{cityid,jdbcType=INTEGER}, #{enable,jdbcType=DECIMAL})
   </insert>
-    <insert id="insertSelective" parameterType="com.magic.rent.pojo.Area">
-        insert into AREA
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                id,
-            </if>
-            <if test="areaid != null">
-                areaID,
-            </if>
-            <if test="areaname != null">
-                areaName,
-            </if>
-            <if test="cityid != null">
-                cityID,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=INTEGER},
-            </if>
-            <if test="areaid != null">
-                #{areaid,jdbcType=INTEGER},
-            </if>
-            <if test="areaname != null">
-                #{areaname,jdbcType=VARCHAR},
-            </if>
-            <if test="cityid != null">
-                #{cityid,jdbcType=INTEGER},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Area">
-        update AREA
-        <set>
-            <if test="areaid != null">
-                areaID = #{areaid,jdbcType=INTEGER},
-            </if>
-            <if test="areaname != null">
-                areaName = #{areaname,jdbcType=VARCHAR},
-            </if>
-            <if test="cityid != null">
-                cityID = #{cityid,jdbcType=INTEGER},
-            </if>
-        </set>
-        where id = #{id,jdbcType=INTEGER}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Area">
+  <insert id="insertSelective" parameterType="com.magic.rent.pojo.Area" >
+    insert into AREA
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="areaid != null" >
+        areaID,
+      </if>
+      <if test="areaname != null" >
+        areaName,
+      </if>
+      <if test="cityid != null" >
+        cityID,
+      </if>
+      <if test="enable != null" >
+        enable,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="areaid != null" >
+        #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="areaname != null" >
+        #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="cityid != null" >
+        #{cityid,jdbcType=INTEGER},
+      </if>
+      <if test="enable != null" >
+        #{enable,jdbcType=DECIMAL},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Area" >
+    update AREA
+    <set >
+      <if test="areaid != null" >
+        areaID = #{areaid,jdbcType=INTEGER},
+      </if>
+      <if test="areaname != null" >
+        areaName = #{areaname,jdbcType=VARCHAR},
+      </if>
+      <if test="cityid != null" >
+        cityID = #{cityid,jdbcType=INTEGER},
+      </if>
+      <if test="enable != null" >
+        enable = #{enable,jdbcType=DECIMAL},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Area" >
     update AREA
     set areaID = #{areaid,jdbcType=INTEGER},
       areaName = #{areaname,jdbcType=VARCHAR},
-      cityID = #{cityid,jdbcType=INTEGER}
+      cityID = #{cityid,jdbcType=INTEGER},
+      enable = #{enable,jdbcType=DECIMAL}
     where id = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

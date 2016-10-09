@@ -9,6 +9,8 @@ public class City {
 
     private Integer provinceid;
 
+    private Long enable;
+
     public Integer getId() {
         return id;
     }
@@ -39,5 +41,13 @@ public class City {
 
     public void setProvinceid(Integer provinceid) {
         this.provinceid = provinceid;
+    }
+
+    public Long getEnable() {
+        return enable;
+    }
+
+    public void setEnable(Long enable) {
+        this.enable = enable;
     }
 }

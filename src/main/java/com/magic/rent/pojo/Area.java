@@ -9,6 +9,8 @@ public class Area {
 
     private Integer cityid;
 
+    private Long enable;
+
     public Integer getId() {
         return id;
     }
@@ -39,5 +41,13 @@ public class Area {
 
     public void setCityid(Integer cityid) {
         this.cityid = cityid;
+    }
+
+    public Long getEnable() {
+        return enable;
+    }
+
+    public void setEnable(Long enable) {
+        this.enable = enable;
     }
 }

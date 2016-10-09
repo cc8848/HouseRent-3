@@ -1,8 +1,6 @@
 package com.magic.rent.service.impl;
 
-import com.magic.rent.mapper.CityMapper;
 import com.magic.rent.service.ICommonService;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -15,8 +13,6 @@ import java.util.List;
 @Service
 public class CommonServiceImpl implements ICommonService {
 
-    @Autowired
-    private CityMapper cityMapper;
 
     public List<String> getCityList(String queryKey, int startNum, int queryNum) throws Exception {
         return null;

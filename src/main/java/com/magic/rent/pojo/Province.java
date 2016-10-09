@@ -7,6 +7,8 @@ public class Province {
 
     private String provincename;
 
+    private Long enable;
+
     public Integer getId() {
         return id;
     }
@@ -29,5 +31,13 @@ public class Province {
 
     public void setProvincename(String provincename) {
         this.provincename = provincename == null ? null : provincename.trim();
+    }
+
+    public Long getEnable() {
+        return enable;
+    }
+
+    public void setEnable(Long enable) {
+        this.enable = enable;
     }
 }
