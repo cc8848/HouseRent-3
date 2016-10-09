@@ -45,7 +45,7 @@
                     <div id="search-navbar" class="collapse navbar-collapse">
                         <form class="navbar-form navbar-left" role="search">
                             <div class="form-group">
-                                <select id="city" class="select2 form-control" style="width: 100%"></select>
+                                <select id="city" class="form-control" style="width: 100%"></select>
                             </div>
                             <div class="form-group">
                                 <input type="text" class="form-control" placeholder="Search">

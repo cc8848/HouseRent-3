@@ -14,7 +14,11 @@ function showMap() {
 $(document).ready(selectInit());
 
 function selectInit() {
-    $(".select2").select2({
-        placeholder: "请选择城市"
+    $.getJSON("/common/getAllCity", function (data) {
+        var data = data.data;
+        $("#city").select2({
+            placeholder: "请选择城市",
+            data: data
+        });
     });
 }

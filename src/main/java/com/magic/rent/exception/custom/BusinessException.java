@@ -11,10 +11,10 @@ import org.slf4j.LoggerFactory;
  */
 public class BusinessException extends BaseException {
 
-    private static Logger logger = LoggerFactory.getLogger(BusinessException.class);
+    public BusinessException() {
+    }
 
-    public BusinessException(String message, Object trade) {
-        super(message, trade);
-        logger.error("业务逻辑异常:{}", message);
+    public BusinessException(String message) {
+        super(message);
     }
 }

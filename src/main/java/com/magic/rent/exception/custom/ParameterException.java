@@ -11,10 +11,7 @@ import org.slf4j.LoggerFactory;
  */
 public class ParameterException extends BaseException {
 
-    private static Logger logger = LoggerFactory.getLogger(BusinessException.class);
-
-    public ParameterException(String message, Object trade) {
-        super(message, trade);
-        logger.error("参数设置异常:{}", message);
+    public ParameterException(String message) {
+        super(message);
     }
 }

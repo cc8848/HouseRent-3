@@ -1,8 +1,14 @@
 package com.magic.rent.service.impl;
 
+import com.magic.rent.mapper.CityMapper;
+import com.magic.rent.pojo.City;
+import com.magic.rent.pojo.Province;
+import com.magic.rent.pojo.SelectPoJo;
 import com.magic.rent.service.ICommonService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -13,8 +19,40 @@ import java.util.List;
 @Service
 public class CommonServiceImpl implements ICommonService {
 
+    @Autowired
+    private CityMapper cityMapper;
 
-    public List<String> getCityList(String queryKey, int startNum, int queryNum) throws Exception {
-        return null;
+    public List<SelectPoJo> getCityByProvinceName(Province province) throws Exception {
+
+        List<City> cityList = cityMapper.selectByProvinceName(province.getProvincename());
+
+        return cityListToSelectPojoList(cityList);
+    }
+
+    public List<SelectPoJo> getAllCity() throws Exception {
+
+        List<City> cityList = cityMapper.selectAllCity();
+
+        return cityListToSelectPojoList(cityList);
+
+    }
+
+    /**
+     * 将城市列表转换为SelectPojo列表
+     *
+     * @param cityList
+     * @return
+     */
+    private List<SelectPoJo> cityListToSelectPojoList(List<City> cityList) {
+        List<SelectPoJo> selectPoJoList = new ArrayList<SelectPoJo>();
+
+        for (City city : cityList) {
+            SelectPoJo selectPOJO = new SelectPoJo();
+            selectPOJO.setId(city.getCityid());
+            selectPOJO.setText(city.getCityname());
+            selectPoJoList.add(selectPOJO);
+        }
+
+        return selectPoJoList;
     }
 }

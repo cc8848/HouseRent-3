@@ -70,11 +70,11 @@ public class UserServiceImpl implements IUserService {
      */
     public int updateUserLoginInfo(SysUsers sysUsers) throws Exception {
         if (StringUtils.isEmpty(sysUsers.getUserId()))
-            throw new ParameterException("用户ID为空", this);
+            throw new ParameterException("用户ID为空");
         if (StringUtils.isEmpty(sysUsers.getLoginIp()))
-            throw new ParameterException("用户登录IP为空", this);
+            throw new ParameterException("用户登录IP为空");
         if (null == sysUsers.getLastLogin())
-            throw new ParameterException("用户登录时间为空", this);
+            throw new ParameterException("用户登录时间为空");
         return sysUsersMapper.updateByPrimaryKeySelective(sysUsers);
     }
 

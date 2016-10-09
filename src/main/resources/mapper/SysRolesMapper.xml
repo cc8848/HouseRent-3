@@ -6,8 +6,8 @@
         <id column="ROLE_ID" jdbcType="INTEGER" property="roleId"/>
         <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName"/>
         <result column="ROLE_DESC" jdbcType="VARCHAR" property="roleDesc"/>
-        <result column="ENABLE" jdbcType="DECIMAL" property="enable"/>
-        <result column="ISSYS" jdbcType="DECIMAL" property="system"/>
+        <result column="ENABLE" jdbcType="TINYINT" property="enable"/>
+        <result column="ISSYS" jdbcType="TINYINT" property="system"/>
     </resultMap>
     <sql id="Base_Column_List">
     ROLE_ID, ROLE_NAME, ROLE_DESC, ENABLE, ISSYS
@@ -27,7 +27,7 @@
       ENABLE, ISSYS
       )
     values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{roleDesc,jdbcType=VARCHAR}, 
-      #{enable,jdbcType=DECIMAL}, #{system,jdbcType=DECIMAL}
+      #{enable,jdbcType=TINYINT}, #{system,jdbcType=TINYINT}
       )
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysRoles">
@@ -60,10 +60,10 @@
                 #{roleDesc,jdbcType=VARCHAR},
             </if>
             <if test="enable != null">
-                #{enable,jdbcType=DECIMAL},
+                #{enable,jdbcType=TINYINT},
             </if>
             <if test="system != null">
-                #{system,jdbcType=DECIMAL},
+                #{system,jdbcType=TINYINT},
             </if>
         </trim>
     </insert>
@@ -77,10 +77,10 @@
                 ROLE_DESC = #{roleDesc,jdbcType=VARCHAR},
             </if>
             <if test="enable != null">
-                ENABLE = #{enable,jdbcType=DECIMAL},
+                ENABLE = #{enable,jdbcType=TINYINT},
             </if>
             <if test="system != null">
-                ISSYS = #{system,jdbcType=DECIMAL},
+                ISSYS = #{system,jdbcType=TINYINT},
             </if>
         </set>
         where ROLE_ID = #{roleId,jdbcType=INTEGER}
@@ -89,8 +89,8 @@
     update SYS_ROLES
     set ROLE_NAME = #{roleName,jdbcType=VARCHAR},
       ROLE_DESC = #{roleDesc,jdbcType=VARCHAR},
-      ENABLE = #{enable,jdbcType=DECIMAL},
-      ISSYS = #{system,jdbcType=DECIMAL},
+      ENABLE = #{enable,jdbcType=TINYINT},
+      ISSYS = #{system,jdbcType=TINYINT},
     where ROLE_ID = #{roleId,jdbcType=INTEGER}
   </update>
     <select id="selectRolesByUserId" parameterType="int" resultMap="BaseResultMap">

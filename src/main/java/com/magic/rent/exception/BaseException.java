@@ -7,10 +7,10 @@ package com.magic.rent.exception;
  */
 public class BaseException extends RuntimeException {
 
-    private Object trade;
+    public BaseException() {
+    }
 
-    public BaseException(String message, Object trade) {
+    public BaseException(String message) {
         super(message);
-        this.trade = trade;
     }
 }

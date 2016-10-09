@@ -8,8 +8,8 @@
         <result column="AUTHORITY_NAME" jdbcType="VARCHAR" property="authorityName"/>
         <result column="AUTHORITY_DESC" jdbcType="VARCHAR" property="authorityDesc"/>
         <result column="MESSAGE" jdbcType="VARCHAR" property="message"/>
-        <result column="ENABLE" jdbcType="DECIMAL" property="enable"/>
-        <result column="ISSYS" jdbcType="DECIMAL" property="system"/>
+        <result column="ENABLE" jdbcType="TINYINT" property="enable"/>
+        <result column="ISSYS" jdbcType="TINYINT" property="system"/>
     </resultMap>
     <sql id="Base_Column_List">
     AUTHORITY_ID, AUTHORITY_MARK, AUTHORITY_NAME, AUTHORITY_DESC, MESSAGE, ENABLE, ISSYS, 
@@ -29,8 +29,8 @@
       AUTHORITY_DESC, MESSAGE, ENABLE, 
       ISSYS)
     values (#{authorityId,jdbcType=INTEGER}, #{authorityMark,jdbcType=VARCHAR}, #{authorityName,jdbcType=VARCHAR}, 
-      #{authorityDesc,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, #{enable,jdbcType=DECIMAL}, 
-      #{system,jdbcType=DECIMAL})
+      #{authorityDesc,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT}, 
+      #{system,jdbcType=TINYINT})
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysAuthorities">
         insert into SYS_AUTHORITIES
@@ -74,10 +74,10 @@
                 #{message,jdbcType=VARCHAR},
             </if>
             <if test="enable != null">
-                #{enable,jdbcType=DECIMAL},
+                #{enable,jdbcType=TINYINT},
             </if>
             <if test="system != null">
-                #{system,jdbcType=DECIMAL},
+                #{system,jdbcType=TINYINT},
             </if>
         </trim>
     </insert>
@@ -97,10 +97,10 @@
                 MESSAGE = #{message,jdbcType=VARCHAR},
             </if>
             <if test="enable != null">
-                ENABLE = #{enable,jdbcType=DECIMAL},
+                ENABLE = #{enable,jdbcType=TINYINT},
             </if>
             <if test="system != null">
-                ISSYS = #{system,jdbcType=DECIMAL},
+                ISSYS = #{system,jdbcType=TINYINT},
             </if>
         </set>
         where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
@@ -111,8 +111,8 @@
       AUTHORITY_NAME = #{authorityName,jdbcType=VARCHAR},
       AUTHORITY_DESC = #{authorityDesc,jdbcType=VARCHAR},
       MESSAGE = #{message,jdbcType=VARCHAR},
-      ENABLE = #{enable,jdbcType=DECIMAL},
-      ISSYS = #{system,jdbcType=DECIMAL},
+      ENABLE = #{enable,jdbcType=TINYINT},
+      ISSYS = #{system,jdbcType=TINYINT},
     where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
   </update>
     <select id="selectByRole" parameterType="com.magic.rent.pojo.SysRoles" resultMap="BaseResultMap">

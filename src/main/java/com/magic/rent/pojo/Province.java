@@ -1,13 +1,16 @@
 package com.magic.rent.pojo;
 
-public class Province {
+import java.io.Serializable;
+
+public class Province implements Serializable {
+    private static final long serialVersionUID = -1754868368289735835L;
     private Integer id;
 
     private Integer provinceid;
 
     private String provincename;
 
-    private Long enable;
+    private boolean enable;
 
     public Integer getId() {
         return id;
@@ -33,11 +36,11 @@ public class Province {
         this.provincename = provincename == null ? null : provincename.trim();
     }
 
-    public Long getEnable() {
+    public boolean isEnable() {
         return enable;
     }
 
-    public void setEnable(Long enable) {
+    public void setEnable(boolean enable) {
         this.enable = enable;
     }
 }

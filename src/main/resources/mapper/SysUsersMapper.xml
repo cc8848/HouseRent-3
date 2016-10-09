@@ -15,10 +15,10 @@
         <result column="V_QZJGMC" jdbcType="VARCHAR" property="vQzjgmc"/>
         <result column="DEP_ID" jdbcType="VARCHAR" property="depId"/>
         <result column="DEP_NAME" jdbcType="VARCHAR" property="depName"/>
-        <result column="ENABLED" jdbcType="DECIMAL" property="enabled"/>
-        <result column="ACCOUNT_NON_EXPIRED" jdbcType="DECIMAL" property="accountNonExpired"/>
-        <result column="ACCOUNT_NON_LOCKED" jdbcType="DECIMAL" property="accountNonLocked"/>
-        <result column="CREDENTIALS_NON_EXPIRED" jdbcType="DECIMAL" property="credentialsNonExpired"/>
+        <result column="ENABLED" jdbcType="TINYINT" property="enabled"/>
+        <result column="ACCOUNT_NON_EXPIRED" jdbcType="TINYINT" property="accountNonExpired"/>
+        <result column="ACCOUNT_NON_LOCKED" jdbcType="TINYINT" property="accountNonLocked"/>
+        <result column="CREDENTIALS_NON_EXPIRED" jdbcType="TINYINT" property="credentialsNonExpired"/>
     </resultMap>
     <sql id="Base_Column_List">
     USER_ID, USERNAME, NAME , PASSWORD, DT_CREATE, LAST_LOGIN, DEADLINE, LOGIN_IP, V_QZJGID,
@@ -45,8 +45,8 @@
       #{password,jdbcType=VARCHAR}, #{dtCreate,jdbcType=TIMESTAMP}, #{lastLogin,jdbcType=TIMESTAMP}, 
       #{deadline,jdbcType=TIMESTAMP}, #{loginIp,jdbcType=VARCHAR}, #{vQzjgid,jdbcType=VARCHAR}, 
       #{vQzjgmc,jdbcType=VARCHAR}, #{depId,jdbcType=VARCHAR}, #{depName,jdbcType=VARCHAR}, 
-      #{enabled,jdbcType=DECIMAL}, #{accountNonExpired,jdbcType=DECIMAL}, #{accountNonLocked,jdbcType=DECIMAL}, 
-      #{credentialsNonExpired,jdbcType=DECIMAL})
+      #{enabled,jdbcType=TINYINT}, #{accountNonExpired,jdbcType=TINYINT}, #{accountNonLocked,jdbcType=TINYINT}, 
+      #{credentialsNonExpired,jdbcType=TINYINT})
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysUsers">
         insert into SYS_USERS
@@ -132,16 +132,16 @@
                 #{depName,jdbcType=VARCHAR},
             </if>
             <if test="enabled != null">
-                #{enabled,jdbcType=DECIMAL},
+                #{enabled,jdbcType=TINYINT},
             </if>
             <if test="accountNonExpired != null">
-                #{accountNonExpired,jdbcType=DECIMAL},
+                #{accountNonExpired,jdbcType=TINYINT},
             </if>
             <if test="accountNonLocked != null">
-                #{accountNonLocked,jdbcType=DECIMAL},
+                #{accountNonLocked,jdbcType=TINYINT},
             </if>
             <if test="credentialsNonExpired != null">
-                #{credentialsNonExpired,jdbcType=DECIMAL},
+                #{credentialsNonExpired,jdbcType=TINYINT},
             </if>
         </trim>
     </insert>
@@ -179,16 +179,16 @@
                 DEP_NAME = #{depName,jdbcType=VARCHAR},
             </if>
             <if test="enabled != null">
-                ENABLED = #{enabled,jdbcType=DECIMAL},
+                ENABLED = #{enabled,jdbcType=TINYINT},
             </if>
             <if test="accountNonExpired != null">
-                ACCOUNT_NON_EXPIRED = #{accountNonExpired,jdbcType=DECIMAL},
+                ACCOUNT_NON_EXPIRED = #{accountNonExpired,jdbcType=TINYINT},
             </if>
             <if test="accountNonLocked != null">
-                ACCOUNT_NON_LOCKED = #{accountNonLocked,jdbcType=DECIMAL},
+                ACCOUNT_NON_LOCKED = #{accountNonLocked,jdbcType=TINYINT},
             </if>
             <if test="credentialsNonExpired != null">
-                CREDENTIALS_NON_EXPIRED = #{credentialsNonExpired,jdbcType=DECIMAL},
+                CREDENTIALS_NON_EXPIRED = #{credentialsNonExpired,jdbcType=TINYINT},
             </if>
         </set>
         where USER_ID = #{userId,jdbcType=INTEGER}
@@ -206,10 +206,10 @@
       V_QZJGMC = #{vQzjgmc,jdbcType=VARCHAR},
       DEP_ID = #{depId,jdbcType=VARCHAR},
       DEP_NAME = #{depName,jdbcType=VARCHAR},
-      ENABLED = #{enabled,jdbcType=DECIMAL},
-      ACCOUNT_NON_EXPIRED = #{accountNonExpired,jdbcType=DECIMAL},
-      ACCOUNT_NON_LOCKED = #{accountNonLocked,jdbcType=DECIMAL},
-      CREDENTIALS_NON_EXPIRED = #{credentialsNonExpired,jdbcType=DECIMAL}
+      ENABLED = #{enabled,jdbcType=TINYINT},
+      ACCOUNT_NON_EXPIRED = #{accountNonExpired,jdbcType=TINYINT},
+      ACCOUNT_NON_LOCKED = #{accountNonLocked,jdbcType=TINYINT},
+      CREDENTIALS_NON_EXPIRED = #{credentialsNonExpired,jdbcType=TINYINT}
     where USER_ID = #{userId,jdbcType=INTEGER}
   </update>
 

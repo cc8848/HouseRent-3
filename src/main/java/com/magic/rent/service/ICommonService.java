@@ -1,5 +1,8 @@
 package com.magic.rent.service;
 
+import com.magic.rent.pojo.Province;
+import com.magic.rent.pojo.SelectPoJo;
+
 import java.util.List;
 
 /**
@@ -8,5 +11,7 @@ import java.util.List;
  * 类说明:
  */
 public interface ICommonService {
-    List<String> getCityList(String queryKey, int startNum, int queryNum) throws Exception;
+    List<SelectPoJo> getCityByProvinceName(Province province) throws Exception;
+
+    List<SelectPoJo> getAllCity() throws Exception;
 }

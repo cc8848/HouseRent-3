@@ -1,6 +1,9 @@
 package com.magic.rent.pojo;
 
-public class Area {
+import java.io.Serializable;
+
+public class Area implements Serializable {
+    private static final long serialVersionUID = 3533014946638583863L;
     private Integer id;
 
     private Integer areaid;
@@ -9,7 +12,7 @@ public class Area {
 
     private Integer cityid;
 
-    private Long enable;
+    private boolean enable;
 
     public Integer getId() {
         return id;
@@ -43,11 +46,11 @@ public class Area {
         this.cityid = cityid;
     }
 
-    public Long getEnable() {
+    public boolean isEnable() {
         return enable;
     }
 
-    public void setEnable(Long enable) {
+    public void setEnable(boolean enable) {
         this.enable = enable;
     }
 }
