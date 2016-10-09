@@ -2,7 +2,9 @@ package com.magic.rent.mapper;
 
 
 import com.magic.rent.pojo.Province;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface ProvinceMapper {
     int deleteByPrimaryKey(Integer id);
 

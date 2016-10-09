@@ -14,6 +14,7 @@
     <meta charset="UTF-8">
     <title>登录</title>
     <sec:csrfMetaTags/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/bootstrap-theme.min.css">

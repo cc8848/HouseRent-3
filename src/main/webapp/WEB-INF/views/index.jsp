@@ -14,6 +14,7 @@
     <meta charset="UTF-8">
     <title>首页</title>
     <sec:csrfMetaTags/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <link rel="stylesheet" href="../../css/bootstrap.min.css">
 <link rel="stylesheet" href="../../css/select2.min.css">
@@ -42,16 +43,15 @@
                         <a class="navbar-brand" href="#">查询条件</a>
                     </div>
                     <div id="search-navbar" class="collapse navbar-collapse">
-                        <ul class="nav navbar-nav">
-                            <li class="navbar-btn">
-                                <select id="city" class="select2-container form-control">
-                                    <optgroup label="福建省">
-                                        <option value="xiamen">厦门</option>
-                                        <option value="zhangzhou">漳州</option>
-                                    </optgroup>
-                                </select>
-                            </li>
-                        </ul>
+                        <form class="navbar-form navbar-left" role="search">
+                            <div class="form-group">
+                                <select id="city" class="select2 form-control" style="width: 100%"></select>
+                            </div>
+                            <div class="form-group">
+                                <input type="text" class="form-control" placeholder="Search">
+                            </div>
+                            <button type="submit" class="btn btn-default">Submit</button>
+                        </form>
                     </div>
                 </div>
             </nav>
@@ -85,14 +85,6 @@
             </div>
         </div>
     </div>
-
-
-    <%--<div class="col-xs-12 col-sm-8">--%>
-    <%----%>
-    <%--</div>--%>
-    <%--<div id="house-details" class="col-xs-12 col-sm-4">--%>
-    <%----%>
-    <%--</div>--%>
 </div>
 
 

@@ -10,3 +10,11 @@ function showMap() {
         center: [116.480983, 40.0958]
     });
 }
+
+$(document).ready(selectInit());
+
+function selectInit() {
+    $(".select2").select2({
+        placeholder: "请选择城市"
+    });
+}
