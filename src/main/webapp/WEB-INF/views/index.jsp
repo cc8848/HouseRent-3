@@ -40,17 +40,54 @@
                             <span class="icon-bar"></span>
                             <span class="icon-bar"></span>
                         </button>
-                        <a class="navbar-brand" href="#">查询条件</a>
+                        <a class="navbar-brand" href="#">搜房</a>
                     </div>
                     <div id="search-navbar" class="collapse navbar-collapse">
-                        <form class="navbar-form navbar-left" role="search">
-                            <div class="form-group">
-                                <select id="city" class="form-control" style="width: 100%"></select>
+                        <ul class="nav navbar-nav">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">请选择地区 <span
+                                        class="caret"></span></a>
+                                <ul class="dropdown-menu" role="menu">
+                                    <form class="navbar-form form-group">
+                                        <select id="province" class="select2 form-control" style="width: 100%"></select>
+                                        <div class="white-divider-md"></div>
+                                        <select id="city" class="select2 form-control" style="width: 100%"></select>
+                                        <div class="white-divider-md"></div>
+                                        <select id="area" class="select2 form-control" style="width: 100%"></select>
+                                        <div class="divider"></div>
+                                        <button type="submit" class="btn btn-primary btn-block">确定</button>
+                                    </form>
+                                </ul>
+                            </li>
+                        </ul>
+                        <p class="navbar-text"></p>
+                        <form class="navbar-form navbar-right">
+                            <div class="input-group">
+                                <input id="search" name="" type="text" class="form-control" placeholder="请输入地址...">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-primary">搜索</button>
+                                    <button type="button" class="btn btn-primary dropdown-toggle"
+                                            data-toggle="dropdown">
+                                        <span class="caret"></span>
+                                        <span class="sr-only">Toggle Dropdown</span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#">Action</a></li>
+                                        <li class="divider"></li>
+                                        <li>
+                                            <form class="navbar-form form-group">
+                                                <select id="price" class="select2 form-control" style="width: 100%"></select>
+                                                <div class="white-divider-md"></div>
+                                                <select id="roomNum" class="select2 form-control" style="width: 100%"></select>
+                                                <div class="white-divider-md"></div>
+                                                <select id="" class="select2 form-control" style="width: 100%"></select>
+                                                <div class="divider"></div>
+                                                <button type="submit" class="btn btn-primary btn-block">搜索</button>
+                                            </form>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
-                            <div class="form-group">
-                                <input type="text" class="form-control" placeholder="Search">
-                            </div>
-                            <button type="submit" class="btn btn-default">Submit</button>
                         </form>
                     </div>
                 </div>
@@ -76,13 +113,13 @@
         </div>
         <%--房屋分布地图or列表  end--%>
     </div>
-
     <div id="house-details" class="col-xs-12 col-sm-4">
         <div class="panel panel-default">
             <div class="panel-heading">房屋简介</div>
             <div class="panel-body">
                 Panel content
             </div>
+            <div class="panel-footer">房屋简介</div>
         </div>
     </div>
 </div>

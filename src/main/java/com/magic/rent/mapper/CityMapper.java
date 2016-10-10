@@ -1,6 +1,7 @@
 package com.magic.rent.mapper;
 
 import com.magic.rent.pojo.City;
+import com.magic.rent.pojo.Province;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,7 +16,7 @@ public interface CityMapper {
 
     City selectByPrimaryKey(Integer id);
 
-    List<City> selectByProvinceName(String provinceName);
+    List<City> selectByProvinceID(Integer provinceID);
 
     List<City> selectAllCity();
 

@@ -90,11 +90,11 @@
       enable = #{enable,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectByCityName" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <select id="selectByCityID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT AREA.areaID,AREA.areaName
     FROM AREA
     JOIN CITY ON AREA.cityID=CITY.cityID
-    WHERE CITY.cityName=${cityName,jdbcType=VARCHAR}
+    WHERE CITY.cityID=${value}
     AND AREA.enable >0
     AND CITY.enable >0
   </select>

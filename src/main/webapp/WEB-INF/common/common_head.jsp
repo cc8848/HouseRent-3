@@ -23,8 +23,8 @@
         </div>
         <div class="collapse navbar-collapse" id="navbar_items">
             <ul class="nav navbar-nav">
-                <li class="active"><a href="#">租房</a></li>
-                <li><a href="#">晒房</a></li>
+                <li class="active"><a href="#">我要租房</a></li>
+                <li><a href="#">我要招租</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li id="loginOrRegister"><a href="<c:url value="/user/login"/>">注册/登录</a></li>

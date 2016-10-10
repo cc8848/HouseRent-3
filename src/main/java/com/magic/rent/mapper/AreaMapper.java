@@ -15,7 +15,7 @@ public interface AreaMapper {
 
     Area selectByPrimaryKey(Integer id);
 
-    List<Area> selectByCityName(String cityName);
+    List<Area> selectByCityID(int cityID);
 
     int updateByPrimaryKeySelective(Area record);
 

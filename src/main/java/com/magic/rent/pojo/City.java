@@ -2,15 +2,17 @@ package com.magic.rent.pojo;
 
 import java.io.Serializable;
 
-public class City implements Serializable {
+public class City implements Serializable, Address {
+
     private static final long serialVersionUID = -8104849430543056653L;
+
     private Integer id;
 
     private Integer cityid;
 
     private String cityname;
 
-    private Integer provinceid;
+    private Integer provinceID;
 
     private boolean enable;
 
@@ -38,12 +40,12 @@ public class City implements Serializable {
         this.cityname = cityname == null ? null : cityname.trim();
     }
 
-    public Integer getProvinceid() {
-        return provinceid;
+    public Integer getProvinceID() {
+        return provinceID;
     }
 
-    public void setProvinceid(Integer provinceid) {
-        this.provinceid = provinceid;
+    public void setProvinceID(Integer provinceID) {
+        this.provinceID = provinceID;
     }
 
     public boolean isEnable() {
@@ -52,5 +54,13 @@ public class City implements Serializable {
 
     public void setEnable(boolean enable) {
         this.enable = enable;
+    }
+
+    public int getAddressID() {
+        return getCityid();
+    }
+
+    public String getAddressName() {
+        return getCityname();
     }
 }

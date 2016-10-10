@@ -3,8 +3,8 @@
 <mapper namespace="com.magic.rent.mapper.ProvinceMapper">
     <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Province">
         <id column="id" property="id" jdbcType="INTEGER"/>
-        <result column="provinceID" property="provinceid" jdbcType="INTEGER"/>
-        <result column="provinceName" property="provincename" jdbcType="VARCHAR"/>
+        <result column="provinceID" property="provinceID" jdbcType="INTEGER"/>
+        <result column="provinceName" property="provinceName" jdbcType="VARCHAR"/>
         <result column="enable" property="enable" jdbcType="TINYINT"/>
     </resultMap>
     <sql id="Base_Column_List">
@@ -23,7 +23,7 @@
     <insert id="insert" parameterType="com.magic.rent.pojo.Province">
     insert into PROVINCE (id, provinceID, provinceName, 
       enable)
-    values (#{id,jdbcType=INTEGER}, #{provinceid,jdbcType=INTEGER}, #{provincename,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{provinceID,jdbcType=INTEGER}, #{provinceName,jdbcType=VARCHAR}, 
       #{enable,jdbcType=TINYINT})
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.Province">
@@ -32,10 +32,10 @@
             <if test="id != null">
                 id,
             </if>
-            <if test="provinceid != null">
+            <if test="provinceID != null">
                 provinceID,
             </if>
-            <if test="provincename != null">
+            <if test="provinceName != null">
                 provinceName,
             </if>
             <if test="enable != null">
@@ -46,11 +46,11 @@
             <if test="id != null">
                 #{id,jdbcType=INTEGER},
             </if>
-            <if test="provinceid != null">
-                #{provinceid,jdbcType=INTEGER},
+            <if test="provinceID != null">
+                #{provinceID,jdbcType=INTEGER},
             </if>
-            <if test="provincename != null">
-                #{provincename,jdbcType=VARCHAR},
+            <if test="provinceName != null">
+                #{provinceName,jdbcType=VARCHAR},
             </if>
             <if test="enable != null">
                 #{enable,jdbcType=TINYINT},
@@ -60,11 +60,11 @@
     <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Province">
         update PROVINCE
         <set>
-            <if test="provinceid != null">
-                provinceID = #{provinceid,jdbcType=INTEGER},
+            <if test="provinceID != null">
+                provinceID = #{provinceID,jdbcType=INTEGER},
             </if>
-            <if test="provincename != null">
-                provinceName = #{provincename,jdbcType=VARCHAR},
+            <if test="provinceName != null">
+                provinceName = #{provinceName,jdbcType=VARCHAR},
             </if>
             <if test="enable != null">
                 enable = #{enable,jdbcType=TINYINT},
@@ -74,8 +74,8 @@
     </update>
     <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Province">
     update PROVINCE
-    set provinceID = #{provinceid,jdbcType=INTEGER},
-      provinceName = #{provincename,jdbcType=VARCHAR},
+    set provinceID = #{provinceID,jdbcType=INTEGER},
+      provinceName = #{provinceName,jdbcType=VARCHAR},
       enable = #{enable,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
