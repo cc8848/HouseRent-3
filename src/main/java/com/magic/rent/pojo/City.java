@@ -1,6 +1,7 @@
 package com.magic.rent.pojo;
 
 import java.io.Serializable;
+import java.util.List;
 
 public class City implements Serializable, Address {
 
@@ -13,6 +14,8 @@ public class City implements Serializable, Address {
     private String cityname;
 
     private Integer provinceID;
+
+    List<Area> areas;
 
     private boolean enable;
 
@@ -54,6 +57,14 @@ public class City implements Serializable, Address {
 
     public void setEnable(boolean enable) {
         this.enable = enable;
+    }
+
+    public List<Area> getAreas() {
+        return areas;
+    }
+
+    public void setAreas(List<Area> areas) {
+        this.areas = areas;
     }
 
     public int getAddressID() {
