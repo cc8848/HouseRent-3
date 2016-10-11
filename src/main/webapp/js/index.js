@@ -70,6 +70,7 @@ $('#price-2').on('click', setPrice);
 $('#price-3').on('click', setPrice);
 $('#price-4').on('click', setPrice);
 $('#price-5').on('click', setPrice);
+$('#price-6').on('click', setPrice);
 
 function setPrice() {
     $('#price-input').val(this.innerHTML);
@@ -80,7 +81,17 @@ $('#room-2').on('click', setRoom);
 $('#room-3').on('click', setRoom);
 $('#room-4').on('click', setRoom);
 $('#room-5').on('click', setRoom);
+$('#room-6').on('click', setRoom);
 
 function setRoom() {
     $('#room-input').val(this.innerHTML);
+}
+
+$('#way-1').on('click', setWay);
+$('#way-2').on('click', setWay);
+$('#way-3').on('click', setWay);
+$('#way-4').on('click', setWay);
+
+function setWay() {
+    $('#way-input').val(this.innerHTML)
 }
