@@ -35,6 +35,8 @@ function selectInit() {
 
 $("#province").on("select2:select", function () {
     var provinceID = $("#province").select2("val");
+    $('#city').html('');
+    $('#area').html('');
     $.getJSON("/address/getCityByProvince", {
         provinceID: provinceID
     }, function (data) {
@@ -46,6 +48,7 @@ $("#province").on("select2:select", function () {
 
 $("#city").on("select2:select", function () {
     var cityID = $("#city").select2("val");
+    $('#area').html("");
     $.getJSON("/address/getAreaByCity", {
         cityID: cityID
     }, function (data) {
@@ -55,4 +58,29 @@ $("#city").on("select2:select", function () {
     });
 });
 
+$("#address-button").click(function () {
+    var area = $("#area").select2('data')[0].text;
+    if (null != area) {
+        $('#area-input').val(area);
+    }
+});
 
+$('#price-1').on('click', setPrice);
+$('#price-2').on('click', setPrice);
+$('#price-3').on('click', setPrice);
+$('#price-4').on('click', setPrice);
+$('#price-5').on('click', setPrice);
+
+function setPrice() {
+    $('#price-input').val(this.innerHTML);
+}
+
+$('#room-1').on('click', setRoom);
+$('#room-2').on('click', setRoom);
+$('#room-3').on('click', setRoom);
+$('#room-4').on('click', setRoom);
+$('#room-5').on('click', setRoom);
+
+function setRoom() {
+    $('#room-input').val(this.innerHTML);
+}

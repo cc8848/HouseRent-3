@@ -20,4 +20,9 @@ public class HomeController {
     public String myHome() {
         return "home";
     }
+
+    @RequestMapping("/vr")
+    public String vrTest() {
+        return "../html/index";
+    }
 }
