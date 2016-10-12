@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.magic.rent.mapper.RoomsMapper" >
+  <cache type="org.mybatis.caches.ehcache.LoggingEhcache">
+    <property name="timeToIdleSeconds" value="3600"/><!--1 hour-->
+    <property name="timeToLiveSeconds" value="3600"/><!--1 hour-->
+    <property name="maxEntriesLocalHeap" value="1000"/>
+    <property name="maxEntriesLocalDisk" value="10000000"/>
+    <property name="memoryStoreEvictionPolicy" value="LRU"/>
+  </cache>
+  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Rooms" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="ROOM_NO" property="roomNo" jdbcType="INTEGER" />
+    <result column="AREA" property="area" jdbcType="DOUBLE" />
+    <result column="HAVE_WASHROOM" property="haveWashroom" jdbcType="TINYINT" />
+    <result column="HAVE_ KITCKEN" property="haveKitcken" jdbcType="TINYINT" />
+    <result column="HOUSE_ID" property="houseId" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, ROOM_NO, AREA, HAVE_WASHROOM, "HAVE_ KITCKEN", HOUSE_ID
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from ROOMS
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from ROOMS
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.magic.rent.pojo.Rooms" >
+    insert into ROOMS (ID, ROOM_NO, AREA, 
+      HAVE_WASHROOM, "HAVE_ KITCKEN", HOUSE_ID
+      )
+    values (#{id,jdbcType=INTEGER}, #{roomNo,jdbcType=INTEGER}, #{area,jdbcType=DOUBLE}, 
+      #{haveWashroom,jdbcType=TINYINT}, #{haveKitcken,jdbcType=TINYINT}, #{houseId,jdbcType=INTEGER}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.magic.rent.pojo.Rooms" >
+    insert into ROOMS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="roomNo != null" >
+        ROOM_NO,
+      </if>
+      <if test="area != null" >
+        AREA,
+      </if>
+      <if test="haveWashroom != null" >
+        HAVE_WASHROOM,
+      </if>
+      <if test="haveKitcken != null" >
+        "HAVE_ KITCKEN",
+      </if>
+      <if test="houseId != null" >
+        HOUSE_ID,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="roomNo != null" >
+        #{roomNo,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        #{area,jdbcType=DOUBLE},
+      </if>
+      <if test="haveWashroom != null" >
+        #{haveWashroom,jdbcType=TINYINT},
+      </if>
+      <if test="haveKitcken != null" >
+        #{haveKitcken,jdbcType=TINYINT},
+      </if>
+      <if test="houseId != null" >
+        #{houseId,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Rooms" >
+    update ROOMS
+    <set >
+      <if test="roomNo != null" >
+        ROOM_NO = #{roomNo,jdbcType=INTEGER},
+      </if>
+      <if test="area != null" >
+        AREA = #{area,jdbcType=DOUBLE},
+      </if>
+      <if test="haveWashroom != null" >
+        HAVE_WASHROOM = #{haveWashroom,jdbcType=TINYINT},
+      </if>
+      <if test="haveKitcken != null" >
+        "HAVE_ KITCKEN" = #{haveKitcken,jdbcType=TINYINT},
+      </if>
+      <if test="houseId != null" >
+        HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Rooms" >
+    update ROOMS
+    set ROOM_NO = #{roomNo,jdbcType=INTEGER},
+      AREA = #{area,jdbcType=DOUBLE},
+      HAVE_WASHROOM = #{haveWashroom,jdbcType=TINYINT},
+      "HAVE_ KITCKEN" = #{haveKitcken,jdbcType=TINYINT},
+      HOUSE_ID = #{houseId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

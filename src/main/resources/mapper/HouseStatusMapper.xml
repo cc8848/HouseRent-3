@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.magic.rent.mapper.HouseStatusMapper" >
+  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.HouseStatus" >
+    <id column="id" property="id" jdbcType="INTEGER" />
+    <result column="STATUS_NAME" property="statusName" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    id, STATUS_NAME
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from HOUSE_STATUS
+    where id = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from HOUSE_STATUS
+    where id = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.magic.rent.pojo.HouseStatus" >
+    insert into HOUSE_STATUS (id, STATUS_NAME)
+    values (#{id,jdbcType=INTEGER}, #{statusName,jdbcType=VARCHAR})
+  </insert>
+  <insert id="insertSelective" parameterType="com.magic.rent.pojo.HouseStatus" >
+    insert into HOUSE_STATUS
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        id,
+      </if>
+      <if test="statusName != null" >
+        STATUS_NAME,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="statusName != null" >
+        #{statusName,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.HouseStatus" >
+    update HOUSE_STATUS
+    <set >
+      <if test="statusName != null" >
+        STATUS_NAME = #{statusName,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.HouseStatus" >
+    update HOUSE_STATUS
+    set STATUS_NAME = #{statusName,jdbcType=VARCHAR}
+    where id = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>
