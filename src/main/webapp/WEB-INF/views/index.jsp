@@ -9,7 +9,7 @@
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
     <title>首页</title>
@@ -27,7 +27,7 @@
 <%--head end--%>
 
 <div class="container-fluid">
-    <div id="house-details" class="col-xs-12 col-sm-3">
+    <div id="search-term" class="col-xs-12 col-sm-3 col-md-2">
         <div class="panel panel-default">
             <div class="panel-heading">
                 <h3 class="panel-title">搜索条件</h3>
@@ -35,7 +35,7 @@
             <div class="panel-body">
                 <!--地区 start-->
                 <div id="address">
-                    <div class="input-group">
+                    <div class="input-group input-group-sm">
                         <div class="input-group-btn">
                             <button type="button" class="btn btn-default" data-toggle="collapse"
                                     href="#collapseOne">
@@ -60,17 +60,18 @@
                 </div><!--地区 end-->
                 <div class="white-divider-sm"></div>
                 <!--租金 start-->
-                <div id="price" class="input-group">
+                <div id="price" class="input-group input-group-sm">
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
                                 class="caret"></span></button>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a id="price-1" href="#">500元以下</a></li>
-                            <li><a id="price-2" href="#">500-1000元</a></li>
-                            <li><a id="price-3" href="#">1000-2000元</a></li>
-                            <li><a id="price-4" href="#">2000-4000元</a></li>
+                            <li><a id="price-1" href="#">500 以下</a></li>
+                            <li><a id="price-2" href="#">500-1000</a></li>
+                            <li><a id="price-3" href="#">1000-2000</a></li>
+                            <li><a id="price-4" href="#">2000-4000</a></li>
+                            <li><a id="price-5" href="#">4000 以上</a></li>
                             <li class="divider"></li>
-                            <li><a id="price-5" href="#">4000元以上</a></li>
+                            <li><a id="price-6" href="#">不限</a></li>
                         </ul>
                     </div>
                     <input id="price-input" type="text" class="form-control" placeholder="请选择租金" readonly>
@@ -78,7 +79,7 @@
                 </div><!--租金 end-->
                 <div class="white-divider-sm"></div>
                 <!--厅室 start-->
-                <div id="room" class="input-group">
+                <div id="room" class="input-group input-group-sm">
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
                                 class="caret"></span></button>
@@ -87,16 +88,36 @@
                             <li><a id="room-2" href="#">二室</a></li>
                             <li><a id="room-3" href="#">三室</a></li>
                             <li><a id="room-4" href="#">四室</a></li>
-                            <li class="divider"></li>
                             <li><a id="room-5" href="#">四室以上</a></li>
+                            <li class="divider"></li>
+                            <li><a id="room-6" href="#">不限</a></li>
                         </ul>
                     </div>
-                    <input id="room-input" type="text" class="form-control" placeholder="请选择租金" readonly>
+                    <input id="room-input" type="text" class="form-control" placeholder="请选择厅室" readonly>
                 </div><!--厅室 end-->
+                <div class="white-divider-sm"></div>
+                <!--厅室 start-->
+                <div id="way" class="input-group input-group-sm">
+                    <div class="input-group-btn">
+                        <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
+                                class="caret"></span></button>
+                        <ul class="dropdown-menu" role="menu">
+                            <li><a id="way-1" href="#">整套出租</a></li>
+                            <li><a id="way-2" href="#">单间出租</a></li>
+                            <li><a id="way-3" href="#">床位出租</a></li>
+                            <li class="divider"></li>
+                            <li><a id="way-4" href="#">不限</a></li>
+                        </ul>
+                    </div>
+                    <input id="way-input" type="text" class="form-control" placeholder="请选择方式" readonly>
+                </div><!--厅室 end-->
+                <div class="white-divider-sm"></div>
+                <button type="button" class="btn btn-primary btn-block"><span
+                        class="glyphicon glyphicon-search"></span></button>
             </div>
         </div>
     </div>
-    <div class="col-xs-12 col-sm-9">
+    <div id="house-list" class="col-xs-12 col-sm-9 col-md-10">
         <%--房屋分布地图or列表  start--%>
         <div id="house-tab">
             <ul class="nav nav-tabs">
