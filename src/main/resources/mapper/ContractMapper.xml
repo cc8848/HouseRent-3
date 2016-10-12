@@ -24,12 +24,28 @@
     <result column="DEPOSIT" property="deposit" jdbcType="INTEGER" />
     <result column="ROOM_ID" property="roomId" jdbcType="INTEGER" />
   </resultMap>
+  <resultMap id="ContractResultMap" type="com.magic.rent.pojo.Contract">
+      <id column="id" property="id" jdbcType="INTEGER" />
+      <result column="CONTRACT_ID" property="contractId" jdbcType="VARCHAR" />
+      <result column="CONTRACT_RENT" property="contractRent" jdbcType="INTEGER" />
+      <result column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
+      <result column="END_DATA" property="endData" jdbcType="TIMESTAMP" />
+      <!--<result column="LESSEE_ID" property="lesseeId" jdbcType="INTEGER" />-->
+      <!--<result column="LESSOR_ID" property="lessorId" jdbcType="INTEGER" />-->
+      <result column="INCLUDE_UTILITIES" property="includeUtilities" jdbcType="TINYINT" />
+      <!--<result column="PAYMENT_ID" property="paymentId" jdbcType="INTEGER" />-->
+      <result column="ENABLED" property="enabled" jdbcType="TINYINT" />
+      <result column="EXPIRED" property="expired" jdbcType="TINYINT" />
+      <result column="PAY_DATE" property="payDate" jdbcType="TIMESTAMP" />
+      <result column="DEPOSIT" property="deposit" jdbcType="INTEGER" />
+      <!--<result column="ROOM_ID" property="roomId" jdbcType="INTEGER" />-->
+  </resultMap>
   <sql id="Base_Column_List" >
     id, CONTRACT_ID, CONTRACT_RENT, START_DATE, END_DATA, LESSEE_ID, LESSOR_ID, INCLUDE_UTILITIES, 
     PAYMENT_ID, ENABLED, EXPIRED, PAY_DATE, DEPOSIT, ROOM_ID
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
+    select
     <include refid="Base_Column_List" />
     from CONTRACT
     where id = #{id,jdbcType=INTEGER}
@@ -203,4 +219,5 @@
       ROOM_ID = #{roomId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>
+
 </mapper>

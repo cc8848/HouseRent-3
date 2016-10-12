@@ -18,12 +18,16 @@ public class Contract implements Serializable {
     private Date endData;//租期到期日志
 
     private int lesseeId;//租客id
+    private SysUsers lessee;//租客对象
 
     private int lessorId;//房东ID
+    private SysUsers lessor;
+
 
     private boolean includeUtilities;//是否包水电
 
     private int paymentId;//付租方式
+    private Payment payment;
 
     private boolean enabled;//是否可用
 
@@ -34,6 +38,15 @@ public class Contract implements Serializable {
     private double deposit;//押金
 
     private int roomId;//房间ID
+    private Rooms rooms;//对应房间
+
+    public Rooms getRooms() {
+        return rooms;
+    }
+
+    public void setRooms(Rooms rooms) {
+        this.rooms = rooms;
+    }
 
     public int getId() {
         return id;
@@ -146,4 +159,29 @@ public class Contract implements Serializable {
     public void setRoomId(int roomId) {
         this.roomId = roomId;
     }
+
+    public SysUsers getLessee() {
+        return lessee;
+    }
+
+    public void setLessee(SysUsers lessee) {
+        this.lessee = lessee;
+    }
+
+    public SysUsers getLessor() {
+        return lessor;
+    }
+
+    public void setLessor(SysUsers lessor) {
+        this.lessor = lessor;
+    }
+
+    public Payment getPayment() {
+        return payment;
+    }
+
+    public void setPayment(Payment payment) {
+        this.payment = payment;
+    }
+
 }

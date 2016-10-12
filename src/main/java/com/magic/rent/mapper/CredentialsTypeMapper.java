@@ -1,7 +1,9 @@
 package com.magic.rent.mapper;
 
 import com.magic.rent.pojo.CredentialsType;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface CredentialsTypeMapper {
     int deleteByPrimaryKey(int id);
 

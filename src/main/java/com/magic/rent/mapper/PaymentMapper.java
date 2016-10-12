@@ -1,7 +1,9 @@
 package com.magic.rent.mapper;
 
 import com.magic.rent.pojo.Payment;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface PaymentMapper {
     int deleteByPrimaryKey(int id);
 
