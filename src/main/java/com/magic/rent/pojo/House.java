@@ -49,8 +49,6 @@ public class House implements Serializable {
 
     private List<Rooms> roomsList;//房间列表
 
-
-
     public List<Rooms> getRoomsList() {
         return roomsList;
     }
