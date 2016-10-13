@@ -1,5 +1,7 @@
 package com.magic.rent.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.mapper.HouseMapper;
 import com.magic.rent.pojo.Community;
@@ -11,6 +13,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -26,12 +29,18 @@ public class HouseServiceImpl implements IHouseService {
     @Autowired
     private MessageSourceAccessor messageSourceAccessor;
 
-    public List<House> selectHouseByCommunity(Community community) {
-        if (StringUtils.isEmpty(community.getName()))
-            throw new ParameterException(messageSourceAccessor.getMessage("HouseService.CommunityNameNotNull", "社区名称不能为空!"));
-
+    public PageInfo<House> selectHousesByCommunity(Community community, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
         List<House> houseList = houseMapper.selectByCommunity(community);
+        PageInfo<House> housePageInfo = new PageInfo<House>(houseList);
 
-        return houseList;
+        return housePageInfo;
+    }
+
+    public PageInfo<House> selectBySearchTerms(Map<String, Object> parameterMap, int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        List<House> houseList = houseMapper.selectBySearchTerms(parameterMap);
+        PageInfo<House> housePageInfo = new PageInfo<House>(houseList);
+        return housePageInfo;
     }
 }
