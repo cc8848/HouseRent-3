@@ -83,4 +83,18 @@ public class SysResources implements Serializable {
     public void setSystem(boolean system) {
         this.system = system;
     }
+
+    @Override
+    public String toString() {
+        return "SysResources{" +
+                "resourceId=" + resourceId +
+                ", resourceType='" + resourceType + '\'' +
+                ", resourceName='" + resourceName + '\'' +
+                ", resourceDesc='" + resourceDesc + '\'' +
+                ", resourcePath='" + resourcePath + '\'' +
+                ", priority='" + priority + '\'' +
+                ", enable=" + enable +
+                ", system=" + system +
+                '}';
+    }
 }

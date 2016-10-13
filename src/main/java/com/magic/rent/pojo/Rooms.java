@@ -65,4 +65,16 @@ public class Rooms implements Serializable {
     public void setHouseId(int houseId) {
         this.houseId = houseId;
     }
+
+    @Override
+    public String toString() {
+        return "Rooms{" +
+                "id=" + id +
+                ", roomNo=" + roomNo +
+                ", area=" + area +
+                ", haveWashroom=" + haveWashroom +
+                ", haveKitcken=" + haveKitcken +
+                ", houseId=" + houseId +
+                '}';
+    }
 }

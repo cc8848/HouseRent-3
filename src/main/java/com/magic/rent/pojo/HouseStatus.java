@@ -23,4 +23,12 @@ public class HouseStatus implements Serializable {
     public void setStatusName(String statusName) {
         this.statusName = statusName == null ? null : statusName.trim();
     }
+
+    @Override
+    public String toString() {
+        return "HouseStatus{" +
+                "id=" + id +
+                ", statusName='" + statusName + '\'' +
+                '}';
+    }
 }

@@ -74,4 +74,17 @@ public class SysAuthorities implements Serializable {
     public void setSystem(boolean system) {
         this.system = system;
     }
+
+    @Override
+    public String toString() {
+        return "SysAuthorities{" +
+                "authorityId=" + authorityId +
+                ", authorityMark='" + authorityMark + '\'' +
+                ", authorityName='" + authorityName + '\'' +
+                ", authorityDesc='" + authorityDesc + '\'' +
+                ", message='" + message + '\'' +
+                ", enable=" + enable +
+                ", system=" + system +
+                '}';
+    }
 }

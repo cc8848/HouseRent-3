@@ -15,6 +15,13 @@
         <result column="provinceID" property="provinceID" jdbcType="INTEGER"/>
         <result column="enable" property="enable" jdbcType="TINYINT"/>
     </resultMap>
+    <resultMap id="city" type="com.magic.rent.pojo.City">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="cityID" property="cityid" jdbcType="INTEGER"/>
+        <result column="cityName" property="cityname" jdbcType="VARCHAR"/>
+        <result column="provinceID" property="provinceID" jdbcType="INTEGER"/>
+        <result column="enable" property="enable" jdbcType="TINYINT"/>
+    </resultMap>
     <sql id="Base_Column_List">
     id, cityID, cityName, provinceID, enable
   </sql>

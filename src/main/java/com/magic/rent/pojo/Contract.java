@@ -184,4 +184,27 @@ public class Contract implements Serializable {
         this.payment = payment;
     }
 
+    @Override
+    public String toString() {
+        return "Contract{" +
+                "id=" + id +
+                ", contractId='" + contractId + '\'' +
+                ", contractRent=" + contractRent +
+                ", startDate=" + startDate +
+                ", endData=" + endData +
+                ", lesseeId=" + lesseeId +
+                ", lessee=" + lessee +
+                ", lessorId=" + lessorId +
+                ", lessor=" + lessor +
+                ", includeUtilities=" + includeUtilities +
+                ", paymentId=" + paymentId +
+                ", payment=" + payment +
+                ", enabled=" + enabled +
+                ", expired=" + expired +
+                ", payDate=" + payDate +
+                ", deposit=" + deposit +
+                ", roomId=" + roomId +
+                ", rooms=" + rooms +
+                '}';
+    }
 }

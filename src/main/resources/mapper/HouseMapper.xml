@@ -1,216 +1,248 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.magic.rent.mapper.HouseMapper" >
-  <cache type="org.mybatis.caches.ehcache.LoggingEhcache">
-    <property name="timeToIdleSeconds" value="3600"/><!--1 hour-->
-    <property name="timeToLiveSeconds" value="3600"/><!--1 hour-->
-    <property name="maxEntriesLocalHeap" value="1000"/>
-    <property name="maxEntriesLocalDisk" value="10000000"/>
-    <property name="memoryStoreEvictionPolicy" value="LRU"/>
-  </cache>
-  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.House" >
-    <id column="ID" property="id" jdbcType="INTEGER" />
-    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
-    <result column="EXPECT_RENT" property="expectRent" jdbcType="INTEGER" />
-    <result column="VR_PATH" property="vrPath" jdbcType="VARCHAR" />
-    <result column="THUMBNAIL_PATH" property="thumbnailPath" jdbcType="VARCHAR" />
-    <result column="COMMUNITY_ID" property="communityId" jdbcType="INTEGER" />
-    <result column="FLOOR" property="floor" jdbcType="INTEGER" />
-    <result column="ROOM" property="room" jdbcType="INTEGER" />
-    <result column="DECORATION_TYPE_ID" property="decorationTypeId" jdbcType="INTEGER" />
-    <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER" />
-    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
-    <result column="AREA_ID" property="areaId" jdbcType="INTEGER" />
-    <result column="HAVE_ KITCKEN" property="haveKitcken" jdbcType="TINYINT" />
-    <result column="HAVE_BALCONY" property="haveBalcony" jdbcType="TINYINT" />
-    <result column="HOUSE_STATUS_ID" property="houseStatusId" jdbcType="INTEGER" />
-    <result column="ENABLED" property="enabled" jdbcType="TINYINT" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    ID, ADDRESS, EXPECT_RENT, VR_PATH, THUMBNAIL_PATH, COMMUNITY_ID, FLOOR, ROOM, DECORATION_TYPE_ID, 
-    PROVINCE_ID, CITY_ID, AREA_ID, "HAVE_ KITCKEN", HAVE_BALCONY, HOUSE_STATUS_ID, ENABLED
+<mapper namespace="com.magic.rent.mapper.HouseMapper">
+
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache">
+        <property name="timeToIdleSeconds" value="3600"/><!--1 hour-->
+        <property name="timeToLiveSeconds" value="3600"/><!--1 hour-->
+        <property name="maxEntriesLocalHeap" value="1000"/>
+        <property name="maxEntriesLocalDisk" value="10000000"/>
+        <property name="memoryStoreEvictionPolicy" value="LRU"/>
+    </cache>
+    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.House">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="EXPECT_RENT" property="expectRent" jdbcType="INTEGER"/>
+        <result column="VR_PATH" property="vrPath" jdbcType="VARCHAR"/>
+        <result column="THUMBNAIL_PATH" property="thumbnailPath" jdbcType="VARCHAR"/>
+        <result column="COMMUNITY_ID" property="communityId" jdbcType="INTEGER"/>
+        <result column="FLOOR" property="floor" jdbcType="INTEGER"/>
+        <result column="ROOM" property="room" jdbcType="INTEGER"/>
+        <result column="DECORATION_TYPE_ID" property="decorationTypeId" jdbcType="INTEGER"/>
+        <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER"/>
+        <result column="CITY_ID" property="cityId" jdbcType="INTEGER"/>
+        <result column="AREA_ID" property="areaId" jdbcType="INTEGER"/>
+        <result column="HAVE_ KITCKEN" property="haveKitcken" jdbcType="TINYINT"/>
+        <result column="HAVE_BALCONY" property="haveBalcony" jdbcType="TINYINT"/>
+        <result column="HOUSE_STATUS_ID" property="houseStatusId" jdbcType="INTEGER"/>
+        <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
+    </resultMap>
+    <resultMap id="house" type="com.magic.rent.pojo.House">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="EXPECT_RENT" property="expectRent" jdbcType="INTEGER"/>
+        <result column="VR_PATH" property="vrPath" jdbcType="VARCHAR"/>
+        <result column="THUMBNAIL_PATH" property="thumbnailPath" jdbcType="VARCHAR"/>
+        <result column="FLOOR" property="floor" jdbcType="INTEGER"/>
+        <result column="ROOM" property="room" jdbcType="INTEGER"/>
+        <result column="HAVE_ KITCKEN" property="haveKitcken" jdbcType="TINYINT"/>
+        <result column="HAVE_BALCONY" property="haveBalcony" jdbcType="TINYINT"/>
+        <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
+        <collection property="province" resultMap="com.magic.rent.mapper.ProvinceMapper.province"/>
+        <collection property="city" resultMap="com.magic.rent.mapper.CityMapper.city"/>
+        <collection property="area" resultMap="com.magic.rent.mapper.AreaMapper.area"/>
+        <collection property="community" resultMap="com.magic.rent.mapper.CommunityMapper.community"/>
+        <collection property="decorationType" resultMap="com.magic.rent.mapper.DecorationTypeMapper.decorationType"/>
+        <collection property="houseStatus" resultMap="com.magic.rent.mapper.HouseStatusMapper.houseStatus"/>
+    </resultMap>
+
+    <sql id="Base_Column_List">
+    ID,NAME,ADDRESS, EXPECT_RENT, VR_PATH, THUMBNAIL_PATH, COMMUNITY_ID, FLOOR, ROOM, DECORATION_TYPE_ID,
+    PROVINCE_ID, CITY_ID, AREA_ID, HAVE_KITCKEN, HAVE_BALCONY, HOUSE_STATUS_ID, ENABLED
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from HOUSE
-    where ID = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from HOUSE
+        where ID = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from HOUSE
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.magic.rent.pojo.House" >
-    insert into HOUSE (ID, ADDRESS, EXPECT_RENT, 
+    <insert id="insert" parameterType="com.magic.rent.pojo.House">
+    insert into HOUSE (ID,NAME, ADDRESS, EXPECT_RENT,
       VR_PATH, THUMBNAIL_PATH, COMMUNITY_ID, 
       FLOOR, ROOM, DECORATION_TYPE_ID, 
       PROVINCE_ID, CITY_ID, AREA_ID, 
-      "HAVE_ KITCKEN", HAVE_BALCONY, HOUSE_STATUS_ID, 
+      HAVE_KITCKEN, HAVE_BALCONY, HOUSE_STATUS_ID,
       ENABLED)
-    values (#{id,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{expectRent,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR},#{address,jdbcType=VARCHAR}, #{expectRent,jdbcType=INTEGER},
       #{vrPath,jdbcType=VARCHAR}, #{thumbnailPath,jdbcType=VARCHAR}, #{communityId,jdbcType=INTEGER}, 
       #{floor,jdbcType=INTEGER}, #{room,jdbcType=INTEGER}, #{decorationTypeId,jdbcType=INTEGER}, 
       #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
       #{haveKitcken,jdbcType=TINYINT}, #{haveBalcony,jdbcType=TINYINT}, #{houseStatusId,jdbcType=INTEGER}, 
       #{enabled,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.magic.rent.pojo.House" >
-    insert into HOUSE
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        ID,
-      </if>
-      <if test="address != null" >
-        ADDRESS,
-      </if>
-      <if test="expectRent != null" >
-        EXPECT_RENT,
-      </if>
-      <if test="vrPath != null" >
-        VR_PATH,
-      </if>
-      <if test="thumbnailPath != null" >
-        THUMBNAIL_PATH,
-      </if>
-      <if test="communityId != null" >
-        COMMUNITY_ID,
-      </if>
-      <if test="floor != null" >
-        FLOOR,
-      </if>
-      <if test="room != null" >
-        ROOM,
-      </if>
-      <if test="decorationTypeId != null" >
-        DECORATION_TYPE_ID,
-      </if>
-      <if test="provinceId != null" >
-        PROVINCE_ID,
-      </if>
-      <if test="cityId != null" >
-        CITY_ID,
-      </if>
-      <if test="areaId != null" >
-        AREA_ID,
-      </if>
-      <if test="haveKitcken != null" >
-        "HAVE_ KITCKEN",
-      </if>
-      <if test="haveBalcony != null" >
-        HAVE_BALCONY,
-      </if>
-      <if test="houseStatusId != null" >
-        HOUSE_STATUS_ID,
-      </if>
-      <if test="enabled != null" >
-        ENABLED,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="address != null" >
-        #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="expectRent != null" >
-        #{expectRent,jdbcType=INTEGER},
-      </if>
-      <if test="vrPath != null" >
-        #{vrPath,jdbcType=VARCHAR},
-      </if>
-      <if test="thumbnailPath != null" >
-        #{thumbnailPath,jdbcType=VARCHAR},
-      </if>
-      <if test="communityId != null" >
-        #{communityId,jdbcType=INTEGER},
-      </if>
-      <if test="floor != null" >
-        #{floor,jdbcType=INTEGER},
-      </if>
-      <if test="room != null" >
-        #{room,jdbcType=INTEGER},
-      </if>
-      <if test="decorationTypeId != null" >
-        #{decorationTypeId,jdbcType=INTEGER},
-      </if>
-      <if test="provinceId != null" >
-        #{provinceId,jdbcType=INTEGER},
-      </if>
-      <if test="cityId != null" >
-        #{cityId,jdbcType=INTEGER},
-      </if>
-      <if test="areaId != null" >
-        #{areaId,jdbcType=INTEGER},
-      </if>
-      <if test="haveKitcken != null" >
-        #{haveKitcken,jdbcType=TINYINT},
-      </if>
-      <if test="haveBalcony != null" >
-        #{haveBalcony,jdbcType=TINYINT},
-      </if>
-      <if test="houseStatusId != null" >
-        #{houseStatusId,jdbcType=INTEGER},
-      </if>
-      <if test="enabled != null" >
-        #{enabled,jdbcType=TINYINT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.House" >
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.House">
+        insert into HOUSE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="address != null">
+                ADDRESS,
+            </if>
+            <if test="expectRent != null">
+                EXPECT_RENT,
+            </if>
+            <if test="vrPath != null">
+                VR_PATH,
+            </if>
+            <if test="thumbnailPath != null">
+                THUMBNAIL_PATH,
+            </if>
+            <if test="communityId != null">
+                COMMUNITY_ID,
+            </if>
+            <if test="floor != null">
+                FLOOR,
+            </if>
+            <if test="room != null">
+                ROOM,
+            </if>
+            <if test="decorationTypeId != null">
+                DECORATION_TYPE_ID,
+            </if>
+            <if test="provinceId != null">
+                PROVINCE_ID,
+            </if>
+            <if test="cityId != null">
+                CITY_ID,
+            </if>
+            <if test="areaId != null">
+                AREA_ID,
+            </if>
+            <if test="haveKitcken != null">
+                "HAVE_KITCKEN",
+            </if>
+            <if test="haveBalcony != null">
+                HAVE_BALCONY,
+            </if>
+            <if test="houseStatusId != null">
+                HOUSE_STATUS_ID,
+            </if>
+            <if test="enabled != null">
+                ENABLED,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="expectRent != null">
+                #{expectRent,jdbcType=INTEGER},
+            </if>
+            <if test="vrPath != null">
+                #{vrPath,jdbcType=VARCHAR},
+            </if>
+            <if test="thumbnailPath != null">
+                #{thumbnailPath,jdbcType=VARCHAR},
+            </if>
+            <if test="communityId != null">
+                #{communityId,jdbcType=INTEGER},
+            </if>
+            <if test="floor != null">
+                #{floor,jdbcType=INTEGER},
+            </if>
+            <if test="room != null">
+                #{room,jdbcType=INTEGER},
+            </if>
+            <if test="decorationTypeId != null">
+                #{decorationTypeId,jdbcType=INTEGER},
+            </if>
+            <if test="provinceId != null">
+                #{provinceId,jdbcType=INTEGER},
+            </if>
+            <if test="cityId != null">
+                #{cityId,jdbcType=INTEGER},
+            </if>
+            <if test="areaId != null">
+                #{areaId,jdbcType=INTEGER},
+            </if>
+            <if test="haveKitcken != null">
+                #{haveKitcken,jdbcType=TINYINT},
+            </if>
+            <if test="haveBalcony != null">
+                #{haveBalcony,jdbcType=TINYINT},
+            </if>
+            <if test="houseStatusId != null">
+                #{houseStatusId,jdbcType=INTEGER},
+            </if>
+            <if test="enabled != null">
+                #{enabled,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.House">
+        update HOUSE
+        <set>
+            <if test="name != null">
+                ADDRESS = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                ADDRESS = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="expectRent != null">
+                EXPECT_RENT = #{expectRent,jdbcType=INTEGER},
+            </if>
+            <if test="vrPath != null">
+                VR_PATH = #{vrPath,jdbcType=VARCHAR},
+            </if>
+            <if test="thumbnailPath != null">
+                THUMBNAIL_PATH = #{thumbnailPath,jdbcType=VARCHAR},
+            </if>
+            <if test="communityId != null">
+                COMMUNITY_ID = #{communityId,jdbcType=INTEGER},
+            </if>
+            <if test="floor != null">
+                FLOOR = #{floor,jdbcType=INTEGER},
+            </if>
+            <if test="room != null">
+                ROOM = #{room,jdbcType=INTEGER},
+            </if>
+            <if test="decorationTypeId != null">
+                DECORATION_TYPE_ID = #{decorationTypeId,jdbcType=INTEGER},
+            </if>
+            <if test="provinceId != null">
+                PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+            </if>
+            <if test="cityId != null">
+                CITY_ID = #{cityId,jdbcType=INTEGER},
+            </if>
+            <if test="areaId != null">
+                AREA_ID = #{areaId,jdbcType=INTEGER},
+            </if>
+            <if test="haveKitcken != null">
+                HAVE_KITCKEN = #{haveKitcken,jdbcType=TINYINT},
+            </if>
+            <if test="haveBalcony != null">
+                HAVE_BALCONY = #{haveBalcony,jdbcType=TINYINT},
+            </if>
+            <if test="houseStatusId != null">
+                HOUSE_STATUS_ID = #{houseStatusId,jdbcType=INTEGER},
+            </if>
+            <if test="enabled != null">
+                ENABLED = #{enabled,jdbcType=TINYINT},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.House">
     update HOUSE
-    <set >
-      <if test="address != null" >
-        ADDRESS = #{address,jdbcType=VARCHAR},
-      </if>
-      <if test="expectRent != null" >
-        EXPECT_RENT = #{expectRent,jdbcType=INTEGER},
-      </if>
-      <if test="vrPath != null" >
-        VR_PATH = #{vrPath,jdbcType=VARCHAR},
-      </if>
-      <if test="thumbnailPath != null" >
-        THUMBNAIL_PATH = #{thumbnailPath,jdbcType=VARCHAR},
-      </if>
-      <if test="communityId != null" >
-        COMMUNITY_ID = #{communityId,jdbcType=INTEGER},
-      </if>
-      <if test="floor != null" >
-        FLOOR = #{floor,jdbcType=INTEGER},
-      </if>
-      <if test="room != null" >
-        ROOM = #{room,jdbcType=INTEGER},
-      </if>
-      <if test="decorationTypeId != null" >
-        DECORATION_TYPE_ID = #{decorationTypeId,jdbcType=INTEGER},
-      </if>
-      <if test="provinceId != null" >
-        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
-      </if>
-      <if test="cityId != null" >
-        CITY_ID = #{cityId,jdbcType=INTEGER},
-      </if>
-      <if test="areaId != null" >
-        AREA_ID = #{areaId,jdbcType=INTEGER},
-      </if>
-      <if test="haveKitcken != null" >
-        "HAVE_ KITCKEN" = #{haveKitcken,jdbcType=TINYINT},
-      </if>
-      <if test="haveBalcony != null" >
-        HAVE_BALCONY = #{haveBalcony,jdbcType=TINYINT},
-      </if>
-      <if test="houseStatusId != null" >
-        HOUSE_STATUS_ID = #{houseStatusId,jdbcType=INTEGER},
-      </if>
-      <if test="enabled != null" >
-        ENABLED = #{enabled,jdbcType=TINYINT},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.House" >
-    update HOUSE
-    set ADDRESS = #{address,jdbcType=VARCHAR},
+    set NAME = #{name,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
       EXPECT_RENT = #{expectRent,jdbcType=INTEGER},
       VR_PATH = #{vrPath,jdbcType=VARCHAR},
       THUMBNAIL_PATH = #{thumbnailPath,jdbcType=VARCHAR},
@@ -227,4 +259,63 @@
       ENABLED = #{enabled,jdbcType=TINYINT}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+    <select id="selectByCommunity" parameterType="com.magic.rent.pojo.Community" resultMap="house">
+        SELECT
+        HOUSE.ID,
+        HOUSE.NAME,
+        HOUSE.ADDRESS,
+        HOUSE.EXPECT_RENT,
+        HOUSE.VR_PATH,
+        HOUSE.THUMBNAIL_PATH,
+        COMMUNITY.ID,
+        COMMUNITY.NAME,
+        HOUSE.FLOOR,
+        HOUSE.ROOM,
+        DECORATION_TYPE.NAME,
+        PROVINCE.provinceName,
+        CITY.cityName,
+        AREA.areaID,
+        AREA.areaName,
+        HOUSE.HAVE_KITCKEN,
+        HOUSE.HAVE_BALCONY,
+        HOUSE_STATUS.STATUS_NAME,
+        HOUSE.ENABLED
+        FROM HOUSE
+        JOIN PROVINCE ON HOUSE.PROVINCE_ID = PROVINCE.provinceID
+        JOIN CITY ON HOUSE.CITY_ID = CITY.cityID
+        JOIN AREA ON HOUSE.AREA_ID = AREA.areaID
+        JOIN COMMUNITY ON HOUSE.COMMUNITY_ID = COMMUNITY.ID
+        JOIN DECORATION_TYPE ON HOUSE.DECORATION_TYPE_ID = DECORATION_TYPE.ID
+        JOIN HOUSE_STATUS ON HOUSE.HOUSE_STATUS_ID = HOUSE_STATUS.ID
+        WHERE COMMUNITY.NAME=#{name,jdbcType=VARCHAR}
+    </select>
+    <select id="selectBySearchTerms" parameterType="java.util.HashMap" resultMap="house">
+ SELECT
+        HOUSE.ID,
+        HOUSE.NAME,
+        HOUSE.ADDRESS,
+        HOUSE.EXPECT_RENT,
+        HOUSE.VR_PATH,
+        HOUSE.THUMBNAIL_PATH,
+        COMMUNITY.ID,
+        COMMUNITY.NAME,
+        HOUSE.FLOOR,
+        HOUSE.ROOM,
+        DECORATION_TYPE.NAME,
+        PROVINCE.provinceName,
+        CITY.cityName,
+        AREA.areaID,
+        AREA.areaName,
+        HOUSE.HAVE_KITCKEN,
+        HOUSE.HAVE_BALCONY,
+        HOUSE_STATUS.STATUS_NAME,
+        HOUSE.ENABLED
+        FROM HOUSE
+        JOIN PROVINCE ON HOUSE.PROVINCE_ID = PROVINCE.provinceID
+        JOIN CITY ON HOUSE.CITY_ID = CITY.cityID
+        JOIN AREA ON HOUSE.AREA_ID = AREA.areaID
+        JOIN COMMUNITY ON HOUSE.COMMUNITY_ID = COMMUNITY.ID
+        JOIN DECORATION_TYPE ON HOUSE.DECORATION_TYPE_ID = DECORATION_TYPE.ID
+        JOIN HOUSE_STATUS ON HOUSE.HOUSE_STATUS_ID = HOUSE_STATUS.ID
+    </select>
 </mapper>

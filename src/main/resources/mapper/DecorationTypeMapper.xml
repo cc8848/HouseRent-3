@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.magic.rent.mapper.CommunityMapper">
-    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Community">
+<mapper namespace="com.magic.rent.mapper.DecorationTypeMapper">
+    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.DecorationType">
         <id column="ID" property="id" jdbcType="INTEGER"/>
         <result column="NAME" property="name" jdbcType="VARCHAR"/>
     </resultMap>
-    <resultMap id="community" type="com.magic.rent.pojo.Community">
+    <resultMap id="decorationType" type="com.magic.rent.pojo.DecorationType">
         <id column="ID" property="id" jdbcType="INTEGER"/>
         <result column="NAME" property="name" jdbcType="VARCHAR"/>
     </resultMap>
@@ -15,19 +15,19 @@
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
-        from COMMUNITY
+        from DECORATION_TYPE
         where ID = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from COMMUNITY
+    delete from DECORATION_TYPE
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.magic.rent.pojo.Community">
-    insert into COMMUNITY (ID, NAME)
+    <insert id="insert" parameterType="com.magic.rent.pojo.DecorationType">
+    insert into DECORATION_TYPE (ID, NAME)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
   </insert>
-    <insert id="insertSelective" parameterType="com.magic.rent.pojo.Community">
-        insert into COMMUNITY
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.DecorationType">
+        insert into DECORATION_TYPE
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
                 ID,
@@ -45,8 +45,8 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Community">
-        update COMMUNITY
+    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.DecorationType">
+        update DECORATION_TYPE
         <set>
             <if test="name != null">
                 NAME = #{name,jdbcType=VARCHAR},
@@ -54,8 +54,8 @@
         </set>
         where ID = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Community">
-    update COMMUNITY
+    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.DecorationType">
+    update DECORATION_TYPE
     set NAME = #{name,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>

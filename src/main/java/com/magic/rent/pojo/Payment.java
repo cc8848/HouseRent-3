@@ -24,4 +24,12 @@ public class Payment implements Serializable {
     public void setPaymentName(String paymentName) {
         this.paymentName = paymentName == null ? null : paymentName.trim();
     }
+
+    @Override
+    public String toString() {
+        return "Payment{" +
+                "id=" + id +
+                ", paymentName='" + paymentName + '\'' +
+                '}';
+    }
 }

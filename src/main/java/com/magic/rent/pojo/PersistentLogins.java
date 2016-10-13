@@ -44,4 +44,14 @@ public class PersistentLogins implements Serializable {
     public void setLastUsed(Date lastUsed) {
         this.lastUsed = lastUsed;
     }
+
+    @Override
+    public String toString() {
+        return "PersistentLogins{" +
+                "series='" + series + '\'' +
+                ", username='" + username + '\'' +
+                ", token='" + token + '\'' +
+                ", lastUsed=" + lastUsed +
+                '}';
+    }
 }

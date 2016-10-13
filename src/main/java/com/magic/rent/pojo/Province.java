@@ -64,4 +64,15 @@ public class Province implements Serializable, Address {
     public String getAddressName() {
         return getProvinceName();
     }
+
+    @Override
+    public String toString() {
+        return "Province{" +
+                "id=" + id +
+                ", provinceID=" + provinceID +
+                ", provinceName='" + provinceName + '\'' +
+                ", cities=" + cities +
+                ", enable=" + enable +
+                '}';
+    }
 }

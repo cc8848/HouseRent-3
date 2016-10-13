@@ -13,11 +13,11 @@
     <result column="ROOM_NO" property="roomNo" jdbcType="INTEGER" />
     <result column="AREA" property="area" jdbcType="DOUBLE" />
     <result column="HAVE_WASHROOM" property="haveWashroom" jdbcType="TINYINT" />
-    <result column="HAVE_ KITCKEN" property="haveKitcken" jdbcType="TINYINT" />
+    <result column="HAVE_KITCKEN" property="haveKitcken" jdbcType="TINYINT" />
     <result column="HOUSE_ID" property="houseId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, ROOM_NO, AREA, HAVE_WASHROOM, "HAVE_ KITCKEN", HOUSE_ID
+    ID, ROOM_NO, AREA, HAVE_WASHROOM, HAVE_KITCKEN, HOUSE_ID
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -53,7 +53,7 @@
         HAVE_WASHROOM,
       </if>
       <if test="haveKitcken != null" >
-        "HAVE_ KITCKEN",
+        HAVE_KITCKEN,
       </if>
       <if test="houseId != null" >
         HOUSE_ID,
@@ -93,7 +93,7 @@
         HAVE_WASHROOM = #{haveWashroom,jdbcType=TINYINT},
       </if>
       <if test="haveKitcken != null" >
-        "HAVE_ KITCKEN" = #{haveKitcken,jdbcType=TINYINT},
+        HAVE_KITCKEN = #{haveKitcken,jdbcType=TINYINT},
       </if>
       <if test="houseId != null" >
         HOUSE_ID = #{houseId,jdbcType=INTEGER},
@@ -106,7 +106,7 @@
     set ROOM_NO = #{roomNo,jdbcType=INTEGER},
       AREA = #{area,jdbcType=DOUBLE},
       HAVE_WASHROOM = #{haveWashroom,jdbcType=TINYINT},
-      "HAVE_ KITCKEN" = #{haveKitcken,jdbcType=TINYINT},
+      HAVE_KITCKEN = #{haveKitcken,jdbcType=TINYINT},
       HOUSE_ID = #{houseId,jdbcType=INTEGER}
     where ID = #{id,jdbcType=INTEGER}
   </update>

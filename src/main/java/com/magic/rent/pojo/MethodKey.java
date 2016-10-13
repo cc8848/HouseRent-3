@@ -54,4 +54,11 @@ public class MethodKey implements Serializable{
         return false;
     }
 
+    @Override
+    public String toString() {
+        return "MethodKey{" +
+                "className='" + className + '\'' +
+                ", methodName='" + methodName + '\'' +
+                '}';
+    }
 }

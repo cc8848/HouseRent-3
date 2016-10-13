@@ -84,4 +84,18 @@ public class Credentials implements Serializable {
     public void setUserId(int userId) {
         this.userId = userId;
     }
+
+    @Override
+    public String toString() {
+        return "Credentials{" +
+                "id=" + id +
+                ", typeId=" + typeId +
+                ", number='" + number + '\'' +
+                ", address='" + address + '\'' +
+                ", issuingAuthority='" + issuingAuthority + '\'' +
+                ", validityDate=" + validityDate +
+                ", validity=" + validity +
+                ", userId=" + userId +
+                '}';
+    }
 }

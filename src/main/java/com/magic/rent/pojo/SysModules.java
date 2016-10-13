@@ -123,4 +123,22 @@ public class SysModules implements Serializable{
     public void setPriority(Integer priority) {
         this.priority = priority;
     }
+
+    @Override
+    public String toString() {
+        return "SysModules{" +
+                "moduleId=" + moduleId +
+                ", moduleName='" + moduleName + '\'' +
+                ", moduleDesc='" + moduleDesc + '\'' +
+                ", moduleType='" + moduleType + '\'' +
+                ", parent='" + parent + '\'' +
+                ", moduleUrl='" + moduleUrl + '\'' +
+                ", iLevel=" + iLevel +
+                ", leaf=" + leaf +
+                ", application='" + application + '\'' +
+                ", controller='" + controller + '\'' +
+                ", enable=" + enable +
+                ", priority=" + priority +
+                '}';
+    }
 }
