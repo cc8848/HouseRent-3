@@ -1,15 +1,20 @@
 package com.magic.rent.pojo;
 
-public class RentMode {
-    private Integer id;
+import java.io.Serializable;
+
+public class RentMode implements Serializable {
+
+    private static final long serialVersionUID = -3589841467376517812L;
+
+    private int id;
 
     private String name;
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
@@ -19,5 +24,13 @@ public class RentMode {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "RentMode{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

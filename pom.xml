@@ -180,6 +180,18 @@
             <artifactId>mybatis</artifactId>
             <version>3.3.0</version>
         </dependency>
+        <!--Mybatis分页工具 pageHelper-->
+        <dependency>
+            <groupId>com.github.pagehelper</groupId>
+            <artifactId>pagehelper</artifactId>
+            <version>4.1.6</version>
+        </dependency>
+        <!--分页搭配SQL解析工具-->
+        <dependency>
+            <groupId>com.github.jsqlparser</groupId>
+            <artifactId>jsqlparser</artifactId>
+            <version>0.9.6</version>
+        </dependency>
         <!--Mybatis Spring整合-->
         <dependency>
             <groupId>org.mybatis</groupId>

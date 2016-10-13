@@ -11,7 +11,7 @@
   <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Contract" >
     <id column="id" property="id" jdbcType="INTEGER" />
     <result column="CONTRACT_ID" property="contractId" jdbcType="VARCHAR" />
-    <result column="CONTRACT_RENT" property="contractRent" jdbcType="INTEGER" />
+    <result column="CONTRACT_RENT" property="contractRent" jdbcType="DOUBLE" />
     <result column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
     <result column="END_DATA" property="endData" jdbcType="TIMESTAMP" />
     <result column="LESSEE_ID" property="lesseeId" jdbcType="INTEGER" />
@@ -21,7 +21,7 @@
     <result column="ENABLED" property="enabled" jdbcType="TINYINT" />
     <result column="EXPIRED" property="expired" jdbcType="TINYINT" />
     <result column="PAY_DATE" property="payDate" jdbcType="TIMESTAMP" />
-    <result column="DEPOSIT" property="deposit" jdbcType="INTEGER" />
+    <result column="DEPOSIT" property="deposit" jdbcType="DOUBLE" />
     <result column="ROOM_ID" property="roomId" jdbcType="INTEGER" />
   </resultMap>
   <resultMap id="ContractResultMap" type="com.magic.rent.pojo.Contract">
@@ -37,7 +37,7 @@
       <result column="ENABLED" property="enabled" jdbcType="TINYINT" />
       <result column="EXPIRED" property="expired" jdbcType="TINYINT" />
       <result column="PAY_DATE" property="payDate" jdbcType="TIMESTAMP" />
-      <result column="DEPOSIT" property="deposit" jdbcType="INTEGER" />
+      <result column="DEPOSIT" property="deposit" jdbcType="DOUBLE" />
       <!--<result column="ROOM_ID" property="roomId" jdbcType="INTEGER" />-->
   </resultMap>
   <sql id="Base_Column_List" >
@@ -60,11 +60,11 @@
       LESSOR_ID, INCLUDE_UTILITIES, PAYMENT_ID, 
       ENABLED, EXPIRED, PAY_DATE, 
       DEPOSIT, ROOM_ID)
-    values (#{id,jdbcType=INTEGER}, #{contractId,jdbcType=VARCHAR}, #{contractRent,jdbcType=INTEGER}, 
+    values (#{id,jdbcType=INTEGER}, #{contractId,jdbcType=VARCHAR}, #{contractRent,jdbcType=DOUBLE},
       #{startDate,jdbcType=TIMESTAMP}, #{endData,jdbcType=TIMESTAMP}, #{lesseeId,jdbcType=INTEGER}, 
       #{lessorId,jdbcType=INTEGER}, #{includeUtilities,jdbcType=TINYINT}, #{paymentId,jdbcType=INTEGER}, 
       #{enabled,jdbcType=TINYINT}, #{expired,jdbcType=TINYINT}, #{payDate,jdbcType=TIMESTAMP}, 
-      #{deposit,jdbcType=INTEGER}, #{roomId,jdbcType=INTEGER})
+      #{deposit,jdbcType=DOUBLE}, #{roomId,jdbcType=INTEGER})
   </insert>
   <insert id="insertSelective" parameterType="com.magic.rent.pojo.Contract" >
     insert into CONTRACT
@@ -120,7 +120,7 @@
         #{contractId,jdbcType=VARCHAR},
       </if>
       <if test="contractRent != null" >
-        #{contractRent,jdbcType=INTEGER},
+        #{contractRent,jdbcType=DOUBLE},
       </if>
       <if test="startDate != null" >
         #{startDate,jdbcType=TIMESTAMP},
@@ -150,7 +150,7 @@
         #{payDate,jdbcType=TIMESTAMP},
       </if>
       <if test="deposit != null" >
-        #{deposit,jdbcType=INTEGER},
+        #{deposit,jdbcType=DOUBLE},
       </if>
       <if test="roomId != null" >
         #{roomId,jdbcType=INTEGER},
@@ -164,7 +164,7 @@
         CONTRACT_ID = #{contractId,jdbcType=VARCHAR},
       </if>
       <if test="contractRent != null" >
-        CONTRACT_RENT = #{contractRent,jdbcType=INTEGER},
+        CONTRACT_RENT = #{contractRent,jdbcType=DOUBLE},
       </if>
       <if test="startDate != null" >
         START_DATE = #{startDate,jdbcType=TIMESTAMP},
@@ -194,7 +194,7 @@
         PAY_DATE = #{payDate,jdbcType=TIMESTAMP},
       </if>
       <if test="deposit != null" >
-        DEPOSIT = #{deposit,jdbcType=INTEGER},
+        DEPOSIT = #{deposit,jdbcType=DOUBLE},
       </if>
       <if test="roomId != null" >
         ROOM_ID = #{roomId,jdbcType=INTEGER},
@@ -205,7 +205,7 @@
   <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Contract" >
     update CONTRACT
     set CONTRACT_ID = #{contractId,jdbcType=VARCHAR},
-      CONTRACT_RENT = #{contractRent,jdbcType=INTEGER},
+      CONTRACT_RENT = #{contractRent,jdbcType=DOUBLE},
       START_DATE = #{startDate,jdbcType=TIMESTAMP},
       END_DATA = #{endData,jdbcType=TIMESTAMP},
       LESSEE_ID = #{lesseeId,jdbcType=INTEGER},
@@ -215,7 +215,7 @@
       ENABLED = #{enabled,jdbcType=TINYINT},
       EXPIRED = #{expired,jdbcType=TINYINT},
       PAY_DATE = #{payDate,jdbcType=TIMESTAMP},
-      DEPOSIT = #{deposit,jdbcType=INTEGER},
+      DEPOSIT = #{deposit,jdbcType=DOUBLE},
       ROOM_ID = #{roomId,jdbcType=INTEGER}
     where id = #{id,jdbcType=INTEGER}
   </update>

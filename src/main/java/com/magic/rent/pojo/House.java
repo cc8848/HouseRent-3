@@ -13,7 +13,7 @@ public class House implements Serializable {
 
     private String name;//房屋名字
 
-    private int expectRent;//预期租金
+    private double expectRent;//预期租金
 
     private String vrPath;//VR资源地址
 
@@ -49,13 +49,7 @@ public class House implements Serializable {
 
     private List<Rooms> roomsList;//房间列表
 
-    public List<Rooms> getRoomsList() {
-        return roomsList;
-    }
-
-    public void setRoomsList(List<Rooms> roomsList) {
-        this.roomsList = roomsList;
-    }
+    private List<RentMode> rentModeList;//出租模式
 
     public int getId() {
         return id;
@@ -73,11 +67,11 @@ public class House implements Serializable {
         this.address = address;
     }
 
-    public int getExpectRent() {
+    public double getExpectRent() {
         return expectRent;
     }
 
-    public void setExpectRent(int expectRent) {
+    public void setExpectRent(double expectRent) {
         this.expectRent = expectRent;
     }
 
@@ -241,6 +235,22 @@ public class House implements Serializable {
         this.area = area;
     }
 
+    public List<Rooms> getRoomsList() {
+        return roomsList;
+    }
+
+    public void setRoomsList(List<Rooms> roomsList) {
+        this.roomsList = roomsList;
+    }
+
+    public List<RentMode> getRentModeList() {
+        return rentModeList;
+    }
+
+    public void setRentModeList(List<RentMode> rentModeList) {
+        this.rentModeList = rentModeList;
+    }
+
     @Override
     public String toString() {
         return "House{" +
@@ -250,21 +260,19 @@ public class House implements Serializable {
                 ", expectRent=" + expectRent +
                 ", vrPath='" + vrPath + '\'' +
                 ", thumbnailPath='" + thumbnailPath + '\'' +
-                ", communityId=" + communityId +
                 ", community=" + community +
                 ", floor=" + floor +
                 ", room=" + room +
-                ", decorationTypeId=" + decorationTypeId +
                 ", decorationType=" + decorationType +
-                ", provinceId=" + provinceId +
-                ", cityId=" + cityId +
-                ", areaId=" + areaId +
+                ", province=" + province +
+                ", city=" + city +
+                ", area=" + area +
                 ", haveKitcken=" + haveKitcken +
                 ", haveBalcony=" + haveBalcony +
-                ", houseStatusId=" + houseStatusId +
                 ", houseStatus=" + houseStatus +
                 ", enabled=" + enabled +
                 ", roomsList=" + roomsList +
+                ", rentModeList=" + rentModeList +
                 '}';
     }
 }

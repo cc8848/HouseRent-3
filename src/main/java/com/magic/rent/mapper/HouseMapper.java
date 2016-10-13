@@ -23,5 +23,5 @@ public interface HouseMapper {
 
     List<House> selectByCommunity(Community community);
 
-    List<House> selectBySearchTerms(Map<String, String> terms);
+    List<House> selectBySearchTerms(Map<String, Object> terms);
 }
