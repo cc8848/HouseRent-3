@@ -7,7 +7,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
 <configuration scan="true" scanPeriod="60 seconds" debug="false">
     <!-- 定义日志的根目录 -->
 
-    <property name="LOG_HOME" value="/Users/wu/Workspaces/IDEA/HouseRent/logs"/>
+    <property name="LOG_HOME" value="/Users/wuxinzhe/IdeaProjects/HouseRent/logs"/>
     <!-- 定义日志文件名称 -->
     <property name="appName" value="rent"/>
     <!-- ch.qos.logback.core.ConsoleAppender 表示控制台输出 -->

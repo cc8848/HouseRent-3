@@ -27,7 +27,7 @@
                 <li><a href="#">我要招租</a></li>
             </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li id="loginOrRegister"><a href="<c:url value="/user/login"/>">注册/登录</a></li>
+                <li id="loginOrRegister"><a href="<c:url value="/user/login"/>">注册|登录</a></li>
                 <li id="account" class="dropdown hidden">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-user"></span>账户<span class="caret"></span>
