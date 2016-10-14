@@ -63,4 +63,15 @@ public class Area implements Serializable, Address {
     public void setEnable(boolean enable) {
         this.enable = enable;
     }
+
+    @Override
+    public String toString() {
+        return "Area{" +
+                "id=" + id +
+                ", areaid=" + areaid +
+                ", areaname='" + areaname + '\'' +
+                ", cityid=" + cityid +
+                ", enable=" + enable +
+                '}';
+    }
 }

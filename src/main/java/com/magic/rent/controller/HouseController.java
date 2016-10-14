@@ -12,9 +12,12 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -49,16 +52,50 @@ public class HouseController {
         Community community = new Community();
         community.setName(communityName);
 
-        PageInfo<House> housePageInfo = iHouseService.selectHousesByCommunity(community, pageNum, pageSize);
+        PageInfo<House> housePageInfo = iHouseService.selectByCommunity(community, pageNum, pageSize);
 
         return JsonResult.success("", housePageInfo);
     }
 
     @ResponseBody
-    @RequestMapping("/selectHousesBySearchTerms")
-    public JsonResult selectHousesBySearchTerms(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping("/selectHousesListBySearchTerms")
+    public JsonResult selectHousesListBySearchTerms(HttpServletRequest request, HttpServletResponse response) {
+        if (StringUtils.isEmpty(request.getParameter("pageNum")))
+            throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageNumNotNull", "其实笔数不能为空!"));
+
+        if (StringUtils.isEmpty(request.getParameter("pageSize")))
+            throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageSizeNotNull", "查询笔数不能为空!"));
+
+        int pageNum = Integer.valueOf(request.getParameter("pageNum"));
+        int pageSize = Integer.valueOf(request.getParameter("pageSize"));
+
+        Map<String, Object> parameterMap = new HashMap<String, Object>();
+
+        if (!StringUtils.isEmpty(request.getParameter("minRent")))
+            parameterMap.put("minRent", request.getParameter("minRent"));
+
+        if (!StringUtils.isEmpty(request.getParameter("maxRent")))
+            parameterMap.put("maxRent", request.getParameter("maxRent"));
+
+        if (!StringUtils.isEmpty(request.getParameter("areaName")))
+            parameterMap.put("areaName", request.getParameter("areaName"));
+
+        if (!StringUtils.isEmpty(request.getParameter("roomNum")))
+            parameterMap.put("roomNum", request.getParameter("roomNum"));
+
+        if (!StringUtils.isEmpty(request.getParameter("rentMode")))
+            parameterMap.put("rentMode", request.getParameter("rentMode"));
+
+        PageInfo<House> housePageInfo = iHouseService.selectBySearchTerms(parameterMap, pageNum, pageSize);
+
+        return JsonResult.success("", housePageInfo);
+    }
+
+    @RequestMapping("/selectHouseDetailByHouseID")
+    public ModelAndView selectHouseDetailByHouseID(HttpServletRequest request, HttpServletResponse response) {
 
 
-        return JsonResult.success("", null);
+        ModelAndView modelAndView = new ModelAndView();
+        return modelAndView;
     }
 }

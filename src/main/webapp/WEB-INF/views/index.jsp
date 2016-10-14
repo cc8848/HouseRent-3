@@ -112,7 +112,7 @@
                     <input id="way-input" type="text" class="form-control" placeholder="请选择方式" readonly>
                 </div><!--厅室 end-->
                 <div class="white-divider-sm"></div>
-                <button type="button" class="btn btn-primary btn-block"><span
+                <button id="searchButton" type="button" class="btn btn-primary btn-block" onclick="search()"><span
                         class="glyphicon glyphicon-search"></span></button>
             </div>
         </div>

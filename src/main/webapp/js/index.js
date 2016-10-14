@@ -64,14 +64,13 @@ $("#address-button").click(function () {
         $('#area-input').val(area);
     }
 });
-
+//查询条件设置-start
 $('#price-1').on('click', setPrice);
 $('#price-2').on('click', setPrice);
 $('#price-3').on('click', setPrice);
 $('#price-4').on('click', setPrice);
 $('#price-5').on('click', setPrice);
 $('#price-6').on('click', setPrice);
-
 function setPrice() {
     $('#price-input').val(this.innerHTML);
 }
@@ -82,7 +81,6 @@ $('#room-3').on('click', setRoom);
 $('#room-4').on('click', setRoom);
 $('#room-5').on('click', setRoom);
 $('#room-6').on('click', setRoom);
-
 function setRoom() {
     $('#room-input').val(this.innerHTML);
 }
@@ -91,7 +89,49 @@ $('#way-1').on('click', setWay);
 $('#way-2').on('click', setWay);
 $('#way-3').on('click', setWay);
 $('#way-4').on('click', setWay);
-
 function setWay() {
     $('#way-input').val(this.innerHTML)
 }
+//查询条件设置-end
+
+//点击搜索事件
+$('#searchButton').on('click', search);
+function search() {
+
+    var minRent = null;
+    var maxRent = null;
+    var areaName = null;
+    var roomNum = null;
+    var rentMode = null;
+
+    var rent = $('#price-input').val();
+    if (rent == $('#price-1').val()) {
+        maxRent = 500;
+    } else if (rent == $('#price-2').val()) {
+        minRent = 500;
+        maxRent = 1000;
+    } else if (rent == $('#price-3').val()) {
+        minRent = 1000;
+        maxRent = 2000;
+    } else if (rent == $('#price-4').val()) {
+        minRent = 2000;
+        maxRent = 4000;
+    } else if (rent == $('#price-5').val()) {
+        minRent = 4000;
+    }
+
+
+
+    $.getJSON('/house/selectHousesListBySearchTerms', {
+        pageNum: 0,
+        pageSize: 10,
+        minRent: minRent,
+        maxRent: maxRent,
+        areaName: areaName,
+        roomNum: roomNum,
+        rentMode: rentMode
+    }, function (data) {
+
+    })
+}
+

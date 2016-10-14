@@ -36,6 +36,6 @@ public class HouseMapperTest {
         Map<String, Object> parameteMap = new HashMap<String, Object>();
 
         List<House> houseList = houseMapper.selectBySearchTerms(parameteMap);
-        System.out.println(houseList.get(0));
+        System.out.println("ListSize:" + houseList.size() + "|" + houseList.get(0));
     }
 }
