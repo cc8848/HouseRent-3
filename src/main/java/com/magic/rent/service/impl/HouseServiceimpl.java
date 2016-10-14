@@ -26,9 +26,6 @@ public class HouseServiceImpl implements IHouseService {
     @Autowired
     private HouseMapper houseMapper;
 
-    @Autowired
-    private MessageSourceAccessor messageSourceAccessor;
-
     public PageInfo<House> selectHousesByCommunity(Community community, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);
         List<House> houseList = houseMapper.selectByCommunity(community);

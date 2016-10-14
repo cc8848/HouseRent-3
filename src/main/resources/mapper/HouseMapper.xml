@@ -40,14 +40,14 @@
         <result column="HAVE_KITCKEN" property="haveKitcken" jdbcType="TINYINT"/>
         <result column="HAVE_BALCONY" property="haveBalcony" jdbcType="TINYINT"/>
         <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
-        <collection property="province" resultMap="com.magic.rent.mapper.ProvinceMapper.province"/>
-        <collection property="city" resultMap="com.magic.rent.mapper.CityMapper.city"/>
-        <collection property="area" resultMap="com.magic.rent.mapper.AreaMapper.area"/>
-        <collection property="community" resultMap="com.magic.rent.mapper.CommunityMapper.community"/>
-        <collection property="decorationType" resultMap="com.magic.rent.mapper.DecorationTypeMapper.decorationType"/>
-        <collection property="houseStatus" resultMap="com.magic.rent.mapper.HouseStatusMapper.houseStatus"/>
+        <association property="province" resultMap="com.magic.rent.mapper.ProvinceMapper.province"/>
+        <association property="city" resultMap="com.magic.rent.mapper.CityMapper.city"/>
+        <association property="area" resultMap="com.magic.rent.mapper.AreaMapper.area"/>
+        <association property="community" resultMap="com.magic.rent.mapper.CommunityMapper.community"/>
+        <association property="decorationType" resultMap="com.magic.rent.mapper.DecorationTypeMapper.decorationType"/>
+        <association property="houseStatus" resultMap="com.magic.rent.mapper.HouseStatusMapper.houseStatus"/>
         <collection property="rentModeList" ofType="com.magic.rent.pojo.RentMode">
-            <id column="ID" property="id" jdbcType="INTEGER"/>
+            <id column="rentMODE_ID" property="id" jdbcType="INTEGER"/>
             <result column="NAME" property="name" jdbcType="VARCHAR"/>
         </collection>
     </resultMap>
@@ -314,6 +314,7 @@
         HOUSE.HAVE_BALCONY,
         HOUSE_STATUS.STATUS_NAME,
         HOUSE.ENABLED,
+        RENT_MODE.ID rentMODE_ID,
         RENT_MODE.NAME
         FROM HOUSE
         JOIN PROVINCE ON HOUSE.PROVINCE_ID = PROVINCE.provinceID
