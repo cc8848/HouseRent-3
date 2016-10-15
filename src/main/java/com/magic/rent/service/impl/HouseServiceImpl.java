@@ -7,6 +7,8 @@ import com.magic.rent.mapper.HouseMapper;
 import com.magic.rent.pojo.Community;
 import com.magic.rent.pojo.House;
 import com.magic.rent.service.IHouseService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Service;
@@ -25,6 +27,8 @@ public class HouseServiceImpl implements IHouseService {
 
     @Autowired
     private HouseMapper houseMapper;
+
+    private static final Logger logger = LoggerFactory.getLogger(HouseServiceImpl.class);
 
     public PageInfo<House> selectByCommunity(Community community, int pageNum, int pageSize) {
         PageHelper.startPage(pageNum, pageSize);

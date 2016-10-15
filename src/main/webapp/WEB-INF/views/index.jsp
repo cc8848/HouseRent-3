@@ -65,7 +65,7 @@
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
                                 class="caret"></span></button>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a id="price-1" href="#">500 以下</a></li>
+                            <li><a id="price-1" href="#">0-500</a></li>
                             <li><a id="price-2" href="#">500-1000</a></li>
                             <li><a id="price-3" href="#">1000-2000</a></li>
                             <li><a id="price-4" href="#">2000-4000</a></li>
@@ -97,22 +97,22 @@
                 </div><!--厅室 end-->
                 <div class="white-divider-sm"></div>
                 <!--厅室 start-->
-                <div id="way" class="input-group input-group-sm">
+                <div id="rentMode" class="input-group input-group-sm">
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
                                 class="caret"></span></button>
                         <ul class="dropdown-menu" role="menu">
-                            <li><a id="way-1" href="#">整套出租</a></li>
-                            <li><a id="way-2" href="#">单间出租</a></li>
-                            <li><a id="way-3" href="#">床位出租</a></li>
+                            <li><a id="rentMode-1" href="#">整套出租</a></li>
+                            <li><a id="rentMode-2" href="#">单间出租</a></li>
+                            <li><a id="rentMode-3" href="#">床位出租</a></li>
                             <li class="divider"></li>
-                            <li><a id="way-4" href="#">不限</a></li>
+                            <li><a id="rentMode-4" href="#">不限</a></li>
                         </ul>
                     </div>
-                    <input id="way-input" type="text" class="form-control" placeholder="请选择方式" readonly>
+                    <input id="rentMode-input" type="text" class="form-control" placeholder="请选择方式" readonly>
                 </div><!--厅室 end-->
                 <div class="white-divider-sm"></div>
-                <button id="searchButton" type="button" class="btn btn-primary btn-block" onclick="search()"><span
+                <button id="searchButton" type="button" class="btn btn-primary btn-block"><span
                         class="glyphicon glyphicon-search"></span></button>
             </div>
         </div>
@@ -130,8 +130,21 @@
                 <div id="recommend" class="tab-pane active">
                     <div class="list-group">
                         <a href="#" class="list-group-item">
-                            <h4 class="list-group-item-heading">绿苑海景小区</h4>
-                            <p class="list-group-item-text">好房子1</p>
+                            <div class="container-fluid">
+                                <div id="thumbnail" class="col-sm-2 hidden-xs">
+                                    <img src="../../images/test.jpg" alt="" class="img-responsive img-thumbnail"/>
+                                </div>
+                                <div id="house" class="col-sm-10">
+                                    <h4 class="list-group-item-heading">绿苑海景小区</h4>
+                                    <div class="white-divider-md"></div>
+                                    <div class="list-group-item-text">
+                                        <span class="glyphicon glyphicon-home"></span><span>绿苑海景</span>
+                                        <button type="button" class="btn btn-primary btn-xs">
+                                            <span class="glyphicon glyphicon-map-marker"></span>查看地图
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
                         </a>
                         <a href="#" class="list-group-item ">
                             <h4 class="list-group-item-heading">绿苑海景小区</h4>

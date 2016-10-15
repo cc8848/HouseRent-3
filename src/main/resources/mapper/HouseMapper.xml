@@ -301,7 +301,7 @@
         JOIN RENT_MODE ON HOUSE_RENT_MODE.RENT_MODE_ID = RENT_MODE.ID
         WHERE COMMUNITY.NAME=#{name,jdbcType=VARCHAR} AND HOUSE.ENABLED &gt; 0
     </select>
-    <select id="selectBySearchTerms" parameterType="java.util.HashMap" resultMap="housesList">
+    <select id="selectBySearchTerms" parameterType="java.util.Map" resultMap="housesList">
         SELECT
         HOUSE.ID,
         HOUSE.NAME,
@@ -330,23 +330,22 @@
         JOIN RENT_MODE ON HOUSE_RENT_MODE.RENT_MODE_ID = RENT_MODE.ID
         <where>
             <if test="minRent == null and maxRent !=null">
-                AND HOUSE.EXPECT_RENT &lt; = ${maxRent,jdbcType=DOUBLE}
+                AND HOUSE.EXPECT_RENT &lt; = #{maxRent,jdbcType=DOUBLE}
             </if>
             <if test="minRent != null and maxRent !=null">
-                AND HOUSE.EXPECT_RENT &lt; = ${maxRent,jdbcType=DOUBLE}
-                AND HOUSE.EXPECT_RENT &gt; = ${minRent,jdbcType=DOUBLE}
+                AND HOUSE.EXPECT_RENT BETWEEN #{minRent,jdbcType=DOUBLE} AND #{maxRent,jdbcType=DOUBLE}
             </if>
             <if test="minRent != null and maxRent ==null">
-                AND HOUSE.EXPECT_RENT &gt; = ${minRent,jdbcType=DOUBLE}
+                AND HOUSE.EXPECT_RENT &gt; = #{minRent,jdbcType=DOUBLE}
             </if>
             <if test="areaName != null">
-                AND AREA.areaName = ${areaName,jdbcType=VARCHAR}
+                AND AREA.areaName = #{areaName,jdbcType=VARCHAR}
             </if>
             <if test="roomNum != null">
-                AND HOUSE.ROOM = ${roomNum,jdbcType=INTEGER}
+                AND HOUSE.ROOM = #{roomNum,jdbcType=INTEGER}
             </if>
             <if test="rentMode != null">
-                AND RENT_MODE.NAME=${rentMode,jdbcType=VARCHAR}
+                AND RENT_MODE.NAME=#{rentMode,jdbcType=VARCHAR}
             </if>
             AND HOUSE.ENABLED &gt; 0
         </where>

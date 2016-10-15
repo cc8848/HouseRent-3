@@ -6,6 +6,8 @@ import com.magic.rent.pojo.Community;
 import com.magic.rent.pojo.House;
 import com.magic.rent.service.IHouseService;
 import com.magic.rent.util.JsonResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Controller;
@@ -27,6 +29,8 @@ import java.util.Map;
 @Controller
 @RequestMapping("/house")
 public class HouseController {
+
+    private static Logger logger = LoggerFactory.getLogger(HouseController.class);
 
     @Autowired
     private IHouseService iHouseService;
@@ -72,10 +76,10 @@ public class HouseController {
         Map<String, Object> parameterMap = new HashMap<String, Object>();
 
         if (!StringUtils.isEmpty(request.getParameter("minRent")))
-            parameterMap.put("minRent", request.getParameter("minRent"));
+            parameterMap.put("minRent", Double.valueOf(request.getParameter("minRent")));
 
         if (!StringUtils.isEmpty(request.getParameter("maxRent")))
-            parameterMap.put("maxRent", request.getParameter("maxRent"));
+            parameterMap.put("maxRent", Double.valueOf(request.getParameter("maxRent")));
 
         if (!StringUtils.isEmpty(request.getParameter("areaName")))
             parameterMap.put("areaName", request.getParameter("areaName"));

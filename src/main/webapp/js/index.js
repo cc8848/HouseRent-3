@@ -85,45 +85,40 @@ function setRoom() {
     $('#room-input').val(this.innerHTML);
 }
 
-$('#way-1').on('click', setWay);
-$('#way-2').on('click', setWay);
-$('#way-3').on('click', setWay);
-$('#way-4').on('click', setWay);
+$('#rentMode-1').on('click', setWay);
+$('#rentMode-2').on('click', setWay);
+$('#rentMode-3').on('click', setWay);
+$('#rentMode-4').on('click', setWay);
 function setWay() {
-    $('#way-input').val(this.innerHTML)
+    $('#rentMode-input').val(this.innerHTML)
 }
 //查询条件设置-end
 
 //点击搜索事件
 $('#searchButton').on('click', search);
 function search() {
-
-    var minRent = null;
-    var maxRent = null;
-    var areaName = null;
-    var roomNum = null;
-    var rentMode = null;
-
     var rent = $('#price-input').val();
-    if (rent == $('#price-1').val()) {
-        maxRent = 500;
-    } else if (rent == $('#price-2').val()) {
-        minRent = 500;
-        maxRent = 1000;
-    } else if (rent == $('#price-3').val()) {
-        minRent = 1000;
-        maxRent = 2000;
-    } else if (rent == $('#price-4').val()) {
-        minRent = 2000;
-        maxRent = 4000;
-    } else if (rent == $('#price-5').val()) {
+    var minRent;
+    var maxRent;
+    if (rent != "不限" && rent != "4000以上") {
+        var rentArr = rent.split('-');
+        minRent = rentArr[0];
+        maxRent = rentArr[1];
+    } else if (rent == "4000以上") {
         minRent = 4000;
+        maxRent = null;
+    } else {
+        minRent = null;
+        maxRent = null;
     }
-
-
-
+    var areaName = $('#area-input').val();
+    areaName = areaName == "不限" ? null : areaName;
+    var roomNum = $('#room-input').val();
+    roomNum = roomNum == "不限" ? null : roomNum;
+    var rentMode = $('#rentMode-input').val();
+    rentMode = rentMode == "不限" ? null : rentMode;
     $.getJSON('/house/selectHousesListBySearchTerms', {
-        pageNum: 0,
+        pageNum: 1,
         pageSize: 10,
         minRent: minRent,
         maxRent: maxRent,
@@ -131,7 +126,10 @@ function search() {
         roomNum: roomNum,
         rentMode: rentMode
     }, function (data) {
-
+        var pageNum = data.data.pageNum;
+        var pageSize = data.data.size;
+        $.each(data.data.list, function (index, obj) {
+        })
     })
 }
 
