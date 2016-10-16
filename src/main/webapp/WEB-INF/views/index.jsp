@@ -33,7 +33,7 @@
                 <h3 class="panel-title">搜索条件</h3>
             </div>
             <div class="panel-body">
-                <!--地区 start-->
+                <!--地区-->
                 <div id="address">
                     <div class="input-group input-group-sm">
                         <div class="input-group-btn">
@@ -59,7 +59,7 @@
                     </div>
                 </div><!--地区 end-->
                 <div class="white-divider-sm"></div>
-                <!--租金 start-->
+                <!--租金-->
                 <div id="price" class="input-group input-group-sm">
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
@@ -78,7 +78,7 @@
                     <span class="input-group-addon">¥</span>
                 </div><!--租金 end-->
                 <div class="white-divider-sm"></div>
-                <!--厅室 start-->
+                <!--厅室-->
                 <div id="room" class="input-group input-group-sm">
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
@@ -96,7 +96,7 @@
                     <input id="room-input" type="text" class="form-control" placeholder="请选择厅室" readonly>
                 </div><!--厅室 end-->
                 <div class="white-divider-sm"></div>
-                <!--厅室 start-->
+                <!--租赁模式-->
                 <div id="rentMode" class="input-group input-group-sm">
                     <div class="input-group-btn">
                         <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"><span
@@ -112,81 +112,86 @@
                     <input id="rentMode-input" type="text" class="form-control" placeholder="请选择方式" readonly>
                 </div><!--厅室 end-->
                 <div class="white-divider-sm"></div>
-                <button id="searchButton" type="button" class="btn btn-primary btn-block"><span
-                        class="glyphicon glyphicon-search"></span></button>
+                <div class="btn-group btn-group-justified">
+                    <div class="btn-group">
+                        <button id="recommendHouse" type="button" class="btn btn-primary" data-toggle="tab"
+                                href="#recommend">好房推荐
+                        </button>
+                    </div>
+                    <div class="btn-group">
+                        <button id="searchButton" type="button" class="btn btn-primary" data-toggle="tab" href="#list">
+                            按需搜索
+                        </button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
+    <!--好房列表-->
     <div id="house-list" class="col-xs-12 col-sm-9 col-md-10">
-        <%--房屋分布地图or列表  start--%>
         <div id="house-tab">
-            <ul class="nav nav-tabs">
-                <li id="recommend-tab" class="active"><a href="#recommend" data-toggle="tab">好房推荐</a></li>
-                <li id="list-tab"><a href="#list" data-toggle="tab">房屋清单</a></li>
-                <li id="map-tab"><a href="#map" data-toggle="tab">房屋分布图</a></li>
-            </ul>
-            <div class="white-divider-xs"></div>
             <div class="tab-content">
+                <!--好房推荐-->
                 <div id="recommend" class="tab-pane active">
-                    <div class="list-group">
-                        <a href="#" class="list-group-item">
-                            <div class="container-fluid">
-                                <div id="thumbnail" class="col-sm-2 hidden-xs">
-                                    <img src="../../images/test.jpg" alt="" class="img-responsive img-thumbnail"/>
-                                </div>
-                                <div id="house" class="col-sm-10">
-                                    <h4 class="list-group-item-heading">绿苑海景小区</h4>
-                                    <div class="white-divider-md"></div>
-                                    <div class="list-group-item-text">
-                                        <span class="glyphicon glyphicon-home"></span><span>绿苑海景</span>
-                                        <button type="button" class="btn btn-primary btn-xs">
-                                            <span class="glyphicon glyphicon-map-marker"></span>查看地图
-                                        </button>
+                    <div class="panel panel-default">
+                        <!-- Default panel contents -->
+                        <div class="panel-heading">s
+                            房屋清单
+                        </div>
+                        <div class="panel-body">
+                            <nav>
+                                <ul class="pagination" style="margin:0">
+                                    <li><a href="#">&laquo;</a></li>
+                                    <li><a href="#">1</a></li>
+                                    <li><a href="#">2</a></li>
+                                    <li><a href="#">3</a></li>
+                                    <li><span>...</span></li>
+                                    <li><a href="#">7</a></li>
+                                    <li><a href="#">8</a></li>
+                                    <li><a href="#">9</a></li>
+                                    <li><a href="#">&raquo;</a></li>
+                                </ul>
+                            </nav>
+                        </div>
+                        <ul class="list-group">
+                            <div class="list-group-item">
+                                <div class="container-fluid">
+                                    <div class="row">
+                                        <div id="thumbnail" class="col-sm-3 hidden-xs">
+                                            <img src="../../images/test.jpg" alt=""
+                                                 class="img-responsive img-thumbnail"/>
+                                        </div>
+                                        <div id="house" class="col-sm-9 col-xs-12">
+                                            <h4 class="list-group-item-heading">绿苑海景小区</h4>
+                                            <div class="white-divider-md"></div>
+                                            <div class="list-group-item-text">
+                                                <span class="glyphicon glyphicon-home"></span><span>&nbsp;绿苑海景</span>
+                                            </div>
+                                            <div class="white-divider-md"></div>
+                                            <div class="list-group-item-text">
+                                                <label class="label label-danger">精装修</label>
+                                                <label class="label label-primary">押一付三</label>
+                                                <label class="label label-success">家电齐全</label>
+                                            </div>
+                                            <div class="white-divider-md"></div>
+                                            <div class="list-group-item-text">
+                                                <button type="button" class="btn btn-primary btn-xs">
+                                                    <span class="glyphicon glyphicon-map-marker"></span>&nbsp;查看地图
+                                                </button>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
-                        </a>
-                        <a href="#" class="list-group-item ">
-                            <h4 class="list-group-item-heading">绿苑海景小区</h4>
-                            <p class="list-group-item-text">好房子2</p>
-                        </a>
-                        <a href="#" class="list-group-item ">
-                            <h4 class="list-group-item-heading">绿苑海景小区</h4>
-                            <p class="list-group-item-text">好房子3</p>
-                        </a>
-                        <a href="#" class="list-group-item ">
-                            <h4 class="list-group-item-heading">绿苑海景小区</h4>
-                            <p class="list-group-item-text">好房子4</p>
-                        </a>
-                        <a href="#" class="list-group-item ">
-                            <h4 class="list-group-item-heading">绿苑海景小区</h4>
-                            <p class="list-group-item-text">好房子4</p>
-                        </a>
-                        <a href="#" class="list-group-item ">
-                            <h4 class="list-group-item-heading">绿苑海景小区</h4>
-                            <p class="list-group-item-text">好房子4</p>
-                        </a>
-                        <a href="#" class="list-group-item ">
-                            <h4 class="list-group-item-heading">绿苑海景小区</h4>
-                            <p class="list-group-item-text">好房子4</p>
-                        </a>
-                        <a href="#" class="list-group-item ">
-                            <h4 class="list-group-item-heading">绿苑海景小区</h4>
-                            <p class="list-group-item-text">好房子4</p>
-                        </a>
+                        </ul>
                     </div>
                 </div>
+                <!--房屋搜索-->
                 <div id="list" class="tab-pane">
                     <%--列表--%>
                 </div>
-                <div id="map" class="tab-pane">
-                    <div class="embed-responsive embed-responsive-16by9">
-                        <div id="container" class="embed-responsive-item"></div>
-                    </div>
-                </div>
             </div>
         </div>
-        <%--房屋分布地图or列表  end--%>
     </div>
 </div>
 
