@@ -135,7 +135,7 @@
                 <div id="recommend" class="tab-pane active">
                     <div class="panel panel-default">
                         <!-- Default panel contents -->
-                        <div class="panel-heading">s
+                        <div class="panel-heading">
                             房屋清单
                         </div>
                         <div class="panel-body">
