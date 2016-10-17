@@ -18,6 +18,9 @@ public class IndexController {
 
     @RequestMapping(value = "/index")
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
+
+
+
         return new ModelAndView("index");
     }
 }

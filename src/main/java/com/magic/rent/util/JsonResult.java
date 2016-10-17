@@ -3,10 +3,14 @@ package com.magic.rent.util;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.Serializable;
+
 /**
  * Created by wuxinzhe on 16/9/20.
  */
-public class JsonResult {
+public class JsonResult implements Serializable {
+
+    private static final long serialVersionUID = 8134245754393400511L;
 
     private boolean status = true;
     private String message;
@@ -49,6 +53,12 @@ public class JsonResult {
 
     public static JsonResult success() {
         return new JsonResult().setStatus(true);
+    }
+
+    public static JsonResult success(Object data) {
+        JsonResult jsonResult = success().setData(data);
+        logger.info(jsonResult.toString());
+        return jsonResult;
     }
 
     public static JsonResult success(String message, Object data) {

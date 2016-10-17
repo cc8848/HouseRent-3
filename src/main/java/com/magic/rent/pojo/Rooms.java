@@ -10,7 +10,7 @@ public class Rooms implements Serializable {
 
     private int roomNo;//房间号
 
-    private double area;//房间面积
+    private double areaNumber;//房间面积
 
     private boolean haveWashroom;//是否带独立厕所
 
@@ -34,12 +34,12 @@ public class Rooms implements Serializable {
         this.roomNo = roomNo;
     }
 
-    public double getArea() {
-        return area;
+    public double getAreaNumber() {
+        return areaNumber;
     }
 
-    public void setArea(double area) {
-        this.area = area;
+    public void setAreaNumber(double areaNumber) {
+        this.areaNumber = areaNumber;
     }
 
     public boolean isHaveWashroom() {
@@ -71,7 +71,7 @@ public class Rooms implements Serializable {
         return "Rooms{" +
                 "id=" + id +
                 ", roomNo=" + roomNo +
-                ", area=" + area +
+                ", areaNumber=" + areaNumber +
                 ", haveWashroom=" + haveWashroom +
                 ", haveKitcken=" + haveKitcken +
                 ", houseId=" + houseId +

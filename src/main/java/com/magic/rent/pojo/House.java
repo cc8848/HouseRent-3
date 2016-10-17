@@ -24,7 +24,8 @@ public class House implements Serializable {
 
     private int floor;//楼层
 
-    private int room;//房间数量
+    private int layoutID;//房间布局
+    private HouseLayout houseLayout;//房间布局
 
     private int decorationTypeId;//装修类型ID
     private DecorationType decorationType;
@@ -44,6 +45,9 @@ public class House implements Serializable {
 
     private int houseStatusId;//房屋状态,如:出租
     private HouseStatus houseStatus;
+
+    private int expectPaymentID;//预期付租方式
+    private Payment expectPayment;
 
     private boolean enabled;//是否可用
 
@@ -107,12 +111,12 @@ public class House implements Serializable {
         this.floor = floor;
     }
 
-    public int getRoom() {
-        return room;
+    public int getLayoutID() {
+        return layoutID;
     }
 
-    public void setRoom(int room) {
-        this.room = room;
+    public void setLayoutID(int layoutID) {
+        this.layoutID = layoutID;
     }
 
     public int getDecorationTypeId() {
@@ -235,6 +239,22 @@ public class House implements Serializable {
         this.area = area;
     }
 
+    public Payment getExpectPayment() {
+        return expectPayment;
+    }
+
+    public void setExpectPayment(Payment expectPayment) {
+        this.expectPayment = expectPayment;
+    }
+
+    public int getExpectPaymentID() {
+        return expectPaymentID;
+    }
+
+    public void setExpectPaymentID(int expectPaymentID) {
+        this.expectPaymentID = expectPaymentID;
+    }
+
     public List<Rooms> getRoomsList() {
         return roomsList;
     }
@@ -260,16 +280,25 @@ public class House implements Serializable {
                 ", expectRent=" + expectRent +
                 ", vrPath='" + vrPath + '\'' +
                 ", thumbnailPath='" + thumbnailPath + '\'' +
+                ", communityId=" + communityId +
                 ", community=" + community +
                 ", floor=" + floor +
-                ", room=" + room +
+                ", layoutID=" + layoutID +
+                ", houseLayout=" + houseLayout +
+                ", decorationTypeId=" + decorationTypeId +
                 ", decorationType=" + decorationType +
+                ", provinceId=" + provinceId +
                 ", province=" + province +
+                ", cityId=" + cityId +
                 ", city=" + city +
+                ", areaId=" + areaId +
                 ", area=" + area +
                 ", haveKitcken=" + haveKitcken +
                 ", haveBalcony=" + haveBalcony +
+                ", houseStatusId=" + houseStatusId +
                 ", houseStatus=" + houseStatus +
+                ", expectPaymentID=" + expectPaymentID +
+                ", expectPayment=" + expectPayment +
                 ", enabled=" + enabled +
                 ", roomsList=" + roomsList +
                 ", rentModeList=" + rentModeList +
