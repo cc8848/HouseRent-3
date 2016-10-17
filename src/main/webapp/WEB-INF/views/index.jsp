@@ -28,6 +28,48 @@
 
 <div class="container-fluid">
     <div class="row">
+        <div id="carousel-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
+
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active">
+                    <img src="../../images/index/1.jpg" style="width: 100%" alt="...">
+                    <div class="carousel-caption">
+                        First
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../../images/index/2.jpg" style="width: 100%" alt="...">
+                    <div class="carousel-caption">
+                        Second
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="../../images/index/3.jpg" style="width: 100%" alt="...">
+                    <div class="carousel-caption">
+                        Second
+                    </div>
+                </div>
+            </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
+        </div>
+    </div>
+    <div class="white-divider-md"></div>
+    <div class="row">
         <div class="col-sm-1"></div>
         <!--搜索区-->
         <div id="search-term" class="col-xs-12 col-sm-3 col-md-2">
@@ -172,10 +214,10 @@
                                             </div>
                                             <div class="white-divider-lg"></div>
                                             <div class="list-group-item-text">
-                                                    <span>${house.areaNumber}㎡</span>/
-                                                    <span>${house.houseLayout.name}</span>/
-                                                    <span>${house.decorationType.name}</span>/
-                                                    <span>${house.floor}层</span>
+                                                <span>${house.areaNumber}㎡</span>/
+                                                <span>${house.houseLayout.name}</span>/
+                                                <span>${house.decorationType.name}</span>/
+                                                <span>${house.floor}层</span>
                                                 <div class="pull-right">
                                                     <c:forEach items="${house.rentModeList}" var="rentMode">
                                                         <span class="label label-default" style="margin-left: 10px">
@@ -200,7 +242,6 @@
         <div class="col-sm-1"></div>
     </div>
 </div>
-
 <script type="text/javascript" src="../../js/jquery.js"></script>
 <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/select2.min.js"></script>
