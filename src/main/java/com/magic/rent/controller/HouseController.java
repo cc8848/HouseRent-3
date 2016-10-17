@@ -39,7 +39,7 @@ public class HouseController {
     @ResponseBody
     @RequestMapping("/selectHousesByCommunity")
     public JsonResult selectHousesByCommunity(HttpServletRequest request, HttpServletResponse response) {
-
+        //参数校验
         if (StringUtils.isEmpty(request.getParameter("pageNum")))
             throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageNumNotNull", "查询页码不能为空!"));
         if (StringUtils.isEmpty(request.getParameter("pageSize")))
@@ -47,13 +47,16 @@ public class HouseController {
         if (StringUtils.isEmpty(request.getParameter("communityName")))
             throw new ParameterException(messageSourceAccessor.getMessage("HouseService.communityNameNotNull", "社区名称不能为空!"));
 
+        //获取参数
         int pageNum = Integer.valueOf(request.getParameter("pageNum").trim());
         int pageSize = Integer.valueOf(request.getParameter("pageSize").trim());
         String communityName = request.getParameter("communityName");
 
+        //封装条件对象
         Community community = new Community();
         community.setName(communityName);
 
+        //数据查询
         PageInfo<House> housePageInfo = iHouseService.selectByCommunity(community, pageNum, pageSize);
 
         return JsonResult.success("", housePageInfo);
@@ -62,16 +65,17 @@ public class HouseController {
     @ResponseBody
     @RequestMapping("/selectHousesListBySearchTerms")
     public JsonResult selectHousesListBySearchTerms(HttpServletRequest request, HttpServletResponse response) {
+        //参数校验
         if (StringUtils.isEmpty(request.getParameter("pageNum")))
             throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageNumNotNull", "其实笔数不能为空!"));
-
         if (StringUtils.isEmpty(request.getParameter("pageSize")))
             throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageSizeNotNull", "查询笔数不能为空!"));
 
+        //创建参数载体
+        Map<String, Object> parameterMap = new HashMap<String, Object>();
+
         int pageNum = Integer.valueOf(request.getParameter("pageNum"));
         int pageSize = Integer.valueOf(request.getParameter("pageSize"));
-
-        Map<String, Object> parameterMap = new HashMap<String, Object>();
 
         if (!StringUtils.isEmpty(request.getParameter("minRent")))
             parameterMap.put("minRent", Double.valueOf(request.getParameter("minRent")));
@@ -88,6 +92,7 @@ public class HouseController {
         if (!StringUtils.isEmpty(request.getParameter("rentMode")))
             parameterMap.put("rentMode", request.getParameter("rentMode"));
 
+        //查询信息
         PageInfo<House> housePageInfo = iHouseService.selectBySearchTerms(parameterMap, pageNum, pageSize);
 
         return JsonResult.success("", housePageInfo);

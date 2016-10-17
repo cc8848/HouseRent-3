@@ -25,8 +25,9 @@ public class IndexController {
 
     @RequestMapping(value = "/index")
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
-        HouseRecommend houseRecommend = iHouseRecommendService.selectTodayRecommend();
 
+        HouseRecommend houseRecommend = iHouseRecommendService.selectTodayRecommend();
+        
         ModelAndView index = new ModelAndView("index");
         index.addObject(houseRecommend);
 
