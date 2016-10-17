@@ -784,6 +784,7 @@
         <default-expression>&apos;2&apos;</default-expression>
       </column>
       <column id="202" parent="20" name="AREA_NUMBER">
+        <comment>房屋平方米</comment>
         <mandatory>1</mandatory>
         <data-type>double(100)</data-type>
       </column>
@@ -1005,7 +1006,7 @@
       <column id="250" parent="27" name="DATE">
         <comment>推荐日期</comment>
         <mandatory>1</mandatory>
-        <data-type>datetime</data-type>
+        <data-type>varchar(20)</data-type>
       </column>
       <key id="251" parent="27" name="PRIMARY">
         <columns>ID</columns>

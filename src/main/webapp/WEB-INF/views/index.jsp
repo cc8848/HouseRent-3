@@ -135,21 +135,21 @@
         <div id="house-list" class="col-xs-12 col-sm-7 col-md-8">
             <div id="house-tab">
                 <div class="tab-content">
-                    <!--好房推荐-->
+                    <%--<!--好房推荐-->--%>
                     <div id="recommend" class="tab-pane active">
                         <div class="panel panel-default">
                             <!-- Default panel contents -->
                             <div class="panel-heading">
                                 好房推荐
                             </div>
-                            <c:forEach items="${houseList}" var="house">
+                            <c:forEach items="${houseRecommend.houseList}" var="house">
                                 <ul class="list-group">
                                     <a href="/user/login" class="list-group-item container-fluid">
-                                        <div class="col-sm-2 hidden-xs">
-                                            <img src="../../images/test.jpg" alt=""
+                                        <div class="col-md-2 hidden-xs hidden-sm">
+                                            <img src="${house.thumbnailPath}" alt=""
                                                  class="img-responsive img-thumbnail"/>
                                         </div>
-                                        <div class="col-sm-10 col-xs-12 ">
+                                        <div class="col-md-10 col-xs-12 ">
                                             <h4 class="list-group-item-heading">${house.name}
                                                 <label class="label label-danger pull-right">${house.expectRent}元/月</label>
                                             </h4>
@@ -168,21 +168,21 @@
                                                 <c:if test="${house.haveBalcony}">
                                                     <label class="label label-warning">独立阳台</label>
                                                 </c:if>
-                                                <label class="label label-info">${house.}</label>
+                                                <label class="label label-info"></label>
                                             </div>
-                                            <div class="white-divider-xs"></div>
+                                            <div class="white-divider-lg"></div>
                                             <div class="list-group-item-text">
-                                                <p class="text-left">
-                                                    <span>${house.area}</span>/
-                                                    <span>一室一厅</span>/
-                                                    <span>中等装修</span>/
-                                                    <span>高层28楼</span>
-                                                </p>
-                                                <c:forEach items="${house.rentModeList}" var="rentMode">
-                                                    <label class="label label-default pull-right">
-                                                            ${rentMode.name}
-                                                    </label>
-                                                </c:forEach>
+                                                    <span>${house.areaNumber}㎡</span>/
+                                                    <span>${house.houseLayout.name}</span>/
+                                                    <span>${house.decorationType.name}</span>/
+                                                    <span>${house.floor}层</span>
+                                                <div class="pull-right">
+                                                    <c:forEach items="${house.rentModeList}" var="rentMode">
+                                                        <span class="label label-default" style="margin-left: 10px">
+                                                                ${rentMode.name}
+                                                        </span>
+                                                    </c:forEach>
+                                                </div>
                                             </div>
                                         </div>
                                     </a>
@@ -199,12 +199,9 @@
         </div>
         <div class="col-sm-1"></div>
     </div>
-
 </div>
 
 <script type="text/javascript" src="../../js/jquery.js"></script>
-<script type="text/javascript"
-        src="http://webapi.amap.com/maps?v=1.3&key=002273d8cd1c3363f0d26dae6629472b"></script>
 <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/select2.min.js"></script>
 <script type="text/javascript" src="../../js/index.js"></script>

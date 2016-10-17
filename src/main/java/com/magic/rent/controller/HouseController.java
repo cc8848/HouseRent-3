@@ -102,4 +102,5 @@ public class HouseController {
         ModelAndView modelAndView = new ModelAndView();
         return modelAndView;
     }
+
 }

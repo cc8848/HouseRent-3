@@ -343,6 +343,7 @@
         COMMUNITY.ID community_ID,
         COMMUNITY.NAME community_Name,
         HOUSE.FLOOR,
+        HOUSE.THUMBNAIL_PATH,
         HOUSE.AREA_NUMBER,
         HOUSE_LAYOUT.ID layout_ID,
         HOUSE_LAYOUT.NAME layout_Name,

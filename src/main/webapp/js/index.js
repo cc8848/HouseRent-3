@@ -6,16 +6,15 @@ $(document).ready(pageInit());
 //页面初始化
 function pageInit() {
     selectInit();
-    showMap();
 }
 //地图显示
-function showMap() {
-    var map = new AMap.Map('container', {
-        resizeEnable: true,
-        zoom: 10,
-        center: [116.480983, 40.0958]
-    });
-}
+//function showMap() {
+//    var map = new AMap.Map('container', {
+//        resizeEnable: true,
+//        zoom: 10,
+//        center: [116.480983, 40.0958]
+//    });
+//}
 //下拉框初始化
 function selectInit() {
     $(".select2").select2();
