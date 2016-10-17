@@ -27,6 +27,7 @@
         <result column="HOUSE_STATUS_ID" property="houseStatusId" jdbcType="INTEGER"/>
         <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
         <result column="EXPECT_PAYMENT_ID" property="expectPaymentId" jdbcType="INTEGER"/>
+        <result column="AREA_NUMBER" property="areaNumber" jdbcType="DOUBLE"/>
     </resultMap>
     <resultMap id="housesList" type="com.magic.rent.pojo.House">
         <id column="ID" property="id" jdbcType="INTEGER"/>
@@ -39,6 +40,7 @@
         <result column="HAVE_BALCONY" property="haveBalcony" jdbcType="TINYINT"/>
         <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
         <result column="THUMBNAIL_PATH" property="thumbnailPath" jdbcType="VARCHAR"/>
+        <result column="AREA_NUMBER" property="areaNumber" jdbcType="DOUBLE"/>
         <association property="houseLayout" javaType="com.magic.rent.pojo.HouseLayout">
             <id column="layout_ID" property="id" jdbcType="INTEGER"/>
             <result column="layout_Name" property="name" jdbcType="VARCHAR"/>
@@ -92,7 +94,7 @@
       COMMUNITY_ID, FLOOR, LAYOUT_ID, 
       DECORATION_TYPE_ID, PROVINCE_ID, CITY_ID, 
       AREA_ID, HAVE_KITCKEN, HAVE_BALCONY, 
-      HOUSE_STATUS_ID, ENABLED, EXPECT_PAYMENT_ID
+      HOUSE_STATUS_ID, ENABLED, EXPECT_PAYMENT_ID,AREA_NUMBER
       )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
       #{expectRent,jdbcType=INTEGER}, #{vrPath,jdbcType=VARCHAR}, #{thumbnailPath,jdbcType=VARCHAR}, 
@@ -100,6 +102,7 @@
       #{decorationTypeId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
       #{areaId,jdbcType=INTEGER}, #{haveKitcken,jdbcType=TINYINT}, #{haveBalcony,jdbcType=TINYINT}, 
       #{houseStatusId,jdbcType=INTEGER}, #{enabled,jdbcType=TINYINT}, #{expectPaymentId,jdbcType=INTEGER}
+      , #{areaNumber,jdbcType=DOUBLE}
       )
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.House">
@@ -159,6 +162,9 @@
             <if test="expectPaymentId != null">
                 EXPECT_PAYMENT_ID,
             </if>
+            <if test="areaNumber != null">
+                AREA_NUMBER,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -214,6 +220,9 @@
             </if>
             <if test="expectPaymentId != null">
                 #{expectPaymentId,jdbcType=INTEGER},
+            </if>
+            <if test="areaNumber != null">
+                #{areaNumber,jdbcType=DOUBLE},
             </if>
         </trim>
     </insert>
@@ -271,6 +280,9 @@
             <if test="expectPaymentId != null">
                 EXPECT_PAYMENT_ID = #{expectPaymentId,jdbcType=INTEGER},
             </if>
+            <if test="areaNumber != null">
+                AREA_NUMBER = #{areaNumber,jdbcType=DOUBLE},
+            </if>
         </set>
         where ID = #{id,jdbcType=INTEGER}
     </update>
@@ -292,7 +304,8 @@
       HAVE_BALCONY = #{haveBalcony,jdbcType=TINYINT},
       HOUSE_STATUS_ID = #{houseStatusId,jdbcType=INTEGER},
       ENABLED = #{enabled,jdbcType=TINYINT},
-      EXPECT_PAYMENT_ID = #{expectPaymentId,jdbcType=INTEGER}
+      EXPECT_PAYMENT_ID = #{expectPaymentId,jdbcType=INTEGER},
+      AREA_NUMBER=#{areaNumber,jdbcType=DOUBLE}
     where ID = #{id,jdbcType=INTEGER}
   </update>
     <select id="selectByCommunity" parameterType="com.magic.rent.pojo.Community" resultMap="housesList">
@@ -330,6 +343,7 @@
         COMMUNITY.ID community_ID,
         COMMUNITY.NAME community_Name,
         HOUSE.FLOOR,
+        HOUSE.AREA_NUMBER,
         HOUSE_LAYOUT.ID layout_ID,
         HOUSE_LAYOUT.NAME layout_Name,
         DECORATION_TYPE.ID decorationType_ID,

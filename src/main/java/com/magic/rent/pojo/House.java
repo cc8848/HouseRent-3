@@ -49,6 +49,8 @@ public class House implements Serializable {
     private int expectPaymentID;//预期付租方式
     private Payment expectPayment;
 
+    private double areaNumber;
+
     private boolean enabled;//是否可用
 
     private List<Rooms> roomsList;//房间列表
@@ -175,6 +177,22 @@ public class House implements Serializable {
         this.houseStatusId = houseStatusId;
     }
 
+    public HouseLayout getHouseLayout() {
+        return houseLayout;
+    }
+
+    public void setHouseLayout(HouseLayout houseLayout) {
+        this.houseLayout = houseLayout;
+    }
+
+    public double getAreaNumber() {
+        return areaNumber;
+    }
+
+    public void setAreaNumber(double areaNumber) {
+        this.areaNumber = areaNumber;
+    }
+
     public boolean isEnabled() {
         return enabled;
     }
@@ -299,6 +317,7 @@ public class House implements Serializable {
                 ", houseStatus=" + houseStatus +
                 ", expectPaymentID=" + expectPaymentID +
                 ", expectPayment=" + expectPayment +
+                ", areaNumber=" + areaNumber +
                 ", enabled=" + enabled +
                 ", roomsList=" + roomsList +
                 ", rentModeList=" + rentModeList +
