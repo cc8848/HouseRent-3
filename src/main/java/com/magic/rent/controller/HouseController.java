@@ -30,8 +30,6 @@ import java.util.Map;
 @RequestMapping("/house")
 public class HouseController {
 
-    private static Logger logger = LoggerFactory.getLogger(HouseController.class);
-
     @Autowired
     private IHouseService iHouseService;
 
