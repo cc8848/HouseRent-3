@@ -31,12 +31,12 @@ import java.awt.image.ImageFilter;
 public class GMailEngine extends ListImageCaptchaEngine {
     @Override
     protected void buildInitialFactories() {
-        int minWordLength = 6;
-        int maxWordLength = 6;
-        int fontSize = 12;
+        int minWordLength = 4;
+        int maxWordLength = 4;
+        int fontSize = 20;
         int imageWidth = 100;
-        int imageHeight = 20;
-        WordGenerator dictionnaryWords = new ComposeDictionaryWordGenerator(
+        int imageHeight = 35;
+        WordGenerator dictionaryWords = new ComposeDictionaryWordGenerator(
                 new FileDictionary("toddlist"));
 
         // word2image components
@@ -56,9 +56,8 @@ public class GMailEngine extends ListImageCaptchaEngine {
                 new ImageFilter[]{});
         ImageDeformation textDef = new ImageDeformationByFilters(
                 new ImageFilter[]{});
-
         WordToImage word2image = new DeformedComposedWordToImage(font,
                 background, randomPaster, backDef, textDef, postDef);
-        addFactory(new GimpyFactory(dictionnaryWords, word2image));
+        addFactory(new GimpyFactory(dictionaryWords, word2image));
     }
 }

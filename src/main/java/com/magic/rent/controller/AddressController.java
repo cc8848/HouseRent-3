@@ -1,7 +1,6 @@
 package com.magic.rent.controller;
 
 import com.magic.rent.exception.custom.ParameterException;
-import com.magic.rent.pojo.Province;
 import com.magic.rent.pojo.SelectPoJo;
 import com.magic.rent.service.IAddressService;
 import com.magic.rent.util.JsonResult;

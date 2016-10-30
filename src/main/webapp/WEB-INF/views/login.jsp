@@ -22,8 +22,8 @@
 
 <body>
 <div class="container-fluid">
-    <div class="col-xs-0 col-sm-3"></div>
-    <div class="row-fluid col-xs-12 col-sm-6">
+    <div class="hidden-xs col-sm-1 col-md-2 col-lg-3"></div>
+    <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 row-fluid">
         <div class="page-header">
             <h1>易租网
                 <small>EasyRent</small>
@@ -31,13 +31,13 @@
             </h1>
         </div>
     </div>
-    <div class="col-xs-0 col-sm-3"></div>
+    <div class="hidden-xs col-sm-1 col-md-2 col-lg-3"></div>
 </div>
 <!--登录&注册-->
 <div class="container-fluid">
     <div class="row-fluid">
-        <span class="col-xs-0 col-sm-4"></span>
-        <span class="col-xs-12 col-sm-4">
+        <span class="hidden-xs col-sm-2 col-md-3 col-lg-4 "></span>
+        <span class="col-xs-12 col-sm-8 col-md-6 col-lg-4">
             <ul class="nav nav-tabs">
                 <li id="login-tab" class="active">
                     <a href="#login-content" data-toggle="tab">登录</a>
@@ -72,23 +72,24 @@
                             </div>
                             <div class="white-divider-xs"></div>
                             <!--手机验证码-->
-                            <div class="form-group input-group input-group-sm">
+                            <div class="form-group  input-group input-group-sm ">
                                 <div class="input-group-addon">
                                     <span class="glyphicon glyphicon-qrcode"></span>
                                 </div>
                                 <input id="login-captcha" type="text" name="captcha" class="form-control"
                                        placeholder="验证码">
-                                <div class="captcha">
-                                    <img id="captcha-img" src="<c:url value="/jcaptcha.jpg"/>"
-                                         class="img-thumbnail pull-right"
-                                         onclick="refreshCaptcha()">
-                                </div>
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown"
+                                            onclick="getCaptcha()">点击获取 <span class="caret"></span></button>
+                                    <ul class="dropdown-menu dropdown-menu-right " role="menu">
+                                      <li><img id="captcha-img" src="" class="pic-align-center"></li>
+                                    </ul>
+                                </div><!-- /btn-group -->
                             </div>
                             <div class="white-divider-xs"></div>
                             <div class="form-group">
                                 <sec:csrfInput/>
-                                <button type="button" class="btn btn-sm btn-primary btn-block"
-                                        onclick="login()">登录
+                                <button id="login-button" type="button" class="btn btn-sm btn-primary btn-block">登录
                                 </button>
                             </div>
                             <div class="form-group">
@@ -102,8 +103,7 @@
                                     <c:out value="${sessionScope.loginResult.message}"/>
                                 </div>
                             </div>
-                        </form>
-                        <%--登录 end--%>
+                        </form><%--登录 end--%>
                     </div>
                     <div class="col-xs-1 col-sm-2"></div>
                 </div>
@@ -213,7 +213,7 @@
                 </div>
             </div>
         </span>
-        <span class="col-xs-0 col-sm-4"></span>
+        <span class="hidden-xs col-sm-2 col-md-3 col-lg-4"></span>
     </div>
 </div>
 <script src="../../js/jquery.js"></script>
@@ -230,7 +230,7 @@
 </script>
 <script src="../../js/bootstrap.min.js"></script>
 <script type="text/javascript">
-    function refreshCaptcha() {
+    function getCaptcha() {
         $('#captcha-img').hide().attr(
                 'src',
                 '<c:url value="/jcaptcha.jpg"/>' + '?' + Math

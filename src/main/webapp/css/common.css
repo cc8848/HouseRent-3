@@ -27,8 +27,17 @@ body {
     margin: 20px 0;
 }
 
-.captcha {
-    display: table-cell;
-    white-space: nowrap;
-    vertical-align: middle;
+.pic-align-center{
+    clear: both;
+    display: block;
+    margin: auto;
+}
+
+.pic-align-left {
+    display: inline;
+    float: left;
+}
+.pic-align-right {
+    display: inline;
+    float: right;
 }

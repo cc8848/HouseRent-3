@@ -27,52 +27,45 @@
 <%--head end--%>
 
 <div class="container-fluid">
+    <div class="white-divider-md"></div>
+    <%--产品特色介绍--%>
     <div class="row">
-        <div id="carousel-generic" class="carousel slide" data-ride="carousel">
-            <!-- Indicators -->
-            <ol class="carousel-indicators">
-                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-            </ol>
-
-            <!-- Wrapper for slides -->
-            <div class="carousel-inner" role="listbox">
-                <div class="item active">
-                    <img src="../../images/index/1.jpg" style="width: 100%" alt="...">
-                    <div class="carousel-caption">
-                        First
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="../../images/index/2.jpg" style="width: 100%" alt="...">
-                    <div class="carousel-caption">
-                        Second
-                    </div>
-                </div>
-                <div class="item">
-                    <img src="../../images/index/3.jpg" style="width: 100%" alt="...">
-                    <div class="carousel-caption">
-                        Second
-                    </div>
+        <div class="col-sm-12 col-md-4">
+            <div class="thumbnail">
+                <img class="img-responsive img-rounded" data-src="holder.js/300x300" src="../../images/index/realHouse.png" alt="...">
+                <div class="caption">
+                    <h3>真实房源</h3>
+                    <p>所有房源信息均来自线下真实的信息渠道，确保房屋信息真实准确，更新及时！</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
                 </div>
             </div>
-            <!-- Controls -->
-            <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
-                <span class="glyphicon glyphicon-chevron-left"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
-                <span class="glyphicon glyphicon-chevron-right"></span>
-                <span class="sr-only">Next</span>
-            </a>
+        </div>
+        <div class="col-sm-6 col-md-4 hidden-xs">
+            <div class="thumbnail">
+                <img class="img-responsive img-rounded" data-src="holder.js/300x300" src="../../images/index/wifiOpen.png" alt="...">
+                <div class="caption">
+                    <h3>WiFi开门</h3>
+                    <p>手机APP即可开门，无需换锁，无需携带笨重的机械钥匙，APP轻轻一点即可打开房门。</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-md-4 hidden-xs">
+            <div class="thumbnail">
+                <img class="img-responsive img-rounded" data-src="holder.js/300x300" src="../../images/index/VR.png" alt="...">
+                <div class="caption">
+                    <h3>VR看房</h3>
+                    <p>采用最新的VR技术，每一次摄影均通过工作人员专业的VR拍摄，无需走街串巷即可在手机上享受身临其境的看房体验！</p>
+                    <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#" class="btn btn-default" role="button">Button</a></p>
+                </div>
+            </div>
         </div>
     </div>
-    <div class="white-divider-md"></div>
+    <%--房源列表--%>
     <div class="row">
-        <div class="col-sm-1"></div>
+        <div class="col-md-1 hidden-sm"></div>
         <!--搜索区-->
-        <div id="search-term" class="col-xs-12 col-sm-3 col-md-2">
+        <div id="search-term" class="col-xs-12 col-sm-4 col-md-2">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">搜索条件</h3>
@@ -174,7 +167,7 @@
             </div>
         </div>
         <!--好房列表-->
-        <div id="house-list" class="col-xs-12 col-sm-7 col-md-8">
+        <div id="house-list" class="col-xs-12 col-sm-8 col-md-8">
             <div id="house-tab">
                 <div class="tab-content">
                     <%--<!--好房推荐-->--%>
@@ -239,7 +232,7 @@
                 </div>
             </div>
         </div>
-        <div class="col-sm-1"></div>
+        <div class="col-md-1 hidden-sm"></div>
     </div>
 </div>
 <script type="text/javascript" src="../../js/jquery.js"></script>

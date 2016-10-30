@@ -17,6 +17,7 @@
     <build>
         <finalName>ssm</finalName>
         <plugins>
+
             <!--Mybatis 逆向工程插件-->
             <plugin>
                 <groupId>org.mybatis.generator</groupId>

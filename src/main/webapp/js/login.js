@@ -35,6 +35,7 @@ function login() {
         $("#login-form").submit();
     }
 }
+$("#login-button").on('click',login);
 
 function register() {
     var phone = $("#register-phone");
@@ -73,6 +74,6 @@ function register() {
                 errorMessage.removeClass("alert-success hidden").addClass("alert-danger").append(data.message);
             }
         });
-
     }
 }
+
