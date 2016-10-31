@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
-    </list>
+    <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="" />
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -34,8 +31,8 @@
       <file leaf-file-name="index.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="226">
-              <caret line="63" column="60" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="60" />
+            <state relative-caret-position="496">
+              <caret line="81" column="85" selection-start-line="81" selection-start-column="80" selection-end-line="81" selection-end-column="85" />
               <folding />
             </state>
           </provider>
@@ -844,7 +841,7 @@
       <workItem from="1477837687036" duration="135000" />
       <workItem from="1477843454924" duration="20611000" />
       <workItem from="1477930512819" duration="160000" />
-      <workItem from="1477930910379" duration="1438000" />
+      <workItem from="1477930910379" duration="1484000" />
     </task>
     <task id="LOCAL-00001" summary="2016年10月31日22:43:46">
       <created>1477925076681</created>
@@ -853,11 +850,18 @@
       <option name="project" value="LOCAL" />
       <updated>1477925076681</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="2016年11月01日00:56:39">
+      <created>1477933008817</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1477933008817</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44299000" />
+    <option name="totallyTimeSpent" value="44345000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="23" width="1309" height="745" extended-state="6" />
@@ -909,7 +913,8 @@
     <MESSAGE value="2016年10月30日22:28:47" />
     <MESSAGE value="2016年10月31日22:42:48" />
     <MESSAGE value="2016年10月31日22:43:46" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年10月31日22:43:46" />
+    <MESSAGE value="2016年11月01日00:56:39" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年11月01日00:56:39" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1212,8 +1217,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="63" column="60" selection-start-line="63" selection-start-column="60" selection-end-line="63" selection-end-column="60" />
+        <state relative-caret-position="496">
+          <caret line="81" column="85" selection-start-line="81" selection-start-column="80" selection-end-line="81" selection-end-column="85" />
           <folding />
         </state>
       </provider>
