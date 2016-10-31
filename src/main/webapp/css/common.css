@@ -27,6 +27,12 @@ body {
     margin: 20px 0;
 }
 
+.divider-xs{
+    height: 2px;
+    margin: 9px 0;
+    background-color: #e5e5e5
+}
+
 .pic-align-center{
     clear: both;
     display: block;

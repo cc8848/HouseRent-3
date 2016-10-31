@@ -4,10 +4,10 @@ import com.github.pagehelper.PageInfo;
 import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.pojo.Community;
 import com.magic.rent.pojo.House;
+import com.magic.rent.pojo.HouseRecommend;
+import com.magic.rent.service.IHouseRecommendService;
 import com.magic.rent.service.IHouseService;
 import com.magic.rent.util.JsonResult;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Controller;
@@ -32,6 +32,9 @@ public class HouseController {
 
     @Autowired
     private IHouseService iHouseService;
+
+    @Autowired
+    private IHouseRecommendService iHouseRecommendService;
 
     @Autowired
     private MessageSourceAccessor messageSourceAccessor;
@@ -106,4 +109,12 @@ public class HouseController {
         return modelAndView;
     }
 
+    @ResponseBody
+    @RequestMapping("/selectRecommend")
+    public JsonResult selectRecommend(HttpServletRequest request, HttpServletResponse response) {
+
+        HouseRecommend houseRecommend = iHouseRecommendService.selectTodayRecommend();
+
+        return JsonResult.success(houseRecommend);
+    }
 }

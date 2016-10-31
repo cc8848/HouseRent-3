@@ -20,17 +20,9 @@ import java.util.List;
 @RequestMapping("/*")
 public class IndexController {
 
-    @Autowired
-    private IHouseRecommendService iHouseRecommendService;
-
     @RequestMapping(value = "/index")
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
-
-        HouseRecommend houseRecommend = iHouseRecommendService.selectTodayRecommend();
-        
         ModelAndView index = new ModelAndView("index");
-        index.addObject(houseRecommend);
-
         return index;
     }
 }
