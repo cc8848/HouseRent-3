@@ -45,7 +45,7 @@
                                         <span class="caret"></span>
                                     </button>
                                 </div>
-                                <input id="area-input" type="text" class="form-control" placeholder="请选择地址" readonly>
+                                <input id="area-input" type="text" class="form-control" placeholder="请选择地区" readonly>
                             </div>
                             <div id="collapseOne" class="panel-collapse collapse">
                                 <form class="navbar-form form-group">
@@ -61,6 +61,30 @@
                                 </form>
                             </div>
                         </div><!--地区 end-->
+                        <div class="white-divider-sm"></div>
+                        <!--社区-->
+                        <div id="community">
+                            <div class="input-group input-group-sm">
+                                <div class="input-group-btn">
+                                    <button type="button" class="btn btn-default" data-toggle="collapse"
+                                            href="#collapseCommunity">
+                                        <span class="caret"></span>
+                                    </button>
+                                </div>
+                                <input id="community-input" type="text" class="form-control" placeholder="请选择社区"
+                                       readonly>
+                            </div>
+                            <div id="collapseCommunity" class="panel-collapse collapse">
+                                <form class="navbar-form form-group">
+                                    <select id="communitySelect" class="select2 form-control"
+                                            style="width: 100%"></select>
+                                    <div class="white-divider-xs"></div>
+                                    <button id="community-button" type="button" class="btn btn-primary btn-block"
+                                            data-toggle="collapse" href="#collapseOne">确定
+                                    </button>
+                                </form>
+                            </div>
+                        </div><!--社区 end-->
                         <div class="white-divider-sm"></div>
                         <!--租金-->
                         <div id="price" class="input-group input-group-sm">
@@ -142,8 +166,7 @@
                         <h3>真实房源</h3>
                         <p>所有房源信息均来自线下真实的信息渠道，确保房屋信息真实准确，更新及时！</p>
                         <p>
-                            <a href="#" class="btn btn-primary" role="button">Button</a>
-                            <a href="#" class="btn btn-default" role="button">Button</a>
+                            <a href="#" class="btn btn-primary btn-block" role="button">提交房源</a>
                         </p>
                     </div>
                 </div>
@@ -155,9 +178,7 @@
                     <div class="caption">
                         <h3>WiFi开门</h3>
                         <p>手机APP即可开门，无需换锁，无需携带笨重的机械钥匙，APP轻轻一点即可打开房门。</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#"
-                                                                                           class="btn btn-default"
-                                                                                           role="button">Button</a></p>
+                        <p><a href="#" class="btn btn-primary btn-block" role="button">免费安装</a></p>
                     </div>
                 </div>
             </div>
@@ -168,9 +189,7 @@
                     <div class="caption">
                         <h3>VR看房</h3>
                         <p>采用最新的VR技术，每一次摄影均通过工作人员专业的VR拍摄，无需走街串巷即可在手机上享受身临其境的看房体验！</p>
-                        <p><a href="#" class="btn btn-primary" role="button">Button</a> <a href="#"
-                                                                                           class="btn btn-default"
-                                                                                           role="button">Button</a></p>
+                        <p><a href="#" class="btn btn-primary btn-block" role="button">上门拍摄</a></p>
                     </div>
                 </div>
             </div>
@@ -180,19 +199,28 @@
             <div id="house-list">
                 <div id="house-tab">
                     <div class="tab-content">
-                        <%--<!--好房推荐-->--%>
+                        <!--好房推荐-->
                         <div id="recommend" class="tab-pane active">
                             <div class="panel panel-default">
-                                <!-- Default panel contents -->
                                 <div id="recommendTittle" class="panel-heading">
-                                    好房推荐
+                                    <h3 class="panel-title">好房推荐
+                                        <nav class="pull-right">
+                                            <ul class="pagination pagination-sm" style="margin: -5px 0px 0px 0px">
+                                                <li><a href="#">&laquo;</a></li>
+                                                <li><a href="#">1</a></li>
+                                                <li><a href="#">2</a></li>
+                                                <li><a href="#">3</a></li>
+                                                <li><a href="#">4</a></li>
+                                                <li><a href="#">5</a></li>
+                                                <li><a href="#">&raquo;</a></li>
+                                            </ul>
+                                        </nav>
+                                    </h3>
                                 </div>
-
                             </div>
                         </div>
                         <!--房屋搜索-->
                         <div id="list" class="tab-pane">
-                            <%--列表--%>
                         </div>
                     </div>
                 </div>
@@ -210,7 +238,7 @@
 <script id="recommendList" type="text/html">
     <ul class="list-group">
         {{each houseList as house index}}
-        <a href="#" class="list-group-item container-fluid">
+        <a href="{{house.id}}" class="list-group-item container-fluid">
             <div class="col-md-2 hidden-xs hidden-sm">
                 <img src="{{house.thumbnailPath}}" alt=""
                      class="img-responsive img-thumbnail"/>
