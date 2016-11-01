@@ -20,14 +20,18 @@ import java.util.List;
 @RequestMapping("/*")
 public class PageController {
 
-    @RequestMapping
-    public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
-        ModelAndView index = new ModelAndView("index");
-        return index;
+    @RequestMapping("/index")
+    public String index() {
+        return "index";
     }
 
     @RequestMapping("/search")
     public String search() {
         return "search";
+    }
+
+    @RequestMapping("/goods")
+    public String goods() {
+        return "goods";
     }
 }

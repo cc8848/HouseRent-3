@@ -1,0 +1,233 @@
+<?xml version="1.0"?>
+<krpano version="1.19-pr7">
+    <include url="api_export.xml"/>
+    <displayMode export="true"/>
+    <scene name="scene_W5tOtlBnfEjwXZY6" pano_id="W5tOtlBnfEjwXZY6">
+        <preview url="pano/W5tOtlBnfEjwXZY6/pano.tiles/preview.jpg"/>
+        <image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled AND device.desktop">
+            <level tiledimagewidth="2560" tiledimageheight="2560">
+                <cube url="pano/W5tOtlBnfEjwXZY6/pano.tiles/mres_%s/l2/%v/l2_%s_%v_%h.jpg"/>
+            </level>
+            <level tiledimagewidth="1024" tiledimageheight="1024">
+                <cube url="pano/W5tOtlBnfEjwXZY6/pano.tiles/mres_%s/l1/%v/l1_%s_%v_%h.jpg"/>
+            </level>
+        </image>
+        <image if="webvr.isenabled OR !device.desktop">
+            <cube url="pano/W5tOtlBnfEjwXZY6/pano.tiles/mobile_%s.jpg"/>
+        </image>
+        <hotspot name="hotspot_0"/>
+        <hotspot name="hotspot_1"/>
+    </scene>
+    <scene name="scene_Dv1Hs67Txyrf40cG" pano_id="Dv1Hs67Txyrf40cG">
+        <preview url="pano/Dv1Hs67Txyrf40cG/pano.tiles/preview.jpg"/>
+        <image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled AND device.desktop">
+            <level tiledimagewidth="2560" tiledimageheight="2560">
+                <cube url="pano/Dv1Hs67Txyrf40cG/pano.tiles/mres_%s/l2/%v/l2_%s_%v_%h.jpg"/>
+            </level>
+            <level tiledimagewidth="1024" tiledimageheight="1024">
+                <cube url="pano/Dv1Hs67Txyrf40cG/pano.tiles/mres_%s/l1/%v/l1_%s_%v_%h.jpg"/>
+            </level>
+        </image>
+        <image if="webvr.isenabled OR !device.desktop">
+            <cube url="pano/Dv1Hs67Txyrf40cG/pano.tiles/mobile_%s.jpg"/>
+        </image>
+    </scene>
+    <scene name="scene_xpqUaCy6shxHoD0z" pano_id="xpqUaCy6shxHoD0z">
+        <preview url="pano/xpqUaCy6shxHoD0z/pano.tiles/preview.jpg"/>
+        <image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled AND device.desktop">
+            <level tiledimagewidth="1024" tiledimageheight="1024">
+                <cube url="pano/xpqUaCy6shxHoD0z/pano.tiles/mres_%s/l1/%v/l1_%s_%v_%h.jpg"/>
+            </level>
+        </image>
+        <image if="webvr.isenabled OR !device.desktop">
+            <cube url="pano/xpqUaCy6shxHoD0z/pano.tiles/mobile_%s.jpg"/>
+        </image>
+    </scene>
+    <scene name="scene_QbsgVpy4XX0Xv8OO" pano_id="QbsgVpy4XX0Xv8OO">
+        <preview url="pano/QbsgVpy4XX0Xv8OO/pano.tiles/preview.jpg"/>
+        <image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled AND device.desktop">
+            <level tiledimagewidth="3584" tiledimageheight="3584">
+                <cube url="pano/QbsgVpy4XX0Xv8OO/pano.tiles/mres_%s/l2/%v/l2_%s_%v_%h.jpg"/>
+            </level>
+            <level tiledimagewidth="1024" tiledimageheight="1024">
+                <cube url="pano/QbsgVpy4XX0Xv8OO/pano.tiles/mres_%s/l1/%v/l1_%s_%v_%h.jpg"/>
+            </level>
+        </image>
+        <image if="webvr.isenabled OR !device.desktop">
+            <cube url="pano/QbsgVpy4XX0Xv8OO/pano.tiles/mobile_%s.jpg"/>
+        </image>
+    </scene>
+    <scene name="scene_Zwzi9ci07xDXEb2U" pano_id="Zwzi9ci07xDXEb2U">
+        <preview url="pano/Zwzi9ci07xDXEb2U/pano.tiles/preview.jpg"/>
+        <image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled AND device.desktop">
+            <level tiledimagewidth="1024" tiledimageheight="1024">
+                <cube url="pano/Zwzi9ci07xDXEb2U/pano.tiles/mres_%s/l1/%v/l1_%s_%v_%h.jpg"/>
+            </level>
+        </image>
+        <image if="webvr.isenabled OR !device.desktop">
+            <cube url="pano/Zwzi9ci07xDXEb2U/pano.tiles/mobile_%s.jpg"/>
+        </image>
+    </scene>
+    <scene name="scene_t41FcBzEpEg6Q8u7" pano_id="t41FcBzEpEg6Q8u7">
+        <preview url="pano/t41FcBzEpEg6Q8u7/pano.tiles/preview.jpg"/>
+        <image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled AND device.desktop">
+            <level tiledimagewidth="1024" tiledimageheight="1024">
+                <cube url="pano/t41FcBzEpEg6Q8u7/pano.tiles/mres_%s/l1/%v/l1_%s_%v_%h.jpg"/>
+            </level>
+        </image>
+        <image if="webvr.isenabled OR !device.desktop">
+            <cube url="pano/t41FcBzEpEg6Q8u7/pano.tiles/mobile_%s.jpg"/>
+        </image>
+    </scene>
+    <scene name="scene_ru4JYNIT0RYEiRIE" pano_id="ru4JYNIT0RYEiRIE">
+        <preview url="pano/ru4JYNIT0RYEiRIE/pano.tiles/preview.jpg"/>
+        <image type="CUBE" multires="true" tilesize="512" if="!webvr.isenabled AND device.desktop">
+            <level tiledimagewidth="3584" tiledimageheight="3584">
+                <cube url="pano/ru4JYNIT0RYEiRIE/pano.tiles/mres_%s/l2/%v/l2_%s_%v_%h.jpg"/>
+            </level>
+            <level tiledimagewidth="1024" tiledimageheight="1024">
+                <cube url="pano/ru4JYNIT0RYEiRIE/pano.tiles/mres_%s/l1/%v/l1_%s_%v_%h.jpg"/>
+            </level>
+        </image>
+        <image if="webvr.isenabled OR !device.desktop">
+            <cube url="pano/ru4JYNIT0RYEiRIE/pano.tiles/mobile_%s.jpg"/>
+        </image>
+    </scene>
+    <config>
+        <info pid="qkjldzrjl6mghavx" id="q7575WpJqj8MUEtu" title="12333" desc="好吃的技术开发高端科技示范刻录机的深刻理解"/>
+        <auth auth_name="游戏漫游指南" uid="97826wfOybr" status="2" link="http://720yun.com/u/97826wfOybr"/>
+        <feature enable_comment="0" enable_vr="0" enable_like="1" show_pv="1" enable_password="0" enable_selected="0"
+                 show_auth="1" enable_gyro="0" enable_littleplanet="1" enable_autorotate="1"/>
+        <start_image enabled="1"/>
+        <qr enabled="1"
+            url="http://api.720yun.com/qr/out/c3RiZkt3WHFrL1JzT0k4bUtVOG9pZnNRNjFEUTZDNjFhZFZ2QVZlRFdFNiszaWQ3ZmZpclBnPT0=/"/>
+        <logo enabled="0"/>
+        <thumbs title="全景列表" show_thumb="1">
+            <category name="category0" title="默认分组" thumb="">
+                <pano name="pano_W5tOtlBnfEjwXZY6" title="1" thumb="pano/W5tOtlBnfEjwXZY6//pano.tiles/thumb.jpg"
+                      pano_id="W5tOtlBnfEjwXZY6"/>
+                <pano name="pano_Dv1Hs67Txyrf40cG" title="22" thumb="pano/Dv1Hs67Txyrf40cG//pano.tiles/thumb.jpg"
+                      pano_id="Dv1Hs67Txyrf40cG"/>
+                <pano name="pano_xpqUaCy6shxHoD0z" title="IMG_9167_0030"
+                      thumb="pano/xpqUaCy6shxHoD0z//pano.tiles/thumb.jpg" pano_id="xpqUaCy6shxHoD0z"/>
+                <pano name="pano_QbsgVpy4XX0Xv8OO" title="盐城工学院" thumb="pano/QbsgVpy4XX0Xv8OO//pano.tiles/thumb.jpg"
+                      pano_id="QbsgVpy4XX0Xv8OO"/>
+            </category>
+            <category name="category1" title="234" thumb="">
+                <pano name="pano_Zwzi9ci07xDXEb2U" title="02021" thumb="pano/Zwzi9ci07xDXEb2U//pano.tiles/thumb.jpg"
+                      pano_id="Zwzi9ci07xDXEb2U"/>
+                <pano name="pano_t41FcBzEpEg6Q8u7" title="IMG_9167_0036"
+                      thumb="pano/t41FcBzEpEg6Q8u7//pano.tiles/thumb.jpg" pano_id="t41FcBzEpEg6Q8u7"/>
+                <pano name="pano_ru4JYNIT0RYEiRIE" title="图书楼航拍全景" thumb="pano/ru4JYNIT0RYEiRIE//pano.tiles/thumb.jpg"
+                      pano_id="ru4JYNIT0RYEiRIE"/>
+            </category>
+        </thumbs>
+        <links>
+            <link name="link_0" title="超链接" thumb="/media/64ef52b963cbe53b87a2a5f5114115e5.png" link_type="1"
+                  link="http://www.17173.com"/>
+            <link name="link_1" title="电话" thumb="/media/80f887ff1576a8a020ee398cc28efb40.png" link_type="1"
+                  link="tel://13529633210"/>
+        </links>
+        <panos>
+            <pano name="scene_W5tOtlBnfEjwXZY6">
+                <info pano_id="W5tOtlBnfEjwXZY6" title="1"/>
+                <view hlookat="-365.97635012304687" vlookat="-31.391226392668553" fov="90" fovtype="MFOV"
+                      maxpixelzoom="2" fovmin="70" fovmax="120" vlookatmin="-90" vlookatmax="90" autorotatekeepview="0"
+                      loadscenekeepview="0"/>
+                <hotspots>
+                    <hotspot name="hotspot_0" style_id="new_spotd01" image_type="1" ath="-154.43" atv="-7.078"
+                             show_txt="1" keep_view="0" type="0" linkedscene="Dv1Hs67Txyrf40cG" linkedscene_name=""
+                             target="Dv1Hs67Txyrf40cG"/>
+                    <hotspot name="hotspot_1" image_type="2" image_url="media/16b8b5a40f62e69430cf63ef947ffd4b.jpg"
+                             ath="-69.854" atv="8.911" show_txt="1" keep_view="0" type="2" linkedscene="相册" target="相册">
+                        <image name="image_0" title="" url="media/0e4030c43434af8f49ff36ac15ee7f51.jpg"
+                               thumb_url="media/0e4030c43434af8f49ff36ac15ee7f51.jpg"/>
+                        <image name="image_1" title="" url="media/c61caa333dfdbc2bb118a0ded94b262d.png"
+                               thumb_url="media/c61caa333dfdbc2bb118a0ded94b262d.png"/>
+                        <image name="image_2" title="" url="media/c0771978e141b63e9e8150bcec1c53b3.png"
+                               thumb_url="media/c0771978e141b63e9e8150bcec1c53b3.png"/>
+                        <image name="image_3" title="" url="media/0febeeba603e96bfd3eda03ce4e65200.jpg"
+                               thumb_url="media/0febeeba603e96bfd3eda03ce4e65200.jpg"/>
+                        <image name="image_4" title="" url="media/421be9b7becc3202f84974550f9ec005.jpg"
+                               thumb_url="media/421be9b7becc3202f84974550f9ec005.jpg"/>
+                        <image name="image_5" title="" url="media/036225effec82db52829179bafec0ed3.jpg"
+                               thumb_url="media/036225effec82db52829179bafec0ed3.jpg"/>
+                        <image name="image_6" title="" url="media/e042ba61afb703224bd8fb995f610ee9.png"
+                               thumb_url="media/e042ba61afb703224bd8fb995f610ee9.png"/>
+                    </hotspot>
+                </hotspots>
+                <sound enabled="1" url="media/c7fe16361f55a8dcc15a74b7ae754c96.mp3"/>
+                <top_circle enabled="0"/>
+                <bottom_circle enabled="0"/>
+                <sun/>
+                <weather enabled="1" id="0" size="2"/>
+            </pano>
+            <pano name="scene_Dv1Hs67Txyrf40cG">
+                <info pano_id="Dv1Hs67Txyrf40cG" title="22"/>
+                <view hlookat="0" vlookat="0" fov="90" fovtype="MFOV" maxpixelzoom="2" fovmin="70" fovmax="120"
+                      vlookatmin="-90" vlookatmax="90" autorotatekeepview="0" loadscenekeepview="0"/>
+                <hotspots/>
+                <sound enabled="1" url="media/c7fe16361f55a8dcc15a74b7ae754c96.mp3"/>
+                <top_circle enabled="0"/>
+                <bottom_circle enabled="0"/>
+                <sun/>
+                <weather enabled="0"/>
+            </pano>
+            <pano name="scene_xpqUaCy6shxHoD0z">
+                <info pano_id="xpqUaCy6shxHoD0z" title="IMG_9167_0030"/>
+                <view hlookat="0" vlookat="0" fov="90" fovtype="MFOV" maxpixelzoom="2" fovmin="70" fovmax="120"
+                      vlookatmin="-90" vlookatmax="90" autorotatekeepview="0" loadscenekeepview="0"/>
+                <hotspots/>
+                <sound enabled="1" url="media/c7fe16361f55a8dcc15a74b7ae754c96.mp3"/>
+                <top_circle enabled="0"/>
+                <bottom_circle enabled="0"/>
+                <sun/>
+                <weather enabled="0"/>
+            </pano>
+            <pano name="scene_QbsgVpy4XX0Xv8OO">
+                <info pano_id="QbsgVpy4XX0Xv8OO" title="盐城工学院"/>
+                <view hlookat="0" vlookat="0" fov="90" fovtype="MFOV" maxpixelzoom="2" fovmin="70" fovmax="120"
+                      vlookatmin="-90" vlookatmax="90" autorotatekeepview="0" loadscenekeepview="0"/>
+                <hotspots/>
+                <sound enabled="1" url="media/c7fe16361f55a8dcc15a74b7ae754c96.mp3"/>
+                <top_circle enabled="0"/>
+                <bottom_circle enabled="0"/>
+                <sun/>
+                <weather enabled="0"/>
+            </pano>
+            <pano name="scene_Zwzi9ci07xDXEb2U">
+                <info pano_id="Zwzi9ci07xDXEb2U" title="02021"/>
+                <view hlookat="0" vlookat="0" fov="90" fovtype="MFOV" maxpixelzoom="2" fovmin="70" fovmax="120"
+                      vlookatmin="-90" vlookatmax="90" autorotatekeepview="0" loadscenekeepview="0"/>
+                <hotspots/>
+                <sound enabled="1" url="media/c7fe16361f55a8dcc15a74b7ae754c96.mp3"/>
+                <top_circle enabled="0"/>
+                <bottom_circle enabled="0"/>
+                <sun/>
+                <weather enabled="0"/>
+            </pano>
+            <pano name="scene_t41FcBzEpEg6Q8u7">
+                <info pano_id="t41FcBzEpEg6Q8u7" title="IMG_9167_0036"/>
+                <view hlookat="0" vlookat="0" fov="90" fovtype="MFOV" maxpixelzoom="2" fovmin="70" fovmax="120"
+                      vlookatmin="-90" vlookatmax="90" autorotatekeepview="0" loadscenekeepview="0"/>
+                <hotspots/>
+                <sound enabled="1" url="media/c7fe16361f55a8dcc15a74b7ae754c96.mp3"/>
+                <top_circle enabled="0"/>
+                <bottom_circle enabled="0"/>
+                <sun/>
+                <weather enabled="0"/>
+            </pano>
+            <pano name="scene_ru4JYNIT0RYEiRIE">
+                <info pano_id="ru4JYNIT0RYEiRIE" title="图书楼航拍全景"/>
+                <view hlookat="0" vlookat="0" fov="90" fovtype="MFOV" maxpixelzoom="2" fovmin="70" fovmax="120"
+                      vlookatmin="-90" vlookatmax="90" autorotatekeepview="0" loadscenekeepview="0"/>
+                <hotspots/>
+                <sound enabled="1" url="media/c7fe16361f55a8dcc15a74b7ae754c96.mp3"/>
+                <top_circle enabled="0"/>
+                <bottom_circle enabled="0"/>
+                <sun/>
+                <weather enabled="0"/>
+            </pano>
+        </panos>
+    </config>
+</krpano>

@@ -232,7 +232,7 @@
 <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/select2.min.js"></script>
 <script type="text/javascript" src="../../js/template.js"></script>
-<script type="text/javascript" src="../../js/index.js"></script>
+<script type="text/javascript" src="../../js/search.js"></script>
 <script type="text/javascript" src="../../js/common.js"></script>
 <%--模板--%>
 <script id="recommendList" type="text/html">
