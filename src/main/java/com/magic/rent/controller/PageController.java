@@ -18,11 +18,16 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/*")
-public class IndexController {
+public class PageController {
 
-    @RequestMapping(value = "/index")
+    @RequestMapping
     public ModelAndView index(HttpServletRequest request, HttpServletResponse response) {
         ModelAndView index = new ModelAndView("index");
         return index;
+    }
+
+    @RequestMapping("/search")
+    public String search() {
+        return "search";
     }
 }
