@@ -57,8 +57,8 @@
       <file leaf-file-name="goods.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="346">
-              <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
+            <state relative-caret-position="526">
+              <caret line="59" column="72" selection-start-line="59" selection-start-column="72" selection-end-line="59" selection-end-column="72" />
               <folding />
             </state>
           </provider>
@@ -1006,7 +1006,7 @@
       <workItem from="1477930512819" duration="160000" />
       <workItem from="1477930910379" duration="7236000" />
       <workItem from="1477978679614" duration="10534000" />
-      <workItem from="1478071091126" duration="6924000" />
+      <workItem from="1478071091126" duration="6975000" />
     </task>
     <task id="LOCAL-00001" summary="2016年10月31日22:43:46">
       <created>1477925076681</created>
@@ -1043,11 +1043,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478087115150</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="2016年11月02日20:00:12">
+      <created>1478088018214</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1478088018214</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="67555000" />
+    <option name="totallyTimeSpent" value="67606000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
@@ -1133,7 +1140,8 @@
     <MESSAGE value="2016年11月01日00:56:39" />
     <MESSAGE value="2016年11月01日09:07:33" />
     <MESSAGE value="2016年11月02日19:44:30" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年11月02日19:44:30" />
+    <MESSAGE value="2016年11月02日20:00:12" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年11月02日20:00:12" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1496,8 +1504,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="346">
-          <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
+        <state relative-caret-position="526">
+          <caret line="59" column="72" selection-start-line="59" selection-start-column="72" selection-end-line="59" selection-end-column="72" />
           <folding />
         </state>
       </provider>
