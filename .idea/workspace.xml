@@ -1007,7 +1007,7 @@
       <workItem from="1477930512819" duration="160000" />
       <workItem from="1477930910379" duration="7236000" />
       <workItem from="1477978679614" duration="10534000" />
-      <workItem from="1478071091126" duration="9732000" />
+      <workItem from="1478071091126" duration="9972000" />
     </task>
     <task id="LOCAL-00001" summary="2016年10月31日22:43:46">
       <created>1477925076681</created>
@@ -1086,11 +1086,18 @@
       <option name="project" value="LOCAL" />
       <updated>1478101169052</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="2016年11月02日23:40:23">
+      <created>1478101227092</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1478101227092</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70363000" />
+    <option name="totallyTimeSpent" value="70603000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="53" y="23" width="1313" height="745" extended-state="0" />
@@ -1178,7 +1185,8 @@
     <MESSAGE value="2016年11月02日19:44:30" />
     <MESSAGE value="2016年11月02日20:00:12" />
     <MESSAGE value="2016年11月02日23:39:25" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年11月02日23:39:25" />
+    <MESSAGE value="2016年11月02日23:40:23" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年11月02日23:40:23" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
