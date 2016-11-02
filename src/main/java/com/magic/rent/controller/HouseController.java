@@ -11,6 +11,7 @@ import com.magic.rent.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -41,7 +42,7 @@ public class HouseController {
 
     @ResponseBody
     @RequestMapping("/selectHousesByCommunity")
-    public JsonResult selectHousesByCommunity(HttpServletRequest request, HttpServletResponse response) {
+    public JsonResult selectHousesByCommunity(HttpServletRequest request, HttpServletResponse response) throws Exception {
         //参数校验
         if (StringUtils.isEmpty(request.getParameter("pageNum")))
             throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageNumNotNull", "查询页码不能为空!"));
@@ -67,7 +68,7 @@ public class HouseController {
 
     @ResponseBody
     @RequestMapping("/selectHousesListBySearchTerms")
-    public JsonResult selectHousesListBySearchTerms(HttpServletRequest request, HttpServletResponse response) {
+    public JsonResult selectHousesListBySearchTerms(HttpServletRequest request, HttpServletResponse response) throws Exception {
         //参数校验
         if (StringUtils.isEmpty(request.getParameter("pageNum")))
             throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageNumNotNull", "其实笔数不能为空!"));
@@ -101,17 +102,22 @@ public class HouseController {
         return JsonResult.success("", housePageInfo);
     }
 
-    @RequestMapping("/selectHouseDetailByHouseID")
-    public ModelAndView selectHouseDetailByHouseID(HttpServletRequest request, HttpServletResponse response) {
-
-
-        ModelAndView modelAndView = new ModelAndView();
-        return modelAndView;
+    @RequestMapping("/selectHouseDetailByHouseID")//获取房屋详细信息
+    public ModelAndView selectHouseDetailByHouseID(HttpServletRequest request, HttpServletResponse response) throws Exception {
+        if (StringUtils.isEmpty(request.getParameter("houseID")))
+            throw new ParameterException(messageSourceAccessor.getMessage("HouseService.houseID", "房屋ID不能为空!"));
+        //获取ID查询数据
+        int houseID = Integer.parseInt(request.getParameter("houseID"));
+        House house = iHouseService.selectByHouseID(houseID);
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("house", house);
+        //返回房屋详情页面（goods商品页面）
+        return new ModelAndView("goods", model);
     }
 
     @ResponseBody
-    @RequestMapping("/selectRecommend")
-    public JsonResult selectRecommend(HttpServletRequest request, HttpServletResponse response) {
+    @RequestMapping("/selectRecommend")//获取推荐楼房信息
+    public JsonResult selectRecommend() throws Exception {
 
         HouseRecommend houseRecommend = iHouseRecommendService.selectTodayRecommend();
 

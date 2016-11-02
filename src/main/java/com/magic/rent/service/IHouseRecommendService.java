@@ -7,5 +7,5 @@ import com.magic.rent.pojo.HouseRecommend;
  */
 public interface IHouseRecommendService {
 
-    HouseRecommend selectTodayRecommend();
+    HouseRecommend selectTodayRecommend() throws Exception;
 }

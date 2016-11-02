@@ -14,7 +14,9 @@ import java.util.Map;
  */
 public interface IHouseService {
 
-    PageInfo<House> selectByCommunity(Community community, int pageNum, int pageSize);
+    PageInfo<House> selectByCommunity(Community community, int pageNum, int pageSize) throws Exception;
 
-    PageInfo<House> selectBySearchTerms(Map<String, Object> parameterMap, int pageNum, int pageSize);
+    PageInfo<House> selectBySearchTerms(Map<String, Object> parameterMap, int pageNum, int pageSize) throws Exception;
+
+    House selectByHouseID(int houseID) throws Exception;
 }

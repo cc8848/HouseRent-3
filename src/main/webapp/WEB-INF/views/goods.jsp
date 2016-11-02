@@ -44,14 +44,23 @@
         </div>
         <%--房屋说明--%>
         <div class="col-xs-6">
-            <c:if test="">
-                <div class="btn-group btn-group-sm">
-                    <c:forEach items="" var="">
-                        <button type="button" class="btn btn-default ">Left</button>
-                    </c:forEach>
-                </div>
-            </c:if>
+            <%--<c:if test="">--%>
+            <div class="btn-group btn-group-sm">
+                <%--<c:forEach items="" var="">--%>
+                <button type="button" class="btn btn-default ">Left</button>
+                <%--</c:forEach>--%>
+            </div>
+            <%--</c:if>--%>
         </div>
+    </div>
+</div>
+<div class="container">
+    <div class="row">
+        <ul>
+            <li>ID:${requestScope.house.id}</li>
+            <li>Name:${requestScope.house.name}</li>
+            <li>expectRent:${requestScope.house.expectRent}</li>
+        </ul>
     </div>
 </div>
 
@@ -64,7 +73,7 @@
 <script>
     embedpano({
         swf: "../../vtour/tour.swf",
-        xml: "../../vtour/vr01/tour.xml",
+        xml: "../../vtour/${requestScope.house.id}/tour.xml",
         target: "vr",
         html5: "auto",
         mobilescale: 1.0,

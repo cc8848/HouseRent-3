@@ -21,7 +21,7 @@ public class CustomExceptionHandler implements HandlerExceptionResolver {
 
     public ModelAndView resolveException(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception ex) {
         Map<String, Object> model = new HashMap<String, Object>();
-        model.put("ex", ex);
+        model.put("ex", ex.toString());
         // 根据不同错误转向不同页面
         if (ex instanceof BusinessException) {
             return new ModelAndView("../error/business_error", model);

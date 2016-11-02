@@ -30,18 +30,19 @@ public class HouseServiceImpl implements IHouseService {
 
     private static final Logger logger = LoggerFactory.getLogger(HouseServiceImpl.class);
 
-    public PageInfo<House> selectByCommunity(Community community, int pageNum, int pageSize) {
+    public PageInfo<House> selectByCommunity(Community community, int pageNum, int pageSize) throws Exception {
         PageHelper.startPage(pageNum, pageSize);
         List<House> houseList = houseMapper.selectByCommunity(community);
-        PageInfo<House> housePageInfo = new PageInfo<House>(houseList);
-
-        return housePageInfo;
+        return new PageInfo<House>(houseList);
     }
 
-    public PageInfo<House> selectBySearchTerms(Map<String, Object> parameterMap, int pageNum, int pageSize) {
+    public PageInfo<House> selectBySearchTerms(Map<String, Object> parameterMap, int pageNum, int pageSize) throws Exception {
         PageHelper.startPage(pageNum, pageSize);
         List<House> houseList = houseMapper.selectBySearchTerms(parameterMap);
-        PageInfo<House> housePageInfo = new PageInfo<House>(houseList);
-        return housePageInfo;
+        return new PageInfo<House>(houseList);
+    }
+
+    public House selectByHouseID(int houseID) throws Exception {
+        return houseMapper.selectByPrimaryKey(houseID);
     }
 }

@@ -26,11 +26,6 @@
 <%--head end--%>
 
 <div class="container">
-    <div class="white-divider-lg"></div>
-    <%--logo--%>
-    <%--<div class="row ">--%>
-    <%--<img src="../../images/index/logo.png" class="img-responsive img-circle center-block" alt="Logo"/>--%>
-    <%--</div>--%>
     <div class="white-divider-md"></div>
     <div class="hidden-xs" style="height: 100px"></div>
     <%--搜索框--%>

@@ -30,8 +30,8 @@ public class PageController {
         return "search";
     }
 
-    @RequestMapping("/goods")
-    public String goods() {
-        return "goods";
-    }
+//    @RequestMapping("/goods")
+//    public String goods() {
+//        return "goods";
+//    }
 }

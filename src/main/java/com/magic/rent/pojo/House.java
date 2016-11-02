@@ -24,7 +24,7 @@ public class House implements Serializable {
 
     private int floor;//楼层
 
-    private int layoutID;//房间布局
+    private int layoutId;//房间布局
     private HouseLayout houseLayout;//房间布局
 
     private int decorationTypeId;//装修类型ID
@@ -46,7 +46,7 @@ public class House implements Serializable {
     private int houseStatusId;//房屋状态,如:出租
     private HouseStatus houseStatus;
 
-    private int expectPaymentID;//预期付租方式
+    private int expectPaymentId;//预期付租方式
     private Payment expectPayment;
 
     private double areaNumber;
@@ -113,12 +113,12 @@ public class House implements Serializable {
         this.floor = floor;
     }
 
-    public int getLayoutID() {
-        return layoutID;
+    public int getlayoutId() {
+        return layoutId;
     }
 
-    public void setLayoutID(int layoutID) {
-        this.layoutID = layoutID;
+    public void setlayoutId(int layoutId) {
+        this.layoutId = layoutId;
     }
 
     public int getDecorationTypeId() {
@@ -266,11 +266,11 @@ public class House implements Serializable {
     }
 
     public int getExpectPaymentID() {
-        return expectPaymentID;
+        return expectPaymentId;
     }
 
     public void setExpectPaymentID(int expectPaymentID) {
-        this.expectPaymentID = expectPaymentID;
+        this.expectPaymentId = expectPaymentID;
     }
 
     public List<Rooms> getRoomsList() {
@@ -301,7 +301,7 @@ public class House implements Serializable {
                 ", communityId=" + communityId +
                 ", community=" + community +
                 ", floor=" + floor +
-                ", layoutID=" + layoutID +
+                ", layoutId=" + layoutId +
                 ", houseLayout=" + houseLayout +
                 ", decorationTypeId=" + decorationTypeId +
                 ", decorationType=" + decorationType +
@@ -315,7 +315,7 @@ public class House implements Serializable {
                 ", haveBalcony=" + haveBalcony +
                 ", houseStatusId=" + houseStatusId +
                 ", houseStatus=" + houseStatus +
-                ", expectPaymentID=" + expectPaymentID +
+                ", expectPaymentID=" + expectPaymentId +
                 ", expectPayment=" + expectPayment +
                 ", areaNumber=" + areaNumber +
                 ", enabled=" + enabled +

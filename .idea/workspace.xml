@@ -2,7 +2,276 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l1/1/l1_b_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l1/1/l1_b_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l1/1/l1_b_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l1/1/l1_b_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l1/2/l1_b_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l1/2/l1_b_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l1/2/l1_b_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l1/2/l1_b_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/1/l2_b_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/1/l2_b_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/1/l2_b_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/1/l2_b_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/1/l2_b_1_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/1/l2_b_1_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/1/l2_b_1_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/1/l2_b_1_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/2/l2_b_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/2/l2_b_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/2/l2_b_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/2/l2_b_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/2/l2_b_2_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/2/l2_b_2_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/2/l2_b_2_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/2/l2_b_2_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/3/l2_b_3_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/3/l2_b_3_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/3/l2_b_3_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/3/l2_b_3_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/3/l2_b_3_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/3/l2_b_3_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/3/l2_b_3_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/3/l2_b_3_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/4/l2_b_4_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/4/l2_b_4_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/4/l2_b_4_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/4/l2_b_4_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/4/l2_b_4_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/4/l2_b_4_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/b/l2/4/l2_b_4_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/b/l2/4/l2_b_4_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l1/1/l1_d_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l1/1/l1_d_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l1/1/l1_d_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l1/1/l1_d_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l1/2/l1_d_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l1/2/l1_d_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l1/2/l1_d_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l1/2/l1_d_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/1/l2_d_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/1/l2_d_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/1/l2_d_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/1/l2_d_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/1/l2_d_1_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/1/l2_d_1_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/1/l2_d_1_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/1/l2_d_1_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/2/l2_d_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/2/l2_d_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/2/l2_d_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/2/l2_d_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/2/l2_d_2_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/2/l2_d_2_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/2/l2_d_2_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/2/l2_d_2_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/3/l2_d_3_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/3/l2_d_3_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/3/l2_d_3_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/3/l2_d_3_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/3/l2_d_3_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/3/l2_d_3_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/3/l2_d_3_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/3/l2_d_3_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/4/l2_d_4_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/4/l2_d_4_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/4/l2_d_4_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/4/l2_d_4_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/4/l2_d_4_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/4/l2_d_4_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/d/l2/4/l2_d_4_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/d/l2/4/l2_d_4_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l1/1/l1_f_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l1/1/l1_f_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l1/1/l1_f_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l1/1/l1_f_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l1/2/l1_f_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l1/2/l1_f_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l1/2/l1_f_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l1/2/l1_f_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/1/l2_f_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/1/l2_f_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/1/l2_f_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/1/l2_f_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/1/l2_f_1_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/1/l2_f_1_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/1/l2_f_1_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/1/l2_f_1_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/2/l2_f_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/2/l2_f_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/2/l2_f_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/2/l2_f_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/2/l2_f_2_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/2/l2_f_2_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/2/l2_f_2_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/2/l2_f_2_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/3/l2_f_3_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/3/l2_f_3_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/3/l2_f_3_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/3/l2_f_3_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/3/l2_f_3_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/3/l2_f_3_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/3/l2_f_3_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/3/l2_f_3_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/4/l2_f_4_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/4/l2_f_4_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/4/l2_f_4_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/4/l2_f_4_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/4/l2_f_4_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/4/l2_f_4_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/f/l2/4/l2_f_4_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/f/l2/4/l2_f_4_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l1/1/l1_l_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l1/1/l1_l_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l1/1/l1_l_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l1/1/l1_l_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l1/2/l1_l_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l1/2/l1_l_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l1/2/l1_l_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l1/2/l1_l_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/1/l2_l_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/1/l2_l_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/1/l2_l_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/1/l2_l_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/1/l2_l_1_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/1/l2_l_1_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/1/l2_l_1_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/1/l2_l_1_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/2/l2_l_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/2/l2_l_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/2/l2_l_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/2/l2_l_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/2/l2_l_2_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/2/l2_l_2_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/2/l2_l_2_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/2/l2_l_2_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/3/l2_l_3_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/3/l2_l_3_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/3/l2_l_3_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/3/l2_l_3_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/3/l2_l_3_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/3/l2_l_3_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/3/l2_l_3_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/3/l2_l_3_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/4/l2_l_4_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/4/l2_l_4_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/4/l2_l_4_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/4/l2_l_4_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/4/l2_l_4_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/4/l2_l_4_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/l/l2/4/l2_l_4_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/l/l2/4/l2_l_4_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/preview.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/preview.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l1/1/l1_r_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l1/1/l1_r_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l1/1/l1_r_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l1/1/l1_r_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l1/2/l1_r_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l1/2/l1_r_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l1/2/l1_r_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l1/2/l1_r_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/1/l2_r_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/1/l2_r_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/1/l2_r_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/1/l2_r_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/1/l2_r_1_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/1/l2_r_1_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/1/l2_r_1_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/1/l2_r_1_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/2/l2_r_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/2/l2_r_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/2/l2_r_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/2/l2_r_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/2/l2_r_2_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/2/l2_r_2_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/2/l2_r_2_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/2/l2_r_2_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/3/l2_r_3_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/3/l2_r_3_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/3/l2_r_3_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/3/l2_r_3_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/3/l2_r_3_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/3/l2_r_3_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/3/l2_r_3_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/3/l2_r_3_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/4/l2_r_4_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/4/l2_r_4_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/4/l2_r_4_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/4/l2_r_4_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/4/l2_r_4_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/4/l2_r_4_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/r/l2/4/l2_r_4_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/r/l2/4/l2_r_4_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/thumb.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/thumb.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l1/1/l1_u_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l1/1/l1_u_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l1/1/l1_u_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l1/1/l1_u_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l1/2/l1_u_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l1/2/l1_u_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l1/2/l1_u_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l1/2/l1_u_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/1/l2_u_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/1/l2_u_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/1/l2_u_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/1/l2_u_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/1/l2_u_1_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/1/l2_u_1_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/1/l2_u_1_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/1/l2_u_1_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/2/l2_u_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/2/l2_u_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/2/l2_u_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/2/l2_u_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/2/l2_u_2_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/2/l2_u_2_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/2/l2_u_2_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/2/l2_u_2_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/3/l2_u_3_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/3/l2_u_3_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/3/l2_u_3_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/3/l2_u_3_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/3/l2_u_3_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/3/l2_u_3_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/3/l2_u_3_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/3/l2_u_3_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/4/l2_u_4_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/4/l2_u_4_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/4/l2_u_4_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/4/l2_u_4_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/4/l2_u_4_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/4/l2_u_4_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/u/l2/4/l2_u_4_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/u/l2/4/l2_u_4_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/vr/pano_b.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/vr/pano_b.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/vr/pano_d.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/vr/pano_d.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/vr/pano_f.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/vr/pano_f.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/vr/pano_l.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/vr/pano_l.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/vr/pano_r.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/vr/pano_r.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test01.tiles/vr/pano_u.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test01.tiles/vr/pano_u.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l1/1/l1_b_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l1/1/l1_b_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l1/1/l1_b_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l1/1/l1_b_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l1/2/l1_b_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l1/2/l1_b_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l1/2/l1_b_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l1/2/l1_b_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/1/l2_b_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/1/l2_b_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/1/l2_b_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/1/l2_b_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/1/l2_b_1_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/1/l2_b_1_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/1/l2_b_1_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/1/l2_b_1_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/2/l2_b_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/2/l2_b_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/2/l2_b_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/2/l2_b_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/2/l2_b_2_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/2/l2_b_2_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/2/l2_b_2_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/2/l2_b_2_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/3/l2_b_3_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/3/l2_b_3_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/3/l2_b_3_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/3/l2_b_3_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/3/l2_b_3_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/3/l2_b_3_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/3/l2_b_3_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/3/l2_b_3_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/4/l2_b_4_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/4/l2_b_4_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/4/l2_b_4_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/4/l2_b_4_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/4/l2_b_4_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/4/l2_b_4_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/b/l2/4/l2_b_4_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/b/l2/4/l2_b_4_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l1/1/l1_d_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l1/1/l1_d_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l1/1/l1_d_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l1/1/l1_d_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l1/2/l1_d_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l1/2/l1_d_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l1/2/l1_d_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l1/2/l1_d_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/1/l2_d_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/1/l2_d_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/1/l2_d_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/1/l2_d_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/1/l2_d_1_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/1/l2_d_1_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/1/l2_d_1_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/1/l2_d_1_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/2/l2_d_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/2/l2_d_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/2/l2_d_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/2/l2_d_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/2/l2_d_2_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/2/l2_d_2_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/2/l2_d_2_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/2/l2_d_2_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/3/l2_d_3_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/3/l2_d_3_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/3/l2_d_3_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/3/l2_d_3_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/3/l2_d_3_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/3/l2_d_3_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/3/l2_d_3_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/3/l2_d_3_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/4/l2_d_4_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/4/l2_d_4_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/4/l2_d_4_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/4/l2_d_4_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/4/l2_d_4_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/4/l2_d_4_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/d/l2/4/l2_d_4_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/d/l2/4/l2_d_4_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l1/1/l1_f_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l1/1/l1_f_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l1/1/l1_f_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l1/1/l1_f_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l1/2/l1_f_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l1/2/l1_f_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l1/2/l1_f_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l1/2/l1_f_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/1/l2_f_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/1/l2_f_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/1/l2_f_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/1/l2_f_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/1/l2_f_1_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/1/l2_f_1_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/1/l2_f_1_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/1/l2_f_1_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/2/l2_f_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/2/l2_f_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/2/l2_f_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/2/l2_f_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/2/l2_f_2_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/2/l2_f_2_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/2/l2_f_2_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/2/l2_f_2_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/3/l2_f_3_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/3/l2_f_3_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/3/l2_f_3_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/3/l2_f_3_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/3/l2_f_3_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/3/l2_f_3_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/3/l2_f_3_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/3/l2_f_3_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/4/l2_f_4_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/4/l2_f_4_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/4/l2_f_4_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/4/l2_f_4_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/4/l2_f_4_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/4/l2_f_4_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/f/l2/4/l2_f_4_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/f/l2/4/l2_f_4_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l1/1/l1_l_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l1/1/l1_l_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l1/1/l1_l_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l1/1/l1_l_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l1/2/l1_l_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l1/2/l1_l_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l1/2/l1_l_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l1/2/l1_l_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/1/l2_l_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/1/l2_l_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/1/l2_l_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/1/l2_l_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/1/l2_l_1_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/1/l2_l_1_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/1/l2_l_1_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/1/l2_l_1_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/2/l2_l_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/2/l2_l_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/2/l2_l_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/2/l2_l_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/2/l2_l_2_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/2/l2_l_2_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/2/l2_l_2_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/2/l2_l_2_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/3/l2_l_3_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/3/l2_l_3_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/3/l2_l_3_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/3/l2_l_3_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/3/l2_l_3_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/3/l2_l_3_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/3/l2_l_3_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/3/l2_l_3_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/4/l2_l_4_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/4/l2_l_4_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/4/l2_l_4_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/4/l2_l_4_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/4/l2_l_4_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/4/l2_l_4_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/l/l2/4/l2_l_4_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/l/l2/4/l2_l_4_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/preview.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/preview.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l1/1/l1_r_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l1/1/l1_r_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l1/1/l1_r_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l1/1/l1_r_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l1/2/l1_r_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l1/2/l1_r_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l1/2/l1_r_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l1/2/l1_r_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/1/l2_r_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/1/l2_r_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/1/l2_r_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/1/l2_r_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/1/l2_r_1_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/1/l2_r_1_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/1/l2_r_1_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/1/l2_r_1_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/2/l2_r_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/2/l2_r_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/2/l2_r_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/2/l2_r_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/2/l2_r_2_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/2/l2_r_2_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/2/l2_r_2_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/2/l2_r_2_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/3/l2_r_3_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/3/l2_r_3_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/3/l2_r_3_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/3/l2_r_3_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/3/l2_r_3_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/3/l2_r_3_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/3/l2_r_3_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/3/l2_r_3_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/4/l2_r_4_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/4/l2_r_4_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/4/l2_r_4_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/4/l2_r_4_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/4/l2_r_4_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/4/l2_r_4_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/r/l2/4/l2_r_4_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/r/l2/4/l2_r_4_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/thumb.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/thumb.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l1/1/l1_u_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l1/1/l1_u_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l1/1/l1_u_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l1/1/l1_u_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l1/2/l1_u_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l1/2/l1_u_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l1/2/l1_u_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l1/2/l1_u_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/1/l2_u_1_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/1/l2_u_1_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/1/l2_u_1_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/1/l2_u_1_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/1/l2_u_1_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/1/l2_u_1_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/1/l2_u_1_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/1/l2_u_1_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/2/l2_u_2_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/2/l2_u_2_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/2/l2_u_2_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/2/l2_u_2_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/2/l2_u_2_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/2/l2_u_2_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/2/l2_u_2_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/2/l2_u_2_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/3/l2_u_3_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/3/l2_u_3_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/3/l2_u_3_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/3/l2_u_3_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/3/l2_u_3_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/3/l2_u_3_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/3/l2_u_3_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/3/l2_u_3_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/4/l2_u_4_1.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/4/l2_u_4_1.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/4/l2_u_4_2.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/4/l2_u_4_2.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/4/l2_u_4_3.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/4/l2_u_4_3.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/u/l2/4/l2_u_4_4.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/u/l2/4/l2_u_4_4.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/vr/pano_b.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/vr/pano_b.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/vr/pano_d.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/vr/pano_d.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/vr/pano_f.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/vr/pano_f.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/vr/pano_l.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/vr/pano_l.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/vr/pano_r.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/vr/pano_r.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/test02.tiles/vr/pano_u.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/test02.tiles/vr/pano_u.jpg" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/vtour/vr01/tour.xml" afterPath="$PROJECT_DIR$/src/main/webapp/vtour/1/tour.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b1642a91-fe21-45bd-bb4b-0abed27d96c7.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/b1642a91-fe21-45bd-bb4b-0abed27d96c7.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HouseController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HouseController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/PageController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/PageController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/exhandler/CustomExceptionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/exhandler/CustomExceptionHandler.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/House.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/House.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IHouseRecommendService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IHouseRecommendService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IHouseService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IHouseService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/HouseServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/HouseServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/error/404.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/error/404.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/search.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/search.jsp" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -33,20 +302,6 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - db_house_rent@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="HOUSE" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -57,8 +312,18 @@
       <file leaf-file-name="goods.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="526">
-              <caret line="59" column="72" selection-start-line="59" selection-start-column="72" selection-end-line="59" selection-end-column="72" />
+            <state relative-caret-position="487">
+              <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="House.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/House.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="210">
+              <caret line="15" column="29" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -101,7 +366,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/js/arttemplate.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/arttemplate.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/HouseRecommend.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HouseController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/template/list.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/common/list.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/IndexController.java" />
@@ -110,10 +374,7 @@
         <option value="$PROJECT_DIR$/src/main/webapp/vr/index.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/search.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/index.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/search.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/house.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/PageController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/images/vr/index.html" />
         <option value="$PROJECT_DIR$/src/main/webapp/images/vr/krpano.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/images/vtour/tour.xml" />
@@ -123,6 +384,18 @@
         <option value="$PROJECT_DIR$/src/main/resources/config/spring/spring-mvc.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-security.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/goods.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IHouseService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IHouseRecommendService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/HouseServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/search.jsp" />
+        <option value="$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.3.RELEASE/spring-webmvc-4.3.3.RELEASE.jar!/org/springframework/web/servlet/ModelAndView.class" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/PageController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HouseController.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/error/404.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/exhandler/CustomExceptionHandler.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/HouseMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/House.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp" />
       </list>
     </option>
@@ -151,10 +424,8 @@
     <treeState />
   </component>
   <component name="ProjectFrameBounds">
-    <option name="x" value="53" />
-    <option name="y" value="23" />
-    <option name="width" value="1313" />
-    <option name="height" value="745" />
+    <option name="width" value="1440" />
+    <option name="height" value="900" />
   </component>
   <component name="ProjectLevelVcsManager" settingsEditedManually="false">
     <OptionsSetting value="true" id="Add" />
@@ -181,7 +452,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -262,7 +532,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="vtour" />
+              <option name="myItemId" value="WEB-INF" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="views" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -287,10 +561,6 @@
               <option name="myItemId" value="webapp" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="js" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -307,88 +577,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="resources" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="config" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="spring" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -444,20 +632,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="controller" />
+              <option name="myItemId" value="pojo" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="PackagesPane" />
+      <pane id="Scratches" />
       <pane id="Scope" />
+      <pane id="PackagesPane" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="aspect.path.notification.shown" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="project.structure.last.edited" value="Problems" />
+    <property name="project.structure.last.edited" value="Artifacts" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="vcs.Git" />
@@ -465,6 +654,7 @@
     <property name="com.intellij.database.dataSource.DataSourceTemplate" value="MySQL" />
     <property name="DefaultHtmlFileTemplate" value="HTML File" />
     <property name="js-jscs-nodeInterpreter" value="/usr/local/bin/node" />
+    <property name="FullScreen" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
@@ -910,7 +1100,6 @@
     </configuration>
     <configuration default="false" name="LocalHost" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 7.0.72" ALTERNATIVE_JRE_ENABLED="false">
       <option name="BROWSER_ID" value="98ca6316-2f89-46d9-a9e5-fa9e2b0625b3" />
-      <option name="START_JAVASCRIPT_DEBUGGER" value="true" />
       <option name="SHOW_DIALOG_ON_UPDATE" value="false" />
       <deployment>
         <artifact name="HouseRent:war exploded">
@@ -1008,6 +1197,7 @@
       <workItem from="1477930910379" duration="7236000" />
       <workItem from="1477978679614" duration="10534000" />
       <workItem from="1478071091126" duration="9972000" />
+      <workItem from="1478102890011" duration="3760000" />
     </task>
     <task id="LOCAL-00001" summary="2016年10月31日22:43:46">
       <created>1477925076681</created>
@@ -1097,30 +1287,30 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="70603000" />
+    <option name="totallyTimeSpent" value="74363000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="53" y="23" width="1313" height="745" extended-state="0" />
-    <editor active="false" />
+    <frame x="0" y="0" width="1440" height="900" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.38437977" sideWeight="0.5031546" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.329718" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23240939" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.48698315" sideWeight="0.49684542" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.486747" sideWeight="0.49684542" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.4978678" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3295129" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2682927" sideWeight="0.49426934" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.24391988" sideWeight="0.49426934" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25906345" sideWeight="0.5057307" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25649095" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25608012" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1199,83 +1389,12 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/system/tree.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/system/build.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/system/talk.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/skin/view_frame.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/skin/touchAlert.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/skin/snow.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/skin/skin_v6_1.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/skin/rotate_device.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/skin/rightArrow.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/skin/rain.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/skin/mouseAlert.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/skin/leftArrow.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/skin/close.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/plugins/webvr.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/skin/close.png" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krp/plugins/webvr.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/search.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="640">
           <caret line="135" column="0" selection-start-line="135" selection-start-column="0" selection-end-line="135" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1296,44 +1415,14 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/krpano.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/search.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="106">
-          <caret line="227" column="0" selection-start-line="227" selection-start-column="0" selection-end-line="227" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/PageController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="24" column="23" selection-start-line="24" selection-start-column="23" selection-end-line="24" selection-end-column="23" />
-          <folding>
-            <element signature="e#699#700#0" expanded="false" />
-            <element signature="e#729#730#0" expanded="false" />
-            <element signature="e#880#881#0" expanded="false" />
-            <element signature="e#910#911#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krpano.swf">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="445">
-          <caret line="81" column="13" selection-start-line="81" selection-start-column="13" selection-end-line="81" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krpano.swf" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/css/bootstrap.min.css">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1342,49 +1431,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/pano/W5tOtlBnfEjwXZY6/pano.tiles/mobile_d.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/pano/W5tOtlBnfEjwXZY6/pano.tiles/mobile_b.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/pano/W5tOtlBnfEjwXZY6/pano.tiles/mobile_f.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="82" column="0" selection-start-line="82" selection-start-column="0" selection-end-line="84" selection-end-column="65" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/media/0e4030c43434af8f49ff36ac15ee7f51.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/uploaded.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/api_export.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="1" column="1766" selection-start-line="1" selection-start-column="1766" selection-end-line="1" selection-end-column="1766" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/pano/W5tOtlBnfEjwXZY6/pano.tiles/mobile_d.jpg" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/pano/W5tOtlBnfEjwXZY6/pano.tiles/mobile_b.jpg" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/pano/W5tOtlBnfEjwXZY6/pano.tiles/mobile_f.jpg" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/media/0e4030c43434af8f49ff36ac15ee7f51.jpg" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/uploaded.txt" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/api_export.xml" />
     <entry file="file://$APPLICATION_HOME_DIR$/plugins/JavaScriptLanguage/typescriptCompiler/external/lib.es6.d.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="208">
@@ -1399,36 +1451,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krpano.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="199">
-          <caret line="151" column="43" selection-start-line="151" selection-start-column="43" selection-end-line="151" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/index.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="31">
-          <caret line="19" column="0" selection-start-line="19" selection-start-column="0" selection-end-line="19" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/data.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-2084">
-          <caret line="59" column="39" selection-start-line="59" selection-start-column="17" selection-end-line="59" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/q7575WpJqj8MUEtu.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-990">
-          <caret line="33" column="48" selection-start-line="33" selection-start-column="48" selection-end-line="33" selection-end-column="48" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/krpano.js" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/index.html" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/data.xml" />
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vr/q7575WpJqj8MUEtu.xml" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/vtour/plugins/webvr_cursor_80x80_17f.png">
       <provider selected="true" editor-type-id="images">
         <state />
@@ -1438,9 +1464,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1448,7 +1471,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1456,9 +1478,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding>
-            <element signature="n#!!doc" expanded="false" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -1466,7 +1485,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="310">
           <caret line="72" column="20" selection-start-line="72" selection-start-column="20" selection-end-line="72" selection-end-column="20" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1474,18 +1492,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="265">
           <caret line="29" column="54" selection-start-line="29" selection-start-column="54" selection-end-line="29" selection-end-column="54" />
-          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vtour/tour.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="325">
-          <caret line="50" column="1" selection-start-line="50" selection-start-column="1" selection-end-line="59" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/images/vtour/tour.html" />
     <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/spring-mvc.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
@@ -1502,7 +1512,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/vtour/vr01/tour.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/vtour/1/tour.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
           <caret line="2" column="21" selection-start-line="2" selection-start-column="21" selection-end-line="2" selection-end-column="21" />
@@ -1510,19 +1520,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.HOUSE">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.HOUSE" />
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/login.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
@@ -1535,7 +1533,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -1543,14 +1540,156 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/IHouseRecommendService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="58" selection-start-line="9" selection-start-column="58" selection-end-line="9" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1770">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/IHouseService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="225">
+          <caret line="20" column="56" selection-start-line="20" selection-start-column="56" selection-end-line="20" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/HouseServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="38" column="21" selection-start-line="38" selection-start-column="21" selection-end-line="38" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/59786d56/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.HOUSE_RECOMMEND">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/59786d56/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.HOUSE">
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/search.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="343">
+          <caret line="240" column="18" selection-start-line="240" selection-start-column="18" selection-end-line="240" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.3.RELEASE/spring-webmvc-4.3.3.RELEASE.jar!/org/springframework/web/servlet/ModelAndView.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="267">
+          <caret line="30" column="11" selection-start-line="30" selection-start-column="11" selection-end-line="30" selection-end-column="11" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HouseController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="118">
+          <caret line="87" column="30" selection-start-line="87" selection-start-column="30" selection-end-line="87" selection-end-column="30" />
+          <folding>
+            <element signature="e#3308#3324#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/PageController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="32" column="0" selection-start-line="32" selection-start-column="2" selection-end-line="35" selection-end-column="7" />
+          <folding>
+            <element signature="e#699#700#0" expanded="true" />
+            <element signature="e#729#730#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/error/404.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="21" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/exception/exhandler/CustomExceptionHandler.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="23" column="37" selection-start-line="23" selection-start-column="37" selection-end-line="23" selection-end-column="37" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HouseMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="250">
+          <caret line="297" column="28" selection-start-line="297" selection-start-column="20" selection-end-line="297" selection-end-column="28" />
+          <folding>
+            <marker date="1478106553000" expanded="true" signature="5495:5606" ph="select from HOUSE" />
+            <marker date="1478106553000" expanded="true" signature="5696:5751" ph="delete from " />
+            <marker date="1478106553000" expanded="true" signature="5835:6769" ph="insert into HOUSE... " />
+            <marker date="1478106553000" expanded="true" signature="10849:13111" ph="update HOUSE... " />
+            <marker date="1478106553000" expanded="true" signature="13209:14170" ph="update HOUSE... " />
+            <marker date="1478106553000" expanded="true" signature="13585:14170" ph="update HOUSE... " />
+            <marker date="1478106553000" expanded="true" signature="14292:15103" ph="SELECT HOUSE... HOUSE" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/House.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="15" column="29" selection-start-line="15" selection-start-column="19" selection-end-line="15" selection-end-column="29" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="526">
-          <caret line="59" column="72" selection-start-line="59" selection-start-column="72" selection-end-line="59" selection-end-column="72" />
+        <state relative-caret-position="487">
+          <caret line="65" column="0" selection-start-line="65" selection-start-column="0" selection-end-line="65" selection-end-column="0" />
           <folding />
         </state>
       </provider>

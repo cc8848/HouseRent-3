@@ -15,7 +15,7 @@
 
 </head>
 <body>
-    404
+    ${requestScope.ex}
 <link href="/js/jquery-3.1.0.min.js">
 <link href="/js/bootstrap.js">
 </body>

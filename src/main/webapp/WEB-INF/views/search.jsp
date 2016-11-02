@@ -238,7 +238,7 @@
 <script id="recommendList" type="text/html">
     <ul class="list-group">
         {{each houseList as house index}}
-        <a href="{{house.id}}" class="list-group-item container-fluid">
+        <a href="/house/selectHouseDetailByHouseID?houseID={{house.id}}" class="list-group-item container-fluid">
             <div class="col-md-2 hidden-xs hidden-sm">
                 <img src="{{house.thumbnailPath}}" alt=""
                      class="img-responsive img-thumbnail"/>
