@@ -24,12 +24,33 @@
 <%--head start--%>
 <c:import url="/WEB-INF/common/common_head.jsp"/>
 <%--head end--%>
+<div class="white-divider-md"></div>
 <div class="container">
     <div class="row">
-        <div class="embed-responsive embed-responsive-16by9">
-            <div id="pano" class="embed-responsive-item">
-                测试测试
+        <div class="page-header">
+            <h3>简约干净的小房间，坐北朝南面阳！
+                <small>你值得拥有！</small>
+            </h3>
+        </div>
+    </div>
+    <div class="row">
+        <%--VR图--%>
+        <div class="col-xs-6">
+            <div class="embed-responsive embed-responsive-4by3">
+                <div id="vr" class="embed-responsive-item">
+
+                </div>
             </div>
+        </div>
+        <%--房屋说明--%>
+        <div class="col-xs-6">
+            <c:if test="">
+                <div class="btn-group btn-group-sm">
+                    <c:forEach items="" var="">
+                        <button type="button" class="btn btn-default ">Left</button>
+                    </c:forEach>
+                </div>
+            </c:if>
         </div>
     </div>
 </div>
@@ -37,15 +58,15 @@
 
 <script type="text/javascript" src="../../js/jquery.js"></script>
 <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../images/vr/krpano.js"></script>
+<script type="text/javascript" src="../../js/tour.js"></script>
 <script type="text/javascript" src="../../js/common.js"></script>
 <script type="text/javascript" src="../../js/goods.js"></script>
 <script>
     embedpano({
-        swf: '../../images/vr/krpano.swf',
-        xml: '../../images/vr/data.xml',
-        target: 'pano',
-        html5: 'auto',
+        swf: "../../vtour/tour.swf",
+        xml: "../../vtour/vr01/tour.xml",
+        target: "vr",
+        html5: "auto",
         mobilescale: 1.0,
         passQueryParameters: true
     });
