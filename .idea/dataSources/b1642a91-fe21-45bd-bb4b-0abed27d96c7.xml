@@ -213,887 +213,902 @@
       <comment>房间号（如果为整租，则无需填写）</comment>
       <data-type>int(11)|0</data-type>
     </column>
-    <index id="70" parent="9" name="LESSEE_ID">
+    <column id="70" parent="9" name="HOUSE_ID">
+      <mandatory>1</mandatory>
+      <data-type>int(100)|0</data-type>
+    </column>
+    <index id="71" parent="9" name="HOUSE_ID">
+      <columns>HOUSE_ID</columns>
+      <desc-columns></desc-columns>
+    </index>
+    <index id="72" parent="9" name="LESSEE_ID">
       <columns>LESSEE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="71" parent="9" name="LESSOR_ID">
+    <index id="73" parent="9" name="LESSOR_ID">
       <columns>LESSOR_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="72" parent="9" name="PAYMENT_ID">
+    <index id="74" parent="9" name="PAYMENT_ID">
       <columns>PAYMENT_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="73" parent="9" name="ROOM_ID">
+    <index id="75" parent="9" name="ROOM_ID">
       <columns>ROOM_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="74" parent="9" name="PRIMARY">
+    <key id="76" parent="9" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="75" parent="9" name="fk_CONTRACT_SYS_USERS_LESSEE">
+    <foreign-key id="77" parent="9" name="fk_CONTRACT_SYS_USERS_LESSEE">
       <columns>LESSEE_ID</columns>
       <ref-key>~.SYS_USERS.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="76" parent="9" name="fk_CONTRACT_SYS_USERS_LESSOR">
+    <foreign-key id="78" parent="9" name="fk_CONTRACT_SYS_USERS_LESSOR">
       <columns>LESSOR_ID</columns>
       <ref-key>~.SYS_USERS.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="77" parent="9" name="fk_CONTRACT_PAYMENT">
+    <foreign-key id="79" parent="9" name="fk_CONTRACT_PAYMENT">
       <columns>PAYMENT_ID</columns>
       <ref-key>~.PAYMENT.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="78" parent="9" name="fk_CONTRACT_ROOMS">
+    <foreign-key id="80" parent="9" name="fk_CONTRACT_ROOMS">
       <columns>ROOM_ID</columns>
       <ref-key>~.ROOMS.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <column id="79" parent="10" name="ID">
+    <foreign-key id="81" parent="9" name="fk_CONTRACT_HOUSE">
+      <columns>HOUSE_ID</columns>
+      <ref-key>~.HOUSE.PRIMARY</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <column id="82" parent="10" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="80" parent="10" name="TYPE_ID">
+    <column id="83" parent="10" name="TYPE_ID">
       <comment>证件类型</comment>
       <mandatory>1</mandatory>
       <data-type>int(5)|0</data-type>
     </column>
-    <column id="81" parent="10" name="NUMBER">
+    <column id="84" parent="10" name="NUMBER">
       <comment>证件号码</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(30)|0</data-type>
     </column>
-    <column id="82" parent="10" name="ADDRESS">
+    <column id="85" parent="10" name="ADDRESS">
       <comment>证件地址</comment>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="83" parent="10" name="ISSUING_AUTHORITY">
+    <column id="86" parent="10" name="ISSUING_AUTHORITY">
       <comment>发证机关</comment>
       <data-type>varchar(50)|0</data-type>
     </column>
-    <column id="84" parent="10" name="VALIDITY_DATE">
+    <column id="87" parent="10" name="VALIDITY_DATE">
       <comment>有效期</comment>
       <data-type>datetime|0</data-type>
     </column>
-    <column id="85" parent="10" name="VALIDITY">
+    <column id="88" parent="10" name="VALIDITY">
       <comment>是否有效：0，无效，1有效</comment>
       <mandatory>1</mandatory>
       <data-type>tinyint(2)|0</data-type>
       <default-expression>&apos;1&apos;</default-expression>
     </column>
-    <column id="86" parent="10" name="USER_ID">
+    <column id="89" parent="10" name="USER_ID">
       <comment>证件信息所对应用户的</comment>
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <index id="87" parent="10" name="TYPE_ID">
+    <index id="90" parent="10" name="TYPE_ID">
       <columns>TYPE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="88" parent="10" name="USER_ID">
+    <index id="91" parent="10" name="USER_ID">
       <columns>USER_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="89" parent="10" name="PRIMARY">
+    <key id="92" parent="10" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="90" parent="10" name="fk_CREDENTIALS_CREDENTIALS_TYPE">
+    <foreign-key id="93" parent="10" name="fk_CREDENTIALS_CREDENTIALS_TYPE">
       <columns>TYPE_ID</columns>
       <ref-key>~.CREDENTIALS_TYPE.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="91" parent="10" name="fk_CREDENTIALS_SYS_USERS">
+    <foreign-key id="94" parent="10" name="fk_CREDENTIALS_SYS_USERS">
       <columns>USER_ID</columns>
       <ref-key>~.SYS_USERS.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <column id="92" parent="11" name="ID">
+    <column id="95" parent="11" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="93" parent="11" name="NAME">
+    <column id="96" parent="11" name="NAME">
       <comment>证件类型名称</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(20)|0</data-type>
     </column>
-    <key id="94" parent="11" name="PRIMARY">
+    <key id="97" parent="11" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <column id="95" parent="12" name="ID">
+    <column id="98" parent="12" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(5)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="96" parent="12" name="NAME">
+    <column id="99" parent="12" name="NAME">
       <comment>装修类型名称</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(20)|0</data-type>
     </column>
-    <key id="97" parent="12" name="PRIMARY">
+    <key id="100" parent="12" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <column id="98" parent="13" name="ID">
+    <column id="101" parent="13" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="99" parent="13" name="NAME">
+    <column id="102" parent="13" name="NAME">
       <comment>房屋名字</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(50)|0</data-type>
     </column>
-    <column id="100" parent="13" name="ADDRESS">
+    <column id="103" parent="13" name="ADDRESS">
       <comment>地址(精确的门牌号)</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="101" parent="13" name="EXPECT_RENT">
+    <column id="104" parent="13" name="EXPECT_RENT">
       <comment>预期租金</comment>
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <column id="102" parent="13" name="VR_PATH">
+    <column id="105" parent="13" name="VR_PATH">
       <comment>VR资源地址</comment>
       <data-type>varchar(150)|0</data-type>
     </column>
-    <column id="103" parent="13" name="THUMBNAIL_PATH">
+    <column id="106" parent="13" name="THUMBNAIL_PATH">
       <comment>缩略图资源地址</comment>
       <data-type>varchar(150)|0</data-type>
     </column>
-    <column id="104" parent="13" name="COMMUNITY_ID">
+    <column id="107" parent="13" name="COMMUNITY_ID">
       <comment>社区ID</comment>
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <column id="105" parent="13" name="FLOOR">
+    <column id="108" parent="13" name="FLOOR">
       <comment>所在楼层</comment>
       <data-type>int(3)|0</data-type>
     </column>
-    <column id="106" parent="13" name="LAYOUT_ID">
+    <column id="109" parent="13" name="LAYOUT_ID">
       <comment>房间数量</comment>
       <mandatory>1</mandatory>
       <data-type>int(2)|0</data-type>
       <default-expression>&apos;1&apos;</default-expression>
     </column>
-    <column id="107" parent="13" name="DECORATION_TYPE_ID">
+    <column id="110" parent="13" name="DECORATION_TYPE_ID">
       <comment>装修类型</comment>
       <mandatory>1</mandatory>
       <data-type>int(10)|0</data-type>
     </column>
-    <column id="108" parent="13" name="PROVINCE_ID">
+    <column id="111" parent="13" name="PROVINCE_ID">
       <comment>省份编号</comment>
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="109" parent="13" name="CITY_ID">
+    <column id="112" parent="13" name="CITY_ID">
       <comment>城市编号</comment>
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="110" parent="13" name="AREA_ID">
+    <column id="113" parent="13" name="AREA_ID">
       <comment>地区编号</comment>
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="111" parent="13" name="HAVE_KITCKEN">
+    <column id="114" parent="13" name="HAVE_KITCKEN">
       <comment>是否有厨房</comment>
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <column id="112" parent="13" name="HAVE_BALCONY">
+    <column id="115" parent="13" name="HAVE_BALCONY">
       <comment>是否有阳台</comment>
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <column id="113" parent="13" name="HOUSE_STATUS_ID">
+    <column id="116" parent="13" name="HOUSE_STATUS_ID">
       <comment>房屋状态ID</comment>
       <data-type>int(2)|0</data-type>
     </column>
-    <column id="114" parent="13" name="ENABLED">
+    <column id="117" parent="13" name="ENABLED">
       <comment>房屋是否可用，0是不可用，1是可用</comment>
       <mandatory>1</mandatory>
       <data-type>tinyint(2)|0</data-type>
       <default-expression>&apos;1&apos;</default-expression>
     </column>
-    <column id="115" parent="13" name="EXPECT_PAYMENT_ID">
+    <column id="118" parent="13" name="EXPECT_PAYMENT_ID">
       <mandatory>1</mandatory>
       <data-type>int(2)|0</data-type>
       <default-expression>&apos;2&apos;</default-expression>
     </column>
-    <column id="116" parent="13" name="AREA_NUMBER">
+    <column id="119" parent="13" name="AREA_NUMBER">
       <comment>房屋平方米</comment>
       <mandatory>1</mandatory>
       <data-type>double(100)|0</data-type>
     </column>
-    <index id="117" parent="13" name="AREA_ID">
+    <index id="120" parent="13" name="AREA_ID">
       <columns>AREA_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="118" parent="13" name="CITY_ID">
+    <index id="121" parent="13" name="CITY_ID">
       <columns>CITY_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="119" parent="13" name="COMMUNITY_ID">
+    <index id="122" parent="13" name="COMMUNITY_ID">
       <columns>COMMUNITY_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="120" parent="13" name="DECORATION_TYPE_ID">
+    <index id="123" parent="13" name="DECORATION_TYPE_ID">
       <columns>DECORATION_TYPE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="121" parent="13" name="EXPECT_PAYMENT_ID">
+    <index id="124" parent="13" name="EXPECT_PAYMENT_ID">
       <columns>EXPECT_PAYMENT_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="122" parent="13" name="HOUSE_STATUS_ID">
+    <index id="125" parent="13" name="HOUSE_STATUS_ID">
       <columns>HOUSE_STATUS_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="123" parent="13" name="LAYOUT_ID">
+    <index id="126" parent="13" name="LAYOUT_ID">
       <columns>LAYOUT_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="124" parent="13" name="PROVINCE_ID">
+    <index id="127" parent="13" name="PROVINCE_ID">
       <columns>PROVINCE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="125" parent="13" name="PRIMARY">
+    <key id="128" parent="13" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="126" parent="13" name="fk_HOUSE_COMMUNITY">
+    <foreign-key id="129" parent="13" name="fk_HOUSE_COMMUNITY">
       <columns>COMMUNITY_ID</columns>
       <ref-key>~.COMMUNITY.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="127" parent="13" name="fk_HOUSE_LAYOUT">
+    <foreign-key id="130" parent="13" name="fk_HOUSE_LAYOUT">
       <columns>LAYOUT_ID</columns>
       <ref-key>~.HOUSE_LAYOUT.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="128" parent="13" name="fk_HOUSE_DECORATION_TYPE">
+    <foreign-key id="131" parent="13" name="fk_HOUSE_DECORATION_TYPE">
       <columns>DECORATION_TYPE_ID</columns>
       <ref-key>~.DECORATION_TYPE.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="129" parent="13" name="fk_HOUSE_PROVINCE">
+    <foreign-key id="132" parent="13" name="fk_HOUSE_PROVINCE">
       <columns>PROVINCE_ID</columns>
       <ref-key>db_house_rent.PROVINCE(provinceID)</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="130" parent="13" name="fk_HOUSE_CITY">
+    <foreign-key id="133" parent="13" name="fk_HOUSE_CITY">
       <columns>CITY_ID</columns>
       <ref-key>db_house_rent.CITY(cityID)</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="131" parent="13" name="fk_HOUSE_AREA">
+    <foreign-key id="134" parent="13" name="fk_HOUSE_AREA">
       <columns>AREA_ID</columns>
       <ref-key>db_house_rent.AREA(areaID)</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="132" parent="13" name="fk_HOUSE_HOUSE_STATUS">
+    <foreign-key id="135" parent="13" name="fk_HOUSE_HOUSE_STATUS">
       <columns>HOUSE_STATUS_ID</columns>
       <ref-key>~.HOUSE_STATUS.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="133" parent="13" name="fk_HOUSE-PAYMENT">
+    <foreign-key id="136" parent="13" name="fk_HOUSE-PAYMENT">
       <columns>EXPECT_PAYMENT_ID</columns>
       <ref-key>~.PAYMENT.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <column id="134" parent="14" name="ID">
+    <column id="137" parent="14" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(2)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="135" parent="14" name="NAME">
+    <column id="138" parent="14" name="NAME">
       <mandatory>1</mandatory>
       <data-type>varchar(12)|0</data-type>
       <default-expression>&apos;&apos;</default-expression>
     </column>
-    <key id="136" parent="14" name="PRIMARY">
+    <key id="139" parent="14" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <column id="137" parent="15" name="ID">
+    <column id="140" parent="15" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="138" parent="15" name="DATE">
+    <column id="141" parent="15" name="DATE">
       <comment>推荐日期</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(20)|0</data-type>
     </column>
-    <key id="139" parent="15" name="PRIMARY">
+    <key id="142" parent="15" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <column id="140" parent="16" name="ID">
+    <column id="143" parent="16" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="141" parent="16" name="RECOMMEND_ID">
+    <column id="144" parent="16" name="RECOMMEND_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <column id="142" parent="16" name="HOUSE_ID">
+    <column id="145" parent="16" name="HOUSE_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <index id="143" parent="16" name="HOUSE_ID">
+    <index id="146" parent="16" name="HOUSE_ID">
       <columns>HOUSE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="144" parent="16" name="RECOMMEND_ID">
+    <index id="147" parent="16" name="RECOMMEND_ID">
       <columns>RECOMMEND_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="145" parent="16" name="PRIMARY">
+    <key id="148" parent="16" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="146" parent="16" name="fk_HOUSE_RECOMMEND_HOUSE_HOUSE_RECOMMEND">
+    <foreign-key id="149" parent="16" name="fk_HOUSE_RECOMMEND_HOUSE_HOUSE_RECOMMEND">
       <columns>RECOMMEND_ID</columns>
       <ref-key>~.HOUSE_RECOMMEND.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="147" parent="16" name="fk_HOUSE_RECOMMEND_HOUSE_HOUSE">
+    <foreign-key id="150" parent="16" name="fk_HOUSE_RECOMMEND_HOUSE_HOUSE">
       <columns>HOUSE_ID</columns>
       <ref-key>~.HOUSE.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <column id="148" parent="17" name="ID">
+    <column id="151" parent="17" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="149" parent="17" name="HOUSE_ID">
+    <column id="152" parent="17" name="HOUSE_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <column id="150" parent="17" name="RENT_MODE_ID">
+    <column id="153" parent="17" name="RENT_MODE_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <index id="151" parent="17" name="HOUSE_ID">
+    <index id="154" parent="17" name="HOUSE_ID">
       <columns>HOUSE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="152" parent="17" name="RENT_MODE_ID">
+    <index id="155" parent="17" name="RENT_MODE_ID">
       <columns>RENT_MODE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="153" parent="17" name="PRIMARY">
+    <key id="156" parent="17" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="154" parent="17" name="fk_HOUSE_RENT_MODE_HOUSE">
+    <foreign-key id="157" parent="17" name="fk_HOUSE_RENT_MODE_HOUSE">
       <columns>HOUSE_ID</columns>
       <ref-key>~.HOUSE.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="155" parent="17" name="fk_HOUSE_RENT_MODE_RENT_MODE">
+    <foreign-key id="158" parent="17" name="fk_HOUSE_RENT_MODE_RENT_MODE">
       <columns>RENT_MODE_ID</columns>
       <ref-key>~.RENT_MODE.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <column id="156" parent="18" name="ID">
+    <column id="159" parent="18" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="157" parent="18" name="STATUS_NAME">
+    <column id="160" parent="18" name="STATUS_NAME">
       <comment>状态名称</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(10)|0</data-type>
     </column>
-    <key id="158" parent="18" name="PRIMARY">
+    <key id="161" parent="18" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <column id="159" parent="19" name="ID">
+    <column id="162" parent="19" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(2)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="160" parent="19" name="PAYMENT_NAME">
+    <column id="163" parent="19" name="PAYMENT_NAME">
       <comment>付租方式</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(10)|0</data-type>
     </column>
-    <key id="161" parent="19" name="PRIMARY">
+    <key id="164" parent="19" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <column id="162" parent="20" name="USERNAME">
+    <column id="165" parent="20" name="USERNAME">
       <data-type>varchar(64)|0</data-type>
     </column>
-    <column id="163" parent="20" name="SERIES">
+    <column id="166" parent="20" name="SERIES">
       <mandatory>1</mandatory>
       <data-type>varchar(64)|0</data-type>
     </column>
-    <column id="164" parent="20" name="TOKEN">
+    <column id="167" parent="20" name="TOKEN">
       <data-type>varchar(64)|0</data-type>
     </column>
-    <column id="165" parent="20" name="LAST_USED">
+    <column id="168" parent="20" name="LAST_USED">
       <mandatory>1</mandatory>
       <data-type>timestamp|0</data-type>
       <default-expression>CURRENT_TIMESTAMP</default-expression>
     </column>
-    <key id="166" parent="20" name="PRIMARY">
+    <key id="169" parent="20" name="PRIMARY">
       <columns>SERIES</columns>
       <primary>1</primary>
     </key>
-    <column id="167" parent="21" name="id">
+    <column id="170" parent="21" name="id">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="168" parent="21" name="provinceID">
+    <column id="171" parent="21" name="provinceID">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="169" parent="21" name="provinceName">
+    <column id="172" parent="21" name="provinceName">
       <mandatory>1</mandatory>
       <data-type>varchar(20)|0</data-type>
     </column>
-    <column id="170" parent="21" name="enable">
+    <column id="173" parent="21" name="enable">
       <comment>是否可用</comment>
       <mandatory>1</mandatory>
       <data-type>tinyint(2)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <index id="171" parent="21" name="provinceID">
+    <index id="174" parent="21" name="provinceID">
       <columns>provinceID</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="172" parent="21" name="PRIMARY">
+    <key id="175" parent="21" name="PRIMARY">
       <columns>id</columns>
       <primary>1</primary>
     </key>
-    <column id="173" parent="22" name="ID">
+    <column id="176" parent="22" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(10)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="174" parent="22" name="NAME">
+    <column id="177" parent="22" name="NAME">
       <comment>出租方式名称</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(20)|0</data-type>
     </column>
-    <key id="175" parent="22" name="PRIMARY">
+    <key id="178" parent="22" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <column id="176" parent="23" name="ID">
+    <column id="179" parent="23" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
+      <sequence-identity>1</sequence-identity>
     </column>
-    <column id="177" parent="23" name="ROOM_NO">
+    <column id="180" parent="23" name="ROOM_NO">
       <comment>房间号</comment>
       <mandatory>1</mandatory>
       <data-type>int(10)|0</data-type>
     </column>
-    <column id="178" parent="23" name="AREA_NUMBER">
+    <column id="181" parent="23" name="AREA_NUMBER">
       <comment>面积多少</comment>
       <data-type>double(20)|0</data-type>
     </column>
-    <column id="179" parent="23" name="HAVE_WASHROOM">
+    <column id="182" parent="23" name="HAVE_WASHROOM">
       <comment>是否带厕所，0不带，1带</comment>
       <data-type>tinyint(2)|0</data-type>
       <default-expression>&apos;0&apos;</default-expression>
     </column>
-    <column id="180" parent="23" name="HAVE_KITCKEN">
+    <column id="183" parent="23" name="HAVE_KITCKEN">
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <column id="181" parent="23" name="HOUSE_ID">
+    <column id="184" parent="23" name="HOUSE_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <index id="182" parent="23" name="HOUSE_ID">
+    <index id="185" parent="23" name="HOUSE_ID">
       <columns>HOUSE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="183" parent="23" name="PRIMARY">
+    <key id="186" parent="23" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="184" parent="23" name="fk_ROOMS_HOUSE">
+    <foreign-key id="187" parent="23" name="fk_ROOMS_HOUSE">
       <columns>HOUSE_ID</columns>
       <ref-key>~.HOUSE.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <column id="185" parent="24" name="AUTHORITY_ID">
+    <column id="188" parent="24" name="AUTHORITY_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="186" parent="24" name="AUTHORITY_MARK">
+    <column id="189" parent="24" name="AUTHORITY_MARK">
       <mandatory>1</mandatory>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="187" parent="24" name="AUTHORITY_NAME">
+    <column id="190" parent="24" name="AUTHORITY_NAME">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="188" parent="24" name="AUTHORITY_DESC">
+    <column id="191" parent="24" name="AUTHORITY_DESC">
       <data-type>varchar(200)|0</data-type>
     </column>
-    <column id="189" parent="24" name="MESSAGE">
+    <column id="192" parent="24" name="MESSAGE">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="190" parent="24" name="ENABLE">
+    <column id="193" parent="24" name="ENABLE">
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <column id="191" parent="24" name="ISSYS">
+    <column id="194" parent="24" name="ISSYS">
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <key id="192" parent="24" name="PRIMARY">
+    <key id="195" parent="24" name="PRIMARY">
       <columns>AUTHORITY_ID</columns>
       <primary>1</primary>
     </key>
-    <column id="193" parent="25" name="ID">
+    <column id="196" parent="25" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="194" parent="25" name="RESOURCE_ID">
+    <column id="197" parent="25" name="RESOURCE_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <column id="195" parent="25" name="AUTHORITY_ID">
+    <column id="198" parent="25" name="AUTHORITY_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <index id="196" parent="25" name="FK_Reference_5">
+    <index id="199" parent="25" name="FK_Reference_5">
       <columns>AUTHORITY_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="197" parent="25" name="FK_Reference_6">
+    <index id="200" parent="25" name="FK_Reference_6">
       <columns>RESOURCE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="198" parent="25" name="PRIMARY">
+    <key id="201" parent="25" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="199" parent="25" name="FK_Reference_6">
+    <foreign-key id="202" parent="25" name="FK_Reference_6">
       <columns>RESOURCE_ID</columns>
       <ref-key>~.SYS_RESOURCES.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="200" parent="25" name="FK_Reference_5">
+    <foreign-key id="203" parent="25" name="FK_Reference_5">
       <columns>AUTHORITY_ID</columns>
       <ref-key>~.SYS_AUTHORITIES.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <column id="201" parent="26" name="MODULE_ID">
+    <column id="204" parent="26" name="MODULE_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="202" parent="26" name="MODULE_NAME">
+    <column id="205" parent="26" name="MODULE_NAME">
       <mandatory>1</mandatory>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="203" parent="26" name="MODULE_DESC">
+    <column id="206" parent="26" name="MODULE_DESC">
       <data-type>varchar(200)|0</data-type>
     </column>
-    <column id="204" parent="26" name="MODULE_TYPE">
+    <column id="207" parent="26" name="MODULE_TYPE">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="205" parent="26" name="PARENT">
+    <column id="208" parent="26" name="PARENT">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="206" parent="26" name="MODULE_URL">
+    <column id="209" parent="26" name="MODULE_URL">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="207" parent="26" name="I_LEVEL">
+    <column id="210" parent="26" name="I_LEVEL">
       <comment>1</comment>
       <data-type>decimal(8)|0</data-type>
     </column>
-    <column id="208" parent="26" name="LEAF">
+    <column id="211" parent="26" name="LEAF">
       <data-type>decimal(8)|0</data-type>
     </column>
-    <column id="209" parent="26" name="APPLICATION">
+    <column id="212" parent="26" name="APPLICATION">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="210" parent="26" name="CONTROLLER">
+    <column id="213" parent="26" name="CONTROLLER">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="211" parent="26" name="ENABLE">
+    <column id="214" parent="26" name="ENABLE">
       <data-type>decimal(1)|0</data-type>
     </column>
-    <column id="212" parent="26" name="PRIORITY">
+    <column id="215" parent="26" name="PRIORITY">
       <data-type>decimal(8)|0</data-type>
     </column>
-    <key id="213" parent="26" name="PRIMARY">
+    <key id="216" parent="26" name="PRIMARY">
       <columns>MODULE_ID</columns>
       <primary>1</primary>
     </key>
-    <column id="214" parent="27" name="RESOURCE_ID">
+    <column id="217" parent="27" name="RESOURCE_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="215" parent="27" name="RESOURCE_TYPE">
+    <column id="218" parent="27" name="RESOURCE_TYPE">
       <comment>URL,METHOD</comment>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="216" parent="27" name="RESOURCE_NAME">
+    <column id="219" parent="27" name="RESOURCE_NAME">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="217" parent="27" name="RESOURCE_DESC">
+    <column id="220" parent="27" name="RESOURCE_DESC">
       <data-type>varchar(200)|0</data-type>
     </column>
-    <column id="218" parent="27" name="RESOURCE_PATH">
+    <column id="221" parent="27" name="RESOURCE_PATH">
       <data-type>varchar(200)|0</data-type>
     </column>
-    <column id="219" parent="27" name="PRIORITY">
+    <column id="222" parent="27" name="PRIORITY">
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="220" parent="27" name="ENABLE">
+    <column id="223" parent="27" name="ENABLE">
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <column id="221" parent="27" name="ISSYS">
+    <column id="224" parent="27" name="ISSYS">
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <key id="222" parent="27" name="PRIMARY">
+    <key id="225" parent="27" name="PRIMARY">
       <columns>RESOURCE_ID</columns>
       <primary>1</primary>
     </key>
-    <column id="223" parent="28" name="ROLE_ID">
+    <column id="226" parent="28" name="ROLE_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="224" parent="28" name="ROLE_NAME">
+    <column id="227" parent="28" name="ROLE_NAME">
       <comment>权限名</comment>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="225" parent="28" name="ROLE_DESC">
+    <column id="228" parent="28" name="ROLE_DESC">
       <comment>权限描述</comment>
       <data-type>varchar(200)|0</data-type>
     </column>
-    <column id="226" parent="28" name="ENABLE">
+    <column id="229" parent="28" name="ENABLE">
       <comment>是否可用</comment>
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <column id="227" parent="28" name="ISSYS">
+    <column id="230" parent="28" name="ISSYS">
       <comment>是否系统权限</comment>
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <key id="228" parent="28" name="PRIMARY">
+    <key id="231" parent="28" name="PRIMARY">
       <columns>ROLE_ID</columns>
       <primary>1</primary>
     </key>
-    <column id="229" parent="29" name="ID">
+    <column id="232" parent="29" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="230" parent="29" name="AUTHORITY_ID">
+    <column id="233" parent="29" name="AUTHORITY_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <column id="231" parent="29" name="ROLE_ID">
+    <column id="234" parent="29" name="ROLE_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <index id="232" parent="29" name="FK_Reference_3">
+    <index id="235" parent="29" name="FK_Reference_3">
       <columns>ROLE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="233" parent="29" name="FK_Reference_4">
+    <index id="236" parent="29" name="FK_Reference_4">
       <columns>AUTHORITY_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="234" parent="29" name="PRIMARY">
+    <key id="237" parent="29" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="235" parent="29" name="FK_Reference_4">
+    <foreign-key id="238" parent="29" name="FK_Reference_4">
       <columns>AUTHORITY_ID</columns>
       <ref-key>~.SYS_AUTHORITIES.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="236" parent="29" name="FK_Reference_3">
+    <foreign-key id="239" parent="29" name="FK_Reference_3">
       <columns>ROLE_ID</columns>
       <ref-key>~.SYS_ROLES.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <column id="237" parent="30" name="ID">
+    <column id="240" parent="30" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="238" parent="30" name="MODULE_ID">
+    <column id="241" parent="30" name="MODULE_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <column id="239" parent="30" name="ROLE_ID">
+    <column id="242" parent="30" name="ROLE_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <index id="240" parent="30" name="FK_Reference_7">
+    <index id="243" parent="30" name="FK_Reference_7">
       <columns>MODULE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="241" parent="30" name="FK_S_ROLE_REFERENCE_SYS_ROLE">
+    <index id="244" parent="30" name="FK_S_ROLE_REFERENCE_SYS_ROLE">
       <columns>ROLE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="242" parent="30" name="PRIMARY">
+    <key id="245" parent="30" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="243" parent="30" name="FK_Reference_7">
+    <foreign-key id="246" parent="30" name="FK_Reference_7">
       <columns>MODULE_ID</columns>
       <ref-key>~.SYS_MODULES.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="244" parent="30" name="FK_S_ROLE_REFERENCE_SYS_ROLE">
+    <foreign-key id="247" parent="30" name="FK_S_ROLE_REFERENCE_SYS_ROLE">
       <columns>ROLE_ID</columns>
       <ref-key>~.SYS_ROLES.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <column id="245" parent="31" name="USER_ID">
+    <column id="248" parent="31" name="USER_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="246" parent="31" name="USERNAME">
+    <column id="249" parent="31" name="USERNAME">
       <comment>账号（电话）</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="247" parent="31" name="NAME">
+    <column id="250" parent="31" name="NAME">
       <comment>用户名</comment>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="248" parent="31" name="PASSWORD">
+    <column id="251" parent="31" name="PASSWORD">
       <comment>密码</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="249" parent="31" name="DT_CREATE">
+    <column id="252" parent="31" name="DT_CREATE">
       <comment>创建日期</comment>
       <data-type>datetime|0</data-type>
       <default-expression>CURRENT_TIMESTAMP</default-expression>
     </column>
-    <column id="250" parent="31" name="LAST_LOGIN">
+    <column id="253" parent="31" name="LAST_LOGIN">
       <comment>最后登录时间</comment>
       <data-type>datetime|0</data-type>
     </column>
-    <column id="251" parent="31" name="DEADLINE">
+    <column id="254" parent="31" name="DEADLINE">
       <comment>截止日期</comment>
       <data-type>datetime|0</data-type>
     </column>
-    <column id="252" parent="31" name="LOGIN_IP">
+    <column id="255" parent="31" name="LOGIN_IP">
       <comment>最后登录IP</comment>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="253" parent="31" name="V_QZJGID">
+    <column id="256" parent="31" name="V_QZJGID">
       <comment>所属机构ID</comment>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="254" parent="31" name="V_QZJGMC">
+    <column id="257" parent="31" name="V_QZJGMC">
       <comment>所属机构名称</comment>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="255" parent="31" name="DEP_ID">
+    <column id="258" parent="31" name="DEP_ID">
       <comment>地区编号</comment>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="256" parent="31" name="DEP_NAME">
+    <column id="259" parent="31" name="DEP_NAME">
       <comment>地区名称</comment>
       <data-type>varchar(100)|0</data-type>
     </column>
-    <column id="257" parent="31" name="ENABLED">
+    <column id="260" parent="31" name="ENABLED">
       <comment>是否可用</comment>
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <column id="258" parent="31" name="ACCOUNT_NON_EXPIRED">
+    <column id="261" parent="31" name="ACCOUNT_NON_EXPIRED">
       <comment>是否过期</comment>
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <column id="259" parent="31" name="ACCOUNT_NON_LOCKED">
+    <column id="262" parent="31" name="ACCOUNT_NON_LOCKED">
       <comment>是否锁定</comment>
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <column id="260" parent="31" name="CREDENTIALS_NON_EXPIRED">
+    <column id="263" parent="31" name="CREDENTIALS_NON_EXPIRED">
       <comment>证书是否有效</comment>
       <data-type>tinyint(2)|0</data-type>
     </column>
-    <key id="261" parent="31" name="PRIMARY">
+    <key id="264" parent="31" name="PRIMARY">
       <columns>USER_ID</columns>
       <primary>1</primary>
     </key>
-    <column id="262" parent="32" name="ID">
+    <column id="265" parent="32" name="ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
       <sequence-identity>1</sequence-identity>
     </column>
-    <column id="263" parent="32" name="ROLE_ID">
+    <column id="266" parent="32" name="ROLE_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <column id="264" parent="32" name="USER_ID">
+    <column id="267" parent="32" name="USER_ID">
       <mandatory>1</mandatory>
       <data-type>int(100)|0</data-type>
     </column>
-    <index id="265" parent="32" name="FK_Reference_1">
+    <index id="268" parent="32" name="FK_Reference_1">
       <columns>USER_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <index id="266" parent="32" name="FK_Reference_2">
+    <index id="269" parent="32" name="FK_Reference_2">
       <columns>ROLE_ID</columns>
       <desc-columns></desc-columns>
     </index>
-    <key id="267" parent="32" name="PRIMARY">
+    <key id="270" parent="32" name="PRIMARY">
       <columns>ID</columns>
       <primary>1</primary>
     </key>
-    <foreign-key id="268" parent="32" name="FK_Reference_2">
+    <foreign-key id="271" parent="32" name="FK_Reference_2">
       <columns>ROLE_ID</columns>
       <ref-key>~.SYS_ROLES.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="269" parent="32" name="FK_Reference_1">
+    <foreign-key id="272" parent="32" name="FK_Reference_1">
       <columns>USER_ID</columns>
       <ref-key>~.SYS_USERS.PRIMARY</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>

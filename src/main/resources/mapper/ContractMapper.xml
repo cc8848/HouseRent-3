@@ -1,208 +1,218 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.magic.rent.mapper.ContractMapper" >
-  <cache type="org.mybatis.caches.ehcache.LoggingEhcache">
-    <property name="timeToIdleSeconds" value="3600"/><!--1 hour-->
-    <property name="timeToLiveSeconds" value="3600"/><!--1 hour-->
-    <property name="maxEntriesLocalHeap" value="1000"/>
-    <property name="maxEntriesLocalDisk" value="10000000"/>
-    <property name="memoryStoreEvictionPolicy" value="LRU"/>
-  </cache>
-  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Contract" >
-    <id column="id" property="id" jdbcType="INTEGER" />
-    <result column="CONTRACT_ID" property="contractId" jdbcType="VARCHAR" />
-    <result column="CONTRACT_RENT" property="contractRent" jdbcType="DOUBLE" />
-    <result column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
-    <result column="END_DATA" property="endData" jdbcType="TIMESTAMP" />
-    <result column="LESSEE_ID" property="lesseeId" jdbcType="INTEGER" />
-    <result column="LESSOR_ID" property="lessorId" jdbcType="INTEGER" />
-    <result column="INCLUDE_UTILITIES" property="includeUtilities" jdbcType="TINYINT" />
-    <result column="PAYMENT_ID" property="paymentId" jdbcType="INTEGER" />
-    <result column="ENABLED" property="enabled" jdbcType="TINYINT" />
-    <result column="EXPIRED" property="expired" jdbcType="TINYINT" />
-    <result column="PAY_DATE" property="payDate" jdbcType="TIMESTAMP" />
-    <result column="DEPOSIT" property="deposit" jdbcType="DOUBLE" />
-    <result column="ROOM_ID" property="roomId" jdbcType="INTEGER" />
-  </resultMap>
-  <resultMap id="ContractResultMap" type="com.magic.rent.pojo.Contract">
-      <id column="id" property="id" jdbcType="INTEGER" />
-      <result column="CONTRACT_ID" property="contractId" jdbcType="VARCHAR" />
-      <result column="CONTRACT_RENT" property="contractRent" jdbcType="INTEGER" />
-      <result column="START_DATE" property="startDate" jdbcType="TIMESTAMP" />
-      <result column="END_DATA" property="endData" jdbcType="TIMESTAMP" />
-      <!--<result column="LESSEE_ID" property="lesseeId" jdbcType="INTEGER" />-->
-      <!--<result column="LESSOR_ID" property="lessorId" jdbcType="INTEGER" />-->
-      <result column="INCLUDE_UTILITIES" property="includeUtilities" jdbcType="TINYINT" />
-      <!--<result column="PAYMENT_ID" property="paymentId" jdbcType="INTEGER" />-->
-      <result column="ENABLED" property="enabled" jdbcType="TINYINT" />
-      <result column="EXPIRED" property="expired" jdbcType="TINYINT" />
-      <result column="PAY_DATE" property="payDate" jdbcType="TIMESTAMP" />
-      <result column="DEPOSIT" property="deposit" jdbcType="DOUBLE" />
-      <!--<result column="ROOM_ID" property="roomId" jdbcType="INTEGER" />-->
-  </resultMap>
-  <sql id="Base_Column_List" >
+<mapper namespace="com.magic.rent.mapper.ContractMapper">
+    <cache type="org.mybatis.caches.ehcache.LoggingEhcache">
+        <property name="timeToIdleSeconds" value="3600"/><!--1 hour-->
+        <property name="timeToLiveSeconds" value="3600"/><!--1 hour-->
+        <property name="maxEntriesLocalHeap" value="1000"/>
+        <property name="maxEntriesLocalDisk" value="10000000"/>
+        <property name="memoryStoreEvictionPolicy" value="LRU"/>
+    </cache>
+    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Contract">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="CONTRACT_ID" property="contractId" jdbcType="VARCHAR"/>
+        <result column="CONTRACT_RENT" property="contractRent" jdbcType="DOUBLE"/>
+        <result column="START_DATE" property="startDate" jdbcType="TIMESTAMP"/>
+        <result column="END_DATA" property="endData" jdbcType="TIMESTAMP"/>
+        <result column="LESSEE_ID" property="lesseeId" jdbcType="INTEGER"/>
+        <result column="LESSOR_ID" property="lessorId" jdbcType="INTEGER"/>
+        <result column="INCLUDE_UTILITIES" property="includeUtilities" jdbcType="TINYINT"/>
+        <result column="PAYMENT_ID" property="paymentId" jdbcType="INTEGER"/>
+        <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
+        <result column="EXPIRED" property="expired" jdbcType="TINYINT"/>
+        <result column="PAY_DATE" property="payDate" jdbcType="TIMESTAMP"/>
+        <result column="DEPOSIT" property="deposit" jdbcType="DOUBLE"/>
+        <result column="ROOM_ID" property="roomId" jdbcType="INTEGER"/>
+        <result column="HOUSE_ID" property="houseId" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="ContractResultMap" type="com.magic.rent.pojo.Contract">
+        <id column="id" property="id" jdbcType="INTEGER"/>
+        <result column="CONTRACT_ID" property="contractId" jdbcType="VARCHAR"/>
+        <result column="CONTRACT_RENT" property="contractRent" jdbcType="INTEGER"/>
+        <result column="START_DATE" property="startDate" jdbcType="TIMESTAMP"/>
+        <result column="END_DATA" property="endData" jdbcType="TIMESTAMP"/>
+        <!--<result column="LESSEE_ID" property="lesseeId" jdbcType="INTEGER" />-->
+        <!--<result column="LESSOR_ID" property="lessorId" jdbcType="INTEGER" />-->
+        <result column="INCLUDE_UTILITIES" property="includeUtilities" jdbcType="TINYINT"/>
+        <!--<result column="PAYMENT_ID" property="paymentId" jdbcType="INTEGER" />-->
+        <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
+        <result column="EXPIRED" property="expired" jdbcType="TINYINT"/>
+        <result column="PAY_DATE" property="payDate" jdbcType="TIMESTAMP"/>
+        <result column="DEPOSIT" property="deposit" jdbcType="DOUBLE"/>
+        <!--<result column="ROOM_ID" property="roomId" jdbcType="INTEGER" />-->
+    </resultMap>
+    <sql id="Base_Column_List">
     id, CONTRACT_ID, CONTRACT_RENT, START_DATE, END_DATA, LESSEE_ID, LESSOR_ID, INCLUDE_UTILITIES, 
-    PAYMENT_ID, ENABLED, EXPIRED, PAY_DATE, DEPOSIT, ROOM_ID
+    PAYMENT_ID, ENABLED, EXPIRED, PAY_DATE, DEPOSIT, ROOM_ID,HOUSE_ID
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select
-    <include refid="Base_Column_List" />
-    from CONTRACT
-    where id = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from CONTRACT
+        where id = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from CONTRACT
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.magic.rent.pojo.Contract" >
+    <insert id="insert" parameterType="com.magic.rent.pojo.Contract">
     insert into CONTRACT (id, CONTRACT_ID, CONTRACT_RENT, 
       START_DATE, END_DATA, LESSEE_ID, 
       LESSOR_ID, INCLUDE_UTILITIES, PAYMENT_ID, 
       ENABLED, EXPIRED, PAY_DATE, 
-      DEPOSIT, ROOM_ID)
+      DEPOSIT, ROOM_ID,HOUSE_ID)
     values (#{id,jdbcType=INTEGER}, #{contractId,jdbcType=VARCHAR}, #{contractRent,jdbcType=DOUBLE},
       #{startDate,jdbcType=TIMESTAMP}, #{endData,jdbcType=TIMESTAMP}, #{lesseeId,jdbcType=INTEGER}, 
       #{lessorId,jdbcType=INTEGER}, #{includeUtilities,jdbcType=TINYINT}, #{paymentId,jdbcType=INTEGER}, 
       #{enabled,jdbcType=TINYINT}, #{expired,jdbcType=TINYINT}, #{payDate,jdbcType=TIMESTAMP}, 
-      #{deposit,jdbcType=DOUBLE}, #{roomId,jdbcType=INTEGER})
+      #{deposit,jdbcType=DOUBLE}, #{roomId,jdbcType=INTEGER}),#{houseId,jdbcType=INTEGER}
   </insert>
-  <insert id="insertSelective" parameterType="com.magic.rent.pojo.Contract" >
-    insert into CONTRACT
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        id,
-      </if>
-      <if test="contractId != null" >
-        CONTRACT_ID,
-      </if>
-      <if test="contractRent != null" >
-        CONTRACT_RENT,
-      </if>
-      <if test="startDate != null" >
-        START_DATE,
-      </if>
-      <if test="endData != null" >
-        END_DATA,
-      </if>
-      <if test="lesseeId != null" >
-        LESSEE_ID,
-      </if>
-      <if test="lessorId != null" >
-        LESSOR_ID,
-      </if>
-      <if test="includeUtilities != null" >
-        INCLUDE_UTILITIES,
-      </if>
-      <if test="paymentId != null" >
-        PAYMENT_ID,
-      </if>
-      <if test="enabled != null" >
-        ENABLED,
-      </if>
-      <if test="expired != null" >
-        EXPIRED,
-      </if>
-      <if test="payDate != null" >
-        PAY_DATE,
-      </if>
-      <if test="deposit != null" >
-        DEPOSIT,
-      </if>
-      <if test="roomId != null" >
-        ROOM_ID,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="contractId != null" >
-        #{contractId,jdbcType=VARCHAR},
-      </if>
-      <if test="contractRent != null" >
-        #{contractRent,jdbcType=DOUBLE},
-      </if>
-      <if test="startDate != null" >
-        #{startDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="endData != null" >
-        #{endData,jdbcType=TIMESTAMP},
-      </if>
-      <if test="lesseeId != null" >
-        #{lesseeId,jdbcType=INTEGER},
-      </if>
-      <if test="lessorId != null" >
-        #{lessorId,jdbcType=INTEGER},
-      </if>
-      <if test="includeUtilities != null" >
-        #{includeUtilities,jdbcType=TINYINT},
-      </if>
-      <if test="paymentId != null" >
-        #{paymentId,jdbcType=INTEGER},
-      </if>
-      <if test="enabled != null" >
-        #{enabled,jdbcType=TINYINT},
-      </if>
-      <if test="expired != null" >
-        #{expired,jdbcType=TINYINT},
-      </if>
-      <if test="payDate != null" >
-        #{payDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="deposit != null" >
-        #{deposit,jdbcType=DOUBLE},
-      </if>
-      <if test="roomId != null" >
-        #{roomId,jdbcType=INTEGER},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Contract" >
-    update CONTRACT
-    <set >
-      <if test="contractId != null" >
-        CONTRACT_ID = #{contractId,jdbcType=VARCHAR},
-      </if>
-      <if test="contractRent != null" >
-        CONTRACT_RENT = #{contractRent,jdbcType=DOUBLE},
-      </if>
-      <if test="startDate != null" >
-        START_DATE = #{startDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="endData != null" >
-        END_DATA = #{endData,jdbcType=TIMESTAMP},
-      </if>
-      <if test="lesseeId != null" >
-        LESSEE_ID = #{lesseeId,jdbcType=INTEGER},
-      </if>
-      <if test="lessorId != null" >
-        LESSOR_ID = #{lessorId,jdbcType=INTEGER},
-      </if>
-      <if test="includeUtilities != null" >
-        INCLUDE_UTILITIES = #{includeUtilities,jdbcType=TINYINT},
-      </if>
-      <if test="paymentId != null" >
-        PAYMENT_ID = #{paymentId,jdbcType=INTEGER},
-      </if>
-      <if test="enabled != null" >
-        ENABLED = #{enabled,jdbcType=TINYINT},
-      </if>
-      <if test="expired != null" >
-        EXPIRED = #{expired,jdbcType=TINYINT},
-      </if>
-      <if test="payDate != null" >
-        PAY_DATE = #{payDate,jdbcType=TIMESTAMP},
-      </if>
-      <if test="deposit != null" >
-        DEPOSIT = #{deposit,jdbcType=DOUBLE},
-      </if>
-      <if test="roomId != null" >
-        ROOM_ID = #{roomId,jdbcType=INTEGER},
-      </if>
-    </set>
-    where id = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Contract" >
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.Contract">
+        insert into CONTRACT
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                id,
+            </if>
+            <if test="contractId != null">
+                CONTRACT_ID,
+            </if>
+            <if test="contractRent != null">
+                CONTRACT_RENT,
+            </if>
+            <if test="startDate != null">
+                START_DATE,
+            </if>
+            <if test="endData != null">
+                END_DATA,
+            </if>
+            <if test="lesseeId != null">
+                LESSEE_ID,
+            </if>
+            <if test="lessorId != null">
+                LESSOR_ID,
+            </if>
+            <if test="includeUtilities != null">
+                INCLUDE_UTILITIES,
+            </if>
+            <if test="paymentId != null">
+                PAYMENT_ID,
+            </if>
+            <if test="enabled != null">
+                ENABLED,
+            </if>
+            <if test="expired != null">
+                EXPIRED,
+            </if>
+            <if test="payDate != null">
+                PAY_DATE,
+            </if>
+            <if test="deposit != null">
+                DEPOSIT,
+            </if>
+            <if test="roomId != null">
+                ROOM_ID,
+            </if>
+            <if test="houseId != null">
+                HOUSE_ID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="contractId != null">
+                #{contractId,jdbcType=VARCHAR},
+            </if>
+            <if test="contractRent != null">
+                #{contractRent,jdbcType=DOUBLE},
+            </if>
+            <if test="startDate != null">
+                #{startDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="endData != null">
+                #{endData,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lesseeId != null">
+                #{lesseeId,jdbcType=INTEGER},
+            </if>
+            <if test="lessorId != null">
+                #{lessorId,jdbcType=INTEGER},
+            </if>
+            <if test="includeUtilities != null">
+                #{includeUtilities,jdbcType=TINYINT},
+            </if>
+            <if test="paymentId != null">
+                #{paymentId,jdbcType=INTEGER},
+            </if>
+            <if test="enabled != null">
+                #{enabled,jdbcType=TINYINT},
+            </if>
+            <if test="expired != null">
+                #{expired,jdbcType=TINYINT},
+            </if>
+            <if test="payDate != null">
+                #{payDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deposit != null">
+                #{deposit,jdbcType=DOUBLE},
+            </if>
+            <if test="roomId != null">
+                #{roomId,jdbcType=INTEGER},
+            </if>
+            <if test="houseId != null">
+                #{houseId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Contract">
+        update CONTRACT
+        <set>
+            <if test="contractId != null">
+                CONTRACT_ID = #{contractId,jdbcType=VARCHAR},
+            </if>
+            <if test="contractRent != null">
+                CONTRACT_RENT = #{contractRent,jdbcType=DOUBLE},
+            </if>
+            <if test="startDate != null">
+                START_DATE = #{startDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="endData != null">
+                END_DATA = #{endData,jdbcType=TIMESTAMP},
+            </if>
+            <if test="lesseeId != null">
+                LESSEE_ID = #{lesseeId,jdbcType=INTEGER},
+            </if>
+            <if test="lessorId != null">
+                LESSOR_ID = #{lessorId,jdbcType=INTEGER},
+            </if>
+            <if test="includeUtilities != null">
+                INCLUDE_UTILITIES = #{includeUtilities,jdbcType=TINYINT},
+            </if>
+            <if test="paymentId != null">
+                PAYMENT_ID = #{paymentId,jdbcType=INTEGER},
+            </if>
+            <if test="enabled != null">
+                ENABLED = #{enabled,jdbcType=TINYINT},
+            </if>
+            <if test="expired != null">
+                EXPIRED = #{expired,jdbcType=TINYINT},
+            </if>
+            <if test="payDate != null">
+                PAY_DATE = #{payDate,jdbcType=TIMESTAMP},
+            </if>
+            <if test="deposit != null">
+                DEPOSIT = #{deposit,jdbcType=DOUBLE},
+            </if>
+            <if test="roomId != null">
+                ROOM_ID = #{roomId,jdbcType=INTEGER},
+            </if>
+            <if test="houseId != null">
+                HOUSE_ID = #{houseId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where id = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Contract">
     update CONTRACT
     set CONTRACT_ID = #{contractId,jdbcType=VARCHAR},
       CONTRACT_RENT = #{contractRent,jdbcType=DOUBLE},

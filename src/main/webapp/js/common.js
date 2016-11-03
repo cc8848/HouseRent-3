@@ -30,3 +30,5 @@ function userInfoShow() {
 function logout() {
     $("#logout-form").submit();
 }
+
+

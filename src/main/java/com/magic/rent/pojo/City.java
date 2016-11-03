@@ -74,4 +74,16 @@ public class City implements Serializable, Address {
     public String getAddressName() {
         return getCityname();
     }
+
+    @Override
+    public String toString() {
+        return "City{" +
+                "id=" + id +
+                ", cityid=" + cityid +
+                ", cityname='" + cityname + '\'' +
+                ", provinceID=" + provinceID +
+                ", areas=" + areas +
+                ", enable=" + enable +
+                '}';
+    }
 }

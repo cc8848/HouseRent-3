@@ -43,6 +43,6 @@ public class HouseServiceImpl implements IHouseService {
     }
 
     public House selectByHouseID(int houseID) throws Exception {
-        return houseMapper.selectByPrimaryKey(houseID);
+        return houseMapper.selectHouseDetailByID(houseID);
     }
 }

@@ -5,7 +5,7 @@ import java.io.Serializable;
 public class HouseLayout implements Serializable {
 
     private static final long serialVersionUID = 4618160301633644716L;
-    
+
     private int id;
 
     private String name;
@@ -24,5 +24,13 @@ public class HouseLayout implements Serializable {
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "HouseLayout{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                '}';
     }
 }

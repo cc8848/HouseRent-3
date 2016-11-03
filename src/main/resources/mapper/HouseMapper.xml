@@ -12,7 +12,7 @@
         <id column="ID" property="id" jdbcType="INTEGER"/>
         <result column="NAME" property="name" jdbcType="VARCHAR"/>
         <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
-        <result column="EXPECT_RENT" property="expectRent" jdbcType="INTEGER"/>
+        <result column="EXPECT_RENT" property="expectRent" jdbcType="DOUBLE"/>
         <result column="VR_PATH" property="vrPath" jdbcType="VARCHAR"/>
         <result column="THUMBNAIL_PATH" property="thumbnailPath" jdbcType="VARCHAR"/>
         <result column="COMMUNITY_ID" property="communityId" jdbcType="INTEGER"/>
@@ -33,7 +33,7 @@
         <id column="ID" property="id" jdbcType="INTEGER"/>
         <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
         <result column="NAME" property="name" jdbcType="VARCHAR"/>
-        <result column="EXPECT_RENT" property="expectRent" jdbcType="INTEGER"/>
+        <result column="EXPECT_RENT" property="expectRent" jdbcType="DOUBLE"/>
         <result column="FLOOR" property="floor" jdbcType="INTEGER"/>
         <result column="ROOM" property="room" jdbcType="INTEGER"/>
         <result column="HAVE_KITCKEN" property="haveKitcken" jdbcType="TINYINT"/>
@@ -67,12 +67,42 @@
             <result column="rentMODE_Name" property="name" jdbcType="VARCHAR"/>
         </collection>
     </resultMap>
-    <resultMap id="houseDetail" type="com.magic.rent.pojo.House" extends="housesList">
-        <result column="VR_PATH" property="vrPath" jdbcType="VARCHAR"/>
+    <resultMap id="houseDetail" type="com.magic.rent.pojo.House" extends="BaseResultMap">
         <association property="province" resultMap="com.magic.rent.mapper.ProvinceMapper.province"/>
         <association property="city" resultMap="com.magic.rent.mapper.CityMapper.city"/>
+        <association property="area" resultMap="com.magic.rent.mapper.AreaMapper.area"/>
+        <association property="houseLayout" javaType="com.magic.rent.pojo.HouseLayout">
+            <id column="layout_ID" property="id" jdbcType="INTEGER"/>
+            <result column="layout_Name" property="name" jdbcType="VARCHAR"/>
+        </association>
+        <association property="community" javaType="com.magic.rent.pojo.Community">
+            <id column="community_ID" property="id" jdbcType="INTEGER"/>
+            <result column="community_Name" property="name" jdbcType="VARCHAR"/>
+        </association>
+        <association property="decorationType" javaType="com.magic.rent.pojo.DecorationType">
+            <id column="decorationType_ID" property="id" jdbcType="INTEGER"/>
+            <result column="decorationType_Name" property="name" jdbcType="VARCHAR"/>
+        </association>
+        <association property="houseStatus" javaType="com.magic.rent.pojo.HouseStatus">
+            <id column="houseStatus_ID" property="id" jdbcType="INTEGER"/>
+            <result column="houseStatus_Name" property="statusName" jdbcType="VARCHAR"/>
+        </association>
+        <association property="expectPayment" javaType="com.magic.rent.pojo.Payment">
+            <id column="payment_ID" property="id" jdbcType="INTEGER"/>
+            <result column="PAYMENT_Name" property="paymentName" jdbcType="VARCHAR"/>
+        </association>
+        <collection property="rentModeList" ofType="com.magic.rent.pojo.RentMode">
+            <id column="rentMODE_ID" property="id" jdbcType="INTEGER"/>
+            <result column="rentMODE_Name" property="name" jdbcType="VARCHAR"/>
+        </collection>
+        <collection property="roomsList" ofType="com.magic.rent.pojo.Rooms">
+            <id column="room_ID" property="id" jdbcType="INTEGER"/>
+            <result column="ROOM_NO" property="roomNo" jdbcType="VARCHAR"/>
+            <result column="AREA_NUMBER" property="areaNumber" jdbcType="DOUBLE"/>
+            <result column="HAVE_WASHROOM" property="haveWashroom" jdbcType="TINYINT"/>
+            <result column="HAVE_KITCKEN" property="haveKitcken" jdbcType="TINYINT"/>
+        </collection>
     </resultMap>
-
     <sql id="Base_Column_List">
     ID, NAME, ADDRESS, EXPECT_RENT, VR_PATH, THUMBNAIL_PATH, COMMUNITY_ID, FLOOR, LAYOUT_ID, 
     DECORATION_TYPE_ID, PROVINCE_ID, CITY_ID, AREA_ID, HAVE_KITCKEN, HAVE_BALCONY, HOUSE_STATUS_ID, 
@@ -236,7 +266,7 @@
                 ADDRESS = #{address,jdbcType=VARCHAR},
             </if>
             <if test="expectRent != null">
-                EXPECT_RENT = #{expectRent,jdbcType=INTEGER},
+                EXPECT_RENT = #{expectRent,jdbcType=DOUBLE},
             </if>
             <if test="vrPath != null">
                 VR_PATH = #{vrPath,jdbcType=VARCHAR},
@@ -290,7 +320,7 @@
     update HOUSE
     set NAME = #{name,jdbcType=VARCHAR},
       ADDRESS = #{address,jdbcType=VARCHAR},
-      EXPECT_RENT = #{expectRent,jdbcType=INTEGER},
+      EXPECT_RENT = #{expectRent,jdbcType=DOUBLE},
       VR_PATH = #{vrPath,jdbcType=VARCHAR},
       THUMBNAIL_PATH = #{thumbnailPath,jdbcType=VARCHAR},
       COMMUNITY_ID = #{communityId,jdbcType=INTEGER},
@@ -390,5 +420,42 @@
             </if>
             AND HOUSE.ENABLED &gt; 0
         </where>
+    </select>
+    <select id="selectHouseDetailByID" parameterType="INTEGER" resultMap="houseDetail">
+        SELECT
+          HOUSE.ID,
+          HOUSE.NAME,
+          HOUSE.FLOOR,
+          HOUSE.EXPECT_RENT,
+          HOUSE.AREA_NUMBER,
+          HOUSE.HAVE_KITCKEN,
+          HOUSE.HAVE_BALCONY,
+          PROVINCE.provinceName,
+          CITY.cityName,
+          AREA.areaName,
+          COMMUNITY.NAME           community_Name,
+          HOUSE_LAYOUT.NAME        layout_Name,
+          DECORATION_TYPE.NAME     decorationType_Name,
+          HOUSE_STATUS.STATUS_NAME houseStatus_Name,
+          PAYMENT.PAYMENT_NAME     PAYMENT_Name,
+          RENT_MODE.NAME           rentMODE_Name,
+          ROOMS.ID                 room_ID,
+          ROOMS.ROOM_NO,
+          ROOMS.AREA_NUMBER,
+          ROOMS.HAVE_KITCKEN,
+          ROOMS.HAVE_WASHROOM
+        FROM HOUSE
+          JOIN PROVINCE ON HOUSE.PROVINCE_ID = PROVINCE.provinceID
+          JOIN CITY ON HOUSE.CITY_ID = CITY.cityID
+          JOIN AREA ON HOUSE.AREA_ID = AREA.areaID
+          JOIN COMMUNITY ON HOUSE.COMMUNITY_ID = COMMUNITY.ID
+          JOIN HOUSE_LAYOUT ON HOUSE.LAYOUT_ID = HOUSE_LAYOUT.ID
+          JOIN DECORATION_TYPE ON HOUSE.DECORATION_TYPE_ID = DECORATION_TYPE.ID
+          JOIN HOUSE_STATUS ON HOUSE.HOUSE_STATUS_ID = HOUSE_STATUS.ID
+          JOIN PAYMENT ON HOUSE.EXPECT_PAYMENT_ID = PAYMENT.ID
+          JOIN HOUSE_RENT_MODE ON HOUSE.ID = HOUSE_RENT_MODE.HOUSE_ID
+          JOIN RENT_MODE ON HOUSE_RENT_MODE.RENT_MODE_ID = RENT_MODE.ID
+          JOIN ROOMS ON HOUSE.ID = ROOMS.HOUSE_ID
+        WHERE HOUSE.ID = #{id,jdbcType=INTEGER}
     </select>
 </mapper>

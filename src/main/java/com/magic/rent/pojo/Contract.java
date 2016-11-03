@@ -40,6 +40,9 @@ public class Contract implements Serializable {
     private int roomId;//房间ID
     private Rooms rooms;//对应房间
 
+    private int houseId;//房屋ID
+    private House house;//对应房屋
+
     public Rooms getRooms() {
         return rooms;
     }
@@ -184,6 +187,22 @@ public class Contract implements Serializable {
         this.payment = payment;
     }
 
+    public int getHouseId() {
+        return houseId;
+    }
+
+    public void setHouseId(int houseId) {
+        this.houseId = houseId;
+    }
+
+    public House getHouse() {
+        return house;
+    }
+
+    public void setHouse(House house) {
+        this.house = house;
+    }
+
     @Override
     public String toString() {
         return "Contract{" +
@@ -205,6 +224,8 @@ public class Contract implements Serializable {
                 ", deposit=" + deposit +
                 ", roomId=" + roomId +
                 ", rooms=" + rooms +
+                ", houseId=" + houseId +
+                ", house=" + house +
                 '}';
     }
 }

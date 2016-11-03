@@ -27,13 +27,13 @@ body {
     margin: 20px 0;
 }
 
-.divider-xs{
+.divider-xs {
     height: 2px;
     margin: 9px 0;
     background-color: #e5e5e5
 }
 
-.pic-align-center{
+.pic-align-center {
     clear: both;
     display: block;
     margin: auto;
@@ -43,7 +43,14 @@ body {
     display: inline;
     float: left;
 }
+
 .pic-align-right {
     display: inline;
     float: right;
+}
+
+.input-check {
+    float: left;
+    margin-bottom: 5px;
+    margin-right: 3px;
 }
