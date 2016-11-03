@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rent.log" afterPath="$PROJECT_DIR$/logs/rent.log" />
-    </list>
+    <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="" />
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -1089,7 +1086,7 @@
       <workItem from="1478071091126" duration="9972000" />
       <workItem from="1478102890011" duration="3760000" />
       <workItem from="1478107064710" duration="17152000" />
-      <workItem from="1478173368468" duration="11027000" />
+      <workItem from="1478173368468" duration="11043000" />
     </task>
     <task id="LOCAL-00001" summary="2016年10月31日22:43:46">
       <created>1477925076681</created>
@@ -1182,7 +1179,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478186795365</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="2016年11月04日07:22:26">
+      <created>1478215353146</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1478215353146</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1200,7 +1204,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="102542000" />
+    <option name="totallyTimeSpent" value="102558000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-32" width="1920" height="1057" extended-state="6" />
@@ -1291,7 +1295,8 @@
     <MESSAGE value="2016年11月02日23:39:25" />
     <MESSAGE value="2016年11月02日23:40:23" />
     <MESSAGE value="2016年11月03日23:26:25" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年11月03日23:26:25" />
+    <MESSAGE value="2016年11月04日07:22:26" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年11月04日07:22:26" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
