@@ -29,9 +29,5 @@ public class PageController {
     public String search() {
         return "search";
     }
-
-//    @RequestMapping("/goods")
-//    public String goods() {
-//        return "goods";
-//    }
+    
 }

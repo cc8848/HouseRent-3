@@ -101,6 +101,7 @@
             <result column="AREA_NUMBER" property="areaNumber" jdbcType="DOUBLE"/>
             <result column="HAVE_WASHROOM" property="haveWashroom" jdbcType="TINYINT"/>
             <result column="HAVE_KITCKEN" property="haveKitcken" jdbcType="TINYINT"/>
+            <result column="room_ExpectRent" property="expectRent" jdbcType="DOUBLE"/>
         </collection>
     </resultMap>
     <sql id="Base_Column_List">
@@ -438,12 +439,14 @@
           DECORATION_TYPE.NAME     decorationType_Name,
           HOUSE_STATUS.STATUS_NAME houseStatus_Name,
           PAYMENT.PAYMENT_NAME     PAYMENT_Name,
+          RENT_MODE.ID             rentMODE_ID,
           RENT_MODE.NAME           rentMODE_Name,
           ROOMS.ID                 room_ID,
           ROOMS.ROOM_NO,
           ROOMS.AREA_NUMBER,
           ROOMS.HAVE_KITCKEN,
-          ROOMS.HAVE_WASHROOM
+          ROOMS.HAVE_WASHROOM,
+          ROOMS.EXPECT_RENT        room_ExpectRent
         FROM HOUSE
           JOIN PROVINCE ON HOUSE.PROVINCE_ID = PROVINCE.provinceID
           JOIN CITY ON HOUSE.CITY_ID = CITY.cityID

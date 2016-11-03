@@ -6,3 +6,9 @@ function checkInit() {
         radioClass: 'iradio_flat-blue'
     });
 }
+
+$(document).ready(selectHouseDetail());
+
+function selectHouseDetail() {
+    $.getJSON('/')
+}

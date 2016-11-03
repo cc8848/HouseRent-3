@@ -76,46 +76,54 @@
         <%--房屋说明--%>
         <div class="col-sm-6">
             <ul class="nav nav-tabs">
-                <li id="share-tab" class="active">
-                    <a href="#share-content" data-toggle="tab">分租</a>
-                </li>
-                <li id="whole-tab">
-                    <a href="#whole-content" data-toggle="tab">整租</a>
-                </li>
-                <li id="sublet-tab">
-                    <a href="#sublet-content" data-toggle="tab">转租</a>
-                </li>
+                <c:forEach items="${requestScope.house.rentModeList}" var="rentMode" varStatus="sta">
+                    <c:choose>
+                        <c:when test="${sta.first}">
+                            <li id="${rentMode.id}-tab" class="active">
+                                <a href="#${rentMode.id}-content" data-toggle="tab">${rentMode.name}</a>
+                            </li>
+                        </c:when>
+                        <c:when test="${!sta.first}">
+                            <li id="${rentMode.id}-tab">
+                                <a href="#${rentMode.id}-content" data-toggle="tab">${rentMode.name}</a>
+                            </li>
+                        </c:when>
+                    </c:choose>
+                </c:forEach>
             </ul>
             <div class="white-divider-md"></div>
             <div class="tab-content">
-                <div id="share-content" class="tab-pane active">
-                    <div class="input-check">
-                        <input id="check" type="checkbox">&nbsp;
-                        <label for="check" class="label label-danger">01号：￥2000/月</label>
-                    </div>
-                    <div class="input-check">
-                        <input id="check2" type="checkbox">&nbsp;
-                        <label for="check2" class="label label-danger">02号：￥2000/月</label>
-                    </div>
-                    <div class="input-check">
-                        <input id="check3" type="checkbox">&nbsp;
-                        <label for="check3" class="label label-danger">03号：￥2000/月</label>
-                    </div>
-                    <div class="input-check">
-                        <input id="check4" type="checkbox">&nbsp;
-                        <label for="check4" class="label label-danger">04号：￥2000/月</label>
-                    </div>
-                    <div class="input-check">
-                        <input id="check5" type="checkbox">&nbsp;
-                        <label for="check5" class="label label-danger">05号：￥2000/月</label>
-                    </div>
-                </div>
-                <div id="whole-content" class="tab-pane">
-                    整租
-                </div>
-                <div id="sublet-content" class="tab-pane">
-                    转租
-                </div>
+                <c:forEach items="${requestScope.house.rentModeList}" var="rentMode" varStatus="sta2">
+                    <c:if test="${sta2.first}">
+                        <c:set var="act" value="active" scope="page"/>
+                    </c:if>
+                    <c:if test="${!sta2.first}">
+                        <c:set var="act" value="" scope="page"/>
+                    </c:if>
+                    <c:if test="${rentMode.id==1}">
+                        <div id="${rentMode.id}-content" class="tab-pane ${pageScope.act}">
+                            <c:forEach items="${requestScope.house.roomsList}" var="room">
+                                <div class="input-check">
+                                    <input id="check-${room.id}" type="checkbox">&nbsp;
+                                    <label for="check-${room.id}" class="label label-danger">
+                                            ${room.roomNo}号房：￥${room.expectRent}/月
+                                    </label>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </c:if>
+                    <c:if test="${rentMode.id==2}">
+                        <div id="${rentMode.id}-content" class="tab-pane ${pageScope.act}">
+                                ${rentMode.name}
+                        </div>
+                    </c:if>
+                    <c:if test="${rentMode.id==3}">
+                        <div id="${rentMode.id}-content" class="tab-pane ${pageScope.act}">
+                                ${rentMode.name}
+                        </div>
+                    </c:if>
+                </c:forEach>
+
             </div>
         </div>
     </div>
