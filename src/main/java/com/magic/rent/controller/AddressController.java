@@ -1,11 +1,11 @@
 package com.magic.rent.controller;
 
+import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.pojo.SelectPoJo;
 import com.magic.rent.service.IAddressService;
 import com.magic.rent.util.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,13 +22,10 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/address")
-public class AddressController {
+public class AddressController extends BaseController {
 
     @Autowired
     private IAddressService iAddressService;
-
-    @Autowired
-    private MessageSourceAccessor messageSourceAccessor;
 
     @ResponseBody
     @RequestMapping("/getAllProvince")

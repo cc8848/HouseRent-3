@@ -45,7 +45,6 @@
         <property name="successURL" value="/user/home"/>
         <property name="failURL" value="/user/login"/>
         <property name="attrName" value="loginResult"/>
-        <property name="byForward" value="false"/>
         <property name="userInfo" value="userInfo"/>
     </bean>
 

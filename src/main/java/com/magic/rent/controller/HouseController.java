@@ -1,6 +1,7 @@
 package com.magic.rent.controller;
 
 import com.github.pagehelper.PageInfo;
+import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.pojo.Community;
 import com.magic.rent.pojo.House;
@@ -29,16 +30,13 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/house")
-public class HouseController {
+public class HouseController extends BaseController{
 
     @Autowired
     private IHouseService iHouseService;
 
     @Autowired
     private IHouseRecommendService iHouseRecommendService;
-
-    @Autowired
-    private MessageSourceAccessor messageSourceAccessor;
 
     @ResponseBody
     @RequestMapping("/selectHousesByCommunity")

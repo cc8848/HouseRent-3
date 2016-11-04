@@ -100,7 +100,7 @@
                                         <span class="sr-only">Close</span>
                                     </button>
                                     <span class="glyphicon glyphicon-remove-circle"></span>
-                                    <c:out value="${sessionScope.loginResult.message}"/>
+                                    <c:out value="${requestScope.loginResult.message}"/>
                                 </div>
                             </div>
                         </form><%--登录 end--%>
@@ -221,7 +221,7 @@
 <script type="text/javascript">
     $(document).ready(function () {
         var loginErrorMessage = $("#login-errorMessage");
-        if (${sessionScope.loginResult.message!=null}) {
+        if (${requestScope.loginResult.message!=null}) {
             loginErrorMessage.removeClass("hidden");
         } else {
             loginErrorMessage.addClass("hidden");

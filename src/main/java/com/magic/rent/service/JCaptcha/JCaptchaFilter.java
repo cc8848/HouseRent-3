@@ -52,8 +52,6 @@ public class JCaptchaFilter implements Filter {
 
     private CaptchaService captchaService;
 
-    private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
-
     private static Logger logger = LoggerFactory.getLogger(JCaptchaFilter.class);
 
     public void init(FilterConfig filterConfig) throws ServletException {
@@ -96,7 +94,7 @@ public class JCaptchaFilter implements Filter {
             throw new IllegalArgumentException("CaptchaFilter缺少failureUrl参数");
         }
         failureUrl = fConfig.getInitParameter(PARAM_FAILURE_URL);
-        logger.info("参数初始化:验证失败后跳转链接[{}]", failureUrl);
+        logger.info("参数初始化:验证失败后跳转的链接地址为-[{}]", failureUrl);
 
         if (StringUtils.isNotBlank(fConfig.getInitParameter(PARAM_FILTER_PROCESSES_URL))) {
             filterProcessesUrl = fConfig.getInitParameter(PARAM_FILTER_PROCESSES_URL);
@@ -183,9 +181,9 @@ public class JCaptchaFilter implements Filter {
             throws IOException {
         logger.info("验证码验证失败:请求IP地址[{}]", HttpUtil.getIP(request));
         JsonResult jsonResult = JsonResult.error("验证码输入错误!");
-        request.getSession().setAttribute("loginResult", jsonResult);
+        request.setAttribute("loginResult", jsonResult);
         try {
-            this.redirectStrategy.sendRedirect(request, response, "user/login");
+            request.getRequestDispatcher(failureUrl).forward(request, response);
         } catch (Exception e) {
             logger.error("验证码验证失败后跳转", e);
         }

@@ -25,13 +25,12 @@
 <%--head start--%>
 <c:import url="/WEB-INF/common/common_head.jsp"/>
 <%--head end--%>
-<div class="white-divider-md"></div>
 <div class="container">
     <%--标题部分--%>
     <div class="row">
         <div class="col-xs-12 page-header">
             <h3>${requestScope.house.name}
-                <small>你值得拥有！</small>
+                <small>No.<span id="houseID">${requestScope.house.id}</span></small>
                 <div class="btn-toolbar pull-right" role="toolbar">
                     <div class="btn-group">
                         <button type="button" class="btn btn-warning">
@@ -61,7 +60,6 @@
                     </div>
                 </div>
             </h3>
-
         </div>
     </div>
     <div class="row">
@@ -75,55 +73,90 @@
         <div class="visible-xs white-divider-md"></div>
         <%--房屋说明--%>
         <div class="col-sm-6">
+            <div class="table-responsive">
+                <table class="table">
+                    <tbody>
+                    <%--<tr style="border-top: hidden">--%>
+                        <%--<th colspan="4" style="text-align: right"><h4>房屋基本信息</h4></th>--%>
+                    <%--</tr>--%>
+                    <tr class="warning">
+                        <td>社区：</td>
+                        <td><a href="${requestScope.house.community.id}"
+                               target="_blank">${requestScope.house.community.name}</a></td>
+                        <td>楼层：</td>
+                        <td>${requestScope.house.floor}楼</td>
+                    </tr>
+                    <tr>
+                        <td>布局：</td>
+                        <td>${requestScope.house.houseLayout.name}</td>
+                        <td>装修：</td>
+                        <td>${requestScope.house.decorationType.name}</td>
+                    </tr>
+                    <tr class="warning">
+                        <td>付租方式：</td>
+                        <td>${requestScope.house.expectPayment.paymentName}</td>
+                        <td>房屋状态：</td>
+                        <td>${requestScope.house.houseStatus.statusName}</td>
+                    </tr>
+                    <tr>
+                        <td>房屋面积：</td>
+                        <td>${requestScope.house.areaNumber}㎡</td>
+                        <td></td>
+                        <td></td>
+                    </tr>
+                    <tr class="warning">
+                        <td>是否带厨房：</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${requestScope.house.haveKitcken}">
+                                    <c:out value="是"/>
+                                </c:when>
+                                <c:when test="${!requestScope.house.haveKitcken}">
+                                    <c:out value="否"/>
+                                </c:when>
+                            </c:choose>
+                        </td>
+                        <td>是否带阳台：</td>
+                        <td>
+                            <c:choose>
+                                <c:when test="${requestScope.house.haveBalcony}">
+                                    <c:out value="是"/>
+                                </c:when>
+                                <c:when test="${!requestScope.house.haveBalcony}">
+                                    <c:out value="否"/>
+                                </c:when>
+                            </c:choose>
+                        </td>
+                    </tr>
+                    </tbody>
+                </table>
+            </div>
             <ul class="nav nav-tabs">
-                <c:forEach items="${requestScope.house.rentModeList}" var="rentMode" varStatus="sta">
-                    <c:choose>
-                        <c:when test="${sta.first}">
-                            <li id="${rentMode.id}-tab" class="active">
-                                <a href="#${rentMode.id}-content" data-toggle="tab">${rentMode.name}</a>
-                            </li>
-                        </c:when>
-                        <c:when test="${!sta.first}">
-                            <li id="${rentMode.id}-tab">
-                                <a href="#${rentMode.id}-content" data-toggle="tab">${rentMode.name}</a>
-                            </li>
-                        </c:when>
-                    </c:choose>
-                </c:forEach>
+                <li id="share-tab" class="active">
+                    <a href="#share-content" data-toggle="tab">分租</a>
+                </li>
+                <li id="whole-tab">
+                    <a href="#whole-content" data-toggle="tab">整租</a>
+                </li>
+                <li id="sublet-tab">
+                    <a href="#sublet-content" data-toggle="tab">转租</a>
+                </li>
             </ul>
             <div class="white-divider-md"></div>
             <div class="tab-content">
-                <c:forEach items="${requestScope.house.rentModeList}" var="rentMode" varStatus="sta2">
-                    <c:if test="${sta2.first}">
-                        <c:set var="act" value="active" scope="page"/>
-                    </c:if>
-                    <c:if test="${!sta2.first}">
-                        <c:set var="act" value="" scope="page"/>
-                    </c:if>
-                    <c:if test="${rentMode.id==1}">
-                        <div id="${rentMode.id}-content" class="tab-pane ${pageScope.act}">
-                            <c:forEach items="${requestScope.house.roomsList}" var="room">
-                                <div class="input-check">
-                                    <input id="check-${room.id}" type="checkbox">&nbsp;
-                                    <label for="check-${room.id}" class="label label-danger">
-                                            ${room.roomNo}号房：￥${room.expectRent}/月
-                                    </label>
-                                </div>
-                            </c:forEach>
-                        </div>
-                    </c:if>
-                    <c:if test="${rentMode.id==2}">
-                        <div id="${rentMode.id}-content" class="tab-pane ${pageScope.act}">
-                                ${rentMode.name}
-                        </div>
-                    </c:if>
-                    <c:if test="${rentMode.id==3}">
-                        <div id="${rentMode.id}-content" class="tab-pane ${pageScope.act}">
-                                ${rentMode.name}
-                        </div>
-                    </c:if>
-                </c:forEach>
+                <div id="share-content" class="tab-pane active">
+                    <div class="input-check">
+                        <input id="check-share" type="checkbox">&nbsp;
+                        <label for="check-share" class="label label-danger">
+                            ￥2000/月
+                        </label>
+                    </div>
+                </div>
+                <div id="whole-content" class="tab-pane">
 
+                </div>
+                <div id="sublet-content" class="tab-pane">
+                </div>
             </div>
         </div>
     </div>

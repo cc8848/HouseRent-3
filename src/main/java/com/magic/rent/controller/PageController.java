@@ -1,5 +1,6 @@
 package com.magic.rent.controller;
 
+import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.pojo.HouseRecommend;
 import com.magic.rent.service.IHouseRecommendService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -18,7 +19,7 @@ import java.util.List;
  */
 @Controller
 @RequestMapping("/*")
-public class PageController {
+public class PageController extends BaseController {
 
     @RequestMapping("/index")
     public String index() {

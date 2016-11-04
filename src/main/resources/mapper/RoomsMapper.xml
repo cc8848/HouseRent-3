@@ -121,4 +121,16 @@
       EXPECT_RENT = #{expectRent,jdbcType=DOUBLE}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+    <select id="selectByHouseID" parameterType="INTEGER" resultMap="BaseResultMap">
+        SELECT
+          ROOMS.ID,
+          ROOMS.ROOM_NO,
+          ROOMS.AREA_NUMBER,
+          ROOMS.EXPECT_RENT,
+          ROOMS.HAVE_WASHROOM,
+          ROOMS.HAVE_KITCKEN
+        FROM ROOMS
+        WHERE ROOMS.HOUSE_ID=#{houseID,jdbcType=INTEGER}
+    </select>
+
 </mapper>

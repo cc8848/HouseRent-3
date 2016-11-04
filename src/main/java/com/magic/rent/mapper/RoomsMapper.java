@@ -1,7 +1,11 @@
 package com.magic.rent.mapper;
 
 import com.magic.rent.pojo.Rooms;
+import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
+@Repository
 public interface RoomsMapper {
     int deleteByPrimaryKey(int id);
 
@@ -14,4 +18,6 @@ public interface RoomsMapper {
     int updateByPrimaryKeySelective(Rooms record);
 
     int updateByPrimaryKey(Rooms record);
+
+    List<Rooms> selectByHouseID(int houseID);
 }

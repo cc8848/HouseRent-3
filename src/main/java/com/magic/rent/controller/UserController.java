@@ -1,5 +1,6 @@
 package com.magic.rent.controller;
 
+import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
 import com.magic.rent.util.JsonResult;
@@ -21,7 +22,7 @@ import javax.servlet.http.HttpServletResponse;
  */
 @Controller
 @RequestMapping("/user")
-public class UserController {
+public class UserController extends BaseController {
 
     @Autowired
     private IUserService iUserService;
