@@ -73,11 +73,11 @@
         <div class="visible-xs white-divider-md"></div>
         <%--房屋说明--%>
         <div class="col-sm-6">
-            <div class="table-responsive">
+            <div id="info-table" class="table-responsive">
                 <table class="table">
                     <tbody>
                     <%--<tr style="border-top: hidden">--%>
-                        <%--<th colspan="4" style="text-align: right"><h4>房屋基本信息</h4></th>--%>
+                    <%--<th colspan="4" style="text-align: right"><h4>房屋基本信息</h4></th>--%>
                     <%--</tr>--%>
                     <tr class="warning">
                         <td>社区：</td>
@@ -131,42 +131,23 @@
                     </tbody>
                 </table>
             </div>
-            <ul class="nav nav-tabs">
-                <li id="share-tab" class="active">
-                    <a href="#share-content" data-toggle="tab">分租</a>
-                </li>
-                <li id="whole-tab">
-                    <a href="#whole-content" data-toggle="tab">整租</a>
-                </li>
-                <li id="sublet-tab">
-                    <a href="#sublet-content" data-toggle="tab">转租</a>
-                </li>
-            </ul>
-            <div class="white-divider-md"></div>
-            <div class="tab-content">
-                <div id="share-content" class="tab-pane active">
-                    <div class="input-check">
-                        <input id="check-share" type="checkbox">&nbsp;
-                        <label for="check-share" class="label label-danger">
-                            ￥2000/月
-                        </label>
-                    </div>
-                </div>
-                <div id="whole-content" class="tab-pane">
+            <%--<div class="white-divider-md"></div>--%>
+            <%--<div class="tab-content">--%>
+                <%--<div id="share-content" class="tab-pane active">--%>
+                    <%--<div class="input-check">--%>
+                        <%--<input id="check-share" type="checkbox">&nbsp;--%>
+                        <%--<label for="check-share" class="label label-danger">--%>
+                            <%--￥2000/月--%>
+                        <%--</label>--%>
+                    <%--</div>--%>
+                <%--</div>--%>
+                <%--<div id="whole-content" class="tab-pane">--%>
 
-                </div>
-                <div id="sublet-content" class="tab-pane">
-                </div>
-            </div>
+                <%--</div>--%>
+                <%--<div id="sublet-content" class="tab-pane">--%>
+                <%--</div>--%>
+            <%--</div>--%>
         </div>
-    </div>
-</div>
-<div class="container">
-    <div class="row">
-        <ul>
-            <li>ID:${requestScope.house.id}</li>
-            <li>expectRent:${requestScope.house.expectRent}</li>
-        </ul>
     </div>
 </div>
 
@@ -174,13 +155,41 @@
 <script type="text/javascript" src="../../js/jquery.js"></script>
 <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/icheck.min.js"></script>
+<script type="text/javascript" src="../../js/template.js"></script>
 <script type="text/javascript" src="../../js/common.js"></script>
 <script type="text/javascript" src="../../js/goods.js"></script>
 <script type="text/javascript" src="../../js/tour.js"></script>
-<script>
+<script id="rentMode" type="text/html">
+    <ul class="nav nav-tabs">
+        {{each data as rentMode index}}
+        {{if index==0}}
+        <li class="active">
+            <a href="#content-{{rentMode.id}}" data-toggle="tab">{{rentMode.name}}</a>
+        </li>
+        {{else}}
+        <li>
+            <a href="#content-{{rentMode.id}}" data-toggle="tab">{{rentMode.name}}</a>
+        </li>
+        {{/if}}
+        <div class="white-divider-md"></div>
+        <div class="tab-content">
+            <div id="content-{{rentMode.id}}" class="tab-pane active">
+                <div class="input-check">
+                    <input id="check-share" type="checkbox">&nbsp;
+                    <label for="check-share" class="label label-danger">
+                        ￥2000/月
+                    </label>
+                </div>
+            </div>
+            <div id="whole-content" class="tab-pane">
 
+            </div>
+            <div id="sublet-content" class="tab-pane">
+            </div>
+        </div>
+        {{/each}}
+    </ul>
 </script>
-
 <script>
     embedpano({
         swf: "../../vtour/tour.swf",

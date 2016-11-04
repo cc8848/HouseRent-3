@@ -7,8 +7,13 @@ function checkInit() {
     });
 }
 
-$(document).ready(selectHouseDetail());
+$(document).ready(getRentMode());
 
-function selectHouseDetail() {
-    $.getJSON('/')
+function getRentMode() {
+    var houseID = $('#houseID').html();
+    $.getJSON('/rentMode/getRentMode', {
+        houseID: houseID
+    }, function (data) {
+        $('#info-table').after(template('rentMode', data));
+    })
 }
