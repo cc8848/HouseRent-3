@@ -5,7 +5,7 @@ function getRentMode() {
     $.getJSON('/rentMode/getRentMode', {
         houseID: houseID
     }, function (data) {
-        $('#info-table').after(template('rentMode', data));
+        $('#rentMode-tab').before(template('rentMode', data));
         $('#rentMode-tab').html(template('rentModeContent', data));
         var share = $('#content-1');
         //如果Content-1存在，则查询房间信息

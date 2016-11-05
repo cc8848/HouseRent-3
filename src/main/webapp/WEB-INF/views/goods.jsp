@@ -73,35 +73,39 @@
         <div class="visible-xs white-divider-md"></div>
         <%--房屋说明--%>
         <div class="col-sm-6">
+            <div id="rentMode-tab" class="tab-content">
+            </div>
+        </div>
+    </div>
+    <div class="white-divider-md"></div>
+    <div class="row">
+        <div class="col-xs-12">
             <div id="info-table" class="table-responsive">
                 <table class="table">
                     <tbody>
                     <tr class="warning">
                         <td>社区：</td>
-                        <td><a href="${requestScope.house.community.id}"
-                               target="_blank">${requestScope.house.community.name}</a></td>
+                        <td>
+                            <a href="${requestScope.house.community.id}" target="_blank">
+                                ${requestScope.house.community.name}
+                            </a>
+                        </td>
                         <td>楼层：</td>
                         <td>${requestScope.house.floor}楼</td>
+                        <td>付租方式：</td>
+                        <td>${requestScope.house.expectPayment.paymentName}</td>
                     </tr>
                     <tr>
                         <td>布局：</td>
                         <td>${requestScope.house.houseLayout.name}</td>
                         <td>装修：</td>
                         <td>${requestScope.house.decorationType.name}</td>
-                    </tr>
-                    <tr class="warning">
-                        <td>付租方式：</td>
-                        <td>${requestScope.house.expectPayment.paymentName}</td>
                         <td>房屋状态：</td>
                         <td>${requestScope.house.houseStatus.statusName}</td>
                     </tr>
-                    <tr>
+                    <tr class="warning">
                         <td>房屋面积：</td>
                         <td>${requestScope.house.areaNumber}㎡</td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr class="warning">
                         <td>是否带厨房：</td>
                         <td>
                             <c:choose>
@@ -127,9 +131,6 @@
                     </tr>
                     </tbody>
                 </table>
-            </div>
-            <div class="white-divider-md"></div>
-            <div id="rentMode-tab" class="tab-content">
             </div>
         </div>
     </div>
@@ -157,6 +158,7 @@
         {{/if}}
         {{/each}}
     </ul>
+    <div class="white-divider-md"></div>
 </script>
 <script id="rentModeContent" type="text/html">
     {{each data as rentMode index}}
