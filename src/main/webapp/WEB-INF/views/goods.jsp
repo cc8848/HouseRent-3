@@ -84,29 +84,29 @@
                 <table class="table">
                     <tbody>
                     <tr class="warning">
-                        <td>社区：</td>
+                        <td>【社区】：</td>
                         <td>
                             <a href="${requestScope.house.community.id}" target="_blank">
                                 ${requestScope.house.community.name}
                             </a>
                         </td>
-                        <td>楼层：</td>
+                        <td>【楼层】：</td>
                         <td>${requestScope.house.floor}楼</td>
-                        <td>付租方式：</td>
+                        <td>【付租方式】：</td>
                         <td>${requestScope.house.expectPayment.paymentName}</td>
                     </tr>
                     <tr>
-                        <td>布局：</td>
+                        <td>【布局】：</td>
                         <td>${requestScope.house.houseLayout.name}</td>
-                        <td>装修：</td>
+                        <td>【装修】：</td>
                         <td>${requestScope.house.decorationType.name}</td>
-                        <td>房屋状态：</td>
+                        <td>【房屋状态】：</td>
                         <td>${requestScope.house.houseStatus.statusName}</td>
                     </tr>
                     <tr class="warning">
-                        <td>房屋面积：</td>
+                        <td>【房屋面积】：</td>
                         <td>${requestScope.house.areaNumber}㎡</td>
-                        <td>是否带厨房：</td>
+                        <td>【是否带厨房】：</td>
                         <td>
                             <c:choose>
                                 <c:when test="${requestScope.house.haveKitcken}">
@@ -117,7 +117,7 @@
                                 </c:when>
                             </c:choose>
                         </td>
-                        <td>是否带阳台：</td>
+                        <td>【是否带阳台】：</td>
                         <td>
                             <c:choose>
                                 <c:when test="${requestScope.house.haveBalcony}">
