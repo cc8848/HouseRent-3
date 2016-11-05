@@ -25,11 +25,10 @@ public class RoomsController extends BaseController {
     private IRoomsService iRoomsService;
 
     @ResponseBody
-    @RequestMapping("getRooms")
+    @RequestMapping("/getRooms")
     public JsonResult getRoomsByHouseID(HttpServletRequest request) throws Exception {
         if (StringUtils.isEmpty(request.getParameter("houseID")))
             throw new ParameterException(messageSourceAccessor.getMessage("RoomsService.houseIDNotNull", "房屋编号不能为空！"));
-
         int houseID = Integer.parseInt(request.getParameter("houseID"));
         List<Rooms> roomsList = iRoomsService.selectRoomsByHouseID(houseID);
         return JsonResult.success(roomsList);

@@ -76,9 +76,6 @@
             <div id="info-table" class="table-responsive">
                 <table class="table">
                     <tbody>
-                    <%--<tr style="border-top: hidden">--%>
-                    <%--<th colspan="4" style="text-align: right"><h4>房屋基本信息</h4></th>--%>
-                    <%--</tr>--%>
                     <tr class="warning">
                         <td>社区：</td>
                         <td><a href="${requestScope.house.community.id}"
@@ -131,22 +128,9 @@
                     </tbody>
                 </table>
             </div>
-            <%--<div class="white-divider-md"></div>--%>
-            <%--<div class="tab-content">--%>
-                <%--<div id="share-content" class="tab-pane active">--%>
-                    <%--<div class="input-check">--%>
-                        <%--<input id="check-share" type="checkbox">&nbsp;--%>
-                        <%--<label for="check-share" class="label label-danger">--%>
-                            <%--￥2000/月--%>
-                        <%--</label>--%>
-                    <%--</div>--%>
-                <%--</div>--%>
-                <%--<div id="whole-content" class="tab-pane">--%>
-
-                <%--</div>--%>
-                <%--<div id="sublet-content" class="tab-pane">--%>
-                <%--</div>--%>
-            <%--</div>--%>
+            <div class="white-divider-md"></div>
+            <div id="rentMode-tab" class="tab-content">
+            </div>
         </div>
     </div>
 </div>
@@ -171,24 +155,49 @@
             <a href="#content-{{rentMode.id}}" data-toggle="tab">{{rentMode.name}}</a>
         </li>
         {{/if}}
-        <div class="white-divider-md"></div>
-        <div class="tab-content">
-            <div id="content-{{rentMode.id}}" class="tab-pane active">
-                <div class="input-check">
-                    <input id="check-share" type="checkbox">&nbsp;
-                    <label for="check-share" class="label label-danger">
-                        ￥2000/月
-                    </label>
-                </div>
-            </div>
-            <div id="whole-content" class="tab-pane">
-
-            </div>
-            <div id="sublet-content" class="tab-pane">
-            </div>
-        </div>
         {{/each}}
     </ul>
+</script>
+<script id="rentModeContent" type="text/html">
+    {{each data as rentMode index}}
+    {{if rentMode.id==1}}
+    {{if index==0}}
+    <div id="content-{{rentMode.id}}" class="tab-pane active">
+    </div>
+    {{else}}
+    <div id="content-{{rentMode.id}}" class="tab-pane">
+    </div>
+    {{/if}}
+    {{/if}}
+    {{if rentMode.id==2}}
+    {{if index==0}}
+    <div id="content-{{rentMode.id}}" class="tab-pane active">
+    </div>
+    {{else}}
+    <div id="content-{{rentMode.id}}" class="tab-pane">
+    </div>
+    {{/if}}
+    {{/if}}
+    {{if rentMode.id==3}}
+    {{if index==0}}
+    <div id="content-{{rentMode.id}}" class="tab-pane active">
+    </div>
+    {{else}}
+    <div id="content-{{rentMode.id}}" class="tab-pane">
+    </div>
+    {{/if}}
+    {{/if}}
+    {{/each}}
+</script>
+<script id="share" type="text/html">
+    {{each data as room index}}
+    <div class="input-check">
+        <input id="check-{{room.id}}" type="checkbox">&nbsp;
+        <label for="check-{{room.id}}" class="label label-danger">
+            ￥{{room.expectRent}}/月
+        </label>
+    </div>
+    {{/each}}
 </script>
 <script>
     embedpano({
