@@ -20,6 +20,9 @@ public class Rooms implements Serializable {
 
     private double expectRent;//预期租金
 
+    private int houseStatusId;
+    private HouseStatus houseStatus;//房屋状态
+
     public int getId() {
         return id;
     }
@@ -76,6 +79,22 @@ public class Rooms implements Serializable {
         this.expectRent = expectRent;
     }
 
+    public int getHouseStatusId() {
+        return houseStatusId;
+    }
+
+    public void setHouseStatusId(int houseStatusId) {
+        this.houseStatusId = houseStatusId;
+    }
+
+    public HouseStatus getHouseStatus() {
+        return houseStatus;
+    }
+
+    public void setHouseStatus(HouseStatus houseStatus) {
+        this.houseStatus = houseStatus;
+    }
+
     @Override
     public String toString() {
         return "Rooms{" +
@@ -86,6 +105,8 @@ public class Rooms implements Serializable {
                 ", haveKitcken=" + haveKitcken +
                 ", houseId=" + houseId +
                 ", expectRent=" + expectRent +
+                ", houseStatusId=" + houseStatusId +
+                ", houseStatus=" + houseStatus +
                 '}';
     }
 }

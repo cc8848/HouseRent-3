@@ -16,6 +16,17 @@
         <result column="HAVE_KITCKEN" property="haveKitcken" jdbcType="TINYINT"/>
         <result column="HOUSE_ID" property="houseId" jdbcType="INTEGER"/>
         <result column="EXPECT_RENT" property="expectRent" jdbcType="DOUBLE"/>
+        <result column="HOUSE_STATUS_ID" property="houseStatusId" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="Rooms" type="com.magic.rent.pojo.Rooms">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="ROOM_NO" property="roomNo" jdbcType="INTEGER"/>
+        <result column="AREA_NUMBER" property="areaNumber" jdbcType="DOUBLE"/>
+        <result column="HAVE_WASHROOM" property="haveWashroom" jdbcType="TINYINT"/>
+        <result column="HAVE_KITCKEN" property="haveKitcken" jdbcType="TINYINT"/>
+        <result column="HOUSE_ID" property="houseId" jdbcType="INTEGER"/>
+        <result column="EXPECT_RENT" property="expectRent" jdbcType="DOUBLE"/>
+        <association property="houseStatus" resultMap="com.magic.rent.mapper.HouseStatusMapper.houseStatus"/>
     </resultMap>
     <sql id="Base_Column_List">
     ID, ROOM_NO, AREA_NUMBER, HAVE_WASHROOM, HAVE_KITCKEN, HOUSE_ID
@@ -121,16 +132,20 @@
       EXPECT_RENT = #{expectRent,jdbcType=DOUBLE}
     where ID = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectByHouseID" parameterType="INTEGER" resultMap="BaseResultMap">
-        SELECT
+    <select id="selectByHouseID" parameterType="INTEGER" resultMap="Rooms">
+       SELECT
           ROOMS.ID,
           ROOMS.ROOM_NO,
           ROOMS.AREA_NUMBER,
           ROOMS.EXPECT_RENT,
           ROOMS.HAVE_WASHROOM,
-          ROOMS.HAVE_KITCKEN
-        FROM ROOMS
-        WHERE ROOMS.HOUSE_ID=#{houseID,jdbcType=INTEGER}
+          ROOMS.HAVE_KITCKEN,
+          HOUSE_STATUS.ID,
+          HOUSE_STATUS.STATUS_NAME
+       FROM ROOMS
+          JOIN HOUSE_STATUS
+          ON ROOMS.HOUSE_STATUS_ID = HOUSE_STATUS.ID
+       WHERE ROOMS.HOUSE_ID=#{houseID,jdbcType=INTEGER}
     </select>
 
 </mapper>

@@ -12,7 +12,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>首页</title>
+    <title>${requestScope.house.name}</title>
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
@@ -191,9 +191,9 @@
 </script>
 <script id="share" type="text/html">
     {{each data as room index}}
-    <div class="input-check">
+    <div id="input-check-{{room.id}}" class="input-check">
         <input id="check-{{room.id}}" type="checkbox">&nbsp;
-        <label for="check-{{room.id}}" class="label label-danger">
+        <label for="check-{{room.id}}" class="label label-success">
             [{{room.roomNo}}号]：{{room.expectRent}}元/月
         </label>
     </div>
