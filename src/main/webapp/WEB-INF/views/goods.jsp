@@ -194,7 +194,7 @@
     <div class="input-check">
         <input id="check-{{room.id}}" type="checkbox">&nbsp;
         <label for="check-{{room.id}}" class="label label-danger">
-            ￥{{room.expectRent}}/月
+            [{{room.roomNo}}号]：{{room.expectRent}}元/月
         </label>
     </div>
     {{/each}}
