@@ -4,9 +4,6 @@
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rent.log" afterPath="$PROJECT_DIR$/logs/rent.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/RoomsController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/RoomsController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/goods.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/goods.js" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -73,8 +70,8 @@
       <file leaf-file-name="goods.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/goods.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="375">
-              <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+            <state relative-caret-position="360">
+              <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
               <folding />
             </state>
           </provider>
@@ -1006,7 +1003,7 @@
       <workItem from="1478173368468" duration="11043000" />
       <workItem from="1478226115914" duration="10757000" />
       <workItem from="1478249163881" duration="4767000" />
-      <workItem from="1478303605063" duration="4321000" />
+      <workItem from="1478303605063" duration="4962000" />
     </task>
     <task id="LOCAL-00001" summary="2016年10月31日22:43:46">
       <created>1477925076681</created>
@@ -1113,7 +1110,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478251514883</updated>
     </task>
-    <option name="localTasksCounter" value="16" />
+    <task id="LOCAL-00016" summary="2016-11-05 09:22:31">
+      <created>1478308957260</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1478308957260</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1131,7 +1135,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="122403000" />
+    <option name="totallyTimeSpent" value="123044000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1920" y="-55" width="1920" height="1080" extended-state="0" />
@@ -1225,7 +1229,8 @@
     <MESSAGE value="2016年11月03日23:26:25" />
     <MESSAGE value="2016年11月04日07:22:26" />
     <MESSAGE value="2016年11月04日17:24:13" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年11月04日17:24:13" />
+    <MESSAGE value="2016-11-05 09:22:31" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016-11-05 09:22:31" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1625,8 +1630,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/goods.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="13" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
+        <state relative-caret-position="360">
+          <caret line="24" column="1" selection-start-line="24" selection-start-column="1" selection-end-line="24" selection-end-column="1" />
           <folding />
         </state>
       </provider>
