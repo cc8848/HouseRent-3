@@ -147,5 +147,4 @@
           ON ROOMS.HOUSE_STATUS_ID = HOUSE_STATUS.ID
        WHERE ROOMS.HOUSE_ID=#{houseID,jdbcType=INTEGER}
     </select>
-
 </mapper>

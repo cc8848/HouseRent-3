@@ -136,7 +136,6 @@
     </div>
 </div>
 
-
 <script type="text/javascript" src="../../js/jquery.js"></script>
 <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../../js/icheck.min.js"></script>
@@ -194,12 +193,15 @@
 <script id="share" type="text/html">
     {{each data as room index}}
     <div id="input-check-{{room.id}}" class="input-check">
-        <input id="check-{{room.id}}" type="checkbox">&nbsp;
-        <label for="check-{{room.id}}" class="label label-success">
+        <input id="{{room.id}}" type="checkbox">&nbsp;
+        <label for="{{room.id}}" class="label label-success">
             [{{room.roomNo}}号]：{{room.expectRent}}元/月
         </label>
     </div>
     {{/each}}
+    <div class="">
+
+    </div>
 </script>
 <script>
     embedpano({

@@ -25,7 +25,7 @@ public class RentModeController extends BaseController {
     private IRentModeService iRentModeService;
 
     @ResponseBody
-    @RequestMapping("/getRentMode")
+    @RequestMapping("/getRentModes")
     public JsonResult getRentModeByHouseID(HttpServletRequest request) throws Exception {
         if (StringUtils.isEmpty(request.getParameter("houseID")))
             throw new ParameterException(messageSourceAccessor.getMessage("RentModeService.houseIDNotNull", "【房屋编号】不能为空!"));
