@@ -145,7 +145,7 @@
 <script type="text/javascript" src="../../js/goods.js"></script>
 <script type="text/javascript" src="../../js/tour.js"></script>
 <script id="rentMode" type="text/html">
-    <ul class="nav nav-tabs">
+    <ul class="nav nav-tabs ">
         {{each data as rentMode index}}
         {{if index==0}}
         <li class="active">
@@ -164,7 +164,7 @@
     {{each data as rentMode index}}
     {{if rentMode.id==1}}
     {{if index==0}}
-    <div id="content-{{rentMode.id}}" class="tab-pane active">
+    <div id="content-{{rentMode.id}}" class="tab-pane active ">
     </div>
     {{else}}
     <div id="content-{{rentMode.id}}" class="tab-pane">
