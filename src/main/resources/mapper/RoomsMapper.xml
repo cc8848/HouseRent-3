@@ -26,6 +26,7 @@
         <result column="HAVE_KITCKEN" property="haveKitcken" jdbcType="TINYINT"/>
         <result column="HOUSE_ID" property="houseId" jdbcType="INTEGER"/>
         <result column="EXPECT_RENT" property="expectRent" jdbcType="DOUBLE"/>
+        <result column="HOUSE_STATUS_ID" property="houseStatusId" jdbcType="INTEGER"/>
         <association property="houseStatus" resultMap="com.magic.rent.mapper.HouseStatusMapper.houseStatus"/>
     </resultMap>
     <sql id="Base_Column_List">
@@ -140,6 +141,7 @@
           ROOMS.EXPECT_RENT,
           ROOMS.HAVE_WASHROOM,
           ROOMS.HAVE_KITCKEN,
+          ROOMS.HOUSE_STATUS_ID,
           HOUSE_STATUS.ID,
           HOUSE_STATUS.STATUS_NAME
        FROM ROOMS

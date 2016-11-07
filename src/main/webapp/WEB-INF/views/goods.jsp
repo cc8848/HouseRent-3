@@ -73,6 +73,7 @@
         <div class="visible-xs white-divider-md"></div>
         <%--房屋说明--%>
         <div class="col-sm-6">
+            <%--出租模式--%>
             <div id="rentMode-tab" class="tab-content">
             </div>
         </div>
