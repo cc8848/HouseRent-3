@@ -199,38 +199,59 @@
     {{/each}}
 </script>
 <script id="share" type="text/html">
-    <div class="panel panel-default">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">房间基本信息</h3>
         </div>
         <div class="panel-body">
             <div class="col-xs-6">
-                <form class="navbar-form form-group ">
-                    <label for="roomNo"">请选择房号
-                        <select id="roomNo" title="请选择房号" class="select2 form-control" style="width: 100%"></select>
-                    </label>
-                </form>
+                <label for="roomNo" style="width: 100%">请选择房号：
+                    <select id="roomNo" class="select2 form-control" style="width: 100%"></select>
+                </label>
+            </div>
+            <div class="col-xs-6">
+                <h2 class="text-danger text-right">{{data.expectRent}}
+                    <small>元/月</small>
+                </h2>
             </div>
         </div>
-        <table class="table table-responsive">
+        <table class="table table-responsive text-center">
             <tbody>
-            <tr>
+            <tr class="bg-primary">
+                <td>【面积】
+                </td>
                 <td>
-
+                    {{data.areaNumber}}㎡
+                </td>
+                <td>【状态】
+                </td>
+                <td>
+                    {{data.houseStatus.statusName}}
+                </td>
+            </tr>
+            <tr>
+                <td>【是否带厕所】
+                </td>
+                <td>
+                    {{if data.haveWashroom}}
+                    是
+                    {{else}}
+                    否
+                    {{/if}}
+                </td>
+                <td>【是否带厨房】
+                </td>
+                <td>
+                    {{if data.haveKitcken}}
+                    是
+                    {{else}}
+                    否
+                    {{/if}}
                 </td>
             </tr>
             </tbody>
         </table>
     </div>
-    <%--{{each data as room index}}--%>
-    <%--<div id="input-check-{{room.id}}" class="input-check">--%>
-    <%--<input id="{{room.id}}" type="checkbox">&nbsp;--%>
-    <%--<label for="{{room.id}}" class="label label-success">--%>
-    <%--[{{room.roomNo}}号]：{{room.expectRent}}元/月--%>
-    <%--</label>--%>
-    <%--</div>--%>
-    <%--{{/each}}--%>
-
 </script>
 <script>
     embedpano({
