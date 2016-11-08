@@ -7,7 +7,7 @@ import java.io.InputStreamReader;
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
  * 创建者: wuxinzhe   创建时间: 16/10/6
- * 类说明:
+ * 类说明: UTF-8的中文转换类
  */
 public class UTF8Util {
     /**

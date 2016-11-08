@@ -30,7 +30,7 @@ function House() {
                     if (data.status) {
                         var content = '#content-' + rentMode.id;
                         $(content).html(template('share', data));
-                        _this.icheckInit(data);
+                        _this.selectInit(data.data);
                     } else {
                         alert(data.message);
                     }
@@ -39,19 +39,27 @@ function House() {
         })
     };
 
-    this.icheckInit = function (data) {
-        $.each(data.data, function (index, room) {
-            var divID = '#input-check-' + room.id;
-            $(divID).iCheck({
-                checkboxClass: 'icheckbox_flat-blue'
-            });
-            if (room.houseStatusId == 2) {//出租状态标红且不可选
-                $(divID).iCheck('disable');//设置不可用
-                var label = divID + ' > label';//选择下级元素
-                $(label).removeClass('label-success').addClass('label-danger');//修改样式
-            }
+    this.roomsToSelectData = function (data) {
+        var rooms = [];
+        $.each(data, function (index, room) {
+
+            rooms.push(room.roomNo);
+        });
+
+        return rooms;
+    };
+
+    this.selectInit = function (data) {
+        $("#roomNo").select2({
+            placeholder: "房号",
+            data: _this.roomsToSelectData(data)
         });
     };
+}
+
+function SelectPojo(id, text) {
+    this.id = id;
+    this.text = text;
 }
 
 

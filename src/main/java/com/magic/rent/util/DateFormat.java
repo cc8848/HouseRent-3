@@ -10,7 +10,6 @@ import java.util.Date;
 public class DateFormat {
 
     public static String FormatToYMD(Date date) {
-        System.out.println("date1=" + date.toString());
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return simpleDateFormat.format(date);
     }
