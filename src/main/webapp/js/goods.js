@@ -24,7 +24,8 @@ function House() {
      * @param data
      */
     this.showRentModes = function (data) {
-        $('#rentMode-tab').before(template('rentMode', {data: data})).html(template('rentModeContent', {data: data}));
+        $('#houseInfo-tab').before(template('rentMode', {data: data}));
+        $('#content-houseInfo').before(template('rentModeContent', {data: data}));
     };
     /**
      * 显示房间信息
@@ -58,7 +59,6 @@ function House() {
         });
         return rooms;
     };
-
     /**
      * select控件初始化
      * @param data

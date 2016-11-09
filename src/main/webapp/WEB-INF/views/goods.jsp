@@ -74,71 +74,80 @@
         <%--房屋说明--%>
         <div class="col-sm-6">
             <%--出租模式--%>
-            <div id="rentMode-tab" class="tab-content">
+            <ul class="nav nav-tabs">
+                <li id="houseInfo-tab">
+                    <a href="#content-houseInfo" data-toggle="tab">房屋基本信息</a>
+                </li>
+            </ul>
+            <div class="white-divider-md"></div>
+            <div id="rentMode-content" class="tab-content">
+                <div id="content-houseInfo" class="tab-pane">
+                    <div class="panel panel-primary">
+                        <table class="table table-responsive">
+                            <tbody>
+                            <tr>
+                                <td>社区：</td>
+                                <td>
+                                    <a href="${requestScope.house.community.id}" target="_blank">
+                                        ${requestScope.house.community.name}
+                                    </a>
+                                </td>
+                                <td>楼层：</td>
+                                <td>${requestScope.house.floor}楼</td>
+                            </tr>
+                            <tr class="bg-primary">
+                                <td>房屋状态：</td>
+                                <td>${requestScope.house.houseStatus.statusName}</td>
+                                <td>付租方式：</td>
+                                <td>${requestScope.house.expectPayment.paymentName}</td>
+                            </tr>
+                            <tr>
+                                <td>布局：</td>
+                                <td>${requestScope.house.houseLayout.name}</td>
+                                <td>装修：</td>
+                                <td>${requestScope.house.decorationType.name}</td>
+                            </tr>
+                            <tr class="bg-primary">
+                                <td>是否带厨房：</td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${requestScope.house.haveKitcken}">
+                                            <c:out value="是"/>
+                                        </c:when>
+                                        <c:when test="${!requestScope.house.haveKitcken}">
+                                            <c:out value="否"/>
+                                        </c:when>
+                                    </c:choose>
+                                </td>
+                                <td>是否带阳台：</td>
+                                <td>
+                                    <c:choose>
+                                        <c:when test="${requestScope.house.haveBalcony}">
+                                            <c:out value="是"/>
+                                        </c:when>
+                                        <c:when test="${!requestScope.house.haveBalcony}">
+                                            <c:out value="否"/>
+                                        </c:when>
+                                    </c:choose>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>房屋面积：</td>
+                                <td>${requestScope.house.areaNumber}㎡</td>
+                                <td></td>
+                                <td></td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
             </div>
-
         </div>
     </div>
     <div class="white-divider-md"></div>
     <div class="row">
         <div class="col-xs-12">
-            <div class="panel panel-warning">
-                <div class="panel-heading">
-                    <h3 class="panel-title">房屋基本信息</h3>
-                </div>
-                <div id="info-table" class="table-responsive">
-                    <table class="table">
-                        <tbody>
-                        <tr class="warning">
-                            <td>【社区】：</td>
-                            <td>
-                                <a href="${requestScope.house.community.id}" target="_blank">
-                                    ${requestScope.house.community.name}
-                                </a>
-                            </td>
-                            <td>【楼层】：</td>
-                            <td>${requestScope.house.floor}楼</td>
-                            <td>【付租方式】：</td>
-                            <td>${requestScope.house.expectPayment.paymentName}</td>
-                        </tr>
-                        <tr>
-                            <td>【布局】：</td>
-                            <td>${requestScope.house.houseLayout.name}</td>
-                            <td>【装修】：</td>
-                            <td>${requestScope.house.decorationType.name}</td>
-                            <td>【房屋状态】：</td>
-                            <td>${requestScope.house.houseStatus.statusName}</td>
-                        </tr>
-                        <tr class="warning">
-                            <td>【房屋面积】：</td>
-                            <td>${requestScope.house.areaNumber}㎡</td>
-                            <td>【是否带厨房】：</td>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${requestScope.house.haveKitcken}">
-                                        <c:out value="是"/>
-                                    </c:when>
-                                    <c:when test="${!requestScope.house.haveKitcken}">
-                                        <c:out value="否"/>
-                                    </c:when>
-                                </c:choose>
-                            </td>
-                            <td>【是否带阳台】：</td>
-                            <td>
-                                <c:choose>
-                                    <c:when test="${requestScope.house.haveBalcony}">
-                                        <c:out value="是"/>
-                                    </c:when>
-                                    <c:when test="${!requestScope.house.haveBalcony}">
-                                        <c:out value="否"/>
-                                    </c:when>
-                                </c:choose>
-                            </td>
-                        </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
+
 
         </div>
     </div>
@@ -152,34 +161,23 @@
 <script type="text/javascript" src="../../js/goods.js"></script>
 <script type="text/javascript" src="../../js/tour.js"></script>
 <script id="rentMode" type="text/html">
-    <ul class="nav nav-tabs ">
-        {{each data as rentMode index}}
-        {{if index==0}}
-        <li class="active">
-            <a href="#content-{{rentMode.id}}" data-toggle="tab">{{rentMode.name}}</a>
-        </li>
-        {{else}}
-        <li>
-            <a href="#content-{{rentMode.id}}" data-toggle="tab">{{rentMode.name}}</a>
-        </li>
-        {{/if}}
-        {{/each}}
-    </ul>
-    <div class="white-divider-md"></div>
+    {{each data as rentMode index}}
+    {{if index==0}}
+    <li class="active">
+        <a href="#content-{{rentMode.id}}" data-toggle="tab">{{rentMode.name}}</a>
+    </li>
+    {{else}}
+    <li>
+        <a href="#content-{{rentMode.id}}" data-toggle="tab">{{rentMode.name}}</a>
+    </li>
+    {{/if}}
+    {{/each}}
 </script>
 <script id="rentModeContent" type="text/html">
     {{each data as rentMode index}}
+
     {{if rentMode.id==1}}
-    {{if index==0}}
-    <div id="content-{{rentMode.id}}" class="tab-pane active ">
-    </div>
-    {{else}}
-    <div id="content-{{rentMode.id}}" class="tab-pane">
-    </div>
-    {{/if}}
-    {{/if}}
-    {{if rentMode.id==2}}
-    {{if index==0}}
+    {{if index == 0}}
     <div id="content-{{rentMode.id}}" class="tab-pane active">
     </div>
     {{else}}
@@ -187,6 +185,17 @@
     </div>
     {{/if}}
     {{/if}}
+
+    {{if rentMode.id==2}}
+    {{if index == 0}}
+    <div id="content-{{rentMode.id}}" class="tab-pane active">
+    </div>
+    {{else}}
+    <div id="content-{{rentMode.id}}" class="tab-pane">
+    </div>
+    {{/if}}
+    {{/if}}
+
     {{if rentMode.id==3}}
     {{if index==0}}
     <div id="content-{{rentMode.id}}" class="tab-pane active">
@@ -196,13 +205,11 @@
     </div>
     {{/if}}
     {{/if}}
+
     {{/each}}
 </script>
 <script id="share" type="text/html">
     <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">房间基本信息</h3>
-        </div>
         <div class="panel-body">
             <div class="col-xs-6">
                 <label for="roomNo" style="width: 100%">请选择房号：
@@ -215,22 +222,22 @@
                 </h2>
             </div>
         </div>
-        <table class="table table-responsive text-center">
+        <table class="table table-responsive">
             <tbody>
             <tr class="bg-primary">
-                <td>【面积】
+                <td>面积：
                 </td>
                 <td>
                     {{data.areaNumber}}㎡
                 </td>
-                <td>【状态】
+                <td>状态：
                 </td>
                 <td>
                     {{data.houseStatus.statusName}}
                 </td>
             </tr>
             <tr>
-                <td>【是否带厕所】
+                <td>是否带厕所：
                 </td>
                 <td>
                     {{if data.haveWashroom}}
@@ -239,7 +246,7 @@
                     否
                     {{/if}}
                 </td>
-                <td>【是否带厨房】
+                <td>是否带厨房：
                 </td>
                 <td>
                     {{if data.haveKitcken}}
