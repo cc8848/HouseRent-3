@@ -32,8 +32,8 @@ function House() {
      * @param data
      */
     this.showRentModes = function (data) {
-        $('#houseInfo-tab').before(template('rentMode', {data: data}));
-        $('#content-houseInfo').before(template('rentModeContent', {data: data}));
+        $('#rentMode-tab').html(template('rentMode', {data: data}));
+        $('#rentMode-content').html(template('rentModeContent', {data: data}));
     };
     /**
      * 房号列表select控件初始化
@@ -98,18 +98,20 @@ function Room(room) {
     this.showRoomInfo = function () {
         $('#content-1').html(template('share', {room: _this.room}));
     };
-
+    /**
+     * 修改房间信息
+     */
     this.changeRoomInfo = function () {
-        $('#room-expectPrice').html(room.expectPrice);
-        $('#room-areaNum').html(room.areaNumber);
-        $('#room-statusName').html(room.houseStatus.statusName);
-        $('#room-haveWashroom').html(room.haveWashroom ? '是' : '否');
-        $('#room-haveKitchen').html(room.haveKitchen ? '是' : '否');
-        $('#room-haveDesk').html(room.haveDesk ? '是' : '否');
-        $('#room-haveWardrobe').html(room.haveWardrobe ? '是' : '否');
-        $('#room-haveAirConditioning').html(room.haveAirConditioning ? '是' : '否');
-        $('#room-haveWaterHeater').html(room.haveWaterHeater ? '是' : '否');
-        $('#room-haveWLAN').html(room.haveWLAN ? '是' : '否');
+        $('.room-expectPrice').html(room.expectPrice);
+        $('.room-areaNum').html(room.areaNumber);
+        $('.room-statusName').html(room.houseStatus.statusName);
+        $('.room-haveWashroom').html(room.haveWashroom ? '是' : '否');
+        $('.room-haveKitchen').html(room.haveKitchen ? '是' : '否');
+        $('.room-haveDesk').html(room.haveDesk ? '是' : '否');
+        $('.room-haveWardrobe').html(room.haveWardrobe ? '是' : '否');
+        $('.room-haveAirConditioning').html(room.haveAirConditioning ? '是' : '否');
+        $('.room-haveWaterHeater').html(room.haveWaterHeater ? '是' : '否');
+        $('.room-haveWLAN').html(room.haveWLAN ? '是' : '否');
     }
 }
 
