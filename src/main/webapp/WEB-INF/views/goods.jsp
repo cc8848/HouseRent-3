@@ -170,9 +170,9 @@
             </div>
         </div>
     </div>
-    <div class="visible-sm">
+    <div class="row visible-sm">
         <div class="col-xs-6">
-            <div class="input-group input-group-sm">
+            <div class="input-group">
                         <span class="input-group-btn">
                             <button class="btn btn-default" type="button">+</button>
                         </span>
@@ -183,7 +183,7 @@
             </div>
         </div>
         <div class="col-xs-6">
-            <button class="btn btn-danger pull-right btn-sm btn-group-justified ">
+            <button class="btn btn-danger pull-right btn-group-justified ">
                 <span class="glyphicon glyphicon-shopping-cart"></span>
                 下单
             </button>

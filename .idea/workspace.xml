@@ -2,12 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/controller/RoomsControllerTest.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/service/IRoomsServiceTest.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rent.log" afterPath="$PROJECT_DIR$/logs/rent.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/goods.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/goods.js" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -48,8 +45,8 @@
       <file leaf-file-name="goods.jsp" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+            <state relative-caret-position="454">
+              <caret line="172" column="19" selection-start-line="172" selection-start-column="19" selection-end-line="172" selection-end-column="19" />
               <folding>
                 <element signature="n#div#0;n#div#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#0;n#div#2;n#div#1;n#div#0;n#html#0;n#!!top" expanded="false" />
@@ -58,9 +55,6 @@
                 <element signature="n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#button#0;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#div#3;n#div#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#4;n#div#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#0;n#div#4;n#div#0;n#html#0;n#!!top" expanded="false" />
-                <element signature="n#div#1;n#div#4;n#div#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#button#0;n#div#1;n#div#4;n#div#0;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#script#7;n#html#0;n#!!top" expanded="false" />
                 <element signature="n#script#8;n#html#0;n#!!top" expanded="false" />
@@ -1193,7 +1187,7 @@
       <workItem from="1478672806117" duration="7223000" />
       <workItem from="1478740898083" duration="8242000" />
       <workItem from="1478759221477" duration="10757000" />
-      <workItem from="1478780520794" duration="12929000" />
+      <workItem from="1478780520794" duration="13629000" />
     </task>
     <task id="LOCAL-00001" summary="2016年10月31日22:43:46">
       <created>1477925076681</created>
@@ -1342,7 +1336,14 @@
       <option name="project" value="LOCAL" />
       <updated>1478694490755</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="2016年11月11日01:20:06">
+      <created>1478798414377</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1478798414377</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1372,7 +1373,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220875000" />
+    <option name="totallyTimeSpent" value="221575000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1440" height="900" extended-state="0" />
@@ -1471,11 +1472,12 @@
     <MESSAGE value="2016年11月05日13:59:38" />
     <MESSAGE value="2016年11月05日14:46:45" />
     <MESSAGE value="2016年11月09日20:27:59" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年11月09日20:27:59" />
+    <MESSAGE value="2016年11月11日01:20:06" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年11月11日01:20:06" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
-      <option name="time" value="11" />
+      <option name="time" value="12" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -1829,8 +1831,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/goods.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="27" column="16" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="16" />
+        <state relative-caret-position="454">
+          <caret line="172" column="19" selection-start-line="172" selection-start-column="19" selection-end-line="172" selection-end-column="19" />
           <folding>
             <element signature="n#div#0;n#div#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#0;n#div#2;n#div#1;n#div#0;n#html#0;n#!!top" expanded="false" />
@@ -1839,9 +1841,6 @@
             <element signature="n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#button#0;n#div#1;n#div#1;n#div#2;n#div#1;n#div#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#div#3;n#div#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#4;n#div#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#0;n#div#4;n#div#0;n#html#0;n#!!top" expanded="false" />
-            <element signature="n#div#1;n#div#4;n#div#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#button#0;n#div#1;n#div#4;n#div#0;n#html#0;n#!!top" expanded="false" />
             <element signature="n#script#7;n#html#0;n#!!top" expanded="false" />
             <element signature="n#script#8;n#html#0;n#!!top" expanded="false" />
