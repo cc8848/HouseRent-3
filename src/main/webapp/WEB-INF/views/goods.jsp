@@ -217,7 +217,7 @@
                 </label>
             </div>
             <div class="col-xs-6">
-                <h2 class="text-danger text-right">{{data.expectRent}}
+                <h2 class="text-danger text-right"><span id="room-expectPrice">{{room.expectPrice}}</span>
                     <small>元/月</small>
                 </h2>
             </div>
@@ -228,19 +228,20 @@
                 <td>面积：
                 </td>
                 <td>
-                    {{data.areaNumber}}㎡
+                    <span id="room-areaNum">{{room.areaNumber}}</span>
+                    ㎡
                 </td>
                 <td>状态：
                 </td>
-                <td>
-                    {{data.houseStatus.statusName}}
+                <td id="room-statusName">
+                    {{room.houseStatus.statusName}}
                 </td>
             </tr>
             <tr>
                 <td>是否带厕所：
                 </td>
-                <td>
-                    {{if data.haveWashroom}}
+                <td id="room-haveWashroom">
+                    {{if room.haveWashroom}}
                     是
                     {{else}}
                     否
@@ -248,12 +249,67 @@
                 </td>
                 <td>是否带厨房：
                 </td>
-                <td>
-                    {{if data.haveKitcken}}
+                <td id="room-haveKitchen">
+                    {{if room.haveKitcken}}
                     是
                     {{else}}
                     否
                     {{/if}}
+                </td>
+            </tr>
+            <tr class="bg-primary">
+                <td>是否带书桌：
+                </td>
+                <td id="room-haveDesk">
+                    {{if room.haveDesk}}
+                    是
+                    {{else}}
+                    否
+                    {{/if}}
+                </td>
+                <td>是否带衣厨：
+                </td>
+                <td id="room-haveWardrobe">
+                    {{if room.haveWardrobe}}
+                    是
+                    {{else}}
+                    否
+                    {{/if}}
+                </td>
+            </tr>
+            <tr>
+                <td>是否带空调：
+                </td>
+                <td id="room-haveAirConditioning">
+                    {{if room.haveAirConditioning}}
+                    是
+                    {{else}}
+                    否
+                    {{/if}}
+                </td>
+                <td>是否带热水器：
+                </td>
+                <td id="room-haveWaterHeater">
+                    {{if room.haveWaterHeater}}
+                    是
+                    {{else}}
+                    否
+                    {{/if}}
+                </td>
+            </tr>
+            <tr class="bg-primary">
+                <td>是否带宽带：
+                </td>
+                <td id="room-haveWLAN">
+                    {{if room.haveWLAN}}
+                    是
+                    {{else}}
+                    否
+                    {{/if}}
+                </td>
+                <td>
+                </td>
+                <td>
                 </td>
             </tr>
             </tbody>

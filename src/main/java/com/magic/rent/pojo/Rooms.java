@@ -16,9 +16,19 @@ public class Rooms implements Serializable {
 
     private boolean haveKitcken;//是否带独立厨房
 
+    private boolean haveDesk;//是否带书桌
+
+    private boolean haveWardrobe;//是否有衣橱
+
+    private boolean haveAirConditioning;//是否有空调
+
+    private boolean haveWaterHeater;//是否有热水器
+
+    private boolean haveWLAN;//是否有宽带
+
     private int houseId;//房屋ID
 
-    private double expectRent;//预期租金
+    private double expectPrice;//预期租金
 
     private int houseStatusId;
     private HouseStatus houseStatus;//房屋状态
@@ -71,12 +81,12 @@ public class Rooms implements Serializable {
         this.houseId = houseId;
     }
 
-    public double getExpectRent() {
-        return expectRent;
+    public double getExpectPrice() {
+        return expectPrice;
     }
 
-    public void setExpectRent(double expectRent) {
-        this.expectRent = expectRent;
+    public void setExpectPrice(double expectPrice) {
+        this.expectPrice = expectPrice;
     }
 
     public int getHouseStatusId() {
@@ -95,6 +105,46 @@ public class Rooms implements Serializable {
         this.houseStatus = houseStatus;
     }
 
+    public boolean isHaveDesk() {
+        return haveDesk;
+    }
+
+    public void setHaveDesk(boolean haveDesk) {
+        this.haveDesk = haveDesk;
+    }
+
+    public boolean isHaveWardrobe() {
+        return haveWardrobe;
+    }
+
+    public void setHaveWardrobe(boolean haveWardrobe) {
+        this.haveWardrobe = haveWardrobe;
+    }
+
+    public boolean isHaveAirConditioning() {
+        return haveAirConditioning;
+    }
+
+    public void setHaveAirConditioning(boolean haveAirConditioning) {
+        this.haveAirConditioning = haveAirConditioning;
+    }
+
+    public boolean isHaveWaterHeater() {
+        return haveWaterHeater;
+    }
+
+    public void setHaveWaterHeater(boolean haveWaterHeater) {
+        this.haveWaterHeater = haveWaterHeater;
+    }
+
+    public boolean isHaveWLAN() {
+        return haveWLAN;
+    }
+
+    public void setHaveWLAN(boolean haveWLAN) {
+        this.haveWLAN = haveWLAN;
+    }
+
     @Override
     public String toString() {
         return "Rooms{" +
@@ -103,8 +153,13 @@ public class Rooms implements Serializable {
                 ", areaNumber=" + areaNumber +
                 ", haveWashroom=" + haveWashroom +
                 ", haveKitcken=" + haveKitcken +
+                ", haveDesk=" + haveDesk +
+                ", haveWardrobe=" + haveWardrobe +
+                ", haveAirConditioning=" + haveAirConditioning +
+                ", haveWaterHeater=" + haveWaterHeater +
+                ", haveWLAN=" + haveWLAN +
                 ", houseId=" + houseId +
-                ", expectRent=" + expectRent +
+                ", expectPrice=" + expectPrice +
                 ", houseStatusId=" + houseStatusId +
                 ", houseStatus=" + houseStatus +
                 '}';

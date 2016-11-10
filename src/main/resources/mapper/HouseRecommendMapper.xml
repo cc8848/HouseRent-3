@@ -68,7 +68,7 @@
         HOUSE_RECOMMEND.DATE RECOMMEND_DATE,
         HOUSE.ID,
         HOUSE.NAME,
-        HOUSE.EXPECT_RENT,
+        HOUSE.EXPECT_PRICE,
         COMMUNITY.ID community_ID,
         COMMUNITY.NAME community_Name,
         HOUSE.FLOOR,

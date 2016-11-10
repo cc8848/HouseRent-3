@@ -15,8 +15,13 @@
         <result column="HAVE_WASHROOM" property="haveWashroom" jdbcType="TINYINT"/>
         <result column="HAVE_KITCKEN" property="haveKitcken" jdbcType="TINYINT"/>
         <result column="HOUSE_ID" property="houseId" jdbcType="INTEGER"/>
-        <result column="EXPECT_RENT" property="expectRent" jdbcType="DOUBLE"/>
+        <result column="EXPECT_PRICE" property="expectPrice" jdbcType="DOUBLE"/>
         <result column="HOUSE_STATUS_ID" property="houseStatusId" jdbcType="INTEGER"/>
+        <result column="HAVE_DESK" property="haveDesk" jdbcType="TINYINT"/>
+        <result column="HAVE_WARDROBE" property="haveWardrobe" jdbcType="TINYINT"/>
+        <result column="HAVE_AIRCONDITIONING" property="haveAirConditioning" jdbcType="TINYINT"/>
+        <result column="HAVE_WATERHEATER" property="haveWaterHeater" jdbcType="TINYINT"/>
+        <result column="HAVE_WLAN" property="haveWLAN" jdbcType="TINYINT"/>
     </resultMap>
     <resultMap id="Rooms" type="com.magic.rent.pojo.Rooms">
         <id column="ID" property="id" jdbcType="INTEGER"/>
@@ -25,12 +30,18 @@
         <result column="HAVE_WASHROOM" property="haveWashroom" jdbcType="TINYINT"/>
         <result column="HAVE_KITCKEN" property="haveKitcken" jdbcType="TINYINT"/>
         <result column="HOUSE_ID" property="houseId" jdbcType="INTEGER"/>
-        <result column="EXPECT_RENT" property="expectRent" jdbcType="DOUBLE"/>
+        <result column="EXPECT_PRICE" property="expectPrice" jdbcType="DOUBLE"/>
         <result column="HOUSE_STATUS_ID" property="houseStatusId" jdbcType="INTEGER"/>
+        <result column="HAVE_DESK" property="haveDesk" jdbcType="TINYINT"/>
+        <result column="HAVE_WARDROBE" property="haveWardrobe" jdbcType="TINYINT"/>
+        <result column="HAVE_AIRCONDITIONING" property="haveAirConditioning" jdbcType="TINYINT"/>
+        <result column="HAVE_WATERHEATER" property="haveWaterHeater" jdbcType="TINYINT"/>
+        <result column="HAVE_WLAN" property="haveWLAN" jdbcType="TINYINT"/>
         <association property="houseStatus" resultMap="com.magic.rent.mapper.HouseStatusMapper.houseStatus"/>
     </resultMap>
     <sql id="Base_Column_List">
-    ID, ROOM_NO, AREA_NUMBER, HAVE_WASHROOM, HAVE_KITCKEN, HOUSE_ID
+    ID, ROOM_NO, AREA_NUMBER, HAVE_WASHROOM, HAVE_KITCKEN, HOUSE_ID,,EXPECT_PRICE,HAVE_DESK,HAVE_WARDROBE,
+      HAVE_AIRCONDITIONING,HAVE_WATERHEATER,HAVE_WLAN
   </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
@@ -44,10 +55,13 @@
   </delete>
     <insert id="insert" parameterType="com.magic.rent.pojo.Rooms">
     insert into ROOMS (ID, ROOM_NO, AREA_NUMBER,
-      HAVE_WASHROOM, HAVE_KITCKEN, HOUSE_ID
+      HAVE_WASHROOM, HAVE_KITCKEN, HOUSE_ID,EXPECT_PRICE,HAVE_DESK,HAVE_WARDROBE,
+      HAVE_AIRCONDITIONING,HAVE_WATERHEATER,HAVE_WLAN,
       )
     values (#{id,jdbcType=INTEGER}, #{roomNo,jdbcType=INTEGER}, #{areaNumber,jdbcType=DOUBLE},
-      #{haveWashroom,jdbcType=TINYINT}, #{haveKitcken,jdbcType=TINYINT}, #{houseId,jdbcType=INTEGER}
+      #{haveWashroom,jdbcType=TINYINT}, #{haveKitcken,jdbcType=TINYINT}, #{houseId,jdbcType=INTEGER},#{expectPrice,jdbcType=DOUBLE},
+      #{haveDesk,jdbcType=TINYINT}, #{haveWardrobe,jdbcType=TINYINT}, #{haveAirConditioning,jdbcType=TINYINT},
+      #{haveWaterHeater,jdbcType=TINYINT},#{haveWLAN,jdbcType=TINYINT},
       )
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.Rooms">
@@ -71,8 +85,23 @@
             <if test="houseId != null">
                 HOUSE_ID,
             </if>
-            <if test="expectRent != null">
-                EXPECT_RENT,
+            <if test="expectPrice != null">
+                EXPECT_PRICE,
+            </if>
+            <if test="haveDesk != null">
+                HAVE_DESK,
+            </if>
+            <if test="haveWardrobe != null">
+                HAVE_WARDROBE,
+            </if>
+            <if test="haveAirConditioning != null">
+                HAVE_AIRCONDITIONING,
+            </if>
+            <if test="haveWaterHeater != null">
+                HAVE_WATERHEATER,
+            </if>
+            <if test="haveWLAN != null">
+                HAVE_WLAN,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -94,8 +123,23 @@
             <if test="houseId != null">
                 #{houseId,jdbcType=INTEGER},
             </if>
-            <if test="expectRent != null">
-                #{expectRent,jdbcType=DOUBLE},
+            <if test="expectPrice != null">
+                #{expectPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="haveDesk != null">
+                #{haveDesk,jdbcType=TINYINT},
+            </if>
+            <if test="haveWardrobe != null">
+                #{haveWardrobe,jdbcType=TINYINT},
+            </if>
+            <if test="haveAirConditioning != null">
+                #{haveAirConditioning,jdbcType=TINYINT},
+            </if>
+            <if test="haveWaterHeater != null">
+                #{haveWaterHeater,jdbcType=TINYINT},
+            </if>
+            <if test="haveWLAN != null">
+                #{haveWLAN,jdbcType=TINYINT},
             </if>
         </trim>
     </insert>
@@ -117,8 +161,23 @@
             <if test="houseId != null">
                 HOUSE_ID = #{houseId,jdbcType=INTEGER},
             </if>
-            <if test="expectRent != null">
-                EXPECT_RENT = #{expectRent,jdbcType=DOUBLE},
+            <if test="expectPrice != null">
+                EXPECT_PRICE = #{expectPrice,jdbcType=DOUBLE},
+            </if>
+            <if test="haveDesk != null">
+                HAVE_DESK = #{haveDesk,jdbcType=TINYINT},
+            </if>
+            <if test="haveWardrobe != null">
+                HAVE_WARDROBE = #{haveWardrobe,jdbcType=TINYINT},
+            </if>
+            <if test="haveAirConditioning != null">
+                HAVE_AIRCONDITIONING = #{haveAirConditioning,jdbcType=TINYINT},
+            </if>
+            <if test="haveWaterHeater != null">
+                HAVE_WATERHEATER = #{haveWaterHeater,jdbcType=TINYINT},
+            </if>
+            <if test="haveWLAN != null">
+                HAVE_WLAN = #{haveWLAN,jdbcType=TINYINT},
             </if>
         </set>
         where ID = #{id,jdbcType=INTEGER}
@@ -130,7 +189,12 @@
       HAVE_WASHROOM = #{haveWashroom,jdbcType=TINYINT},
       HAVE_KITCKEN = #{haveKitcken,jdbcType=TINYINT},
       HOUSE_ID = #{houseId,jdbcType=INTEGER},
-      EXPECT_RENT = #{expectRent,jdbcType=DOUBLE}
+      EXPECT_PRICE = #{expectPrice,jdbcType=DOUBLE},
+      HAVE_DESK = #{haveDesk,jdbcType=TINYINT},
+      HAVE_WARDROBE = #{haveWardrobe,jdbcType=TINYINT},
+      HAVE_AIRCONDITIONING = #{haveAirConditioning,jdbcType=TINYINT},
+      HAVE_WATERHEATER = #{haveWaterHeater,jdbcType=TINYINT},
+      HAVE_WLAN = #{haveWLAN,jdbcType=TINYINT},
     where ID = #{id,jdbcType=INTEGER}
   </update>
     <select id="selectByHouseID" parameterType="INTEGER" resultMap="Rooms">
@@ -138,13 +202,18 @@
           ROOMS.ID,
           ROOMS.ROOM_NO,
           ROOMS.AREA_NUMBER,
-          ROOMS.EXPECT_RENT,
+          ROOMS.EXPECT_PRICE,
           ROOMS.HAVE_WASHROOM,
           ROOMS.HAVE_KITCKEN,
           ROOMS.HOUSE_STATUS_ID,
+          ROOMS.HAVE_DESK,
+          ROOMS.HAVE_AIRCONDITIONING,
+          ROOMS.HAVE_WARDROBE,
+          ROOMS.HAVE_WATERHEATER,
+          ROOMS.HAVE_WLAN,
           HOUSE_STATUS.ID,
           HOUSE_STATUS.STATUS_NAME
-       FROM ROOMS
+          FROM ROOMS
           JOIN HOUSE_STATUS
           ON ROOMS.HOUSE_STATUS_ID = HOUSE_STATUS.ID
        WHERE ROOMS.HOUSE_ID=#{houseID,jdbcType=INTEGER}

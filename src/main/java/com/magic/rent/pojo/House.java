@@ -13,7 +13,7 @@ public class House implements Serializable {
 
     private String name;//房屋名字
 
-    private double expectRent;//预期租金
+    private double expectPrice;//预期租金
 
     private String vrPath;//VR资源地址
 
@@ -24,7 +24,7 @@ public class House implements Serializable {
 
     private int floor;//楼层
 
-    private int layoutId;//房间布局
+    private int layoutID;//房间布局
     private HouseLayout houseLayout;//房间布局
 
     private int decorationTypeId;//装修类型ID
@@ -73,12 +73,12 @@ public class House implements Serializable {
         this.address = address;
     }
 
-    public double getExpectRent() {
-        return expectRent;
+    public double getExpectPrice() {
+        return expectPrice;
     }
 
-    public void setExpectRent(double expectRent) {
-        this.expectRent = expectRent;
+    public void setExpectPrice(double expectPrice) {
+        this.expectPrice = expectPrice;
     }
 
     public String getVrPath() {
@@ -113,12 +113,20 @@ public class House implements Serializable {
         this.floor = floor;
     }
 
-    public int getlayoutId() {
-        return layoutId;
+    public int getLayoutID() {
+        return layoutID;
     }
 
-    public void setlayoutId(int layoutId) {
-        this.layoutId = layoutId;
+    public void setLayoutID(int layoutID) {
+        this.layoutID = layoutID;
+    }
+
+    public int getExpectPaymentId() {
+        return expectPaymentId;
+    }
+
+    public void setExpectPaymentId(int expectPaymentId) {
+        this.expectPaymentId = expectPaymentId;
     }
 
     public int getDecorationTypeId() {
@@ -295,13 +303,13 @@ public class House implements Serializable {
                 "id=" + id +
                 ", address='" + address + '\'' +
                 ", name='" + name + '\'' +
-                ", expectRent=" + expectRent +
+                ", expectPrice=" + expectPrice +
                 ", vrPath='" + vrPath + '\'' +
                 ", thumbnailPath='" + thumbnailPath + '\'' +
                 ", communityId=" + communityId +
                 ", community=" + community +
                 ", floor=" + floor +
-                ", layoutId=" + layoutId +
+                ", layoutID=" + layoutID +
                 ", houseLayout=" + houseLayout +
                 ", decorationTypeId=" + decorationTypeId +
                 ", decorationType=" + decorationType +
@@ -315,7 +323,7 @@ public class House implements Serializable {
                 ", haveBalcony=" + haveBalcony +
                 ", houseStatusId=" + houseStatusId +
                 ", houseStatus=" + houseStatus +
-                ", expectPaymentID=" + expectPaymentId +
+                ", expectPaymentId=" + expectPaymentId +
                 ", expectPayment=" + expectPayment +
                 ", areaNumber=" + areaNumber +
                 ", enabled=" + enabled +
