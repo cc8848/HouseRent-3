@@ -10,29 +10,13 @@ function House() {
      * 获取租赁模式及房屋信息
      */
     this.houseInit = function () {
-        $.getJSON('/rentMode/getRentModes', {houseID: _this.id}, function (data) {
-            if (data.status) {
-                _this.showRentModes(data.data);
-                $.each(data.data, function (i, rentMode) {
-                    if (rentMode.id == 1) {
-                        _this.showShareMode();
-                    } else if (rentMode.id == 2) {
-                        _this.showWholeMode();
-                    } else if (rentMode.id == 3) {
-                        _this.showSubletMode();
-                    }
-                })
-            } else {
-                alert(data.message);
-            }
-        });
+       _this.showShareMode()
     };
     /**
      * 显示租赁模式
      * @param data
      */
     this.showRentModes = function (data) {
-        $('#rentMode-tab').html(template('rentMode', {data: data}));
         $('#rentMode-content').html(template('rentModeContent', {data: data}));
     };
     /**
@@ -73,13 +57,6 @@ function House() {
         })
     };
     /**
-     * 显示整租模式
-     * @param data
-     */
-    this.showWholeMode = function (data) {
-
-    };
-    /**
      * 显示转租模式
      * @param data
      */
@@ -96,7 +73,7 @@ function Room(room) {
      * @param room
      */
     this.showRoomInfo = function () {
-        $('#content-1').html(template('share', {room: _this.room}));
+        $('#content-share').html(template('share', {room: _this.room}));
     };
     /**
      * 修改房间信息

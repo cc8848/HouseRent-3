@@ -60,11 +60,11 @@
         </association>
         <association property="expectPayment" javaType="com.magic.rent.pojo.Payment">
             <id column="payment_ID" property="id" jdbcType="INTEGER"/>
-            <result column="PAYMENT_Name" property="paymentName" jdbcType="VARCHAR"/>
+            <result column="payment_Name" property="paymentName" jdbcType="VARCHAR"/>
         </association>
         <collection property="rentModeList" ofType="com.magic.rent.pojo.RentMode">
-            <id column="rentMODE_ID" property="id" jdbcType="INTEGER"/>
-            <result column="rentMODE_Name" property="name" jdbcType="VARCHAR"/>
+            <id column="rentMode_ID" property="id" jdbcType="INTEGER"/>
+            <result column="rentMode_Name" property="name" jdbcType="VARCHAR"/>
         </collection>
     </resultMap>
     <resultMap id="houseDetail" type="com.magic.rent.pojo.House" extends="BaseResultMap">
@@ -89,8 +89,12 @@
         </association>
         <association property="expectPayment" javaType="com.magic.rent.pojo.Payment">
             <id column="payment_ID" property="id" jdbcType="INTEGER"/>
-            <result column="PAYMENT_Name" property="paymentName" jdbcType="VARCHAR"/>
+            <result column="payment_Name" property="paymentName" jdbcType="VARCHAR"/>
         </association>
+        <collection property="rentModeList" ofType="com.magic.rent.pojo.RentMode">
+            <id column="rentMode_ID" property="id" jdbcType="INTEGER"/>
+            <result column="rentMode_Name" property="name" jdbcType="VARCHAR"/>
+        </collection>
     </resultMap>
     <sql id="Base_Column_List">
     ID, NAME, ADDRESS, EXPECT_PRICE, VR_PATH, THUMBNAIL_PATH, COMMUNITY_ID, FLOOR, LAYOUT_ID,
@@ -411,7 +415,7 @@
         </where>
     </select>
     <select id="selectHouseDetailByID" parameterType="INTEGER" resultMap="houseDetail">
-       SELECT
+      SELECT
           HOUSE.ID,
           HOUSE.NAME,
           HOUSE.FLOOR,
@@ -427,7 +431,9 @@
           HOUSE_LAYOUT.NAME        layout_Name,
           DECORATION_TYPE.NAME     decorationType_Name,
           HOUSE_STATUS.STATUS_NAME houseStatus_Name,
-          PAYMENT.PAYMENT_NAME     PAYMENT_Name
+          PAYMENT.PAYMENT_NAME     payment_Name,
+          RENT_MODE.ID             rentMode_ID,
+          RENT_MODE.NAME           rentMode_Name
         FROM HOUSE
           JOIN PROVINCE ON HOUSE.PROVINCE_ID = PROVINCE.provinceID
           JOIN CITY ON HOUSE.CITY_ID = CITY.cityID
@@ -437,6 +443,8 @@
           JOIN DECORATION_TYPE ON HOUSE.DECORATION_TYPE_ID = DECORATION_TYPE.ID
           JOIN HOUSE_STATUS ON HOUSE.HOUSE_STATUS_ID = HOUSE_STATUS.ID
           JOIN PAYMENT ON HOUSE.EXPECT_PAYMENT_ID = PAYMENT.ID
+          JOIN HOUSE_RENT_MODE ON HOUSE.ID = HOUSE_RENT_MODE.HOUSE_ID
+          JOIN RENT_MODE ON HOUSE_RENT_MODE.RENT_MODE_ID = RENT_MODE.ID
         WHERE HOUSE.ID = #{id,jdbcType=INTEGER}
     </select>
 </mapper>
