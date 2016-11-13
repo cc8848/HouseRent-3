@@ -8,7 +8,10 @@ import com.magic.rent.pojo.House;
 import com.magic.rent.pojo.HouseRecommend;
 import com.magic.rent.service.IHouseRecommendService;
 import com.magic.rent.service.IHouseService;
+import com.magic.rent.service.security.MethodSecurityMetadataSource;
 import com.magic.rent.util.JsonResult;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Controller;
@@ -30,13 +33,15 @@ import java.util.Map;
  */
 @Controller
 @RequestMapping("/house")
-public class HouseController extends BaseController{
+public class HouseController extends BaseController {
 
     @Autowired
     private IHouseService iHouseService;
 
     @Autowired
     private IHouseRecommendService iHouseRecommendService;
+
+    private static Logger logger = LoggerFactory.getLogger(HouseController.class);
 
     @ResponseBody
     @RequestMapping("/selectHousesByCommunity")
@@ -107,6 +112,7 @@ public class HouseController extends BaseController{
         //获取ID查询数据
         int houseID = Integer.parseInt(request.getParameter("houseID"));
         House house = iHouseService.selectByHouseID(houseID);
+        logger.info(house.toString());
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("house", house);
         //返回房屋详情页面（goods商品页面）

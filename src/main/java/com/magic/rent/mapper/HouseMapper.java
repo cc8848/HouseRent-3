@@ -26,4 +26,6 @@ public interface HouseMapper {
     List<House> selectBySearchTerms(Map<String, Object> terms);
 
     House selectHouseDetailByID(int id);
+
+    List<House> selectSameHouse(House record);
 }
