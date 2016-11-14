@@ -20,7 +20,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Showings</a>
+                <a class="navbar-brand" href="/">Showings · 房库</a>
             </div>
             <div class="collapse navbar-collapse" id="navbar_items">
                 <ul class="nav navbar-nav navbar-right">

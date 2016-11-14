@@ -4,11 +4,11 @@ body {
 
 @font-face {
     font-family: 'iconfont';  /* project id："180873" */
-    src: url('//at.alicdn.com/t/font_rh7lofob59mjkyb9.eot');
-    src: url('//at.alicdn.com/t/font_rh7lofob59mjkyb9.eot') format('embedded-opentype'),
-    url('//at.alicdn.com/t/font_rh7lofob59mjkyb9.woff') format('woff'),
-    url('//at.alicdn.com/t/font_rh7lofob59mjkyb9.ttf') format('truetype'),
-    url('//at.alicdn.com/t/font_rh7lofob59mjkyb9.svg#iconfont') format('svg');
+    src: url('//at.alicdn.com/t/font_ced0toj4wi6swcdi.eot');
+    src: url('//at.alicdn.com/t/font_ced0toj4wi6swcdi.eot') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_ced0toj4wi6swcdi.woff') format('woff'),
+    url('//at.alicdn.com/t/font_ced0toj4wi6swcdi.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_ced0toj4wi6swcdi.svg#iconfont') format('svg');
 }
 
 .index-iconfont-1 {
@@ -77,4 +77,8 @@ body {
 .index-bg-1 {
     background: url("../images/index/background.jpg");
     background-size: cover;
+}
+
+.index-bg-2 {
+    background-color: #FFFFFF;
 }

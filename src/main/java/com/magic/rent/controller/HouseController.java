@@ -105,7 +105,7 @@ public class HouseController extends BaseController {
         return JsonResult.success("", housePageInfo);
     }
 
-    @RequestMapping("/selectHouseDetailByHouseID")//获取房屋详细信息
+    @RequestMapping("/detail")//获取房屋详细信息
     public ModelAndView selectHouseDetailByHouseID(HttpServletRequest request, HttpServletResponse response) throws Exception {
         if (StringUtils.isEmpty(request.getParameter("houseID")))
             throw new ParameterException(messageSourceAccessor.getMessage("HouseService.houseID", "房屋ID不能为空!"));

@@ -24,7 +24,7 @@
 <%--head start--%>
 <c:import url="/WEB-INF/common/showings_common_head.jsp"/>
 <%--head end--%>
-<div class="jumbotron index-bg-1" style="margin: 0px">
+<div class="jumbotron index-bg-1" style="margin: 0">
     <div class="container well-lg">
         <h1 class="text-right"><strong>重新定义看房方式</strong></h1>
         <div class="white-divider-md"></div>
@@ -36,26 +36,35 @@
         <div class="white-divider-md"></div>
         <p class="text-right">
             <a class="btn btn-success btn-lg" href="#" role="button"><span class="glyphicon glyphicon-edit"></span>&nbsp;免费注册</a>
-            <a class="btn btn-primary btn-lg" href="#" role="button"><span class="glyphicon glyphicon-camera"></span>&nbsp;在线体验</a>
+            <a class="btn btn-primary btn-lg" href="/house/detail?houseID=1" role="button"><span class="glyphicon glyphicon-camera"></span>&nbsp;在线体验</a>
         </p>
     </div>
 </div>
-<div class="jumbotron">
+<div class="jumbotron" style="margin: 0">
     <div class="container text-center">
-        <div class="col-lg-3"></div>
+        <div class="col-lg-2"></div>
         <div class="col-lg-2 ">
-            <i class="index-iconfont-1">&#xe600;</i>
+            <i class="index-iconfont-1">&#xe645;</i>
             <p>VR看房</p>
         </div>
         <div class="col-lg-2">
-            <i class="index-iconfont-1">&#xe60b;</i>
-            <p>WiFi开门</p>
+            <i class="index-iconfont-1">&#xe63f;</i>
+            <p>轻松分享</p>
         </div>
         <div class="col-lg-2">
-            <i class="index-iconfont-1">&#xe603;</i>
-            <p>地图找房</p>
+            <i class="index-iconfont-1">&#xe694;</i>
+            <p>智能比房</p>
         </div>
-        <div class="col-lg-3"></div>
+        <div class="col-lg-2">
+            <i class="index-iconfont-1">&#xe643;</i>
+            <p>海量房源</p>
+        </div>
+        <div class="col-lg-2"></div>
+    </div>
+</div>
+<div class="jumbotron index-bg-2" style="margin: 0">
+    <div class="container">
+
     </div>
 </div>
 
