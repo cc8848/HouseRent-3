@@ -22,7 +22,7 @@
 <link rel="stylesheet" href="../../css/common.css">
 <body>
 <%--head start--%>
-<c:import url="/WEB-INF/common/common_head.jsp"/>
+<c:import url="/WEB-INF/common/house_common_head.jsp"/>
 <%--head end--%>
 <div class="white-divider-md"></div>
 <div class="container">

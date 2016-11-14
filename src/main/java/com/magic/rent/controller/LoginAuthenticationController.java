@@ -85,6 +85,7 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
             return;
         }
         jsonResult = JsonResult.success("登录验证成功!", users);
+        request.getSession().setAttribute("user", users);
         request.setAttribute(userInfo, jsonResult);
         httpReturn(request, response, true);
     }

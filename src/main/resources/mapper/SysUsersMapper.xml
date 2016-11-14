@@ -4,7 +4,7 @@
     <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysUsers">
         <id column="USER_ID" jdbcType="INTEGER" property="userId"/>
         <result column="USERNAME" jdbcType="VARCHAR" property="username"/>
-        <result column="NAME" jdbcType="VARCHAR" property="name"/>
+        <result column="miniName" jdbcType="VARCHAR" property="name"/>
         <result column="PASSWORD" jdbcType="VARCHAR" property="password"/>
         <result column="DT_CREATE" jdbcType="TIMESTAMP" property="dtCreate"/>
         <result column="LAST_LOGIN" jdbcType="TIMESTAMP" property="lastLogin"/>
@@ -212,11 +212,18 @@
     where USER_ID = #{userId,jdbcType=INTEGER}
   </update>
 
-    <select id="selectByUserName" parameterType="com.magic.rent.pojo.SysUsers"
-            resultMap="BaseResultMap">
-    SELECT SYS_USERS.USER_ID,SYS_USERS.USERNAME username,SYS_USERS.PASSWORD password,SYS_USERS.ENABLED,SYS_USERS.ACCOUNT_NON_EXPIRED,SYS_USERS.ACCOUNT_NON_LOCKED,SYS_USERS.CREDENTIALS_NON_EXPIRED
+    <select id="selectByUserName" parameterType="com.magic.rent.pojo.SysUsers" resultMap="BaseResultMap">
+    SELECT
+      SYS_USERS.USER_ID,
+      SYS_USERS.USERNAME ,
+      SYS_USERS.NAME     miniName,
+      SYS_USERS.PASSWORD ,
+      SYS_USERS.ENABLED,
+      SYS_USERS.ACCOUNT_NON_EXPIRED,
+      SYS_USERS.ACCOUNT_NON_LOCKED,
+      SYS_USERS.CREDENTIALS_NON_EXPIRED
     FROM SYS_USERS
-    WHERE SYS_USERS.USERNAME=#{username}
+    WHERE SYS_USERS.USERNAME = #{username}
     </select>
 
 </mapper>

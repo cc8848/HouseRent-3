@@ -2,11 +2,29 @@ body {
     padding-top: 50px;
 }
 
+@font-face {
+    font-family: 'iconfont';  /* project id："180873" */
+    src: url('//at.alicdn.com/t/font_rh7lofob59mjkyb9.eot');
+    src: url('//at.alicdn.com/t/font_rh7lofob59mjkyb9.eot') format('embedded-opentype'),
+    url('//at.alicdn.com/t/font_rh7lofob59mjkyb9.woff') format('woff'),
+    url('//at.alicdn.com/t/font_rh7lofob59mjkyb9.ttf') format('truetype'),
+    url('//at.alicdn.com/t/font_rh7lofob59mjkyb9.svg#iconfont') format('svg');
+}
+
+.index-iconfont-1 {
+    font-family: "iconfont";
+    font-size: 50px;
+    font-style: normal;
+    -webkit-font-smoothing: antialiased;
+    -webkit-text-stroke-width: 0.2px;
+}
+
 .white-divider-xs, .white-divider-sm, .white-divider-md, .white-divider-lg .white-divider-xl {
     height: 1px;
     overflow: hidden;
 }
 
+/*无色分割线 start*/
 .white-divider-xs {
     margin: 3px 0;
 }
@@ -27,6 +45,7 @@ body {
     margin: 20px 0;
 }
 
+/*无色分割线 end*/
 .divider-xs {
     height: 2px;
     margin: 9px 0;
@@ -53,4 +72,9 @@ body {
     float: left;
     margin-bottom: 10px;
     margin-right: 20px;
+}
+
+.index-bg-1 {
+    background: url("../images/index/background.jpg");
+    background-size: cover;
 }

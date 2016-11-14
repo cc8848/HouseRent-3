@@ -23,7 +23,7 @@
 <link rel="stylesheet" href="../../css/icheckflat/blue.css">
 <body>
 <%--head start--%>
-<c:import url="/WEB-INF/common/common_head.jsp"/>
+<c:import url="/WEB-INF/common/house_common_head.jsp"/>
 <%--head end--%>
 <div class="container">
     <div class="row page-header">

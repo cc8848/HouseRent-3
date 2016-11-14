@@ -22,56 +22,40 @@
 <link rel="stylesheet" href="../../css/common.css">
 <body>
 <%--head start--%>
-<c:import url="/WEB-INF/common/common_head.jsp"/>
+<c:import url="/WEB-INF/common/showings_common_head.jsp"/>
 <%--head end--%>
-
-<div class="container">
-    <div class="white-divider-md"></div>
-    <div class="hidden-xs" style="height: 100px"></div>
-    <%--搜索框--%>
-    <div class="row">
-        <div class="hidden-xs col-sm-2"></div>
-        <div class="col-xs-12 col-sm-8">
-            <div class="input-group input-group-lg">
-                <input type="text" class="form-control" placeholder="请输入搜索关键字...">
-                <span class="input-group-btn ">
-                 <button class="btn btn-primary" type="button">Go!</button>
-            </span>
-            </div>
-        </div>
-        <div class="hidden-xs col-sm-2"></div>
+<div class="jumbotron index-bg-1" style="margin: 0px">
+    <div class="container well-lg">
+        <h1 class="text-right"><strong>重新定义看房方式</strong></h1>
+        <div class="white-divider-md"></div>
+        <p class="text-right"><strong>Redefine the Way of Showings</strong></p>
+        <div class="white-divider-md"></div>
+        <div class="white-divider-md"></div>
+        <div class="white-divider-md"></div>
+        <div class="white-divider-md"></div>
+        <div class="white-divider-md"></div>
+        <p class="text-right">
+            <a class="btn btn-success btn-lg" href="#" role="button"><span class="glyphicon glyphicon-edit"></span>&nbsp;免费注册</a>
+            <a class="btn btn-primary btn-lg" href="#" role="button"><span class="glyphicon glyphicon-camera"></span>&nbsp;在线体验</a>
+        </p>
     </div>
-    <div class="hidden-xs" style="height: 120px"></div>
-    <div class="white-divider-md"></div>
-    <%--产品介绍--%>
-    <div class="row">
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <img src="../../images/index/realHouse.png" alt="realHouse" class="img-responsive img-rounded" style="width: 100%">
-                <div class="caption">
-                    <h3>真实房源</h3>
-                    <p>所有房源均采用线下真实可靠的渠道获取</p>
-                </div>
-            </div>
+</div>
+<div class="jumbotron">
+    <div class="container text-center">
+        <div class="col-lg-3"></div>
+        <div class="col-lg-2 ">
+            <i class="index-iconfont-1">&#xe600;</i>
+            <p>VR看房</p>
         </div>
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <img src="../../images/index/wifiOpen.png" alt="realHouse" class="img-responsive img-rounded" style="width: 100%">
-                <div class="caption">
-                    <h3>真实房源</h3>
-                    <p>所有房源均采用线下真实可靠的渠道获取</p>
-                </div>
-            </div>
+        <div class="col-lg-2">
+            <i class="index-iconfont-1">&#xe60b;</i>
+            <p>WiFi开门</p>
         </div>
-        <div class="col-sm-4">
-            <div class="thumbnail">
-                <img src="../../images/index/VR.png" alt="realHouse" class="img-responsive img-rounded" style="width: 100%">
-                <div class="caption">
-                    <h3>真实房源</h3>
-                    <p>所有房源均采用线下真实可靠的渠道获取</p>
-                </div>
-            </div>
+        <div class="col-lg-2">
+            <i class="index-iconfont-1">&#xe603;</i>
+            <p>地图找房</p>
         </div>
+        <div class="col-lg-3"></div>
     </div>
 </div>
 

@@ -37,7 +37,7 @@
                             <li><a href="#">账户信息</a></li>
                             <li><a href="#">我的钥匙</a></li>
                             <li><a href="#">我的房子</a></li>
-                            <div class="divider"></div>
+                            <li class="divider"></li>
                             <li>
                                 <form id="logout-form" role="form" action="/logout.do" method="post">
                                     <sec:csrfInput/>
