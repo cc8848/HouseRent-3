@@ -26,12 +26,16 @@
 <c:import url="/WEB-INF/common/house_common_head.jsp"/>
 <%--head end--%>
 <div class="container">
-    <div class="row page-header">
-        <h3>${requestScope.house.name}
-            <small>No.<span id="houseID">${requestScope.house.id}</span></small>
-            <small class="pull-right"> ${house.city.cityname}&nbsp;${house.area.areaname}&nbsp;<a
-                    href="#">${house.community.name}</a></small>
-        </h3>
+    <div class="row">
+        <div class="col-lg-12 ">
+            <div class="page-header">
+                <h3>${requestScope.house.name}
+                    <small>No.<span id="houseID">${requestScope.house.id}</span></small>
+                    <small class="pull-right"> ${house.city.cityname}&nbsp;${house.area.areaname}&nbsp;<a
+                            href="#">${house.community.name}</a></small>
+                </h3>
+            </div>
+        </div>
     </div>
     <div class="row">
         <div id="left-side" class="col-lg-9">

@@ -20,9 +20,9 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="/">Showings · 房库</a>
+                <a class="navbar-brand" href="${pageContext.request.contextPath}/">Showings · 房库</a>
             </div>
-            <div class="collapse navbar-collapse" id="navbar_items">
+            <div id="navbar_items" class="collapse navbar-collapse">
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#"><span class="glyphicon glyphicon-th-list"></span>&nbsp;更新日志</a></li>
                     <li><a href="#"><span class="glyphicon glyphicon-leaf"></span>&nbsp;首英百科</a></li>
@@ -30,11 +30,11 @@
                     <c:choose>
                         <c:when test="${sessionScope.user==null}">
                             <li>
-                                <a href="/user/login" class="visible-xs">
+                                <a href="${pageContext.request.contextPath}/user/login" class="visible-xs">
                                     <span class="glyphicon glyphicon-log-in"></span> &nbsp;登&nbsp;&nbsp;录&nbsp;&nbsp;
                                 </a>
                                 <form class="navbar-form hidden-xs" role="form">
-                                    <a href="/user/login" class="btn btn-default btn-sm">
+                                    <a href="${pageContext.request.contextPath}/user/login" class="btn btn-default btn-sm">
                                         &nbsp;&nbsp;登&nbsp;&nbsp;录&nbsp;&nbsp;</a>
                                 </form>
                             </li>
@@ -48,7 +48,7 @@
                                     <li><a href="#">Another action</a></li>
                                     <li><a href="#">Something else here</a></li>
                                     <li class="divider"></li>
-                                    <form id="logout-form" role="form" action="/logout.do" method="post">
+                                    <form id="logout-form" role="form" action="${pageContext.request.contextPath}/logout.do" method="post">
                                         <sec:csrfInput/>
                                         <button class="btn btn-link btn-block" type="button" onclick="logout()">退出
                                         </button>

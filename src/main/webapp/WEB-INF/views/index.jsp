@@ -36,12 +36,13 @@
         <div class="white-divider-md"></div>
         <p class="text-right">
             <a class="btn btn-success btn-lg" href="#" role="button"><span class="glyphicon glyphicon-edit"></span>&nbsp;免费注册</a>
-            <a class="btn btn-primary btn-lg" href="/house/detail?houseID=1" role="button"><span
+            <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/house/detail?houseID=1"
+               role="button"><span
                     class="glyphicon glyphicon-camera"></span>&nbsp;在线体验</a>
         </p>
     </div>
 </div>
-<div class="jumbotron index-bg-gray">
+<div class="jumbotron index-bg-gray" style="padding: 20px 0">
     <div class="container text-center">
         <div class="col-lg-2"></div>
         <div class="col-lg-2 ">
@@ -63,52 +64,51 @@
         <div class="col-lg-2"></div>
     </div>
 </div>
-<div class="jumbotron index-bg-bottom">
-    <div class="container">
-        <div class="col-lg-1"></div>
-        <div class="col-lg-10">
-            <div class="page-header">
-                <h2 class="font-shadow-white text-center"><strong>每个房产业务的场合，我们都精益求精</strong></h2>
-            </div>
-            <div id="carousel-generic" class="carousel slide" data-ride="carousel">
-                <!-- Indicators -->
-                <ol class="carousel-indicators">
-                    <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    <li data-target="#carousel-example-generic" data-slide-to="2"></li>
-                </ol>
+<div class="jumbotron index-bg-black" style="padding: 0px">
+    <div class="container-fluid">
+        <div id="carousel-generic" class="carousel slide" data-ride="carousel">
+            <!-- Indicators -->
+            <ol class="carousel-indicators">
+                <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="1"></li>
+                <li data-target="#carousel-example-generic" data-slide-to="2"></li>
+            </ol>
 
-                <!-- Wrapper for slides -->
-                <div class="carousel-inner" role="listbox">
-                    <div class="item active ">
-                        <img src="${pageContext.request.contextPath}/images/index/background.jpg" alt="..."
-                             class="pic-align-center img-rounded">
-                        <div class="carousel-caption">
-                            ...
-                        </div>
-                    </div>
-                    <div class="item">
-                        <img src="${pageContext.request.contextPath}/images/index/background.jpg" alt="..."
-                             class="pic-align-center img-rounded">
-                        <div class="carousel-caption">
-                            ...
-                        </div>
+            <!-- Wrapper for slides -->
+            <div class="carousel-inner" role="listbox">
+                <div class="item active ">
+                    <img src="${pageContext.request.contextPath}/images/index/rent.jpg" alt="..."
+                         class="pic-align-center" style="width: 100%">
+                    <div class="carousel-caption">
+                        ...
                     </div>
                 </div>
-
-                <!-- Controls -->
-                <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
-                    <span class="glyphicon glyphicon-chevron-left"></span>
-                    <span class="sr-only">Previous</span>
-                </a>
-                <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
-                    <span class="glyphicon glyphicon-chevron-right"></span>
-                    <span class="sr-only">Next</span>
-                </a>
+                <div class="item">
+                    <img src="${pageContext.request.contextPath}/images/index/rent.jpg" alt="..."
+                         class="pic-align-center img-rounded">
+                    <div class="carousel-caption">
+                        ...
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="${pageContext.request.contextPath}/images/index/rent.jpg" alt="..."
+                         class="pic-align-center img-rounded">
+                    <div class="carousel-caption">
+                        ...
+                    </div>
+                </div>
             </div>
+            <!-- Controls -->
+            <a class="left carousel-control" href="#carousel-generic" role="button" data-slide="prev">
+                <span class="glyphicon glyphicon-chevron-left"></span>
+                <span class="sr-only">Previous</span>
+            </a>
+            <a class="right carousel-control" href="#carousel-generic" role="button" data-slide="next">
+                <span class="glyphicon glyphicon-chevron-right"></span>
+                <span class="sr-only">Next</span>
+            </a>
         </div>
     </div>
-    <div class="col-lg-1"></div>
 </div>
 <div class="jumbotron index-bg-white">
     <div class="container">
@@ -172,20 +172,55 @@
                 —
             </p>
             <p class="text-center">
-               Showings
+                Showings
             </p>
         </div>
     </div>
 </div>
 <div class="jumbotron index-bg-black">
     <div class="container">
-        <div class="col-lg-12" style="color: #FFFFFF;">
-            <h4 class="text-center">
-                <small>©2012-2016 Showings 版权所有</small>
-            </h4>
-            <h4 class="text-center">
-                <small>京ICP备15000327号</small>
-            </h4>
+        <div class="row">
+            <div class="col-lg-3 font-shadow-white text-center">
+                <h4>首英产品</h4>
+                <ul class="list-unstyled">
+                    <li><a href="#">在线体验</a></li>
+                    <li><a href="#">快速登录</a></li>
+                    <li><a href="#">微信服务</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 font-shadow-white text-center">
+                <h4>关于首英</h4>
+                <ul class="list-unstyled">
+                    <li><a href="#">首英简介</a></li>
+                    <li><a href="#">更新日志</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 font-shadow-white text-center">
+                <h4>首英百科</h4>
+                <ul class="list-unstyled">
+                    <li><a href="#">开始使用</a></li>
+                    <li><a href="#">案例分享</a></li>
+                </ul>
+            </div>
+            <div class="col-lg-3 font-shadow-white text-center">
+                <h4>联系我们</h4>
+                <ul class="list-unstyled">
+                    <li><a href="#">在线留言</a></li>
+                    <li><a href="#">商务合作</a></li>
+                    <li><a href="#">联系方式</a></li>
+                </ul>
+            </div>
+        </div>
+        <hr>
+        <div class="row">
+            <div class="col-lg-12" style="color: #FFFFFF;">
+                <h4 class="text-center">
+                    <small>©2012-2016 Showings 版权所有</small>
+                </h4>
+                <h4 class="text-center">
+                    <small>京ICP备15000327号</small>
+                </h4>
+            </div>
         </div>
     </div>
 </div>
