@@ -25,9 +25,9 @@
     <div class="hidden-xs col-sm-1 col-md-2 col-lg-3"></div>
     <div class="col-xs-12 col-sm-10 col-md-8 col-lg-6 row-fluid">
         <div class="page-header">
-            <h1>易租网
-                <small>EasyRent</small>
-                <a href="/" class="btn btn-xs btn-primary pull-right active">返回首页</a>
+            <h1>Showings
+                <small>-首英</small>
+                <a href="<c:url value="/"/>" class="btn btn-xs btn-primary pull-right active">返回首页</a>
             </h1>
         </div>
     </div>
