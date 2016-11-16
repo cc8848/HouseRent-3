@@ -28,8 +28,6 @@ public class HouseServiceImpl implements IHouseService {
     @Autowired
     private HouseMapper houseMapper;
 
-    private static final Logger logger = LoggerFactory.getLogger(HouseServiceImpl.class);
-
     public PageInfo<House> selectByCommunity(Community community, int pageNum, int pageSize) throws Exception {
         PageHelper.startPage(pageNum, pageSize);
         List<House> houseList = houseMapper.selectByCommunity(community);
@@ -44,5 +42,11 @@ public class HouseServiceImpl implements IHouseService {
 
     public House selectByHouseID(int houseID) throws Exception {
         return houseMapper.selectHouseDetailByID(houseID);
+    }
+
+    public PageInfo<Map<String, String>> selectNearHouse(House house, int pageNum, int pageSize) throws Exception {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Map<String, String>> nearHouseList = houseMapper.selectNearHouse(house);
+        return new PageInfo<Map<String, String>>(nearHouseList);
     }
 }

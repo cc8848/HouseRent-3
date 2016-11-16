@@ -16,10 +16,10 @@
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
-<link rel="stylesheet" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" href="../../css/select2.min.css">
-<link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../../css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <body>
 <%--head start--%>
 <c:import url="/WEB-INF/common/house_common_head.jsp"/>
@@ -47,11 +47,14 @@
                             </div>
                             <div id="collapseOne" class="panel-collapse collapse">
                                 <form class="navbar-form form-group">
-                                    <select id="province" class="select2 form-control" style="width: 100%"></select>
+                                    <select title="province" id="province" class="select2 form-control"
+                                            style="width: 100%"></select>
                                     <div class="white-divider-xs"></div>
-                                    <select id="city" class="select2 form-control" style="width: 100%"></select>
+                                    <select title="city" id="city" class="select2 form-control"
+                                            style="width: 100%"></select>
                                     <div class="white-divider-xs"></div>
-                                    <select id="area" class="select2 form-control" style="width: 100%"></select>
+                                    <select title="area" id="area" class="select2 form-control"
+                                            style="width: 100%"></select>
                                     <div class="white-divider-xs"></div>
                                     <button id="address-button" type="button" class="btn btn-primary btn-block"
                                             data-toggle="collapse" href="#collapseOne">确定
@@ -228,19 +231,20 @@
 
 </div>
 
-<script type="text/javascript" src="../../js/jquery.js"></script>
-<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/select2.min.js"></script>
-<script type="text/javascript" src="../../js/template.js"></script>
-<script type="text/javascript" src="../../js/search.js"></script>
-<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/select2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/template.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/search.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 <%--模板--%>
 <script id="recommendList" type="text/html">
     <ul class="list-group">
         {{each houseList as house index}}
-        <a href="/house/selectHouseDetailByHouseID?houseID={{house.id}}" class="list-group-item container-fluid">
+        <a href="${pageContext.request.contextPath}/house/detail?houseID={{house.id}}"
+           class="list-group-item container-fluid">
             <div class="col-md-2 hidden-xs hidden-sm">
-                <img src="{{house.thumbnailPath}}" alt=""
+                <img src="${pageContext.request.contextPath}/images/house/thumbnail/{{house.id}}/thumbnail.jpg" alt=""
                      class="img-responsive img-thumbnail"/>
             </div>
             <div class="col-md-10 col-xs-12 ">

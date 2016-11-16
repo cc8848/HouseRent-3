@@ -1,11 +1,15 @@
 package com.magic.rent.service.impl;
 
+import com.github.pagehelper.PageInfo;
+import com.magic.rent.pojo.Community;
 import com.magic.rent.pojo.House;
 import com.magic.rent.service.IHouseService;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
+
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -30,6 +34,17 @@ public class HouseServiceImplTest {
         IHouseService iHouseService = applicationContext.getBean(IHouseService.class);
         House house = iHouseService.selectByHouseID(1);
         System.out.println(house.toString());
+    }
+
+    @Test
+    public void selectNearHouse() throws Exception {
+        House house = new House();
+        Community community = new Community();
+        community.setId(1);
+        house.setCommunity(community);
+        IHouseService iHouseService = applicationContext.getBean(IHouseService.class);
+        PageInfo<Map<String, String>> nearHouseList = iHouseService.selectNearHouse(house, 0, 5);
+        System.out.print(nearHouseList);
     }
 
 }

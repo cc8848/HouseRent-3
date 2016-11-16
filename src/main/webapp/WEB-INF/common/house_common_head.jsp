@@ -21,7 +21,7 @@
                         <span class="icon-bar"></span>
                         <span class="icon-bar"></span>
                     </button>
-                    <a class="navbar-brand" href="${pageContext.request.contextPath}/">Showings · 房库</a>
+                    <a class="navbar-brand" href="${pageContext.request.contextPath}/">Showings · VR房库</a>
                 </div>
                 <div id="navbar_items" class="collapse navbar-collapse">
                     <ul class="nav navbar-nav navbar-right">
@@ -29,26 +29,29 @@
                         <li><a href="#"><span class="glyphicon glyphicon-send"></span>&nbsp;发布房源</a></li>
                         <c:choose>
                             <c:when test="${sessionScope.user==null}">
-                                <li>
+                                <li class="visible-xs">
                                     <a href="${pageContext.request.contextPath}/user/login" class="visible-xs">
-                                        <span class="glyphicon glyphicon-log-in"></span> &nbsp;登&nbsp;&nbsp;录&nbsp;&nbsp;
+                                        <span class="glyphicon glyphicon-log-in"></span> &nbsp;登&nbsp;&nbsp;&nbsp;&nbsp;录&nbsp;&nbsp;
                                     </a>
-                                    <form class="navbar-form hidden-xs" role="form">
-                                        <a href="${pageContext.request.contextPath}/user/login"
-                                           class="btn btn-default btn-sm">
-                                            <span class="glyphicon glyphicon-log-in"></span> &nbsp;&nbsp;登&nbsp;&nbsp;录&nbsp;&nbsp;
-                                        </a>
-                                    </form>
                                 </li>
-                                <li>
+                                <li class="visible-xs">
                                     <a href="${pageContext.request.contextPath}/user/login" class="visible-xs">
-                                        <span class="glyphicon glyphicon-edit"></span> &nbsp;注&nbsp;&nbsp;册&nbsp;&nbsp;
+                                        <span class="glyphicon glyphicon-edit"></span> &nbsp;注&nbsp;&nbsp;&nbsp;&nbsp;册&nbsp;&nbsp;
                                     </a>
+                                </li>
+
+                                <li class="hidden-xs">
                                     <form class="navbar-form hidden-xs" role="form">
-                                        <a href="${pageContext.request.contextPath}/user/login"
-                                           class="btn btn-default btn-sm">
-                                            <span class="glyphicon glyphicon-edit"></span> &nbsp;&nbsp;注&nbsp;&nbsp;册&nbsp;&nbsp;
-                                        </a>
+                                        <div class="btn-group">
+                                            <a href="${pageContext.request.contextPath}/user/login"
+                                               class="btn btn-default btn-sm ">
+                                                <span class="glyphicon glyphicon-log-in"></span> &nbsp;&nbsp;登&nbsp;&nbsp;录&nbsp;&nbsp;
+                                            </a>
+                                            <a href="${pageContext.request.contextPath}/user/login"
+                                               class="btn btn-default btn-sm">
+                                                <span class="glyphicon glyphicon-edit"></span> &nbsp;&nbsp;注&nbsp;&nbsp;册&nbsp;&nbsp;
+                                            </a>
+                                        </div>
                                     </form>
                                 </li>
                             </c:when>

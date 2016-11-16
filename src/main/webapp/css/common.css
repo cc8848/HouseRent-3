@@ -98,18 +98,12 @@ body {
     margin-right: 20px;
 }
 
-.index-bg-top {
+.index-bg-banner {
     background: url("../images/index/background.jpg");
     background-size: cover;
     margin: 0;
 }
 
-.index-bg-bottom {
-    background: url("../images/index/background_bottom.jpg");
-    background-size: cover;
-    margin: 0;
-    padding-bottom: 0;
-}
 
 .index-bg-gray {
     margin: 0;

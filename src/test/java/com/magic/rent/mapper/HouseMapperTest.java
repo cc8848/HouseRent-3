@@ -38,4 +38,9 @@ public class HouseMapperTest {
         List<House> houseList = houseMapper.selectBySearchTerms(parameteMap);
         System.out.println("ListSize:" + houseList.size() + "|" + houseList.get(0));
     }
+
+    @Test
+    public void selectNearHouse() throws Exception {
+        HouseMapper houseMapper = applicationContext.getBean(HouseMapper.class);
+    }
 }

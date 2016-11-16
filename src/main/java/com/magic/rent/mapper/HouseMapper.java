@@ -27,5 +27,5 @@ public interface HouseMapper {
 
     House selectHouseDetailByID(int id);
 
-    List<House> selectSameHouse(House record);
+    List<Map<String, String>> selectNearHouse(House record);
 }

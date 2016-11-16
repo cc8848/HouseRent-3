@@ -12,23 +12,33 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>首页</title>
+    <title>Showings · 房库 - 我的账户</title>
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
-<link rel="stylesheet" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" href="../../css/select2.min.css">
-<link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../../css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <body>
 <%--head start--%>
-<c:import url="/WEB-INF/common/house_common_head.jsp"/>
+<c:import url="/WEB-INF/common/showings_common_head.jsp"/>
 <%--head end--%>
+<div class="container">
+    <div class="row">
+        <div id="left-side" class="col-lg-4">
 
-${sessionScope.loginResult.data.username}
+        </div>
+        <div id="right-side" class="col-lg-8">
 
-<script src="../../js/jquery.js"></script>
-<script src="../../js/bootstrap.min.js"></script>
-<script src="../../js/common.js"></script>
+        </div>
+    </div>
+</div>
+<%--foot start--%>
+<c:import url="/WEB-INF/common/showings_common_foot.jsp"/>
+<%--foot end--%>
+<script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/common.js"></script>
 </body>
 </html>

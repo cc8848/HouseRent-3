@@ -480,4 +480,14 @@
       JOIN HOUSE_STATUS rooms_Status ON ROOMS.HOUSE_STATUS_ID = rooms_Status.ID
     WHERE HOUSE.ID = #{id,jdbcType=INTEGER}
     </select>
+    <select id="selectNearHouse" parameterType="com.magic.rent.pojo.House" resultType="java.util.Map">
+      SELECT
+        ROOMS.HOUSE_ID houseID,
+        MAX(ROOMS.EXPECT_PRICE) maxPrice,
+        MIN(ROOMS.EXPECT_PRICE) minPrice
+      FROM ROOMS
+      JOIN HOUSE ON ROOMS.HOUSE_ID = HOUSE.ID
+      WHERE HOUSE.COMMUNITY_ID= #{community.id,jdbcType=INTEGER}
+      GROUP BY ROOMS.HOUSE_ID
+    </select>
 </mapper>

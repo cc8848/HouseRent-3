@@ -19,4 +19,6 @@ public interface IHouseService {
     PageInfo<House> selectBySearchTerms(Map<String, Object> parameterMap, int pageNum, int pageSize) throws Exception;
 
     House selectByHouseID(int houseID) throws Exception;
+
+    PageInfo<Map<String, String>> selectNearHouse(House house, int pageNum, int pageSize) throws Exception;
 }

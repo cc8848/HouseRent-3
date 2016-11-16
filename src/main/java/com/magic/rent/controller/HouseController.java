@@ -66,7 +66,7 @@ public class HouseController extends BaseController {
         //数据查询
         PageInfo<House> housePageInfo = iHouseService.selectByCommunity(community, pageNum, pageSize);
 
-        return JsonResult.success("", housePageInfo);
+        return JsonResult.success(housePageInfo);
     }
 
     @ResponseBody
@@ -113,8 +113,10 @@ public class HouseController extends BaseController {
         int houseID = Integer.parseInt(request.getParameter("houseID"));
         House house = iHouseService.selectByHouseID(houseID);
         logger.info(house.toString());
+        PageInfo<Map<String, String>> nearHouse = iHouseService.selectNearHouse(house, 0, 4);
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("house", house);
+        model.put("nearPageHouse", nearHouse);
         //返回房屋详情页面（goods商品页面）
         return new ModelAndView("goods", model);
     }

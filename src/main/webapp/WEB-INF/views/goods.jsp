@@ -16,11 +16,11 @@
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
-<link rel="stylesheet" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" href="../../css/select2.min.css">
-<link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../../css/common.css">
-<link rel="stylesheet" href="../../css/icheckflat/blue.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/icheckflat/blue.css">
 <body>
 <%--head start--%>
 <c:import url="/WEB-INF/common/house_common_head.jsp"/>
@@ -387,30 +387,57 @@
                     </li>
                 </ul>
             </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-lg-12">
             <div class="panel panel-default">
                 <div class="panel-heading">
                     <h3 class="panel-title">
-                        相似房源
+                        附近房源
                     </h3>
                 </div>
-                <ul id="recommend" class="list-group">
-
-                </ul>
+                <div class="panel-body">
+                    <c:if test="${null!=nearPageHouse.list&&nearPageHouse.list.size()>0}">
+                        <c:forEach items="${nearPageHouse.list}" var="nearHouse">
+                            <div class="col-lg-3">
+                                <img class="img-thumbnail img-responsive pic-align-center"
+                                     src="${pageContext.request.contextPath}/images/house/thumbnail/${nearHouse.get("houseID")}/thumbnail.jpg"
+                                     alt="...">
+                                <hr>
+                                <c:choose>
+                                    <c:when test="${nearHouse.get('maxPrice')== nearHouse.get('minPrice')}">
+                                        <p class="text-right" style="padding-right: 25px">
+                                            <span class="text-danger">￥${nearHouse.get("minPrice")}</span> ~
+                                            <span class="text-danger">￥${nearHouse.get("maxPrice")}</span>
+                                        </p>
+                                    </c:when>
+                                    <c:otherwise>
+                                        <p class="text-right" style="padding-right: 25px">
+                                            <span class="text-danger">￥${nearHouse.get("minPrice")}</span>
+                                        </p>
+                                    </c:otherwise>
+                                </c:choose>
+                            </div>
+                        </c:forEach>
+                    </c:if>
+                </div>
             </div>
         </div>
     </div>
 </div>
-<script type="text/javascript" src="../../js/jquery.js"></script>
-<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/select2.min.js"></script>
-<script type="text/javascript" src="../../js/template.js"></script>
-<script type="text/javascript" src="../../js/common.js"></script>
-<script type="text/javascript" src="../../js/goods.js"></script>
-<script type="text/javascript" src="../../js/tour.js"></script>
+<c:import url="/WEB-INF/common/showings_common_foot.jsp"/>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/select2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/template.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/goods.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/tour.js"></script>
 <script>
     embedpano({
-        swf: "../../vtour/tour.swf",
-        xml: "../../vtour/${requestScope.house.id}/tour.xml",
+        swf: "../../images/house/vtour/tour.swf",
+        xml: "../../images/house/vtour/${requestScope.house.id}/tour.xml",
         target: "vr",
         html5: "auto",
         mobilescale: 1.0,
