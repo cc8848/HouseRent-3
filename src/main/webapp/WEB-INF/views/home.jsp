@@ -30,13 +30,13 @@
         <div id="left-side" class="col-lg-3">
             <div class="panel panel-default">
                 <ul class="list-group">
-                    <a href="#account" class="list-group-item ">账户信息</a>
-                    <a href="#" class="list-group-item">发布房源</a>
-                    <a href="#" class="list-group-item">我的房单</a>
-                    <a href="#" class="list-group-item">我的钱包</a>
-                    <a href="#" class="list-group-item">业绩统计</a>
-                    <a href="#" class="list-group-item">安全设置</a>
-                    <a href="#" class="list-group-item">账户退出</a>
+                    <a href="#account" class="list-group-item active" data-toggle="tab">账户信息</a>
+                    <a href="#" class="list-group-item" data-toggle="tab">发布房源</a>
+                    <a href="#" class="list-group-item" data-toggle="tab">我的房单</a>
+                    <a href="#" class="list-group-item" data-toggle="tab">我的钱包</a>
+                    <a href="#" class="list-group-item" data-toggle="tab">业绩统计</a>
+                    <a href="#" class="list-group-item" data-toggle="tab">安全设置</a>
+                    <a href="#" class="list-group-item" data-toggle="tab">账户退出</a>
                 </ul>
             </div>
         </div>
