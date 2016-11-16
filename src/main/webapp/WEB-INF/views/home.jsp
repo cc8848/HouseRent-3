@@ -24,13 +24,28 @@
 <%--head start--%>
 <c:import url="/WEB-INF/common/showings_common_head.jsp"/>
 <%--head end--%>
+<div class="white-divider-md"></div>
 <div class="container">
     <div class="row">
-        <div id="left-side" class="col-lg-4">
-
+        <div id="left-side" class="col-lg-3">
+            <div class="panel panel-default">
+                <ul class="list-group">
+                    <a href="#account" class="list-group-item ">账户信息</a>
+                    <a href="#" class="list-group-item">发布房源</a>
+                    <a href="#" class="list-group-item">我的房单</a>
+                    <a href="#" class="list-group-item">我的钱包</a>
+                    <a href="#" class="list-group-item">业绩统计</a>
+                    <a href="#" class="list-group-item">安全设置</a>
+                    <a href="#" class="list-group-item">账户退出</a>
+                </ul>
+            </div>
         </div>
-        <div id="right-side" class="col-lg-8">
+        <div id="right-side" class="col-lg-9">
+            <div class="tab-content">
+                <div id="account" class="tab-pane">
 
+                </div>
+            </div>
         </div>
     </div>
 </div>

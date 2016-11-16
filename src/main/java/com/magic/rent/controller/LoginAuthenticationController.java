@@ -48,6 +48,8 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
 
     private static Logger logger = LoggerFactory.getLogger(LoginAuthenticationController.class);
 
+    private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+
     public void setSuccessURL(String successURL) {
         this.successURL = successURL;
     }
@@ -110,7 +112,8 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
     private void httpReturn(HttpServletRequest request, HttpServletResponse response, boolean success) throws IOException, ServletException {
         if (success) {
             logger.info("登录成功:直接转发至地址-[{}]", successURL);
-            request.getRequestDispatcher(this.successURL).forward(request, response);
+            redirectStrategy.sendRedirect(request, response, successURL);
+//            request.getRequestDispatcher(this.successURL).forward(request, response);
         } else {
             logger.info("登录失败:直接转发至地址-[{}]", failURL);
             request.getRequestDispatcher(this.failURL).forward(request, response);
