@@ -10,7 +10,7 @@ public class Area implements Serializable, Address {
 
     private Integer areaid;
 
-    private String areaname;
+    private String areaName;
 
     private Integer cityid;
 
@@ -21,7 +21,7 @@ public class Area implements Serializable, Address {
     }
 
     public String getAddressName() {
-        return getAreaname();
+        return getAreaName();
     }
 
     public Integer getId() {
@@ -40,12 +40,12 @@ public class Area implements Serializable, Address {
         this.areaid = areaid;
     }
 
-    public String getAreaname() {
-        return areaname;
+    public String getAreaName() {
+        return areaName;
     }
 
-    public void setAreaname(String areaname) {
-        this.areaname = areaname == null ? null : areaname.trim();
+    public void setAreaName(String areaName) {
+        this.areaName = areaName;
     }
 
     public Integer getCityid() {
@@ -69,7 +69,7 @@ public class Area implements Serializable, Address {
         return "Area{" +
                 "id=" + id +
                 ", areaid=" + areaid +
-                ", areaname='" + areaname + '\'' +
+                ", areaName='" + areaName + '\'' +
                 ", cityid=" + cityid +
                 ", enable=" + enable +
                 '}';

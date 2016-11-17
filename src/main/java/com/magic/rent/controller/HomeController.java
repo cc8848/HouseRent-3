@@ -6,6 +6,8 @@ import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.pojo.UserSeller;
 import com.magic.rent.service.ISellerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -34,6 +36,8 @@ public class HomeController extends BaseController {
     @Autowired
     private ISellerService iSellerService;
 
+    private static Logger logger = LoggerFactory.getLogger(HomeController.class);
+
     @RequestMapping("/sellerHome")
     public ModelAndView sellerHome(HttpServletRequest request) {
         //此数据在登录成功时存入Session。详情在LoginAuthenticationController中可查找
@@ -42,6 +46,8 @@ public class HomeController extends BaseController {
             throw new ParameterException(messageSourceAccessor.getMessage("HomeService.SysUser", "用户尚未登录或登录失效，请重新登录！"));
         }
         UserSeller userSeller = iSellerService.selectSellerInfoByUserID(sysUsers);
+        logger.info(userSeller.toString());
+
         Map<String, Object> model = new HashMap<String, Object>();
         model.put("user", sysUsers);
         if (null == userSeller) {

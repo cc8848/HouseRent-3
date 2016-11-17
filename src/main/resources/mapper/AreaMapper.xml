@@ -11,14 +11,14 @@
     <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Area">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="areaID" property="areaid" jdbcType="INTEGER"/>
-        <result column="areaName" property="areaname" jdbcType="VARCHAR"/>
+        <result column="areaName" property="areaName" jdbcType="VARCHAR"/>
         <result column="cityID" property="cityid" jdbcType="INTEGER"/>
         <result column="enable" property="enable" jdbcType="TINYINT"/>
     </resultMap>
     <resultMap id="area" type="com.magic.rent.pojo.Area">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="areaID" property="areaid" jdbcType="INTEGER"/>
-        <result column="areaName" property="areaname" jdbcType="VARCHAR"/>
+        <result column="areaName" property="areaName" jdbcType="VARCHAR"/>
         <result column="cityID" property="cityid" jdbcType="INTEGER"/>
         <result column="enable" property="enable" jdbcType="TINYINT"/>
     </resultMap>
@@ -38,7 +38,7 @@
     <insert id="insert" parameterType="com.magic.rent.pojo.Area">
     insert into AREA (id, areaID, areaName, 
       cityID, enable)
-    values (#{id,jdbcType=INTEGER}, #{areaid,jdbcType=INTEGER}, #{areaname,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{areaid,jdbcType=INTEGER}, #{areaName,jdbcType=VARCHAR},
       #{cityid,jdbcType=INTEGER}, #{enable,jdbcType=TINYINT})
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.Area">
@@ -50,7 +50,7 @@
             <if test="areaid != null">
                 areaID,
             </if>
-            <if test="areaname != null">
+            <if test="areaName != null">
                 areaName,
             </if>
             <if test="cityid != null">
@@ -67,8 +67,8 @@
             <if test="areaid != null">
                 #{areaid,jdbcType=INTEGER},
             </if>
-            <if test="areaname != null">
-                #{areaname,jdbcType=VARCHAR},
+            <if test="areaName != null">
+                #{areaName,jdbcType=VARCHAR},
             </if>
             <if test="cityid != null">
                 #{cityid,jdbcType=INTEGER},
@@ -84,8 +84,8 @@
             <if test="areaid != null">
                 areaID = #{areaid,jdbcType=INTEGER},
             </if>
-            <if test="areaname != null">
-                areaName = #{areaname,jdbcType=VARCHAR},
+            <if test="areaName != null">
+                areaName = #{areaName,jdbcType=VARCHAR},
             </if>
             <if test="cityid != null">
                 cityID = #{cityid,jdbcType=INTEGER},

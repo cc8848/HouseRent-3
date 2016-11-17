@@ -50,7 +50,7 @@
                     </tr>
                     <tr>
                         <td>门店地址：</td>
-                        <td colspan="3">${userSeller.sysStore.province.provinceName}-${userSeller.sysStore.city.cityname}-${userSeller.sysStore.area.areaname}-${userSeller.sysStore.storeNumber}</td>
+                        <td colspan="3">${userSeller.sysStore.province.provinceName}-${userSeller.sysStore.city.cityName}-${userSeller.sysStore.area.areaName}-${userSeller.sysStore.storeNumber}</td>
                     </tr>
                     <tr>
                         <td>申请岗位：</td>

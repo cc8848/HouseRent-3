@@ -11,7 +11,7 @@ public class City implements Serializable, Address {
 
     private Integer cityid;
 
-    private String cityname;
+    private String cityName;
 
     private Integer provinceID;
 
@@ -35,12 +35,12 @@ public class City implements Serializable, Address {
         this.cityid = cityid;
     }
 
-    public String getCityname() {
-        return cityname;
+    public String getCityName() {
+        return cityName;
     }
 
-    public void setCityname(String cityname) {
-        this.cityname = cityname == null ? null : cityname.trim();
+    public void setCityName(String cityName) {
+        this.cityName = cityName;
     }
 
     public Integer getProvinceID() {
@@ -72,7 +72,7 @@ public class City implements Serializable, Address {
     }
 
     public String getAddressName() {
-        return getCityname();
+        return getCityName();
     }
 
     @Override
@@ -80,7 +80,7 @@ public class City implements Serializable, Address {
         return "City{" +
                 "id=" + id +
                 ", cityid=" + cityid +
-                ", cityname='" + cityname + '\'' +
+                ", cityName='" + cityName + '\'' +
                 ", provinceID=" + provinceID +
                 ", areas=" + areas +
                 ", enable=" + enable +

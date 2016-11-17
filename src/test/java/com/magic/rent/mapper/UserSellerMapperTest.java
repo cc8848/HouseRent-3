@@ -16,10 +16,6 @@ public class UserSellerMapperTest {
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext("classpath:config/spring/applicationContext-dao.xml",
-                "classpath:config/spring/applicationContext-service.xml",
-                "classpath:config/spring/applicationContext-JCaptcha.xml",
-                "classpath:config/spring/applicationContext-security.xml",
-                "classpath:config/spring/applicationContext-transaction.xml",
                 "classpath:config/spring/applicationContext-ehcache.xml");
     }
 

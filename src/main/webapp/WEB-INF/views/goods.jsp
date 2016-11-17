@@ -31,7 +31,7 @@
             <div class="page-header">
                 <h3>${requestScope.house.name}
                     <small>No.<span id="houseID">${requestScope.house.id}</span></small>
-                    <small class="pull-right"> ${house.city.cityname}&nbsp;${house.area.areaname}&nbsp;<a
+                    <small class="pull-right"> ${house.city.cityName}&nbsp;${house.area.areaName}&nbsp;<a
                             href="#">${house.community.name}</a></small>
                 </h3>
             </div>

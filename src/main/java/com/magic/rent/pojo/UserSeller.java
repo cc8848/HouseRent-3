@@ -101,4 +101,20 @@ public class UserSeller implements Serializable {
     public void setUserStatus(UserStatus userStatus) {
         this.userStatus = userStatus;
     }
+
+    @Override
+    public String toString() {
+        return "UserSeller{" +
+                "id=" + id +
+                ", userId=" + userId +
+                ", sysUsers=" + sysUsers +
+                ", rolesId=" + rolesId +
+                ", sysRoles=" + sysRoles +
+                ", storeId=" + storeId +
+                ", sysStore=" + sysStore +
+                ", enabled=" + enabled +
+                ", statusId=" + statusId +
+                ", userStatus=" + userStatus +
+                '}';
+    }
 }

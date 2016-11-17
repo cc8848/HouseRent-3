@@ -71,7 +71,7 @@ public class ResourceSecurityMetadataSource implements FilterInvocationSecurityM
             String resourcePath = resourceMap.get("resourcePath");
             String authorityMark = resourceMap.get("authorityMark");
             if (resourceLinkMap.containsKey(resourcePath)) {
-                String mark = resourceLinkMap.get("resourcePath");
+                String mark = resourceLinkMap.get(resourcePath);
                 resourceLinkMap.put(resourcePath, mark + "," + authorityMark);
             } else {
                 resourceLinkMap.put(resourcePath, authorityMark);

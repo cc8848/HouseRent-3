@@ -11,14 +11,14 @@
     <resultMap id="BaseResultMap" type="com.magic.rent.pojo.City">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="cityID" property="cityid" jdbcType="INTEGER"/>
-        <result column="cityName" property="cityname" jdbcType="VARCHAR"/>
+        <result column="cityName" property="cityName" jdbcType="VARCHAR"/>
         <result column="provinceID" property="provinceID" jdbcType="INTEGER"/>
         <result column="enable" property="enable" jdbcType="TINYINT"/>
     </resultMap>
     <resultMap id="city" type="com.magic.rent.pojo.City">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="cityID" property="cityid" jdbcType="INTEGER"/>
-        <result column="cityName" property="cityname" jdbcType="VARCHAR"/>
+        <result column="cityName" property="cityName" jdbcType="VARCHAR"/>
         <result column="provinceID" property="provinceID" jdbcType="INTEGER"/>
         <result column="enable" property="enable" jdbcType="TINYINT"/>
     </resultMap>
@@ -38,7 +38,7 @@
     <insert id="insert" parameterType="com.magic.rent.pojo.City">
     insert into CITY (id, cityID, cityName, 
       provinceID, enable)
-    values (#{id,jdbcType=INTEGER}, #{cityid,jdbcType=INTEGER}, #{cityname,jdbcType=VARCHAR}, 
+    values (#{id,jdbcType=INTEGER}, #{cityid,jdbcType=INTEGER}, #{cityName,jdbcType=VARCHAR},
       #{provinceID,jdbcType=INTEGER}, #{enable,jdbcType=TINYINT})
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.City">
@@ -50,7 +50,7 @@
             <if test="cityid != null">
                 cityID,
             </if>
-            <if test="cityname != null">
+            <if test="cityName != null">
                 cityName,
             </if>
             <if test="provinceID != null">
@@ -67,8 +67,8 @@
             <if test="cityid != null">
                 #{cityid,jdbcType=INTEGER},
             </if>
-            <if test="cityname != null">
-                #{cityname,jdbcType=VARCHAR},
+            <if test="cityName != null">
+                #{cityName,jdbcType=VARCHAR},
             </if>
             <if test="provinceID != null">
                 #{provinceID,jdbcType=INTEGER},
@@ -84,8 +84,8 @@
             <if test="cityid != null">
                 cityID = #{cityid,jdbcType=INTEGER},
             </if>
-            <if test="cityname != null">
-                cityName = #{cityname,jdbcType=VARCHAR},
+            <if test="cityName != null">
+                cityName = #{cityName,jdbcType=VARCHAR},
             </if>
             <if test="provinceID != null">
                 provinceID = #{provinceID,jdbcType=INTEGER},
@@ -99,7 +99,7 @@
     <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.City">
     update CITY
     set cityID = #{cityid,jdbcType=INTEGER},
-      cityName = #{cityname,jdbcType=VARCHAR},
+      cityName = #{cityName,jdbcType=VARCHAR},
       provinceID = #{provinceID,jdbcType=INTEGER},
       enable = #{enable,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
