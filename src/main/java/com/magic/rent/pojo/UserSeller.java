@@ -19,6 +19,9 @@ public class UserSeller implements Serializable {
 
     private boolean enabled;
 
+    private int statusId;
+    private UserStatus userStatus;
+
     public int getId() {
         return id;
     }
@@ -81,5 +84,21 @@ public class UserSeller implements Serializable {
 
     public void setSysStore(SysStore sysStore) {
         this.sysStore = sysStore;
+    }
+
+    public int getStatusId() {
+        return statusId;
+    }
+
+    public void setStatusId(int statusId) {
+        this.statusId = statusId;
+    }
+
+    public UserStatus getUserStatus() {
+        return userStatus;
+    }
+
+    public void setUserStatus(UserStatus userStatus) {
+        this.userStatus = userStatus;
     }
 }

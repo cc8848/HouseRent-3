@@ -25,6 +25,12 @@ import java.util.*;
 @RequestMapping("/user")
 public class HomeController extends BaseController {
 
+    private final static int auditing = 1;
+
+    private final static int refuse = 2;
+
+    private final static int success = 3;
+
     @Autowired
     private ISellerService iSellerService;
 
@@ -35,18 +41,26 @@ public class HomeController extends BaseController {
         if (null == sysUsers || null == sysUsers.getUserId()) {
             throw new ParameterException(messageSourceAccessor.getMessage("HomeService.SysUser", "用户尚未登录或登录失效，请重新登录！"));
         }
-        Map<String, Object> model = new HashMap<String, Object>();
-
         UserSeller userSeller = iSellerService.selectSellerInfoByUserID(sysUsers);
-
-        if (null != userSeller) {
-            model.put("userSeller", userSeller);
-            model.put("user", sysUsers);
-            return new ModelAndView("seller_home", model);
+        Map<String, Object> model = new HashMap<String, Object>();
+        model.put("user", sysUsers);
+        if (null == userSeller) {
+            //如果查询为空，则尚未挂到任何中介机构当中,跳转到机构申请页面
+            return new ModelAndView("", model);
         } else {
-            return new ModelAndView("seller_home", model);
+            switch (userSeller.getUserStatus().getId()) {
+                case auditing:
+                case refuse:
+                    //当状态为审核中或拒绝的，返回审核状态页面
+                    model.put("userSeller", userSeller);
+                    return new ModelAndView("auditing", model);
+                case success:
+                    model.put("userSeller", userSeller);
+                    return new ModelAndView("seller_home", model);
+                default:
+                    model.put("userSeller", userSeller);
+                    return new ModelAndView("auditing", model);
+            }
         }
     }
-
-
 }

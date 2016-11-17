@@ -30,5 +30,9 @@ public class PageController extends BaseController {
     public String search() {
         return "search";
     }
-    
+
+    @RequestMapping("/auditing")
+    public String auditing() {
+        return "auditing";
+    }
 }

@@ -7,9 +7,10 @@
         <result column="ROLES_ID" property="rolesId" jdbcType="INTEGER"/>
         <result column="STORE_ID" property="storeId" jdbcType="INTEGER"/>
         <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
+        <result column="STATUS_ID" property="statusId" jdbcType="INTEGER"/>
     </resultMap>
     <sql id="Base_Column_List">
-    ID, USER_ID, ROLES_ID, STORE_ID, ENABLED
+    ID, USER_ID, ROLES_ID, STORE_ID, ENABLED,STATUS_ID
   </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
@@ -23,9 +24,9 @@
   </delete>
     <insert id="insert" parameterType="com.magic.rent.pojo.UserSeller">
     insert into USER_SELLER (ID, USER_ID, ROLES_ID, 
-      STORE_ID, ENABLED)
+      STORE_ID, ENABLED,STATUS_ID)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{rolesId,jdbcType=INTEGER}, 
-      #{storeId,jdbcType=INTEGER}, #{enabled,jdbcType=TINYINT})
+      #{storeId,jdbcType=INTEGER}, #{enabled,jdbcType=TINYINT},#{statusId,jdbcType=INTEGER})
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.UserSeller">
         insert into USER_SELLER
@@ -45,6 +46,9 @@
             <if test="enabled != null">
                 ENABLED,
             </if>
+            <if test="statusId != null">
+                STATUS_ID,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -61,6 +65,9 @@
             </if>
             <if test="enabled != null">
                 #{enabled,jdbcType=TINYINT},
+            </if>
+            <if test="statusId != null">
+                #{statusId,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
@@ -79,6 +86,9 @@
             <if test="enabled != null">
                 ENABLED = #{enabled,jdbcType=TINYINT},
             </if>
+            <if test="statusId != null">
+                STATUS_ID = #{statusId,jdbcType=INTEGER},
+            </if>
         </set>
         where ID = #{id,jdbcType=INTEGER}
     </update>
@@ -87,7 +97,8 @@
     set USER_ID = #{userId,jdbcType=INTEGER},
       ROLES_ID = #{rolesId,jdbcType=INTEGER},
       STORE_ID = #{storeId,jdbcType=INTEGER},
-      ENABLED = #{enabled,jdbcType=TINYINT}
+      ENABLED = #{enabled,jdbcType=TINYINT},
+      STATUS_ID = #{statusId,jdbcType=INTEGER}
     where ID = #{id,jdbcType=INTEGER}
   </update>
     <resultMap id="sellerDetails" type="com.magic.rent.pojo.UserSeller">
@@ -116,6 +127,10 @@
                 <result column="areaName" property="areaName" jdbcType="VARCHAR"/>
             </association>
         </association>
+        <association property="userStatus" javaType="com.magic.rent.pojo.UserStatus">
+            <id column="statusID" property="id" jdbcType="INTEGER"/>
+            <result column="statusName" property="statusName" jdbcType="VARCHAR"/>
+        </association>
     </resultMap>
     <select id="selectByUserID" parameterType="java.lang.Integer" resultMap="sellerDetails">
        SELECT
@@ -131,7 +146,9 @@
           SYS_STORE.STORE_NUMBER   storeNum,
           SYS_COMPANY.ID           companyID,
           SYS_COMPANY.COMPANY_NAME companyName,
-          USER_SELLER.ENABLED
+          USER_SELLER.ENABLED,
+          USER_STATUS.ID           statusID,
+          USER_STATUS.STATUS_NAME  statusName
         FROM USER_SELLER
           JOIN SYS_STORE ON USER_SELLER.STORE_ID = SYS_STORE.ID
           JOIN SYS_COMPANY ON SYS_STORE.COMPANY_ID = SYS_COMPANY.ID
@@ -139,6 +156,7 @@
           JOIN CITY ON SYS_STORE.CITY_ID = CITY.cityID
           JOIN AREA ON SYS_STORE.AREA_ID = AREA.areaID
           JOIN SYS_ROLES ON USER_SELLER.ROLES_ID = SYS_ROLES.ROLE_ID
-        WHERE USER_SELLER.USER_ID = #{id,jdbcType=INTEGER}
+          JOIN USER_STATUS ON USER_SELLER.STATUS_ID = USER_STATUS.ID
+        WHERE USER_SELLER.USER_ID =  #{id,jdbcType=INTEGER}
   </select>
 </mapper>

@@ -6,12 +6,12 @@ import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.pojo.UserSeller;
 import com.magic.rent.service.ISellerService;
 import org.springframework.beans.factory.annotation.Autowired;
-
-import java.util.Map;
+import org.springframework.stereotype.Service;
 
 /**
  * Created by wu on 2016/11/17.
  */
+@Service
 public class SellerServiceImpl implements ISellerService {
 
     private static int seller_role_ID = 6;//角色ID

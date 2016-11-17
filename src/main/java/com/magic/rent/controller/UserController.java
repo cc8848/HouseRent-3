@@ -34,7 +34,7 @@ public class UserController extends BaseController {
 
     @RequestMapping("/timeout")
     public String timeOut() {
-        return "timeOut";
+        return "time_out";
     }
 
     @ResponseBody
