@@ -3178,7 +3178,7 @@
     /*
      * Create a callback list using the following parameters:
      *
-     *	options: an optional list of space-separated options that will change how
+     *	options: an optional list of space-separated options that will change.sql how
      *			the callback list behaves or a more traditional option object
      *
      * By default a callback list will act like an event callback list and can be
@@ -4140,7 +4140,7 @@
                         data === "false" ? false :
                             data === "null" ? null :
 
-                                // Only convert to a number if it doesn't change the string
+                                // Only convert to a number if it doesn't change.sql the string
                                 +data + "" === data ? +data :
                                     rbrace.test( data ) ? JSON.parse( data ) :
                                         data;
@@ -4539,7 +4539,7 @@
             index = 0,
             length = elements.length;
 
-        // Determine new display value for elements that need to change
+        // Determine new display value for elements that need to change.sql
         for ( ; index < length; index++ ) {
             elem = elements[ index ];
             if ( !elem.style ) {
@@ -8110,7 +8110,7 @@
 
     jQuery.each( ( "blur focus focusin focusout resize scroll click dblclick " +
         "mousedown mouseup mousemove mouseover mouseout mouseenter mouseleave " +
-        "change select submit keydown keypress keyup contextmenu" ).split( " " ),
+        "change.sql select submit keydown keypress keyup contextmenu" ).split( " " ),
         function( i, name ) {
 
             // Handle event binding
@@ -9302,7 +9302,7 @@
                     // For cross-domain requests, seeing as conditions for a preflight are
                     // akin to a jigsaw puzzle, we simply never set it to be sure.
                     // (it can always be set on a per-request basis or even using ajaxSetup)
-                    // For same-domain requests, won't change header if already provided.
+                    // For same-domain requests, won't change.sql header if already provided.
                     if ( !options.crossDomain && !headers[ "X-Requested-With" ] ) {
                         headers[ "X-Requested-With" ] = "XMLHttpRequest";
                     }
@@ -9885,7 +9885,7 @@
         // but those exceptions were never presented as a real life use-cases
         // and might be considered as more preferable results.
         //
-        // This logic, however, is not guaranteed and can change at any point in the future
+        // This logic, however, is not guaranteed and can change.sql at any point in the future
         offsetParent: function() {
             return this.map( function() {
                 var offsetParent = this.offsetParent;

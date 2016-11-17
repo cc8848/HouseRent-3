@@ -56,7 +56,7 @@
 	               />
 
 	<!--
-	    For an alternative skin design either change the <skin_settings> values 
+	    For an alternative skin design either change.sql the <skin_settings> values
 	    from above or optionally include one of the predefined designs from below.
 	-->
 	<!-- <include url="skin/vtourskin_design_flat_light.xml"  /> -->

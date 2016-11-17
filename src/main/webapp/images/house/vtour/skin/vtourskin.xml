@@ -558,7 +558,7 @@
 	
 	<action name="skin_lookat">
 		if(webvr.isenabled,
-			<!-- adjust the VR prev/next hotspots for the view change -->
+			<!-- adjust the VR prev/next hotspots for the view change.sql -->
 			calc(hlookat_offset, %1 - view.hlookat);
 			add(hotspot[webvr_prev_scene].ath, hlookat_offset);
 			add(hotspot[webvr_next_scene].ath, hlookat_offset);
@@ -567,7 +567,7 @@
 			<!-- reset the gyro tracking -->
 			plugin[skin_gyro].resetsensor(%1);
 		  );
-		<!-- change the view -->
+		<!-- change.sql the view -->
 		lookat(%1, %2, %3);
 	</action>
 
