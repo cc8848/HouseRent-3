@@ -57,4 +57,33 @@ public class SysStore implements Serializable {
     public void setStoreNumber(String storeNumber) {
         this.storeNumber = storeNumber == null ? null : storeNumber.trim();
     }
+
+    public SysCompany getSysCompany() {
+        return sysCompany;
+    }
+
+    public void setSysCompany(SysCompany sysCompany) {
+        this.sysCompany = sysCompany;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
+    @Override
+    public String toString() {
+        return "SysStore{" +
+                "id=" + id +
+                ", companyId=" + companyId +
+                ", sysCompany=" + sysCompany +
+                ", areaId=" + areaId +
+                ", area=" + area +
+                ", storeName='" + storeName + '\'' +
+                ", storeNumber='" + storeNumber + '\'' +
+                '}';
+    }
 }

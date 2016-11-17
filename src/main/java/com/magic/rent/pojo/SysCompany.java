@@ -25,4 +25,12 @@ public class SysCompany implements Serializable {
     public void setCompanyName(String companyName) {
         this.companyName = companyName == null ? null : companyName.trim();
     }
+
+    @Override
+    public String toString() {
+        return "SysCompany{" +
+                "id=" + id +
+                ", companyName='" + companyName + '\'' +
+                '}';
+    }
 }
