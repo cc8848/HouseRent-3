@@ -44,8 +44,6 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
 
     private String AttrName;
 
-    private String userInfo;
-
     private static Logger logger = LoggerFactory.getLogger(LoginAuthenticationController.class);
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
@@ -60,10 +58,6 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
 
     public void setAttrName(String attrName) {
         AttrName = attrName;
-    }
-
-    public void setUserInfo(String userInfo) {
-        this.userInfo = userInfo;
     }
 
     @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
@@ -86,9 +80,7 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
             request.setAttribute(AttrName, jsonResult);
             return;
         }
-        jsonResult = JsonResult.success("登录验证成功!", users);
         request.getSession().setAttribute("user", users);
-        request.setAttribute(userInfo, jsonResult);
         httpReturn(request, response, true);
     }
 
@@ -113,7 +105,6 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
         if (success) {
             logger.info("登录成功:直接转发至地址-[{}]", successURL);
             redirectStrategy.sendRedirect(request, response, successURL);
-//            request.getRequestDispatcher(this.successURL).forward(request, response);
         } else {
             logger.info("登录失败:直接转发至地址-[{}]", failURL);
             request.getRequestDispatcher(this.failURL).forward(request, response);

@@ -46,12 +46,12 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
         <!--指定数据库表-->
-        <!--<table tableName="USER_SELLER"-->
-               <!--enableCountByExample="false"-->
-               <!--enableUpdateByExample="false"-->
-               <!--enableDeleteByExample="false"-->
-               <!--enableSelectByExample="false"-->
-               <!--selectByExampleQueryId="false"/>-->
+        <table tableName="SYS_STORE"
+               enableCountByExample="false"
+               enableUpdateByExample="false"
+               enableDeleteByExample="false"
+               enableSelectByExample="false"
+               selectByExampleQueryId="false"/>
 
     </context>
 </generatorConfiguration>

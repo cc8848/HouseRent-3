@@ -1,106 +1,144 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.magic.rent.mapper.UserSellerMapper" >
-  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.UserSeller" >
-    <id column="ID" property="id" jdbcType="INTEGER" />
-    <result column="USER_ID" property="userId" jdbcType="INTEGER" />
-    <result column="ROLES_ID" property="rolesId" jdbcType="INTEGER" />
-    <result column="COMPANY_ID" property="companyId" jdbcType="INTEGER" />
-    <result column="STORE_ID" property="storeId" jdbcType="INTEGER" />
-    <result column="ENABLED" property="enabled" jdbcType="TINYINT" />
-  </resultMap>
-  <sql id="Base_Column_List" >
-    ID, USER_ID, ROLES_ID, COMPANY_ID, STORE_ID, ENABLED
+<mapper namespace="com.magic.rent.mapper.UserSellerMapper">
+    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.UserSeller">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="USER_ID" property="userId" jdbcType="INTEGER"/>
+        <result column="ROLES_ID" property="rolesId" jdbcType="INTEGER"/>
+        <result column="STORE_ID" property="storeId" jdbcType="INTEGER"/>
+        <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ID, USER_ID, ROLES_ID, STORE_ID, ENABLED
   </sql>
-  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
-    select 
-    <include refid="Base_Column_List" />
-    from USER_SELLER
-    where ID = #{id,jdbcType=INTEGER}
-  </select>
-  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from USER_SELLER
+        where ID = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from USER_SELLER
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.magic.rent.pojo.UserSeller" >
+    <insert id="insert" parameterType="com.magic.rent.pojo.UserSeller">
     insert into USER_SELLER (ID, USER_ID, ROLES_ID, 
-      COMPANY_ID, STORE_ID, ENABLED
-      )
+      STORE_ID, ENABLED)
     values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{rolesId,jdbcType=INTEGER}, 
-      #{companyId,jdbcType=INTEGER}, #{storeId,jdbcType=INTEGER}, #{enabled,jdbcType=TINYINT}
-      )
+      #{storeId,jdbcType=INTEGER}, #{enabled,jdbcType=TINYINT})
   </insert>
-  <insert id="insertSelective" parameterType="com.magic.rent.pojo.UserSeller" >
-    insert into USER_SELLER
-    <trim prefix="(" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        ID,
-      </if>
-      <if test="userId != null" >
-        USER_ID,
-      </if>
-      <if test="rolesId != null" >
-        ROLES_ID,
-      </if>
-      <if test="companyId != null" >
-        COMPANY_ID,
-      </if>
-      <if test="storeId != null" >
-        STORE_ID,
-      </if>
-      <if test="enabled != null" >
-        ENABLED,
-      </if>
-    </trim>
-    <trim prefix="values (" suffix=")" suffixOverrides="," >
-      <if test="id != null" >
-        #{id,jdbcType=INTEGER},
-      </if>
-      <if test="userId != null" >
-        #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="rolesId != null" >
-        #{rolesId,jdbcType=INTEGER},
-      </if>
-      <if test="companyId != null" >
-        #{companyId,jdbcType=INTEGER},
-      </if>
-      <if test="storeId != null" >
-        #{storeId,jdbcType=INTEGER},
-      </if>
-      <if test="enabled != null" >
-        #{enabled,jdbcType=TINYINT},
-      </if>
-    </trim>
-  </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.UserSeller" >
-    update USER_SELLER
-    <set >
-      <if test="userId != null" >
-        USER_ID = #{userId,jdbcType=INTEGER},
-      </if>
-      <if test="rolesId != null" >
-        ROLES_ID = #{rolesId,jdbcType=INTEGER},
-      </if>
-      <if test="companyId != null" >
-        COMPANY_ID = #{companyId,jdbcType=INTEGER},
-      </if>
-      <if test="storeId != null" >
-        STORE_ID = #{storeId,jdbcType=INTEGER},
-      </if>
-      <if test="enabled != null" >
-        ENABLED = #{enabled,jdbcType=TINYINT},
-      </if>
-    </set>
-    where ID = #{id,jdbcType=INTEGER}
-  </update>
-  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.UserSeller" >
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.UserSeller">
+        insert into USER_SELLER
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="userId != null">
+                USER_ID,
+            </if>
+            <if test="rolesId != null">
+                ROLES_ID,
+            </if>
+            <if test="storeId != null">
+                STORE_ID,
+            </if>
+            <if test="enabled != null">
+                ENABLED,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="rolesId != null">
+                #{rolesId,jdbcType=INTEGER},
+            </if>
+            <if test="storeId != null">
+                #{storeId,jdbcType=INTEGER},
+            </if>
+            <if test="enabled != null">
+                #{enabled,jdbcType=TINYINT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.UserSeller">
+        update USER_SELLER
+        <set>
+            <if test="userId != null">
+                USER_ID = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="rolesId != null">
+                ROLES_ID = #{rolesId,jdbcType=INTEGER},
+            </if>
+            <if test="storeId != null">
+                STORE_ID = #{storeId,jdbcType=INTEGER},
+            </if>
+            <if test="enabled != null">
+                ENABLED = #{enabled,jdbcType=TINYINT},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.UserSeller">
     update USER_SELLER
     set USER_ID = #{userId,jdbcType=INTEGER},
       ROLES_ID = #{rolesId,jdbcType=INTEGER},
-      COMPANY_ID = #{companyId,jdbcType=INTEGER},
       STORE_ID = #{storeId,jdbcType=INTEGER},
       ENABLED = #{enabled,jdbcType=TINYINT}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+    <resultMap id="sellerDetails" type="com.magic.rent.pojo.UserSeller">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
+        <association property="sysRoles" javaType="com.magic.rent.pojo.SysRoles">
+            <id column="roleID" property="roleId" jdbcType="INTEGER"/>
+            <result column="roleName" property="roleName" jdbcType="VARCHAR"/>
+            <result column="roleDesc" property="roleDesc" jdbcType="VARCHAR"/>
+        </association>
+        <association property="sysStore" javaType="com.magic.rent.pojo.SysStore">
+            <id column="storeID" property="id" jdbcType="INTEGER"/>
+            <result column="storeName" property="storeName" jdbcType="VARCHAR"/>
+            <result column="storeNum" property="storeNumber" jdbcType="VARCHAR"/>
+            <association property="sysCompany" javaType="com.magic.rent.pojo.SysCompany">
+                <id column="companyID" property="id"/>
+                <result column="companyName" property="companyName" jdbcType="VARCHAR"/>
+            </association>
+            <association property="province" javaType="com.magic.rent.pojo.Province">
+                <result column="provinceName" property="provinceName" jdbcType="VARCHAR"/>
+            </association>
+            <association property="city" javaType="com.magic.rent.pojo.City">
+                <result column="cityName" property="cityName" jdbcType="VARCHAR"/>
+            </association>
+            <association property="area" javaType="com.magic.rent.pojo.Area">
+                <result column="areaName" property="areaName" jdbcType="VARCHAR"/>
+            </association>
+        </association>
+    </resultMap>
+    <select id="selectByUserID" parameterType="java.lang.Integer" resultMap="sellerDetails">
+       SELECT
+          USER_SELLER.ID           ID,
+          SYS_ROLES.ROLE_ID        roleID,
+          SYS_ROLES.ROLE_NAME      roleName,
+          SYS_ROLES.ROLE_DESC      roleDesc,
+          SYS_STORE.ID             storeID,
+          SYS_STORE.STORE_NAME     storeName,
+          PROVINCE.provinceName    province,
+          CITY.cityName            city,
+          AREA.areaName            area,
+          SYS_STORE.STORE_NUMBER   storeNum,
+          SYS_COMPANY.ID           companyID,
+          SYS_COMPANY.COMPANY_NAME companyName,
+          USER_SELLER.ENABLED
+        FROM USER_SELLER
+          JOIN SYS_STORE ON USER_SELLER.STORE_ID = SYS_STORE.ID
+          JOIN SYS_COMPANY ON SYS_STORE.COMPANY_ID = SYS_COMPANY.ID
+          JOIN PROVINCE ON SYS_STORE.PROVINCE_ID = PROVINCE.provinceID
+          JOIN CITY ON SYS_STORE.CITY_ID = CITY.cityID
+          JOIN AREA ON SYS_STORE.AREA_ID = AREA.areaID
+          JOIN SYS_ROLES ON USER_SELLER.ROLES_ID = SYS_ROLES.ROLE_ID
+        WHERE USER_SELLER.USER_ID = #{id,jdbcType=INTEGER}
+  </select>
 </mapper>
