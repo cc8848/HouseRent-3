@@ -8,7 +8,7 @@ public class SysCompany implements Serializable {
 
     private int id;
 
-    private String companyName;
+    private String companyName;//公司名称
 
     public int getId() {
         return id;

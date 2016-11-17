@@ -9,8 +9,10 @@ public class SysStore implements Serializable {
     private int id;
 
     private int companyId;
+    private SysCompany sysCompany;//公司
 
     private int areaId;
+    private Area area;//地区
 
     private String storeName;
 
