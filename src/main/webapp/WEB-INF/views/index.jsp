@@ -16,10 +16,10 @@
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
-<link rel="stylesheet" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" href="../../css/select2.min.css">
-<link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../../css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <body>
 <%--head start--%>
 <c:import url="/WEB-INF/common/showings_common_head.jsp"/>
@@ -73,14 +73,14 @@
             </p>
         </div>
         <div class="col-lg-7">
-            <img src="../../images/index/VRshowings.png" class="img-responsive img-rounded img-thumbnail">
+            <img src="${pageContext.request.contextPath}/images/index/VRshowings.png" class="img-responsive img-rounded img-thumbnail">
         </div>
     </div>
 </div>
 <div class="jumbotron index-bg-gray">
     <div class="container">
         <div class="col-lg-7">
-            <img src="../../images/index/VRshowings.png" class="img-responsive img-rounded img-thumbnail">
+            <img src="${pageContext.request.contextPath}/images/index/VRshowings.png" class="img-responsive img-rounded img-thumbnail">
         </div>
         <div class="col-lg-5">
             <h2><i class="index-iconfont-md">&#xe63f;</i>&nbsp;多种方式轻松分发</h2>
@@ -99,14 +99,14 @@
             </p>
         </div>
         <div class="col-lg-7">
-            <img src="../../images/index/VRshowings.png" class="img-responsive img-rounded img-thumbnail">
+            <img src="${pageContext.request.contextPath}/images/index/VRshowings.png" class="img-responsive img-rounded img-thumbnail">
         </div>
     </div>
 </div>
 <div class="jumbotron index-bg-gray">
     <div class="container">
         <div class="col-lg-7">
-            <img src="../../images/index/VRshowings.png" class="img-responsive img-rounded img-thumbnail">
+            <img src="${pageContext.request.contextPath}/images/index/VRshowings.png" class="img-responsive img-rounded img-thumbnail">
         </div>
         <div class="col-lg-5">
             <h2><i class="index-iconfont-md">&#xe694;</i>&nbsp;周边信息一网打尽</h2>
@@ -133,8 +133,8 @@
 </div>
 <%--页脚--%>
 <c:import url="/WEB-INF/common/showings_common_foot.jsp"/>
-<script type="text/javascript" src="../../js/jquery.js"></script>
-<script type="text/javascript" src="../../js/bootstrap.min.js"></script>
-<script type="text/javascript" src="../../js/common.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 </body>
 </html>

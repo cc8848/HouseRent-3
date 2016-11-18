@@ -2,10 +2,10 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
     <modelVersion>4.0.0</modelVersion>
     <groupId>com.magic.rent</groupId>
-    <artifactId>ssm</artifactId>
+    <artifactId>showings</artifactId>
     <packaging>war</packaging>
     <version>1.0-SNAPSHOT</version>
-    <name>ssm Maven Webapp</name>
+    <name>Showings Maven Webapp</name>
     <url>http://maven.apache.org</url>
     <repositories>
         <repository>
@@ -15,7 +15,7 @@
         </repository>
     </repositories>
     <build>
-        <finalName>ssm</finalName>
+        <finalName>showings</finalName>
         <plugins>
 
             <!--Mybatis 逆向工程插件-->

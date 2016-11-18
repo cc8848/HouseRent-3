@@ -185,7 +185,7 @@
             </div>
             <div class="hidden-xs">
                 <div class="thumbnail">
-                    <img class="img-responsive img-rounded" data-src="holder.js/300x300" src="../../images/index/VR.png"
+                    <img class="img-responsive img-rounded" data-src="holder.js/300x300" src="${pageContext.request.contextPath}/images/index/VR.png"
                          alt="...">
                     <div class="caption">
                         <h3>VR看房</h3>

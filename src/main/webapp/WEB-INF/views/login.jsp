@@ -16,9 +16,9 @@
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
-<link rel="stylesheet" href="../../css/bootstrap.min.css">
-<link rel="stylesheet" href="../../css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="../../css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 
 <body>
 <div class="container-fluid">
@@ -27,7 +27,7 @@
         <div class="page-header">
             <h1>Showings
                 <small>-首英</small>
-                <a href="<c:url value="/"/>" class="btn btn-xs btn-primary pull-right active">返回首页</a>
+                <a href="${pageContext.request.contextPath}/" class="btn btn-xs btn-primary pull-right active">返回首页</a>
             </h1>
         </div>
     </div>
@@ -216,8 +216,8 @@
         <span class="hidden-xs col-sm-2 col-md-3 col-lg-4"></span>
     </div>
 </div>
-<script src="../../js/jquery.js"></script>
-<script src="../../js/login.js"></script>
+<script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/js/login.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         var loginErrorMessage = $("#login-errorMessage");
@@ -228,7 +228,7 @@
         }
     });
 </script>
-<script src="../../js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     function getCaptcha() {
         $('#captcha-img').hide().attr(

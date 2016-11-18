@@ -436,8 +436,8 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/tour.js"></script>
 <script>
     embedpano({
-        swf: "../../images/house/vtour/tour.swf",
-        xml: "../../images/house/vtour/${requestScope.house.id}/tour.xml",
+        swf: "${pageContext.request.contextPath}/images/house/vtour/tour.swf",
+        xml: "${pageContext.request.contextPath}/images/house/vtour/${requestScope.house.id}/tour.xml",
         target: "vr",
         html5: "auto",
         mobilescale: 1.0,
