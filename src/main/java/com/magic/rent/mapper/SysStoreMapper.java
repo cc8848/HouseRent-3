@@ -1,7 +1,11 @@
 package com.magic.rent.mapper;
 
+import com.magic.rent.pojo.SelectPoJo;
 import com.magic.rent.pojo.SysStore;
+import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 @Repository
 public interface SysStoreMapper {
@@ -16,4 +20,6 @@ public interface SysStoreMapper {
     int updateByPrimaryKeySelective(SysStore record);
 
     int updateByPrimaryKey(SysStore record);
+
+    List<SelectPoJo> selectByAreaID(String areaID);
 }

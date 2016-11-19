@@ -26,4 +26,9 @@ public class UserSellerMapperTest {
 
     }
 
+    @Test
+    public void deleteByPrimaryKey() throws Exception {
+        UserSellerMapper userSellerMapper = applicationContext.getBean(UserSellerMapper.class);
+        System.out.print(userSellerMapper.deleteByPrimaryKey(0));
+    }
 }

@@ -7,7 +7,9 @@ import org.springframework.stereotype.Service;
 /**
  * Created by wu on 2016/11/17.
  */
-public interface ISellerService {
+public interface IUserSellerService {
 
-    UserSeller selectSellerInfoByUserID(SysUsers sysUsers);
+    UserSeller selectSellerInfoByUserID(int userID) throws Exception;
+
+    boolean auditingCancel(int sellerID) throws Exception;
 }

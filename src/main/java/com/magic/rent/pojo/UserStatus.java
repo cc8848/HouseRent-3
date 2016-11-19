@@ -2,7 +2,14 @@ package com.magic.rent.pojo;
 
 import java.io.Serializable;
 
-public class UserStatus implements Serializable{
+public class UserStatus implements Serializable {
+
+    public final static int AUDITING = 1;
+
+    public final static int REFUSE = 2;
+
+    public final static int SUCCESS = 3;
+
     private static final long serialVersionUID = -5668399590745615969L;
     private Integer id;
 

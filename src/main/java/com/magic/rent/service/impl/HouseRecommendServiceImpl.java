@@ -18,7 +18,7 @@ public class HouseRecommendServiceImpl implements IHouseRecommendService {
     @Autowired
     private HouseRecommendMapper houseRecommendMapper;
 
-    public HouseRecommend selectTodayRecommend() {
+    public HouseRecommend selectTodayRecommend() throws Exception {
 
         HouseRecommend houseRecommend = new HouseRecommend();
         houseRecommend.setDate(new Date());

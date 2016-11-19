@@ -3,7 +3,12 @@ package com.magic.rent.pojo;
 import java.io.Serializable;
 
 public class SysRoles implements Serializable {
+
     private static final long serialVersionUID = -9186978677768047958L;
+
+    public static int MEMBER = 1;//会员角色
+    public static int SELLER = 6;//经纪人角色
+
     private Integer roleId; //角色ID
 
     private String roleName;//角色名
@@ -53,6 +58,8 @@ public class SysRoles implements Serializable {
     public void setSystem(boolean system) {
         this.system = system;
     }
+
+
 
     @Override
     public String toString() {

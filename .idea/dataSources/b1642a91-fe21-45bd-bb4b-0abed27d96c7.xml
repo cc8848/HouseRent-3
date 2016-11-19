@@ -1220,27 +1220,27 @@
       <mandatory>1</mandatory>
       <data-type>int(5)|0</data-type>
     </column>
-    <column id="300" parent="35" name="CITY_ID">
+    <column id="300" parent="35" name="PROVINCE_ID">
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="301" parent="35" name="AREA_ID">
+    <column id="301" parent="35" name="CITY_ID">
+      <mandatory>1</mandatory>
+      <data-type>int(11)|0</data-type>
+    </column>
+    <column id="302" parent="35" name="AREA_ID">
       <comment>地区ID</comment>
       <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
-    <column id="302" parent="35" name="STORE_NAME">
+    <column id="303" parent="35" name="STORE_NAME">
       <mandatory>1</mandatory>
       <data-type>varchar(30)|0</data-type>
     </column>
-    <column id="303" parent="35" name="STORE_NUMBER">
+    <column id="304" parent="35" name="STORE_NUMBER">
       <comment>门牌号</comment>
       <mandatory>1</mandatory>
       <data-type>varchar(30)|0</data-type>
-    </column>
-    <column id="304" parent="35" name="PROVINCE_ID">
-      <mandatory>1</mandatory>
-      <data-type>int(11)|0</data-type>
     </column>
     <index id="305" parent="35" name="AREA_ID">
       <columns>AREA_ID</columns>
@@ -1268,21 +1268,21 @@
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="311" parent="35" name="FK_THIS_CITY">
+    <foreign-key id="311" parent="35" name="FK_THIS_PROVINCE">
+      <columns>PROVINCE_ID</columns>
+      <ref-key>db_house_rent.PROVINCE(provinceID)</ref-key>
+      <cascade-update-rule>restrict</cascade-update-rule>
+      <cascade-delete-rule>restrict</cascade-delete-rule>
+    </foreign-key>
+    <foreign-key id="312" parent="35" name="FK_THIS_CITY">
       <columns>CITY_ID</columns>
       <ref-key>db_house_rent.CITY(cityID)</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>
-    <foreign-key id="312" parent="35" name="fk_SYS_STORE_AREA">
+    <foreign-key id="313" parent="35" name="fk_SYS_STORE_AREA">
       <columns>AREA_ID</columns>
       <ref-key>db_house_rent.AREA(areaID)</ref-key>
-      <cascade-update-rule>restrict</cascade-update-rule>
-      <cascade-delete-rule>restrict</cascade-delete-rule>
-    </foreign-key>
-    <foreign-key id="313" parent="35" name="FK_THIS_PROVINCE">
-      <columns>PROVINCE_ID</columns>
-      <ref-key>db_house_rent.PROVINCE(provinceID)</ref-key>
       <cascade-update-rule>restrict</cascade-update-rule>
       <cascade-delete-rule>restrict</cascade-delete-rule>
     </foreign-key>

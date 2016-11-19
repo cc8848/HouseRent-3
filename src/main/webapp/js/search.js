@@ -16,7 +16,7 @@ function selectInit() {
         $("#province").select2({
             placeholder: "省份",
             data: data.data
-        });
+        }).select2('val', '');
     });
     $("#city").select2({
         placeholder: "城市"

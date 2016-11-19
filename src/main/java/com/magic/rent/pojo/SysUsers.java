@@ -189,6 +189,38 @@ public class SysUsers implements UserDetails, Serializable {
         this.credentialsNonExpired = credentialsNonExpired;
     }
 
+    /**
+     * 是否具有角色
+     *
+     * @param role
+     * @return
+     */
+    public boolean haveRoles(int roleID) {
+        for (Object sysRoles : this.sysRoles) {
+            if (roleID == ((SysRoles) sysRoles).getRoleId()) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    /**
+     * 获取指定角色ID的角色
+     *
+     * @param roleID
+     * @return
+     */
+    public SysRoles getRole(int roleID) {
+        if (haveRoles(roleID)) {
+            for (Object sysRoles : this.sysRoles) {
+                if (roleID == ((SysRoles) sysRoles).getRoleId()) {
+                    return (SysRoles) sysRoles;
+                }
+            }
+        }
+        return null;
+    }
+
     @Override
     public String toString() {
         return "SysUsers{" +

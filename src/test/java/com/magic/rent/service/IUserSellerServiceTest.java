@@ -7,12 +7,10 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by wu on 2016/11/17.
  */
-public class ISellerServiceTest {
+public class IUserSellerServiceTest {
     private ApplicationContext applicationContext;
 
     @Before
@@ -26,10 +24,8 @@ public class ISellerServiceTest {
 
     @Test
     public void selectSellerInfoByUserID() throws Exception {
-        ISellerService iSellerService = applicationContext.getBean(ISellerService.class);
-        SysUsers sysUsers = new SysUsers();
-        sysUsers.setUserId(1);
-        UserSeller userSeller = iSellerService.selectSellerInfoByUserID(sysUsers);
+        IUserSellerService iUserSellerService = applicationContext.getBean(IUserSellerService.class);
+        UserSeller userSeller = iUserSellerService.selectSellerInfoByUserID(1);
         System.out.println(userSeller.toString());
 
     }

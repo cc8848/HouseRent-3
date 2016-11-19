@@ -30,7 +30,9 @@
             <div class="row">
                 <div class="panel panel-primary">
                     <div class="panel-heading">
-                        <h3 class="panel-title">申报信息</h3>
+                        <h3 class="panel-title">申报信息
+                            <small style="color: white">No.<span id="auditing-id">${userSeller.id}</span></small>
+                        </h3>
                     </div>
                     <div class="panel-body">
                         申报后请通知贵公司后台管理员，进行批准审核，即可继续进行后续操作。
