@@ -11,7 +11,7 @@
  Target Server Version : 50716
  File Encoding         : utf-8
 
- Date: 11/17/2016 20:48:38 PM
+ Date: 11/20/2016 00:59:38 AM
 */
 
 SET NAMES utf8;
@@ -535,7 +535,7 @@ CREATE TABLE `SYS_ROLES` (
 --  Records of `SYS_ROLES`
 -- ----------------------------
 BEGIN;
-INSERT INTO `SYS_ROLES` VALUES ('1', 'Member', '网站会员', '1', '0'), ('2', 'Admin', '系统管理员', '1', '1'), ('3', 'Manager', '业务经理', '1', '0'), ('4', 'Boss', '老板', '1', '0'), ('5', 'VIP', 'VIP会员', '1', '0'), ('6', 'Seller', '职业经纪人', '1', '0');
+INSERT INTO `SYS_ROLES` VALUES ('1', 'Member', '注册会员', '1', '0'), ('2', 'Admin', '系统管理员', '1', '1'), ('3', 'Manager', '业务经理', '1', '0'), ('4', 'Boss', '老板', '1', '0'), ('5', 'VIP', 'VIP会员', '1', '0'), ('6', 'Seller', '职业经纪人', '1', '0');
 COMMIT;
 
 -- ----------------------------
@@ -604,11 +604,11 @@ DROP TABLE IF EXISTS `SYS_STORE`;
 CREATE TABLE `SYS_STORE` (
   `ID` int(100) NOT NULL AUTO_INCREMENT,
   `COMPANY_ID` int(5) NOT NULL COMMENT '公司ID',
+  `PROVINCE_ID` int(11) NOT NULL,
   `CITY_ID` int(11) NOT NULL,
   `AREA_ID` int(11) NOT NULL COMMENT '地区ID',
   `STORE_NAME` varchar(30) NOT NULL,
   `STORE_NUMBER` varchar(30) NOT NULL COMMENT '门牌号',
-  `PROVINCE_ID` int(11) NOT NULL,
   PRIMARY KEY (`ID`),
   KEY `COMPANY_ID` (`COMPANY_ID`),
   KEY `AREA_ID` (`AREA_ID`),
@@ -618,13 +618,13 @@ CREATE TABLE `SYS_STORE` (
   CONSTRAINT `FK_THIS_PROVINCE` FOREIGN KEY (`PROVINCE_ID`) REFERENCES `PROVINCE` (`provinceID`),
   CONSTRAINT `fk_SYS_STORE_AREA` FOREIGN KEY (`AREA_ID`) REFERENCES `AREA` (`areaID`),
   CONSTRAINT `fk_SYS_STORE_SYS_COMPANY` FOREIGN KEY (`COMPANY_ID`) REFERENCES `SYS_COMPANY` (`ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `SYS_STORE`
 -- ----------------------------
 BEGIN;
-INSERT INTO `SYS_STORE` VALUES ('1', '1', '120100', '350205', '海西楼市绿苑海景店', '滨湖东路75号', '220000');
+INSERT INTO `SYS_STORE` VALUES ('1', '1', '350000', '350200', '350205', '海西楼市绿苑海景店', '滨湖东路75号'), ('2', '1', '350000', '350200', '350205', '海西楼市旭日海湾店', '滨湖西路29号'), ('3', '1', '350000', '350200', '350205', '海西楼市天心岛店', '滨湖南路22号'), ('4', '1', '350000', '350200', '350205', '海西楼市乐海店', '滨湖北路220号');
 COMMIT;
 
 -- ----------------------------
@@ -655,7 +655,7 @@ CREATE TABLE `SYS_USERS` (
 --  Records of `SYS_USERS`
 -- ----------------------------
 BEGIN;
-INSERT INTO `SYS_USERS` VALUES ('1', '18650155502', '吴心哲', 'd8b4f2e26ba73201a35d018f4dfc0abe', '2016-09-24 14:20:12', '2016-11-17 18:52:08', null, '0:0:0:0:0:0:0:1', null, null, null, null, '1', '1', '1', '1'), ('2', '18695685502', null, 'ddabe2b55086f63ea4fa6b4c884ea11d', '2016-10-01 09:19:44', '2016-10-03 23:41:23', null, '0:0:0:0:0:0:0:1', null, null, null, null, '1', '1', '1', '1'), ('3', '15210101096', null, 'ce07d6492583fe84d8ac9e8327a481a1', '2016-10-04 23:40:45', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('4', '18650155501', null, '1b18eee493334a7216bb5c53e2303d4b', '2016-10-04 23:46:59', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('5', '18650155500', null, '9ca3b219e897acea47496e027d2249c1', '2016-10-04 23:56:49', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('6', '18650155503', null, '88795a4b4dde769ad642c4d9507fccad', '2016-10-05 08:28:12', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('7', '18650155505', null, '919f361ba2acb3eec6df6b6b59bfbaba', '2016-10-05 08:30:12', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('8', '18650155506', null, '53ee84c2e6be5170c22b335a6eab7b3e', '2016-10-05 08:31:12', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('9', '18650155506', null, '53ee84c2e6be5170c22b335a6eab7b3e', '2016-10-05 08:33:19', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('10', '18650155507', null, '9540092ddfeec87edaae8008f97e175a', '2016-10-05 08:33:43', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('11', '18650155511', null, '6b86a20476f35f98e2ca1ce368fd39f8', '2016-10-05 08:35:57', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('12', '18650155509', null, '2ab27120e8f08f0e708f78a350687fe1', '2016-10-05 08:48:27', null, null, null, null, null, null, null, '1', '0', '0', '1');
+INSERT INTO `SYS_USERS` VALUES ('1', '18650155502', '吴心哲', 'd8b4f2e26ba73201a35d018f4dfc0abe', '2016-09-24 14:20:12', '2016-11-19 19:15:17', null, '0:0:0:0:0:0:0:1', null, null, null, null, '1', '1', '1', '1'), ('2', '18695685502', null, 'ddabe2b55086f63ea4fa6b4c884ea11d', '2016-10-01 09:19:44', '2016-10-03 23:41:23', null, '0:0:0:0:0:0:0:1', null, null, null, null, '1', '1', '1', '1'), ('3', '15210101096', null, 'ce07d6492583fe84d8ac9e8327a481a1', '2016-10-04 23:40:45', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('4', '18650155501', null, '1b18eee493334a7216bb5c53e2303d4b', '2016-10-04 23:46:59', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('5', '18650155500', null, '9ca3b219e897acea47496e027d2249c1', '2016-10-04 23:56:49', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('6', '18650155503', null, '88795a4b4dde769ad642c4d9507fccad', '2016-10-05 08:28:12', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('7', '18650155505', null, '919f361ba2acb3eec6df6b6b59bfbaba', '2016-10-05 08:30:12', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('8', '18650155506', null, '53ee84c2e6be5170c22b335a6eab7b3e', '2016-10-05 08:31:12', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('9', '18650155506', null, '53ee84c2e6be5170c22b335a6eab7b3e', '2016-10-05 08:33:19', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('10', '18650155507', null, '9540092ddfeec87edaae8008f97e175a', '2016-10-05 08:33:43', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('11', '18650155511', null, '6b86a20476f35f98e2ca1ce368fd39f8', '2016-10-05 08:35:57', null, null, null, null, null, null, null, '1', '0', '0', '1'), ('12', '18650155509', null, '2ab27120e8f08f0e708f78a350687fe1', '2016-10-05 08:48:27', null, null, null, null, null, null, null, '1', '0', '0', '1');
 COMMIT;
 
 -- ----------------------------
@@ -671,13 +671,13 @@ CREATE TABLE `SYS_USERS_ROLES` (
   KEY `FK_Reference_2` (`ROLE_ID`),
   CONSTRAINT `FK_Reference_1` FOREIGN KEY (`USER_ID`) REFERENCES `SYS_USERS` (`USER_ID`),
   CONSTRAINT `FK_Reference_2` FOREIGN KEY (`ROLE_ID`) REFERENCES `SYS_ROLES` (`ROLE_ID`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 -- ----------------------------
 --  Records of `SYS_USERS_ROLES`
 -- ----------------------------
 BEGIN;
-INSERT INTO `SYS_USERS_ROLES` VALUES ('1', '1', '1');
+INSERT INTO `SYS_USERS_ROLES` VALUES ('1', '1', '1'), ('2', '6', '1');
 COMMIT;
 
 -- ----------------------------
@@ -701,13 +701,6 @@ CREATE TABLE `USER_SELLER` (
   CONSTRAINT `FK_THIS_STORE` FOREIGN KEY (`STORE_ID`) REFERENCES `SYS_STORE` (`ID`),
   CONSTRAINT `FK_THIS_USER_ID` FOREIGN KEY (`USER_ID`) REFERENCES `SYS_USERS` (`USER_ID`)
 ) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8;
-
--- ----------------------------
---  Records of `USER_SELLER`
--- ----------------------------
-BEGIN;
-INSERT INTO `USER_SELLER` VALUES ('1', '1', '6', '1', '1', '1');
-COMMIT;
 
 -- ----------------------------
 --  Table structure for `USER_STATUS`
