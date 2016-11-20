@@ -27,4 +27,11 @@ public class UserSellerServiceImpl implements IUserSellerService {
         return isSuccess > 0;
     }
 
+    public boolean auditingSubmit(UserSeller userSeller) throws Exception {
+
+        int isSuccess = userSellerMapper.insertSelective(userSeller);
+
+        return isSuccess > 0;
+
+    }
 }

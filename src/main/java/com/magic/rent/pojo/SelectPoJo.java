@@ -33,21 +33,12 @@ public class SelectPoJo implements Serializable {
         this.text = text;
     }
 
-    /**
-     * 地址转换为选项
-     *
-     * @param addressList
-     * @return
-     */
-    public static List<SelectPoJo> AddressToSelectPoJo(List<? extends Address> addressList) {
-        List<SelectPoJo> selectPoJoList = new ArrayList<SelectPoJo>();
-        for (Address address : addressList) {
-            SelectPoJo selectPOJO = new SelectPoJo();
-            selectPOJO.setId(address.getAddressID());
-            selectPOJO.setText(address.getAddressName());
-            selectPoJoList.add(selectPOJO);
-        }
-        return selectPoJoList;
+    public SelectPoJo() {
+    }
+
+    public SelectPoJo(int id, String text) {
+        this.id = id;
+        this.text = text;
     }
 
     @Override

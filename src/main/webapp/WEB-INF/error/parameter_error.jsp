@@ -11,13 +11,13 @@
 <html>
 <head>
     <title>Parameter_error</title>
-    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/bootstrap.css" rel="stylesheet">
 </head>
 <body>
+${requestScope.ex}
 
 
-
-<link href="/js/jquery-3.1.0.min.js">
-<link href="/js/bootstrap.js">
+<link href="${pageContext.request.contextPath}/js/jquery-3.1.0.min.js">
+<link href="${pageContext.request.contextPath}/js/bootstrap.js">
 </body>
 </html>

@@ -121,4 +121,14 @@
     FROM SYS_STORE
     WHERE SYS_STORE.AREA_ID=#{areaID,jdbcType=VARCHAR}
   </select>
+
+    <select id="selectRolesByStoreID" parameterType="java.lang.Integer" resultType="com.magic.rent.pojo.SelectPoJo">
+    SELECT
+      SYS_ROLES.ROLE_ID   id,
+      SYS_ROLES.ROLE_DESC text
+    FROM SYS_ROLES_SYS_STORE
+      JOIN SYS_ROLES ON SYS_ROLES_SYS_STORE.ROLE_ID = SYS_ROLES.ROLE_ID
+      JOIN SYS_STORE ON SYS_ROLES_SYS_STORE.STORE_ID = SYS_STORE.ID
+    WHERE SYS_STORE.ID = #{id,jdbcType=INTEGER}
+    </select>
 </mapper>

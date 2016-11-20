@@ -11,13 +11,14 @@
 <html>
 <head>
     <title>Title</title>
-    <link href="/css/bootstrap.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/bootstrap.min.css" rel="stylesheet">
+    <link href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css" rel="stylesheet">
 </head>
 <body>
+${requestScope.ex}
 
 
-
-<link href="/js/jquery-3.1.0.min.js">
-<link href="/js/bootstrap.js">
+<link href="${pageContext.request.contextPath}/js/jquery.js">
+<link href="${pageContext.request.contextPath}/js/bootstrap.min.js">
 </body>
 </html>

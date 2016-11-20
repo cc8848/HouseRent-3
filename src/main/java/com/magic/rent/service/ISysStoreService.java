@@ -1,6 +1,7 @@
 package com.magic.rent.service;
 
 import com.magic.rent.pojo.SelectPoJo;
+import com.magic.rent.pojo.SysRoles;
 
 import java.util.List;
 
@@ -10,4 +11,6 @@ import java.util.List;
 public interface ISysStoreService {
 
     List<SelectPoJo> selectStoreNumByAreaID(String areaID) throws Exception;
+
+    List<SelectPoJo> selectRolesByStoreID(int storeID) throws Exception;
 }

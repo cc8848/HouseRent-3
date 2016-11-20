@@ -3,50 +3,55 @@
  */
 function Location(provinceID, cityID, areaID) {
 
-    var province = $('#' + provinceID);
-    var city = $('#' + cityID);
-    var area = $('#' + areaID);
+    var province = $(provinceID);
 
-    this.init = function () {
-        province.select2({placeholder: '省份'});
-        city.select2({placeholder: '城市'});
-        area.select2({placeholder: '地区'});
-        $.getJSON('/address/all', function (backData) {
-            var array = [];
-            $.each(backData.data, function (i, province) {
-                var option = new Option(province.provinceID, province.provinceName);
-                array.push(option);
-            });
+    var city = $(cityID);
+
+    var area = $(areaID);
+
+    this.locationInit = function () {
+        $(".select2").select2();
+        this.provinceInit();
+        this.cityInit();
+        this.areaInit();
+    };
+    this.provinceInit = function () {
+        $.getJSON("/address/getAllProvince", function (data) {
             province.select2({
-                data: array
+                placeholder: "省份",
+                data: data.data
+            }).on("select2:select", function () {
+                var provinceID = province.select2("val");
+                city.html('');
+                area.html('');
+                $.getJSON("/address/getCityByProvince", {
+                    provinceID: provinceID
+                }, function (data) {
+                    city.select2({
+                        data: data.data
+                    });
+                });
             });
-        })
-    };
-
-    this.findCityFromProvince = function (provinceList, in_id) {
-        var out_province = null;
-        $.each(provinceList, function (i, province) {
-            if (in_id == province.provinceID) {
-                out_province = province;
-                return false;
-            }
         });
-        return out_province.cities;
     };
-
-    this.findAreaFromCity = function (cityList, in_id) {
-        var out_city = null;
-        $.each(cityList, function (i, city) {
-            if (in_id = city.cityid) {
-                out_city = city;
-                return false;
-            }
+    this.cityInit = function () {
+        city.select2({
+            placeholder: "城市"
+        }).on("select2:select", function () {
+            var cityID = city.select2("val");
+            area.html("");
+            $.getJSON("/address/getAreaByCity", {
+                cityID: cityID
+            }, function (data) {
+                area.select2({
+                    data: data.data
+                });
+            });
         });
-        return out_city.areas;
     };
-}
-
-function Option(id, text) {
-    this.id = id;
-    this.text = text;
+    this.areaInit = function () {
+        area.select2({
+            placeholder: "地区"
+        });
+    };
 }

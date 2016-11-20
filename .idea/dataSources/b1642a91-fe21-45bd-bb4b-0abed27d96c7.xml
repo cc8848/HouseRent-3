@@ -1221,13 +1221,16 @@
       <data-type>int(5)|0</data-type>
     </column>
     <column id="300" parent="35" name="PROVINCE_ID">
+      <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
     <column id="301" parent="35" name="CITY_ID">
+      <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
     <column id="302" parent="35" name="AREA_ID">
       <comment>地区ID</comment>
+      <mandatory>1</mandatory>
       <data-type>int(11)|0</data-type>
     </column>
     <column id="303" parent="35" name="STORE_NAME">

@@ -22,12 +22,8 @@
     where ROLE_ID = #{roleId,jdbcType=INTEGER}
   </delete>
     <insert id="insert" parameterType="com.magic.rent.pojo.SysRoles">
-    insert into SYS_ROLES (ROLE_ID, ROLE_NAME, ROLE_DESC, 
-      ENABLE, ISSYS
-      )
-    values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{roleDesc,jdbcType=VARCHAR}, 
-      #{enable,jdbcType=TINYINT}, #{system,jdbcType=TINYINT}
-      )
+    insert into SYS_ROLES (ROLE_ID, ROLE_NAME, ROLE_DESC, ENABLE, ISSYS)
+    values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{roleDesc,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT}, #{system,jdbcType=TINYINT})
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysRoles">
         insert into SYS_ROLES
@@ -92,7 +88,7 @@
       ISSYS = #{system,jdbcType=TINYINT},
     where ROLE_ID = #{roleId,jdbcType=INTEGER}
   </update>
-    <select id="selectRolesByUserId" parameterType="int" resultMap="BaseResultMap">
+    <select id="selectRolesByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT SYS_ROLES.ROLE_ID,SYS_ROLES.ROLE_NAME,SYS_ROLES.ROLE_DESC,SYS_ROLES.ISSYS,SYS_ROLES.ENABLE
     FROM SYS_USERS_ROLES
     JOIN SYS_ROLES ON SYS_ROLES.ROLE_ID = SYS_USERS_ROLES.ROLE_ID

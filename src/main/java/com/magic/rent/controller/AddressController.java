@@ -55,7 +55,7 @@ public class AddressController extends BaseController {
 
         List<SelectPoJo> selectPoJoList = iAddressService.getCityByProvinceID(Integer.valueOf(provinceID));
 
-        return JsonResult.success("", selectPoJoList);
+        return JsonResult.success(selectPoJoList);
     }
 
 
@@ -65,7 +65,7 @@ public class AddressController extends BaseController {
 
         List<SelectPoJo> selectPoJoList = iAddressService.getAllCity();
 
-        return JsonResult.success("", selectPoJoList);
+        return JsonResult.success(selectPoJoList);
     }
 
     @ResponseBody
@@ -78,7 +78,7 @@ public class AddressController extends BaseController {
 
         List<SelectPoJo> selectPoJoList = iAddressService.getAreaByCityID(Integer.valueOf(cityID));
 
-        return JsonResult.success("", selectPoJoList);
+        return JsonResult.success(selectPoJoList);
     }
 
 

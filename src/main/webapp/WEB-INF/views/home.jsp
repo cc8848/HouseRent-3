@@ -62,7 +62,7 @@
                                     <c:choose>
                                         <c:when test="${seller.userStatus.id==1||seller.userStatus.id==2}">
                                             <%--当前为待审核或审核失败状态--%>
-                                            <span>申报后请通知贵公司后台管理员，进行批准审核，即可继续进行后续操作。</span>
+                                            <span>当前属于<u class="text-danger">等待审核</u>状态，请耐心等待！</span>
                                         </c:when>
                                         <c:otherwise>
                                             <%--当前为审核成功状态--%>
@@ -71,9 +71,9 @@
                                     </c:choose>
                                     <div class="btn-group-sm pull-right">
                                         <button href="#updateSeller" type="button" class="btn btn-primary"
-                                                data-toggle="collapse">修改
+                                                data-toggle="collapse">更换团队
                                         </button>
-                                        <button type="button" class="btn btn-primary">取消</button>
+                                        <button type="button" class="btn btn-primary">退出团队</button>
                                     </div>
                                 </div>
                                 <table class="table table-striped">
@@ -108,28 +108,35 @@
                     <div id="updateSeller" class="panel-collapse collapse">
                         <div class="panel panel-primary">
                             <div class="panel-heading">
-                                <h3 class="panel-title">请填写您的申请资料！</h3>
+                                <h3 class="panel-title">请填写您的申请资料！
+                                    <a id="apply-close" href="#updateSeller" class="label pull-right"
+                                       data-toggle="collapse">
+                                        <span class="glyphicon glyphicon-remove"></span>
+                                    </a>
+                                </h3>
                             </div>
                             <div class="panel-body">
+                                <span id="apply-error">申报后请通知贵公司后台管理员进行审核，即可继续进行后续操作。</span>
                                 <div class="btn-group-sm pull-right">
-                                    <button href="#updateSeller" type="button" class="btn btn-primary"
-                                            data-toggle="collapse">提交申请
+                                    <button id="auditing-submit" type="button"
+                                            class="btn btn-primary">提交申请
                                     </button>
-                                    <button href="#updateSeller" type="button" class="btn btn-primary"
+                                    <button id="auditing-cancel" href="#updateSeller" type="button"
+                                            class="btn btn-primary"
                                             data-toggle="collapse">取消申请
                                     </button>
                                 </div>
                             </div>
-                            <table class="table table-striped">
+                            <table class="table table-striped table-responsive">
                                 <tbody>
                                 <tr>
-                                    <td>账号/手机号：</td>
+                                    <td>账号：</td>
                                     <td>${sessionScope.user.username}</td>
                                     <td>姓名：</td>
                                     <td>${sessionScope.user.name}</td>
                                 </tr>
                                 <tr>
-                                    <td>门店地址：</td>
+                                    <td>地址：</td>
                                     <td>
                                         <select id="province" title="province" class="select2"
                                                 style="width: 100%"></select>
@@ -142,13 +149,13 @@
                                     </td>
                                 </tr>
                                 <tr>
-                                    <td>门牌号</td>
-                                    <td>
+                                    <td>门牌</td>
+                                    <td id="storeNum-td">
                                         <select id="storeNum" title="storeNum" class="select2"
                                                 style="width: 100%"></select>
                                     </td>
-                                    <td>申请岗位：</td>
-                                    <td>
+                                    <td>岗位：</td>
+                                    <td id="storeRole-td">
                                         <select id="storeRole" title="storeRole" class="select2"
                                                 style="width: 100%"></select>
                                     </td>
@@ -169,6 +176,7 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/select2.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
+<script src="${pageContext.request.contextPath}/js/location.js"></script>
 <script src="${pageContext.request.contextPath}/js/home.js"></script>
 </body>
 </html>

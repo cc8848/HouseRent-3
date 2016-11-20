@@ -2,80 +2,106 @@
  * Created by wu on 2016/11/19.
  */
 $(document).ready(function () {
-    var home = new Home();
-    home.homeInit();
+    var apply = new Apply();
+    apply.tableInit();
 });
 
-function Home() {
-    this.homeInit = function () {
+function Apply() {
+
+    var province = $("#province");
+
+    var city = $("#city");
+
+    var area = $("#area");
+
+    var storeNum = $("#storeNum");
+
+    var storeRole = $("#storeRole");
+
+    var storeNum_td = $('#storeNum-td');
+
+    var storeRole_td = $("#storeRole-td");
+
+    var applay_error = $('#apply-error');
+
+    this.tableInit = function () {
         $(".select2").select2();
-        this.provinceInit();
-        this.cityInit();
+        var location = new Location('#province', '#city', '#area');
+        location.locationInit();
         this.areaInit();
-        this.roleInit();
+        this.storeNumInit();
+        this.storeRoleInit();
+        $('#auditing-submit').on("click", this.applySubmit);
     };
-    this.provinceInit = function () {
-        $.getJSON("/address/getAllProvince", function (data) {
-            $("#province").select2({
-                placeholder: "省份",
-                data: data.data
-            }).on("select2:select", function () {
-                var provinceID = $("#province").select2("val");
-                $('#city').html('');
-                $('#area').html('');
-                $.getJSON("/address/getCityByProvince", {
-                    provinceID: provinceID
-                }, function (data) {
-                    $("#city").select2({
-                        data: data.data
-                    });
-                });
-            });
-        });
-    };
-    this.cityInit = function () {
-        $("#city").select2({
-            placeholder: "城市"
-        }).on("select2:select", function () {
-            var cityID = $("#city").select2("val");
-            $('#area').html("");
-            $.getJSON("/address/getAreaByCity", {
-                cityID: cityID
-            }, function (data) {
-                $("#area").select2({
-                    data: data.data
-                });
-            });
-        });
-    };
+
     this.areaInit = function () {
-        $("#area").select2({
-            placeholder: "地区"
-        }).on("select2:select", function () {
-            var areaID = $("#area").select2("val");
-            $("#storeNum").html("");
+        area.on("select2:select", function () {
+            var areaID = area.select2("val");
+            storeNum.html("");
             $.getJSON("/store/getNum", {
                 areaID: areaID
             }, function (data) {
-                $("#storeNum").select2({
+                storeNum.select2({
                     data: data.data
                 });
             });
         });
     };
-    this.roleInit = function () {
-        $("#storeNum").select2({
-            placeholder: "门牌号"
+
+    this.storeNumInit = function () {
+        storeNum.select2({
+            placeholder: "门牌"
         }).on("select2:select", function () {
-            var storeID = $("#storeNum").select2("val");
-            $("#storeRole").html("");
+            var storeID = storeNum.select2("val");
+            storeRole.html("");
             $.getJSON("/store/getRoles", {
                 storeID: storeID
             }, function (data) {
-                $("#storeRole").select2({
+                storeRole.select2({
                     data: data.data
                 });
             });
         });
     };
+
+    this.storeRoleInit = function () {
+        storeRole.select2({
+            placeholder: "岗位"
+        });
+    };
+    this.applySubmit = function () {
+        storeNum_td.removeClass("danger");
+        storeRole_td.removeClass("danger");
+        applay_error.addClass("text-danger").html("申报后请通知贵公司后台管理员进行审核，即可继续进行后续操作。");
+        var num = storeNum.select2('val');
+        if (null == num || 0 == num) {
+            storeNum_td.addClass("danger");
+            applay_error.html("门牌必须选择！");
+            return;
+        }
+        var role = storeRole.select2('val');
+        if (null == role || 0 == role) {
+            storeRole_td.addClass("danger");
+            applay_error.html("岗位必须选择！");
+            return;
+        }
+        $.getJSON('/auditing/submit', {
+            storeID: num,
+            roleID: role
+        }, function (backData) {
+            if (backData.status) {
+                $('#apply-close').trigger("click");
+                refresh();
+            } else {
+                alert(backData.message);
+            }
+        })
+    };
+    this.cancel = function () {
+
+    };
+}
+
+function refresh() {
+    window.location.reload();
 }
