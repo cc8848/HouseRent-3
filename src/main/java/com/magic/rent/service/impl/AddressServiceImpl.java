@@ -58,4 +58,8 @@ public class AddressServiceImpl implements IAddressService {
 
         return SelectPoJo.AddressToSelectPoJo(areaList);
     }
+
+    public List<Province> getAllAddress() throws Exception {
+        return provinceMapper.selectAllAddress();
+    }
 }

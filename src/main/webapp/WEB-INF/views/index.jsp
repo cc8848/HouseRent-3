@@ -12,7 +12,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>首页</title>
+    <title>Showings · VR房库-首页</title>
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>

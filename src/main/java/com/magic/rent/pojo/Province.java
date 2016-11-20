@@ -13,7 +13,7 @@ public class Province implements Serializable, Address {
 
     private String provinceName;
 
-    List<City> cities;
+    private List<City> cities;
 
     private boolean enable;
 

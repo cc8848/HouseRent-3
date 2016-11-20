@@ -97,4 +97,28 @@
     FROM PROVINCE
     WHERE PROVINCE.enable > 0
   </select>
+    <resultMap id="All" type="com.magic.rent.pojo.Province">
+        <id column="p_ID" property="provinceID" jdbcType="INTEGER"/>
+        <result column="p_Name" property="provinceName" jdbcType="VARCHAR"/>
+        <collection property="cities" ofType="com.magic.rent.pojo.City">
+            <id column="c_ID" property="cityid" jdbcType="INTEGER"/>
+            <result column="c_Name" property="cityName" jdbcType="VARCHAR"/>
+            <collection property="areas" ofType="com.magic.rent.pojo.Area">
+                <id column="a_ID" property="areaid" jdbcType="INTEGER"/>
+                <result column="a_Name" property="areaName" jdbcType="VARCHAR"/>
+            </collection>
+        </collection>
+    </resultMap>
+    <select id="selectAllAddress" resultMap="All">
+        SELECT
+          PROVINCE.id           p_ID,
+          PROVINCE.provinceName p_Name,
+          CITY.cityID           c_ID,
+          CITY.cityName         c_Name,
+          AREA.areaID           a_ID,
+          AREA.areaName         a_Name
+        FROM PROVINCE
+          JOIN CITY ON PROVINCE.provinceID = CITY.provinceID
+          JOIN AREA ON CITY.cityID = AREA.cityID
+    </select>
 </mapper>

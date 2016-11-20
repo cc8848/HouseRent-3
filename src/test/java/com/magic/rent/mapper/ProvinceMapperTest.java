@@ -1,11 +1,13 @@
 package com.magic.rent.mapper;
 
+import com.alibaba.fastjson.JSON;
 import com.magic.rent.pojo.Province;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
+import java.io.File;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -18,21 +20,26 @@ import static org.junit.Assert.*;
 public class ProvinceMapperTest {
 
     private ApplicationContext applicationContext;
+    private ProvinceMapper provinceMapper;
 
     @Before
     public void setUp() throws Exception {
-        applicationContext = new ClassPathXmlApplicationContext(new String[]{"classpath:config/spring/applicationContext-dao.xml",
-                "classpath:config/spring/applicationContext-service.xml",
-                "classpath:config/spring/applicationContext-JCaptcha.xml",
-                "classpath:config/spring/applicationContext-security.xml",
-                "classpath:config/spring/applicationContext-transaction.xml",
-                "classpath:config/spring/applicationContext-ehcache.xml"});
+        applicationContext = new ClassPathXmlApplicationContext(
+                "classpath:config/spring/applicationContext-dao.xml",
+                "classpath:config/spring/applicationContext-ehcache.xml");
+        provinceMapper = applicationContext.getBean(ProvinceMapper.class);
     }
 
     @Test
     public void testSelectAllProvince() throws Exception {
-        ProvinceMapper provinceMapper = applicationContext.getBean(ProvinceMapper.class);
         List<Province> provinceList = provinceMapper.selectAllProvince();
+        System.out.print(provinceList);
+    }
+
+    @Test
+    public void selectAllAddress() throws Exception {
+        List<Province> provinceList = provinceMapper.selectAllAddress();
+        JSON.toJSON(provinceList);
         System.out.print(provinceList);
     }
 }

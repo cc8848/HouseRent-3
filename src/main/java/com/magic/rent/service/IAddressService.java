@@ -1,5 +1,6 @@
 package com.magic.rent.service;
 
+import com.magic.rent.pojo.Province;
 import com.magic.rent.pojo.SelectPoJo;
 
 import java.util.List;
@@ -17,4 +18,6 @@ public interface IAddressService {
     List<SelectPoJo> getAreaByCityID(int cityID) throws Exception;
 
     List<SelectPoJo> getAllCity() throws Exception;
+
+    List<Province> getAllAddress() throws Exception;
 }

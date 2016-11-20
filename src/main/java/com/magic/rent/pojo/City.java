@@ -15,7 +15,7 @@ public class City implements Serializable, Address {
 
     private Integer provinceID;
 
-    List<Area> areas;
+    private List<Area> areas;
 
     private boolean enable;
 

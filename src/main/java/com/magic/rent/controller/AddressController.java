@@ -28,8 +28,15 @@ public class AddressController extends BaseController {
     private IAddressService iAddressService;
 
     @ResponseBody
+    @RequestMapping("/all")
+    public JsonResult getAll() throws Exception {
+        return JsonResult.success(iAddressService.getAllAddress());
+    }
+
+
+    @ResponseBody
     @RequestMapping("/getAllProvince")
-    public JsonResult getAllProvince(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public JsonResult getAllProvince() throws Exception {
 
         List<SelectPoJo> selectPoJoList = iAddressService.getAllProvince();
 
@@ -39,7 +46,7 @@ public class AddressController extends BaseController {
 
     @ResponseBody
     @RequestMapping("/getCityByProvince")
-    public JsonResult getCityByProvince(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public JsonResult getCityByProvince(HttpServletRequest request) throws Exception {
 
         String provinceID = request.getParameter("provinceID");
 
@@ -63,7 +70,7 @@ public class AddressController extends BaseController {
 
     @ResponseBody
     @RequestMapping("/getAreaByCity")
-    public JsonResult getAreaByCity(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public JsonResult getAreaByCity(HttpServletRequest request) throws Exception {
         String cityID = request.getParameter("cityID");
 
         if (StringUtils.isEmpty(cityID))

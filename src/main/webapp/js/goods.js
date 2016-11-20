@@ -5,7 +5,6 @@ $(document).ready(function () {
 function House() {
     var _this = this;
     this.id = $('#houseID').html();
-    this.roomNumList = [];
     /**
      * 获取租赁模式及房屋信息
      */

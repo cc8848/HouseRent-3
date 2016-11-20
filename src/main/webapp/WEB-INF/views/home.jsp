@@ -45,7 +45,7 @@
                 <div id="account" class="tab-pane active">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
-                            <h3 class="panel-title">我的团队<c:out value="${seller}"/></h3>
+                            <h3 class="panel-title">我的团队</h3>
                         </div>
                         <c:choose>
                             <c:when test="${seller == null}">
