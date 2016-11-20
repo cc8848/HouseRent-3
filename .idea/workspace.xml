@@ -7,29 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/custom/LoginTimeOutException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b1642a91-fe21-45bd-bb4b-0abed27d96c7.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/b1642a91-fe21-45bd-bb4b-0abed27d96c7.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rent.log" afterPath="$PROJECT_DIR$/logs/rent.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/AddressController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/AddressController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/SysStoreController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/SysStoreController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/custom/ParameterException.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/custom/ParameterException.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysStoreMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysStoreMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SelectPoJo.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SelectPoJo.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ISysStoreService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ISysStoreService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserSellerService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserSellerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/AddressServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/AddressServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/SysStoreServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/SysStoreServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserSellerServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserSellerServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysRolesMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysRolesMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysStoreMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysStoreMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/error/business_error.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/error/business_error.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/error/parameter_error.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/error/parameter_error.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/home.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/location.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/location.js" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -80,8 +58,8 @@
       <file leaf-file-name="UserSellerController.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="463">
-              <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+            <state relative-caret-position="478">
+              <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -1390,7 +1368,7 @@
       <workItem from="1479480510467" duration="43000" />
       <workItem from="1479480679128" duration="1637000" />
       <workItem from="1479574789649" duration="40000" />
-      <workItem from="1479575027979" duration="27978000" />
+      <workItem from="1479575027979" duration="28592000" />
     </task>
     <task id="LOCAL-00001" summary="2016年10月31日22:43:46">
       <created>1477925076681</created>
@@ -1637,7 +1615,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479645825568</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="2016年11月21日02:18:36">
+      <created>1479665930516</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1479665930516</updated>
+    </task>
+    <option name="localTasksCounter" value="37" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1673,7 +1658,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="372513000" />
+    <option name="totallyTimeSpent" value="373127000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1764,7 +1749,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2016年11月02日20:00:12" />
     <MESSAGE value="2016年11月02日23:39:25" />
     <MESSAGE value="2016年11月02日23:40:23" />
     <MESSAGE value="2016年11月03日23:26:25" />
@@ -1789,7 +1773,8 @@
     <MESSAGE value="2016年11月17日17:43:21" />
     <MESSAGE value="2016年11月17日20:46:05" />
     <MESSAGE value="2016年11月20日20:43:30" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年11月20日20:43:30" />
+    <MESSAGE value="2016年11月21日02:18:36" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年11月21日02:18:36" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2254,8 +2239,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="463">
-          <caret line="46" column="9" selection-start-line="46" selection-start-column="9" selection-end-line="46" selection-end-column="9" />
+        <state relative-caret-position="478">
+          <caret line="47" column="0" selection-start-line="47" selection-start-column="0" selection-end-line="47" selection-end-column="0" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
