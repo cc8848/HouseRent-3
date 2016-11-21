@@ -159,4 +159,30 @@
           JOIN USER_STATUS ON USER_SELLER.STATUS_ID = USER_STATUS.ID
         WHERE USER_SELLER.USER_ID =  #{id,jdbcType=INTEGER}
   </select>
+    <delete id="deleteByUserID" parameterType="java.lang.Integer">
+        DELETE FROM USER_SELLER
+        WHERE USER_SELLER.USER_ID=#{userID,jdbcType=INTEGER}
+    </delete>
+    <update id="updateByUserIDSelective" parameterType="com.magic.rent.pojo.UserSeller">
+        update USER_SELLER
+        <set>
+            <if test="userId != null">
+                USER_ID = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="rolesId != null">
+                ROLES_ID = #{rolesId,jdbcType=INTEGER},
+            </if>
+            <if test="storeId != null">
+                STORE_ID = #{storeId,jdbcType=INTEGER},
+            </if>
+            <if test="enabled != null">
+                ENABLED = #{enabled,jdbcType=TINYINT},
+            </if>
+            <if test="statusId != null">
+                STATUS_ID = #{statusId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where ID = #{userId,jdbcType=INTEGER}
+    </update>
+
 </mapper>

@@ -1,5 +1,6 @@
 package com.magic.rent.service;
 
+import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.pojo.UserSeller;
 
 /**
@@ -11,7 +12,13 @@ public interface IUserSellerService {
 
     UserSeller selectSellerInfoByUserID(int userID) throws Exception;
 
-    boolean auditingCancel(int sellerID) throws Exception;
+    boolean auditingSecede(int userID) throws Exception;
 
     boolean auditingSubmit(UserSeller userSeller) throws Exception;
+
+    boolean auditingUpdate(UserSeller userSeller) throws Exception;
+
+    boolean auditingPass(UserSeller userSeller) throws Exception;
+
+    boolean auditingRefuse(UserSeller userSeller) throws Exception;
 }

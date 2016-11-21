@@ -31,6 +31,10 @@
             <div class="panel panel-default">
                 <ul class="list-group">
                     <a href="#account" class="list-group-item active" data-toggle="tab">账户信息</a>
+                    <%--门店经理角色拥有团队管理权限--%>
+                    <c:if test="${sessionScope.user.haveRoles(3)}">
+                        <a href="#" class="list-group-item" data-toggle="tab">团队管理</a>
+                    </c:if>
                     <a href="#" class="list-group-item" data-toggle="tab">发布房源</a>
                     <a href="#" class="list-group-item" data-toggle="tab">我的房单</a>
                     <a href="#" class="list-group-item" data-toggle="tab">我的钱包</a>
@@ -48,7 +52,7 @@
                             <h3 class="panel-title">我的团队</h3>
                         </div>
                         <c:choose>
-                            <c:when test="${seller == null}">
+                            <c:when test="${null==seller}">
                                 <div class="panel-body">
                                     您尚未申请加入任何中介机构！
                                     <button href="#updateSeller" type="button"
@@ -66,7 +70,7 @@
                                         </c:when>
                                         <c:otherwise>
                                             <%--当前为审核成功状态--%>
-                                            <span>你好，我们的${sessionScope.usr.getRole(6)}</span>
+                                            <span>你好，我们的${seller.sysRoles.roleDesc}</span>
                                         </c:otherwise>
                                     </c:choose>
                                     <div class="btn-group-sm pull-right">

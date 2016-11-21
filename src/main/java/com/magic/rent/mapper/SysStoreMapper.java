@@ -3,6 +3,7 @@ package com.magic.rent.mapper;
 import com.magic.rent.pojo.SelectPoJo;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysStore;
+import com.magic.rent.pojo.UserSeller;
 import org.apache.ibatis.annotations.Select;
 import org.springframework.stereotype.Repository;
 
@@ -25,4 +26,6 @@ public interface SysStoreMapper {
     List<SelectPoJo> selectByAreaID(String areaID);
 
     List<SelectPoJo> selectRolesByStoreID(int storeID);
+
+    List<UserSeller> selectSellersByStoreID(int storeID);
 }

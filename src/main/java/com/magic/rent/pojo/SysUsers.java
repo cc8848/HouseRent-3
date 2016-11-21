@@ -3,6 +3,7 @@ package com.magic.rent.pojo;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
+import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
@@ -219,6 +220,10 @@ public class SysUsers implements UserDetails, Serializable {
             }
         }
         return null;
+    }
+
+    public void updateSessionInfo(HttpServletRequest request) {
+        request.getSession().setAttribute("usr", this);
     }
 
     @Override

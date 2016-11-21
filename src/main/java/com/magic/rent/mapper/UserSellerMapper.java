@@ -18,4 +18,8 @@ public interface UserSellerMapper {
     int updateByPrimaryKey(UserSeller record);
 
     UserSeller selectByUserID(int userID);
+
+    int deleteByUserID(int userID);
+
+    int updateByUserIDSelective(UserSeller record);
 }

@@ -7,6 +7,7 @@ import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.pojo.UserSeller;
 import com.magic.rent.service.IUserSellerService;
+import com.magic.rent.service.IUserService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -31,20 +32,27 @@ public class HomeController extends BaseController {
     @Autowired
     private IUserSellerService iUserSellerService;
 
+    @Autowired
+    private IUserService iUserService;
+
     private static Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping("/home")
     public ModelAndView home(HttpServletRequest request) throws Exception {
         //此数据在登录成功时存入Session。详情在LoginAuthenticationController中可查找
-        SysUsers sysUsers = (SysUsers) request.getSession().getAttribute("user");
-        if (null == sysUsers || null == sysUsers.getUserId()) {
+        SysUsers SessionUsers = (SysUsers) request.getSession().getAttribute("user");
+
+        if (null == SessionUsers || null == SessionUsers.getUserId()) {
             throw new LoginTimeOutException(messageSourceAccessor.getMessage("LoginService.LoginTimeOut", "用户尚未登录或登录失效，请重新登录！"));
         }
+
+
         Map<String, Object> model = new HashMap<String, Object>();
-        UserSeller userSeller = iUserSellerService.selectSellerInfoByUserID(sysUsers.getUserId());
+        UserSeller userSeller = iUserSellerService.selectSellerInfoByUserID(SessionUsers.getUserId());
         if (null != userSeller) {
             logger.info(userSeller.toString());
         }
+        
         model.put("seller", userSeller);
         return new ModelAndView("home", model);
     }
