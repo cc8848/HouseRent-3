@@ -8,17 +8,16 @@
   <component name="ChangeListManager">
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rent.log" afterPath="$PROJECT_DIR$/logs/rent.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysStoreMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysStoreMapper.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/UserSellerMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/UserSellerMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysRoles.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysRoles.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysUsers.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysUsers.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserSellerService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserSellerService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserSellerServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserSellerServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/logback.xml" afterPath="$PROJECT_DIR$/src/main/resources/logback.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysRolesMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysRolesMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysStoreMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysStoreMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserSellerMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserSellerMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/UserSellerMapperTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/UserSellerMapperTest.java" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -49,6 +48,20 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
+    <PATH>
+      <PATH_ELEMENT>
+        <option name="myItemId" />
+        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="MySQL - db_house_rent@localhost" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+      <PATH_ELEMENT>
+        <option name="myItemId" value="SYS_USERS_ROLES" />
+        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
+      </PATH_ELEMENT>
+    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
@@ -56,30 +69,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="SysStoreMapper.xml" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysStoreMapper.xml">
+      <file leaf-file-name="IUserSellerService.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserSellerService.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="138">
-              <caret line="132" column="66" selection-start-line="132" selection-start-column="66" selection-end-line="132" selection-end-column="66" />
-              <folding>
-                <marker date="1479732905000" expanded="true" signature="1038:1153" ph="select from SYS_STORE" />
-                <marker date="1479732905000" expanded="true" signature="1243:1302" ph="delete from " />
-                <marker date="1479732905000" expanded="true" signature="1389:1731" ph="insert into SYS_STORE... " />
-                <marker date="1479732905000" expanded="true" signature="3443:4241" ph="update SYS_S... " />
-                <marker date="1479732905000" expanded="true" signature="4342:4691" ph="update SYS_S... " />
-                <marker date="1479732905000" expanded="true" signature="4818:4955" ph="SELECT SYS_S... SYS_STORE" />
-                <marker date="1479732905000" expanded="true" signature="5089:5373" ph="SELECT SYS_R... SYS_ROLES_SYS_STORE" />
-                <marker date="1479732905000" expanded="true" signature="5644:5994" ph="SELECT SYS_U... USER_SELLER" />
-              </folding>
+            <state relative-caret-position="345">
+              <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserSeller.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/UserSeller.java">
+      <file leaf-file-name="UserSellerController.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+            <state relative-caret-position="15">
+              <caret line="83" column="28" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="28" />
               <folding />
             </state>
           </provider>
@@ -88,9 +92,36 @@
       <file leaf-file-name="console.sql" pinned="false" current-in-tab="true">
         <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b1642a91-fe21-45bd-bb4b-0abed27d96c7/console.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="120">
-              <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+            <state relative-caret-position="150">
+              <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="UserSellerServiceImpl.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserSellerServiceImpl.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="690">
+              <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SysRolesMapper.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysRolesMapper.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="838">
+              <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+              <folding>
+                <marker date="1479741005000" expanded="true" signature="849:973" ph="select from SYS_ROLES" />
+                <marker date="1479741005000" expanded="true" signature="1063:1131" ph="delete from " />
+                <marker date="1479741005000" expanded="true" signature="1218:1442" ph="insert into SYS_ROLES... " />
+                <marker date="1479741005000" expanded="true" signature="2758:3307" ph="update SYS_R... " />
+                <marker date="1479741005000" expanded="true" signature="3408:3654" ph="update SYS_R... " />
+                <marker date="1479741005000" expanded="true" signature="3769:4072" ph="SELECT SYS_R... SYS_USERS_ROLES" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -125,9 +156,7 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/UserStatus.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-security.xml" />
-        <option value="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/UserSellerMapperTest.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/UserSeller.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Area.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/AreaMapper.xml" />
@@ -150,7 +179,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/City.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/ProvinceMapper.xml" />
         <option value="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/ProvinceMapperTest.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/SysRolesMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ISysStoreService.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/AddressController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SelectPoJo.java" />
@@ -167,14 +195,17 @@
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysUsers.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/UserSellerMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserSellerMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserSellerService.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserSellerServiceImpl.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysRoles.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysStoreMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/SysStoreMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysStoreMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/UserSellerMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/UserSellerMapper.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/UserSellerMapperTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/logback.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserSellerService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserSellerServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/SysRolesMapper.xml" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b1642a91-fe21-45bd-bb4b-0abed27d96c7/console.sql" />
       </list>
     </option>
@@ -214,8 +245,10 @@
     </treeState>
   </component>
   <component name="ProjectFrameBounds">
-    <option name="width" value="1366" />
-    <option name="height" value="768" />
+    <option name="x" value="1440" />
+    <option name="y" value="-83" />
+    <option name="width" value="1920" />
+    <option name="height" value="1080" />
   </component>
   <component name="ProjectInspectionProfilesVisibleTreeState">
     <entry key="Project Default">
@@ -261,8 +294,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -379,6 +413,32 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="java" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -413,13 +473,76 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mapper" />
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -465,33 +588,7 @@
       <recent name="$PROJECT_DIR$/src/main/webapp/images/house/2" />
     </key>
   </component>
-  <component name="RunManager" selected="Tomcat Server.LocalHost">
-    <configuration default="false" name="HouseServiceImplTest.selectByHouseID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.magic.rent.service.impl.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="HouseRent" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.magic.rent.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.magic.rent.service.impl.HouseServiceImplTest" />
-      <option name="METHOD_NAME" value="selectByHouseID" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="JUnit.UserSellerMapperTest.selectSellersByStoreID">
     <configuration default="false" name="HouseServiceImplTest.selectNearHouse" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -583,6 +680,32 @@
       <option name="PACKAGE_NAME" value="com.magic.rent.mapper" />
       <option name="MAIN_CLASS_NAME" value="com.magic.rent.mapper.ProvinceMapperTest" />
       <option name="METHOD_NAME" value="selectAllAddress" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="UserSellerMapperTest.selectSellersByStoreID" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.magic.rent.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="HouseRent" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.magic.rent.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.magic.rent.mapper.UserSellerMapperTest" />
+      <option name="METHOD_NAME" value="selectSellersByStoreID" />
       <option name="TEST_OBJECT" value="method" />
       <option name="VM_PARAMETERS" value="-ea" />
       <option name="PARAMETERS" />
@@ -1118,19 +1241,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.LocalHost" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.HouseServiceImplTest.selectByHouseID" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.HouseServiceImplTest.selectNearHouse" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.UserSellerMapperTest.selectByUserID" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.ISellerServiceTest.selectSellerInfoByUserID" />
-      <item index="5" class="java.lang.String" itemvalue="JUnit.ProvinceMapperTest.selectAllAddress" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.HouseServiceImplTest.selectNearHouse" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.UserSellerMapperTest.selectByUserID" />
+      <item index="3" class="java.lang.String" itemvalue="JUnit.ISellerServiceTest.selectSellerInfoByUserID" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.ProvinceMapperTest.selectAllAddress" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.UserSellerMapperTest.selectSellersByStoreID" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="JUnit.ProvinceMapperTest.selectAllAddress" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.ISellerServiceTest.selectSellerInfoByUserID" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.UserSellerMapperTest.selectByUserID" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.HouseServiceImplTest.selectNearHouse" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.HouseServiceImplTest.selectByHouseID" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.UserSellerMapperTest.selectSellersByStoreID" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.ProvinceMapperTest.selectAllAddress" />
+        <item index="2" class="java.lang.String" itemvalue="JUnit.ISellerServiceTest.selectSellerInfoByUserID" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.UserSellerMapperTest.selectByUserID" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.HouseServiceImplTest.selectNearHouse" />
       </list>
     </recent_temporary>
   </component>
@@ -1206,6 +1329,7 @@
       <workItem from="1479574789649" duration="40000" />
       <workItem from="1479575027979" duration="28592000" />
       <workItem from="1479684784427" duration="16339000" />
+      <workItem from="1479737463032" duration="4269000" />
     </task>
     <task id="LOCAL-00001" summary="2016年10月31日22:43:46">
       <created>1477925076681</created>
@@ -1463,21 +1587,6 @@
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="ProvinceMapperTest_selectAllAddress - 2016.11.20 at 10h 02m 51s.xml">
-      <configuration name="ProvinceMapperTest.selectAllAddress" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="ProvinceMapperTest_selectAllAddress - 2016.11.20 at 10h 03m 35s.xml">
-      <configuration name="ProvinceMapperTest.selectAllAddress" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserSellerMapperTest_selectByUserID - 2016.11.17 at 17h 30m 39s.xml">
-      <configuration name="UserSellerMapperTest.selectByUserID" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserSellerMapperTest_selectByUserID - 2016.11.17 at 17h 31m 06s.xml">
-      <configuration name="UserSellerMapperTest.selectByUserID" configurationId="JUnit" />
-    </history-entry>
-    <history-entry file="UserSellerMapperTest_selectByUserID - 2016.11.17 at 17h 56m 37s.xml">
-      <configuration name="UserSellerMapperTest.selectByUserID" configurationId="JUnit" />
-    </history-entry>
     <history-entry file="UserSellerMapperTest_selectByUserID - 2016.11.17 at 17h 57m 40s.xml">
       <configuration name="UserSellerMapperTest.selectByUserID" configurationId="JUnit" />
     </history-entry>
@@ -1493,9 +1602,24 @@
     <history-entry file="UserSellerMapperTest_selectByUserID - 2016.11.17 at 18h 09m 04s.xml">
       <configuration name="UserSellerMapperTest.selectByUserID" configurationId="JUnit" />
     </history-entry>
+    <history-entry file="UserSellerMapperTest_selectSellersByStoreID - 2016.11.21 at 22h 26m 12s.xml">
+      <configuration name="UserSellerMapperTest.selectSellersByStoreID" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserSellerMapperTest_selectSellersByStoreID - 2016.11.21 at 22h 28m 29s.xml">
+      <configuration name="UserSellerMapperTest.selectSellersByStoreID" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserSellerMapperTest_selectSellersByStoreID - 2016.11.21 at 22h 31m 08s.xml">
+      <configuration name="UserSellerMapperTest.selectSellersByStoreID" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserSellerMapperTest_selectSellersByStoreID - 2016.11.21 at 22h 32m 38s.xml">
+      <configuration name="UserSellerMapperTest.selectSellersByStoreID" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="UserSellerMapperTest_selectSellersByStoreID - 2016.11.21 at 22h 35m 10s.xml">
+      <configuration name="UserSellerMapperTest.selectSellersByStoreID" configurationId="JUnit" />
+    </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="389466000" />
+    <option name="totallyTimeSpent" value="393735000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1507,28 +1631,28 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="0" y="0" width="1366" height="768" extended-state="0" />
+    <frame x="1440" y="-83" width="1920" height="1080" extended-state="0" />
     <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32312405" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32277226" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41404012" sideWeight="0.5090634" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32771084" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23104435" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50995404" sideWeight="0.49093655" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.509901" sideWeight="0.49093655" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3253012" sideWeight="0.4978678" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.31948423" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3188119" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17975831" sideWeight="0.49426934" order="5" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17944622" sideWeight="0.49426934" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25906345" sideWeight="0.5057307" order="3" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20241691" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.20234291" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24960381" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1624,87 +1748,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="dbDummy://dbtable:/59786d56/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.USER_STATUS" />
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/AddressController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="705">
-          <caret line="60" column="0" selection-start-line="60" selection-start-column="0" selection-end-line="60" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HouseController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="35" column="13" selection-start-line="35" selection-start-column="13" selection-end-line="35" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/SysStoreController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="195">
-          <caret line="23" column="12" selection-start-line="23" selection-start-column="12" selection-end-line="23" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/error/404.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="4" selection-start-line="17" selection-start-column="4" selection-end-line="17" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/error/parameter_error.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="18" selection-start-line="16" selection-start-column="18" selection-end-line="16" selection-end-column="18" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/error/business_error.jsp">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="240">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/exception/exhandler/CustomExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="26" column="54" selection-start-line="26" selection-start-column="54" selection-end-line="26" selection-end-column="54" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/jquery.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="155">
-          <caret line="8112" column="8" selection-start-line="8112" selection-start-column="8" selection-end-line="8112" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.3.RELEASE/spring-webmvc-4.3.3.RELEASE.jar!/org/springframework/web/servlet/mvc/method/annotation/RequestMappingHandlerAdapter.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="184">
-          <caret line="561" column="0" selection-start-line="561" selection-start-column="0" selection-end-line="561" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.3.RELEASE/spring-webmvc-4.3.3.RELEASE.jar!/org/springframework/web/servlet/DispatcherServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="167">
-          <caret line="419" column="0" selection-start-line="419" selection-start-column="0" selection-end-line="419" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-webmvc/4.3.3.RELEASE/spring-webmvc-4.3.3.RELEASE.jar!/org/springframework/web/servlet/FrameworkServlet.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="107">
-          <caret line="408" column="0" selection-start-line="408" selection-start-column="0" selection-end-line="408" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.1.3.RELEASE/spring-security-web-4.1.3.RELEASE.jar!/org/springframework/security/web/access/intercept/FilterSecurityInterceptor.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="167">
@@ -1742,45 +1785,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES" />
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES" />
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserController.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="165">
@@ -1821,14 +1828,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysUsers.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="10" column="13" selection-start-line="10" selection-start-column="13" selection-end-line="10" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="15">
@@ -1845,152 +1844,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserSellerMapper.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="436">
-          <caret line="182" column="17" selection-start-line="182" selection-start-column="17" selection-end-line="182" selection-end-column="17" />
-          <folding>
-            <marker date="1479728179000" expanded="true" signature="928:1045" ph="select from USER_SELLER" />
-            <marker date="1479728179000" expanded="true" signature="1135:1196" ph="delete from " />
-            <marker date="1479728179000" expanded="true" signature="1285:1555" ph="insert into USER_SELLER... " />
-            <marker date="1479728179000" expanded="true" signature="3049:3707" ph="update USER_... " />
-            <marker date="1479728179000" expanded="true" signature="3810:4096" ph="update USER_... " />
-            <marker date="1479728179000" expanded="true" signature="6203:7407" ph="SELECT USER_... USER_SELLER" />
-            <marker date="1479728179000" expanded="true" signature="7495:7579" ph="DELETE FROM " />
-            <marker date="1479728179000" expanded="true" signature="7691:8353" ph="update USER_... " />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserSellerServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="61" column="28" selection-start-line="61" selection-start-column="28" selection-end-line="61" selection-end-column="28" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserSellerService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="22" column="67" selection-start-line="22" selection-start-column="67" selection-end-line="22" selection-end-column="67" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_USERS">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_AUTHORITIES_RESOURCES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_AUTHORITIES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_RESOURCES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_USERS_ROLES">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES" />
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES" />
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES" />
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_ROLES" />
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_USERS" />
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_AUTHORITIES_RESOURCES" />
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_AUTHORITIES" />
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_RESOURCES" />
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_USERS_ROLES" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysRoles.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="120">
@@ -1999,100 +1861,245 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1245">
-          <caret line="83" column="28" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/UserSellerMapper.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="23" column="31" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="31" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.USER_STATUS" />
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.USER_SELLER" />
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_STORE" />
     <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysStoreMapper.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="330">
-          <caret line="29" column="43" selection-start-line="29" selection-start-column="21" selection-end-line="29" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.USER_STATUS">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.USER_SELLER">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_STORE">
-      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
-        <state>
-          <filtering enabled="true" />
-        </state>
-      </provider>
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="0">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <caret line="29" column="1" selection-start-line="29" selection-start-column="1" selection-end-line="29" selection-end-column="1" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysStoreMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="138">
-          <caret line="132" column="66" selection-start-line="132" selection-start-column="66" selection-end-line="132" selection-end-column="66" />
+        <state relative-caret-position="630">
+          <caret line="132" column="4" selection-start-line="132" selection-start-column="4" selection-end-line="132" selection-end-column="4" />
           <folding>
-            <marker date="1479732905000" expanded="true" signature="1038:1153" ph="select from SYS_STORE" />
-            <marker date="1479732905000" expanded="true" signature="1243:1302" ph="delete from " />
-            <marker date="1479732905000" expanded="true" signature="1389:1731" ph="insert into SYS_STORE... " />
-            <marker date="1479732905000" expanded="true" signature="3443:4241" ph="update SYS_S... " />
-            <marker date="1479732905000" expanded="true" signature="4342:4691" ph="update SYS_S... " />
-            <marker date="1479732905000" expanded="true" signature="4818:4955" ph="SELECT SYS_S... SYS_STORE" />
-            <marker date="1479732905000" expanded="true" signature="5089:5373" ph="SELECT SYS_R... SYS_ROLES_SYS_STORE" />
-            <marker date="1479732905000" expanded="true" signature="5644:5994" ph="SELECT SYS_U... USER_SELLER" />
+            <marker date="1479737564000" expanded="true" signature="1038:1153" ph="select from SYS_STORE" />
+            <marker date="1479737564000" expanded="true" signature="1243:1302" ph="delete from " />
+            <marker date="1479737564000" expanded="true" signature="1389:1731" ph="insert into SYS_STORE... " />
+            <marker date="1479737564000" expanded="true" signature="3443:4241" ph="update SYS_S... " />
+            <marker date="1479737564000" expanded="true" signature="4342:4691" ph="update SYS_S... " />
+            <marker date="1479737564000" expanded="true" signature="4818:4955" ph="SELECT SYS_S... SYS_STORE" />
+            <marker date="1479737564000" expanded="true" signature="5089:5373" ph="SELECT SYS_R... SYS_ROLES_SYS_STORE" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysUsersMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HouseMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-465">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <marker date="1479309663000" expanded="true" signature="5131:5242" ph="select from HOUSE" />
+            <marker date="1479309663000" expanded="true" signature="5332:5387" ph="delete from " />
+            <marker date="1479309663000" expanded="true" signature="5471:6405" ph="insert into HOUSE... " />
+            <marker date="1479309663000" expanded="true" signature="10489:12753" ph="update HOUSE... " />
+            <marker date="1479309663000" expanded="true" signature="12851:13813" ph="update HOUSE... " />
+            <marker date="1479309663000" expanded="true" signature="13935:14747" ph="SELECT HOUSE... HOUSE" />
+            <marker date="1479309663000" expanded="true" signature="20511:22578" ph="SELECT HOUSE... HOUSE" />
+            <marker date="1479309663000" expanded="true" signature="22702:22981" ph="SELECT ROOMS... ROOMS" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysUsers.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="14" column="27" selection-start-line="14" selection-start-column="19" selection-end-line="14" selection-end-column="27" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/UserSeller.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        <state relative-caret-position="165">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/59786d56/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.USER_SELLER">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/59786d56/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.USER_SELLER">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/59786d56/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.USER_SELLER">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/59786d56/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.USER_SELLER">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/59786d56/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.USER_SELLER">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/59786d56/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.USER_SELLER">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/logback.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="57" selection-start-line="4" selection-start-column="57" selection-end-line="4" selection-end-column="57" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/UserSellerMapperTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="37" column="66" selection-start-line="37" selection-start-column="66" selection-end-line="37" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserSellerMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="658">
+          <caret line="190" column="70" selection-start-line="190" selection-start-column="70" selection-end-line="190" selection-end-column="70" />
+          <folding>
+            <marker date="1479737998000" expanded="true" signature="928:1045" ph="select from USER_SELLER" />
+            <marker date="1479737998000" expanded="true" signature="1135:1196" ph="delete from " />
+            <marker date="1479737998000" expanded="true" signature="1285:1555" ph="insert into USER_SELLER... " />
+            <marker date="1479737998000" expanded="true" signature="3049:3707" ph="update USER_... " />
+            <marker date="1479737998000" expanded="true" signature="3810:4096" ph="update USER_... " />
+            <marker date="1479737998000" expanded="true" signature="6203:7407" ph="SELECT USER_... USER_SELLER" />
+            <marker date="1479737998000" expanded="true" signature="7495:7579" ph="DELETE FROM " />
+            <marker date="1479737998000" expanded="true" signature="7691:8353" ph="update USER_... " />
+            <marker date="1479737998000" expanded="true" signature="8958:9300" ph="SELECT USER_... USER_SELLER" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/UserSellerMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="27" column="43" selection-start-line="27" selection-start-column="21" selection-end-line="27" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/SysStoreController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="22" column="13" selection-start-line="22" selection-start-column="13" selection-end-line="22" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserSellerService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="25" column="68" selection-start-line="25" selection-start-column="68" selection-end-line="25" selection-end-column="68" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="83" column="28" selection-start-line="83" selection-start-column="22" selection-end-line="83" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserSellerServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="690">
+          <caret line="56" column="9" selection-start-line="56" selection-start-column="9" selection-end-line="56" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysRolesMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="838">
+          <caret line="98" column="0" selection-start-line="98" selection-start-column="0" selection-end-line="98" selection-end-column="0" />
+          <folding>
+            <marker date="1479741005000" expanded="true" signature="849:973" ph="select from SYS_ROLES" />
+            <marker date="1479741005000" expanded="true" signature="1063:1131" ph="delete from " />
+            <marker date="1479741005000" expanded="true" signature="1218:1442" ph="insert into SYS_ROLES... " />
+            <marker date="1479741005000" expanded="true" signature="2758:3307" ph="update SYS_R... " />
+            <marker date="1479741005000" expanded="true" signature="3408:3654" ph="update SYS_R... " />
+            <marker date="1479741005000" expanded="true" signature="3769:4072" ph="SELECT SYS_R... SYS_USERS_ROLES" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b1642a91-fe21-45bd-bb4b-0abed27d96c7/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="120">
-          <caret line="8" column="48" selection-start-line="8" selection-start-column="48" selection-end-line="8" selection-end-column="48" />
+        <state relative-caret-position="150">
+          <caret line="10" column="22" selection-start-line="10" selection-start-column="22" selection-end-line="10" selection-end-column="22" />
           <folding />
         </state>
       </provider>

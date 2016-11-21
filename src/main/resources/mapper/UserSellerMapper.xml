@@ -184,5 +184,22 @@
         </set>
         where ID = #{userId,jdbcType=INTEGER}
     </update>
-
+    <resultMap id="waitToAuditing" type="com.magic.rent.pojo.UserSeller">
+        <id column="sellerID" property="id" jdbcType="INTEGER"/>
+        <association property="sysUsers" javaType="com.magic.rent.pojo.SysUsers">
+            <id column="userID" property="userId" jdbcType="INTEGER"/>
+            <result column="name" property="name" jdbcType="VARCHAR"/>
+            <result column="account" property="username" jdbcType="VARCHAR"/>
+        </association>
+    </resultMap>
+    <select id="selectSellersByStoreID" parameterType="java.lang.Integer" resultMap="waitToAuditing">
+       SELECT
+          USER_SELLER.ID     sellerID,
+          SYS_USERS.USER_ID  userID,
+          SYS_USERS.NAME     name,
+          SYS_USERS.USERNAME account
+        FROM USER_SELLER
+          JOIN SYS_USERS ON USER_SELLER.USER_ID = SYS_USERS.USER_ID
+        WHERE USER_SELLER.STATUS_ID = 1 AND USER_SELLER.STORE_ID = #{storeId,jdbcType=INTEGER}
+    </select>
 </mapper>

@@ -18,7 +18,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
         %logger{50} 表示logger名字最长50个字符，否则按照句点分割。 %msg：日志消息，%n是换行符
         -->
         <layout class="ch.qos.logback.classic.PatternLayout">
-            <pattern>[Start]————————————————————————————————————————————————————————————————%n ┣━日志信息:%d{yyyy-MM-dd HH:mm:ss} [%thread] %-5level%n ┣━类名:%logger{50}%n ┣━内容:%msg%n[End]——————————————————————————————————————————————————————————————————%n
+            <pattern>[%d{yyyy-MM-dd HH:mm:ss}] ┣━[%thread] %-5level [%logger{50}] [Message] %msg%n
             </pattern>
         </layout>
     </appender>
@@ -78,12 +78,12 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
         <appender-ref ref="appLogAppender"/>
     </root>
 
-    <logger name="org.apache.ibatis" level="DEBUG">
-        <appender-ref ref="stdout"/>
-        <appender-ref ref="appLogAppender"/>
-    </logger>
-    <logger name="java.sql" level="DEBUG">
-        <appender-ref ref="stdout"/>
-        <appender-ref ref="appLogAppender"/>
-    </logger>
+    <!--<logger name="org.apache.ibatis" level="DEBUG">-->
+        <!--<appender-ref ref="stdout"/>-->
+        <!--<appender-ref ref="appLogAppender"/>-->
+    <!--</logger>-->
+    <!--<logger name="java.sql" level="DEBUG">-->
+        <!--<appender-ref ref="stdout"/>-->
+        <!--<appender-ref ref="appLogAppender"/>-->
+    <!--</logger>-->
 </configuration>

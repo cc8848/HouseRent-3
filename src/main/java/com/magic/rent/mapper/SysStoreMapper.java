@@ -27,5 +27,4 @@ public interface SysStoreMapper {
 
     List<SelectPoJo> selectRolesByStoreID(int storeID);
 
-    List<UserSeller> selectSellersByStoreID(int storeID);
 }

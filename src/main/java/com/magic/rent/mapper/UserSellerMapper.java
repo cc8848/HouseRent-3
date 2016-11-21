@@ -3,6 +3,8 @@ package com.magic.rent.mapper;
 import com.magic.rent.pojo.UserSeller;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface UserSellerMapper {
     int deleteByPrimaryKey(int id);
@@ -22,4 +24,6 @@ public interface UserSellerMapper {
     int deleteByUserID(int userID);
 
     int updateByUserIDSelective(UserSeller record);
+
+    List<UserSeller> selectSellersByStoreID(int storeID);
 }

@@ -90,9 +90,12 @@
   </update>
     <select id="selectRolesByUserId" parameterType="java.lang.Integer" resultMap="BaseResultMap">
     SELECT SYS_ROLES.ROLE_ID,SYS_ROLES.ROLE_NAME,SYS_ROLES.ROLE_DESC,SYS_ROLES.ISSYS,SYS_ROLES.ENABLE
-    FROM SYS_USERS_ROLES
-    JOIN SYS_ROLES ON SYS_ROLES.ROLE_ID = SYS_USERS_ROLES.ROLE_ID
-    JOIN SYS_USERS ON SYS_USERS_ROLES.USER_ID = SYS_USERS.USER_ID
+        FROM SYS_USERS_ROLES
+        JOIN SYS_ROLES ON SYS_ROLES.ROLE_ID = SYS_USERS_ROLES.ROLE_ID
+        JOIN SYS_USERS ON SYS_USERS_ROLES.USER_ID = SYS_USERS.USER_ID
     WHERE SYS_USERS.USER_ID=#{VALUE}
   </select>
+    <update id="changeRole" parameterType="com.magic.rent.pojo.UserSeller">
+
+    </update>
 </mapper>

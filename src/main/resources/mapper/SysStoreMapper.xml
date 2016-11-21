@@ -130,18 +130,4 @@
       JOIN SYS_STORE ON SYS_ROLES_SYS_STORE.STORE_ID = SYS_STORE.ID
     WHERE SYS_STORE.ID = #{id,jdbcType=INTEGER}
     </select>
-    <resultMap id="waitToAuditing" type="com.magic.rent.pojo.UserSeller">
-        <id column="" property="" jdbcType="INTEGER"/>
-    </resultMap>
-    <select id="selectSellersByStoreID" parameterType="java.lang.Integer" resultMap="waitToAuditing">
-        SELECT
-          SYS_STORE.ID,
-          SYS_USERS.USER_ID,
-          SYS_USERS.NAME,
-          SYS_USERS.USERNAME
-        FROM SYS_STORE
-          JOIN USER_SELLER ON SYS_STORE.ID = USER_SELLER.STORE_ID
-          JOIN SYS_USERS ON USER_SELLER.USER_ID = SYS_USERS.USER_ID
-        WHERE USER_SELLER.STATUS_ID=1 AND SYS_STORE.ID= #{id,jdbcType=INTEGER}
-    </select>
 </mapper>

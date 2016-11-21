@@ -8,12 +8,13 @@ import com.magic.rent.service.IUserSellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by wu on 2016/11/17.
  */
 @Service
 public class UserSellerServiceImpl implements IUserSellerService {
-
 
     @Autowired
     private UserSellerMapper userSellerMapper;
@@ -52,6 +53,9 @@ public class UserSellerServiceImpl implements IUserSellerService {
 
         int isSuccess = userSellerMapper.updateByUserIDSelective(userSeller);
 
+        if (isSuccess > 0) {
+        }
+
         return isSuccess > 0;
     }
 
@@ -60,5 +64,9 @@ public class UserSellerServiceImpl implements IUserSellerService {
         int isSuccess = userSellerMapper.updateByUserIDSelective(userSeller);
 
         return isSuccess > 0;
+    }
+
+    public List<UserSeller> getAuditingSellersByStoreID() throws Exception {
+        return null;
     }
 }
