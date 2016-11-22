@@ -11,6 +11,7 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -28,8 +29,14 @@ public class UserController extends BaseController {
     private IUserService iUserService;
 
     @RequestMapping("/login")
-    public String login() {
-        return "login";
+    public ModelAndView login(HttpServletRequest request) {
+        SysUsers sysUsers = (SysUsers) request.getSession().getAttribute("user");
+        if (sysUsers == null) {
+            return new ModelAndView("login");
+        } else {
+            return new ModelAndView("error").addObject("message", "用户尚未登录或登录超时，请重新登录！");
+        }
+
     }
 
     @RequestMapping("/timeout")
@@ -39,8 +46,8 @@ public class UserController extends BaseController {
 
     @ResponseBody
     @RequestMapping("/register")
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
-    public JsonResult register(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
+    public JsonResult register(HttpServletRequest request) throws Exception {
         String username = request.getParameter("username");
         String password = request.getParameter("password");
         String captcha = request.getParameter("captcha");
@@ -61,17 +68,11 @@ public class UserController extends BaseController {
 
         //将用户信息写入数据库
         int userID = iUserService.register(sysUsers);
-        if (userID <= 0)
+        if (userID <= 0) {
             return JsonResult.error("用户注册失败!");
-
-        return JsonResult.success("注册成功,请登录!", null);
+        } else {
+            return JsonResult.success();
+        }
     }
-
-    @ResponseBody
-    @RequestMapping("/getUserInfo")
-    public JsonResult getUserInfo(HttpServletRequest request) throws Exception {
-        return (JsonResult) request.getSession().getAttribute("userInfo");
-    }
-
 
 }

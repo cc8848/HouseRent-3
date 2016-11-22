@@ -79,14 +79,13 @@
                                    data-toggle="dropdown">你好,&nbsp;${sessionScope.user.name}
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="#">Action</a></li>
-                                    <li><a href="#">Another action</a></li>
-                                    <li><a href="#">Something else here</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/user/home">我的账户</a></li>
                                     <li class="divider"></li>
                                     <form id="logout-form" role="form"
                                           action="${pageContext.request.contextPath}/logout.do" method="post">
                                         <sec:csrfInput/>
-                                        <button class="btn btn-link btn-block" type="button" onclick="logout()">退出
+                                        <button id="logout" class="btn btn-link btn-block" type="submit"
+                                                onclick="logout()">退出
                                         </button>
                                     </form>
                                 </ul>

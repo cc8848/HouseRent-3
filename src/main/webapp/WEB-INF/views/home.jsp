@@ -30,23 +30,23 @@
         <div id="left-side" class="col-lg-3">
             <div class="panel panel-default">
                 <ul class="list-group">
-                    <a href="#account" class="list-group-item" data-toggle="tab">账户信息</a>
+                    <a href="#account-info" class="list-group-item" data-toggle="tab">账户信息</a>
                     <%--门店经理角色拥有团队管理权限--%>
                     <c:if test="${sessionScope.user.haveRoles(3)}">
-                        <a href="#" class="list-group-item" data-toggle="tab">团队管理</a>
+                        <a href="#group-manage" class="list-group-item" data-toggle="tab">团队管理</a>
                     </c:if>
                     <a href="#" class="list-group-item" data-toggle="tab">发布房源</a>
                     <a href="#" class="list-group-item" data-toggle="tab">我的房单</a>
                     <a href="#" class="list-group-item" data-toggle="tab">我的钱包</a>
                     <a href="#" class="list-group-item" data-toggle="tab">业绩统计</a>
                     <a href="#" class="list-group-item" data-toggle="tab">安全设置</a>
-                    <a href="#" class="list-group-item" data-toggle="tab">账户退出</a>
+                    <a href="#" class="list-group-item" >账户退出</a>
                 </ul>
             </div>
         </div>
         <div id="right-side" class="col-lg-9">
             <div class="tab-content">
-                <div id="account" class="tab-pane active">
+                <div id="account-info" class="tab-pane active">
                     <div class="panel panel-primary">
                         <div class="panel-heading">
                             <h3 class="panel-title">我的团队</h3>
@@ -61,16 +61,15 @@
                                 </div>
                             </c:when>
                             <c:when test="${null!=seller}">
-
                                 <div class="panel-body">
                                     <c:choose>
                                         <c:when test="${seller.userStatus.id==1||seller.userStatus.id==2}">
                                             <%--当前为待审核或审核失败状态--%>
-                                            <span>当前属于<u class="text-danger">等待审核</u>状态，请耐心等待！</span>
+                                            <span>当前属于<u class="text-danger">${seller.userStatus.statusName}</u>状态，请耐心等待！</span>
                                         </c:when>
                                         <c:otherwise>
                                             <%--当前为审核成功状态--%>
-                                            <span>你好，我们的</span>
+                                            <span>你好，${sessionScope.user.name}。</span>
                                         </c:otherwise>
                                     </c:choose>
                                     <div class="btn-group-sm pull-right">

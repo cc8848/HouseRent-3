@@ -2,10 +2,6 @@
  * Created by wuxinzhe on 16/10/7.
  */
 
-function logout() {
-    $("#logout-form").submit();
-}
-
 function errorModal(message, tittle) {
     if (arguments.length == 2) {
         $('#error-modal-tittle').html(tittle);
