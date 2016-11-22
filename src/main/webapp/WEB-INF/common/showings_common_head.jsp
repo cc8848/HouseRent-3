@@ -8,7 +8,21 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-
+<div id="errorModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 id="error-modal-tittle" class="modal-title"></h4>
+            </div>
+            <div class="modal-body">
+                <p id="error-modal-message"></p>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <nav class="navbar navbar-fixed-top navbar-default" role="navigation" style="margin-bottom: 0">
     <div class="container">
         <div class="row">
@@ -34,21 +48,24 @@
                                     <span class="glyphicon glyphicon-log-in"></span> &nbsp;登&nbsp;&nbsp;录&nbsp;&nbsp;
                                 </a>
                                 <form class="navbar-form hidden-xs" role="form">
-                                    <a href="${pageContext.request.contextPath}/user/login" class="btn btn-default btn-sm">
+                                    <a href="${pageContext.request.contextPath}/user/login"
+                                       class="btn btn-default btn-sm">
                                         &nbsp;&nbsp;登&nbsp;&nbsp;录&nbsp;&nbsp;</a>
                                 </form>
                             </li>
                         </c:when>
                         <c:when test="${sessionScope.user!=null}">
                             <li>
-                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">你好,&nbsp;${sessionScope.user.name}
+                                <a href="#" class="dropdown-toggle"
+                                   data-toggle="dropdown">你好,&nbsp;${sessionScope.user.name}
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
                                     <li><a href="#">Action</a></li>
                                     <li><a href="#">Another action</a></li>
                                     <li><a href="#">Something else here</a></li>
                                     <li class="divider"></li>
-                                    <form id="logout-form" role="form" action="${pageContext.request.contextPath}/logout.do" method="post">
+                                    <form id="logout-form" role="form"
+                                          action="${pageContext.request.contextPath}/logout.do" method="post">
                                         <sec:csrfInput/>
                                         <button class="btn btn-link btn-block" type="button" onclick="logout()">退出
                                         </button>

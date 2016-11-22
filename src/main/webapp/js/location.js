@@ -27,9 +27,13 @@ function Location(provinceID, cityID, areaID) {
                 $.getJSON("/address/getCityByProvince", {
                     provinceID: provinceID
                 }, function (data) {
-                    city.select2({
-                        data: data.data
-                    });
+                    if (data.status) {
+                        city.select2({
+                            data: data.data
+                        });
+                    } else {
+                        alert(data.message);
+                    }
                 });
             });
         });
@@ -43,9 +47,14 @@ function Location(provinceID, cityID, areaID) {
             $.getJSON("/address/getAreaByCity", {
                 cityID: cityID
             }, function (data) {
-                area.select2({
-                    data: data.data
-                });
+                if (data.status) {
+                    area.select2({
+                        data: data.data
+                    });
+                } else {
+                    alert(data.message);
+                }
+
             });
         });
     };

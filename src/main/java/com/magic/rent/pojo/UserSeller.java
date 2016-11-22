@@ -8,13 +8,10 @@ public class UserSeller implements Serializable {
 
     private int id;
 
-    private int userId;
+    private int userId;//对应用户信息
     private SysUsers sysUsers;
 
-    private int rolesId;
-    private SysRoles sysRoles;
-
-    private int storeId;
+    private int storeId;//归属门店、机构
     private SysStore sysStore;
 
     private boolean enabled;
@@ -38,13 +35,6 @@ public class UserSeller implements Serializable {
         this.userId = userId;
     }
 
-    public int getRolesId() {
-        return rolesId;
-    }
-
-    public void setRolesId(int rolesId) {
-        this.rolesId = rolesId;
-    }
 
     public int getStoreId() {
         return storeId;
@@ -70,13 +60,6 @@ public class UserSeller implements Serializable {
         this.sysUsers = sysUsers;
     }
 
-    public SysRoles getSysRoles() {
-        return sysRoles;
-    }
-
-    public void setSysRoles(SysRoles sysRoles) {
-        this.sysRoles = sysRoles;
-    }
 
     public SysStore getSysStore() {
         return sysStore;
@@ -108,8 +91,6 @@ public class UserSeller implements Serializable {
                 "id=" + id +
                 ", userId=" + userId +
                 ", sysUsers=" + sysUsers +
-                ", rolesId=" + rolesId +
-                ", sysRoles=" + sysRoles +
                 ", storeId=" + storeId +
                 ", sysStore=" + sysStore +
                 ", enabled=" + enabled +

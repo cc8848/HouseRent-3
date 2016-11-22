@@ -41,27 +41,21 @@ public class UserSellerController extends BaseController {
         if (StringUtils.isEmpty(request.getParameter("storeID"))) {
             throw new ParameterException(messageSourceAccessor.getMessage("StoreService.StoreIDNotNull", "店铺ID不能为空！"));
         }
-        if (StringUtils.isEmpty(request.getParameter("roleID"))) {
-            throw new ParameterException(messageSourceAccessor.getMessage("RoleService.RoleIDNotNull", "职位ID不能为空！"));
-        }
 
         int storeID = Integer.parseInt(request.getParameter("storeID"));
-
-        int roleID = Integer.parseInt(request.getParameter("roleID"));
 
         UserSeller seller = iUserSellerService.selectSellerInfoByUserID(sysUsers.getUserId());
 
         UserSeller userSeller = new UserSeller();
         userSeller.setUserId(sysUsers.getUserId());
         userSeller.setStoreId(storeID);
-        userSeller.setRolesId(roleID);
         userSeller.setEnabled(true);
         userSeller.setStatusId(UserStatus.AUDITING);//不论修改还是新增都需要进入审核状态
 
-        if (null != seller && storeID == seller.getSysStore().getId() && roleID == seller.getSysRoles().getRoleId()) {
+        if (null != seller && storeID == seller.getSysStore().getId()) {
             //重复性验证：seller存在，且店铺ID和角色ID都相同的情况下，不可再次申请
             return JsonResult.error(messageSourceAccessor.getMessage("UserSellerService.AuditingCanNotRepeat", "不可重复申请！"));
-        } else if (null != seller && ((storeID != seller.getSysStore().getId() || roleID != seller.getSysRoles().getRoleId()) || (storeID != seller.getSysStore().getId() && roleID != seller.getSysRoles().getRoleId()))) {
+        } else if (null != seller && (storeID != seller.getSysStore().getId())) {
             //修改：当Seller存在，且店铺id和岗位ID有一个不同，或全部不同的情况下，进行修改操作
 
             userSeller.setId(seller.getId());//修改时必须放入主键ID

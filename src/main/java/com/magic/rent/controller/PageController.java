@@ -26,13 +26,9 @@ public class PageController extends BaseController {
         return "index";
     }
 
-    @RequestMapping("/search")
-    public String search() {
-        return "search";
+    @RequestMapping("/error")
+    public String error() {
+        return "error";
     }
 
-    @RequestMapping("/auditing")
-    public String auditing() {
-        return "auditing";
-    }
 }

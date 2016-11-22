@@ -70,7 +70,7 @@
                                         </c:when>
                                         <c:otherwise>
                                             <%--当前为审核成功状态--%>
-                                            <span>你好，我们的${seller.sysRoles.roleDesc}</span>
+                                            <span>你好，我们的</span>
                                         </c:otherwise>
                                     </c:choose>
                                     <div class="btn-group-sm pull-right">
@@ -99,8 +99,8 @@
                                         <td colspan="3">${seller.sysStore.province.provinceName}-${seller.sysStore.city.cityName}-${seller.sysStore.area.areaName}-${seller.sysStore.storeNumber}</td>
                                     </tr>
                                     <tr>
-                                        <td>申请岗位：</td>
-                                        <td>${seller.sysRoles.roleDesc}</td>
+                                        <td></td>
+                                        <td></td>
                                         <td>审核状态：</td>
                                         <td>${seller.userStatus.statusName}</td>
                                     </tr>
@@ -158,10 +158,9 @@
                                         <select id="storeNum" title="storeNum" class="select2"
                                                 style="width: 100%"></select>
                                     </td>
-                                    <td>岗位：</td>
-                                    <td id="storeRole-td">
-                                        <select id="storeRole" title="storeRole" class="select2"
-                                                style="width: 100%"></select>
+                                    <td>
+                                    </td>
+                                    <td>
                                     </td>
                                 </tr>
                                 </tbody>
