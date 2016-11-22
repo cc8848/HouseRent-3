@@ -30,7 +30,7 @@
         <div id="left-side" class="col-lg-3">
             <div class="panel panel-default">
                 <ul class="list-group">
-                    <a href="#account" class="list-group-item active" data-toggle="tab">账户信息</a>
+                    <a href="#account" class="list-group-item" data-toggle="tab">账户信息</a>
                     <%--门店经理角色拥有团队管理权限--%>
                     <c:if test="${sessionScope.user.haveRoles(3)}">
                         <a href="#" class="list-group-item" data-toggle="tab">团队管理</a>
@@ -77,7 +77,7 @@
                                         <button href="#updateSeller" type="button" class="btn btn-primary"
                                                 data-toggle="collapse">更换团队
                                         </button>
-                                        <button type="button" class="btn btn-primary">退出团队</button>
+                                        <button id="secede" type="button" class="btn btn-primary">退出团队</button>
                                     </div>
                                 </div>
                                 <table class="table table-striped">
@@ -89,7 +89,7 @@
                                         <td>${sessionScope.user.name}</td>
                                     </tr>
                                     <tr>
-                                        <td>公司名称</td>
+                                        <td>公司名称：</td>
                                         <td>${seller.sysStore.sysCompany.companyName}</td>
                                         <td>申请门店：</td>
                                         <td>${seller.sysStore.storeName}</td>
@@ -99,10 +99,10 @@
                                         <td colspan="3">${seller.sysStore.province.provinceName}-${seller.sysStore.city.cityName}-${seller.sysStore.area.areaName}-${seller.sysStore.storeNumber}</td>
                                     </tr>
                                     <tr>
-                                        <td></td>
-                                        <td></td>
                                         <td>审核状态：</td>
                                         <td>${seller.userStatus.statusName}</td>
+                                        <td></td>
+                                        <td></td>
                                     </tr>
                                     </tbody>
                                 </table>

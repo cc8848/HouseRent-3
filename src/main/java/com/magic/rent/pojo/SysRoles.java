@@ -6,9 +6,9 @@ public class SysRoles implements Serializable {
 
     private static final long serialVersionUID = -9186978677768047958L;
 
-    public static int MEMBER = 1;//会员角色
-    public static int MANAGER = 3;//门店经理角色
-    public static int SELLER = 6;//经纪人角色
+    public static final int MEMBER = 1;//会员角色
+    public static final int MANAGER = 3;//门店经理角色
+    public static final int SELLER = 6;//经纪人角色
 
     private Integer roleId; //角色ID
 

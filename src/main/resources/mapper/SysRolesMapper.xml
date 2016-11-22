@@ -95,7 +95,20 @@
         JOIN SYS_USERS ON SYS_USERS_ROLES.USER_ID = SYS_USERS.USER_ID
     WHERE SYS_USERS.USER_ID=#{VALUE}
   </select>
-    <update id="changeRole" parameterType="com.magic.rent.pojo.UserSeller">
-
-    </update>
+    <insert id="insertRolesByUserID" parameterType="java.util.Map">
+    INSERT INTO SYS_USERS_ROLES (ROLE_ID, USER_ID)
+    VALUES (#{roleID,jdbcType=INTEGER}, #{userID,jdbcType=INTEGER})
+    </insert>
+    <select id="selectRolesIDByUserID" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+       SELECT
+          SYS_USERS_ROLES.ROLE_ID roleID
+        FROM SYS_USERS_ROLES
+        WHERE SYS_USERS_ROLES.USER_ID=#{userID,jdbcType=INTEGER}
+        ORDER BY roleID
+    </select>
+    <delete id="deleteUsersRoleByUserIDAndRoleID" parameterType="java.util.Map">
+        DELETE FROM SYS_USERS_ROLES
+        WHERE SYS_USERS_ROLES.USER_ID=#{userID,jdbcType=INTEGER}
+        AND SYS_USERS_ROLES.ROLE_ID=#{roleID,jdbcType=INTEGER}
+    </delete>
 </mapper>

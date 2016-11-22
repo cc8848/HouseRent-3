@@ -5,6 +5,7 @@ import com.magic.rent.pojo.SysRoles;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface SysRolesMapper {
@@ -21,4 +22,10 @@ public interface SysRolesMapper {
     int updateByPrimaryKey(SysRoles record);
 
     List<SysRoles> selectRolesByUserId(Integer userID);
+
+    int insertRolesByUserID(Map<String, Integer> userAndRole);
+
+    List<Integer> selectRolesIDByUserID(int userID);
+
+    int deleteUsersRoleByUserIDAndRoleID(Map<String, Integer> userAndRole);
 }

@@ -14,7 +14,7 @@
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
                         class="sr-only">Close</span></button>
-                <h4 id="error-modal-tittle" class="modal-title"></h4>
+                <h4 id="error-modal-tittle" class="modal-title">错误提示</h4>
             </div>
             <div class="modal-body">
                 <p id="error-modal-message"></p>
@@ -22,6 +22,25 @@
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->
 </div>
+<div id="confirmModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 id="confirm-modal-tittle" class="modal-title">确认提示</h4>
+            </div>
+            <div class="modal-body">
+                <p id="confirm-modal-message"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
+                <button id="confirm-button" type="button" class="btn btn-danger" data-dismiss="modal">确认</button>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->
 <!-- /.modal -->
 <nav class="navbar navbar-fixed-top navbar-default" role="navigation" style="margin-bottom: 0">
     <div class="container">

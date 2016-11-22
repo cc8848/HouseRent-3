@@ -23,6 +23,7 @@ function Apply() {
         this.areaInit();
         this.storeNumInit();
         $('#auditing-submit').on("click", this.applySubmit);
+        $('#secede').on('click', this.secede);
     };
 
     this.areaInit = function () {
@@ -37,7 +38,7 @@ function Apply() {
                         data: data.data
                     });
                 } else {
-                    alert(data.message);
+                    errorModal(data.message);
                 }
             });
         });
@@ -54,7 +55,7 @@ function Apply() {
         var num = storeNum.select2('val');
         if (null == num || 0 == num) {
             storeNum_td.addClass("danger");
-            errorModal('错误提示', '门牌必须选择！');
+            errorModal('门牌必须选择！');
             return;
         }
         $.getJSON('/auditing/submit', {
@@ -64,15 +65,26 @@ function Apply() {
                 $('#apply-close').trigger("click");
                 refresh();
             } else {
-                errorModal('错误提示', backData.message);
+                errorModal(backData.message);
             }
         })
     };
-    this.cancel = function () {
-
+    this.secede = function () {
+        confirmModal('确定要退出团队吗？', confirm)
     };
+
 }
 
 function refresh() {
     window.location.reload();
 }
+
+confirm = function () {
+    $.getJSON('/auditing/secede', function (backData) {
+        if (backData.status) {
+            refresh();
+        } else {
+            errorModal(backData.message);
+        }
+    });
+};

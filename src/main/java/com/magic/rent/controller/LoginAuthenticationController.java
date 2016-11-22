@@ -60,7 +60,7 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
         AttrName = attrName;
     }
 
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         SysUsers users;
         JsonResult jsonResult;
@@ -84,7 +84,7 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
         httpReturn(request, response, true);
     }
 
-    @Transactional(readOnly = false, propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         logger.info("登录失败:请求IP地址[{}];失败原因:{};", HttpUtil.getIP(request), exception.getMessage());
         JsonResult jsonResult = JsonResult.error(exception.getMessage());

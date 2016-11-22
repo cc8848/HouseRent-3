@@ -12,7 +12,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>首页</title>
+    <title>Showings · 房库 - 发生了一点点小意外</title>
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <body>
 
+${message}
 
 <link href="${pageContext.request.contextPath}/js/jquery.js">
 <link href="${pageContext.request.contextPath}/js/bootstrap.min.js">

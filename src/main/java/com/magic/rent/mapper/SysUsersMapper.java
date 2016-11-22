@@ -21,4 +21,6 @@ public interface SysUsersMapper {
     SysUsers selectBySelective(SysUsers sysUsers);
 
     SysUsers selectByUserName(String userName);
+
+
 }

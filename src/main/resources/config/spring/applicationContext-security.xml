@@ -37,6 +37,7 @@
         <!--资源拦截器配置-->
         <sec:custom-filter ref="filterSecurityInterceptor" before="FILTER_SECURITY_INTERCEPTOR"/>
         <sec:custom-filter ref="concurrencyFilter" position="CONCURRENT_SESSION_FILTER"/>
+        <sec:access-denied-handler ref="myAccessDeniedHandler"/>
     </sec:http>
 
     <!--自定义验证结果控制器-->
@@ -128,4 +129,9 @@
 
     <bean id="sessionRegistry" class="org.springframework.security.core.session.SessionRegistryImpl"/>
     <!--session管理器 end-->
+
+    <!--无权限时返回403-->
+    <bean id="myAccessDeniedHandler" class="com.magic.rent.service.security.AccessDeniedHandlerImpl">
+        <property name="errorPage" value="/error"/>
+    </bean>
 </beans>

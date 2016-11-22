@@ -3,7 +3,6 @@ package com.magic.rent.exception.exhandler;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
-import org.springframework.web.servlet.view.RedirectView;
 import org.springframework.web.servlet.view.json.MappingJackson2JsonView;
 
 import javax.servlet.http.HttpServletRequest;
@@ -25,7 +24,7 @@ public class CustomExceptionHandler implements HandlerExceptionResolver {
         if (isAjaxRequest(request)) {
             return new ModelAndView(new MappingJackson2JsonView()).addObject("message", e.getMessage()).addObject("status", false);
         }
-        return new ModelAndView(new RedirectView(request.getContextPath() + "/error")).addObject("message", e.getMessage());
+        return new ModelAndView("error").addObject("message", e.getMessage());
     }
 
 
