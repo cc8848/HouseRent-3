@@ -7,15 +7,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/BaseService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserSellerService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserSellerService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserSellerServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserSellerServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysMenuMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysMenuMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/common.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/home.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/home.js" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -76,8 +68,8 @@
       <file leaf-file-name="home.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="415">
-              <caret line="79" column="46" lean-forward="false" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+            <state relative-caret-position="580">
+              <caret line="90" column="6" lean-forward="true" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
               <folding>
                 <element signature="e#478#781#0" expanded="false" />
                 <element signature="e#816#1314#0" expanded="false" />
@@ -1357,7 +1349,7 @@
       <workItem from="1479829535520" duration="3285000" />
       <workItem from="1479857068537" duration="21000" />
       <workItem from="1479857417616" duration="333000" />
-      <workItem from="1479859100034" duration="21801000" />
+      <workItem from="1479859100034" duration="21870000" />
     </task>
     <task id="LOCAL-00001" summary="2016年10月31日22:43:46">
       <created>1477925076681</created>
@@ -1639,7 +1631,14 @@
       <option name="project" value="LOCAL" />
       <updated>1479873111230</updated>
     </task>
-    <option name="localTasksCounter" value="41" />
+    <task id="LOCAL-00041" summary="2016年11月23日18:38:52">
+      <created>1479897542296</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1479897542297</updated>
+    </task>
+    <option name="localTasksCounter" value="42" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1675,7 +1674,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="444642000" />
+    <option name="totallyTimeSpent" value="444711000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1791,7 +1790,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2016年11月04日17:24:13" />
     <MESSAGE value="2016-11-05 09:22:31" />
     <MESSAGE value="2016年11月05日09:49:06" />
     <MESSAGE value="2016年11月05日13:59:38" />
@@ -1816,7 +1814,8 @@
     <MESSAGE value="2016年11月22日12:07:38" />
     <MESSAGE value="2016年11月22日21:09:25" />
     <MESSAGE value="2016年11月23日11:50:52" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年11月23日11:50:52" />
+    <MESSAGE value="2016年11月23日18:38:52" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年11月23日18:38:52" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2367,8 +2366,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="415">
-          <caret line="79" column="46" lean-forward="false" selection-start-line="79" selection-start-column="46" selection-end-line="79" selection-end-column="46" />
+        <state relative-caret-position="580">
+          <caret line="90" column="6" lean-forward="true" selection-start-line="90" selection-start-column="6" selection-end-line="90" selection-end-column="6" />
           <folding>
             <element signature="e#478#781#0" expanded="false" />
             <element signature="e#816#1314#0" expanded="false" />
