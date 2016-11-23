@@ -2,14 +2,15 @@
  * Created by wu on 2016/11/19.
  */
 $(document).ready(function () {
-    var apply = new Apply();
-    apply.tableInit();
-    $('.checkbox').iCheck({
-        checkboxClass: 'icheckbox_flat-red'
-    })
+    var account = new Account();
+    account.tableInit();
+    var group = new Group();
+    $("[href='#group-manage']").on('click', group.tableInit);
 });
 
-function Apply() {
+function Account() {
+
+    var _this = this;
 
     var area = $("#area");
 
@@ -18,6 +19,8 @@ function Apply() {
     var storeRole = $("#storeRole");
 
     var storeNum_td = $('#storeNum-td');
+
+    var modal = new Modal();
 
     this.tableInit = function () {
         $(".select2").select2();
@@ -41,7 +44,7 @@ function Apply() {
                         data: data.data
                     });
                 } else {
-                    errorModal(data.message);
+                    modal.errorModal(data.message);
                 }
             });
         });
@@ -58,7 +61,7 @@ function Apply() {
         var num = storeNum.select2('val');
         if (null == num || 0 == num) {
             storeNum_td.addClass("danger");
-            errorModal('门牌必须选择！');
+            modal.errorModal('门牌必须选择！');
             return;
         }
         $.getJSON('/auditing/submit', {
@@ -68,26 +71,55 @@ function Apply() {
                 $('#apply-close').trigger("click");
                 refresh();
             } else {
-                errorModal(backData.message);
+                modal.errorModal(backData.message);
             }
         })
     };
+
     this.secede = function () {
-        confirmModal('确定要退出团队吗？', confirm)
+        modal.confirmModal('确定要退出团队吗？', _this.confirm)
     };
 
+    this.confirm = function () {
+        $.getJSON('/auditing/secede', function (backData) {
+            if (backData.status) {
+                refresh();
+            } else {
+                modal.errorModal(backData.message);
+            }
+        });
+    };
 }
 
-function refresh() {
-    window.location.reload();
+
+function Group() {
+
+    var modal = new Modal();
+    var pageNum_span = $('#auditing-pageNum');
+    var totalPage_span = $('#auditing-totalPage');
+    var _this = this;
+
+    this.tableInit = function () {
+        pageNum_span.html('1');
+        _this.showTable(0, 10);
+    };
+
+    this.showTable = function (pageNum, pageSize) {
+        $.getJSON('/auditing/getList', {
+            pageNum: pageNum,
+            pageSize: pageSize
+        }, function (backData) {
+            if (backData.status) {
+                totalPage_span.html(backData.data.pages);
+                $('#auditing-table tbody').html(template('table-content', backData.data));
+                $('.checkbox').iCheck({
+                    checkboxClass: 'icheckbox_flat-red'
+                });
+            } else {
+                modal.errorModal(backData.message);
+            }
+
+        });
+    }
 }
 
-confirm = function () {
-    $.getJSON('/auditing/secede', function (backData) {
-        if (backData.status) {
-            refresh();
-        } else {
-            errorModal(backData.message);
-        }
-    });
-};

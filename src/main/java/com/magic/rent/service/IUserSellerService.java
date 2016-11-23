@@ -1,5 +1,6 @@
 package com.magic.rent.service;
 
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.pojo.UserSeller;
 
 import java.util.List;
@@ -23,5 +24,5 @@ public interface IUserSellerService {
 
     boolean auditingRefuse(UserSeller userSeller) throws Exception;
 
-    List<UserSeller> getAuditingSellersByStoreID() throws Exception;
+    PageInfo<UserSeller> getAuditingList(UserSeller userSeller, int pageNum, int pageSize) throws Exception;
 }

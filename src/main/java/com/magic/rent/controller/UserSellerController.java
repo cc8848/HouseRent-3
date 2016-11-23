@@ -1,5 +1,6 @@
 package com.magic.rent.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.exception.custom.LoginTimeOutException;
 import com.magic.rent.exception.custom.ParameterException;
@@ -131,8 +132,37 @@ public class UserSellerController extends BaseController {
         if (iUserSellerService.auditingRefuse(userSeller)) {
             return JsonResult.error("审核拒绝失败！");
         } else {
-            //更新Session中的用户信息
             return JsonResult.success();
         }
+    }
+
+    @ResponseBody
+    @RequestMapping("/getList")
+    public JsonResult getAuditingList(HttpServletRequest request) throws Exception {
+        SysUsers sysUsers = (SysUsers) request.getSession().getAttribute("user");
+
+        if (null == sysUsers) {
+            throw new LoginTimeOutException(messageSourceAccessor.getMessage("LoginService.LoginTimeOut", "用户尚未登录或登录失效，请重新登录！"));
+        }
+
+        if (StringUtils.isEmpty(request.getParameter("pageNum"))) {
+            throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.PageNumNotNull", "查询页数不能为空！"));
+        }
+        if (StringUtils.isEmpty(request.getParameter("pageSize"))) {
+            throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.PageSizeNotNull", "查询必输不能为空！"));
+        }
+
+        int pageNum = Integer.parseInt(request.getParameter("pageNum"));
+        int pageSize = Integer.parseInt(request.getParameter("pageSize"));
+
+        UserSeller seller = iUserSellerService.selectSellerInfoByUserID(sysUsers.getUserId());
+
+        UserSeller userSeller = new UserSeller();
+        userSeller.setStatusId(UserStatus.AUDITING);
+        userSeller.setStoreId(seller.getSysStore().getId());
+
+        PageInfo<UserSeller> userSellerList = iUserSellerService.getAuditingList(userSeller, pageNum, pageSize);
+
+        return JsonResult.success(userSellerList);
     }
 }

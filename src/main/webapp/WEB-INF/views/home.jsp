@@ -45,7 +45,6 @@
                 <c:forEach items="${sysMenuList}" var="sysMenu">
                     <c:choose>
                         <c:when test="${sysMenu.href=='account-info'}">
-
                             <div id="${sysMenu.href}" class="tab-pane active">
                                     <%--团队信息 start--%>
                                 <div class="panel panel-primary">
@@ -186,47 +185,48 @@
                                                     <span class="glyphicon glyphicon-chevron-left"></span>
                                                 </button>
                                                 <button type="button" class="btn btn-default">
+                                                    <span id="auditing-pageNum"></span>/<span id="auditing-totalPage"></span>
+                                                </button>
+                                                <button type="button" class="btn btn-default">
                                                     <span class="glyphicon glyphicon-chevron-right"></span>
                                                 </button>
                                             </div>
                                         </h3>
                                     </div>
                                     <div class="panel-body">
-                                        <select title="store" id="store" class="select2">
-                                            <option value="1">海西楼市绿苑海景店</option>
-                                            <option value="2">海西楼市旭日海湾店</option>
-                                            <option value="3">海西楼市天心岛店</option>
-                                            <option value="4">海西楼市乐海店</option>
-                                        </select>
+                                        <span>
+                                            勾选右侧复选框可批量操作！
+                                        </span>
                                         <div class="btn-group-sm pull-right">
                                             <button type="button" class="btn btn-success">审核通过</button>
                                             <button type="button" class="btn btn-danger">审核拒绝</button>
                                         </div>
                                     </div>
-                                    <table class="table table-responsive table-striped table-condensed">
-                                        <tbody>
+                                    <table id="auditing-table"
+                                           class="table table-responsive table-striped table-condensed">
+                                        <thead>
                                         <tr>
-                                            <th><input type="checkbox" class="checkbox"> 全选</th>
-                                            <th>用户ID</th>
+                                            <th></th>
+                                            <th>岗位ID</th>
                                             <th>用户名</th>
+                                            <th>联系电话</th>
+                                            <th><input type="checkbox" class="checkbox"></th>
                                         </tr>
-                                        <tr>
-                                            <td><input type="checkbox" class="checkbox"></td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="checkbox" class="checkbox"></td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                        </tr>
-                                        <tr>
-                                            <td><input type="checkbox" class="checkbox"></td>
-                                            <td>2</td>
-                                            <td>3</td>
-                                        </tr>
+                                        </thead>
+                                        <tbody>
+
                                         </tbody>
                                     </table>
+                                        <%--<div class="panel-footer">--%>
+                                        <%--<div class="btn-group-xs">--%>
+                                        <%--<label class="btn btn-primary ">当前页--%>
+                                        <%--<span class="badge">1</span>--%>
+                                        <%--</label>--%>
+                                        <%--<label class="btn btn-primary">总页数--%>
+                                        <%--<span class="badge">10</span>--%>
+                                        <%--</label>--%>
+                                        <%--</div>--%>
+                                        <%--</div>--%>
                                 </div>
                             </div>
                         </c:when>
@@ -247,8 +247,15 @@
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/js/location.js"></script>
 <script src="${pageContext.request.contextPath}/js/home.js"></script>
-<script id="auditing-table" type="text/html">
-    {{each}}
+<script id="table-content" type="text/html">
+    {{each list as userSeller}}
+    <tr>
+        <td></td>
+        <td>{{userSeller.id}}</td>
+        <td>{{userSeller.sysUsers.name}}</td>
+        <td>{{userSeller.sysUsers.username}}</td>
+        <td><input type="checkbox" class="checkbox"></td>
+    </tr>
     {{/each}}
 </script>
 </body>
