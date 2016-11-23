@@ -2,10 +2,10 @@
  * Created by wu on 2016/11/19.
  */
 $(document).ready(function () {
-    var account = new Account();
-    account.tableInit();
-    var group = new Group();
-    $("[href='#group-manage']").on('click', group.tableInit);
+    // var account = new Account();
+    // account.tableInit();
+    // var group = new Group();
+    // $("[href='#group-manage']").on('click', group.tableInit);
 });
 
 function Account() {
@@ -111,14 +111,13 @@ function Group() {
         }, function (backData) {
             if (backData.status) {
                 totalPage_span.html(backData.data.pages);
-                $('#auditing-table tbody').html(template('table-content', backData.data));
+                $('#auditing-table tbody').html(template('auditing-table-content', backData.data));
                 $('.checkbox').iCheck({
                     checkboxClass: 'icheckbox_flat-red'
                 });
             } else {
                 modal.errorModal(backData.message);
             }
-
         });
     }
 }
