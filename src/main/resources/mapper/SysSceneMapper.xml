@@ -4,10 +4,10 @@
   <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysScene" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="NAME" property="name" jdbcType="VARCHAR" />
-    <result column="SCENCE_DESC" property="scenceDesc" jdbcType="VARCHAR" />
+    <result column="SCENE_DESC" property="sceneDesc" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, NAME, SCENCE_DESC
+    ID, NAME, SCENE_DESC
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -20,9 +20,9 @@
     where ID = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.magic.rent.pojo.SysScene" >
-    insert into SYS_SCENE (ID, NAME, SCENCE_DESC
+    insert into SYS_SCENE (ID, NAME, SCENE_DESC
       )
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{scenceDesc,jdbcType=VARCHAR}
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{sceneDesc,jdbcType=VARCHAR}
       )
   </insert>
   <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysScene" >
@@ -34,8 +34,8 @@
       <if test="name != null" >
         NAME,
       </if>
-      <if test="scenceDesc != null" >
-        SCENCE_DESC,
+      <if test="sceneDesc != null" >
+        SCENE_DESC,
       </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
@@ -45,8 +45,8 @@
       <if test="name != null" >
         #{name,jdbcType=VARCHAR},
       </if>
-      <if test="scenceDesc != null" >
-        #{scenceDesc,jdbcType=VARCHAR},
+      <if test="sceneDesc != null" >
+        #{sceneDesc,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -56,8 +56,8 @@
       <if test="name != null" >
         NAME = #{name,jdbcType=VARCHAR},
       </if>
-      <if test="scenceDesc != null" >
-        SCENCE_DESC = #{scenceDesc,jdbcType=VARCHAR},
+      <if test="sceneDesc != null" >
+        SCENE_DESC = #{sceneDesc,jdbcType=VARCHAR},
       </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
@@ -65,7 +65,7 @@
   <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysScene" >
     update SYS_SCENE
     set NAME = #{name,jdbcType=VARCHAR},
-      SCENCE_DESC = #{scenceDesc,jdbcType=VARCHAR}
+      SCENE_DESC = #{sceneDesc,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

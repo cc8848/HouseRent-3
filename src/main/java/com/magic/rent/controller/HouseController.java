@@ -8,21 +8,17 @@ import com.magic.rent.pojo.House;
 import com.magic.rent.pojo.HouseRecommend;
 import com.magic.rent.service.IHouseRecommendService;
 import com.magic.rent.service.IHouseService;
-import com.magic.rent.service.security.MethodSecurityMetadataSource;
 import com.magic.rent.util.JsonResult;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -45,7 +41,7 @@ public class HouseController extends BaseController {
 
     @ResponseBody
     @RequestMapping("/selectHousesByCommunity")
-    public JsonResult selectHousesByCommunity(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public JsonResult selectHousesByCommunity(HttpServletRequest request) throws Exception {
         //参数校验
         if (StringUtils.isEmpty(request.getParameter("pageNum")))
             throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageNumNotNull", "查询页码不能为空!"));
@@ -71,7 +67,7 @@ public class HouseController extends BaseController {
 
     @ResponseBody
     @RequestMapping("/selectHousesListBySearchTerms")
-    public JsonResult selectHousesListBySearchTerms(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public JsonResult selectHousesListBySearchTerms(HttpServletRequest request) throws Exception {
         //参数校验
         if (StringUtils.isEmpty(request.getParameter("pageNum")))
             throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageNumNotNull", "其实笔数不能为空!"));
@@ -106,7 +102,7 @@ public class HouseController extends BaseController {
     }
 
     @RequestMapping("/detail")//获取房屋详细信息
-    public ModelAndView selectHouseDetailByHouseID(HttpServletRequest request, HttpServletResponse response) throws Exception {
+    public ModelAndView selectHouseDetailByHouseID(HttpServletRequest request) throws Exception {
         if (StringUtils.isEmpty(request.getParameter("houseID")))
             throw new ParameterException(messageSourceAccessor.getMessage("HouseService.houseID", "房屋ID不能为空!"));
         //获取ID查询数据

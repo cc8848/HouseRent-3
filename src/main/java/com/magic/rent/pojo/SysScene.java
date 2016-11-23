@@ -1,11 +1,14 @@
 package com.magic.rent.pojo;
 
-public class SysScene {
+import java.io.Serializable;
+
+public class SysScene implements Serializable {
+    private static final long serialVersionUID = 4224413862180110801L;
     private Integer id;
 
     private String name;
 
-    private String scenceDesc;
+    private String sceneDesc;
 
     public Integer getId() {
         return id;
@@ -24,10 +27,19 @@ public class SysScene {
     }
 
     public String getScenceDesc() {
-        return scenceDesc;
+        return sceneDesc;
     }
 
-    public void setScenceDesc(String scenceDesc) {
-        this.scenceDesc = scenceDesc == null ? null : scenceDesc.trim();
+    public void setScenceDesc(String sceneDesc) {
+        this.sceneDesc = sceneDesc == null ? null : sceneDesc.trim();
+    }
+
+    @Override
+    public String toString() {
+        return "SysScene{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", scenceDesc='" + sceneDesc + '\'' +
+                '}';
     }
 }

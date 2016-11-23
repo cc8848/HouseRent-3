@@ -169,14 +169,22 @@
             <result column="account" property="username" jdbcType="VARCHAR"/>
         </association>
     </resultMap>
-    <select id="selectSellersByStoreID" parameterType="java.lang.Integer" resultMap="waitToAuditing">
-       SELECT
-          USER_SELLER.ID     sellerID,
-          SYS_USERS.USER_ID  userID,
-          SYS_USERS.NAME     name,
-          SYS_USERS.USERNAME account
+    <select id="selectSellersByStoreIDAndStatusID" parameterType="com.magic.rent.pojo.UserSeller"
+            resultMap="waitToAuditing">
+        SELECT
+        USER_SELLER.ID sellerID,
+        SYS_USERS.USER_ID userID,
+        SYS_USERS.NAME name,
+        SYS_USERS.USERNAME account
         FROM USER_SELLER
-          JOIN SYS_USERS ON USER_SELLER.USER_ID = SYS_USERS.USER_ID
-        WHERE USER_SELLER.STATUS_ID = 1 AND USER_SELLER.STORE_ID = #{storeId,jdbcType=INTEGER}
+        JOIN SYS_USERS ON USER_SELLER.USER_ID = SYS_USERS.USER_ID
+        <where>
+            <if test="statusId != null">
+                AND USER_SELLER.STATUS_ID = #{statusId,jdbcType=INTEGER}
+            </if>
+            <if test="storeId != null">
+                AND USER_SELLER.STORE_ID = #{storeId,jdbcType=INTEGER}
+            </if>
+        </where>
     </select>
 </mapper>

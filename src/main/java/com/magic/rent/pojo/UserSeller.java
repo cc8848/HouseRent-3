@@ -6,41 +6,41 @@ public class UserSeller implements Serializable {
 
     private static final long serialVersionUID = 1801950405948724304L;
 
-    private int id;
+    private Integer id;
 
-    private int userId;//对应用户信息
+    private Integer userId;//对应用户信息
     private SysUsers sysUsers;
 
-    private int storeId;//归属门店、机构
+    private Integer storeId;//归属门店、机构
     private SysStore sysStore;
 
     private boolean enabled;
 
-    private int statusId;
+    private Integer statusId;
     private UserStatus userStatus;
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
 
-    public int getStoreId() {
+    public Integer getStoreId() {
         return storeId;
     }
 
-    public void setStoreId(int storeId) {
+    public void setStoreId(Integer storeId) {
         this.storeId = storeId;
     }
 
@@ -69,11 +69,11 @@ public class UserSeller implements Serializable {
         this.sysStore = sysStore;
     }
 
-    public int getStatusId() {
+    public Integer getStatusId() {
         return statusId;
     }
 
-    public void setStatusId(int statusId) {
+    public void setStatusId(Integer statusId) {
         this.statusId = statusId;
     }
 

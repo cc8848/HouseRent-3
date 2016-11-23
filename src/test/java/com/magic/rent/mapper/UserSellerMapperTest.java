@@ -1,5 +1,6 @@
 package com.magic.rent.mapper;
 
+import com.magic.rent.pojo.UserSeller;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -35,6 +36,9 @@ public class UserSellerMapperTest {
 
     @Test
     public void selectSellersByStoreID() throws Exception {
-        System.out.print(userSellerMapper.selectSellersByStoreID(1));
+        UserSeller userSeller = new UserSeller();
+        userSeller.setStoreId(1);
+
+        System.out.print(userSellerMapper.selectSellersByStoreIDAndStatusID(userSeller));
     }
 }

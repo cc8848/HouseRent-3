@@ -7,7 +7,7 @@ public class Contract implements Serializable {
 
     private static final long serialVersionUID = -8322305622900321278L;
 
-    private int id;
+    private Integer id;
 
     private String contractId;//合同编号
 
@@ -17,16 +17,16 @@ public class Contract implements Serializable {
 
     private Date endData;//租期到期日志
 
-    private int lesseeId;//租客id
+    private Integer lesseeId;//租客id
     private SysUsers lessee;//租客对象
 
-    private int lessorId;//房东ID
+    private Integer lessorId;//房东ID
     private SysUsers lessor;
 
 
     private boolean includeUtilities;//是否包水电
 
-    private int paymentId;//付租方式
+    private Integer paymentId;//付租方式
     private Payment payment;
 
     private boolean enabled;//是否可用
@@ -37,10 +37,10 @@ public class Contract implements Serializable {
 
     private double deposit;//押金
 
-    private int roomId;//房间ID
+    private Integer roomId;//房间ID
     private Rooms rooms;//对应房间
 
-    private int houseId;//房屋ID
+    private Integer houseId;//房屋ID
     private House house;//对应房屋
 
     public Rooms getRooms() {
@@ -51,11 +51,11 @@ public class Contract implements Serializable {
         this.rooms = rooms;
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -91,19 +91,19 @@ public class Contract implements Serializable {
         this.endData = endData;
     }
 
-    public int getLesseeId() {
+    public Integer getLesseeId() {
         return lesseeId;
     }
 
-    public void setLesseeId(int lesseeId) {
+    public void setLesseeId(Integer lesseeId) {
         this.lesseeId = lesseeId;
     }
 
-    public int getLessorId() {
+    public Integer getLessorId() {
         return lessorId;
     }
 
-    public void setLessorId(int lessorId) {
+    public void setLessorId(Integer lessorId) {
         this.lessorId = lessorId;
     }
 
@@ -115,11 +115,11 @@ public class Contract implements Serializable {
         this.includeUtilities = includeUtilities;
     }
 
-    public int getPaymentId() {
+    public Integer getPaymentId() {
         return paymentId;
     }
 
-    public void setPaymentId(int paymentId) {
+    public void setPaymentId(Integer paymentId) {
         this.paymentId = paymentId;
     }
 
@@ -155,11 +155,11 @@ public class Contract implements Serializable {
         this.deposit = deposit;
     }
 
-    public int getRoomId() {
+    public Integer getRoomId() {
         return roomId;
     }
 
-    public void setRoomId(int roomId) {
+    public void setRoomId(Integer roomId) {
         this.roomId = roomId;
     }
 
@@ -187,11 +187,11 @@ public class Contract implements Serializable {
         this.payment = payment;
     }
 
-    public int getHouseId() {
+    public Integer getHouseId() {
         return houseId;
     }
 
-    public void setHouseId(int houseId) {
+    public void setHouseId(Integer houseId) {
         this.houseId = houseId;
     }
 

@@ -2,12 +2,13 @@ package com.magic.rent.controller;
 
 import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.exception.custom.LoginTimeOutException;
-import com.magic.rent.exception.custom.ParameterException;
-import com.magic.rent.pojo.SysRoles;
+import com.magic.rent.pojo.SysMenu;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.pojo.UserSeller;
+import com.magic.rent.service.ISysMenuService;
 import com.magic.rent.service.IUserSellerService;
 import com.magic.rent.service.IUserService;
+import com.magic.rent.util.LogUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +18,7 @@ import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -33,27 +35,28 @@ public class HomeController extends BaseController {
     private IUserSellerService iUserSellerService;
 
     @Autowired
-    private IUserService iUserService;
+    private ISysMenuService iSysMenuService;
 
     private static Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping("/home")
     public ModelAndView home(HttpServletRequest request) throws Exception {
         //此数据在登录成功时存入Session。详情在LoginAuthenticationController中可查找
-        SysUsers SessionUsers = (SysUsers) request.getSession().getAttribute("user");
+        SysUsers sessionUsers = (SysUsers) request.getSession().getAttribute("user");
 
-        if (null == SessionUsers || null == SessionUsers.getUserId()) {
+        if (null == sessionUsers || null == sessionUsers.getUserId()) {
             throw new LoginTimeOutException(messageSourceAccessor.getMessage("LoginService.LoginTimeOut", "用户尚未登录或登录失效，请重新登录！"));
         }
 
+        UserSeller userSeller = iUserSellerService.selectSellerInfoByUserID(sessionUsers.getUserId());
+        LogUtil.LogPOJO(logger, userSeller);
+
+        List<SysMenu> sysMenuList = iSysMenuService.selectSysMenusByUserID(sessionUsers.getUserId());
+        LogUtil.LogPOJO(logger,sysMenuList);
 
         Map<String, Object> model = new HashMap<String, Object>();
-        UserSeller userSeller = iUserSellerService.selectSellerInfoByUserID(SessionUsers.getUserId());
-        if (null != userSeller) {
-            logger.info(userSeller.toString());
-        }
-        
         model.put("seller", userSeller);
+        model.put("sysMenuList", sysMenuList);
         return new ModelAndView("home", model);
     }
 }

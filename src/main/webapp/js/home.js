@@ -4,6 +4,9 @@
 $(document).ready(function () {
     var apply = new Apply();
     apply.tableInit();
+    $('.checkbox').iCheck({
+        checkboxClass: 'icheckbox_flat-red'
+    })
 });
 
 function Apply() {

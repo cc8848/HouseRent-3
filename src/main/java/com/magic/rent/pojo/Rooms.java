@@ -6,9 +6,9 @@ public class Rooms implements Serializable {
 
     private static final long serialVersionUID = 2016121030063969681L;
 
-    private int id;
+    private Integer id;
 
-    private int roomNo;//房间号
+    private Integer roomNo;//房间号
 
     private double areaNumber;//房间面积
 
@@ -26,26 +26,26 @@ public class Rooms implements Serializable {
 
     private boolean haveWLAN;//是否有宽带
 
-    private int houseId;//房屋ID
+    private Integer houseId;//房屋ID
 
     private double expectPrice;//预期租金
 
-    private int houseStatusId;
+    private Integer houseStatusId;
     private HouseStatus houseStatus;//房屋状态
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getRoomNo() {
+    public Integer getRoomNo() {
         return roomNo;
     }
 
-    public void setRoomNo(int roomNo) {
+    public void setRoomNo(Integer roomNo) {
         this.roomNo = roomNo;
     }
 
@@ -73,11 +73,11 @@ public class Rooms implements Serializable {
         this.haveKitcken = haveKitcken;
     }
 
-    public int getHouseId() {
+    public Integer getHouseId() {
         return houseId;
     }
 
-    public void setHouseId(int houseId) {
+    public void setHouseId(Integer houseId) {
         this.houseId = houseId;
     }
 
@@ -89,11 +89,11 @@ public class Rooms implements Serializable {
         this.expectPrice = expectPrice;
     }
 
-    public int getHouseStatusId() {
+    public Integer getHouseStatusId() {
         return houseStatusId;
     }
 
-    public void setHouseStatusId(int houseStatusId) {
+    public void setHouseStatusId(Integer houseStatusId) {
         this.houseStatusId = houseStatusId;
     }
 

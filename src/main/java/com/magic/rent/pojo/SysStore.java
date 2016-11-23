@@ -6,18 +6,18 @@ public class SysStore implements Serializable {
 
     private static final long serialVersionUID = 4969069650719938997L;
 
-    private int id;
+    private Integer id;
 
-    private int companyId;
+    private Integer companyId;
     private SysCompany sysCompany;
 
-    private int provinceId;
+    private Integer provinceId;
     private Province province;
 
-    private int cityId;
+    private Integer cityId;
     private City city;
 
-    private int areaId;
+    private Integer areaId;
     private Area area;
 
     private String storeName;
@@ -40,19 +40,19 @@ public class SysStore implements Serializable {
         this.storeNumber = storeNumber == null ? null : storeNumber.trim();
     }
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getCompanyId() {
+    public Integer getCompanyId() {
         return companyId;
     }
 
-    public void setCompanyId(int companyId) {
+    public void setCompanyId(Integer companyId) {
         this.companyId = companyId;
     }
 
@@ -64,11 +64,11 @@ public class SysStore implements Serializable {
         this.sysCompany = sysCompany;
     }
 
-    public int getCityId() {
+    public Integer getCityId() {
         return cityId;
     }
 
-    public void setCityId(int cityId) {
+    public void setCityId(Integer cityId) {
         this.cityId = cityId;
     }
 
@@ -80,11 +80,11 @@ public class SysStore implements Serializable {
         this.city = city;
     }
 
-    public int getAreaId() {
+    public Integer getAreaId() {
         return areaId;
     }
 
-    public void setAreaId(int areaId) {
+    public void setAreaId(Integer areaId) {
         this.areaId = areaId;
     }
 
@@ -96,11 +96,11 @@ public class SysStore implements Serializable {
         this.area = area;
     }
 
-    public int getProvinceId() {
+    public Integer getProvinceId() {
         return provinceId;
     }
 
-    public void setProvinceId(int provinceId) {
+    public void setProvinceId(Integer provinceId) {
         this.provinceId = provinceId;
     }
 

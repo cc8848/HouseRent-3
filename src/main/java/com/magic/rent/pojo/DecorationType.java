@@ -5,15 +5,15 @@ import java.io.Serializable;
 public class DecorationType implements Serializable {
     private static final long serialVersionUID = -4636714336615136727L;
 
-    private int id;
+    private Integer id;
 
     private String name;//装修种类名称
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 

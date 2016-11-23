@@ -7,7 +7,7 @@ public class House implements Serializable {
 
     private static final long serialVersionUID = 2962959899715937016L;
 
-    private int id;
+    private Integer id;
 
     private String address;//房屋地址
 
@@ -19,34 +19,34 @@ public class House implements Serializable {
 
     private String thumbnailPath;//缩略图地址
 
-    private int communityId;//社区ID
+    private Integer communityId;//社区ID
     private Community community;
 
-    private int floor;//楼层
+    private Integer floor;//楼层
 
-    private int layoutID;//房间布局
+    private Integer layoutID;//房间布局
     private HouseLayout houseLayout;//房间布局
 
-    private int decorationTypeId;//装修类型ID
+    private Integer decorationTypeId;//装修类型ID
     private DecorationType decorationType;
 
-    private int provinceId;//省份ID
+    private Integer provinceId;//省份ID
     private Province province;
 
-    private int cityId;//城市ID
+    private Integer cityId;//城市ID
     private City city;
 
-    private int areaId;//地区ID
+    private Integer areaId;//地区ID
     private Area area;
 
     private boolean haveKitcken;//是否带厨房
 
     private boolean haveBalcony;//是否带阳台
 
-    private int houseStatusId;//房屋状态,如:出租
+    private Integer houseStatusId;//房屋状态,如:出租
     private HouseStatus houseStatus;
 
-    private int expectPaymentId;//预期付租方式
+    private Integer expectPaymentId;//预期付租方式
     private Payment expectPayment;
 
     private double areaNumber;
@@ -57,11 +57,11 @@ public class House implements Serializable {
 
     private List<RentMode> rentModeList;//出租模式
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
@@ -97,67 +97,67 @@ public class House implements Serializable {
         this.thumbnailPath = thumbnailPath;
     }
 
-    public int getCommunityId() {
+    public Integer getCommunityId() {
         return communityId;
     }
 
-    public void setCommunityId(int communityId) {
+    public void setCommunityId(Integer communityId) {
         this.communityId = communityId;
     }
 
-    public int getFloor() {
+    public Integer getFloor() {
         return floor;
     }
 
-    public void setFloor(int floor) {
+    public void setFloor(Integer floor) {
         this.floor = floor;
     }
 
-    public int getLayoutID() {
+    public Integer getLayoutID() {
         return layoutID;
     }
 
-    public void setLayoutID(int layoutID) {
+    public void setLayoutID(Integer layoutID) {
         this.layoutID = layoutID;
     }
 
-    public int getExpectPaymentId() {
+    public Integer getExpectPaymentId() {
         return expectPaymentId;
     }
 
-    public void setExpectPaymentId(int expectPaymentId) {
+    public void setExpectPaymentId(Integer expectPaymentId) {
         this.expectPaymentId = expectPaymentId;
     }
 
-    public int getDecorationTypeId() {
+    public Integer getDecorationTypeId() {
         return decorationTypeId;
     }
 
-    public void setDecorationTypeId(int decorationTypeId) {
+    public void setDecorationTypeId(Integer decorationTypeId) {
         this.decorationTypeId = decorationTypeId;
     }
 
-    public int getProvinceId() {
+    public Integer getProvinceId() {
         return provinceId;
     }
 
-    public void setProvinceId(int provinceId) {
+    public void setProvinceId(Integer provinceId) {
         this.provinceId = provinceId;
     }
 
-    public int getCityId() {
+    public Integer getCityId() {
         return cityId;
     }
 
-    public void setCityId(int cityId) {
+    public void setCityId(Integer cityId) {
         this.cityId = cityId;
     }
 
-    public int getAreaId() {
+    public Integer getAreaId() {
         return areaId;
     }
 
-    public void setAreaId(int areaId) {
+    public void setAreaId(Integer areaId) {
         this.areaId = areaId;
     }
 
@@ -177,11 +177,11 @@ public class House implements Serializable {
         this.haveBalcony = haveBalcony;
     }
 
-    public int getHouseStatusId() {
+    public Integer getHouseStatusId() {
         return houseStatusId;
     }
 
-    public void setHouseStatusId(int houseStatusId) {
+    public void setHouseStatusId(Integer houseStatusId) {
         this.houseStatusId = houseStatusId;
     }
 
@@ -273,11 +273,11 @@ public class House implements Serializable {
         this.expectPayment = expectPayment;
     }
 
-    public int getExpectPaymentID() {
+    public Integer getExpectPaymentID() {
         return expectPaymentId;
     }
 
-    public void setExpectPaymentID(int expectPaymentID) {
+    public void setExpectPaymentID(Integer expectPaymentID) {
         this.expectPaymentId = expectPaymentID;
     }
 

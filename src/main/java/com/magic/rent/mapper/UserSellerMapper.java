@@ -7,23 +7,23 @@ import java.util.List;
 
 @Repository
 public interface UserSellerMapper {
-    int deleteByPrimaryKey(int id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(UserSeller record);
 
     int insertSelective(UserSeller record);
 
-    UserSeller selectByPrimaryKey(int id);
+    UserSeller selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(UserSeller record);
 
     int updateByPrimaryKey(UserSeller record);
 
-    UserSeller selectByUserID(int userID);
+    UserSeller selectByUserID(Integer userID);
 
-    int deleteByUserID(int userID);
+    int deleteByUserID(Integer userID);
 
     int updateByUserIDSelective(UserSeller record);
 
-    List<UserSeller> selectSellersByStoreID(int storeID);
+    List<UserSeller> selectSellersByStoreIDAndStatusID(UserSeller userSeller);
 }

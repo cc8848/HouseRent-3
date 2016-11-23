@@ -5,9 +5,9 @@ import java.util.Date;
 
 public class Credentials implements Serializable {
     private static final long serialVersionUID = -853063805366700176L;
-    private int id;//记录编号
+    private Integer id;//记录编号
 
-    private int typeId;//类型ID
+    private Integer typeId;//类型ID
 
     private String number;//证件号码
 
@@ -19,21 +19,21 @@ public class Credentials implements Serializable {
 
     private boolean validity;//是否有效?
 
-    private int userId;//用户ID
+    private Integer userId;//用户ID
 
-    public int getId() {
+    public Integer getId() {
         return id;
     }
 
-    public void setId(int id) {
+    public void setId(Integer id) {
         this.id = id;
     }
 
-    public int getTypeId() {
+    public Integer getTypeId() {
         return typeId;
     }
 
-    public void setTypeId(int typeId) {
+    public void setTypeId(Integer typeId) {
         this.typeId = typeId;
     }
 
@@ -77,11 +77,11 @@ public class Credentials implements Serializable {
         this.validity = validity;
     }
 
-    public int getUserId() {
+    public Integer getUserId() {
         return userId;
     }
 
-    public void setUserId(int userId) {
+    public void setUserId(Integer userId) {
         this.userId = userId;
     }
 
