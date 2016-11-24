@@ -46,6 +46,12 @@
                         <%--账户信息--%>
                         <c:when test="${sysMenu.href=='account-info'}">
                             <div id="${sysMenu.href}" class="tab-pane">
+
+                            </div>
+                        </c:when>
+                        <c:when test="${sysMenu.href=='issue-info'}">
+                            <div id="${sysMenu.href}" class="tab-pane">
+
                             </div>
                         </c:when>
                     </c:choose>

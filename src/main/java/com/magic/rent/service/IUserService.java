@@ -17,7 +17,7 @@ public interface IUserService {
 
     int updateUserLoginInfo(SysUsers sysUsers) throws Exception;
 
-    int register(SysUsers sysUsers) throws Exception;
+    boolean register(SysUsers sysUsers) throws Exception;
 
 
 }

@@ -58,20 +58,16 @@ public class UserController extends BaseController {
         if (StringUtils.isEmpty(password))
             return JsonResult.error("密码不能为空!");
 
-        if (null != iUserService.findSysUserByUserName(username))
-            return JsonResult.error("用户名已存在!");
-
         //封装对象
         SysUsers sysUsers = new SysUsers();
         sysUsers.setUsername(username);
         sysUsers.setPassword(password);
 
         //将用户信息写入数据库
-        int userID = iUserService.register(sysUsers);
-        if (userID <= 0) {
-            return JsonResult.error("用户注册失败!");
-        } else {
+        if (iUserService.register(sysUsers)) {
             return JsonResult.success();
+        } else {
+            return JsonResult.error("用户注册失败!");
         }
     }
 

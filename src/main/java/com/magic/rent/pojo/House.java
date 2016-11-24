@@ -1,61 +1,42 @@
 package com.magic.rent.pojo;
 
 import java.io.Serializable;
-import java.util.List;
 
 public class House implements Serializable {
-
-    private static final long serialVersionUID = 2962959899715937016L;
-
+    private static final long serialVersionUID = -2530142620440534117L;
     private Integer id;
 
-    private String address;//房屋地址
+    private String tittle;
 
-    private String name;//房屋名字
+    private String desc;
 
-    private double expectPrice;//预期租金
+    private Integer faceId;
 
-    private String vrPath;//VR资源地址
+    private Double areaNumber;
 
-    private String thumbnailPath;//缩略图地址
+    private Double expectPrice;
 
-    private Integer communityId;//社区ID
-    private Community community;
+    private Integer viewMode;
 
-    private Integer floor;//楼层
+    private Integer communityId;
 
-    private Integer layoutID;//房间布局
-    private HouseLayout houseLayout;//房间布局
+    private Integer floor;
 
-    private Integer decorationTypeId;//装修类型ID
-    private DecorationType decorationType;
+    private Integer layoutId;
 
-    private Integer provinceId;//省份ID
-    private Province province;
+    private Integer decorationTypeId;
 
-    private Integer cityId;//城市ID
-    private City city;
+    private Integer provinceId;
 
-    private Integer areaId;//地区ID
-    private Area area;
+    private Integer cityId;
 
-    private boolean haveKitcken;//是否带厨房
+    private Integer areaId;
 
-    private boolean haveBalcony;//是否带阳台
+    private String address;
 
-    private Integer houseStatusId;//房屋状态,如:出租
-    private HouseStatus houseStatus;
+    private Integer houseStatusId;
 
-    private Integer expectPaymentId;//预期付租方式
-    private Payment expectPayment;
-
-    private double areaNumber;
-
-    private boolean enabled;//是否可用
-
-    private List<Rooms> roomsList;//房间列表
-
-    private List<RentMode> rentModeList;//出租模式
+    private Byte enabled;
 
     public Integer getId() {
         return id;
@@ -65,36 +46,52 @@ public class House implements Serializable {
         this.id = id;
     }
 
-    public String getAddress() {
-        return address;
+    public String getTittle() {
+        return tittle;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setTittle(String tittle) {
+        this.tittle = tittle == null ? null : tittle.trim();
     }
 
-    public double getExpectPrice() {
+    public String getDesc() {
+        return desc;
+    }
+
+    public void setDesc(String desc) {
+        this.desc = desc == null ? null : desc.trim();
+    }
+
+    public Integer getFaceId() {
+        return faceId;
+    }
+
+    public void setFaceId(Integer faceId) {
+        this.faceId = faceId;
+    }
+
+    public Double getAreaNumber() {
+        return areaNumber;
+    }
+
+    public void setAreaNumber(Double areaNumber) {
+        this.areaNumber = areaNumber;
+    }
+
+    public Double getExpectPrice() {
         return expectPrice;
     }
 
-    public void setExpectPrice(double expectPrice) {
+    public void setExpectPrice(Double expectPrice) {
         this.expectPrice = expectPrice;
     }
 
-    public String getVrPath() {
-        return vrPath;
+    public Integer getViewMode() {
+        return viewMode;
     }
 
-    public void setVrPath(String vrPath) {
-        this.vrPath = vrPath;
-    }
-
-    public String getThumbnailPath() {
-        return thumbnailPath;
-    }
-
-    public void setThumbnailPath(String thumbnailPath) {
-        this.thumbnailPath = thumbnailPath;
+    public void setViewMode(Integer viewMode) {
+        this.viewMode = viewMode;
     }
 
     public Integer getCommunityId() {
@@ -113,20 +110,12 @@ public class House implements Serializable {
         this.floor = floor;
     }
 
-    public Integer getLayoutID() {
-        return layoutID;
+    public Integer getLayoutId() {
+        return layoutId;
     }
 
-    public void setLayoutID(Integer layoutID) {
-        this.layoutID = layoutID;
-    }
-
-    public Integer getExpectPaymentId() {
-        return expectPaymentId;
-    }
-
-    public void setExpectPaymentId(Integer expectPaymentId) {
-        this.expectPaymentId = expectPaymentId;
+    public void setLayoutId(Integer layoutId) {
+        this.layoutId = layoutId;
     }
 
     public Integer getDecorationTypeId() {
@@ -161,20 +150,12 @@ public class House implements Serializable {
         this.areaId = areaId;
     }
 
-    public boolean isHaveKitcken() {
-        return haveKitcken;
+    public String getAddress() {
+        return address;
     }
 
-    public void setHaveKitcken(boolean haveKitcken) {
-        this.haveKitcken = haveKitcken;
-    }
-
-    public boolean isHaveBalcony() {
-        return haveBalcony;
-    }
-
-    public void setHaveBalcony(boolean haveBalcony) {
-        this.haveBalcony = haveBalcony;
+    public void setAddress(String address) {
+        this.address = address == null ? null : address.trim();
     }
 
     public Integer getHouseStatusId() {
@@ -185,150 +166,34 @@ public class House implements Serializable {
         this.houseStatusId = houseStatusId;
     }
 
-    public HouseLayout getHouseLayout() {
-        return houseLayout;
-    }
-
-    public void setHouseLayout(HouseLayout houseLayout) {
-        this.houseLayout = houseLayout;
-    }
-
-    public double getAreaNumber() {
-        return areaNumber;
-    }
-
-    public void setAreaNumber(double areaNumber) {
-        this.areaNumber = areaNumber;
-    }
-
-    public boolean isEnabled() {
+    public Byte getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(Byte enabled) {
         this.enabled = enabled;
-    }
-
-    public Community getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(Community community) {
-        this.community = community;
-    }
-
-    public DecorationType getDecorationType() {
-        return decorationType;
-    }
-
-    public void setDecorationType(DecorationType decorationType) {
-        this.decorationType = decorationType;
-    }
-
-    public HouseStatus getHouseStatus() {
-        return houseStatus;
-    }
-
-    public void setHouseStatus(HouseStatus houseStatus) {
-        this.houseStatus = houseStatus;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public Province getProvince() {
-        return province;
-    }
-
-    public void setProvince(Province province) {
-        this.province = province;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public Area getArea() {
-        return area;
-    }
-
-    public void setArea(Area area) {
-        this.area = area;
-    }
-
-    public Payment getExpectPayment() {
-        return expectPayment;
-    }
-
-    public void setExpectPayment(Payment expectPayment) {
-        this.expectPayment = expectPayment;
-    }
-
-    public Integer getExpectPaymentID() {
-        return expectPaymentId;
-    }
-
-    public void setExpectPaymentID(Integer expectPaymentID) {
-        this.expectPaymentId = expectPaymentID;
-    }
-
-    public List<Rooms> getRoomsList() {
-        return roomsList;
-    }
-
-    public void setRoomsList(List<Rooms> roomsList) {
-        this.roomsList = roomsList;
-    }
-
-    public List<RentMode> getRentModeList() {
-        return rentModeList;
-    }
-
-    public void setRentModeList(List<RentMode> rentModeList) {
-        this.rentModeList = rentModeList;
     }
 
     @Override
     public String toString() {
         return "House{" +
                 "id=" + id +
-                ", address='" + address + '\'' +
-                ", name='" + name + '\'' +
-                ", expectPrice=" + expectPrice +
-                ", vrPath='" + vrPath + '\'' +
-                ", thumbnailPath='" + thumbnailPath + '\'' +
-                ", communityId=" + communityId +
-                ", community=" + community +
-                ", floor=" + floor +
-                ", layoutID=" + layoutID +
-                ", houseLayout=" + houseLayout +
-                ", decorationTypeId=" + decorationTypeId +
-                ", decorationType=" + decorationType +
-                ", provinceId=" + provinceId +
-                ", province=" + province +
-                ", cityId=" + cityId +
-                ", city=" + city +
-                ", areaId=" + areaId +
-                ", area=" + area +
-                ", haveKitcken=" + haveKitcken +
-                ", haveBalcony=" + haveBalcony +
-                ", houseStatusId=" + houseStatusId +
-                ", houseStatus=" + houseStatus +
-                ", expectPaymentId=" + expectPaymentId +
-                ", expectPayment=" + expectPayment +
+                ", tittle='" + tittle + '\'' +
+                ", desc='" + desc + '\'' +
+                ", faceId=" + faceId +
                 ", areaNumber=" + areaNumber +
+                ", expectPrice=" + expectPrice +
+                ", viewMode=" + viewMode +
+                ", communityId=" + communityId +
+                ", floor=" + floor +
+                ", layoutId=" + layoutId +
+                ", decorationTypeId=" + decorationTypeId +
+                ", provinceId=" + provinceId +
+                ", cityId=" + cityId +
+                ", areaId=" + areaId +
+                ", address='" + address + '\'' +
+                ", houseStatusId=" + houseStatusId +
                 ", enabled=" + enabled +
-                ", roomsList=" + roomsList +
-                ", rentModeList=" + rentModeList +
                 '}';
     }
 }

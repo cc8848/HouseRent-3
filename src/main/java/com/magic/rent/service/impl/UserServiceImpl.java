@@ -1,13 +1,17 @@
 package com.magic.rent.service.impl;
 
+import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.mapper.SysUsersMapper;
 import com.magic.rent.pojo.SysUsers;
+import com.magic.rent.service.BaseService;
 import com.magic.rent.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 
 import java.util.Date;
@@ -18,7 +22,7 @@ import java.util.Date;
  * 类说明:
  */
 @Service
-public class UserServiceImpl implements IUserService {
+public class UserServiceImpl extends BaseService implements IUserService {
 
     @Autowired
     private SysUsersMapper sysUsersMapper;
@@ -84,7 +88,11 @@ public class UserServiceImpl implements IUserService {
      * @param sysUsers
      * @return
      */
-    public int register(SysUsers sysUsers) throws Exception {
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    public boolean register(SysUsers sysUsers) throws Exception {
+        if (null != sysUsersMapper.selectByUserName(sysUsers.getUsername())) {
+            throw new BusinessException(messageSourceAccessor.getMessage("UserService.UserNameIsExist", "用户名已存在！"));
+        }
         //初始化用户信息
         Date createDate = new Date();
         sysUsers.setDtCreate(createDate);//账户创建日期
@@ -96,7 +104,11 @@ public class UserServiceImpl implements IUserService {
         String passwordMD5 = passwordEncoder.encodePassword(sysUsers.getPassword(), sysUsers.getUsername());
         sysUsers.setPassword(passwordMD5);
         //插入数据库并返回
-        return sysUsersMapper.insertSelective(sysUsers);
+        int isSuccess = sysUsersMapper.insertSelective(sysUsers);
+        if (isSuccess <= 0) {
+            throw new BusinessException(messageSourceAccessor.getMessage("", "用户注册失败！"));
+        }
+        return true;
     }
 
 
