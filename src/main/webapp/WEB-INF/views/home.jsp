@@ -51,7 +51,133 @@
                         </c:when>
                         <c:when test="${sysMenu.href=='issue-info'}">
                             <div id="${sysMenu.href}" class="tab-pane">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">房源信息</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <form role="form">
+                                            <div class="form-group row">
+                                                <div class="col-lg-12">
+                                                    <label for="tittle">房屋标题</label>
+                                                    <input id="tittle" type="text" class="form-control"
+                                                           placeholder="标题长度不超过15个中文">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-12">
+                                                    <label for="desc">描述信息</label>
+                                                    <input id="desc" type="text" class="form-control"
+                                                           placeholder="描述信息不超过30个中文">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-6">
+                                                    <label for="price">售价</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">￥</span>
+                                                        <input id="price" type="text" class="form-control"
+                                                               placeholder="请输入整套销售价，单价会根据面积自动计算">
+                                                    </div>
 
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label for="floor">楼层</label>
+                                                    <div class="input-group">
+                                                        <input id="floor" type="text" class="form-control"
+                                                               placeholder="房屋所在楼层">
+                                                        <span class="input-group-addon">层</span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-6">
+                                                    <label for="floorArea">建筑面积</label>
+                                                    <div class="input-group">
+                                                        <input id="floorArea" type="text" class="form-control"
+                                                               placeholder="面积保留小数点后2位">
+                                                        <div class="input-group-addon">㎡</div>
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label for="poolArea">公摊面积</label>
+                                                    <div class="input-group">
+                                                        <input id="poolArea" type="text" class="form-control"
+                                                               placeholder="面积保留小数点后2位">
+                                                        <span class="input-group-addon">㎡</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-3">
+                                                    <label for="face">朝向</label>
+                                                    <select id="face"
+                                                            class="select2 form-control" style="width: 100%"></select>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label for="decoration">装修程度</label>
+                                                    <select id="decoration"
+                                                            class="select2 form-control" style="width: 100%"></select>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label for="layout">室内格局</label>
+                                                    <select id="layout"
+                                                            class="select2 form-control" style="width: 100%"></select>
+                                                </div>
+                                                <div class="col-lg-3">
+                                                    <label for="status">期房/现房</label>
+                                                    <select id="status"
+                                                            class="select2 form-control" style="width: 100%"></select>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-4">
+                                                    <label for="province">省份</label>
+                                                    <select id="province"
+                                                            class="select2 form-control" style="width: 100%"></select>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label for="city">城市</label>
+                                                    <select id="city"
+                                                            class="select2 form-control" style="width: 100%"></select>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label for="area">区域</label>
+                                                    <select id="area"
+                                                            class="select2 form-control" style="width: 100%"></select>
+                                                </div>
+
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-12">
+                                                    <label for="address">具体地址</label>
+                                                    <input id="address" type="text" class="form-control"
+                                                           placeholder="请输入详细地址">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-12">
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">
+                                                            <input class="radio radio-inline" type="radio"
+                                                                   name="viewMode" value="VR模式">&nbsp;VR模式
+                                                        </span>
+                                                        <span class="input-group-addon">
+                                                            <input class="radio radio-inline" type="radio"
+                                                                   name="viewMode" value="多图模式"> 多图模式
+                                                        </span>
+                                                        <input type="text" class="form-control">
+                                                        <span class="input-group-btn">
+                                                            <input class="btn btn-primary" type="file" value="添加图片"/>
+                                                        </span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
                             </div>
                         </c:when>
                     </c:choose>

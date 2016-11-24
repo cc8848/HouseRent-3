@@ -35,7 +35,7 @@ public class AddressServiceImpl implements IAddressService {
 
         List<SelectPoJo> selectPoJoList = AddressToSelectPoJo(provinceList);
 
-        selectPoJoList.add(0, new SelectPoJo(0, "省份"));
+        selectPoJoList.add(0, new SelectPoJo(0, "请选择省份"));
 
         return selectPoJoList;
     }
@@ -46,7 +46,7 @@ public class AddressServiceImpl implements IAddressService {
 
         List<SelectPoJo> selectPoJoList = AddressToSelectPoJo(cityList);
 
-        selectPoJoList.add(0, new SelectPoJo(0, "城市"));
+        selectPoJoList.add(0, new SelectPoJo(0, "请选择城市"));
 
         return selectPoJoList;
     }
@@ -57,7 +57,7 @@ public class AddressServiceImpl implements IAddressService {
 
         List<SelectPoJo> selectPoJoList = AddressToSelectPoJo(cityList);
 
-        selectPoJoList.add(0, new SelectPoJo(0, "城市"));
+        selectPoJoList.add(0, new SelectPoJo(0, "请选择城市"));
 
         return selectPoJoList;
 

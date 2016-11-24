@@ -29,22 +29,5 @@ public class HouseServiceImplTest {
                 "classpath:config/spring/applicationContext-ehcache.xml"});
     }
 
-    @Test
-    public void selectByHouseID() throws Exception {
-        IHouseService iHouseService = applicationContext.getBean(IHouseService.class);
-        House house = iHouseService.selectByHouseID(1);
-        System.out.println(house.toString());
-    }
-
-    @Test
-    public void selectNearHouse() throws Exception {
-        House house = new House();
-        Community community = new Community();
-        community.setId(1);
-        house.setCommunity(community);
-        IHouseService iHouseService = applicationContext.getBean(IHouseService.class);
-        PageInfo<Map<String, String>> nearHouseList = iHouseService.selectNearHouse(house, 0, 5);
-        System.out.print(nearHouseList);
-    }
 
 }

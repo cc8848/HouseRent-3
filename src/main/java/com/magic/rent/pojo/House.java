@@ -13,7 +13,9 @@ public class House implements Serializable {
     private Integer faceId;
     private HouseFaceKey houseFaceKey;
 
-    private Double areaNumber;
+    private Double floorArea;
+
+    private Double poolArea;
 
     private Double expectPrice;
 
@@ -79,13 +81,14 @@ public class House implements Serializable {
         this.faceId = faceId;
     }
 
-    public Double getAreaNumber() {
-        return areaNumber;
+    public Double getFloorArea() {
+        return floorArea;
     }
 
-    public void setAreaNumber(Double areaNumber) {
-        this.areaNumber = areaNumber;
+    public void setFloorArea(Double floorArea) {
+        this.floorArea = floorArea;
     }
+
 
     public Double getExpectPrice() {
         return expectPrice;
@@ -109,6 +112,14 @@ public class House implements Serializable {
 
     public void setFloor(Integer floor) {
         this.floor = floor;
+    }
+
+    public Double getPoolArea() {
+        return poolArea;
+    }
+
+    public void setPoolArea(Double poolArea) {
+        this.poolArea = poolArea;
     }
 
     public Integer getLayoutId() {
@@ -181,6 +192,10 @@ public class House implements Serializable {
 
     public void setViewModeID(Integer viewModeID) {
         this.viewModeID = viewModeID;
+    }
+
+    public ViewMode getViewMode() {
+        return viewMode;
     }
 
     public void setViewMode(ViewMode viewMode) {
@@ -259,7 +274,7 @@ public class House implements Serializable {
                 ", desc='" + desc + '\'' +
                 ", faceId=" + faceId +
                 ", houseFaceKey=" + houseFaceKey +
-                ", areaNumber=" + areaNumber +
+                ", areaNumber=" + floorArea +
                 ", expectPrice=" + expectPrice +
                 ", viewModeID=" + viewModeID +
                 ", viewMode=" + viewMode +

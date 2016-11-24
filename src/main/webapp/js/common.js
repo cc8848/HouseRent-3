@@ -24,14 +24,15 @@ function Modal() {
     }
 }
 
-function TableUtil(tableID) {
-
-    var table = $('#' + tableID);
-
-    this.getCellContent = function (rowNum, colNum) {
-        table.find('tbody tr:eq(3) td:eq(2)')
-    }
-
+function SelectUtil() {
+    var _this = this;
+    this.selectInit = function (target, URL) {
+        $.getJSON(URL, function (backData) {
+            target.select2({
+                data: backData
+            });
+        });
+    };
 }
 
 function refresh() {

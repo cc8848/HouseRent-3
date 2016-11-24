@@ -2,10 +2,11 @@
  * Created by wu on 2016/11/19.
  */
 $(document).ready(function () {
-    // var account = new Account();
-    // account.tableInit();
-    // var group = new Group();
-    // $("[href='#group-manage']").on('click', group.tableInit);
+    $('.select2').select2();
+    $("[href='#issue-info']").on('click', new IssueMenu().menuInit);
+    $('.radio').iCheck({
+        radioClass: 'iradio_flat-red'
+    });
 });
 
 function Account() {
@@ -122,3 +123,45 @@ function Group() {
     }
 }
 
+
+function IssueMenu() {
+
+    var _this = this;
+
+    var tittle = $('#tittle');
+
+    var desc = $('#desc');
+
+    var price = $('#price');
+
+    var floor = $('#floor');
+
+    var floorArea = $('#floorArea');
+
+    var poolArea = $('#poolArea');
+
+    var face = $('#face');
+
+    var decoration = $('#decoration');
+
+    var layout = $('#layout');
+
+    var status = $('#status');
+
+    var address = $('#address');
+
+    var location = new Location('#province', '#city', '#area');
+
+    this.menuInit = function () {
+        location.locationInit();
+        var array = [];
+        array.push();
+        var selectUtil = new SelectUtil()
+        selectUtil.selectInit(face, "/json/house_face.json");
+        selectUtil.selectInit(decoration, "/json/house_decoration.json");
+        selectUtil.selectInit(layout, "/json/house_layout.json");
+        selectUtil.selectInit(status, "/json/status_sell.json");
+    };
+
+
+}

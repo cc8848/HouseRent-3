@@ -10,15 +10,15 @@ function Location(provinceID, cityID, areaID) {
     var area = $(areaID);
 
     this.locationInit = function () {
-        $(".select2").select2();
         this.provinceInit();
         this.cityInit();
         this.areaInit();
     };
+
     this.provinceInit = function () {
         $.getJSON("/address/getAllProvince", function (data) {
             province.select2({
-                placeholder: "省份",
+                placeholder: "请选择省份",
                 data: data.data
             }).on("select2:select", function () {
                 var provinceID = province.select2("val");
@@ -38,9 +38,18 @@ function Location(provinceID, cityID, areaID) {
             });
         });
     };
+
+    this.getProvinceVal = function () {
+        return province.select2('val');
+    };
+
+    this.getProvinceText = function () {
+        return province.select2('data').text;
+    };
+
     this.cityInit = function () {
         city.select2({
-            placeholder: "城市"
+            placeholder: "请选择城市"
         }).on("select2:select", function () {
             var cityID = city.select2("val");
             area.html("");
@@ -58,9 +67,28 @@ function Location(provinceID, cityID, areaID) {
             });
         });
     };
+
+    this.getCityVal = function () {
+        return city.select2('val');
+    };
+
+    this.getCityText = function () {
+        return city.select2('data').text;
+    };
+
     this.areaInit = function () {
         area.select2({
-            placeholder: "地区"
+            placeholder: "请选择地区"
         });
     };
+
+    this.getAreaVal = function () {
+        return area.select2('val');
+    };
+
+    this.getAreaText = function () {
+        return area.select('data').text;
+    }
+
+
 }
