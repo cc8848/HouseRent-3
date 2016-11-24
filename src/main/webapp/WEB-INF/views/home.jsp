@@ -21,6 +21,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/icheckflat/red.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/fileinput.min.css">
 <body>
 <%--head start--%>
 <c:import url="/WEB-INF/common/showings_common_head.jsp"/>
@@ -32,8 +33,7 @@
             <div class="panel panel-default">
                 <ul class="list-group">
                     <c:forEach items="${sysMenuList}" var="sysMenu">
-                        <a href="#${sysMenu.href}" class="list-group-item" data-toggle="tab"><c:out
-                                value="${sysMenu.menuDesc}"/></a>
+                        <a href="#${sysMenu.href}" class="list-group-item" data-toggle="tab">${sysMenu.menuDesc}</a>
                     </c:forEach>
                     <a href="#" class="list-group-item">账户退出</a>
                 </ul>
@@ -159,16 +159,15 @@
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-lg-12">
+                                                    <label for="picture">图片上传</label>
+                                                    <input id="vrMode" class="radio radio-inline" type="radio"
+                                                           name="viewMode" value="VR模式">
+                                                    <label for="vrMode">VR模式</label>
+                                                    <input id="morePic" class="radio radio-inline" type="radio"
+                                                           name="viewMode" value="多图模式">
+                                                    <label for="morePic">多图模式</label>
                                                     <div class="input-group">
-                                                        <span class="input-group-addon">
-                                                            <input class="radio radio-inline" type="radio"
-                                                                   name="viewMode" value="VR模式">&nbsp;VR模式
-                                                        </span>
-                                                        <span class="input-group-addon">
-                                                            <input class="radio radio-inline" type="radio"
-                                                                   name="viewMode" value="多图模式"> 多图模式
-                                                        </span>
-                                                        <input type="text" class="form-control">
+                                                        <input id="picture" type="text" class="form-control">
                                                         <span class="input-group-btn">
                                                             <input class="btn btn-primary" type="file" value="添加图片"/>
                                                         </span>
@@ -193,6 +192,12 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/select2.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/fileup/canvas-to-blob.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/fileup/sortable.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/fileup/purify.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/fileup/fileinput.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/fileup/theme.js"></script>
+<script src="${pageContext.request.contextPath}/js/fileup/zh.js"></script>
 <script src="${pageContext.request.contextPath}/js/template.js"></script>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/js/location.js"></script>
