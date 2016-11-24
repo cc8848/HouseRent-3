@@ -11,32 +11,41 @@ public class House implements Serializable {
     private String desc;
 
     private Integer faceId;
+    private HouseFaceKey houseFaceKey;
 
     private Double areaNumber;
 
     private Double expectPrice;
 
-    private Integer viewMode;
+    private Integer viewModeID;
+    private ViewMode viewMode;
 
     private Integer communityId;
+    private Community community;
 
     private Integer floor;
 
     private Integer layoutId;
+    private HouseLayout houseLayout;
 
     private Integer decorationTypeId;
+    private DecorationType decorationType;
 
     private Integer provinceId;
+    private Province province;
 
     private Integer cityId;
+    private City city;
 
     private Integer areaId;
+    private Area area;
 
     private String address;
 
     private Integer houseStatusId;
+    private HouseStatus houseStatus;
 
-    private Byte enabled;
+    private boolean enabled;
 
     public Integer getId() {
         return id;
@@ -84,14 +93,6 @@ public class House implements Serializable {
 
     public void setExpectPrice(Double expectPrice) {
         this.expectPrice = expectPrice;
-    }
-
-    public Integer getViewMode() {
-        return viewMode;
-    }
-
-    public void setViewMode(Integer viewMode) {
-        this.viewMode = viewMode;
     }
 
     public Integer getCommunityId() {
@@ -166,11 +167,87 @@ public class House implements Serializable {
         this.houseStatusId = houseStatusId;
     }
 
-    public Byte getEnabled() {
+    public HouseFaceKey getHouseFaceKey() {
+        return houseFaceKey;
+    }
+
+    public void setHouseFaceKey(HouseFaceKey houseFaceKey) {
+        this.houseFaceKey = houseFaceKey;
+    }
+
+    public Integer getViewModeID() {
+        return viewModeID;
+    }
+
+    public void setViewModeID(Integer viewModeID) {
+        this.viewModeID = viewModeID;
+    }
+
+    public void setViewMode(ViewMode viewMode) {
+        this.viewMode = viewMode;
+    }
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
+    }
+
+    public HouseLayout getHouseLayout() {
+        return houseLayout;
+    }
+
+    public void setHouseLayout(HouseLayout houseLayout) {
+        this.houseLayout = houseLayout;
+    }
+
+    public DecorationType getDecorationType() {
+        return decorationType;
+    }
+
+    public void setDecorationType(DecorationType decorationType) {
+        this.decorationType = decorationType;
+    }
+
+    public Province getProvince() {
+        return province;
+    }
+
+    public void setProvince(Province province) {
+        this.province = province;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
+    public HouseStatus getHouseStatus() {
+        return houseStatus;
+    }
+
+    public void setHouseStatus(HouseStatus houseStatus) {
+        this.houseStatus = houseStatus;
+    }
+
+    public boolean isEnabled() {
         return enabled;
     }
 
-    public void setEnabled(Byte enabled) {
+    public void setEnabled(boolean enabled) {
         this.enabled = enabled;
     }
 
@@ -181,18 +258,27 @@ public class House implements Serializable {
                 ", tittle='" + tittle + '\'' +
                 ", desc='" + desc + '\'' +
                 ", faceId=" + faceId +
+                ", houseFaceKey=" + houseFaceKey +
                 ", areaNumber=" + areaNumber +
                 ", expectPrice=" + expectPrice +
+                ", viewModeID=" + viewModeID +
                 ", viewMode=" + viewMode +
                 ", communityId=" + communityId +
+                ", community=" + community +
                 ", floor=" + floor +
                 ", layoutId=" + layoutId +
+                ", houseLayout=" + houseLayout +
                 ", decorationTypeId=" + decorationTypeId +
+                ", decorationType=" + decorationType +
                 ", provinceId=" + provinceId +
+                ", province=" + province +
                 ", cityId=" + cityId +
+                ", city=" + city +
                 ", areaId=" + areaId +
+                ", area=" + area +
                 ", address='" + address + '\'' +
                 ", houseStatusId=" + houseStatusId +
+                ", houseStatus=" + houseStatus +
                 ", enabled=" + enabled +
                 '}';
     }

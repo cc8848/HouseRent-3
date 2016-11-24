@@ -6,9 +6,12 @@ import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.pojo.Community;
 import com.magic.rent.pojo.House;
 import com.magic.rent.pojo.HouseRecommend;
+import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IHouseRecommendService;
 import com.magic.rent.service.IHouseService;
+import com.magic.rent.util.HttpUtil;
 import com.magic.rent.util.JsonResult;
+import com.magic.rent.util.MyStringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -37,86 +40,6 @@ public class HouseController extends BaseController {
     @Autowired
     private IHouseRecommendService iHouseRecommendService;
 
-    private static Logger logger = LoggerFactory.getLogger(HouseController.class);
-
-    @ResponseBody
-    @RequestMapping("/selectHousesByCommunity")
-    public JsonResult selectHousesByCommunity(HttpServletRequest request) throws Exception {
-        //参数校验
-        if (StringUtils.isEmpty(request.getParameter("pageNum")))
-            throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageNumNotNull", "查询页码不能为空!"));
-        if (StringUtils.isEmpty(request.getParameter("pageSize")))
-            throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageSizeNotNull", "查询笔数不能为空!"));
-        if (StringUtils.isEmpty(request.getParameter("communityName")))
-            throw new ParameterException(messageSourceAccessor.getMessage("HouseService.communityNameNotNull", "社区名称不能为空!"));
-
-        //获取参数
-        int pageNum = Integer.valueOf(request.getParameter("pageNum").trim());
-        int pageSize = Integer.valueOf(request.getParameter("pageSize").trim());
-        String communityName = request.getParameter("communityName");
-
-        //封装条件对象
-        Community community = new Community();
-        community.setName(communityName);
-
-        //数据查询
-        PageInfo<House> housePageInfo = iHouseService.selectByCommunity(community, pageNum, pageSize);
-
-        return JsonResult.success(housePageInfo);
-    }
-
-    @ResponseBody
-    @RequestMapping("/selectHousesListBySearchTerms")
-    public JsonResult selectHousesListBySearchTerms(HttpServletRequest request) throws Exception {
-        //参数校验
-        if (StringUtils.isEmpty(request.getParameter("pageNum")))
-            throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageNumNotNull", "其实笔数不能为空!"));
-        if (StringUtils.isEmpty(request.getParameter("pageSize")))
-            throw new ParameterException(messageSourceAccessor.getMessage("PageHelper.pageSizeNotNull", "查询笔数不能为空!"));
-
-        //创建参数载体
-        Map<String, Object> parameterMap = new HashMap<String, Object>();
-
-        int pageNum = Integer.valueOf(request.getParameter("pageNum"));
-        int pageSize = Integer.valueOf(request.getParameter("pageSize"));
-
-        if (!StringUtils.isEmpty(request.getParameter("minRent")))
-            parameterMap.put("minRent", Double.valueOf(request.getParameter("minRent")));
-
-        if (!StringUtils.isEmpty(request.getParameter("maxRent")))
-            parameterMap.put("maxRent", Double.valueOf(request.getParameter("maxRent")));
-
-        if (!StringUtils.isEmpty(request.getParameter("areaName")))
-            parameterMap.put("areaName", request.getParameter("areaName"));
-
-        if (!StringUtils.isEmpty(request.getParameter("roomNum")))
-            parameterMap.put("roomNum", request.getParameter("roomNum"));
-
-        if (!StringUtils.isEmpty(request.getParameter("rentMode")))
-            parameterMap.put("rentMode", request.getParameter("rentMode"));
-
-        //查询信息
-        PageInfo<House> housePageInfo = iHouseService.selectBySearchTerms(parameterMap, pageNum, pageSize);
-
-        return JsonResult.success("", housePageInfo);
-    }
-
-    @RequestMapping("/detail")//获取房屋详细信息
-    public ModelAndView selectHouseDetailByHouseID(HttpServletRequest request) throws Exception {
-        if (StringUtils.isEmpty(request.getParameter("houseID")))
-            throw new ParameterException(messageSourceAccessor.getMessage("HouseService.houseID", "房屋ID不能为空!"));
-        //获取ID查询数据
-        int houseID = Integer.parseInt(request.getParameter("houseID"));
-        House house = iHouseService.selectByHouseID(houseID);
-        logger.info(house.toString());
-        PageInfo<Map<String, String>> nearHouse = iHouseService.selectNearHouse(house, 0, 4);
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("house", house);
-        model.put("nearPageHouse", nearHouse);
-        //返回房屋详情页面（goods商品页面）
-        return new ModelAndView("goods", model);
-    }
-
     @ResponseBody
     @RequestMapping("/selectRecommend")//获取推荐楼房信息
     public JsonResult selectRecommend() throws Exception {
@@ -124,5 +47,49 @@ public class HouseController extends BaseController {
         HouseRecommend houseRecommend = iHouseRecommendService.selectTodayRecommend();
 
         return JsonResult.success(houseRecommend);
+    }
+
+    @ResponseBody
+    @RequestMapping("/issue")
+    public JsonResult issueHouse(HttpServletRequest request) throws Exception {
+
+        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+
+        //获取参数
+        String tittle = MyStringUtil.checkParameter(request.getParameter("tittle"), "标题不能为空！");
+        String desc = MyStringUtil.checkParameter(request.getParameter("desc"), "描述不能为空！");
+        int faceID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("faceID"), "朝向不能为空！"));
+        String address = MyStringUtil.checkParameter(request.getParameter("address"), "地址不能为空！");
+        double price = Double.parseDouble(MyStringUtil.checkParameter(request.getParameter("price"), "售价不能为空！"));
+        int viewMode = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("viewMode"), "浏览模式不能为空！"));
+        int community = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("community"), "社区不能为空"));
+        int floor = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("floor"), "楼层不能为空！"));
+        int layout = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("layout"), "房屋布局不能为空！"));
+        int decorationType = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("decorationType"), "装修种类不能为空！"));
+        int province = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("province"), "省份不能为空！"));
+        int city = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("city"), "城市不能为空！"));
+        int area = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("area"), "地区不能为空！"));
+        int status = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("status"), "房屋状态不能为空！"));
+        //封装对象
+        House house = new House();
+        house.setTittle(tittle);
+        house.setDesc(desc);
+        house.setAddress(address);
+        house.setFaceId(faceID);
+        house.setExpectPrice(price);
+        house.setViewModeID(viewMode);
+        house.setCommunityId(community);
+        house.setFloor(floor);
+        house.setLayoutId(layout);
+        house.setDecorationTypeId(decorationType);
+        house.setProvinceId(province);
+        house.setCityId(city);
+        house.setAreaId(area);
+        house.setHouseStatusId(status);
+        house.setEnabled(true);
+
+        iHouseService.issueHouse(house, sysUsers.getUserId());
+
+        return JsonResult.success();
     }
 }

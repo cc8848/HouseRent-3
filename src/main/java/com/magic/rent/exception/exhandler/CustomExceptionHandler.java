@@ -1,5 +1,7 @@
 package com.magic.rent.exception.exhandler;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 import org.springframework.web.servlet.HandlerExceptionResolver;
 import org.springframework.web.servlet.ModelAndView;
@@ -16,7 +18,10 @@ import javax.servlet.http.HttpServletResponse;
 
 public class CustomExceptionHandler implements HandlerExceptionResolver {
 
+    private static Logger logger = LoggerFactory.getLogger(CustomExceptionHandler.class);
+
     public ModelAndView resolveException(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception ex) {
+        logger.info(ex.getMessage());
         return model(httpServletRequest, ex);
     }
 

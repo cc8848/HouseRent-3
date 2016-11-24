@@ -1,21 +1,15 @@
 package com.magic.rent.service.impl;
 
-import com.github.pagehelper.PageHelper;
-import com.github.pagehelper.PageInfo;
-import com.magic.rent.exception.custom.ParameterException;
+import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.mapper.HouseMapper;
-import com.magic.rent.pojo.Community;
+import com.magic.rent.mapper.HouseRelateUserMapper;
 import com.magic.rent.pojo.House;
+import com.magic.rent.pojo.HouseRelateUser;
 import com.magic.rent.service.IHouseService;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.context.support.MessageSourceAccessor;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
-
-import java.util.List;
-import java.util.Map;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -28,25 +22,27 @@ public class HouseServiceImpl implements IHouseService {
     @Autowired
     private HouseMapper houseMapper;
 
-    public PageInfo<House> selectByCommunity(Community community, int pageNum, int pageSize) throws Exception {
-        PageHelper.startPage(pageNum, pageSize);
-        List<House> houseList = houseMapper.selectByCommunity(community);
-        return new PageInfo<House>(houseList);
-    }
+    @Autowired
+    private HouseRelateUserMapper houseRelateUserMapper;
 
-    public PageInfo<House> selectBySearchTerms(Map<String, Object> parameterMap, int pageNum, int pageSize) throws Exception {
-        PageHelper.startPage(pageNum, pageSize);
-        List<House> houseList = houseMapper.selectBySearchTerms(parameterMap);
-        return new PageInfo<House>(houseList);
-    }
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    public boolean issueHouse(House house, int userID) {
+        int houseID = houseMapper.insert(house);
 
-    public House selectByHouseID(int houseID) throws Exception {
-        return houseMapper.selectHouseDetailByID(houseID);
-    }
+        if (houseID <= 0) {
+            throw new BusinessException("添加房屋信息失败！");
+        }
 
-    public PageInfo<Map<String, String>> selectNearHouse(House house, int pageNum, int pageSize) throws Exception {
-        PageHelper.startPage(pageNum, pageSize);
-        List<Map<String, String>> nearHouseList = houseMapper.selectNearHouse(house);
-        return new PageInfo<Map<String, String>>(nearHouseList);
+        HouseRelateUser relate = new HouseRelateUser();
+        relate.setUserId(userID);
+        relate.setHouseId(houseID);
+
+        int rows = houseRelateUserMapper.insert(relate);
+
+        if (rows <= 0) {
+            throw new BusinessException("建立房屋与用户关系失败！");
+        }
+
+        return true;
     }
 }

@@ -1,5 +1,8 @@
 package com.magic.rent.util;
 
+import com.magic.rent.exception.custom.LoginTimeOutException;
+import com.magic.rent.pojo.SysUsers;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
@@ -58,5 +61,22 @@ public class HttpUtil {
             ip = request.getRemoteAddr();
         }
         return ip;
+    }
+
+    /**
+     * 从Session中获取已登录的用户信息
+     *
+     * @param request
+     * @return sysUsers
+     */
+    public static SysUsers getSessionUser(HttpServletRequest request) {
+
+        SysUsers sysUsers = (SysUsers) request.getSession().getAttribute("user");
+
+        if (sysUsers == null) {
+            throw new LoginTimeOutException("用户登录超时或尚未登录！请重新登录！");
+        } else {
+            return sysUsers;
+        }
     }
 }
