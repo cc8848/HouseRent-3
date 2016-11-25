@@ -14,5 +14,5 @@ import java.util.Map;
  */
 public interface IHouseService {
 
-    boolean issueHouse(House house,int userID);
+    int issueHouse(House house,int userID);
 }

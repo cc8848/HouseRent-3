@@ -41,7 +41,6 @@
     </div><!-- /.modal-dialog -->
 </div>
 <!-- /.modal -->
-<!-- /.modal -->
 <nav class="navbar navbar-fixed-top navbar-default" role="navigation" style="margin-bottom: 0">
     <div class="container">
         <div class="row">

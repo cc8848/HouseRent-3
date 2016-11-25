@@ -480,8 +480,7 @@
     </column>
     <column id="124" parent="14" name="ENABLED">
       <Position>18</Position>
-      <Comment>房屋是否可用，0是不可用，1是可用</Comment>
-      <DataType>tinyint(2)|0</DataType>
+      <DataType>tinyint(1)|0</DataType>
       <NotNull>1</NotNull>
       <DefaultExpression>&apos;1&apos;</DefaultExpression>
     </column>
@@ -491,30 +490,30 @@
       <DataType>varchar(50)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="126" parent="14" name="DESC">
-      <Position>3</Position>
-      <Comment>描述</Comment>
-      <DataType>varchar(150)|0</DataType>
-    </column>
-    <column id="127" parent="14" name="FACE_ID">
+    <column id="126" parent="14" name="FACE_ID">
       <Position>4</Position>
       <DataType>int(10)|0</DataType>
     </column>
-    <column id="128" parent="14" name="VIEW_MODE_ID">
+    <column id="127" parent="14" name="VIEW_MODE_ID">
       <Position>8</Position>
       <Comment>VR资源地址</Comment>
       <DataType>int(10)|0</DataType>
     </column>
-    <column id="129" parent="14" name="FLOOR_AREA">
+    <column id="128" parent="14" name="FLOOR_AREA">
       <Position>5</Position>
       <Comment>建筑面积</Comment>
       <DataType>double(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="130" parent="14" name="POOL_AREA">
+    <column id="129" parent="14" name="POOL_AREA">
       <Position>6</Position>
       <Comment>公摊面积</Comment>
       <DataType>double(100)|0</DataType>
+    </column>
+    <column id="130" parent="14" name="DESCRIPTION">
+      <Position>3</Position>
+      <Comment>描述</Comment>
+      <DataType>varchar(150)|0</DataType>
     </column>
     <index id="131" parent="14" name="AREA_ID">
       <ColNames>AREA_ID</ColNames>

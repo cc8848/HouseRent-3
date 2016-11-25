@@ -23,6 +23,15 @@
     <mvc:resources mapping="/images/**" location="/images/"/>
     <mvc:resources mapping="/json/**" location="/json/"/>
 
+
+    <!--文件上传组件-->
+    <bean id="multipartResolver" class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+        <property name="defaultEncoding" value="utf-8"/>
+        <property name="maxUploadSize" value="10485760000"/>
+        <property name="maxInMemorySize" value="40960"/>
+    </bean>
+
+
     <!-- rest json related... start -->
     <bean id="mappingJacksonHttpMessageConverter"
           class="org.springframework.http.converter.json.MappingJackson2HttpMessageConverter">

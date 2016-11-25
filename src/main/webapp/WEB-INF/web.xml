@@ -9,6 +9,13 @@
         <param-name>contextConfigLocation</param-name>
         <param-value>classpath*:config/spring/applicationContext-*.xml</param-value>
     </context-param>
+    <context-param>
+        <param-name>webAppRootKey</param-name>
+        <param-value>web.root</param-value>
+    </context-param>
+    <listener>
+        <listener-class>org.springframework.web.util.WebAppRootListener</listener-class>
+    </listener>
     <!--配置spring listener-->
     <listener>
         <listener-class>org.springframework.web.context.ContextLoaderListener</listener-class>

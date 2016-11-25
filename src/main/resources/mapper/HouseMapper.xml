@@ -4,12 +4,12 @@
     <resultMap id="BaseResultMap" type="com.magic.rent.pojo.House">
         <id column="ID" property="id" jdbcType="INTEGER"/>
         <result column="TITTLE" property="tittle" jdbcType="VARCHAR"/>
-        <result column="DESC" property="desc" jdbcType="VARCHAR"/>
+        <result column="DESCRIPTION" property="description" jdbcType="VARCHAR"/>
         <result column="FACE_ID" property="faceId" jdbcType="INTEGER"/>
         <result column="FLOOR_AREA" property="floorArea" jdbcType="DOUBLE"/>
-        <result column="POOL_AREA" property="poolArea" jdbcType="DOUBLE" />
+        <result column="POOL_AREA" property="poolArea" jdbcType="DOUBLE"/>
         <result column="EXPECT_PRICE" property="expectPrice" jdbcType="DOUBLE"/>
-        <result column="VIEW_MODE_ID" property="viewModeID" jdbcType="INTEGER"/>
+        <result column="VIEW_MODE_ID" property="viewModeId" jdbcType="INTEGER"/>
         <result column="COMMUNITY_ID" property="communityId" jdbcType="INTEGER"/>
         <result column="FLOOR" property="floor" jdbcType="INTEGER"/>
         <result column="LAYOUT_ID" property="layoutId" jdbcType="INTEGER"/>
@@ -19,12 +19,12 @@
         <result column="AREA_ID" property="areaId" jdbcType="INTEGER"/>
         <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
         <result column="HOUSE_STATUS_ID" property="houseStatusId" jdbcType="INTEGER"/>
-        <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
+        <result column="ENABLED" property="enabled" jdbcType="BIT"/>
     </resultMap>
     <sql id="Base_Column_List">
-    ID, TITTLE, DESC, FACE_ID, FLOOR_AREA,POOL_AREA, EXPECT_PRICE, VIEW_MODE_ID, COMMUNITY_ID, FLOOR,
-    LAYOUT_ID, DECORATION_TYPE_ID, PROVINCE_ID, CITY_ID, AREA_ID, ADDRESS, HOUSE_STATUS_ID, 
-    ENABLED
+    ID, TITTLE, DESCRIPTION, FACE_ID, FLOOR_AREA, POOL_AREA, EXPECT_PRICE, VIEW_MODE_ID, 
+    COMMUNITY_ID, FLOOR, LAYOUT_ID, DECORATION_TYPE_ID, PROVINCE_ID, CITY_ID, AREA_ID, 
+    ADDRESS, HOUSE_STATUS_ID, ENABLED
   </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
@@ -36,21 +36,24 @@
     delete from HOUSE
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.magic.rent.pojo.House" useGeneratedKeys="true" keyProperty="id">
-    insert into HOUSE (ID, TITTLE, DESC, 
-      FACE_ID, FLOOR_AREA,POOL_AREA, EXPECT_PRICE,
-      VIEW_MODE_ID, COMMUNITY_ID, FLOOR,
-      LAYOUT_ID, DECORATION_TYPE_ID, PROVINCE_ID, 
-      CITY_ID, AREA_ID, ADDRESS, 
-      HOUSE_STATUS_ID, ENABLED)
-    values (#{id,jdbcType=INTEGER}, #{tittle,jdbcType=VARCHAR}, #{desc,jdbcType=VARCHAR}, 
-      #{faceId,jdbcType=INTEGER}, #{floorArea,jdbcType=DOUBLE},#{poolArea,jdbcType=DOUBLE}, #{expectPrice,jdbcType=DOUBLE},
-      #{viewModeID,jdbcType=INTEGER}, #{communityId,jdbcType=INTEGER}, #{floor,jdbcType=INTEGER},
-      #{layoutId,jdbcType=INTEGER}, #{decorationTypeId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, 
-      #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, 
-      #{houseStatusId,jdbcType=INTEGER}, #{enabled,jdbcType=TINYINT})
+    <insert id="insert" parameterType="com.magic.rent.pojo.House">
+    insert into HOUSE (ID, TITTLE, DESCRIPTION, 
+      FACE_ID, FLOOR_AREA, POOL_AREA, 
+      EXPECT_PRICE, VIEW_MODE_ID, COMMUNITY_ID, 
+      FLOOR, LAYOUT_ID, DECORATION_TYPE_ID, 
+      PROVINCE_ID, CITY_ID, AREA_ID, 
+      ADDRESS, HOUSE_STATUS_ID, ENABLED
+      )
+    values (#{id,jdbcType=INTEGER}, #{tittle,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
+      #{faceId,jdbcType=INTEGER}, #{floorArea,jdbcType=DOUBLE}, #{poolArea,jdbcType=DOUBLE}, 
+      #{expectPrice,jdbcType=DOUBLE}, #{viewModeId,jdbcType=INTEGER}, #{communityId,jdbcType=INTEGER}, 
+      #{floor,jdbcType=INTEGER}, #{layoutId,jdbcType=INTEGER}, #{decorationTypeId,jdbcType=INTEGER}, 
+      #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{address,jdbcType=VARCHAR}, #{houseStatusId,jdbcType=INTEGER}, #{enabled,jdbcType=BIT}
+      )
   </insert>
-    <insert id="insertSelective" parameterType="com.magic.rent.pojo.House">
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.House" keyColumn="ID" keyProperty="id"
+            useGeneratedKeys="true">
         insert into HOUSE
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -59,8 +62,8 @@
             <if test="tittle != null">
                 TITTLE,
             </if>
-            <if test="desc != null">
-                DESC,
+            <if test="description != null">
+                DESCRIPTION,
             </if>
             <if test="faceId != null">
                 FACE_ID,
@@ -74,7 +77,7 @@
             <if test="expectPrice != null">
                 EXPECT_PRICE,
             </if>
-            <if test="viewModeID != null">
+            <if test="viewModeId != null">
                 VIEW_MODE_ID,
             </if>
             <if test="communityId != null">
@@ -115,8 +118,8 @@
             <if test="tittle != null">
                 #{tittle,jdbcType=VARCHAR},
             </if>
-            <if test="desc != null">
-                #{desc,jdbcType=VARCHAR},
+            <if test="description != null">
+                #{description,jdbcType=VARCHAR},
             </if>
             <if test="faceId != null">
                 #{faceId,jdbcType=INTEGER},
@@ -130,8 +133,8 @@
             <if test="expectPrice != null">
                 #{expectPrice,jdbcType=DOUBLE},
             </if>
-            <if test="viewModeID != null">
-                #{viewModeID,jdbcType=INTEGER},
+            <if test="viewModeId != null">
+                #{viewModeId,jdbcType=INTEGER},
             </if>
             <if test="communityId != null">
                 #{communityId,jdbcType=INTEGER},
@@ -161,7 +164,7 @@
                 #{houseStatusId,jdbcType=INTEGER},
             </if>
             <if test="enabled != null">
-                #{enabled,jdbcType=TINYINT},
+                #{enabled,jdbcType=BIT},
             </if>
         </trim>
     </insert>
@@ -171,8 +174,8 @@
             <if test="tittle != null">
                 TITTLE = #{tittle,jdbcType=VARCHAR},
             </if>
-            <if test="desc != null">
-                DESC = #{desc,jdbcType=VARCHAR},
+            <if test="description != null">
+                DESCRIPTION = #{description,jdbcType=VARCHAR},
             </if>
             <if test="faceId != null">
                 FACE_ID = #{faceId,jdbcType=INTEGER},
@@ -181,13 +184,13 @@
                 FLOOR_AREA = #{floorArea,jdbcType=DOUBLE},
             </if>
             <if test="poolArea != null">
-                POOl_AREA = #{poolArea,jdbcType=DOUBLE},
+                POOL_AREA = #{poolArea,jdbcType=DOUBLE},
             </if>
             <if test="expectPrice != null">
                 EXPECT_PRICE = #{expectPrice,jdbcType=DOUBLE},
             </if>
-            <if test="viewModeID != null">
-                VIEW_MODE_ID = #{viewModeID,jdbcType=INTEGER},
+            <if test="viewModeId != null">
+                VIEW_MODE_ID = #{viewModeId,jdbcType=INTEGER},
             </if>
             <if test="communityId != null">
                 COMMUNITY_ID = #{communityId,jdbcType=INTEGER},
@@ -217,7 +220,7 @@
                 HOUSE_STATUS_ID = #{houseStatusId,jdbcType=INTEGER},
             </if>
             <if test="enabled != null">
-                ENABLED = #{enabled,jdbcType=TINYINT},
+                ENABLED = #{enabled,jdbcType=BIT},
             </if>
         </set>
         where ID = #{id,jdbcType=INTEGER}
@@ -225,12 +228,12 @@
     <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.House">
     update HOUSE
     set TITTLE = #{tittle,jdbcType=VARCHAR},
-      DESC = #{desc,jdbcType=VARCHAR},
+      DESCRIPTION = #{description,jdbcType=VARCHAR},
       FACE_ID = #{faceId,jdbcType=INTEGER},
       FLOOR_AREA = #{floorArea,jdbcType=DOUBLE},
       POOL_AREA = #{poolArea,jdbcType=DOUBLE},
       EXPECT_PRICE = #{expectPrice,jdbcType=DOUBLE},
-      VIEW_MODE_ID = #{viewModeID,jdbcType=INTEGER},
+      VIEW_MODE_ID = #{viewModeId,jdbcType=INTEGER},
       COMMUNITY_ID = #{communityId,jdbcType=INTEGER},
       FLOOR = #{floor,jdbcType=INTEGER},
       LAYOUT_ID = #{layoutId,jdbcType=INTEGER},
@@ -240,7 +243,7 @@
       AREA_ID = #{areaId,jdbcType=INTEGER},
       ADDRESS = #{address,jdbcType=VARCHAR},
       HOUSE_STATUS_ID = #{houseStatusId,jdbcType=INTEGER},
-      ENABLED = #{enabled,jdbcType=TINYINT}
+      ENABLED = #{enabled,jdbcType=BIT}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

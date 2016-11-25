@@ -26,6 +26,34 @@
 <%--head start--%>
 <c:import url="/WEB-INF/common/showings_common_head.jsp"/>
 <%--head end--%>
+<div id="uploadViewModal" class="modal fade">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
+                        class="sr-only">Close</span></button>
+                <h4 id="upload-modal-tittle" class="modal-title">请上传房屋图片</h4>
+            </div>
+            <div class="modal-body">
+                <form role="form" method="post" enctype="multipart/form-data" action="/file/upload">
+                    <div class="form-group row">
+                        <div class="col-lg-12">
+                            <label for="file">图片上传</label>
+                            <input id="vrMode" class="radio radio-inline" type="radio"
+                                   name="viewMode" value="1" checked>
+                            <label for="vrMode">VR模式</label>
+                            <input id="morePic" class="radio radio-inline" type="radio"
+                                   name="viewMode" value="2">
+                            <label for="morePic">多图模式</label>
+                            <input id="file" name="file" class="file-input " type="file"/>
+                        </div>
+                    </div>
+                    <sec:csrfInput/>
+                </form>
+            </div>
+        </div><!-- /.modal-content -->
+    </div><!-- /.modal-dialog -->
+</div>
 <div class="white-divider-md"></div>
 <div class="container">
     <div class="row">
@@ -61,14 +89,14 @@
                                                 <div class="col-lg-12">
                                                     <label for="tittle">房屋标题</label>
                                                     <input id="tittle" type="text" class="form-control"
-                                                           placeholder="标题长度不超过15个中文">
+                                                           placeholder="标题长度不超过15个中文" name="tittle">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-lg-12">
                                                     <label for="desc">描述信息</label>
                                                     <input id="desc" type="text" class="form-control"
-                                                           placeholder="描述信息不超过30个中文">
+                                                           placeholder="描述信息不超过30个中文" name="desc">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -77,7 +105,7 @@
                                                     <div class="input-group">
                                                         <span class="input-group-addon">￥</span>
                                                         <input id="price" type="text" class="form-control"
-                                                               placeholder="请输入整套销售价，单价会根据面积自动计算">
+                                                               placeholder="请输入整套销售价，单价会根据面积自动计算" name="price">
                                                     </div>
 
                                                 </div>
@@ -85,7 +113,7 @@
                                                     <label for="floor">楼层</label>
                                                     <div class="input-group">
                                                         <input id="floor" type="text" class="form-control"
-                                                               placeholder="房屋所在楼层">
+                                                               placeholder="房屋所在楼层" name="floor">
                                                         <span class="input-group-addon">层</span>
                                                     </div>
 
@@ -96,7 +124,7 @@
                                                     <label for="floorArea">建筑面积</label>
                                                     <div class="input-group">
                                                         <input id="floorArea" type="text" class="form-control"
-                                                               placeholder="面积保留小数点后2位">
+                                                               placeholder="面积保留小数点后2位" name="floorArea">
                                                         <div class="input-group-addon">㎡</div>
                                                     </div>
 
@@ -105,7 +133,7 @@
                                                     <label for="poolArea">公摊面积</label>
                                                     <div class="input-group">
                                                         <input id="poolArea" type="text" class="form-control"
-                                                               placeholder="面积保留小数点后2位">
+                                                               placeholder="面积保留小数点后2位" name="poolArea">
                                                         <span class="input-group-addon">㎡</span>
                                                     </div>
                                                 </div>
@@ -114,39 +142,46 @@
                                                 <div class="col-lg-3">
                                                     <label for="face">朝向</label>
                                                     <select id="face"
-                                                            class="select2 form-control" style="width: 100%"></select>
+                                                            class="select2 form-control" style="width: 100%"
+                                                            name="face"></select>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label for="decoration">装修程度</label>
                                                     <select id="decoration"
-                                                            class="select2 form-control" style="width: 100%"></select>
+                                                            class="select2 form-control" style="width: 100%"
+                                                            name="decoration"></select>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label for="layout">室内格局</label>
                                                     <select id="layout"
-                                                            class="select2 form-control" style="width: 100%"></select>
+                                                            class="select2 form-control" style="width: 100%"
+                                                            name="layout"></select>
                                                 </div>
                                                 <div class="col-lg-3">
                                                     <label for="status">期房/现房</label>
                                                     <select id="status"
-                                                            class="select2 form-control" style="width: 100%"></select>
+                                                            class="select2 form-control" style="width: 100%"
+                                                            name="status"></select>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-lg-4">
                                                     <label for="province">省份</label>
                                                     <select id="province"
-                                                            class="select2 form-control" style="width: 100%"></select>
+                                                            class="select2 form-control" style="width: 100%"
+                                                            name="province"></select>
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <label for="city">城市</label>
                                                     <select id="city"
-                                                            class="select2 form-control" style="width: 100%"></select>
+                                                            class="select2 form-control" style="width: 100%"
+                                                            name="city"></select>
                                                 </div>
                                                 <div class="col-lg-4">
                                                     <label for="area">区域</label>
                                                     <select id="area"
-                                                            class="select2 form-control" style="width: 100%"></select>
+                                                            class="select2 form-control" style="width: 100%"
+                                                            name="area"></select>
                                                 </div>
 
                                             </div>
@@ -154,23 +189,27 @@
                                                 <div class="col-lg-12">
                                                     <label for="address">具体地址</label>
                                                     <input id="address" type="text" class="form-control"
-                                                           placeholder="请输入详细地址">
+                                                           placeholder="请输入详细地址" name="address">
                                                 </div>
                                             </div>
+                                                <%--<div class="form-group row">--%>
+                                                <%--<div class="col-lg-12">--%>
+                                                <%--<label for="file">图片上传</label>--%>
+                                                <%--<input id="vrMode" class="radio radio-inline" type="radio"--%>
+                                                <%--name="viewMode" value="1">--%>
+                                                <%--<label for="vrMode">VR模式</label>--%>
+                                                <%--<input id="morePic" class="radio radio-inline" type="radio"--%>
+                                                <%--name="viewMode" value="2">--%>
+                                                <%--<label for="morePic">多图模式</label>--%>
+                                                <%--<input id="file" name="file" class="file-input " type="file"/>--%>
+                                                <%--</div>--%>
+                                                <%--</div>--%>
                                             <div class="form-group row">
                                                 <div class="col-lg-12">
-                                                    <label for="picture">图片上传</label>
-                                                    <input id="vrMode" class="radio radio-inline" type="radio"
-                                                           name="viewMode" value="VR模式">
-                                                    <label for="vrMode">VR模式</label>
-                                                    <input id="morePic" class="radio radio-inline" type="radio"
-                                                           name="viewMode" value="多图模式">
-                                                    <label for="morePic">多图模式</label>
-                                                    <div class="input-group">
-                                                        <input id="picture" type="text" class="form-control">
-                                                        <span class="input-group-btn">
-                                                            <input class="btn btn-primary" type="file" value="添加图片"/>
-                                                        </span>
+                                                    <div class="btn-group pull-right">
+                                                        <button id="issueSubmit" type="button" class="btn btn-primary">
+                                                            提交信息
+                                                        </button>
                                                     </div>
                                                 </div>
                                             </div>
@@ -192,26 +231,11 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/select2.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/fileup/canvas-to-blob.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/fileup/sortable.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/fileup/purify.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/fileup/fileinput.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/fileup/theme.js"></script>
 <script src="${pageContext.request.contextPath}/js/fileup/zh.js"></script>
 <script src="${pageContext.request.contextPath}/js/template.js"></script>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/js/location.js"></script>
 <script src="${pageContext.request.contextPath}/js/home.js"></script>
-<script id="auditing-table-content" type="text/html">
-    {{each list as userSeller}}
-    <tr>
-        <td></td>
-        <td>{{userSeller.id}}</td>
-        <td>{{userSeller.sysUsers.name}}</td>
-        <td>{{userSeller.sysUsers.username}}</td>
-        <td><input type="checkbox" class="checkbox"></td>
-    </tr>
-    {{/each}}
-</script>
 </body>
 </html>

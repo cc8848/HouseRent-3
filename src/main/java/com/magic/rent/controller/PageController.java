@@ -3,6 +3,7 @@ package com.magic.rent.controller;
 import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.pojo.HouseRecommend;
 import com.magic.rent.service.IHouseRecommendService;
+import com.magic.rent.util.FileUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +30,13 @@ public class PageController extends BaseController {
     @RequestMapping("/error")
     public String error() {
         return "error";
+    }
+
+    @RequestMapping("/test")
+    public ModelAndView test() {
+
+
+        return new ModelAndView("test").addObject("message", FileUtil.getVRFilePath(2));
     }
 
 }

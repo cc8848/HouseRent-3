@@ -1,17 +1,13 @@
 package com.magic.rent.pojo;
 
-import java.io.Serializable;
-
-public class House implements Serializable {
-    private static final long serialVersionUID = -2530142620440534117L;
+public class House {
     private Integer id;
 
     private String tittle;
 
-    private String desc;
+    private String description;
 
     private Integer faceId;
-    private HouseFaceKey houseFaceKey;
 
     private Double floorArea;
 
@@ -19,35 +15,27 @@ public class House implements Serializable {
 
     private Double expectPrice;
 
-    private Integer viewModeID;
-    private ViewMode viewMode;
+    private Integer viewModeId;
 
     private Integer communityId;
-    private Community community;
 
     private Integer floor;
 
     private Integer layoutId;
-    private HouseLayout houseLayout;
 
     private Integer decorationTypeId;
-    private DecorationType decorationType;
 
     private Integer provinceId;
-    private Province province;
 
     private Integer cityId;
-    private City city;
 
     private Integer areaId;
-    private Area area;
 
     private String address;
 
     private Integer houseStatusId;
-    private HouseStatus houseStatus;
 
-    private boolean enabled;
+    private Boolean enabled;
 
     public Integer getId() {
         return id;
@@ -65,12 +53,12 @@ public class House implements Serializable {
         this.tittle = tittle == null ? null : tittle.trim();
     }
 
-    public String getDesc() {
-        return desc;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDesc(String desc) {
-        this.desc = desc == null ? null : desc.trim();
+    public void setDescription(String description) {
+        this.description = description == null ? null : description.trim();
     }
 
     public Integer getFaceId() {
@@ -89,6 +77,13 @@ public class House implements Serializable {
         this.floorArea = floorArea;
     }
 
+    public Double getPoolArea() {
+        return poolArea;
+    }
+
+    public void setPoolArea(Double poolArea) {
+        this.poolArea = poolArea;
+    }
 
     public Double getExpectPrice() {
         return expectPrice;
@@ -96,6 +91,14 @@ public class House implements Serializable {
 
     public void setExpectPrice(Double expectPrice) {
         this.expectPrice = expectPrice;
+    }
+
+    public Integer getViewModeId() {
+        return viewModeId;
+    }
+
+    public void setViewModeId(Integer viewModeId) {
+        this.viewModeId = viewModeId;
     }
 
     public Integer getCommunityId() {
@@ -112,14 +115,6 @@ public class House implements Serializable {
 
     public void setFloor(Integer floor) {
         this.floor = floor;
-    }
-
-    public Double getPoolArea() {
-        return poolArea;
-    }
-
-    public void setPoolArea(Double poolArea) {
-        this.poolArea = poolArea;
     }
 
     public Integer getLayoutId() {
@@ -178,123 +173,11 @@ public class House implements Serializable {
         this.houseStatusId = houseStatusId;
     }
 
-    public HouseFaceKey getHouseFaceKey() {
-        return houseFaceKey;
-    }
-
-    public void setHouseFaceKey(HouseFaceKey houseFaceKey) {
-        this.houseFaceKey = houseFaceKey;
-    }
-
-    public Integer getViewModeID() {
-        return viewModeID;
-    }
-
-    public void setViewModeID(Integer viewModeID) {
-        this.viewModeID = viewModeID;
-    }
-
-    public ViewMode getViewMode() {
-        return viewMode;
-    }
-
-    public void setViewMode(ViewMode viewMode) {
-        this.viewMode = viewMode;
-    }
-
-    public Community getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(Community community) {
-        this.community = community;
-    }
-
-    public HouseLayout getHouseLayout() {
-        return houseLayout;
-    }
-
-    public void setHouseLayout(HouseLayout houseLayout) {
-        this.houseLayout = houseLayout;
-    }
-
-    public DecorationType getDecorationType() {
-        return decorationType;
-    }
-
-    public void setDecorationType(DecorationType decorationType) {
-        this.decorationType = decorationType;
-    }
-
-    public Province getProvince() {
-        return province;
-    }
-
-    public void setProvince(Province province) {
-        this.province = province;
-    }
-
-    public City getCity() {
-        return city;
-    }
-
-    public void setCity(City city) {
-        this.city = city;
-    }
-
-    public Area getArea() {
-        return area;
-    }
-
-    public void setArea(Area area) {
-        this.area = area;
-    }
-
-    public HouseStatus getHouseStatus() {
-        return houseStatus;
-    }
-
-    public void setHouseStatus(HouseStatus houseStatus) {
-        this.houseStatus = houseStatus;
-    }
-
-    public boolean isEnabled() {
+    public Boolean getEnabled() {
         return enabled;
     }
 
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
-    }
-
-    @Override
-    public String toString() {
-        return "House{" +
-                "id=" + id +
-                ", tittle='" + tittle + '\'' +
-                ", desc='" + desc + '\'' +
-                ", faceId=" + faceId +
-                ", houseFaceKey=" + houseFaceKey +
-                ", areaNumber=" + floorArea +
-                ", expectPrice=" + expectPrice +
-                ", viewModeID=" + viewModeID +
-                ", viewMode=" + viewMode +
-                ", communityId=" + communityId +
-                ", community=" + community +
-                ", floor=" + floor +
-                ", layoutId=" + layoutId +
-                ", houseLayout=" + houseLayout +
-                ", decorationTypeId=" + decorationTypeId +
-                ", decorationType=" + decorationType +
-                ", provinceId=" + provinceId +
-                ", province=" + province +
-                ", cityId=" + cityId +
-                ", city=" + city +
-                ", areaId=" + areaId +
-                ", area=" + area +
-                ", address='" + address + '\'' +
-                ", houseStatusId=" + houseStatusId +
-                ", houseStatus=" + houseStatus +
-                ", enabled=" + enabled +
-                '}';
     }
 }

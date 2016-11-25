@@ -2,11 +2,12 @@
  * Created by wu on 2016/11/19.
  */
 $(document).ready(function () {
+
+
     $('.select2').select2();
     $("[href='#issue-info']").on('click', new IssueMenu().menuInit);
-    $('.radio').iCheck({
-        radioClass: 'iradio_flat-red'
-    });
+
+
 });
 
 function Account() {
@@ -150,18 +151,45 @@ function IssueMenu() {
 
     var address = $('#address');
 
+    var submit = $('#issueSubmit');
+
     var location = new Location('#province', '#city', '#area');
 
     this.menuInit = function () {
         location.locationInit();
         var array = [];
         array.push();
-        var selectUtil = new SelectUtil()
+        var selectUtil = new SelectUtil();
         selectUtil.selectInit(face, "/json/house_face.json");
         selectUtil.selectInit(decoration, "/json/house_decoration.json");
         selectUtil.selectInit(layout, "/json/house_layout.json");
         selectUtil.selectInit(status, "/json/status_sell.json");
+        submit.on('click', _this.issueSubmit);
     };
 
-
+    this.issueSubmit = function () {
+        postCRF('/house/issue', {
+            tittle: tittle.val(),
+            desc: desc.val(),
+            faceID: face.val(),
+            address: address.val(),
+            floorArea: floorArea.val(),
+            poolArea: poolArea.val(),
+            price: price.val(),
+            floor: floor.val(),
+            layout: layout.val(),
+            decorationType: decoration.val(),
+            province: location.getProvinceVal(),
+            city: location.getCityVal(),
+            area: location.getAreaVal(),
+            status: status.val()
+        }, function (backData) {
+            var modal = new Modal();
+            if (backData.status) {
+                modal.uploadModal(backData.data);
+            } else {
+                modal.errorModal(backData.message);
+            }
+        });
+    }
 }

@@ -26,23 +26,23 @@ public class HouseServiceImpl implements IHouseService {
     private HouseRelateUserMapper houseRelateUserMapper;
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public boolean issueHouse(House house, int userID) {
-        int houseID = houseMapper.insert(house);
+    public int issueHouse(House house, int userID) {
+        int houseRows = houseMapper.insertSelective(house);
 
-        if (houseID <= 0) {
+        if (houseRows <= 0) {
             throw new BusinessException("添加房屋信息失败！");
         }
 
         HouseRelateUser relate = new HouseRelateUser();
         relate.setUserId(userID);
-        relate.setHouseId(houseID);
+        relate.setHouseId(house.getId());
 
-        int rows = houseRelateUserMapper.insert(relate);
+        int relaterows = houseRelateUserMapper.insert(relate);
 
-        if (rows <= 0) {
+        if (relaterows <= 0) {
             throw new BusinessException("建立房屋与用户关系失败！");
         }
 
-        return true;
+        return house.getId();
     }
 }

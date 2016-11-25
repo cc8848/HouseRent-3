@@ -46,13 +46,12 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
         <!--指定数据库表-->
-        <table tableName="HOUSE_RELATE_USER"
+        <table tableName="HOUSE"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
                enableSelectByExample="false"
                selectByExampleQueryId="false"/>
-
     </context>
 </generatorConfiguration>
 
