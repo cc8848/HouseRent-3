@@ -26,34 +26,6 @@
 <%--head start--%>
 <c:import url="/WEB-INF/common/showings_common_head.jsp"/>
 <%--head end--%>
-<div id="uploadViewModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-                        class="sr-only">Close</span></button>
-                <h4 id="upload-modal-tittle" class="modal-title">请上传房屋图片</h4>
-            </div>
-            <div class="modal-body">
-                <form role="form" method="post" enctype="multipart/form-data" action="/file/upload">
-                    <div class="form-group row">
-                        <div class="col-lg-12">
-                            <label for="file">图片上传</label>
-                            <input id="vrMode" class="radio radio-inline" type="radio"
-                                   name="viewMode" value="1" checked>
-                            <label for="vrMode">VR模式</label>
-                            <input id="morePic" class="radio radio-inline" type="radio"
-                                   name="viewMode" value="2">
-                            <label for="morePic">多图模式</label>
-                            <input id="file" name="file" class="file-input " type="file"/>
-                        </div>
-                    </div>
-                    <sec:csrfInput/>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
 <div class="white-divider-md"></div>
 <div class="container">
     <div class="row">

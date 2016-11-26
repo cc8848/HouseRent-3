@@ -38,7 +38,7 @@ public class FileUploadController extends BaseController {
     @RequestMapping(value = "/upload", method = {RequestMethod.POST})
     public JsonResult upload(HttpServletRequest request) throws Exception {
 
-        int houseID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("houseID"), "房屋ID不可为空！"));
+        String houseID = MyStringUtil.checkParameter(request.getParameter("houseID"), "房屋ID不可为空！");
 
         //创建一个通用的多部分解析器
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
@@ -50,7 +50,6 @@ public class FileUploadController extends BaseController {
             Iterator<String> iterator = multiRequest.getFileNames();
             while (iterator.hasNext()) {
                 //记录上传过程起始时的时间，用来计算上传时间
-                String newFileName;
                 long startTime = System.currentTimeMillis();
                 //取得上传文件
                 MultipartFile file = multiRequest.getFile(iterator.next());
@@ -60,7 +59,7 @@ public class FileUploadController extends BaseController {
                     //如果名称不为“”,说明该文件存在，否则说明该文件不存在
                     if (!StringUtils.isEmpty(uploadFileName.trim())) {
                         //重命名上传后的文件名
-                        newFileName = file.getOriginalFilename() + DateFormatUtil.FormatToYMD(new Date());
+                        String newFileName = FileUtil.getNewFileNameByHouseID(file.getOriginalFilename(), houseID);
                         //定义上传路径
                         String path = FileUtil.getVRFilePath(houseID);
                         File localFile = new File(path, newFileName);
