@@ -58,6 +58,8 @@ function Modal() {
     };
 
     this.uploadModal = function (houseID) {
+        var header = $("meta[name='_csrf_header']").attr("content");
+        var token = $("meta[name='_csrf']").attr("content");
         $('#uploadViewModal').modal();
         // 初始化Check组件
         $('.radio').iCheck({
@@ -68,21 +70,25 @@ function Modal() {
             language: 'zh',//语言
             uploadUrl: '/file/upload',//上传的地址
             initialCaption: '请上传房屋图片...',//文本框初始化标题
-            //allowedFileTypes:['image'],//允许上传的文件类型
             allowedFileExtensions: ['jpg'],//接收的文件后缀
-            //showUpload: true, //是否显示上传按钮
             showCaption: true,//是否显示标题
             dropZoneEnabled: true,//是否显示拖拽区域
-            //minImageWidth: 50, //图片的最小宽度
-            //minImageHeight: 50,//图片的最小高度
-            //maxImageWidth: 1000,//图片的最大宽度
-            //maxImageHeight: 1000,//图片的最大高度
-            maxFileSize: 1024,//单位为kb，如果为0表示不限制文件大小
+            maxFileSize: 2048,//单位为kb，如果为0表示不限制文件大小
             maxFileCount: 2,//表示允许同时上传的最大文件个数
             validateInitialCount: true,
             overwriteInitial: false,
+            showDrag: true,
+            showAjaxErrorDetails: true,
             enctype: 'multipart/form-data',
-            msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}"
+            msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}",
+            ajaxSettings: {
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader(header, token);
+                }
+            },
+            uploadExtraData: {
+                houseID: houseID
+            }
         });
 
     }

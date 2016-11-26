@@ -2,8 +2,9 @@ package com.magic.rent.controller;
 
 import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.exception.custom.BusinessException;
-import com.magic.rent.util.DateFormat;
+import com.magic.rent.util.DateFormatUtil;
 import com.magic.rent.util.FileUtil;
+import com.magic.rent.util.JsonResult;
 import com.magic.rent.util.MyStringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -11,6 +12,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 import org.springframework.web.multipart.MultipartHttpServletRequest;
 import org.springframework.web.multipart.commons.CommonsMultipartResolver;
@@ -32,9 +34,9 @@ public class FileUploadController extends BaseController {
 
     private static Logger logger = LoggerFactory.getLogger(FileUtil.class);
 
-
+    @ResponseBody
     @RequestMapping(value = "/upload", method = {RequestMethod.POST})
-    public String upload(HttpServletRequest request) throws Exception {
+    public JsonResult upload(HttpServletRequest request) throws Exception {
 
         int houseID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("houseID"), "房屋ID不可为空！"));
 
@@ -58,7 +60,7 @@ public class FileUploadController extends BaseController {
                     //如果名称不为“”,说明该文件存在，否则说明该文件不存在
                     if (!StringUtils.isEmpty(uploadFileName.trim())) {
                         //重命名上传后的文件名
-                        newFileName = file.getOriginalFilename() + DateFormat.FormatToYMD(new Date());
+                        newFileName = file.getOriginalFilename() + DateFormatUtil.FormatToYMD(new Date());
                         //定义上传路径
                         String path = FileUtil.getVRFilePath(houseID);
                         File localFile = new File(path, newFileName);
@@ -81,6 +83,6 @@ public class FileUploadController extends BaseController {
         } else {
             throw new BusinessException("请选择文件后上传！");
         }
-        return "home";
+        return JsonResult.success();
     }
 }
