@@ -60,6 +60,8 @@ function Modal() {
     this.uploadModal = function (houseID) {
         var header = $("meta[name='_csrf_header']").attr("content");
         var token = $("meta[name='_csrf']").attr("content");
+        var viewMode = $("input[name='viewMode']:checked").val();
+
         $('#uploadViewModal').modal();
         // 初始化Check组件
         $('.radio').iCheck({
@@ -87,7 +89,8 @@ function Modal() {
                 }
             },
             uploadExtraData: {
-                houseID: houseID
+                houseID: houseID,
+                viewMode: viewMode
             }
         });
 

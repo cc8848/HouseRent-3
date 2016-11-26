@@ -14,5 +14,7 @@ import java.util.Map;
  */
 public interface IHouseService {
 
-    int issueHouse(House house,int userID);
+    int issueHouse(House house, int userID);
+
+    boolean setViewMode(int houseID, int viewMode);
 }

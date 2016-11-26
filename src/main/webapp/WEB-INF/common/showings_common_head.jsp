@@ -55,10 +55,10 @@
                             <label for="file">图片上传</label>
                             <input id="vrMode" class="radio radio-inline" type="radio"
                                    name="viewMode" value="1" checked>
-                            <label for="vrMode">VR模式</label>
+                            <label for="vrMode">全景图</label>
                             <input id="morePic" class="radio radio-inline" type="radio"
                                    name="viewMode" value="2">
-                            <label for="morePic">多图模式</label>
+                            <label for="morePic">普通图</label>
                             <input id="file" name="file" class="file-input " type="file"/>
                         </div>
                     </div>

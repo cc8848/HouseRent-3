@@ -45,4 +45,12 @@ public class HouseServiceImpl implements IHouseService {
 
         return house.getId();
     }
+
+    public boolean setViewMode(int houseID, int viewMode) {
+        House house = new House();
+        house.setId(houseID);
+        house.setViewModeId(viewMode);
+        int row = houseMapper.updateByPrimaryKeySelective(house);
+        return row > 0;
+    }
 }

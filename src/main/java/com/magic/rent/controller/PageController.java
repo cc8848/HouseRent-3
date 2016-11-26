@@ -36,7 +36,7 @@ public class PageController extends BaseController {
     public ModelAndView test() {
 
 
-        return new ModelAndView("test").addObject("message", FileUtil.getVRFilePath(2));
+        return new ModelAndView("test").addObject("message", FileUtil.getFilePath("1", 1));
     }
 
 }

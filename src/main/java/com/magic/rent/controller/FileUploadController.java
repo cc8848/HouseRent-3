@@ -2,6 +2,7 @@ package com.magic.rent.controller;
 
 import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.exception.custom.BusinessException;
+import com.magic.rent.service.IHouseService;
 import com.magic.rent.util.DateFormatUtil;
 import com.magic.rent.util.FileUtil;
 import com.magic.rent.util.JsonResult;
@@ -9,6 +10,7 @@ import com.magic.rent.util.MyStringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Controller;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -34,11 +36,15 @@ public class FileUploadController extends BaseController {
 
     private static Logger logger = LoggerFactory.getLogger(FileUtil.class);
 
+    private IHouseService iHouseService;
+
     @ResponseBody
     @RequestMapping(value = "/upload", method = {RequestMethod.POST})
     public JsonResult upload(HttpServletRequest request) throws Exception {
 
-        String houseID = MyStringUtil.checkParameter(request.getParameter("houseID"), "房屋ID不可为空！");
+        int houseID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("houseID"), "房屋ID不可为空！"));
+
+        int viewMode = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("viewMode"), "浏览模式不能为空！"));
 
         //创建一个通用的多部分解析器
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
@@ -61,7 +67,7 @@ public class FileUploadController extends BaseController {
                         //重命名上传后的文件名
                         String newFileName = FileUtil.getNewFileNameByHouseID(file.getOriginalFilename(), houseID);
                         //定义上传路径
-                        String path = FileUtil.getVRFilePath(houseID);
+                        String path = FileUtil.getFilePath(houseID, viewMode);
                         File localFile = new File(path, newFileName);
                         if (!localFile.exists()) {
                             if (!localFile.mkdirs()) {
@@ -82,6 +88,8 @@ public class FileUploadController extends BaseController {
         } else {
             throw new BusinessException("请选择文件后上传！");
         }
+        boolean isOK = iHouseService.setViewMode(houseID, viewMode);
+
         return JsonResult.success();
     }
 }

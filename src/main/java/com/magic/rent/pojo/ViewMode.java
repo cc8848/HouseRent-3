@@ -1,6 +1,15 @@
 package com.magic.rent.pojo;
 
-public class ViewMode {
+import java.io.Serializable;
+
+public class ViewMode implements Serializable {
+
+    public final static int VRMode = 1;
+
+    public final static int thumbnailMode = 2;
+
+    private static final long serialVersionUID = 1534902202366865204L;
+
     private Integer id;
 
     private String name;

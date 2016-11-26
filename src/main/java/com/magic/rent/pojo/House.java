@@ -15,7 +15,9 @@ public class House {
 
     private Double expectPrice;
 
-    private Integer viewModeId;
+    private Boolean thumbnailMode;
+
+    private Boolean vrMode;
 
     private Integer communityId;
 
@@ -93,12 +95,20 @@ public class House {
         this.expectPrice = expectPrice;
     }
 
-    public Integer getViewModeId() {
-        return viewModeId;
+    public Boolean getThumbnailMode() {
+        return thumbnailMode;
     }
 
-    public void setViewModeId(Integer viewModeId) {
-        this.viewModeId = viewModeId;
+    public void setThumbnailMode(Boolean thumbnailMode) {
+        this.thumbnailMode = thumbnailMode;
+    }
+
+    public Boolean getVrMode() {
+        return vrMode;
+    }
+
+    public void setVrMode(Boolean vrMode) {
+        this.vrMode = vrMode;
     }
 
     public Integer getCommunityId() {

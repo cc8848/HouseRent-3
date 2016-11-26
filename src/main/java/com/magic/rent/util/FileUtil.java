@@ -1,5 +1,7 @@
 package com.magic.rent.util;
 
+import com.magic.rent.exception.custom.BusinessException;
+import com.magic.rent.pojo.ViewMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -31,8 +33,15 @@ public class FileUtil {
      * @param houseID
      * @return
      */
-    public static String getVRFilePath(String houseID) {
-        return getWebRootPath() + "images/house/vtour/" + houseID + "/";
+    public static String getFilePath(int houseID, int viewMode) {
+        switch (viewMode) {
+            case ViewMode.VRMode:
+                return getWebRootPath() + "images/house/vtour/" + houseID + "/";
+            case ViewMode.thumbnailMode:
+                return getWebRootPath() + "images/house/thumbnail/" + houseID + "/";
+            default:
+                throw new BusinessException("为找到符合的浏览模式！");
+        }
     }
 
     /**
@@ -43,8 +52,12 @@ public class FileUtil {
      * @return
      * @throws Exception
      */
-    public static String getNewFileNameByHouseID(String oldFileName, String houseID) throws Exception {
-        String[] names = oldFileName.split(".");
-        return new StringBuffer("ID").append(houseID).append("-").append(DateFormatUtil.formatToNo(new Date())).append(".").append(names[1]).toString();
+    public static String getNewFileNameByHouseID(String oldFileName, int houseID) throws Exception {
+        if (oldFileName.contains(".")) {
+            String prefix = oldFileName.substring(oldFileName.lastIndexOf(".") + 1);
+            return new StringBuffer("ID").append(houseID).append("-").append(DateFormatUtil.formatToNo(new Date())).append(".").append(prefix).toString();
+        } else {
+            throw new BusinessException("文件名不符合规范，没有'.'作为后缀的分割符！");
+        }
     }
 }
