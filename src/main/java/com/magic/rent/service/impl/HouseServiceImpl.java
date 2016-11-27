@@ -1,10 +1,13 @@
 package com.magic.rent.service.impl;
 
 import com.magic.rent.exception.custom.BusinessException;
+import com.magic.rent.mapper.HouseFileMapper;
 import com.magic.rent.mapper.HouseMapper;
 import com.magic.rent.mapper.HouseRelateUserMapper;
 import com.magic.rent.pojo.House;
+import com.magic.rent.pojo.HouseFile;
 import com.magic.rent.pojo.HouseRelateUser;
+import com.magic.rent.pojo.ViewMode;
 import com.magic.rent.service.IHouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -25,8 +28,11 @@ public class HouseServiceImpl implements IHouseService {
     @Autowired
     private HouseRelateUserMapper houseRelateUserMapper;
 
+    @Autowired
+    private HouseFileMapper houseFileMapper;
+
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public int issueHouse(House house, int userID) {
+    public int issueHouse(House house, int userID) throws Exception {
         int houseRows = houseMapper.insertSelective(house);
 
         if (houseRows <= 0) {
@@ -37,20 +43,50 @@ public class HouseServiceImpl implements IHouseService {
         relate.setUserId(userID);
         relate.setHouseId(house.getId());
 
-        int relaterows = houseRelateUserMapper.insert(relate);
+        int relateRows = houseRelateUserMapper.insert(relate);
 
-        if (relaterows <= 0) {
+        if (relateRows <= 0) {
             throw new BusinessException("建立房屋与用户关系失败！");
         }
 
         return house.getId();
     }
 
-    public boolean setViewMode(int houseID, int viewMode) {
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    public boolean saveFile(int houseID, int viewMode, String newFileName, String oldFileName) throws Exception {
+
+        HouseFile houseFile = new HouseFile();
+        houseFile.setHouseId(houseID);
+        houseFile.setFileName(newFileName);
+        houseFile.setNickName(oldFileName);
+
         House house = new House();
         house.setId(houseID);
-        house.setViewModeId(viewMode);
+
+        switch (viewMode) {
+            case ViewMode.VRMode:
+                house.setVrMode(true);
+                houseFile.setViewMode(ViewMode.VRMode);
+                break;
+            case ViewMode.thumbnailMode:
+                house.setThumbnailMode(true);
+                houseFile.setViewMode(ViewMode.thumbnailMode);
+                break;
+            default:
+                throw new BusinessException("为找到符合的浏览模式!");
+        }
         int row = houseMapper.updateByPrimaryKeySelective(house);
-        return row > 0;
+        if (row <= 0) {
+            throw new BusinessException("修改房屋预览模式失败！");
+        }
+
+        int row2 = houseFileMapper.insertSelective(houseFile);
+
+        if ((row2 <= 0)) {
+            throw new BusinessException("记录文件名失败！");
+        }
+
+        return row > 0 && row2 > 0;
     }
+
 }

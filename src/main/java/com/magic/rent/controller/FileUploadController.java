@@ -9,6 +9,7 @@ import com.magic.rent.util.JsonResult;
 import com.magic.rent.util.MyStringUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.util.StringUtils;
@@ -36,6 +37,7 @@ public class FileUploadController extends BaseController {
 
     private static Logger logger = LoggerFactory.getLogger(FileUtil.class);
 
+    @Autowired
     private IHouseService iHouseService;
 
     @ResponseBody
@@ -75,9 +77,10 @@ public class FileUploadController extends BaseController {
                             }
                         }
                         file.transferTo(localFile);
+                        iHouseService.saveFile(houseID, viewMode, newFileName, uploadFileName.trim());
                         //记录上传该文件后的时间
                         long endTime = System.currentTimeMillis();
-                        logger.info("【上传耗时：" + (endTime - startTime) + "】【上传文件名：" + newFileName + "】【文件大小：" + file.getSize() + "】");
+                        logger.info("【上传耗时：" + (endTime - startTime) + "s】【上传文件名：" + newFileName + "】【文件大小：" + file.getSize() + "B】");
                     } else {
                         throw new BusinessException("上传文件名为空或仅为空格！请重新上传！");
                     }
@@ -88,8 +91,6 @@ public class FileUploadController extends BaseController {
         } else {
             throw new BusinessException("请选择文件后上传！");
         }
-        boolean isOK = iHouseService.setViewMode(houseID, viewMode);
-
         return JsonResult.success();
     }
 }

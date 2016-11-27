@@ -46,7 +46,7 @@
             <property name="enableSubPackages" value="false"/>
         </javaClientGenerator>
         <!--指定数据库表-->
-        <table tableName="HOUSE"
+        <table tableName="HOUSE_FILE"
                enableCountByExample="false"
                enableUpdateByExample="false"
                enableDeleteByExample="false"
