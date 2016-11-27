@@ -372,7 +372,6 @@
                     <p>
                         由于全景照片需通过本站专业相机拍摄，因此本站将派出工作人员到现场用专业的VR相机拍摄取景，并免费上架房源。
                     </p>
-
                 </div>
                 <ul class="list-group">
                     <li class="list-group-item">

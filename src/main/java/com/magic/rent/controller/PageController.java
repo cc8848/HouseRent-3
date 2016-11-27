@@ -15,14 +15,14 @@ import java.util.List;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
- * 创建者: wuxinzhe   创建时间: 16/10/7
+ * 创建者: WuXinZhe   创建时间: 16/10/7
  * 类说明:
  */
 @Controller
 @RequestMapping("/*")
 public class PageController extends BaseController {
 
-    @RequestMapping("/index")
+    @RequestMapping
     public String index() {
         return "index";
     }
@@ -32,11 +32,5 @@ public class PageController extends BaseController {
         return "error";
     }
 
-    @RequestMapping("/test")
-    public ModelAndView test() {
-
-
-        return new ModelAndView("test").addObject("message", FileUtil.getFilePath(1, 1));
-    }
 
 }

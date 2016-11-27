@@ -15,6 +15,8 @@ public class House {
 
     private Double expectPrice;
 
+    private Double propertyFee;
+
     private Boolean thumbnailMode;
 
     private Boolean vrMode;
@@ -93,6 +95,14 @@ public class House {
 
     public void setExpectPrice(Double expectPrice) {
         this.expectPrice = expectPrice;
+    }
+
+    public Double getPropertyFee() {
+        return propertyFee;
+    }
+
+    public void setPropertyFee(Double propertyFee) {
+        this.propertyFee = propertyFee;
     }
 
     public Boolean getThumbnailMode() {
