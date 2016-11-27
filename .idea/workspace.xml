@@ -8,10 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CommunityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CommunityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1343,7 +1339,7 @@
       <workItem from="1480149779020" duration="21708000" />
       <workItem from="1480218082780" duration="16647000" />
       <workItem from="1480262792312" duration="104000" />
-      <workItem from="1480263086973" duration="154000" />
+      <workItem from="1480263086973" duration="179000" />
     </task>
     <task id="LOCAL-00001" summary="2016年10月31日22:43:46">
       <created>1477925076681</created>
@@ -1674,7 +1670,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480207793803</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="2016年11月28日00:14:06">
+      <created>1480263262944</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1480263262944</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1710,7 +1713,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="544954000" />
+    <option name="totallyTimeSpent" value="544979000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1830,7 +1833,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2016年11月15日20:47:15" />
     <MESSAGE value="2016年11月16日02:26:37" />
     <MESSAGE value="2016年11月16日07:22:36" />
     <MESSAGE value="2016年11月16日17:38:27" />
@@ -1855,7 +1857,8 @@
     <MESSAGE value="2016年11月26日14:13:34" />
     <MESSAGE value="2016年11月26日20:44:27" />
     <MESSAGE value="2016年11月27日08:49:47" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年11月27日08:49:47" />
+    <MESSAGE value="2016年11月28日00:14:06" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年11月28日00:14:06" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2124,6 +2127,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-180">
           <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
