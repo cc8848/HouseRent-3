@@ -1,62 +1,108 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.magic.rent.mapper.CommunityMapper">
-    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Community">
-        <id column="ID" property="id" jdbcType="INTEGER"/>
-        <result column="NAME" property="name" jdbcType="VARCHAR"/>
-    </resultMap>
-    <resultMap id="community" type="com.magic.rent.pojo.Community">
-        <id column="ID" property="id" jdbcType="INTEGER"/>
-        <result column="NAME" property="name" jdbcType="VARCHAR"/>
-    </resultMap>
-    <sql id="Base_Column_List">
-    ID, NAME
+<mapper namespace="com.magic.rent.mapper.CommunityMapper" >
+  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Community" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="AREA_ID" property="areaId" jdbcType="INTEGER" />
+    <result column="MAP_X" property="mapX" jdbcType="DOUBLE" />
+    <result column="MAP_Y" property="mapY" jdbcType="DOUBLE" />
+  </resultMap>
+  <resultMap id="community" type="com.magic.rent.pojo.Community">
+    <id column="ID" property="id" jdbcType="INTEGER"/>
+    <result column="NAME" property="name" jdbcType="VARCHAR"/>
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NAME, CITY_ID, AREA_ID, MAP_X, MAP_Y
   </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-        select
-        <include refid="Base_Column_List"/>
-        from COMMUNITY
-        where ID = #{id,jdbcType=INTEGER}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from COMMUNITY
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
     delete from COMMUNITY
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.magic.rent.pojo.Community">
-    insert into COMMUNITY (ID, NAME)
-    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR})
+  <insert id="insert" parameterType="com.magic.rent.pojo.Community" >
+    insert into COMMUNITY (ID, NAME, CITY_ID, 
+      AREA_ID, MAP_X, MAP_Y)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{cityId,jdbcType=INTEGER}, 
+      #{areaId,jdbcType=INTEGER}, #{mapX,jdbcType=DOUBLE}, #{mapY,jdbcType=DOUBLE})
   </insert>
-    <insert id="insertSelective" parameterType="com.magic.rent.pojo.Community">
-        insert into COMMUNITY
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                ID,
-            </if>
-            <if test="name != null">
-                NAME,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                #{name,jdbcType=VARCHAR},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Community">
-        update COMMUNITY
-        <set>
-            <if test="name != null">
-                NAME = #{name,jdbcType=VARCHAR},
-            </if>
-        </set>
-        where ID = #{id,jdbcType=INTEGER}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Community">
+  <insert id="insertSelective" parameterType="com.magic.rent.pojo.Community" >
+    insert into COMMUNITY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="areaId != null" >
+        AREA_ID,
+      </if>
+      <if test="mapX != null" >
+        MAP_X,
+      </if>
+      <if test="mapY != null" >
+        MAP_Y,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="mapX != null" >
+        #{mapX,jdbcType=DOUBLE},
+      </if>
+      <if test="mapY != null" >
+        #{mapY,jdbcType=DOUBLE},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Community" >
     update COMMUNITY
-    set NAME = #{name,jdbcType=VARCHAR}
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="mapX != null" >
+        MAP_X = #{mapX,jdbcType=DOUBLE},
+      </if>
+      <if test="mapY != null" >
+        MAP_Y = #{mapY,jdbcType=DOUBLE},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Community" >
+    update COMMUNITY
+    set NAME = #{name,jdbcType=VARCHAR},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      MAP_X = #{mapX,jdbcType=DOUBLE},
+      MAP_Y = #{mapY,jdbcType=DOUBLE}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -5,13 +5,13 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface CommunityMapper {
-    int deleteByPrimaryKey(int id);
+    int deleteByPrimaryKey(Integer id);
 
     int insert(Community record);
 
     int insertSelective(Community record);
 
-    Community selectByPrimaryKey(int id);
+    Community selectByPrimaryKey(Integer id);
 
     int updateByPrimaryKeySelective(Community record);
 
