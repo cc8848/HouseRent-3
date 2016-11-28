@@ -1,5 +1,6 @@
 package com.magic.rent.mapper;
 
+import com.magic.rent.pojo.Company;
 import com.magic.rent.pojo.SysCompany;
 import org.junit.Before;
 import org.junit.Test;
@@ -16,14 +17,14 @@ import static org.junit.Assert.*;
  */
 public class SysCompanyMapperTest {
     private ApplicationContext applicationContext;
-    private SysCompanyMapper sysCompanyMapper;
+    private CompanyMapper companyMapper;
 
     @Before
     public void setUp() throws Exception {
         applicationContext = new ClassPathXmlApplicationContext(
                 "classpath:config/spring/applicationContext-dao.xml",
                 "classpath:config/spring/applicationContext-ehcache.xml");
-        sysCompanyMapper = applicationContext.getBean(SysCompanyMapper.class);
+        companyMapper = applicationContext.getBean(CompanyMapper.class);
     }
 
     @Test
@@ -43,7 +44,7 @@ public class SysCompanyMapperTest {
 
     @Test
     public void selectByPrimaryKey() throws Exception {
-        SysCompany sysCompany = sysCompanyMapper.selectByPrimaryKey(1);
+        Company sysCompany = companyMapper.selectByPrimaryKey(1);
         System.out.print(sysCompany);
     }
 
@@ -57,4 +58,9 @@ public class SysCompanyMapperTest {
 
     }
 
+    @Test
+    public void selectByUserID() throws Exception {
+        Integer c = companyMapper.selectByUserID(2);
+        System.out.print(null == c);
+    }
 }

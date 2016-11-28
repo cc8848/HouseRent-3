@@ -1,10 +1,10 @@
 package com.magic.rent.service.impl;
 
 import com.magic.rent.exception.custom.BusinessException;
+import com.magic.rent.mapper.CompanyMapper;
 import com.magic.rent.mapper.HouseFileMapper;
 import com.magic.rent.mapper.HouseMapper;
 import com.magic.rent.mapper.HouseRelateUserMapper;
-import com.magic.rent.mapper.SysCompanyMapper;
 import com.magic.rent.pojo.*;
 import com.magic.rent.service.IHouseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -33,7 +33,7 @@ public class HouseServiceImpl implements IHouseService {
     private HouseFileMapper houseFileMapper;
 
     @Autowired
-    private SysCompanyMapper sysCompanyMapper;
+    private CompanyMapper companyMapper;
 
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
@@ -63,7 +63,7 @@ public class HouseServiceImpl implements IHouseService {
         House house = houseMapper.selectHouseDetails(houseID);
         dataMap.put("house", house);
 
-        SysCompany company = sysCompanyMapper.selectByPrimaryKey(house.getCommunity().getCompanyId());
+        Company company = companyMapper.selectByPrimaryKey(house.getCommunity().getCompanyId());
         dataMap.put("company", company);
 
         return dataMap;

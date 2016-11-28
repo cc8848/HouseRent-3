@@ -1,12 +1,11 @@
 package com.magic.rent.pojo;
 
-import java.io.Serializable;
-
-public class Community implements Serializable{
-    private static final long serialVersionUID = 3058190833167946059L;
+public class Community {
     private Integer id;
 
     private String name;
+
+    private Integer provinceId;
 
     private Integer cityId;
 
@@ -17,6 +16,8 @@ public class Community implements Serializable{
     private Double mapY;
 
     private Integer companyId;
+
+    private Boolean enable;
 
     public Integer getId() {
         return id;
@@ -32,6 +33,14 @@ public class Community implements Serializable{
 
     public void setName(String name) {
         this.name = name == null ? null : name.trim();
+    }
+
+    public Integer getProvinceId() {
+        return provinceId;
+    }
+
+    public void setProvinceId(Integer provinceId) {
+        this.provinceId = provinceId;
     }
 
     public Integer getCityId() {
@@ -74,16 +83,11 @@ public class Community implements Serializable{
         this.companyId = companyId;
     }
 
-    @Override
-    public String toString() {
-        return "Community{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", cityId=" + cityId +
-                ", areaId=" + areaId +
-                ", mapX=" + mapX +
-                ", mapY=" + mapY +
-                ", companyId=" + companyId +
-                '}';
+    public Boolean getEnable() {
+        return enable;
+    }
+
+    public void setEnable(Boolean enable) {
+        this.enable = enable;
     }
 }

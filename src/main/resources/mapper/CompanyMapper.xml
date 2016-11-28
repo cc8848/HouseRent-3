@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.magic.rent.mapper.CompanyMapper">
+    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Company">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="COMPANY_NAME" property="companyName" jdbcType="VARCHAR"/>
+        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="PHONE" property="phone" jdbcType="VARCHAR"/>
+        <result column="DEVELOPER_ID" property="developerId" jdbcType="INTEGER"/>
+        <result column="ENABLE" property="enable" jdbcType="BIT"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ID, COMPANY_NAME, ADDRESS, PHONE, DEVELOPER_ID, ENABLE
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from COMPANY
+        where ID = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from COMPANY
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.magic.rent.pojo.Company">
+    insert into COMPANY (ID, COMPANY_NAME, ADDRESS, 
+      PHONE, DEVELOPER_ID, ENABLE
+      )
+    values (#{id,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR}, #{developerId,jdbcType=INTEGER}, #{enable,jdbcType=BIT}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.Company">
+        insert into COMPANY
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="companyName != null">
+                COMPANY_NAME,
+            </if>
+            <if test="address != null">
+                ADDRESS,
+            </if>
+            <if test="phone != null">
+                PHONE,
+            </if>
+            <if test="developerId != null">
+                DEVELOPER_ID,
+            </if>
+            <if test="enable != null">
+                ENABLE,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="companyName != null">
+                #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="developerId != null">
+                #{developerId,jdbcType=INTEGER},
+            </if>
+            <if test="enable != null">
+                #{enable,jdbcType=BIT},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Company">
+        update COMPANY
+        <set>
+            <if test="companyName != null">
+                COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+            </if>
+            <if test="address != null">
+                ADDRESS = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="phone != null">
+                PHONE = #{phone,jdbcType=VARCHAR},
+            </if>
+            <if test="developerId != null">
+                DEVELOPER_ID = #{developerId,jdbcType=INTEGER},
+            </if>
+            <if test="enable != null">
+                ENABLE = #{enable,jdbcType=BIT},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Company">
+    update COMPANY
+    set COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR},
+      DEVELOPER_ID = #{developerId,jdbcType=INTEGER},
+      ENABLE = #{enable,jdbcType=BIT}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectByUserID" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+    SELECT
+    COMPANY.ID
+    FROM
+    COMPANY
+    WHERE DEVELOPER_ID=#{userID,jdbcType=INTEGER}
+  </select>
+</mapper>

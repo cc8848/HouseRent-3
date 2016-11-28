@@ -16,4 +16,5 @@ public interface CommunityMapper {
     int updateByPrimaryKeySelective(Community record);
 
     int updateByPrimaryKey(Community record);
+
 }
