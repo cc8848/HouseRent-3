@@ -1,11 +1,17 @@
 package com.magic.rent.mapper;
 
-import com.magic.rent.pojo.HouseFaceKey;
+import com.magic.rent.pojo.HouseFace;
 
 public interface HouseFaceMapper {
-    int deleteByPrimaryKey(HouseFaceKey key);
+    int deleteByPrimaryKey(Integer id);
 
-    int insert(HouseFaceKey record);
+    int insert(HouseFace record);
 
-    int insertSelective(HouseFaceKey record);
+    int insertSelective(HouseFace record);
+
+    HouseFace selectByPrimaryKey(Integer id);
+
+    int updateByPrimaryKeySelective(HouseFace record);
+
+    int updateByPrimaryKey(HouseFace record);
 }

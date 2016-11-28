@@ -8,13 +8,10 @@
     <result column="AREA_ID" property="areaId" jdbcType="INTEGER" />
     <result column="MAP_X" property="mapX" jdbcType="DOUBLE" />
     <result column="MAP_Y" property="mapY" jdbcType="DOUBLE" />
-  </resultMap>
-  <resultMap id="community" type="com.magic.rent.pojo.Community">
-    <id column="ID" property="id" jdbcType="INTEGER"/>
-    <result column="NAME" property="name" jdbcType="VARCHAR"/>
+    <result column="COMPANY_ID" property="companyId" jdbcType="INTEGER" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, NAME, CITY_ID, AREA_ID, MAP_X, MAP_Y
+    ID, NAME, CITY_ID, AREA_ID, MAP_X, MAP_Y, COMPANY_ID
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -28,9 +25,11 @@
   </delete>
   <insert id="insert" parameterType="com.magic.rent.pojo.Community" >
     insert into COMMUNITY (ID, NAME, CITY_ID, 
-      AREA_ID, MAP_X, MAP_Y)
+      AREA_ID, MAP_X, MAP_Y, COMPANY_ID
+      )
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{cityId,jdbcType=INTEGER}, 
-      #{areaId,jdbcType=INTEGER}, #{mapX,jdbcType=DOUBLE}, #{mapY,jdbcType=DOUBLE})
+      #{areaId,jdbcType=INTEGER}, #{mapX,jdbcType=DOUBLE}, #{mapY,jdbcType=DOUBLE}, #{companyId,jdbcType=INTEGER}
+      )
   </insert>
   <insert id="insertSelective" parameterType="com.magic.rent.pojo.Community" >
     insert into COMMUNITY
@@ -53,6 +52,9 @@
       <if test="mapY != null" >
         MAP_Y,
       </if>
+      <if test="companyId != null" >
+        COMPANY_ID,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -72,6 +74,9 @@
       </if>
       <if test="mapY != null" >
         #{mapY,jdbcType=DOUBLE},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=INTEGER},
       </if>
     </trim>
   </insert>
@@ -93,6 +98,9 @@
       <if test="mapY != null" >
         MAP_Y = #{mapY,jdbcType=DOUBLE},
       </if>
+      <if test="companyId != null" >
+        COMPANY_ID = #{companyId,jdbcType=INTEGER},
+      </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
@@ -102,7 +110,8 @@
       CITY_ID = #{cityId,jdbcType=INTEGER},
       AREA_ID = #{areaId,jdbcType=INTEGER},
       MAP_X = #{mapX,jdbcType=DOUBLE},
-      MAP_Y = #{mapY,jdbcType=DOUBLE}
+      MAP_Y = #{mapY,jdbcType=DOUBLE},
+      COMPANY_ID = #{companyId,jdbcType=INTEGER}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

@@ -4,15 +4,16 @@ import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.mapper.HouseFileMapper;
 import com.magic.rent.mapper.HouseMapper;
 import com.magic.rent.mapper.HouseRelateUserMapper;
-import com.magic.rent.pojo.House;
-import com.magic.rent.pojo.HouseFile;
-import com.magic.rent.pojo.HouseRelateUser;
-import com.magic.rent.pojo.ViewMode;
+import com.magic.rent.mapper.SysCompanyMapper;
+import com.magic.rent.pojo.*;
 import com.magic.rent.service.IHouseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -30,6 +31,10 @@ public class HouseServiceImpl implements IHouseService {
 
     @Autowired
     private HouseFileMapper houseFileMapper;
+
+    @Autowired
+    private SysCompanyMapper sysCompanyMapper;
+
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     public int issueHouse(House house, int userID) throws Exception {
@@ -50,6 +55,18 @@ public class HouseServiceImpl implements IHouseService {
         }
 
         return house.getId();
+    }
+
+    public Map<String, Object> showHouseDetails(int houseID) throws Exception {
+        Map<String, Object> dataMap = new HashMap<String, Object>();
+
+        House house = houseMapper.selectHouseDetails(houseID);
+        dataMap.put("house", house);
+
+        SysCompany company = sysCompanyMapper.selectByPrimaryKey(house.getCommunity().getCompanyId());
+        dataMap.put("company", company);
+
+        return dataMap;
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
@@ -73,7 +90,7 @@ public class HouseServiceImpl implements IHouseService {
                 houseFile.setViewMode(ViewMode.thumbnailMode);
                 break;
             default:
-                throw new BusinessException("为找到符合的浏览模式!");
+                throw new BusinessException("未找到符合的浏览模式!");
         }
         int row = houseMapper.updateByPrimaryKeySelective(house);
         if (row <= 0) {

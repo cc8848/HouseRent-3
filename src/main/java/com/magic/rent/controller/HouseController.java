@@ -1,39 +1,28 @@
 package com.magic.rent.controller;
 
-import com.github.pagehelper.PageInfo;
 import com.magic.rent.controller.base.BaseController;
-import com.magic.rent.exception.custom.BusinessException;
-import com.magic.rent.exception.custom.ParameterException;
-import com.magic.rent.pojo.Community;
 import com.magic.rent.pojo.House;
 import com.magic.rent.pojo.HouseRecommend;
+import com.magic.rent.pojo.SysCompany;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IHouseRecommendService;
 import com.magic.rent.service.IHouseService;
-import com.magic.rent.util.*;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
+import com.magic.rent.util.HttpUtil;
+import com.magic.rent.util.JsonResult;
+import com.magic.rent.util.MyStringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Map;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
- * 创建者: wuxinzhe   创建时间: 2016/10/13
+ * 创建者: WuXinZhe   创建时间: 2016/10/13
  * 类说明:
  */
 @Controller
@@ -88,7 +77,7 @@ public class HouseController extends BaseController {
         house.setExpectPrice(price);
         house.setFloor(floor);
         house.setLayoutId(layout);
-        house.setDecorationTypeId(decorationType);
+        house.setHouseDecorationId(decorationType);
         house.setProvinceId(province);
         house.setCityId(city);
         house.setAreaId(area);
@@ -99,5 +88,14 @@ public class HouseController extends BaseController {
         int houseID = iHouseService.issueHouse(house, sysUsers.getUserId());
 
         return JsonResult.success("添加成功").setData(houseID);
+    }
+
+    @RequestMapping("/sell")
+    public ModelAndView getSellHouseDetails(HttpServletRequest request) throws Exception {
+        int houseID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("houseID"), "房屋编号不能为空！"));
+        Map<String, Object> dataMap = iHouseService.showHouseDetails(houseID);
+        House house = (House) dataMap.get("house");
+        SysCompany company = (SysCompany) dataMap.get("company");
+        return new ModelAndView("house_sell").addObject("house", house).addObject("company", company);
     }
 }

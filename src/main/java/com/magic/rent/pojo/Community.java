@@ -1,6 +1,9 @@
 package com.magic.rent.pojo;
 
-public class Community {
+import java.io.Serializable;
+
+public class Community implements Serializable{
+    private static final long serialVersionUID = 3058190833167946059L;
     private Integer id;
 
     private String name;
@@ -12,6 +15,8 @@ public class Community {
     private Double mapX;
 
     private Double mapY;
+
+    private Integer companyId;
 
     public Integer getId() {
         return id;
@@ -59,5 +64,26 @@ public class Community {
 
     public void setMapY(Double mapY) {
         this.mapY = mapY;
+    }
+
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
+
+    @Override
+    public String toString() {
+        return "Community{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", cityId=" + cityId +
+                ", areaId=" + areaId +
+                ", mapX=" + mapX +
+                ", mapY=" + mapY +
+                ", companyId=" + companyId +
+                '}';
     }
 }

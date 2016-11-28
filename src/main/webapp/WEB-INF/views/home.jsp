@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/icheckflat/red.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar-head.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/fileinput.min.css">
 <body>
@@ -164,18 +165,6 @@
                                                            placeholder="请输入详细地址" name="address">
                                                 </div>
                                             </div>
-                                                <%--<div class="form-group row">--%>
-                                                <%--<div class="col-lg-12">--%>
-                                                <%--<label for="file">图片上传</label>--%>
-                                                <%--<input id="vrMode" class="radio radio-inline" type="radio"--%>
-                                                <%--name="viewMode" value="1">--%>
-                                                <%--<label for="vrMode">VR模式</label>--%>
-                                                <%--<input id="morePic" class="radio radio-inline" type="radio"--%>
-                                                <%--name="viewMode" value="2">--%>
-                                                <%--<label for="morePic">多图模式</label>--%>
-                                                <%--<input id="file" name="file" class="file-input " type="file"/>--%>
-                                                <%--</div>--%>
-                                                <%--</div>--%>
                                             <div class="form-group row">
                                                 <div class="col-lg-12">
                                                     <div class="btn-group pull-right">
@@ -186,6 +175,21 @@
                                                 </div>
                                             </div>
                                         </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:when>
+                        <c:when test="${sysMenu.href=='creat-project'}">
+                            <div id="${sysMenu.href}" class="tab-pane">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">创建项目</h3>
+                                    </div>
+                                    <div class="panel-body">
+
+                                    </div>
+                                    <div class="panel-footer">
+                                        依照国家相关法律法规，发布新项目，我公司须对项目进行相关审核及实地拍摄取景，并支付相关费用，申请提交后，我公司将会在3个工作日内完成资料的审核，并与您取得联系，首英感谢您的支持。
                                     </div>
                                 </div>
                             </div>

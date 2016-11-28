@@ -1,6 +1,6 @@
 package com.magic.rent.pojo;
 
-import com.magic.rent.util.DateFormatUtil;
+import com.magic.rent.util.DateUtil;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -29,7 +29,7 @@ public class HouseRecommend implements Serializable {
     }
 
     public void setDate(Date date) {
-        this.date = DateFormatUtil.FormatToYMD(date);
+        this.date = DateUtil.FormatToYMD(date);
     }
 
     public List<House> getHouseList() {

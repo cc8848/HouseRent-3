@@ -12,7 +12,7 @@
 <html lang="zh-CN">
 <head>
     <meta charset="UTF-8">
-    <title>${requestScope.house.name}</title>
+    <title>Showings · VR房库-${house.tittle}</title>
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
@@ -20,17 +20,15 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar-foot.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/icheckflat/blue.css">
 <body>
-<%--head start--%>
-<c:import url="/WEB-INF/common/showings_common_head.jsp"/>
-<%--head end--%>
 <div class="container">
-    <div class="row">
+    <div class="row" id="view">
         <div class="col-lg-12">
             <div class="page-header">
-                <h3>好房子
-                    <small class="pull-right">No.<span id="houseID">12</span></small>
+                <h3>${house.tittle}
+                    <small class="pull-right">No.<span id="houseID">${house.id}</span></small>
                 </h3>
             </div>
         </div>
@@ -45,19 +43,13 @@
         <div class="col-lg-3">
             <div class="btn-group btn-group-justified">
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary">
-                        <span class="glyphicon glyphicon-picture"></span>
-                        多图
-                    </button>
-                </div>
-                <div class="btn-group">
-                    <button type="button" class="btn btn-primary">
+                    <button type="button" class="btn btn-danger">
                         <span class="glyphicon glyphicon-star-empty"></span>
                         收藏
                     </button>
                 </div>
                 <div class="btn-group">
-                    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+                    <button type="button" class="btn btn-danger dropdown-toggle" data-toggle="dropdown">
                         <span class="glyphicon glyphicon-qrcode"></span>
                         <span class="sr-only">Toggle Dropdown</span>
                         二维码
@@ -70,7 +62,7 @@
                 </div>
             </div>
             <div class="white-divider-md"></div>
-            <div class="panel panel-default">
+            <div class="panel panel-danger">
                 <div class="panel-heading">
                     <h3 class="panel-title">预约看房</h3>
                 </div>
@@ -94,17 +86,17 @@
                             <div class="white-divider-md"></div>
                             <div class="btn-group-justified">
                                 <div class="btn-group">
-                                    <button type="submit" class="btn btn-primary form-control">提交</button>
+                                    <button type="submit" class="btn btn-danger form-control">提交</button>
                                 </div>
                             </div>
                         </form>
                     </li>
                     <li class="list-group-item">
                         <address>
-                            <h4>中鼎信实业有限公司</h4><br>
-                            <small><span class="glyphicon glyphicon-phone"></span> : 0592-1234567</small>
+                            <h4>${company.companyName}</h4><br>
+                            <small><span class="glyphicon glyphicon-phone"></span> : ${company.phone}</small>
                             <br>
-                            <small><span class="glyphicon glyphicon-globe"></span> : 厦门市 海沧区 滨湖东路75号</small>
+                            <small><span class="glyphicon glyphicon-globe"></span> : ${company.address}</small>
                         </address>
                     </li>
                 </ul>
@@ -129,49 +121,58 @@
     </div>
     <div id="info" class="row">
         <div class="col-lg-12">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
                 <div class="panel-heading">
                     <h3 class="panel-title">楼盘信息</h3>
                 </div>
                 <div class="panel-body">
-                    <p id="description">楼盘位于厦门临近，泉州高速路口下车就有大所发生的撒地方撒地方阿斯蒂芬是发撒地方 发生的发顺丰阿斯蒂芬是</p>
+                    <div class="col-lg-8">
+                        <p id="description">${house.description}</p>
+                    </div>
+                    <div class="col-lg-4">
+                        <h2 class="text-danger text-right">
+                            ${house.unitPrice}
+                            <small>元/㎡</small>
+                        </h2>
+                    </div>
+
                 </div>
-                <table class="table table-responsive table-striped">
+                <table class="table table-responsive table-striped ">
                     <tbody>
                     <tr>
                         <td></td>
                         <td>楼盘名称：</td>
-                        <td id="tittle">2</td>
+                        <td id="community">${house.community.name}</td>
                         <td>产权年限：</td>
-                        <td id="age"><span></span>年</td>
+                        <td id="age"><span>${house.age}</span>年</td>
                         <td>房屋格局：</td>
-                        <td id="layout">2</td>
+                        <td id="layout">${house.houseLayout.name}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>建筑面积：</td>
-                        <td id="floorArea"><span></span>㎡</td>
+                        <td id="floorArea"><span>${house.floorArea}</span>㎡</td>
                         <td>公摊面积：</td>
-                        <td id="poolArea"><span></span>㎡</td>
+                        <td id="poolArea"><span>${house.poolArea}</span>㎡</td>
                         <td>装修类型：</td>
-                        <td id="decoration">1</td>
+                        <td id="decoration">${house.houseDecoration.name}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>房屋朝向：</td>
-                        <td id="face">1</td>
+                        <td id="face">${house.houseFace.name}</td>
                         <td>物业费：</td>
-                        <td id="propertyFee"><span></span>元/月</td>
+                        <td id="propertyFee"><span>${house.propertyFee}</span>元/月</td>
                         <td>梯户类型：</td>
-                        <td>1</td>
+                        <td>${house.houseElevator.name}</td>
                         <td></td>
                     </tr>
                     <tr>
                         <td></td>
                         <td>楼盘地址：</td>
-                        <td colspan="5" id="address">3123123</td>
+                        <td colspan="5" id="address">${house.address}</td>
                         <td></td>
                     </tr>
                     </tbody>
@@ -181,11 +182,13 @@
     </div>
     <div id="map" class="row">
         <div class="col-lg-12">
-            <div class="panel panel-primary">
+            <div class="panel panel-danger">
                 <div class="panel-heading">
                     <h3 class="panel-title">地图及周边</h3>
                 </div>
                 <div id="container" class="panel-body" style="height: 350px">
+                    <span id="mapX" hidden="hidden">${house.community.mapX}</span>
+                    <span id="mapY" hidden="hidden">${house.community.mapY}</span>
                 </div>
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -204,7 +207,7 @@
     </div>
 </div>
 <%--foot start--%>
-<c:import url="/WEB-INF/common/showings_common_foot.jsp"/>
+<c:import url="/WEB-INF/common/house_common_foot.jsp"/>
 <%--foot end--%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
@@ -230,7 +233,6 @@
         resizeEnable: true,
         zoom: 11,
         center: [116.397428, 39.90923]
-
     });
 </script>
 </body>

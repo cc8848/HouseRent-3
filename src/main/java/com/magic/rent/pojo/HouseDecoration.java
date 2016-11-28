@@ -2,12 +2,11 @@ package com.magic.rent.pojo;
 
 import java.io.Serializable;
 
-public class DecorationType implements Serializable {
-    private static final long serialVersionUID = -4636714336615136727L;
-
+public class HouseDecoration implements Serializable {
+    private static final long serialVersionUID = 6246723456026324371L;
     private Integer id;
 
-    private String name;//装修种类名称
+    private String name;
 
     public Integer getId() {
         return id;
@@ -27,7 +26,7 @@ public class DecorationType implements Serializable {
 
     @Override
     public String toString() {
-        return "DecorationType{" +
+        return "HouseDecoration{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

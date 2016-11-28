@@ -4,9 +4,11 @@
   <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysCompany" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="COMPANY_NAME" property="companyName" jdbcType="VARCHAR" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="PHONE" property="phone" jdbcType="VARCHAR" />
   </resultMap>
   <sql id="Base_Column_List" >
-    ID, COMPANY_NAME
+    ID, COMPANY_NAME, ADDRESS, PHONE
   </sql>
   <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
     select 
@@ -19,8 +21,10 @@
     where ID = #{id,jdbcType=INTEGER}
   </delete>
   <insert id="insert" parameterType="com.magic.rent.pojo.SysCompany" >
-    insert into SYS_COMPANY (ID, COMPANY_NAME)
-    values (#{id,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR})
+    insert into SYS_COMPANY (ID, COMPANY_NAME, ADDRESS, 
+      PHONE)
+    values (#{id,jdbcType=INTEGER}, #{companyName,jdbcType=VARCHAR}, #{address,jdbcType=VARCHAR}, 
+      #{phone,jdbcType=VARCHAR})
   </insert>
   <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysCompany" >
     insert into SYS_COMPANY
@@ -31,6 +35,12 @@
       <if test="companyName != null" >
         COMPANY_NAME,
       </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="phone != null" >
+        PHONE,
+      </if>
     </trim>
     <trim prefix="values (" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -38,6 +48,12 @@
       </if>
       <if test="companyName != null" >
         #{companyName,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        #{phone,jdbcType=VARCHAR},
       </if>
     </trim>
   </insert>
@@ -47,12 +63,20 @@
       <if test="companyName != null" >
         COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
       </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null" >
+        PHONE = #{phone,jdbcType=VARCHAR},
+      </if>
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
   <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysCompany" >
     update SYS_COMPANY
-    set COMPANY_NAME = #{companyName,jdbcType=VARCHAR}
+    set COMPANY_NAME = #{companyName,jdbcType=VARCHAR},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      PHONE = #{phone,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
 </mapper>

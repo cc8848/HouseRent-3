@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar-head.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <body>
 <%--head start--%>
@@ -36,7 +37,7 @@
         <div class="white-divider-md"></div>
         <p class="text-right">
             <a class="btn btn-success btn-lg" href="#" role="button"><span class="glyphicon glyphicon-edit"></span>&nbsp;免费注册</a>
-            <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/house/detail?houseID=1"
+            <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/house/sell?houseID=1"
                role="button"><span
                     class="glyphicon glyphicon-camera"></span>&nbsp;在线体验</a>
         </p>

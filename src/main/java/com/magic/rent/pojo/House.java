@@ -1,6 +1,12 @@
 package com.magic.rent.pojo;
 
-public class House {
+import com.magic.rent.util.DecimalUtil;
+
+import java.io.Serializable;
+import java.text.DecimalFormat;
+
+public class House implements Serializable {
+    private static final long serialVersionUID = -6956703009417525418L;
     private Integer id;
 
     private String tittle;
@@ -8,6 +14,7 @@ public class House {
     private String description;
 
     private Integer faceId;
+    private HouseFace houseFace;
 
     private Double floorArea;
 
@@ -22,24 +29,46 @@ public class House {
     private Boolean vrMode;
 
     private Integer communityId;
+    private Community community;
 
     private Integer floor;
 
     private Integer layoutId;
+    private HouseLayout houseLayout;
 
-    private Integer decorationTypeId;
+    private Integer houseDecorationId;
+    private HouseDecoration houseDecoration;
 
     private Integer provinceId;
+    private Province province;
 
     private Integer cityId;
+    private City city;
 
     private Integer areaId;
+    private Area area;
 
     private String address;
 
     private Integer houseStatusId;
+    private HouseStatus houseStatus;
 
     private Boolean enabled;
+
+    private Integer age;
+
+    private Integer elevatorTypeId;
+    private HouseElevator houseElevator;
+
+    private String unitPrice;
+
+    public String getUnitPrice() {
+        double money = this.expectPrice / this.floorArea;
+
+        this.unitPrice = DecimalUtil.formateMoney(money);
+
+        return unitPrice;
+    }
 
     public Integer getId() {
         return id;
@@ -145,12 +174,12 @@ public class House {
         this.layoutId = layoutId;
     }
 
-    public Integer getDecorationTypeId() {
-        return decorationTypeId;
+    public Integer getHouseDecorationId() {
+        return houseDecorationId;
     }
 
-    public void setDecorationTypeId(Integer decorationTypeId) {
-        this.decorationTypeId = decorationTypeId;
+    public void setHouseDecorationId(Integer houseDecorationId) {
+        this.houseDecorationId = houseDecorationId;
     }
 
     public Integer getProvinceId() {
@@ -199,5 +228,131 @@ public class House {
 
     public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
+    }
+
+    public Integer getAge() {
+        return age;
+    }
+
+    public void setAge(Integer age) {
+        this.age = age;
+    }
+
+    public HouseFace getHouseFace() {
+        return houseFace;
+    }
+
+    public void setHouseFace(HouseFace houseFace) {
+        this.houseFace = houseFace;
+    }
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
+    }
+
+    public HouseLayout getHouseLayout() {
+        return houseLayout;
+    }
+
+    public void setHouseLayout(HouseLayout houseLayout) {
+        this.houseLayout = houseLayout;
+    }
+
+    public HouseDecoration getHouseDecoration() {
+        return houseDecoration;
+    }
+
+    public void setHouseDecoration(HouseDecoration houseDecoration) {
+        this.houseDecoration = houseDecoration;
+    }
+
+    public Province getProvince() {
+        return province;
+    }
+
+    public void setProvince(Province province) {
+        this.province = province;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
+    }
+
+    public HouseStatus getHouseStatus() {
+        return houseStatus;
+    }
+
+    public void setHouseStatus(HouseStatus houseStatus) {
+        this.houseStatus = houseStatus;
+    }
+
+    public Integer getElevatorTypeId() {
+        return elevatorTypeId;
+    }
+
+    public void setElevatorTypeId(Integer elevatorTypeId) {
+        this.elevatorTypeId = elevatorTypeId;
+    }
+
+    public HouseElevator getHouseElevator() {
+        return houseElevator;
+    }
+
+    public void setHouseElevator(HouseElevator houseElevator) {
+        this.houseElevator = houseElevator;
+    }
+
+    @Override
+    public String toString() {
+        return "House{" +
+                "id=" + id +
+                ", tittle='" + tittle + '\'' +
+                ", description='" + description + '\'' +
+                ", faceId=" + faceId +
+                ", houseFace=" + houseFace +
+                ", floorArea=" + floorArea +
+                ", poolArea=" + poolArea +
+                ", expectPrice=" + expectPrice +
+                ", propertyFee=" + propertyFee +
+                ", thumbnailMode=" + thumbnailMode +
+                ", vrMode=" + vrMode +
+                ", communityId=" + communityId +
+                ", community=" + community +
+                ", floor=" + floor +
+                ", layoutId=" + layoutId +
+                ", houseLayout=" + houseLayout +
+                ", houseDecorationId=" + houseDecorationId +
+                ", houseDecoration=" + houseDecoration +
+                ", provinceId=" + provinceId +
+                ", province=" + province +
+                ", cityId=" + cityId +
+                ", city=" + city +
+                ", areaId=" + areaId +
+                ", area=" + area +
+                ", address='" + address + '\'' +
+                ", houseStatusId=" + houseStatusId +
+                ", houseStatus=" + houseStatus +
+                ", enabled=" + enabled +
+                ", age=" + age +
+                ", elevatorTypeId=" + elevatorTypeId +
+                ", houseElevator=" + houseElevator +
+                ", unitPrice='" + unitPrice + '\'' +
+                '}';
     }
 }

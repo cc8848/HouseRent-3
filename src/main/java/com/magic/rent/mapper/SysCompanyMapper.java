@@ -1,7 +1,9 @@
 package com.magic.rent.mapper;
 
 import com.magic.rent.pojo.SysCompany;
+import org.springframework.stereotype.Repository;
 
+@Repository
 public interface SysCompanyMapper {
     int deleteByPrimaryKey(Integer id);
 

@@ -20,10 +20,11 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar-head.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/icheckflat/blue.css">
 <body>
 <%--head start--%>
-<c:import url="/WEB-INF/common/house_common_head.jsp"/>
+<c:import url="/WEB-INF/common/house_common_foot.jsp"/>
 <%--head end--%>
 <div class="container">
     <div class="row">

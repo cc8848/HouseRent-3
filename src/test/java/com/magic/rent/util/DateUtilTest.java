@@ -10,7 +10,7 @@ import static org.junit.Assert.*;
  * 类说明:家访问控制器
  * 更新记录：
  */
-public class DateFormatUtilTest {
+public class DateUtilTest {
     @Test
     public void formatToNo() throws Exception {
 //        String str = FileUtil.getNewFileNameByHouseID("abc.jpg", "1");

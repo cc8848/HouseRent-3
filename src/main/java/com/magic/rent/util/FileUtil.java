@@ -55,7 +55,7 @@ public class FileUtil {
     public static String getNewFileNameByHouseID(String oldFileName, int houseID) throws Exception {
         if (oldFileName.contains(".")) {
             String prefix = oldFileName.substring(oldFileName.lastIndexOf(".") + 1);
-            return new StringBuffer("ID").append(houseID).append("-").append(DateFormatUtil.formatToNo(new Date())).append(".").append(prefix).toString();
+            return new StringBuffer("ID").append(houseID).append("-").append(DateUtil.formatToNo(new Date())).append(".").append(prefix).toString();
         } else {
             throw new BusinessException("文件名不符合规范，没有'.'作为后缀的分割符！");
         }

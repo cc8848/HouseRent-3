@@ -16,4 +16,6 @@ public interface HouseMapper {
     int updateByPrimaryKeySelective(House record);
 
     int updateByPrimaryKey(House record);
+
+    House selectHouseDetails(Integer id);
 }

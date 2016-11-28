@@ -1,6 +1,8 @@
 package com.magic.rent.util;
 
 import com.magic.rent.exception.custom.ParameterException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.util.StringUtils;
 
 /**
