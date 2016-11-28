@@ -1,6 +1,18 @@
 package com.magic.rent.pojo;
 
-public class Company {
+import java.io.Serializable;
+
+public class Company implements Serializable {
+    private static final long serialVersionUID = 4700876825684740601L;
+
+    public final static int AUDITING = 1;
+
+    public final static int SUCCESS = 2;
+
+    public final static int FAIL = 3;
+
+    public final static int EXPIRE = 4;//过期
+
     private Integer id;
 
     private String companyName;
@@ -11,7 +23,7 @@ public class Company {
 
     private Integer developerId;
 
-    private Boolean enable;
+    private Integer status;
 
     public Integer getId() {
         return id;
@@ -53,11 +65,23 @@ public class Company {
         this.developerId = developerId;
     }
 
-    public Boolean getEnable() {
-        return enable;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setEnable(Boolean enable) {
-        this.enable = enable;
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    @Override
+    public String toString() {
+        return "Company{" +
+                "id=" + id +
+                ", companyName='" + companyName + '\'' +
+                ", address='" + address + '\'' +
+                ", phone='" + phone + '\'' +
+                ", developerId=" + developerId +
+                ", status=" + status +
+                '}';
     }
 }

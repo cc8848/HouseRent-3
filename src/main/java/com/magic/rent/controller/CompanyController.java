@@ -24,7 +24,6 @@ import javax.servlet.http.HttpServletRequest;
 @RequestMapping("/company")
 public class CompanyController {
 
-
     @Autowired
     private ICompanyService companyService;
 
@@ -47,7 +46,7 @@ public class CompanyController {
         company.setPhone(phone);
         company.setDeveloperId(userID);
         company.setCompanyName(companyName);
-        company.setEnable(false);
+        company.setStatus(Company.AUDITING);
 
         boolean isSuccess = companyService.create(company);
 
@@ -56,6 +55,12 @@ public class CompanyController {
         } else {
             return JsonResult.error("申请失败！您可直接与我公司电话申请开通企业服务！");
         }
+    }
 
+    @ResponseBody
+    @RequestMapping(value = "/pass", method = RequestMethod.POST)
+    public JsonResult passCompany(HttpServletRequest request) throws Exception {
+
+        return JsonResult.success();
     }
 }
