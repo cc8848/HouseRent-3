@@ -7,30 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CompanyController.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CompanyMapper.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Company.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ICommunityService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CompanyService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/ICompanyService.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CompanyMapper.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/service/impl/CompanyServiceTest.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysCompanyMapper.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysCompanyMapper.xml" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b1642a91-fe21-45bd-bb4b-0abed27d96c7.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/b1642a91-fe21-45bd-bb4b-0abed27d96c7.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rent.log" afterPath="$PROJECT_DIR$/logs/rent.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CommunityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CommunityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/HouseServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/HouseServiceImpl.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/fileinput.min.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/fileinput.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/fileup/zh.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/fileup/zh.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/SysCompanyMapperTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/SysCompanyMapperTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/magic/rent/service/impl/HouseRecommendServiceImplTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/service/impl/HouseRecommendServiceImplTest.java" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1427,14 +1406,7 @@
       <workItem from="1480262792312" duration="104000" />
       <workItem from="1480263086973" duration="16625000" />
       <workItem from="1480321167090" duration="2310000" />
-      <workItem from="1480335070698" duration="5188000" />
-    </task>
-    <task id="LOCAL-00001" summary="2016年10月31日22:43:46">
-      <created>1477925076681</created>
-      <option name="number" value="00001" />
-      <option name="presentableId" value="LOCAL-00001" />
-      <option name="project" value="LOCAL" />
-      <updated>1477925076681</updated>
+      <workItem from="1480335070698" duration="5272000" />
     </task>
     <task id="LOCAL-00002" summary="2016年11月01日00:56:39">
       <created>1477933008817</created>
@@ -1772,7 +1744,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480263272620</updated>
     </task>
-    <option name="localTasksCounter" value="50" />
+    <task id="LOCAL-00050" summary="2016年11月28日21:39:10">
+      <created>1480340361564</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1480340361564</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1808,7 +1787,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="568923000" />
+    <option name="totallyTimeSpent" value="569007000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1928,7 +1907,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2016年11月16日02:26:37" />
     <MESSAGE value="2016年11月16日07:22:36" />
     <MESSAGE value="2016年11月16日17:38:27" />
     <MESSAGE value="2016年11月17日00:55:30" />
@@ -1953,7 +1931,8 @@
     <MESSAGE value="2016年11月26日20:44:27" />
     <MESSAGE value="2016年11月27日08:49:47" />
     <MESSAGE value="2016年11月28日00:14:06" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年11月28日00:14:06" />
+    <MESSAGE value="2016年11月28日21:39:10" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年11月28日21:39:10" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
