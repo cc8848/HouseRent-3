@@ -21,4 +21,5 @@ public interface CompanyMapper {
 
     List<Company> selectBySelective(Company company);
 
+    Company selectCurrentCompanyInfo(int userID);
 }

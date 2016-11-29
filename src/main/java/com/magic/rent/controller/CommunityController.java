@@ -51,9 +51,8 @@ public class CommunityController {
         community.setName(communityName);
         community.setMapX(mapX);
         community.setMapY(mapY);
-        community.setEnable(false);
 
-        boolean isSuccess = iCommunityService.createProject(community, sysUsers.getUserId());
+        boolean isSuccess = iCommunityService.create(community, sysUsers.getUserId());
 
         return JsonResult.success();
     }

@@ -22,4 +22,6 @@ public interface ICompanyService {
 
     List<Company> getAuditingCompanies() throws Exception;
 
+    Company getCurrentCompanyInfo(int userID) throws Exception;
+
 }

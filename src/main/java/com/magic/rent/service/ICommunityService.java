@@ -1,6 +1,9 @@
 package com.magic.rent.service;
 
 import com.magic.rent.pojo.Community;
+import com.magic.rent.pojo.Company;
+
+import java.util.List;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -10,7 +13,13 @@ import com.magic.rent.pojo.Community;
  */
 public interface ICommunityService {
 
-    boolean createProject(Community community, int userID) throws Exception;
+    boolean create(Community community, int userID) throws Exception;
 
-    boolean passProject(Community community) throws Exception;
+    boolean cancel(int communityID, int companyID) throws Exception;
+
+    boolean pass(Community community) throws Exception;
+
+    boolean refuse(int communityID) throws Exception;
+
+    List<Community> getAuditingCommunities() throws Exception;
 }

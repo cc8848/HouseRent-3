@@ -20,6 +20,8 @@
     <sec:http pattern="/json/*" security="none"/>
     <!--不进行拦截的页面-->
     <sec:http pattern="/WEB-INF/views/index.jsp" security="none"/>
+    <sec:http pattern="/WEB-INF/views/login.jsp" security="none"/>
+    <sec:http pattern="/user/login" security="none"/>
     <!--过滤资源 end-->
 
     <!--权限配置及自定义登录界面 start-->

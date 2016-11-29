@@ -1,6 +1,10 @@
 package com.magic.rent.pojo;
 
-public class Community {
+import java.io.Serializable;
+import java.util.Date;
+
+public class Community implements Serializable {
+    private static final long serialVersionUID = 598629396944896191L;
     private Integer id;
 
     private String name;
@@ -17,7 +21,13 @@ public class Community {
 
     private Integer companyId;
 
-    private Boolean enable;
+    private Integer status;
+
+    private String statusName;
+
+    private Date auditingTime;
+
+    private Date operateTime;
 
     public Integer getId() {
         return id;
@@ -83,11 +93,54 @@ public class Community {
         this.companyId = companyId;
     }
 
-    public Boolean getEnable() {
-        return enable;
+    public Integer getStatus() {
+        return status;
     }
 
-    public void setEnable(Boolean enable) {
-        this.enable = enable;
+    public void setStatus(Integer status) {
+        this.status = status;
+        this.setStatusName(AuditingStatus.idToName(this.status));
+    }
+
+    public Date getAuditingTime() {
+        return auditingTime;
+    }
+
+    public void setAuditingTime(Date auditingTime) {
+        this.auditingTime = auditingTime;
+    }
+
+    public Date getOperateTime() {
+        return operateTime;
+    }
+
+    public void setOperateTime(Date operateTime) {
+        this.operateTime = operateTime;
+    }
+
+    public String getStatusName() {
+        this.setStatusName(AuditingStatus.idToName(this.status));
+        return statusName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
+    }
+
+    @Override
+    public String toString() {
+        return "Community{" +
+                "id=" + id +
+                ", name='" + name + '\'' +
+                ", provinceId=" + provinceId +
+                ", cityId=" + cityId +
+                ", areaId=" + areaId +
+                ", mapX=" + mapX +
+                ", mapY=" + mapY +
+                ", companyId=" + companyId +
+                ", status=" + status +
+                ", auditingTime=" + auditingTime +
+                ", operateTime=" + operateTime +
+                '}';
     }
 }

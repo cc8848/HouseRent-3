@@ -49,12 +49,12 @@ public class CompanyServiceTest {
 
     @Test
     public void cancel() throws Exception {
-        System.out.print(iCompanyService.cancel(6,2));
+        System.out.print(iCompanyService.cancel(6, 2));
     }
 
     @Test
     public void refuse() throws Exception {
-        System.out.print(iCompanyService.refuse(5));
+        System.out.print(iCompanyService.refuse(3));
     }
 
     @Test
@@ -62,4 +62,9 @@ public class CompanyServiceTest {
 
     }
 
+    @Test
+    public void getCurrentCompanyInfo() throws Exception {
+        Company company = iCompanyService.getCurrentCompanyInfo(2);
+        System.out.print(company);
+    }
 }

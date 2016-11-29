@@ -126,19 +126,12 @@
     where ID = #{id,jdbcType=INTEGER}
   </update>
     <select id="selectByUserID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    SELECT
-    COMPANY.ID,
-    COMPANY.COMPANY_NAME,
-    COMPANY.ADDRESS,
-    COMPANY.PHONE,
-    COMPANY.DEVELOPER_ID,
-    COMPANY.STATUS,
-    COMPANY.AUDITING_TIME,
-    COMPANY.OPERATE_TIME
-    FROM
-    COMPANY
-    WHERE DEVELOPER_ID = #{userID,jdbcType=INTEGER}
-  </select>
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        COMPANY
+        WHERE DEVELOPER_ID = #{userID,jdbcType=INTEGER}
+    </select>
     <select id="selectBySelective" parameterType="com.magic.rent.pojo.Company" resultMap="BaseResultMap">
         SELECT
         COMPANY.ID,
@@ -177,5 +170,22 @@
                 AND OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
             </if>
         </where>
+    </select>
+    <select id="selectCurrentCompanyInfo" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT
+          COMPANY.ID,
+          COMPANY.COMPANY_NAME,
+          COMPANY.ADDRESS,
+          COMPANY.PHONE,
+          COMPANY.DEVELOPER_ID,
+          COMPANY.STATUS,
+          COMPANY.AUDITING_TIME,
+          COMPANY.OPERATE_TIME
+        FROM COMPANY
+        WHERE COMPANY.DEVELOPER_ID = #{developerId,jdbcType=INTEGER} AND COMPANY.AUDITING_TIME = (SELECT MAX(COMPANY.AUDITING_TIME)
+                                                                    FROM
+                                                                      COMPANY
+                                                                    WHERE DEVELOPER_ID = #{developerId,jdbcType=INTEGER}
+                                                                    GROUP BY COMPANY.DEVELOPER_ID)
     </select>
 </mapper>

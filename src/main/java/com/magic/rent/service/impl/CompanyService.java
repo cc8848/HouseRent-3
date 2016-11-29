@@ -3,6 +3,7 @@ package com.magic.rent.service.impl;
 import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.mapper.CompanyMapper;
 import com.magic.rent.mapper.UsersRelateRolesMapper;
+import com.magic.rent.pojo.AuditingStatus;
 import com.magic.rent.pojo.Company;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.UsersRelateRoles;
@@ -41,8 +42,8 @@ public class CompanyService implements ICompanyService {
         for (Company DBCompany : companyList) {
             int status = DBCompany.getStatus();
             switch (status) {
-                case Company.AUDITING:
-                case Company.SUCCESS:
+                case AuditingStatus.AUDITING:
+                case AuditingStatus.SUCCESS:
                     flag = false;
                     break;
             }
@@ -54,7 +55,7 @@ public class CompanyService implements ICompanyService {
         if (flag) {
             Date date = new Date();
             company.setAuditingTime(date);
-            company.setStatus(Company.AUDITING);
+            company.setStatus(AuditingStatus.AUDITING);
             int rows = companyMapper.insert(company);
             return rows > 0;
         } else {
@@ -66,7 +67,7 @@ public class CompanyService implements ICompanyService {
     public boolean pass(int companyID) throws Exception {
         Company company = new Company();
         company.setId(companyID);
-        company.setStatus(Company.SUCCESS);
+        company.setStatus(AuditingStatus.SUCCESS);
         Date date = new Date();
         company.setOperateTime(date);
         int rows = companyMapper.updateByPrimaryKeySelective(company);
@@ -90,38 +91,52 @@ public class CompanyService implements ICompanyService {
         //设置查询条件
         Company query = new Company();
         query.setDeveloperId(userID);
-        query.setStatus(Company.AUDITING);
+        query.setStatus(AuditingStatus.AUDITING);
         List<Company> companyList = companyMapper.selectBySelective(query);
         if (null == companyList || companyList.size() == 0) {
             throw new BusinessException("此账户尚未申请开通企业服务，无法取消！");
         }
         //遍历查询结果
+        boolean flag = false;
         for (Company DBCompany : companyList) {
             //遍历结果，获取正在申请的公司
             if (DBCompany.getId().equals(companyID)) {
+                flag = true;
                 Company company = new Company();
                 company.setId(companyID);
-                company.setStatus(Company.CANCEL);
+                company.setStatus(AuditingStatus.CANCEL);
                 company.setOperateTime(new Date());
                 int rows = companyMapper.updateByPrimaryKeySelective(company);
                 return rows > 0;
             }
         }
-        //未包含在途的申请，无法取消
+        if (!flag) {
+            throw new BusinessException("未包含在途的申请，无法取消");
+        }
+
         return false;
     }
 
     public boolean refuse(int companyID) throws Exception {
         Company company = new Company();
         company.setId(companyID);
-        company.setStatus(Company.REFUSE);
+        company.setStatus(AuditingStatus.REFUSE);
         company.setOperateTime(new Date());
+
         int rows = companyMapper.updateByPrimaryKeySelective(company);
 
         return rows > 0;
     }
 
     public List<Company> getAuditingCompanies() throws Exception {
-        return null;
+        Company company = new Company();
+        company.setStatus(AuditingStatus.AUDITING);
+        return companyMapper.selectBySelective(company);
+    }
+
+    public Company getCurrentCompanyInfo(int userID) throws Exception {
+        Company query = new Company();
+        query.setDeveloperId(userID);
+        return companyMapper.selectCurrentCompanyInfo(userID);
     }
 }

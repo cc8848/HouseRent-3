@@ -10,10 +10,13 @@
         <result column="MAP_X" property="mapX" jdbcType="DOUBLE"/>
         <result column="MAP_Y" property="mapY" jdbcType="DOUBLE"/>
         <result column="COMPANY_ID" property="companyId" jdbcType="INTEGER"/>
-        <result column="ENABLE" property="enable" jdbcType="BIT"/>
+        <result column="STATUS" property="status" jdbcType="INTEGER"/>
+        <result column="AUDITING_TIME" property="auditingTime" jdbcType="TIMESTAMP"/>
+        <result column="OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP"/>
     </resultMap>
     <sql id="Base_Column_List">
-    ID, NAME, PROVINCE_ID, CITY_ID, AREA_ID, MAP_X, MAP_Y, COMPANY_ID, ENABLE
+    ID, NAME, PROVINCE_ID, CITY_ID, AREA_ID, MAP_X, MAP_Y, COMPANY_ID, STATUS, AUDITING_TIME, 
+    OPERATE_TIME
   </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
@@ -28,10 +31,12 @@
     <insert id="insert" parameterType="com.magic.rent.pojo.Community">
     insert into COMMUNITY (ID, NAME, PROVINCE_ID, 
       CITY_ID, AREA_ID, MAP_X, 
-      MAP_Y, COMPANY_ID, ENABLE)
+      MAP_Y, COMPANY_ID, STATUS, 
+      AUDITING_TIME, OPERATE_TIME)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{provinceId,jdbcType=INTEGER}, 
       #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{mapX,jdbcType=DOUBLE}, 
-      #{mapY,jdbcType=DOUBLE}, #{companyId,jdbcType=INTEGER}, #{enable,jdbcType=BIT})
+      #{mapY,jdbcType=DOUBLE}, #{companyId,jdbcType=INTEGER}, #{status,jdbcType=INTEGER}, 
+      #{auditingTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP})
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.Community">
         insert into COMMUNITY
@@ -60,8 +65,14 @@
             <if test="companyId != null">
                 COMPANY_ID,
             </if>
-            <if test="enable != null">
-                ENABLE,
+            <if test="status != null">
+                STATUS,
+            </if>
+            <if test="auditingTime != null">
+                AUDITING_TIME,
+            </if>
+            <if test="operateTime != null">
+                OPERATE_TIME,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -89,8 +100,14 @@
             <if test="companyId != null">
                 #{companyId,jdbcType=INTEGER},
             </if>
-            <if test="enable != null">
-                #{enable,jdbcType=BIT},
+            <if test="status != null">
+                #{status,jdbcType=INTEGER},
+            </if>
+            <if test="auditingTime != null">
+                #{auditingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operateTime != null">
+                #{operateTime,jdbcType=TIMESTAMP},
             </if>
         </trim>
     </insert>
@@ -118,8 +135,14 @@
             <if test="companyId != null">
                 COMPANY_ID = #{companyId,jdbcType=INTEGER},
             </if>
-            <if test="enable != null">
-                ENABLE = #{enable,jdbcType=BIT},
+            <if test="status != null">
+                STATUS = #{status,jdbcType=INTEGER},
+            </if>
+            <if test="auditingTime != null">
+                AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operateTime != null">
+                OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
             </if>
         </set>
         where ID = #{id,jdbcType=INTEGER}
@@ -133,7 +156,58 @@
       MAP_X = #{mapX,jdbcType=DOUBLE},
       MAP_Y = #{mapY,jdbcType=DOUBLE},
       COMPANY_ID = #{companyId,jdbcType=INTEGER},
-      ENABLE = #{enable,jdbcType=BIT}
+      STATUS = #{status,jdbcType=INTEGER},
+      AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP},
+      OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=INTEGER}
   </update>
+    <select id="selectBySelective" parameterType="com.magic.rent.pojo.Community" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM COMMUNITY
+        <where>
+            <if test="id != null">
+                ID = #{id,jdbcType=VARCHAR}
+            </if>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR}
+            </if>
+            <if test="provinceId != null">
+                PROVINCE_ID = #{provinceId,jdbcType=INTEGER}
+            </if>
+            <if test="cityId != null">
+                CITY_ID = #{cityId,jdbcType=INTEGER}
+            </if>
+            <if test="areaId != null">
+                AREA_ID = #{areaId,jdbcType=INTEGER}
+            </if>
+            <if test="mapX != null">
+                MAP_X = #{mapX,jdbcType=DOUBLE}
+            </if>
+            <if test="mapY != null">
+                MAP_Y = #{mapY,jdbcType=DOUBLE}
+            </if>
+            <if test="companyId != null">
+                COMPANY_ID = #{companyId,jdbcType=INTEGER}
+            </if>
+            <if test="status != null">
+                STATUS = #{status,jdbcType=INTEGER}
+            </if>
+            <if test="auditingTime != null">
+                AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="operateTime != null">
+                OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </select>
+    <select id="selectEnableByUserID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM COMMUNITY
+        JOIN COMPANY ON COMMUNITY.COMPANY_ID = COMPANY.ID
+        JOIN SYS_USERS ON COMPANY.DEVELOPER_ID = SYS_USERS.USER_ID
+        WHERE SYS_USERS.USER_ID=#{userID,jdbcType=INTEGER} AND COMPANY.STATUS=2 AND COMMUNITY.STATUS=2
+    </select>
+
 </mapper>

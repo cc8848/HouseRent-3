@@ -6,11 +6,6 @@ import java.util.Date;
 public class Company implements Serializable {
     private static final long serialVersionUID = 858996675606879242L;
 
-    public static final int AUDITING = 1;
-    public static final int SUCCESS = 2;
-    public static final int REFUSE = 3;
-    public static final int CANCEL = 4;
-
     private Integer id;
 
     private String companyName;
@@ -75,6 +70,7 @@ public class Company implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
+        this.setStatusName(AuditingStatus.idToName(this.status));
     }
 
     public Date getAuditingTime() {
@@ -98,18 +94,7 @@ public class Company implements Serializable {
     }
 
     public String getStatusName() {
-        if (null == this.statusName) {
-            switch (this.status) {
-                case Company.AUDITING:
-                    this.setStatusName("正在审核");
-                case Company.SUCCESS:
-                    this.setStatusName("审核成功");
-                case Company.REFUSE:
-                    this.setStatusName("审核失败");
-                case Company.CANCEL:
-                    this.setStatusName("申请取消");
-            }
-        }
+        this.setStatusName(AuditingStatus.idToName(this.status));
         return statusName;
     }
 
