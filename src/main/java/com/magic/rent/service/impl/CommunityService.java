@@ -9,6 +9,8 @@ import com.magic.rent.service.ICommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
  * 创建者: wu  创建时间: 2016/11/28
@@ -27,9 +29,13 @@ public class CommunityService implements ICommunityService {
 
     public boolean createProject(Community community, int userID) throws Exception {
         //根据用户查询用户所在公司
-        Integer companyID = companyMapper.selectByUserID(userID);
-        if (null != companyID) {
-            community.setCompanyId(companyID);
+        Company query = new Company();
+        query.setDeveloperId(userID);
+        query.setStatus(Company.SUCCESS);
+        List<Company> companyList = companyMapper.selectBySelective(query);
+        Company company = companyList.get(0);
+        if (null != company) {
+            community.setCompanyId(company.getId());
         } else {
             throw new BusinessException("当前账户尚未开通企业服务！");
         }

@@ -3,6 +3,8 @@ package com.magic.rent.mapper;
 import com.magic.rent.pojo.Company;
 import org.springframework.stereotype.Repository;
 
+import java.util.List;
+
 @Repository
 public interface CompanyMapper {
     int deleteByPrimaryKey(Integer id);
@@ -17,5 +19,6 @@ public interface CompanyMapper {
 
     int updateByPrimaryKey(Company record);
 
-    int selectByUserID(int userID);
+    List<Company> selectBySelective(Company company);
+
 }

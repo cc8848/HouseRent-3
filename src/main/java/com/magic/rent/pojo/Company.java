@@ -1,17 +1,15 @@
 package com.magic.rent.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class Company implements Serializable {
-    private static final long serialVersionUID = 4700876825684740601L;
+    private static final long serialVersionUID = 858996675606879242L;
 
-    public final static int AUDITING = 1;
-
-    public final static int SUCCESS = 2;
-
-    public final static int FAIL = 3;
-
-    public final static int EXPIRE = 4;//过期
+    public static final int AUDITING = 1;
+    public static final int SUCCESS = 2;
+    public static final int REFUSE = 3;
+    public static final int CANCEL = 4;
 
     private Integer id;
 
@@ -24,6 +22,12 @@ public class Company implements Serializable {
     private Integer developerId;
 
     private Integer status;
+
+    private Date auditingTime;
+
+    private Date operateTime;
+
+    private String statusName;
 
     public Integer getId() {
         return id;
@@ -73,6 +77,42 @@ public class Company implements Serializable {
         this.status = status;
     }
 
+    public Date getAuditingTime() {
+        return auditingTime;
+    }
+
+    public void setAuditingTime(Date auditingTime) {
+        this.auditingTime = auditingTime;
+    }
+
+    public Date getOperateTime() {
+        return operateTime;
+    }
+
+    public void setOperateTime(Date operateTime) {
+        this.operateTime = operateTime;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
+    }
+
+    public String getStatusName() {
+        if (null == this.statusName) {
+            switch (this.status) {
+                case Company.AUDITING:
+                    this.setStatusName("正在审核");
+                case Company.SUCCESS:
+                    this.setStatusName("审核成功");
+                case Company.REFUSE:
+                    this.setStatusName("审核失败");
+                case Company.CANCEL:
+                    this.setStatusName("申请取消");
+            }
+        }
+        return statusName;
+    }
+
     @Override
     public String toString() {
         return "Company{" +
@@ -82,6 +122,9 @@ public class Company implements Serializable {
                 ", phone='" + phone + '\'' +
                 ", developerId=" + developerId +
                 ", status=" + status +
+                ", auditingTime=" + auditingTime +
+                ", operateTime=" + operateTime +
+                ", statusName='" + statusName + '\'' +
                 '}';
     }
 }

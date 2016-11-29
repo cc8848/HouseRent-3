@@ -60,7 +60,5 @@ public class SysCompanyMapperTest {
 
     @Test
     public void selectByUserID() throws Exception {
-        Integer c = companyMapper.selectByUserID(2);
-        System.out.print(null == c);
     }
 }

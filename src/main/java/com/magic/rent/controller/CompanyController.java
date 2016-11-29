@@ -2,7 +2,7 @@ package com.magic.rent.controller;
 
 import com.magic.rent.pojo.Company;
 import com.magic.rent.pojo.SysUsers;
-import com.magic.rent.service.security.ICompanyService;
+import com.magic.rent.service.ICompanyService;
 import com.magic.rent.util.HttpUtil;
 import com.magic.rent.util.JsonResult;
 import com.magic.rent.util.MyStringUtil;
@@ -25,7 +25,7 @@ import javax.servlet.http.HttpServletRequest;
 public class CompanyController {
 
     @Autowired
-    private ICompanyService companyService;
+    private ICompanyService iCompanyService;
 
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)
@@ -46,9 +46,8 @@ public class CompanyController {
         company.setPhone(phone);
         company.setDeveloperId(userID);
         company.setCompanyName(companyName);
-        company.setStatus(Company.AUDITING);
 
-        boolean isSuccess = companyService.create(company);
+        boolean isSuccess = iCompanyService.create(company);
 
         if (isSuccess) {
             return JsonResult.success();
@@ -60,7 +59,39 @@ public class CompanyController {
     @ResponseBody
     @RequestMapping(value = "/pass", method = RequestMethod.POST)
     public JsonResult passCompany(HttpServletRequest request) throws Exception {
+        Integer companyID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("companyID"), "公司编号不能为空！"));
 
-        return JsonResult.success();
+        if (iCompanyService.pass(companyID)) {
+            return JsonResult.success();
+        } else {
+            return JsonResult.error("操作失败！请联系技术人员！");
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/refuse", method = RequestMethod.POST)
+    public JsonResult refuseCompany(HttpServletRequest request) throws Exception {
+        Integer companyID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("companyID"), "公司编号不能为空！"));
+
+        if (iCompanyService.refuse(companyID)) {
+            return JsonResult.success();
+        } else {
+            return JsonResult.error("操作失败！请联系技术人员！");
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping(value = "/cancel", method = RequestMethod.POST)
+    public JsonResult cancelCompany(HttpServletRequest request) throws Exception {
+        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+
+        Integer companyID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("companyID"), "公司ID不能为空！"));
+
+
+        if (iCompanyService.cancel(companyID, sysUsers.getUserId())) {
+            return JsonResult.success();
+        } else {
+            return JsonResult.error("操作失败！请联系技术人员！");
+        }
     }
 }
