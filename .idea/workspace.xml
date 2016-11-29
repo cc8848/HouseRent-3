@@ -7,28 +7,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/ehcache.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b1642a91-fe21-45bd-bb4b-0abed27d96c7.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/b1642a91-fe21-45bd-bb4b-0abed27d96c7.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rent.log" afterPath="$PROJECT_DIR$/logs/rent.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CommunityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CommunityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CompanyMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CompanyMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/AuditingStatus.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/AuditingStatus.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Company.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Company.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ICommunityService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ICommunityService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ICompanyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ICompanyService.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CompanyService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CompanyService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-security.xml" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-security.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/AuditingStatusMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/AuditingStatusMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/CompanyMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CompanyMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/css/fileinput.min.css" afterPath="$PROJECT_DIR$/src/main/webapp/css/fileinput.min.css" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/fileup/zh.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/fileup/zh.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/magic/rent/service/impl/CompanyServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/service/impl/CompanyServiceTest.java" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -180,7 +162,6 @@
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CommunityMapper.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/CompanyMapper.xml" />
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b1642a91-fe21-45bd-bb4b-0abed27d96c7/console.sql" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CompanyMapper.java" />
@@ -192,6 +173,7 @@
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Company.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" />
         <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-security.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java" />
       </list>
     </option>
   </component>
@@ -591,6 +573,70 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="rent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1413,14 +1459,7 @@
       <workItem from="1480377207188" duration="16034000" />
       <workItem from="1480417875142" duration="489000" />
       <workItem from="1480418418281" duration="843000" />
-      <workItem from="1480435227903" duration="7989000" />
-    </task>
-    <task id="LOCAL-00003" summary="2016年11月01日00:56:39">
-      <created>1477933058649</created>
-      <option name="number" value="00003" />
-      <option name="presentableId" value="LOCAL-00003" />
-      <option name="project" value="LOCAL" />
-      <updated>1477933058649</updated>
+      <workItem from="1480435227903" duration="8231000" />
     </task>
     <task id="LOCAL-00004" summary="2016年11月01日09:07:33">
       <created>1477962473377</created>
@@ -1758,7 +1797,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480340438185</updated>
     </task>
-    <option name="localTasksCounter" value="52" />
+    <task id="LOCAL-00052" summary="2016年11月30日02:14:00">
+      <created>1480443253434</created>
+      <option name="number" value="00052" />
+      <option name="presentableId" value="LOCAL-00052" />
+      <option name="project" value="LOCAL" />
+      <updated>1480443253435</updated>
+    </task>
+    <option name="localTasksCounter" value="53" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1794,7 +1840,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="596300000" />
+    <option name="totallyTimeSpent" value="596542000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1914,7 +1960,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2016年11月16日17:38:27" />
     <MESSAGE value="2016年11月17日00:55:30" />
     <MESSAGE value="2016年11月17日01:29:15" />
     <MESSAGE value="2016年11月17日10:54:30" />
@@ -1939,7 +1984,8 @@
     <MESSAGE value="2016年11月28日00:14:06" />
     <MESSAGE value="2016年11月28日21:39:10" />
     <MESSAGE value="2016年11月28日21:40:33" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年11月28日21:40:33" />
+    <MESSAGE value="2016年11月30日02:14:00" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年11月30日02:14:00" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2345,14 +2391,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="24" column="41" lean-forward="false" selection-start-line="24" selection-start-column="41" selection-end-line="24" selection-end-column="41" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CompanyService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2040">
@@ -2360,6 +2398,14 @@
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="34" column="37" lean-forward="true" selection-start-line="34" selection-start-column="37" selection-end-line="34" selection-end-column="37" />
+          <folding />
         </state>
       </provider>
     </entry>

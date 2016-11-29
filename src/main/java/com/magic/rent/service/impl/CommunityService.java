@@ -10,6 +10,7 @@ import com.magic.rent.service.ICommunityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -42,13 +43,14 @@ public class CommunityService implements ICommunityService {
         } else {
             throw new BusinessException("当前账户尚未开通企业服务！");
         }
+        community.setAuditingTime(new Date());
         int rows = communityMapper.insert(community);
         return rows > 0;
     }
 
     public boolean pass(Community community) throws Exception {
-
         community.setStatus(AuditingStatus.SUCCESS);
+        community.setOperateTime(new Date());
         int rows = communityMapper.updateByPrimaryKeySelective(community);
 
         return rows > 0;
@@ -81,6 +83,7 @@ public class CommunityService implements ICommunityService {
                 Community community = new Community();
                 community.setId(communityID);
                 community.setStatus(AuditingStatus.CANCEL);
+                community.setOperateTime(new Date());
                 int rows = communityMapper.updateByPrimaryKeySelective(community);
                 return rows > 0;
             }
@@ -95,7 +98,7 @@ public class CommunityService implements ICommunityService {
         Community community = new Community();
         community.setId(communityID);
         community.setStatus(AuditingStatus.REFUSE);
-
+        community.setOperateTime(new Date());
         int rows = communityMapper.updateByPrimaryKeySelective(community);
 
         return rows > 0;
