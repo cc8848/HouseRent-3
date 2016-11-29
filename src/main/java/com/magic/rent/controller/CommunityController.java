@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -26,22 +27,16 @@ public class CommunityController {
     @Autowired
     private ICommunityService iCommunityService;
 
-
+    @ResponseBody
     @RequestMapping(value = "/create", method = {RequestMethod.POST})
     public JsonResult create(HttpServletRequest request) throws Exception {
 
         SysUsers sysUsers = HttpUtil.getSessionUser(request);
-
         String communityName = MyStringUtil.checkParameter(request.getParameter("communityName"), "社区名称不能为空！");
-
         Integer provinceID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("provinceID"), "省份ID不能为空！"));
-
         Integer cityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("cityID"), "城市ID不能为空！"));
-
         Integer areaID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("areaID"), "地区ID不能为空！"));
-
         Double mapX = Double.parseDouble(MyStringUtil.checkParameter(request.getParameter("mapX"), "地图数据获取失败！"));
-
         Double mapY = Double.parseDouble(MyStringUtil.checkParameter(request.getParameter("mapY"), "地图数据获取失败！"));
 
         Community community = new Community();
@@ -54,6 +49,18 @@ public class CommunityController {
 
         boolean isSuccess = iCommunityService.create(community, sysUsers.getUserId());
 
-        return JsonResult.success();
+        if (isSuccess) {
+            return JsonResult.success();
+        } else {
+            return JsonResult.error("创建社区项目失败！");
+        }
+    }
+
+    public JsonResult classify(HttpServletRequest request) throws Exception {
+        Integer status = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("status"), "状态不能为空！"));
+        Integer pageNum = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("pageNum"), "查询页数不能为空！"));
+        Integer pageSize = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("pageSize"), "查询笔数不能为空！"));
+
+        return null;
     }
 }

@@ -1,5 +1,7 @@
 package com.magic.rent.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.mapper.CommunityMapper;
 import com.magic.rent.mapper.CompanyMapper;
@@ -104,10 +106,12 @@ public class CommunityService implements ICommunityService {
         return rows > 0;
     }
 
-    public List<Community> getAuditingCommunities() throws Exception {
+    public PageInfo<Community> getClassifyCommunities(int status,int pageNum, int pageSize) throws Exception {
         Community community = new Community();
-        community.setStatus(AuditingStatus.AUDITING);
-        return communityMapper.selectBySelective(community);
+        community.setStatus(status);
+        PageHelper.startPage(pageNum, pageSize);
+        List<Community> communityList=communityMapper.selectBySelective(community);
+        return new PageInfo<Community>(communityList);
     }
 
     public List<Community> getSuccessCommunities(int userID) throws Exception {

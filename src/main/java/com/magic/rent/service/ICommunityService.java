@@ -1,5 +1,6 @@
 package com.magic.rent.service;
 
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.pojo.Community;
 import com.magic.rent.pojo.Company;
 
@@ -21,5 +22,7 @@ public interface ICommunityService {
 
     boolean refuse(int communityID) throws Exception;
 
-    List<Community> getAuditingCommunities() throws Exception;
+    PageInfo<Community> getClassifyCommunities(int status, int pageNum, int pageSize) throws Exception;
+
+    List<Community> getSuccessCommunities(int userID) throws Exception;
 }
