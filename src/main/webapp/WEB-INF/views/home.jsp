@@ -60,7 +60,7 @@
                                         <form role="form">
                                             <div class="form-group row">
                                                 <div class="col-lg-12">
-                                                    <label for="tittle">房屋标题</label>
+                                                    <label for="tittle">社区名称</label>
                                                     <input id="tittle" type="text" class="form-control"
                                                            placeholder="标题长度不超过15个中文" name="tittle">
                                                 </div>
@@ -186,7 +186,87 @@
                                         <h3 class="panel-title">创建项目</h3>
                                     </div>
                                     <div class="panel-body">
+                                        <form role="form">
+                                            <div class="form-group row">
+                                                <div class="col-lg-12">
+                                                    <label for="tittle">项目/社区名称</label>
+                                                    <input type="text" class="form-control"
+                                                           placeholder="标题长度不超过15个中文" name="tittle">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-4">
+                                                    <label for="province">省份</label>
+                                                    <select class="select2 form-control" style="width: 100%"
+                                                            name="province"></select>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label for="city">城市</label>
+                                                    <select class="select2 form-control" style="width: 100%"
+                                                            name="city"></select>
+                                                </div>
+                                                <div class="col-lg-4">
+                                                    <label for="area">区域</label>
+                                                    <select class="select2 form-control" style="width: 100%"
+                                                            name="area"></select>
+                                                </div>
 
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-12">
+                                                    <label for="address">具体地址</label>
+                                                    <input type="text" class="form-control"
+                                                           placeholder="请输入详细地址" name="address">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-12">
+                                                    <label for="address">物业公司</label>
+                                                    <input type="text" class="form-control"
+                                                           placeholder="请输入完整公司名称" name="address">
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-6">
+                                                    <label for="price">开盘时间</label>
+                                                    <div class="input-group">
+                                                        <span class="input-group-addon">￥</span>
+                                                        <input type="text" class="form-control"
+                                                               placeholder="请输入整套销售价，单价会根据面积自动计算" name="price">
+                                                    </div>
+
+                                                </div>
+                                                <div class="col-lg-6">
+                                                    <label for="floor">交房时间</label>
+                                                    <div class="input-group">
+                                                        <input type="text" class="form-control"
+                                                               placeholder="房屋所在楼层" name="floor">
+                                                        <span class="input-group-addon">层</span>
+                                                    </div>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-12">
+                                                    <label for="desc">地图位置</label>
+                                                    <div class="embed-responsive panel panel-default"
+                                                         style="height: 200px;margin-bottom: 0">
+                                                        <div id="container" class="embed-responsive-item"
+                                                             style="height: 200px">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                            <div class="form-group row">
+                                                <div class="col-lg-12">
+                                                    <div class="btn-group pull-right">
+                                                        <button type="button" class="btn btn-primary">
+                                                            提交信息
+                                                        </button>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </form>
                                     </div>
                                     <div class="panel-footer">
                                         依照国家相关法律法规，发布新项目，我公司须对项目进行相关审核及实地拍摄取景，并支付相关费用，申请提交后，我公司将会在3个工作日内完成资料的审核，并与您取得联系，首英感谢您的支持。
@@ -210,8 +290,17 @@
 <script src="${pageContext.request.contextPath}/js/fileup/fileinput.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/fileup/zh.js"></script>
 <script src="${pageContext.request.contextPath}/js/template.js"></script>
+<script src="${pageContext.request.contextPath}/js/map.js"></script>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/js/location.js"></script>
 <script src="${pageContext.request.contextPath}/js/home.js"></script>
+<script src="http://webapi.amap.com/maps?v=1.3&key=002273d8cd1c3363f0d26dae6629472b"></script>
+<script type="text/javascript">
+    var map = new AMap.Map('container', {
+        resizeEnable: true,
+        zoom: 11,
+        center: [116.397428, 39.90923]
+    });
+</script>
 </body>
 </html>

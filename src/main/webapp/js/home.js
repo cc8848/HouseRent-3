@@ -2,12 +2,8 @@
  * Created by wu on 2016/11/19.
  */
 $(document).ready(function () {
-
-
     $('.select2').select2();
     $("[href='#issue-info']").on('click', new IssueMenu().menuInit);
-
-
 });
 
 function Account() {
