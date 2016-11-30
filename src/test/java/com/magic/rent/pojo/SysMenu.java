@@ -1,28 +1,15 @@
 package com.magic.rent.pojo;
 
-import java.io.Serializable;
-
-public class SysMenu implements Serializable {
-
-    private static final long serialVersionUID = -2962234817522611186L;
+public class SysMenu {
     private Integer id;
 
-    private String href;//链接
+    private String href;
 
-    private String menuDesc;//菜单名称
+    private String menuDesc;
 
-    private Integer sceneId;//场景码
-    private SysScene sysScene;
+    private Integer sceneId;
 
     private Integer orderNum;
-
-    public SysScene getSysScene() {
-        return sysScene;
-    }
-
-    public void setSysScene(SysScene sysScene) {
-        this.sysScene = sysScene;
-    }
 
     public Integer getId() {
         return id;
@@ -62,17 +49,5 @@ public class SysMenu implements Serializable {
 
     public void setOrderNum(Integer orderNum) {
         this.orderNum = orderNum;
-    }
-
-    @Override
-    public String toString() {
-        return "SysMenu{" +
-                "id=" + id +
-                ", href='" + href + '\'' +
-                ", menuDesc='" + menuDesc + '\'' +
-                ", sceneId=" + sceneId +
-                ", sysScene=" + sysScene +
-                ", orderNum=" + orderNum +
-                '}';
     }
 }

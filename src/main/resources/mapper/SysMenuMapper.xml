@@ -2,30 +2,31 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.magic.rent.mapper.SysMenuMapper">
     <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysMenu">
-        <id column="ID" property="id" jdbcType="INTEGER"/>
-        <result column="HREF" property="href" jdbcType="VARCHAR"/>
-        <result column="MENU_DESC" property="menuDesc" jdbcType="VARCHAR"/>
-        <result column="SCENE_ID" property="sceneId" jdbcType="INTEGER"/>
+        <id column="ID" jdbcType="INTEGER" property="id" />
+        <result column="HREF" jdbcType="VARCHAR" property="href" />
+        <result column="MENU_DESC" jdbcType="VARCHAR" property="menuDesc" />
+        <result column="SCENE_ID" jdbcType="INTEGER" property="sceneId" />
+        <result column="ORDER_NUM" jdbcType="INTEGER" property="orderNum" />
     </resultMap>
     <sql id="Base_Column_List">
-    ID, HREF, MENU_DESC, SCENE_ID
-  </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        ID, HREF, MENU_DESC, SCENE_ID, ORDER_NUM
+    </sql>
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List" />
         from SYS_MENU
         where ID = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-    delete from SYS_MENU
-    where ID = #{id,jdbcType=INTEGER}
-  </delete>
+        delete from SYS_MENU
+        where ID = #{id,jdbcType=INTEGER}
+    </delete>
     <insert id="insert" parameterType="com.magic.rent.pojo.SysMenu">
-    insert into SYS_MENU (ID, HREF, MENU_DESC, 
-      SCENE_ID)
-    values (#{id,jdbcType=INTEGER}, #{href,jdbcType=VARCHAR}, #{menuDesc,jdbcType=VARCHAR}, 
-      #{sceneId,jdbcType=INTEGER})
-  </insert>
+        insert into SYS_MENU (ID, HREF, MENU_DESC,
+        SCENE_ID, ORDER_NUM)
+        values (#{id,jdbcType=INTEGER}, #{href,jdbcType=VARCHAR}, #{menuDesc,jdbcType=VARCHAR},
+        #{sceneId,jdbcType=INTEGER}, #{orderNum,jdbcType=INTEGER})
+    </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysMenu">
         insert into SYS_MENU
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -41,6 +42,9 @@
             <if test="sceneId != null">
                 SCENE_ID,
             </if>
+            <if test="orderNum != null">
+                ORDER_NUM,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -54,6 +58,9 @@
             </if>
             <if test="sceneId != null">
                 #{sceneId,jdbcType=INTEGER},
+            </if>
+            <if test="orderNum != null">
+                #{orderNum,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
@@ -69,6 +76,9 @@
             <if test="sceneId != null">
                 SCENE_ID = #{sceneId,jdbcType=INTEGER},
             </if>
+            <if test="orderNum != null">
+                ORDER_NUM = #{orderNum,jdbcType=INTEGER},
+            </if>
         </set>
         where ID = #{id,jdbcType=INTEGER}
     </update>
@@ -76,15 +86,17 @@
     update SYS_MENU
     set HREF = #{href,jdbcType=VARCHAR},
       MENU_DESC = #{menuDesc,jdbcType=VARCHAR},
-      SCENE_ID = #{sceneId,jdbcType=INTEGER}
+      SCENE_ID = #{sceneId,jdbcType=INTEGER},
+      ORDER_NUM = #{orderNum,jdbcType=INTEGER}
     where ID = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectMenusByUserID" parameterType="java.lang.Integer" resultType="com.magic.rent.pojo.SysMenu">
-    SELECT
-      SYS_MENU.ID        id,
-      SYS_MENU.HREF      href,
-      SYS_MENU.MENU_DESC menuDesc,
-      SYS_MENU.SCENE_ID  sceneId
+    <select id="selectMenusByUserID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+   SELECT
+      SYS_MENU.ID,
+      SYS_MENU.HREF,
+      SYS_MENU.MENU_DESC,
+      SYS_MENU.SCENE_ID,
+      SYS_MENU.ORDER_NUM
     FROM SYS_USERS
       JOIN USERS_RELATE_ROLES ON SYS_USERS.USER_ID = USERS_RELATE_ROLES.USER_ID
       JOIN SYS_ROLES ON USERS_RELATE_ROLES.ROLE_ID = SYS_ROLES.ROLE_ID
@@ -92,5 +104,6 @@
       JOIN SYS_MENU ON SYS_MENU_SYS_ROLE.MENU_ID = SYS_MENU.ID
     WHERE SYS_USERS.USER_ID = #{userID,jdbcType=INTEGER} AND SYS_MENU.SCENE_ID = 1
     GROUP BY SYS_MENU.ID
+    ORDER BY SYS_MENU.ORDER_NUM
   </select>
 </mapper>

@@ -125,14 +125,14 @@
           CITY.cityName            cityName,
           AREA.areaName            areaName,
           SYS_STORE.STORE_NUMBER   storeNum,
-          SYS_COMPANY.ID           companyID,
-          SYS_COMPANY.COMPANY_NAME companyName,
+          COMPANY.ID           companyID,
+          COMPANY.COMPANY_NAME companyName,
           USER_SELLER.ENABLED,
           USER_STATUS.ID           statusID,
           USER_STATUS.STATUS_NAME  statusName
         FROM USER_SELLER
           JOIN SYS_STORE ON USER_SELLER.STORE_ID = SYS_STORE.ID
-          JOIN SYS_COMPANY ON SYS_STORE.COMPANY_ID = SYS_COMPANY.ID
+          JOIN COMPANY ON SYS_STORE.COMPANY_ID = COMPANY.ID
           JOIN PROVINCE ON SYS_STORE.PROVINCE_ID = PROVINCE.provinceID
           JOIN CITY ON SYS_STORE.CITY_ID = CITY.cityID
           JOIN AREA ON SYS_STORE.AREA_ID = AREA.areaID

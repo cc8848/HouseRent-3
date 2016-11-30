@@ -18,7 +18,7 @@ public interface ICommunityService {
 
     boolean cancel(int communityID, int companyID) throws Exception;
 
-    boolean pass(Community community) throws Exception;
+    boolean pass(int communityID) throws Exception;
 
     boolean refuse(int communityID) throws Exception;
 

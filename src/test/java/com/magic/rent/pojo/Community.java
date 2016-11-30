@@ -1,10 +1,8 @@
 package com.magic.rent.pojo;
 
-import java.io.Serializable;
 import java.util.Date;
 
-public class Community implements Serializable {
-    private static final long serialVersionUID = 598629396944896191L;
+public class Community {
     private Integer id;
 
     private String name;
@@ -22,8 +20,6 @@ public class Community implements Serializable {
     private Integer companyId;
 
     private Integer status;
-
-    private String statusName;
 
     private Date auditingTime;
 
@@ -105,7 +101,6 @@ public class Community implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
-        this.setStatusName(AuditingStatus.idToName(this.status));
     }
 
     public Date getAuditingTime() {
@@ -122,15 +117,6 @@ public class Community implements Serializable {
 
     public void setOperateTime(Date operateTime) {
         this.operateTime = operateTime;
-    }
-
-    public String getStatusName() {
-        this.setStatusName(AuditingStatus.idToName(this.status));
-        return statusName;
-    }
-
-    public void setStatusName(String statusName) {
-        this.statusName = statusName;
     }
 
     public Date getOpenTime() {
@@ -154,27 +140,6 @@ public class Community implements Serializable {
     }
 
     public void setEstateManageCompany(String estateManageCompany) {
-        this.estateManageCompany = estateManageCompany;
-    }
-
-    @Override
-    public String toString() {
-        return "Community{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", provinceId=" + provinceId +
-                ", cityId=" + cityId +
-                ", areaId=" + areaId +
-                ", mapX=" + mapX +
-                ", mapY=" + mapY +
-                ", companyId=" + companyId +
-                ", status=" + status +
-                ", statusName='" + statusName + '\'' +
-                ", auditingTime=" + auditingTime +
-                ", operateTime=" + operateTime +
-                ", openTime=" + openTime +
-                ", realEstateTime=" + realEstateTime +
-                ", estateManageCompany='" + estateManageCompany + '\'' +
-                '}';
+        this.estateManageCompany = estateManageCompany == null ? null : estateManageCompany.trim();
     }
 }

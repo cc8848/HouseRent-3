@@ -5,8 +5,6 @@ import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
-import static org.junit.Assert.*;
-
 /**
  * Created by wu on 2016/11/23.
  */
@@ -24,7 +22,6 @@ public class SysMenuMapperTest {
 
     @Test
     public void selectMenusByUserID() throws Exception {
-        System.out.print(sysMenuMapper.selectMenusByUserID(2));
     }
 
 }

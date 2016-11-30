@@ -50,7 +50,9 @@ public class CommunityService implements ICommunityService {
         return rows > 0;
     }
 
-    public boolean pass(Community community) throws Exception {
+    public boolean pass(int communityID) throws Exception {
+        Community community = new Community();
+        community.setId(communityID);
         community.setStatus(AuditingStatus.SUCCESS);
         community.setOperateTime(new Date());
         int rows = communityMapper.updateByPrimaryKeySelective(community);
@@ -106,11 +108,11 @@ public class CommunityService implements ICommunityService {
         return rows > 0;
     }
 
-    public PageInfo<Community> getClassifyCommunities(int status,int pageNum, int pageSize) throws Exception {
+    public PageInfo<Community> getClassifyCommunities(int status, int pageNum, int pageSize) throws Exception {
         Community community = new Community();
         community.setStatus(status);
         PageHelper.startPage(pageNum, pageSize);
-        List<Community> communityList=communityMapper.selectBySelective(community);
+        List<Community> communityList = communityMapper.selectBySelective(community);
         return new PageInfo<Community>(communityList);
     }
 
