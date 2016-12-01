@@ -22,4 +22,6 @@ public interface CommunityMapper {
     List<Community> selectBySelective(Community community);
 
     List<Community> selectEnableByUserID(Integer userID);
+
+    int countByStatusForUser(Community community);
 }

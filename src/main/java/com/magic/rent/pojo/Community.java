@@ -15,9 +15,11 @@ public class Community implements Serializable {
 
     private Integer areaId;
 
-    private Double mapX;
+    private String address;
 
-    private Double mapY;
+    private Double lng;
+
+    private Double lat;
 
     private Integer companyId;
 
@@ -75,20 +77,28 @@ public class Community implements Serializable {
         this.areaId = areaId;
     }
 
-    public Double getMapX() {
-        return mapX;
+    public String getAddress() {
+        return address;
     }
 
-    public void setMapX(Double mapX) {
-        this.mapX = mapX;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public Double getMapY() {
-        return mapY;
+    public Double getLng() {
+        return lng;
     }
 
-    public void setMapY(Double mapY) {
-        this.mapY = mapY;
+    public void setLng(Double lng) {
+        this.lng = lng;
+    }
+
+    public Double getLat() {
+        return lat;
+    }
+
+    public void setLat(Double lat) {
+        this.lat = lat;
     }
 
     public Integer getCompanyId() {
@@ -165,8 +175,9 @@ public class Community implements Serializable {
                 ", provinceId=" + provinceId +
                 ", cityId=" + cityId +
                 ", areaId=" + areaId +
-                ", mapX=" + mapX +
-                ", mapY=" + mapY +
+                ", address='" + address + '\'' +
+                ", lng=" + lng +
+                ", lat=" + lat +
                 ", companyId=" + companyId +
                 ", status=" + status +
                 ", statusName='" + statusName + '\'' +

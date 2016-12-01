@@ -25,4 +25,6 @@ public interface ICommunityService {
     PageInfo<Community> getClassifyCommunities(int status, int pageNum, int pageSize) throws Exception;
 
     List<Community> getSuccessCommunities(int userID) throws Exception;
+
+    int countClassifyCommunity(int status, int userID) throws Exception;
 }

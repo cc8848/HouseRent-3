@@ -1,50 +1,21 @@
 /**
- * Created by wuxinzhe on 16/10/7.
+ * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
+ * 创建者: wuxinzhe  创建时间: 16/10/7
+ * 类说明: 公共的JS工具集合
+ * 更新记录：
  */
-function UpLoad(fileInput, URL) {
 
-    var fileInput = fileInput;
-
-    var URL = URL;
-
-    this.initParameter = {
-        language: 'zh',//语言
-        uploadUrl: URL,//上传的地址
-        allowedFileExtensions: ['jpg', 'gif', 'png'],//接收的文件后缀
-        showUpload: true, //是否显示上传按钮
-        showCaption: false,//是否显示标题
-        browseClass: "btn btn-primary", //按钮样式
-        //dropZoneEnabled: false,//是否显示拖拽区域
-        //minImageWidth: 50, //图片的最小宽度
-        //minImageHeight: 50,//图片的最小高度
-        //maxImageWidth: 1000,//图片的最大宽度
-        //maxImageHeight: 1000,//图片的最大高度
-        //maxFileSize: 0,//单位为kb，如果为0表示不限制文件大小
-        //minFileCount: 0,
-        maxFileCount: 5, //表示允许同时上传的最大文件个数
-        enctype: 'multipart/form-data',
-        validateInitialCount: true,
-        // previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
-        msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}！"
-    };
-
-    this.init = function () {//控件初始化
-        fileInput.fileinput(this.initParameter);
-    }
-
-}
 
 
 function Modal() {
-    this.errorModal = function (message, tittle) {
+    this.infoModal = function (message, tittle) {
         if (arguments.length == 2) {
-            $('#error-modal-tittle').html(tittle);
-            $('#error-modal-message').html(message);
+            $('#info-modal-tittle').html(tittle);
+            $('#info-modal-message').html(message);
         } else {
-            $('#error-modal-message').html(message);
+            $('#info-modal-message').html(message);
         }
-        $('#errorModal').modal();
-        $('#error-modal-tittle').html('错误提示');
+        $('#infoModal').modal();
     };
 
     this.confirmModal = function (message, fun, tittle) {
@@ -131,4 +102,88 @@ function HttpUtil() {
     }
 }
 
+function Location(province, city, area) {
+
+    var modal = new Modal();
+
+    this.locationInit = function () {
+        this.provinceInit();
+        this.cityInit();
+        this.areaInit();
+    };
+
+    this.provinceInit = function () {
+        $.getJSON("/address/getAllProvince", function (data) {
+            province.select2({
+                placeholder: "请选择省份",
+                data: data.data
+            }).on("select2:select", function () {
+                var provinceID = province.select2("val");
+                city.html('');
+                area.html('');
+                $.getJSON("/address/getCityByProvince", {
+                    provinceID: provinceID
+                }, function (data) {
+                    if (data.status) {
+                        city.select2({
+                            data: data.data
+                        });
+                    } else {
+                        modal(data.message);
+                    }
+                });
+            });
+        });
+    };
+
+    this.getProvinceVal = function () {
+        return province.select2('val');
+    };
+
+    this.getProvinceText = function () {
+        return province.select2('data').text;
+    };
+
+    this.cityInit = function () {
+        city.select2({
+            placeholder: "请选择城市"
+        }).on("select2:select", function () {
+            var cityID = city.select2("val");
+            area.html("");
+            $.getJSON("/address/getAreaByCity", {
+                cityID: cityID
+            }, function (data) {
+                if (data.status) {
+                    area.select2({
+                        data: data.data
+                    });
+                } else {
+                    modal(data.message);
+                }
+            });
+        });
+    };
+
+    this.getCityVal = function () {
+        return city.select2('val');
+    };
+
+    this.getCityText = function () {
+        return city.select2('data').text;
+    };
+
+    this.areaInit = function () {
+        area.select2({
+            placeholder: "请选择地区"
+        });
+    };
+
+    this.getAreaVal = function () {
+        return area.select2('val');
+    };
+
+    this.getAreaText = function () {
+        return area.select('data').text;
+    }
+}
 

@@ -8,16 +8,19 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<div id="errorModal" class="modal fade">
+<div id="infoModal" class="modal fade">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
                         class="sr-only">Close</span></button>
-                <h4 id="error-modal-tittle" class="modal-title">错误提示</h4>
+                <h4 id="info-modal-tittle" class="modal-title">提示</h4>
             </div>
             <div class="modal-body">
-                <p id="error-modal-message"></p>
+                <p id="info-modal-message"></p>
+            </div>
+            <div class="modal-footer">
+                <button id="info-button" type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
             </div>
         </div><!-- /.modal-content -->
     </div><!-- /.modal-dialog -->

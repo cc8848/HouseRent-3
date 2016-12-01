@@ -17,13 +17,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/icheckflat/red.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/fileinput.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-datetimepicker.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/scojs.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco.message.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar-head.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/fileinput.min.css">
 <body>
 <%--head start--%>
 <c:import url="/WEB-INF/common/showings_common_head.jsp"/>
@@ -190,26 +192,26 @@
                                         <form role="form" id="create-project">
                                             <div class="form-group row">
                                                 <div class="col-lg-12">
-                                                    <label>项目/社区名称</label>
+                                                    <label class="control-label">项目/社区名称</label>
                                                     <input type="text" class="form-control"
                                                            placeholder="标题长度不超过15个中文" name="tittle">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-lg-4">
-                                                    <label>省份</label>
+                                                    <label class="control-label">省份</label>
                                                     <select class="select2 form-control"
                                                             style="width: 100%"
                                                             name="province"></select>
                                                 </div>
                                                 <div class="col-lg-4">
-                                                    <label>城市</label>
+                                                    <label class="control-label">城市</label>
                                                     <select class="select2 form-control"
                                                             style="width: 100%"
                                                             name="city"></select>
                                                 </div>
                                                 <div class="col-lg-4">
-                                                    <label>区域</label>
+                                                    <label class="control-label">区域</label>
                                                     <select class="select2 form-control"
                                                             style="width: 100%"
                                                             name="area"></select>
@@ -218,16 +220,17 @@
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-lg-12">
-                                                    <label>具体地址</label>
+                                                    <label class="control-label">具体地址</label>
                                                     <input type="text" class="form-control"
                                                            placeholder="请输入详细地址" name="address">
                                                 </div>
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-lg-12">
-                                                    <label>物业公司</label>
+                                                    <label class="control-label">物业公司</label>
                                                     <input type="text" class="form-control"
                                                            placeholder="请输入完整公司名称" name="estateManageCompany">
+
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -236,10 +239,9 @@
                                                     <div class="input-group date form_date" data-date=""
                                                          data-date-format="yyyy-MM-dd" data-link-field="openTime"
                                                          data-link-format="yyyy-mm-dd">
+
                                                         <input class="form-control" size="16" type="text"
                                                                name="openTime" readonly>
-                                                        <span class="input-group-addon"><span
-                                                                class="glyphicon glyphicon-remove"></span></span>
                                                         <span class="input-group-addon"><span
                                                                 class="glyphicon glyphicon-calendar"></span></span>
                                                     </div>
@@ -253,8 +255,6 @@
                                                         <input class="form-control" size="16" type="text"
                                                                name="realEstateTime" readonly>
                                                         <span class="input-group-addon"><span
-                                                                class="glyphicon glyphicon-remove"></span></span>
-                                                        <span class="input-group-addon"><span
                                                                 class="glyphicon glyphicon-calendar"></span></span>
                                                     </div>
                                                     <input type="hidden" id="realEstateTime" value=""/>
@@ -262,17 +262,15 @@
                                             </div>
                                             <div class="form-group row">
                                                 <div class="col-lg-12">
-                                                    <label>地图位置
-                                                        <small>请点击地图右上角的定位按钮</small>
-                                                    </label>
+                                                    <label class="control-label">地图位置</label>
                                                     <div class="embed-responsive panel panel-default"
                                                          style="height: 200px;margin-bottom: 0">
                                                         <div id="community-map" class="embed-responsive-item"
                                                              style="height: 200px">
                                                         </div>
                                                     </div>
-                                                    <input type="hidden" value="" name="mapX"/>
-                                                    <input type="hidden" value="" name="mapY"/>
+                                                    <input type="hidden" value="" name="lng"/>
+                                                    <input type="hidden" value="" name="lat"/>
                                                 </div>
                                             </div>
                                             <div class="form-group row">
@@ -303,6 +301,7 @@
 <%--foot end--%>
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/soc/sco.message.js"></script>
 <script src="${pageContext.request.contextPath}/js/select2.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/fileup/fileinput.min.js"></script>
@@ -312,7 +311,6 @@
 <script src="${pageContext.request.contextPath}/js/template.js"></script>
 <script src="${pageContext.request.contextPath}/js/map.js"></script>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
-<script src="${pageContext.request.contextPath}/js/location.js"></script>
 <script src="${pageContext.request.contextPath}/js/home.js"></script>
 <script src="http://webapi.amap.com/maps?v=1.3&key=002273d8cd1c3363f0d26dae6629472b"></script>
 <script type="text/javascript">

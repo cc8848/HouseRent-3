@@ -21,7 +21,7 @@ public class CustomExceptionHandler implements HandlerExceptionResolver {
     private static Logger logger = LoggerFactory.getLogger(CustomExceptionHandler.class);
 
     public ModelAndView resolveException(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception ex) {
-        logger.info(ex.getMessage());
+        logger.info(ex.toString());
         return model(httpServletRequest, ex);
     }
 

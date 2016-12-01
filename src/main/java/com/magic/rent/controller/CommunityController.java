@@ -41,19 +41,20 @@ public class CommunityController {
         Integer provinceID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("provinceID"), "省份ID不能为空！"));
         Integer cityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("cityID"), "城市ID不能为空！"));
         Integer areaID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("areaID"), "地区ID不能为空！"));
-        Double mapX = Double.parseDouble(MyStringUtil.checkParameter(request.getParameter("mapX"), "地图数据获取失败！"));
-        Double mapY = Double.parseDouble(MyStringUtil.checkParameter(request.getParameter("mapY"), "地图数据获取失败！"));
+        Double lng = Double.parseDouble(MyStringUtil.checkParameter(request.getParameter("lng"), "地图数据获取失败！"));
+        Double lat = Double.parseDouble(MyStringUtil.checkParameter(request.getParameter("lat"), "地图数据获取失败！"));
         String openTimeString = request.getParameter("openTime");
         String realEstateTimeString = request.getParameter("realEstateTime");
         String estateManageCompany = request.getParameter("estateManageCompany");
+        String address = MyStringUtil.checkParameter(request.getParameter("address"), "地址不能为空！");
 
         Community community = new Community();
         community.setProvinceId(provinceID);
         community.setCityId(cityID);
         community.setAreaId(areaID);
         community.setName(communityName);
-        community.setMapX(mapX);
-        community.setMapY(mapY);
+        community.setLng(lng);
+        community.setLat(lat);
         if (!StringUtils.isEmpty(openTimeString)) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date openTime = dateFormat.parse(openTimeString);

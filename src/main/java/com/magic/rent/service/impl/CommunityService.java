@@ -32,6 +32,10 @@ public class CommunityService implements ICommunityService {
 
 
     public boolean create(Community community, int userID) throws Exception {
+        int count = countClassifyCommunity(AuditingStatus.AUDITING, userID);
+        if (count >= 3) {
+            throw new BusinessException("本公司在途申请不可超过3笔！请删除在途申请后再发起新的申请！");
+        }
         //根据用户查询用户所在公司
         Company query = new Company();
         query.setDeveloperId(userID);
@@ -118,5 +122,17 @@ public class CommunityService implements ICommunityService {
 
     public List<Community> getSuccessCommunities(int userID) throws Exception {
         return communityMapper.selectEnableByUserID(userID);
+    }
+
+    public int countClassifyCommunity(int status, int userID) throws Exception {
+        Company query = new Company();
+        query.setDeveloperId(userID);
+        List<Company> companyList = companyMapper.selectBySelective(query);
+        Company company = companyList.get(0);
+
+        Community community = new Community();
+        community.setStatus(status);
+        community.setCompanyId(company.getId());
+        return communityMapper.countByStatusForUser(community);
     }
 }
