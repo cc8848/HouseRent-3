@@ -55,6 +55,7 @@ public class CommunityController {
         community.setName(communityName);
         community.setLng(lng);
         community.setLat(lat);
+        community.setAddress(address);
         if (!StringUtils.isEmpty(openTimeString)) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date openTime = dateFormat.parse(openTimeString);

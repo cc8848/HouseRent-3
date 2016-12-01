@@ -7,20 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/js/location.js" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rent.log" afterPath="$PROJECT_DIR$/logs/rent.log" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/exhandler/CustomExceptionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/exhandler/CustomExceptionHandler.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CommunityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CommunityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ICommunityService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ICommunityService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/common/showings_common_head.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/common/showings_common_head.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/common.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/home.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/home.js" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -58,11 +46,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="CommunityService.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="CommunityService.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="345">
               <caret line="36" column="66" lean-forward="false" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CommunityController.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="384">
+              <caret line="59" column="77" lean-forward="true" selection-start-line="59" selection-start-column="77" selection-end-line="59" selection-end-column="77" />
               <folding />
             </state>
           </provider>
@@ -193,7 +191,6 @@
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home_account_seller.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/location.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/soc/sco.valid.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/common/showings_common_head.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/home.js" />
@@ -205,6 +202,7 @@
         <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b1642a91-fe21-45bd-bb4b-0abed27d96c7/console.sql" />
         <option value="$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java" />
       </list>
     </option>
   </component>
@@ -684,7 +682,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="mapper" />
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1513,14 +1511,7 @@
       <workItem from="1480548531444" duration="7000" />
       <workItem from="1480559245278" duration="14668000" />
       <workItem from="1480593931573" duration="13369000" />
-      <workItem from="1480611302723" duration="4124000" />
-    </task>
-    <task id="LOCAL-00007" summary="2016年11月02日20:00:12">
-      <created>1478088066176</created>
-      <option name="number" value="00007" />
-      <option name="presentableId" value="LOCAL-00007" />
-      <option name="project" value="LOCAL" />
-      <updated>1478088066176</updated>
+      <workItem from="1480611302723" duration="4166000" />
     </task>
     <task id="LOCAL-00008" summary="2016年11月02日20:00:12">
       <created>1478090463499</created>
@@ -1858,7 +1849,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480547478194</updated>
     </task>
-    <option name="localTasksCounter" value="56" />
+    <task id="LOCAL-00056" summary="2016年12月02日02:04:20">
+      <created>1480615475070</created>
+      <option name="number" value="00056" />
+      <option name="presentableId" value="LOCAL-00056" />
+      <option name="project" value="LOCAL" />
+      <updated>1480615475071</updated>
+    </task>
+    <option name="localTasksCounter" value="57" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1894,7 +1892,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="633630000" />
+    <option name="totallyTimeSpent" value="633672000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1928,11 +1926,11 @@
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.37029704" sideWeight="0.4879154" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.37029704" sideWeight="0.4879154" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32312405" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3138614" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3138614" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.18423855" sideWeight="0.48853868" order="5" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23564954" sideWeight="0.5114613" order="3" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2014,7 +2012,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2016年11月17日11:06:46" />
     <MESSAGE value="2016年11月17日11:29:07" />
     <MESSAGE value="2016年11月17日15:17:26" />
     <MESSAGE value="2016年11月17日17:43:21" />
@@ -2039,7 +2036,8 @@
     <MESSAGE value="2016年11月30日02:18:42" />
     <MESSAGE value="2016年11月30日20:41:18" />
     <MESSAGE value="2016年12月01日07:11:10" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年12月01日07:11:10" />
+    <MESSAGE value="2016年12月02日02:04:20" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年12月02日02:04:20" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2385,14 +2383,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="99">
-          <caret line="48" column="0" lean-forward="false" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="150">
@@ -2481,6 +2471,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
           <caret line="36" column="66" lean-forward="false" selection-start-line="36" selection-start-column="66" selection-end-line="36" selection-end-column="66" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="384">
+          <caret line="59" column="77" lean-forward="true" selection-start-line="59" selection-start-column="77" selection-end-line="59" selection-end-column="77" />
           <folding />
         </state>
       </provider>
