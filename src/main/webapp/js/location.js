@@ -1,13 +1,15 @@
 /**
  * Created by wu on 2016/11/20.
  */
-function Location(provinceID, cityID, areaID) {
+function Location(province, city, area) {
 
-    var province = $(provinceID);
+    var province = province;
 
-    var city = $(cityID);
+    var city = city;
 
-    var area = $(areaID);
+    var area = area;
+
+    var modal=new Modal();
 
     this.locationInit = function () {
         this.provinceInit();
@@ -32,7 +34,7 @@ function Location(provinceID, cityID, areaID) {
                             data: data.data
                         });
                     } else {
-                        alert(data.message);
+                        modal(data.message);
                     }
                 });
             });
@@ -61,9 +63,8 @@ function Location(provinceID, cityID, areaID) {
                         data: data.data
                     });
                 } else {
-                    alert(data.message);
+                    modal(data.message);
                 }
-
             });
         });
     };

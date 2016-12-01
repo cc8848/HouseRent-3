@@ -62,7 +62,7 @@ public class CommunityController {
         if (!StringUtils.isEmpty(realEstateTimeString)) {
             SimpleDateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd");
             Date realEstateTime = dateFormat.parse(realEstateTimeString);
-            community.setOpenTime(realEstateTime);
+            community.setRealEstateTime(realEstateTime);
         }
         if (!StringUtils.isEmpty(estateManageCompany)) {
             community.setEstateManageCompany(estateManageCompany);
@@ -70,7 +70,7 @@ public class CommunityController {
         boolean isSuccess = iCommunityService.create(community, sysUsers.getUserId());
 
         if (isSuccess) {
-            return JsonResult.success();
+            return JsonResult.success().setMessage("申请提交成功，等待审核。");
         } else {
             return JsonResult.error("创建社区项目失败！");
         }

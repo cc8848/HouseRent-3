@@ -97,7 +97,7 @@
             <id column="storeID" property="id" jdbcType="INTEGER"/>
             <result column="storeName" property="storeName" jdbcType="VARCHAR"/>
             <result column="storeNum" property="storeNumber" jdbcType="VARCHAR"/>
-            <association property="sysCompany" javaType="com.magic.rent.pojo.SysCompany">
+            <association property="company" javaType="com.magic.rent.pojo.Company">
                 <id column="companyID" property="id"/>
                 <result column="companyName" property="companyName" jdbcType="VARCHAR"/>
             </association>

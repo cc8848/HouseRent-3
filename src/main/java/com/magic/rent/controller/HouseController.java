@@ -1,10 +1,7 @@
 package com.magic.rent.controller;
 
 import com.magic.rent.controller.base.BaseController;
-import com.magic.rent.pojo.House;
-import com.magic.rent.pojo.HouseRecommend;
-import com.magic.rent.pojo.SysCompany;
-import com.magic.rent.pojo.SysUsers;
+import com.magic.rent.pojo.*;
 import com.magic.rent.service.IHouseRecommendService;
 import com.magic.rent.service.IHouseService;
 import com.magic.rent.util.HttpUtil;
@@ -95,7 +92,7 @@ public class HouseController extends BaseController {
         int houseID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("houseID"), "房屋编号不能为空！"));
         Map<String, Object> dataMap = iHouseService.showHouseDetails(houseID);
         House house = (House) dataMap.get("house");
-        SysCompany company = (SysCompany) dataMap.get("company");
+        Company company = (Company) dataMap.get("company");
         return new ModelAndView("house_sell").addObject("house", house).addObject("company", company);
     }
 }

@@ -1,7 +1,7 @@
 /**
  * Created by wuxinzhe on 16/10/7.
  */
-function upLoad(fileInput, URL) {
+function UpLoad(fileInput, URL) {
 
     var fileInput = fileInput;
 
@@ -44,6 +44,7 @@ function Modal() {
             $('#error-modal-message').html(message);
         }
         $('#errorModal').modal();
+        $('#error-modal-tittle').html('错误提示');
     };
 
     this.confirmModal = function (message, fun, tittle) {
@@ -111,20 +112,23 @@ function refresh() {
     window.location.reload();
 }
 
-function postCRF(URL, data, callback) {
-    var header = $("meta[name='_csrf_header']").attr("content");
-    var token = $("meta[name='_csrf']").attr("content");
-    $.ajax({
-        url: URL,
-        type: 'POST',
-        beforeSend: function (xhr) {
-            xhr.setRequestHeader(header, token);
-        },
-        data: data,
-        success: callback,
-        error: function (xhr, ajaxOptions, thrownError) {
-            console.log(xhr.status + ": " + thrownError);
-        }
-    });
+function HttpUtil() {
+    this.postCRF = function (URL, data, callback) {
+        var header = $("meta[name='_csrf_header']").attr("content");
+        var token = $("meta[name='_csrf']").attr("content");
+        $.ajax({
+            url: URL,
+            type: 'POST',
+            beforeSend: function (xhr) {
+                xhr.setRequestHeader(header, token);
+            },
+            data: data,
+            success: callback,
+            error: function (xhr, ajaxOptions, thrownError) {
+                console.log(xhr.status + ": " + thrownError);
+            }
+        });
+    }
 }
+
 

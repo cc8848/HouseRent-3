@@ -52,7 +52,7 @@
                 </tr>
                 <tr>
                     <td>公司名称：</td>
-                    <td>${seller.sysStore.sysCompany.companyName}</td>
+                    <td>${seller.sysStore.company.companyName}</td>
                     <td>申请门店：</td>
                     <td>${seller.sysStore.storeName}</td>
                 </tr>

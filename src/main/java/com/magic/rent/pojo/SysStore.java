@@ -9,7 +9,7 @@ public class SysStore implements Serializable {
     private Integer id;
 
     private Integer companyId;
-    private SysCompany sysCompany;
+    private Company company;
 
     private Integer provinceId;
     private Province province;
@@ -56,12 +56,12 @@ public class SysStore implements Serializable {
         this.companyId = companyId;
     }
 
-    public SysCompany getSysCompany() {
-        return sysCompany;
+    public Company getCompany() {
+        return company;
     }
 
-    public void setSysCompany(SysCompany sysCompany) {
-        this.sysCompany = sysCompany;
+    public void setCompany(Company company) {
+        this.company = company;
     }
 
     public Integer getCityId() {
@@ -117,15 +117,15 @@ public class SysStore implements Serializable {
         return "SysStore{" +
                 "id=" + id +
                 ", companyId=" + companyId +
-                ", sysCompany=" + sysCompany +
+                ", company=" + company +
+                ", provinceId=" + provinceId +
+                ", province=" + province +
                 ", cityId=" + cityId +
                 ", city=" + city +
                 ", areaId=" + areaId +
                 ", area=" + area +
                 ", storeName='" + storeName + '\'' +
                 ", storeNumber='" + storeNumber + '\'' +
-                ", provinceId=" + provinceId +
-                ", province=" + province +
                 '}';
     }
 }

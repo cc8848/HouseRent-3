@@ -48,7 +48,7 @@
                         </tr>
                         <tr>
                             <td>公司名称</td>
-                            <td>${userSeller.sysStore.sysCompany.companyName}</td>
+                            <td>${userSeller.sysStore.company.companyName}</td>
                             <td>申请门店：</td>
                             <td>${userSeller.sysStore.storeName}</td>
                         </tr>
