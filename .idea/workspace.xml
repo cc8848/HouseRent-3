@@ -8,23 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HouseController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HouseController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CommunityMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/CommunityMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/HouseMapper.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/HouseMapper.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/House.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/House.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/HouseRecommend.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/HouseRecommend.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ICommunityService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ICommunityService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/DateUtil.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/DateUtil.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysStatusMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysStatusMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/common.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/common.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/home.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/home.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/CommunityMapperTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/CommunityMapperTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/HouseMapperTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/HouseMapperTest.java" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -78,8 +61,8 @@
       <file leaf-file-name="common.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/webapp/js/common.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="373">
-              <caret line="82" column="35" lean-forward="false" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
+            <state relative-caret-position="28">
+              <caret line="59" column="56" lean-forward="true" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
               <folding />
             </state>
           </provider>
@@ -1475,14 +1458,7 @@
       <workItem from="1480634856306" duration="1980000" />
       <workItem from="1480641064649" duration="16178000" />
       <workItem from="1480662306148" duration="7585000" />
-      <workItem from="1480675724531" duration="1291000" />
-    </task>
-    <task id="LOCAL-00009" summary="2016年11月02日20:00:12">
-      <created>1478090867759</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1478090867759</updated>
+      <workItem from="1480675724531" duration="1408000" />
     </task>
     <task id="LOCAL-00010" summary="2016年11月02日20:00:12">
       <created>1478098369857</created>
@@ -1820,7 +1796,14 @@
       <option name="project" value="LOCAL" />
       <updated>1480657904999</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="2016年12月02日19:33:35">
+      <created>1480678448558</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1480678448560</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1856,7 +1839,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="660706000" />
+    <option name="totallyTimeSpent" value="660823000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1879,7 +1862,7 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17598188" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17598188" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24924472" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -1890,7 +1873,7 @@
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66905445" sideWeight="0.4886707" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32312405" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32234958" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31375358" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
@@ -1940,7 +1923,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2016年11月17日15:17:26" />
     <MESSAGE value="2016年11月17日17:43:21" />
     <MESSAGE value="2016年11月17日20:46:05" />
     <MESSAGE value="2016年11月20日20:43:30" />
@@ -1965,7 +1947,8 @@
     <MESSAGE value="2016年12月01日07:11:10" />
     <MESSAGE value="2016年12月02日02:04:20" />
     <MESSAGE value="2016年12月02日13:51:18" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年12月02日13:51:18" />
+    <MESSAGE value="2016年12月02日19:33:35" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年12月02日19:33:35" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2077,6 +2060,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="466">
           <caret line="60" column="5" lean-forward="true" selection-start-line="39" selection-start-column="3" selection-end-line="60" selection-end-column="5" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2084,6 +2068,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="510">
           <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="26" selection-end-line="42" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2124,6 +2109,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="144">
           <caret line="68" column="64" lean-forward="false" selection-start-line="68" selection-start-column="64" selection-end-line="68" selection-end-column="64" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2155,6 +2141,11 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="180">
           <caret line="318" column="37" lean-forward="false" selection-start-line="318" selection-start-column="37" selection-end-line="318" selection-end-column="37" />
+          <folding>
+            <element signature="e#6514#6515#0" expanded="false" />
+            <element signature="e#6567#6568#0" expanded="false" />
+            <element signature="e#6609#6610#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -2273,6 +2264,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="270">
           <caret line="29" column="26" lean-forward="false" selection-start-line="29" selection-start-column="20" selection-end-line="29" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2295,6 +2287,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="331">
           <caret line="85" column="28" lean-forward="false" selection-start-line="85" selection-start-column="28" selection-end-line="85" selection-end-column="28" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2416,8 +2409,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/common.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="373">
-          <caret line="82" column="35" lean-forward="false" selection-start-line="82" selection-start-column="35" selection-end-line="82" selection-end-column="35" />
+        <state relative-caret-position="28">
+          <caret line="59" column="56" lean-forward="true" selection-start-line="59" selection-start-column="56" selection-end-line="59" selection-end-column="56" />
           <folding />
         </state>
       </provider>
