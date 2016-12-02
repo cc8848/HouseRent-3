@@ -4,7 +4,9 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Community implements Serializable {
+
     private static final long serialVersionUID = 598629396944896191L;
+
     private Integer id;
 
     private String name;
@@ -115,7 +117,7 @@ public class Community implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
-        this.setStatusName(AuditingStatus.idToName(this.status));
+        this.setStatusName(SysStatus.idToName(this.status));
     }
 
     public Date getAuditingTime() {
@@ -135,7 +137,7 @@ public class Community implements Serializable {
     }
 
     public String getStatusName() {
-        this.setStatusName(AuditingStatus.idToName(this.status));
+        this.setStatusName(SysStatus.idToName(this.status));
         return statusName;
     }
 

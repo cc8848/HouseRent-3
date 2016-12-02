@@ -5,7 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.mapper.CommunityMapper;
 import com.magic.rent.mapper.CompanyMapper;
-import com.magic.rent.pojo.AuditingStatus;
+import com.magic.rent.pojo.SysStatus;
 import com.magic.rent.pojo.Community;
 import com.magic.rent.pojo.Company;
 import com.magic.rent.service.ICommunityService;
@@ -30,22 +30,29 @@ public class CommunityService implements ICommunityService {
     @Autowired
     private CompanyMapper companyMapper;
 
-
+    /**
+     * 创建社区，其中需要对在途申请的社区数量做控制
+     *
+     * @param community
+     * @param userID
+     * @return
+     * @throws Exception
+     */
     public boolean create(Community community, int userID) throws Exception {
-        int count = countClassifyCommunity(AuditingStatus.AUDITING, userID);
+        int count = countClassifyCommunity(SysStatus.AUDITING, userID);
         if (count >= 3) {
             throw new BusinessException("本公司在途申请不可超过3笔！请删除在途申请后再发起新的申请！");
         }
         //根据用户查询用户所在公司
         Company query = new Company();
         query.setDeveloperId(userID);
-        query.setStatus(AuditingStatus.SUCCESS);
+        query.setStatus(SysStatus.SUCCESS);
         List<Company> companyList = companyMapper.selectBySelective(query);
         Company company = companyList.get(0);
 
         if (null != company) {
             community.setCompanyId(company.getId());
-            community.setStatus(AuditingStatus.AUDITING);
+            community.setStatus(SysStatus.AUDITING);
         } else {
             throw new BusinessException("当前账户尚未开通企业服务！");
         }
@@ -54,16 +61,32 @@ public class CommunityService implements ICommunityService {
         return rows > 0;
     }
 
+    /**
+     * 审核通过
+     *
+     * @param communityID
+     * @return
+     * @throws Exception
+     */
     public boolean pass(int communityID) throws Exception {
         Community community = new Community();
         community.setId(communityID);
-        community.setStatus(AuditingStatus.SUCCESS);
+        community.setStatus(SysStatus.SUCCESS);
         community.setOperateTime(new Date());
         int rows = communityMapper.updateByPrimaryKeySelective(community);
 
         return rows > 0;
     }
 
+    /**
+     * 用户自行取消在途的申请，
+     * 方法内有校验用户所取消的项目，是否属于自己的项目
+     *
+     * @param communityID
+     * @param userID
+     * @return
+     * @throws Exception
+     */
     public boolean cancel(int communityID, int userID) throws Exception {
         //查询用户所在公司信息
         Company queryCompany = new Company();
@@ -76,7 +99,7 @@ public class CommunityService implements ICommunityService {
 
         Company company = companyList.get(0);
         Community query = new Community();
-        query.setStatus(AuditingStatus.AUDITING);
+        query.setStatus(SysStatus.AUDITING);
         query.setCompanyId(company.getId());
         List<Community> communityList = communityMapper.selectBySelective(query);
         //校验用户是否发起过申请
@@ -90,7 +113,7 @@ public class CommunityService implements ICommunityService {
                 flag = true;
                 Community community = new Community();
                 community.setId(communityID);
-                community.setStatus(AuditingStatus.CANCEL);
+                community.setStatus(SysStatus.CANCEL);
                 community.setOperateTime(new Date());
                 int rows = communityMapper.updateByPrimaryKeySelective(community);
                 return rows > 0;
@@ -102,28 +125,74 @@ public class CommunityService implements ICommunityService {
         return false;
     }
 
+    /**
+     * 拒绝申请
+     *
+     * @param communityID
+     * @return
+     * @throws Exception
+     */
     public boolean refuse(int communityID) throws Exception {
         Community community = new Community();
         community.setId(communityID);
-        community.setStatus(AuditingStatus.REFUSE);
+        community.setStatus(SysStatus.REFUSE);
         community.setOperateTime(new Date());
         int rows = communityMapper.updateByPrimaryKeySelective(community);
 
         return rows > 0;
     }
 
-    public PageInfo<Community> getClassifyCommunities(int status, int pageNum, int pageSize) throws Exception {
+    /**
+     * 获取所有不同状态下的社区列表
+     * 可指定用户，指定状态，也可查询全部
+     *
+     * @param status
+     * @param pageNum
+     * @param pageSize
+     * @return
+     * @throws Exception
+     */
+    public PageInfo<Community> getClassifyCommunities(Integer status, Integer userID, int pageNum, int pageSize) throws Exception {
         Community community = new Community();
-        community.setStatus(status);
+        if (null != status) {
+            community.setStatus(status);
+        }
+        if (null != userID) {
+            Company query = new Company();
+            query.setDeveloperId(userID);
+            List<Company> result = companyMapper.selectBySelective(query);
+            if (null != result.get(0).getId()) {
+                community.setCompanyId(result.get(0).getId());
+            } else {
+                throw new BusinessException("该用户尚未开通企业服务！");
+            }
+        }
+
         PageHelper.startPage(pageNum, pageSize);
         List<Community> communityList = communityMapper.selectBySelective(community);
         return new PageInfo<Community>(communityList);
     }
 
+    /**
+     * 获取用户账户下已经申请成功的社区列表
+     *
+     * @param userID
+     * @return
+     * @throws Exception
+     */
     public List<Community> getSuccessCommunities(int userID) throws Exception {
         return communityMapper.selectEnableByUserID(userID);
     }
 
+    /**
+     * 计算当前用户账户下不同状态的房屋的数量
+     * 主要是用于发布房源时，控制在途申请的最大数量，以减少垃圾数据
+     *
+     * @param status
+     * @param userID
+     * @return
+     * @throws Exception
+     */
     public int countClassifyCommunity(int status, int userID) throws Exception {
         Company query = new Company();
         query.setDeveloperId(userID);

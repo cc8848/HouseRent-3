@@ -62,6 +62,7 @@ public class HouseController extends BaseController {
         int city = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("city"), "城市不能为空！"));
         int area = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("area"), "地区不能为空！"));
         int status = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("status"), "房屋状态不能为空！"));
+        int communityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("communityID"), "项目编号不能为空！"));
 
         //封装对象
         House house = new House();
@@ -79,12 +80,17 @@ public class HouseController extends BaseController {
         house.setCityId(city);
         house.setAreaId(area);
         house.setHouseStatusId(status);
+        house.setCommunityId(communityID);
         house.setEnabled(false);//待后台审核后可修改为可用
 
         //写入房屋数据
-        int houseID = iHouseService.issueHouse(house, sysUsers.getUserId());
+        boolean issueHouse = iHouseService.issueHouse(house, sysUsers.getUserId());
 
-        return JsonResult.success("添加成功").setData(houseID);
+        if (issueHouse) {
+            return JsonResult.success("添加成功，请等待审核，审核成功后本公司将进行实地取景！");
+        } else {
+            return JsonResult.error("添加失败，请联系管理员！");
+        }
     }
 
     @RequestMapping("/sell")

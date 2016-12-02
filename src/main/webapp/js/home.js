@@ -6,52 +6,64 @@
  */
 $(document).ready(function () {
     $('.select2').select2();
-    $("[href='#issue-info']").on('click', new IssueMenu().menuInit);
-    $("[href='#creat-project']").on('click', new ProjectMenu().menuInit())
+    $("[href='#issue-house']").on('click', new HomeTemplate().init('issue-house-template'));
+    $("[href='#create-project']").on('click', new HomeTemplate().init('create-project-template'));
 });
 
 var modal = new Modal();
+
+function HomeTemplate() {
+    this.init = function (templateID) {
+        switch (templateID) {
+            case 'issue-house-template':
+                $('#issue-house').html(template(templateID));
+                new IssueMenu().menuInit();
+                break;
+            case 'create-project-template':
+                $('#create-project').html(template(templateID));
+                new ProjectMenu().menuInit();
+                break;
+        }
+    }
+}
 
 function IssueMenu() {
 
     var _this = this;
 
-    var location = new Location('#province', '#city', '#area');
+    var form = $('#issue-house-form');
+
+    var location = new Location(form.find("[name='province']"), form.find("[name='city']"), form.find("[name='area']"));
 
     this.menuInit = function () {
         location.locationInit();
         var selectUtil = new SelectUtil();
-        selectUtil.selectInit($('#face'), "/json/house_face.json");
-        selectUtil.selectInit($('#decoration'), "/json/house_decoration.json");
-        selectUtil.selectInit($('#layout'), "/json/house_layout.json");
-        selectUtil.selectInit(status, "/json/status_sell.json");
-        $('#issueSubmit').on('click', _this.issueSubmit);
+        selectUtil.selectInit(form.find("[name='face']"), "/json/house_face.json");
+        selectUtil.selectInit(form.find("[name='decoration']"), "/json/house_decoration.json");
+        selectUtil.selectInit(form.find("[name='layout']"), "/json/house_layout.json");
+        selectUtil.selectInit(form.find("[name='status_sell']"), "/json/status_sell.json");
+        form.find("[name='issueSubmit']").on('click', _this.issueSubmit);
     };
 
     this.issueSubmit = function () {
         var httpUtil = new HttpUtil();
         httpUtil.postCRF('/house/issue', {
-            tittle: $('#tittle').val(),
-            desc: $('#desc').val(),
-            faceID: $('#face').val(),
-            address: $('#address').val(),
-            floorArea: $('#floorArea').val(),
-            poolArea: $('#poolArea').val(),
-            price: $('#price').val(),
-            floor: $('#floor').val(),
-            layout: $('#layout').val(),
-            decorationType: $('#decoration').val(),
+            tittle: form.find("[name='tittle']").val(),
+            desc: form.find("[name='desc']").val(),
+            faceID: form.find("[name='face']").val(),
+            address: form.find("[name='address']").val(),
+            floorArea: form.find("[name='floorArea']").val(),
+            poolArea: form.find("[name='poolArea']").val(),
+            price: form.find("[name='price']").val(),
+            floor: form.find("[name='floor']").val(),
+            layout: form.find("[name='layout']").val(),
+            decorationType: form.find("[name='decoration']").val(),
             province: location.getProvinceVal(),
             city: location.getCityVal(),
             area: location.getAreaVal(),
-            status: $('#status').val()
+            status: form.find("[name='status']").val()
         }, function (backData) {
-            var modal = new Modal();
-            if (backData.status) {
-                modal.uploadModal(backData.data);
-            } else {
-                modal.errorModal(backData.message);
-            }
+            modal.infoModal(backData.message);
         });
     }
 }
@@ -60,7 +72,7 @@ function ProjectMenu() {
 
     var _this = this;
 
-    var form = $("#create-project");
+    var form = $("#create-project-form");
 
     var location = new Location(form.find("[name='province']"), form.find("[name='city']"), form.find("[name='area']"));
 
@@ -137,7 +149,7 @@ function ProjectMenu() {
     };
 
     this.submit = function () {
-        var target = ["tittle", "province", "city", "area", "address", "lng", "lat", "openTime", "realEstateTime", "estateManageCompany"];
+        var target = ["tittle", "province", "city", "area", "address", "lng", "lat", "openTime", "realEstateTime"];
         var notEmpty = true;
         var maxLength = true;
         $.each(target, function () {

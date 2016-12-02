@@ -1,195 +1,197 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.magic.rent.mapper.CommunityMapper">
-    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Community">
-        <id column="ID" property="id" jdbcType="INTEGER"/>
-        <result column="NAME" property="name" jdbcType="VARCHAR"/>
-        <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER"/>
-        <result column="CITY_ID" property="cityId" jdbcType="INTEGER"/>
-        <result column="AREA_ID" property="areaId" jdbcType="INTEGER"/>
-        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
-        <result column="LNG" property="lng" jdbcType="DOUBLE"/>
-        <result column="LAT" property="lat" jdbcType="DOUBLE"/>
-        <result column="COMPANY_ID" property="companyId" jdbcType="INTEGER"/>
-        <result column="STATUS" property="status" jdbcType="INTEGER"/>
-        <result column="AUDITING_TIME" property="auditingTime" jdbcType="TIMESTAMP"/>
-        <result column="OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP"/>
-        <result column="OPEN_TIME" property="openTime" jdbcType="TIMESTAMP"/>
-        <result column="REAL_ESTATE_TIME" property="realEstateTime" jdbcType="TIMESTAMP"/>
-        <result column="ESTATE_MANAGE_COMPANY" property="estateManageCompany" jdbcType="VARCHAR"/>
-    </resultMap>
-    <sql id="Base_Column_List">
-        ID, NAME, PROVINCE_ID, CITY_ID, AREA_ID, ADDRESS,LNG, LAT, COMPANY_ID, STATUS, AUDITING_TIME,
-        OPERATE_TIME, OPEN_TIME, REAL_ESTATE_TIME, ESTATE_MANAGE_COMPANY
-    </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
-        select
-        <include refid="Base_Column_List"/>
-        from COMMUNITY
-        where ID = #{id,jdbcType=INTEGER}
-    </select>
-    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
-        delete from COMMUNITY
-        where ID = #{id,jdbcType=INTEGER}
-    </delete>
-    <insert id="insert" parameterType="com.magic.rent.pojo.Community">
-        insert into COMMUNITY (ID, NAME, PROVINCE_ID,
-        CITY_ID, AREA_ID,ADDRESS, LNG,
-        LAT, COMPANY_ID, STATUS,
-        AUDITING_TIME, OPERATE_TIME, OPEN_TIME,
-        REAL_ESTATE_TIME, ESTATE_MANAGE_COMPANY)
-        values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{provinceId,jdbcType=INTEGER},
-        #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}),#{lng,jdbcType=DOUBLE},
-        #{lat,jdbcType=DOUBLE}, #{companyId,jdbcType=INTEGER}, #{status,jdbcType=INTEGER},
-        #{auditingTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP}, #{openTime,jdbcType=TIMESTAMP},
-        #{realEstateTime,jdbcType=TIMESTAMP}, #{estateManageCompany,jdbcType=VARCHAR})
-    </insert>
-    <insert id="insertSelective" parameterType="com.magic.rent.pojo.Community">
-        insert into COMMUNITY
-        <trim prefix="(" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                ID,
-            </if>
-            <if test="name != null">
-                NAME,
-            </if>
-            <if test="provinceId != null">
-                PROVINCE_ID,
-            </if>
-            <if test="cityId != null">
-                CITY_ID,
-            </if>
-            <if test="areaId != null">
-                AREA_ID,
-            </if>
-            <if test="address != null">
-                ADDRESS,
-            </if>
-            <if test="lng != null">
-                LNG,
-            </if>
-            <if test="lat != null">
-                LAT,
-            </if>
-            <if test="companyId != null">
-                COMPANY_ID,
-            </if>
-            <if test="status != null">
-                STATUS,
-            </if>
-            <if test="auditingTime != null">
-                AUDITING_TIME,
-            </if>
-            <if test="operateTime != null">
-                OPERATE_TIME,
-            </if>
-            <if test="openTime != null">
-                OPEN_TIME,
-            </if>
-            <if test="realEstateTime != null">
-                REAL_ESTATE_TIME,
-            </if>
-            <if test="estateManageCompany != null">
-                ESTATE_MANAGE_COMPANY,
-            </if>
-        </trim>
-        <trim prefix="values (" suffix=")" suffixOverrides=",">
-            <if test="id != null">
-                #{id,jdbcType=INTEGER},
-            </if>
-            <if test="name != null">
-                #{name,jdbcType=VARCHAR},
-            </if>
-            <if test="provinceId != null">
-                #{provinceId,jdbcType=INTEGER},
-            </if>
-            <if test="cityId != null">
-                #{cityId,jdbcType=INTEGER},
-            </if>
-            <if test="areaId != null">
-                #{areaId,jdbcType=INTEGER},
-            </if>
-            <if test="address != null">
-                #{address,jdbcType=VARCHAR},
-            </if>
-            <if test="lng != null">
-                #{lng,jdbcType=DOUBLE},
-            </if>
-            <if test="lat != null">
-                #{lat,jdbcType=DOUBLE},
-            </if>
-            <if test="companyId != null">
-                #{companyId,jdbcType=INTEGER},
-            </if>
-            <if test="status != null">
-                #{status,jdbcType=INTEGER},
-            </if>
-            <if test="auditingTime != null">
-                #{auditingTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="operateTime != null">
-                #{operateTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="openTime != null">
-                #{openTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="realEstateTime != null">
-                #{realEstateTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="estateManageCompany != null">
-                #{estateManageCompany,jdbcType=VARCHAR},
-            </if>
-        </trim>
-    </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Community">
-        update COMMUNITY
-        <set>
-            <if test="name != null">
-                NAME = #{name,jdbcType=VARCHAR},
-            </if>
-            <if test="provinceId != null">
-                PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
-            </if>
-            <if test="cityId != null">
-                CITY_ID = #{cityId,jdbcType=INTEGER},
-            </if>
-            <if test="areaId != null">
-                AREA_ID = #{areaId,jdbcType=INTEGER},
-            </if>
-            <if test="address != null">
-                ADDRESS = #{address,jdbcType=VARCHAR},
-            </if>
-            <if test="lng != null">
-                LNG = #{lng,jdbcType=DOUBLE},
-            </if>
-            <if test="lat != null">
-                LAT = #{lat,jdbcType=DOUBLE},
-            </if>
-            <if test="companyId != null">
-                COMPANY_ID = #{companyId,jdbcType=INTEGER},
-            </if>
-            <if test="status != null">
-                STATUS = #{status,jdbcType=INTEGER},
-            </if>
-            <if test="auditingTime != null">
-                AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="operateTime != null">
-                OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="openTime != null">
-                OPEN_TIME = #{openTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="realEstateTime != null">
-                REAL_ESTATE_TIME = #{realEstateTime,jdbcType=TIMESTAMP},
-            </if>
-            <if test="estateManageCompany != null">
-                ESTATE_MANAGE_COMPANY = #{estateManageCompany,jdbcType=VARCHAR},
-            </if>
-        </set>
-        where ID = #{id,jdbcType=INTEGER}
-    </update>
-    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Community">
+<mapper namespace="com.magic.rent.mapper.CommunityMapper" >
+  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Community" >
+    <id column="ID" property="id" jdbcType="INTEGER" />
+    <result column="NAME" property="name" jdbcType="VARCHAR" />
+    <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER" />
+    <result column="CITY_ID" property="cityId" jdbcType="INTEGER" />
+    <result column="AREA_ID" property="areaId" jdbcType="INTEGER" />
+    <result column="ADDRESS" property="address" jdbcType="VARCHAR" />
+    <result column="LNG" property="lng" jdbcType="DOUBLE" />
+    <result column="LAT" property="lat" jdbcType="DOUBLE" />
+    <result column="COMPANY_ID" property="companyId" jdbcType="INTEGER" />
+    <result column="STATUS" property="status" jdbcType="INTEGER" />
+    <result column="AUDITING_TIME" property="auditingTime" jdbcType="TIMESTAMP" />
+    <result column="OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP" />
+    <result column="OPEN_TIME" property="openTime" jdbcType="TIMESTAMP" />
+    <result column="REAL_ESTATE_TIME" property="realEstateTime" jdbcType="TIMESTAMP" />
+    <result column="ESTATE_MANAGE_COMPANY" property="estateManageCompany" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    ID, NAME, PROVINCE_ID, CITY_ID, AREA_ID, ADDRESS, LNG, LAT, COMPANY_ID, STATUS, AUDITING_TIME, 
+    OPERATE_TIME, OPEN_TIME, REAL_ESTATE_TIME, ESTATE_MANAGE_COMPANY
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from COMMUNITY
+    where ID = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from COMMUNITY
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.magic.rent.pojo.Community" >
+    insert into COMMUNITY (ID, NAME, PROVINCE_ID, 
+      CITY_ID, AREA_ID, ADDRESS, 
+      LNG, LAT, COMPANY_ID, 
+      STATUS, AUDITING_TIME, OPERATE_TIME, 
+      OPEN_TIME, REAL_ESTATE_TIME, ESTATE_MANAGE_COMPANY
+      )
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{provinceId,jdbcType=INTEGER}, 
+      #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, 
+      #{lng,jdbcType=DOUBLE}, #{lat,jdbcType=DOUBLE}, #{companyId,jdbcType=INTEGER}, 
+      #{status,jdbcType=INTEGER}, #{auditingTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP}, 
+      #{openTime,jdbcType=TIMESTAMP}, #{realEstateTime,jdbcType=TIMESTAMP}, #{estateManageCompany,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.magic.rent.pojo.Community" >
+    insert into COMMUNITY
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        ID,
+      </if>
+      <if test="name != null" >
+        NAME,
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID,
+      </if>
+      <if test="cityId != null" >
+        CITY_ID,
+      </if>
+      <if test="areaId != null" >
+        AREA_ID,
+      </if>
+      <if test="address != null" >
+        ADDRESS,
+      </if>
+      <if test="lng != null" >
+        LNG,
+      </if>
+      <if test="lat != null" >
+        LAT,
+      </if>
+      <if test="companyId != null" >
+        COMPANY_ID,
+      </if>
+      <if test="status != null" >
+        STATUS,
+      </if>
+      <if test="auditingTime != null" >
+        AUDITING_TIME,
+      </if>
+      <if test="operateTime != null" >
+        OPERATE_TIME,
+      </if>
+      <if test="openTime != null" >
+        OPEN_TIME,
+      </if>
+      <if test="realEstateTime != null" >
+        REAL_ESTATE_TIME,
+      </if>
+      <if test="estateManageCompany != null" >
+        ESTATE_MANAGE_COMPANY,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="id != null" >
+        #{id,jdbcType=INTEGER},
+      </if>
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="lng != null" >
+        #{lng,jdbcType=DOUBLE},
+      </if>
+      <if test="lat != null" >
+        #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="companyId != null" >
+        #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        #{status,jdbcType=INTEGER},
+      </if>
+      <if test="auditingTime != null" >
+        #{auditingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTime != null" >
+        #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openTime != null" >
+        #{openTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realEstateTime != null" >
+        #{realEstateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="estateManageCompany != null" >
+        #{estateManageCompany,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Community" >
+    update COMMUNITY
+    <set >
+      <if test="name != null" >
+        NAME = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="provinceId != null" >
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      </if>
+      <if test="cityId != null" >
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+      </if>
+      <if test="areaId != null" >
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+      </if>
+      <if test="address != null" >
+        ADDRESS = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="lng != null" >
+        LNG = #{lng,jdbcType=DOUBLE},
+      </if>
+      <if test="lat != null" >
+        LAT = #{lat,jdbcType=DOUBLE},
+      </if>
+      <if test="companyId != null" >
+        COMPANY_ID = #{companyId,jdbcType=INTEGER},
+      </if>
+      <if test="status != null" >
+        STATUS = #{status,jdbcType=INTEGER},
+      </if>
+      <if test="auditingTime != null" >
+        AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTime != null" >
+        OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="openTime != null" >
+        OPEN_TIME = #{openTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="realEstateTime != null" >
+        REAL_ESTATE_TIME = #{realEstateTime,jdbcType=TIMESTAMP},
+      </if>
+      <if test="estateManageCompany != null" >
+        ESTATE_MANAGE_COMPANY = #{estateManageCompany,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Community" >
     update COMMUNITY
     set NAME = #{name,jdbcType=VARCHAR},
       PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
@@ -207,72 +209,71 @@
       ESTATE_MANAGE_COMPANY = #{estateManageCompany,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectBySelective" parameterType="com.magic.rent.pojo.Community" resultMap="BaseResultMap">
-        SELECT
-        <include refid="Base_Column_List"/>
-        FROM COMMUNITY
-        <where>
-            <if test="id != null">
-                ID = #{id,jdbcType=VARCHAR}
-            </if>
-            <if test="name != null">
-                NAME = #{name,jdbcType=VARCHAR}
-            </if>
-            <if test="provinceId != null">
-                PROVINCE_ID = #{provinceId,jdbcType=INTEGER}
-            </if>
-            <if test="cityId != null">
-                CITY_ID = #{cityId,jdbcType=INTEGER}
-            </if>
-            <if test="areaId != null">
-                AREA_ID = #{areaId,jdbcType=INTEGER}
-            </if>
-            <if test="address != null">
-                ADDRESS = #{address,jdbcType=INTEGER}
-            </if>
-            <if test="lng != null">
-                LNG = #{lng,jdbcType=DOUBLE}
-            </if>
-            <if test="lat != null">
-                LAT = #{lat,jdbcType=DOUBLE}
-            </if>
-            <if test="companyId != null">
-                COMPANY_ID = #{companyId,jdbcType=INTEGER}
-            </if>
-            <if test="status != null">
-                STATUS = #{status,jdbcType=INTEGER}
-            </if>
-            <if test="auditingTime != null">
-                AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP}
-            </if>
-            <if test="operateTime != null">
-                OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
-            </if>
-            <if test="openTime != null">
-                OPEN_TIME = #{openTime,jdbcType=TIMESTAMP}
-            </if>
-            <if test="realEstateTime != null">
-                REAL_ESTATE_TIME = #{realEstateTime,jdbcType=TIMESTAMP}
-            </if>
-            <if test="estateManageCompany != null">
-                ESTATE_MANAGE_COMPANY = #{estateManageCompany,jdbcType=VARCHAR}
-            </if>
-        </where>
-    </select>
-    <select id="selectEnableByUserID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-        SELECT
-        <include refid="Base_Column_List"/>
-        FROM COMMUNITY
-        JOIN COMPANY ON COMMUNITY.COMPANY_ID = COMPANY.ID
-        JOIN SYS_USERS ON COMPANY.DEVELOPER_ID = SYS_USERS.USER_ID
-        WHERE SYS_USERS.USER_ID=#{userID,jdbcType=INTEGER} AND COMPANY.STATUS=2 AND COMMUNITY.STATUS=2
-    </select>
-    <select id="countByStatusForUser" parameterType="com.magic.rent.pojo.Community" resultType="java.lang.Integer">
-      SELECT
-          count(COMMUNITY.ID)
-        FROM
-          COMMUNITY
-        WHERE COMMUNITY.STATUS=#{status,jdbcType=INTEGER} AND COMMUNITY.COMPANY_ID= #{companyId,jdbcType=INTEGER}
-    </select>
-
+  <select id="selectBySelective" parameterType="com.magic.rent.pojo.Community" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM COMMUNITY
+    <where>
+      <if test="id != null">
+        ID = #{id,jdbcType=VARCHAR}
+      </if>
+      <if test="name != null">
+        NAME = #{name,jdbcType=VARCHAR}
+      </if>
+      <if test="provinceId != null">
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER}
+      </if>
+      <if test="cityId != null">
+        CITY_ID = #{cityId,jdbcType=INTEGER}
+      </if>
+      <if test="areaId != null">
+        AREA_ID = #{areaId,jdbcType=INTEGER}
+      </if>
+      <if test="address != null">
+        ADDRESS = #{address,jdbcType=INTEGER}
+      </if>
+      <if test="lng != null">
+        LNG = #{lng,jdbcType=DOUBLE}
+      </if>
+      <if test="lat != null">
+        LAT = #{lat,jdbcType=DOUBLE}
+      </if>
+      <if test="companyId != null">
+        COMPANY_ID = #{companyId,jdbcType=INTEGER}
+      </if>
+      <if test="status != null">
+        STATUS = #{status,jdbcType=INTEGER}
+      </if>
+      <if test="auditingTime != null">
+        AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="operateTime != null">
+        OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="openTime != null">
+        OPEN_TIME = #{openTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="realEstateTime != null">
+        REAL_ESTATE_TIME = #{realEstateTime,jdbcType=TIMESTAMP}
+      </if>
+      <if test="estateManageCompany != null">
+        ESTATE_MANAGE_COMPANY = #{estateManageCompany,jdbcType=VARCHAR}
+      </if>
+    </where>
+  </select>
+  <select id="selectEnableByUserID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    SELECT
+    <include refid="Base_Column_List"/>
+    FROM COMMUNITY
+    JOIN COMPANY ON COMMUNITY.COMPANY_ID = COMPANY.ID
+    JOIN SYS_USERS ON COMPANY.DEVELOPER_ID = SYS_USERS.USER_ID
+    WHERE SYS_USERS.USER_ID=#{userID,jdbcType=INTEGER} AND COMPANY.STATUS=2 AND COMMUNITY.STATUS=2
+  </select>
+  <select id="countByStatusForUser" parameterType="com.magic.rent.pojo.Community" resultType="java.lang.Integer">
+    SELECT
+    count(COMMUNITY.ID)
+    FROM
+    COMMUNITY
+    WHERE COMMUNITY.STATUS=#{status,jdbcType=INTEGER} AND COMMUNITY.COMPANY_ID= #{companyId,jdbcType=INTEGER}
+  </select>
 </mapper>

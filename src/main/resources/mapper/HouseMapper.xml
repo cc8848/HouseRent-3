@@ -1,36 +1,37 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
 <mapper namespace="com.magic.rent.mapper.HouseMapper">
     <resultMap id="BaseResultMap" type="com.magic.rent.pojo.House">
-        <id column="ID" jdbcType="INTEGER" property="id"/>
-        <result column="TITTLE" jdbcType="VARCHAR" property="tittle"/>
-        <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
-        <result column="FACE_ID" jdbcType="INTEGER" property="faceId"/>
-        <result column="FLOOR_AREA" jdbcType="DOUBLE" property="floorArea"/>
-        <result column="POOL_AREA" jdbcType="DOUBLE" property="poolArea"/>
-        <result column="EXPECT_PRICE" jdbcType="DOUBLE" property="expectPrice"/>
-        <result column="PROPERTY_FEE" jdbcType="DOUBLE" property="propertyFee"/>
-        <result column="THUMBNAIL_MODE" jdbcType="BIT" property="thumbnailMode"/>
-        <result column="VR_MODE" jdbcType="BIT" property="vrMode"/>
-        <result column="COMMUNITY_ID" jdbcType="INTEGER" property="communityId"/>
-        <result column="FLOOR" jdbcType="INTEGER" property="floor"/>
-        <result column="LAYOUT_ID" jdbcType="INTEGER" property="layoutId"/>
-        <result column="HOUSE_DECORATION_ID" jdbcType="INTEGER" property="houseDecorationId"/>
-        <result column="PROVINCE_ID" jdbcType="INTEGER" property="provinceId"/>
-        <result column="CITY_ID" jdbcType="INTEGER" property="cityId"/>
-        <result column="AREA_ID" jdbcType="INTEGER" property="areaId"/>
-        <result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
-        <result column="HOUSE_STATUS_ID" jdbcType="INTEGER" property="houseStatusId"/>
-        <result column="ENABLED" jdbcType="BIT" property="enabled"/>
-        <result column="AGE" jdbcType="INTEGER" property="age"/>
-        <result column="ELEVATOR_TYPE_ID" javaType="INTEGER" property="elevatorTypeId"/>
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="TITTLE" property="tittle" jdbcType="VARCHAR"/>
+        <result column="DESCRIPTION" property="description" jdbcType="VARCHAR"/>
+        <result column="FACE_ID" property="faceId" jdbcType="INTEGER"/>
+        <result column="FLOOR_AREA" property="floorArea" jdbcType="DOUBLE"/>
+        <result column="POOL_AREA" property="poolArea" jdbcType="DOUBLE"/>
+        <result column="EXPECT_PRICE" property="expectPrice" jdbcType="DOUBLE"/>
+        <result column="PROPERTY_FEE" property="propertyFee" jdbcType="DOUBLE"/>
+        <result column="THUMBNAIL_MODE" property="thumbnailMode" jdbcType="BIT"/>
+        <result column="VR_MODE" property="vrMode" jdbcType="BIT"/>
+        <result column="COMMUNITY_ID" property="communityId" jdbcType="INTEGER"/>
+        <result column="FLOOR" property="floor" jdbcType="INTEGER"/>
+        <result column="LAYOUT_ID" property="layoutId" jdbcType="INTEGER"/>
+        <result column="HOUSE_DECORATION_ID" property="houseDecorationId" jdbcType="INTEGER"/>
+        <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER"/>
+        <result column="CITY_ID" property="cityId" jdbcType="INTEGER"/>
+        <result column="AREA_ID" property="areaId" jdbcType="INTEGER"/>
+        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="ELEVATOR_TYPE_ID" property="elevatorTypeId" jdbcType="INTEGER"/>
+        <result column="AGE" property="age" jdbcType="INTEGER"/>
+        <result column="HOUSE_STATUS" property="houseStatus" jdbcType="INTEGER"/>
+        <result column="ENABLED" property="enabled" jdbcType="BIT"/>
+        <result column="SYS_STATUS" property="sysStatus" jdbcType="INTEGER"/>
     </resultMap>
     <sql id="Base_Column_List">
     ID, TITTLE, DESCRIPTION, FACE_ID, FLOOR_AREA, POOL_AREA, EXPECT_PRICE, PROPERTY_FEE, 
     THUMBNAIL_MODE, VR_MODE, COMMUNITY_ID, FLOOR, LAYOUT_ID, HOUSE_DECORATION_ID, PROVINCE_ID, 
-    CITY_ID, AREA_ID, ADDRESS, HOUSE_STATUS_ID, ENABLED, AGE,ELEVATOR_TYPE_ID
+    CITY_ID, AREA_ID, ADDRESS, ELEVATOR_TYPE_ID, AGE, HOUSE_STATUS, ENABLED, SYS_STATUS
   </sql>
-    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
         from HOUSE
@@ -47,16 +48,16 @@
       VR_MODE, COMMUNITY_ID, FLOOR, 
       LAYOUT_ID, HOUSE_DECORATION_ID, PROVINCE_ID, 
       CITY_ID, AREA_ID, ADDRESS, 
-      HOUSE_STATUS_ID, ENABLED, AGE,ELEVATOR_TYPE_ID
-      )
+      ELEVATOR_TYPE_ID, AGE, HOUSE_STATUS, 
+      ENABLED, SYS_STATUS)
     values (#{id,jdbcType=INTEGER}, #{tittle,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{faceId,jdbcType=INTEGER}, #{floorArea,jdbcType=DOUBLE}, #{poolArea,jdbcType=DOUBLE}, 
       #{expectPrice,jdbcType=DOUBLE}, #{propertyFee,jdbcType=DOUBLE}, #{thumbnailMode,jdbcType=BIT}, 
       #{vrMode,jdbcType=BIT}, #{communityId,jdbcType=INTEGER}, #{floor,jdbcType=INTEGER}, 
       #{layoutId,jdbcType=INTEGER}, #{houseDecorationId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, 
       #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, 
-      #{houseStatusId,jdbcType=INTEGER}, #{enabled,jdbcType=BIT}, #{age,jdbcType=INTEGER},#{elevatorTypeId,jdbcType=INTEGER}
-      )
+      #{elevatorTypeId,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, #{houseStatus,jdbcType=INTEGER}, 
+      #{enabled,jdbcType=BIT}, #{sysStatus,jdbcType=INTEGER})
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.House">
         insert into HOUSE
@@ -115,17 +116,20 @@
             <if test="address != null">
                 ADDRESS,
             </if>
-            <if test="houseStatusId != null">
-                HOUSE_STATUS_ID,
-            </if>
-            <if test="enabled != null">
-                ENABLED,
+            <if test="elevatorTypeId != null">
+                ELEVATOR_TYPE_ID,
             </if>
             <if test="age != null">
                 AGE,
             </if>
-            <if test="elevatorTypeId != null">
-                ELEVATOR_TYPE_ID,
+            <if test="houseStatus != null">
+                HOUSE_STATUS,
+            </if>
+            <if test="enabled != null">
+                ENABLED,
+            </if>
+            <if test="sysStatus != null">
+                SYS_STATUS,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -183,17 +187,20 @@
             <if test="address != null">
                 #{address,jdbcType=VARCHAR},
             </if>
-            <if test="houseStatusId != null">
-                #{houseStatusId,jdbcType=INTEGER},
-            </if>
-            <if test="enabled != null">
-                #{enabled,jdbcType=BIT},
+            <if test="elevatorTypeId != null">
+                #{elevatorTypeId,jdbcType=INTEGER},
             </if>
             <if test="age != null">
                 #{age,jdbcType=INTEGER},
             </if>
-            <if test="elevatorTypeId != null">
-                #{elevatorTypeId,jdbcType=INTEGER},
+            <if test="houseStatus != null">
+                #{houseStatus,jdbcType=INTEGER},
+            </if>
+            <if test="enabled != null">
+                #{enabled,jdbcType=BIT},
+            </if>
+            <if test="sysStatus != null">
+                #{sysStatus,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
@@ -251,14 +258,20 @@
             <if test="address != null">
                 ADDRESS = #{address,jdbcType=VARCHAR},
             </if>
-            <if test="houseStatusId != null">
-                HOUSE_STATUS_ID = #{houseStatusId,jdbcType=INTEGER},
+            <if test="elevatorTypeId != null">
+                ELEVATOR_TYPE_ID = #{elevatorTypeId,jdbcType=INTEGER},
+            </if>
+            <if test="age != null">
+                AGE = #{age,jdbcType=INTEGER},
+            </if>
+            <if test="houseStatus != null">
+                HOUSE_STATUS = #{houseStatus,jdbcType=INTEGER},
             </if>
             <if test="enabled != null">
                 ENABLED = #{enabled,jdbcType=BIT},
             </if>
-            <if test="elevatorTypeId != null">
-                ELEVATOR_TYPE_ID = #{age,jdbcType=INTEGER},
+            <if test="sysStatus != null">
+                SYS_STATUS = #{sysStatus,jdbcType=INTEGER},
             </if>
         </set>
         where ID = #{id,jdbcType=INTEGER}
@@ -282,10 +295,11 @@
       CITY_ID = #{cityId,jdbcType=INTEGER},
       AREA_ID = #{areaId,jdbcType=INTEGER},
       ADDRESS = #{address,jdbcType=VARCHAR},
-      HOUSE_STATUS_ID = #{houseStatusId,jdbcType=INTEGER},
-      ENABLED = #{enabled,jdbcType=BIT},
+      ELEVATOR_TYPE_ID = #{elevatorTypeId,jdbcType=INTEGER},
       AGE = #{age,jdbcType=INTEGER},
-      ELEVATOR_TYPE_ID = #{age,jdbcType=INTEGER}
+      HOUSE_STATUS = #{houseStatus,jdbcType=INTEGER},
+      ENABLED = #{enabled,jdbcType=BIT},
+      SYS_STATUS = #{sysStatus,jdbcType=INTEGER}
     where ID = #{id,jdbcType=INTEGER}
   </update>
     <resultMap id="HouseDetails" type="com.magic.rent.pojo.House">
@@ -340,50 +354,50 @@
         </association>
     </resultMap>
     <select id="selectHouseDetails" parameterType="java.lang.Integer" resultMap="HouseDetails">
-       SELECT
-          HOUSE.ID,
-          PROVINCE.id              provinceID,
-          PROVINCE.provinceName,
-          CITY.id                  cityID,
-          CITY.cityName,
-          AREA.id                  areaID,
-          AREA.areaName,
-          HOUSE.ADDRESS,
-          COMMUNITY.ID             communityID,
-          COMMUNITY.NAME           communityName,
-          COMMUNITY.MAP_X          communityNameMapX,
-          COMMUNITY.MAP_Y          communityNameMapY,
-          COMMUNITY.COMPANY_ID     communityCompanyID,
-          HOUSE.DESCRIPTION,
-          HOUSE_DECORATION.ID      decorationID,
-          HOUSE_DECORATION.NAME    decorationName,
-          HOUSE.FLOOR,
-          HOUSE.EXPECT_PRICE,
-          HOUSE.PROPERTY_FEE,
-          HOUSE_FACE.ID            houseFaceID,
-          HOUSE_FACE.NAME          houseFaceName,
-          HOUSE_LAYOUT.ID          houseLayoutID,
-          HOUSE_LAYOUT.NAME        houseLayout,
-          HOUSE.TITTLE,
-          HOUSE.POOL_AREA,
-          HOUSE.FLOOR_AREA,
-          HOUSE_STATUS.ID          houseStatusID,
-          HOUSE_STATUS.STATUS_NAME houseStatusName,
-          HOUSE.ENABLED,
-          HOUSE.AGE,
-          HOUSE_ELEVATOR.ID        elevatorID,
-          HOUSE_ELEVATOR.NAME      elevatorName
-        FROM HOUSE
-          JOIN PROVINCE ON HOUSE.PROVINCE_ID = PROVINCE.provinceID
-          JOIN CITY ON HOUSE.CITY_ID = CITY.cityID
-          JOIN AREA ON HOUSE.AREA_ID = AREA.areaID
-          JOIN COMMUNITY ON HOUSE.COMMUNITY_ID = COMMUNITY.ID
-          JOIN HOUSE_DECORATION ON HOUSE.HOUSE_DECORATION_ID = HOUSE_DECORATION.ID
-          JOIN HOUSE_FACE ON HOUSE.FACE_ID = HOUSE_FACE.ID
-          JOIN HOUSE_LAYOUT ON HOUSE.LAYOUT_ID = HOUSE_LAYOUT.ID
-          JOIN HOUSE_STATUS ON HOUSE.HOUSE_STATUS_ID = HOUSE_STATUS.ID
-          JOIN HOUSE_ELEVATOR ON HOUSE.ELEVATOR_TYPE_ID = HOUSE_ELEVATOR.ID
-        WHERE HOUSE.ID = #{id,jdbcType=INTEGER}
-              AND HOUSE.ENABLED > 0
-    </select>
+    SELECT
+      HOUSE.ID,
+      PROVINCE.id              provinceID,
+      PROVINCE.provinceName,
+      CITY.id                  cityID,
+      CITY.cityName,
+      AREA.id                  areaID,
+      AREA.areaName,
+      HOUSE.ADDRESS,
+      COMMUNITY.ID             communityID,
+      COMMUNITY.NAME           communityName,
+      COMMUNITY.LNG          communityNameMapX,
+      COMMUNITY.LAT          communityNameMapY,
+      COMMUNITY.COMPANY_ID     communityCompanyID,
+      HOUSE.DESCRIPTION,
+      HOUSE_DECORATION.ID      decorationID,
+      HOUSE_DECORATION.NAME    decorationName,
+      HOUSE.FLOOR,
+      HOUSE.EXPECT_PRICE,
+      HOUSE.PROPERTY_FEE,
+      HOUSE_FACE.ID            houseFaceID,
+      HOUSE_FACE.NAME          houseFaceName,
+      HOUSE_LAYOUT.ID          houseLayoutID,
+      HOUSE_LAYOUT.NAME        houseLayout,
+      HOUSE.TITTLE,
+      HOUSE.POOL_AREA,
+      HOUSE.FLOOR_AREA,
+      HOUSE_STATUS.ID          houseStatusID,
+      HOUSE_STATUS.STATUS_NAME houseStatusName,
+      HOUSE.ENABLED,
+      HOUSE.AGE,
+      HOUSE_ELEVATOR.ID        elevatorID,
+      HOUSE_ELEVATOR.NAME      elevatorName
+    FROM HOUSE
+      JOIN PROVINCE ON HOUSE.PROVINCE_ID = PROVINCE.provinceID
+      JOIN CITY ON HOUSE.CITY_ID = CITY.cityID
+      JOIN AREA ON HOUSE.AREA_ID = AREA.areaID
+      JOIN COMMUNITY ON HOUSE.COMMUNITY_ID = COMMUNITY.ID
+      JOIN HOUSE_DECORATION ON HOUSE.HOUSE_DECORATION_ID = HOUSE_DECORATION.ID
+      JOIN HOUSE_FACE ON HOUSE.FACE_ID = HOUSE_FACE.ID
+      JOIN HOUSE_LAYOUT ON HOUSE.LAYOUT_ID = HOUSE_LAYOUT.ID
+      JOIN HOUSE_STATUS ON HOUSE.HOUSE_STATUS = HOUSE_STATUS.ID
+      JOIN HOUSE_ELEVATOR ON HOUSE.ELEVATOR_TYPE_ID = HOUSE_ELEVATOR.ID
+    WHERE HOUSE.ID = #{id,jdbcType=INTEGER}
+      AND HOUSE.ENABLED > 0
+  </select>
 </mapper>

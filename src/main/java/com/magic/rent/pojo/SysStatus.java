@@ -2,17 +2,17 @@ package com.magic.rent.pojo;
 
 import java.io.Serializable;
 
-public class AuditingStatus implements Serializable {
+public class SysStatus implements Serializable {
 
     private static final long serialVersionUID = 4696421741153001072L;
 
-    public static final int AUDITING = 1;
+    public static final int AUDITING = 1;//审核中
 
-    public static final int SUCCESS = 2;
+    public static final int SUCCESS = 2;//审核通过
 
-    public static final int REFUSE = 3;
+    public static final int REFUSE = 3;//审核拒绝
 
-    public static final int CANCEL = 4;
+    public static final int CANCEL = 4;//申请取消
 
     private Integer id;
 
@@ -52,7 +52,7 @@ public class AuditingStatus implements Serializable {
 
     @Override
     public String toString() {
-        return "AuditingStatus{" +
+        return "SysStatus{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
                 '}';

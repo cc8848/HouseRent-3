@@ -37,13 +37,16 @@ public class HouseServiceImpl implements IHouseService {
 
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public int issueHouse(House house, int userID) throws Exception {
+    public boolean issueHouse(House house, int userID) throws Exception {
         int houseRows = houseMapper.insertSelective(house);
 
         if (houseRows <= 0) {
             throw new BusinessException("添加房屋信息失败！");
         }
 
+        //今后发布房源的权限将从开发商的一手房逐渐开放到中介发布二手房，
+        //建立房屋与用户的关系，是为了方便中介用户进行管理自己发布的房态
+        //用户只能修改自己发布的房态信息
         HouseRelateUser relate = new HouseRelateUser();
         relate.setUserId(userID);
         relate.setHouseId(house.getId());
@@ -54,7 +57,7 @@ public class HouseServiceImpl implements IHouseService {
             throw new BusinessException("建立房屋与用户关系失败！");
         }
 
-        return house.getId();
+        return houseRows > 0 && relateRows > 0;
     }
 
     public Map<String, Object> showHouseDetails(int houseID) throws Exception {

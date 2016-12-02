@@ -120,23 +120,72 @@ public class CommunityController {
         }
     }
 
+    /**
+     * 获取分类社区清单，不区分用户
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @ResponseBody
     @RequestMapping("/classify")
-    public JsonResult classify(HttpServletRequest request) throws Exception {
+    public JsonResult getClassify(HttpServletRequest request) throws Exception {
         Integer status = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("status"), "状态不能为空！"));
         Integer pageNum = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("pageNum"), "查询页数不能为空！"));
         Integer pageSize = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("pageSize"), "查询笔数不能为空！"));
+        Integer userID = null;
+        if (StringUtils.isNotEmpty(request.getParameter("userID"))) {
+            userID = Integer.parseInt(request.getParameter("userID"));
+        }
 
-        PageInfo<Community> communityPageInfo = iCommunityService.getClassifyCommunities(status, pageNum, pageSize);
+        PageInfo<Community> communityPageInfo = iCommunityService.getClassifyCommunities(status, userID, pageNum, pageSize);
         return JsonResult.success(communityPageInfo);
     }
 
-
+    /**
+     * 开发商获取审核成功项目的清单，主要用于下拉列表
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
     @ResponseBody
     @RequestMapping("/success")
     public JsonResult getSuccess(HttpServletRequest request) throws Exception {
         SysUsers sysUsers = HttpUtil.getSessionUser(request);
         List<Community> communityList = iCommunityService.getSuccessCommunities(sysUsers.getUserId());
         return JsonResult.success(communityList);
+    }
+
+    /**
+     * 获取分类清单，区分用户
+     *
+     * @param request
+     * @return
+     * @throws Exception
+     */
+    @ResponseBody
+    @RequestMapping("/myClassify")
+    public JsonResult getMyClassify(HttpServletRequest request) throws Exception {
+
+        Integer status = null;
+        Integer pageNum = 0;
+        Integer pageSize = 10;
+
+        if (StringUtils.isNotEmpty(request.getParameter("status"))) {
+            status = Integer.parseInt(request.getParameter("status"));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("pageNum"))) {
+            pageNum = Integer.parseInt(request.getParameter("pageNum"));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("pageSize"))) {
+            pageSize = Integer.parseInt(request.getParameter("pageSize"));
+        }
+
+        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+
+        PageInfo<Community> communityPageInfo = iCommunityService.getClassifyCommunities(status, sysUsers.getUserId(), pageNum, pageSize);
+
+        return JsonResult.success(communityPageInfo);
     }
 }

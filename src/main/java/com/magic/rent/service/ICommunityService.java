@@ -22,7 +22,7 @@ public interface ICommunityService {
 
     boolean refuse(int communityID) throws Exception;
 
-    PageInfo<Community> getClassifyCommunities(int status, int pageNum, int pageSize) throws Exception;
+    PageInfo<Community> getClassifyCommunities(Integer status, Integer userID, int pageNum, int pageSize) throws Exception;
 
     List<Community> getSuccessCommunities(int userID) throws Exception;
 

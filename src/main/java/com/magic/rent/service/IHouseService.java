@@ -14,7 +14,7 @@ import java.util.Map;
  */
 public interface IHouseService {
 
-    int issueHouse(House house, int userID) throws Exception;
+    boolean issueHouse(House house, int userID) throws Exception;
 
     boolean saveFile(int houseID, int viewMode, String newFileName, String oldFileName) throws Exception;
 

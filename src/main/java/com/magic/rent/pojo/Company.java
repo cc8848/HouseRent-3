@@ -70,7 +70,7 @@ public class Company implements Serializable {
 
     public void setStatus(Integer status) {
         this.status = status;
-        this.setStatusName(AuditingStatus.idToName(this.status));
+        this.setStatusName(SysStatus.idToName(this.status));
     }
 
     public Date getAuditingTime() {
@@ -94,7 +94,7 @@ public class Company implements Serializable {
     }
 
     public String getStatusName() {
-        this.setStatusName(AuditingStatus.idToName(this.status));
+        this.setStatusName(SysStatus.idToName(this.status));
         return statusName;
     }
 

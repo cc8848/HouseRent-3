@@ -3,7 +3,7 @@ package com.magic.rent.service.impl;
 import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.mapper.CompanyMapper;
 import com.magic.rent.mapper.UsersRelateRolesMapper;
-import com.magic.rent.pojo.AuditingStatus;
+import com.magic.rent.pojo.SysStatus;
 import com.magic.rent.pojo.Company;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.UsersRelateRoles;
@@ -42,8 +42,8 @@ public class CompanyService implements ICompanyService {
         for (Company DBCompany : companyList) {
             int status = DBCompany.getStatus();
             switch (status) {
-                case AuditingStatus.AUDITING:
-                case AuditingStatus.SUCCESS:
+                case SysStatus.AUDITING:
+                case SysStatus.SUCCESS:
                     flag = false;
                     break;
             }
@@ -55,7 +55,7 @@ public class CompanyService implements ICompanyService {
         if (flag) {
             Date date = new Date();
             company.setAuditingTime(date);
-            company.setStatus(AuditingStatus.AUDITING);
+            company.setStatus(SysStatus.AUDITING);
             int rows = companyMapper.insert(company);
             return rows > 0;
         } else {
@@ -67,7 +67,7 @@ public class CompanyService implements ICompanyService {
     public boolean pass(int companyID) throws Exception {
         Company company = new Company();
         company.setId(companyID);
-        company.setStatus(AuditingStatus.SUCCESS);
+        company.setStatus(SysStatus.SUCCESS);
         Date date = new Date();
         company.setOperateTime(date);
         int rows = companyMapper.updateByPrimaryKeySelective(company);
@@ -91,7 +91,7 @@ public class CompanyService implements ICompanyService {
         //设置查询条件
         Company query = new Company();
         query.setDeveloperId(userID);
-        query.setStatus(AuditingStatus.AUDITING);
+        query.setStatus(SysStatus.AUDITING);
         List<Company> companyList = companyMapper.selectBySelective(query);
         if (null == companyList || companyList.size() == 0) {
             throw new BusinessException("此账户尚未申请开通企业服务，无法取消！");
@@ -104,7 +104,7 @@ public class CompanyService implements ICompanyService {
                 flag = true;
                 Company company = new Company();
                 company.setId(companyID);
-                company.setStatus(AuditingStatus.CANCEL);
+                company.setStatus(SysStatus.CANCEL);
                 company.setOperateTime(new Date());
                 int rows = companyMapper.updateByPrimaryKeySelective(company);
                 return rows > 0;
@@ -120,7 +120,7 @@ public class CompanyService implements ICompanyService {
     public boolean refuse(int companyID) throws Exception {
         Company company = new Company();
         company.setId(companyID);
-        company.setStatus(AuditingStatus.REFUSE);
+        company.setStatus(SysStatus.REFUSE);
         company.setOperateTime(new Date());
 
         int rows = companyMapper.updateByPrimaryKeySelective(company);
@@ -130,7 +130,7 @@ public class CompanyService implements ICompanyService {
 
     public List<Company> getAuditingCompanies() throws Exception {
         Company company = new Company();
-        company.setStatus(AuditingStatus.AUDITING);
+        company.setStatus(SysStatus.AUDITING);
         return companyMapper.selectBySelective(company);
     }
 
