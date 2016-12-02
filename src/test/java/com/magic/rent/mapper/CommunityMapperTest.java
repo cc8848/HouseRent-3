@@ -1,5 +1,8 @@
 package com.magic.rent.mapper;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
+import com.magic.rent.pojo.Company;
 import com.magic.rent.pojo.SysStatus;
 import com.magic.rent.pojo.Community;
 import org.junit.Before;
@@ -9,6 +12,7 @@ import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -77,7 +81,11 @@ public class CommunityMapperTest {
 
     @Test
     public void selectBySelective() throws Exception {
-
+        Community query = new Community();
+        query.setStatus(SysStatus.AUDITING);
+        query.setCompanyId(1);
+        List<Community> communityList = communityMapper.selectBySelective(query);
+        System.out.print(communityList);
     }
 
     @Test

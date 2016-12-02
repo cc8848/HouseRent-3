@@ -1,5 +1,7 @@
 package com.magic.rent.pojo;
 
+import com.magic.rent.util.DateUtil;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -30,6 +32,8 @@ public class Community implements Serializable {
     private String statusName;
 
     private Date auditingTime;
+
+    private String auditingTimeString;
 
     private Date operateTime;
 
@@ -126,6 +130,15 @@ public class Community implements Serializable {
 
     public void setAuditingTime(Date auditingTime) {
         this.auditingTime = auditingTime;
+        this.setAuditingTimeString(DateUtil.formatToYMD(this.auditingTime));
+    }
+
+    public String getAuditingTimeString() {
+        return auditingTimeString;
+    }
+
+    public void setAuditingTimeString(String auditingTimeString) {
+        this.auditingTimeString = auditingTimeString;
     }
 
     public Date getOperateTime() {
@@ -137,7 +150,6 @@ public class Community implements Serializable {
     }
 
     public String getStatusName() {
-        this.setStatusName(SysStatus.idToName(this.status));
         return statusName;
     }
 
@@ -168,6 +180,7 @@ public class Community implements Serializable {
     public void setEstateManageCompany(String estateManageCompany) {
         this.estateManageCompany = estateManageCompany;
     }
+
 
     @Override
     public String toString() {

@@ -1,6 +1,7 @@
 package com.magic.rent.mapper;
 
 import com.magic.rent.pojo.Community;
+import com.magic.rent.pojo.SelectPoJo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,7 +22,9 @@ public interface CommunityMapper {
 
     List<Community> selectBySelective(Community community);
 
-    List<Community> selectEnableByUserID(Integer userID);
+    List<Community> selectEnableByUserIDForTable(Integer userID);
+
+    List<SelectPoJo> selectEnableByUserIDForSelect(Integer companyID);
 
     int countByStatusForUser(Community community);
 }

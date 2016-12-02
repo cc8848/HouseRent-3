@@ -62,7 +62,7 @@ public class HouseMapperTest {
         house.setProvinceId(350000);
         house.setCityId(350200);
         house.setAreaId(350205);
-        house.setHouseStatusId(1);
+        house.setHouseStatus(1);
         house.setEnabled(false);//待后台审核后可修改为可用
         houseMapper.insertSelective(house);
         System.out.print(house.getId());

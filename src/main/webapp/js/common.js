@@ -70,10 +70,17 @@ function Modal() {
 }
 
 function SelectUtil() {
-    this.selectInit = function (target, URL) {
+    this.selectInitForJson = function (target, URL) {
         $.getJSON(URL, function (backData) {
             target.select2({
                 data: backData
+            });
+        });
+    };
+    this.selectInitAjax = function (target, URL) {
+        $.getJSON(URL, function (backData) {
+            target.select2({
+                data: backData.data
             });
         });
     };

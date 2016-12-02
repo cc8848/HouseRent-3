@@ -8,7 +8,7 @@ import java.util.Date;
  */
 public class DateUtil {
 
-    public static String FormatToYMD(Date date) {
+    public static String formatToYMD(Date date) {
         SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd");
         return simpleDateFormat.format(date);
     }

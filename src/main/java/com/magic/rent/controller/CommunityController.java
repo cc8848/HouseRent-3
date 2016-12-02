@@ -2,6 +2,7 @@ package com.magic.rent.controller;
 
 import com.github.pagehelper.PageInfo;
 import com.magic.rent.pojo.Community;
+import com.magic.rent.pojo.SelectPoJo;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.ICommunityService;
 import com.magic.rent.util.HttpUtil;
@@ -79,15 +80,15 @@ public class CommunityController {
     }
 
     @ResponseBody
-    @RequestMapping("/cancel")
+    @RequestMapping(value = "/cancel", method = RequestMethod.POST)
     public JsonResult cancel(HttpServletRequest request) throws Exception {
-        Integer companyID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("companyID"), "公司编号不能为空！"));
         Integer communityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("communityID"), "社区编号不能为空！"));
+        SysUsers sysUsers = HttpUtil.getSessionUser(request);
 
-        boolean isSuccess = iCommunityService.cancel(communityID, companyID);
+        boolean isSuccess = iCommunityService.cancel(communityID, sysUsers.getUserId());
 
         if (isSuccess) {
-            return JsonResult.success();
+            return JsonResult.success().setMessage("操作成功！");
         } else {
             return JsonResult.error("取消项目申请失败！");
         }
@@ -187,5 +188,15 @@ public class CommunityController {
         PageInfo<Community> communityPageInfo = iCommunityService.getClassifyCommunities(status, sysUsers.getUserId(), pageNum, pageSize);
 
         return JsonResult.success(communityPageInfo);
+    }
+
+    @ResponseBody
+    @RequestMapping("/select")
+    public JsonResult getSuccessSelect(HttpServletRequest request) throws Exception {
+        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+
+        List<SelectPoJo> selectPoJos = iCommunityService.getSuccessCommunitiesForSelect(sysUsers.getUserId());
+
+        return JsonResult.success(selectPoJos);
     }
 }

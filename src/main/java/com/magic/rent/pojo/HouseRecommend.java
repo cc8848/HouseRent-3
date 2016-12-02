@@ -29,7 +29,7 @@ public class HouseRecommend implements Serializable {
     }
 
     public void setDate(Date date) {
-        this.date = DateUtil.FormatToYMD(date);
+        this.date = DateUtil.formatToYMD(date);
     }
 
     public List<House> getHouseList() {

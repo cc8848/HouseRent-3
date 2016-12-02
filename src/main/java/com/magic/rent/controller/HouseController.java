@@ -42,7 +42,7 @@ public class HouseController extends BaseController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/issue", method = {RequestMethod.POST})
+    @RequestMapping(value = "/issue", method = RequestMethod.POST)
     public JsonResult issueHouse(HttpServletRequest request) throws Exception {
 
         SysUsers sysUsers = HttpUtil.getSessionUser(request);
@@ -61,7 +61,7 @@ public class HouseController extends BaseController {
         int province = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("province"), "省份不能为空！"));
         int city = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("city"), "城市不能为空！"));
         int area = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("area"), "地区不能为空！"));
-        int status = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("status"), "房屋状态不能为空！"));
+        int houseStatus = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("houseStatus"), "房屋状态不能为空！"));
         int communityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("communityID"), "项目编号不能为空！"));
 
         //封装对象
@@ -79,7 +79,7 @@ public class HouseController extends BaseController {
         house.setProvinceId(province);
         house.setCityId(city);
         house.setAreaId(area);
-        house.setHouseStatusId(status);
+        house.setHouseStatus(houseStatus);
         house.setCommunityId(communityID);
         house.setEnabled(false);//待后台审核后可修改为可用
 

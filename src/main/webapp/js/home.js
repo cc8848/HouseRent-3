@@ -5,29 +5,39 @@
  * 更新记录：
  */
 $(document).ready(function () {
+    var homeTemplate = new HomeTemplate();
+
     $('.select2').select2();
-    $("[href='#issue-house']").on('click', new HomeTemplate().init('issue-house-template'));
-    $("[href='#create-project']").on('click', new HomeTemplate().init('create-project-template'));
+    $("[href='#issue-house']").on('click', homeTemplate.issueHouseInit);
+    $("[href='#create-project']").on('click', homeTemplate.createProjectInit);
+    $("[href='#project-manage']").on('click', homeTemplate.projectManageInit);
 });
 
 var modal = new Modal();
 
 function HomeTemplate() {
-    this.init = function (templateID) {
-        switch (templateID) {
-            case 'issue-house-template':
-                $('#issue-house').html(template(templateID));
-                new IssueMenu().menuInit();
-                break;
-            case 'create-project-template':
-                $('#create-project').html(template(templateID));
-                new ProjectMenu().menuInit();
-                break;
-        }
+
+    this.issueHouseInit = function () {
+        $('#issue-house').html(template('issue-house-template'));
+        new IssueHouse().menuInit();
+    };
+
+    this.createProjectInit = function () {
+        $('#create-project').html(template('create-project-template'));
+        new ProjectCreate().menuInit();
+    };
+
+    this.projectManageInit = function () {
+        $.getJSON('/community/myClassify', function (data) {
+            $('#PM-table').html(template('project-manage-template', data));
+            $('#PM-pageNum').html(data.data.pageNum);
+            $('#PM-totalPage').html(data.data.pages);
+            new ProjectManage().menuInit();
+        });
     }
 }
 
-function IssueMenu() {
+function IssueHouse() {
 
     var _this = this;
 
@@ -38,10 +48,11 @@ function IssueMenu() {
     this.menuInit = function () {
         location.locationInit();
         var selectUtil = new SelectUtil();
-        selectUtil.selectInit(form.find("[name='face']"), "/json/house_face.json");
-        selectUtil.selectInit(form.find("[name='decoration']"), "/json/house_decoration.json");
-        selectUtil.selectInit(form.find("[name='layout']"), "/json/house_layout.json");
-        selectUtil.selectInit(form.find("[name='status_sell']"), "/json/status_sell.json");
+        selectUtil.selectInitForJson(form.find("[name='face']"), "/json/house_face.json");
+        selectUtil.selectInitForJson(form.find("[name='decoration']"), "/json/house_decoration.json");
+        selectUtil.selectInitForJson(form.find("[name='layout']"), "/json/house_layout.json");
+        selectUtil.selectInitForJson(form.find("[name='status_sell']"), "/json/status_sell.json");
+        selectUtil.selectInitAjax(form.find("[name='community']"), "/community/select");
         form.find("[name='issueSubmit']").on('click', _this.issueSubmit);
     };
 
@@ -61,14 +72,15 @@ function IssueMenu() {
             province: location.getProvinceVal(),
             city: location.getCityVal(),
             area: location.getAreaVal(),
-            status: form.find("[name='status']").val()
+            houseStatus: form.find("[name='houseStatus']").val()
         }, function (backData) {
             modal.infoModal(backData.message);
+            $('#infoModal').on('hidden.bs.modal', refresh);
         });
     }
 }
 
-function ProjectMenu() {
+function ProjectCreate() {
 
     var _this = this;
 
@@ -194,4 +206,63 @@ function ProjectMenu() {
             $.scojs_message(str, $.scojs_message.TYPE_ERROR);
         }
     }
+}
+
+function ProjectManage() {
+
+    var _this = this;
+
+    var pageNum = $('#PM-pageNum');
+
+    var totalPage = $('#PM-totalPage');
+
+    this.menuInit = function () {
+        $('#PM-next').on('click', _this.nextPage);
+        $('#PM-pre').on('click', _this.prePage);
+        $("[name='PM-cancel']").each(function () {
+            $(this).click(function () {
+                var id = $(this).attr('id');
+                var array = id.split('-');
+                var httpUtil = new HttpUtil();
+                httpUtil.postCRF('/community/cancel', {
+                    communityID: array[1]
+                }, function (data) {
+                    if (data.status) {
+                        modal.infoModal(data.message);
+                        $('#infoModal').on('hidden.bs.modal', refresh);
+                    } else {
+                        modal.infoModal(data.message);
+                    }
+                });
+            });
+        });
+    };
+
+    this.nextPage = function () {
+        if (pageNum.text() >= totalPage.text()) {
+            $.scojs_message('已经是最后一页了！', $.scojs_message.TYPE_ERROR)
+        } else {
+            $.getJSON('/community/myClassify', {
+                pageNum: pageNum.text() + 1
+            }, function (data) {
+                $('#PM-table').html(template('project-manage-template', data));
+                $('#PM-pageNum').html(data.data.pageNum);
+                $('#PM-totalPage').html(data.data.pages);
+            })
+        }
+    };
+
+    this.prePage = function () {
+        if (pageNum.text() <= 1) {
+            $.scojs_message('已经是第一页了！', $.scojs_message.TYPE_ERROR)
+        } else {
+            $.getJSON('/community/myClassify', {
+                pageNum: pageNum.text() - 1
+            }, function (data) {
+                $('#PM-table').html(template('project-manage-template', data));
+                $('#PM-pageNum').html(data.data.pageNum);
+                $('#PM-totalPage').html(data.data.pages);
+            })
+        }
+    };
 }

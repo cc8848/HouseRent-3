@@ -29,6 +29,7 @@ public class House implements Serializable {
     private Boolean vrMode;
 
     private Integer communityId;
+    private Community community;
 
     private Integer floor;
 
@@ -312,6 +313,15 @@ public class House implements Serializable {
 
     public void setSysStatusName(String sysStatusName) {
         this.sysStatusName = sysStatusName;
+    }
+
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
     }
 
     @Override

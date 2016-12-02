@@ -63,6 +63,39 @@
 
                             </div>
                         </c:when>
+                        <c:when test="${sysMenu.href=='project-manage'}">
+                            <div id="${sysMenu.href}" class="tab-pane">
+                                <div class="panel panel-primary">
+                                    <div class="panel-heading">
+                                        <h3 class="panel-title">项目管理</h3>
+                                    </div>
+                                    <div class="panel-body">
+                                        <p>
+                                            ...
+                                        </p>
+                                    </div>
+                                    <div class="table-responsive">
+                                        <table id="PM-table" class="table table-striped">
+
+                                        </table>
+                                    </div>
+                                    <div class="panel-footer">
+                                        <div class="btn-group-xs" style="margin-top: -2px">
+                                            <button type="button" class="btn btn-default" id="PM-pre">
+                                                <span class="glyphicon glyphicon-chevron-left"></span>
+                                            </button>
+                                            <label class="btn btn-default">
+                                                <span id="PM-pageNum"></span>/
+                                                <span id="PM-totalPage"></span>
+                                            </label>
+                                            <button type="button" class="btn btn-default" id="PM-next">
+                                                <span class="glyphicon glyphicon-chevron-right"></span>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:when>
                     </c:choose>
                 </c:forEach>
             </div>
@@ -272,24 +305,29 @@
                     <div class="col-lg-3">
                         <label class="control-label">期房/现房</label>
                         <select class="select2 form-control" style="width: 100%"
-                                name="status_sell"></select>
+                                name="houseStatus"></select>
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <label class="control-label">省份</label>
                         <select class="select2 form-control" style="width: 100%"
                                 name="province"></select>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <label class="control-label">城市</label>
                         <select class="select2 form-control" style="width: 100%"
                                 name="city"></select>
                     </div>
-                    <div class="col-lg-4">
+                    <div class="col-lg-3">
                         <label class="control-label">区域</label>
                         <select class="select2 form-control" style="width: 100%"
                                 name="area"></select>
+                    </div>
+                    <div class="col-lg-3">
+                        <label class="control-label">项目</label>
+                        <select class="select2 form-control" style="width: 100%"
+                                name="community"></select>
                     </div>
 
                 </div>
@@ -312,6 +350,43 @@
             </form>
         </div>
     </div>
+</script>
+<script id="project-manage-template" type="text/html">
+    <thead>
+    <tr>
+        <th></th>
+        <th>#</th>
+        <th>项目名称</th>
+        <th>申请日期</th>
+        <th>申请状态</th>
+        <th>物业公司</th>
+        <th>地图位置</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{each data.list as community index}}
+    <tr>
+        <td></td>
+        <td>{{community.id}}</td>
+        <td>{{community.name}}</td>
+        <td>{{community.auditingTimeString}}</td>
+        <td>{{community.statusName}}</td>
+        <td>{{community.estateManageCompany}}</td>
+        <td>[{{community.lng,community.lat}}]</td>
+        <td>
+            <div class="btn-group-xs">
+                {{if community.status==2}}
+                <a href="#" class="btn btn-primary">预览</a>
+                {{/if}}
+                {{if community.status==1}}
+                <button id="PM-{{community.id}}" class="btn btn-danger" type="button" name="PM-cancel">取消</button>
+                {{/if}}
+            </div>
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
 </script>
 </body>
 </html>

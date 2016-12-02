@@ -3,6 +3,7 @@ package com.magic.rent.service;
 import com.github.pagehelper.PageInfo;
 import com.magic.rent.pojo.Community;
 import com.magic.rent.pojo.Company;
+import com.magic.rent.pojo.SelectPoJo;
 
 import java.util.List;
 
@@ -25,6 +26,8 @@ public interface ICommunityService {
     PageInfo<Community> getClassifyCommunities(Integer status, Integer userID, int pageNum, int pageSize) throws Exception;
 
     List<Community> getSuccessCommunities(int userID) throws Exception;
+
+    List<SelectPoJo> getSuccessCommunitiesForSelect(int userID) throws Exception;
 
     int countClassifyCommunity(int status, int userID) throws Exception;
 }

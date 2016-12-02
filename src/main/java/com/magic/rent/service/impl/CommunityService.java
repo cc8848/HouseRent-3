@@ -5,6 +5,7 @@ import com.github.pagehelper.PageInfo;
 import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.mapper.CommunityMapper;
 import com.magic.rent.mapper.CompanyMapper;
+import com.magic.rent.pojo.SelectPoJo;
 import com.magic.rent.pojo.SysStatus;
 import com.magic.rent.pojo.Community;
 import com.magic.rent.pojo.Company;
@@ -181,7 +182,7 @@ public class CommunityService implements ICommunityService {
      * @throws Exception
      */
     public List<Community> getSuccessCommunities(int userID) throws Exception {
-        return communityMapper.selectEnableByUserID(userID);
+        return communityMapper.selectEnableByUserIDForTable(userID);
     }
 
     /**
@@ -203,5 +204,29 @@ public class CommunityService implements ICommunityService {
         community.setStatus(status);
         community.setCompanyId(company.getId());
         return communityMapper.countByStatusForUser(community);
+    }
+
+    /**
+     * 主要用于设置社区的Select下拉选项
+     *
+     * @param userID
+     * @return
+     * @throws Exception
+     */
+    public List<SelectPoJo> getSuccessCommunitiesForSelect(int userID) throws Exception {
+        //查询用户所在公司信息
+        Company queryCompany = new Company();
+        queryCompany.setDeveloperId(userID);
+        List<Company> companyList = companyMapper.selectBySelective(queryCompany);
+        //校验公司信息是否存在
+        if (null == companyList || companyList.size() == 0) {
+            throw new BusinessException("用户尚未开通企业服务！");
+        }
+        List<SelectPoJo> selectPoJoList = communityMapper.selectEnableByUserIDForSelect(companyList.get(0).getId());
+        if (null == selectPoJoList || selectPoJoList.size() == 0) {
+            throw new BusinessException("当前还没有审核通过的项目！");
+        } else {
+            return selectPoJoList;
+        }
     }
 }
