@@ -218,6 +218,7 @@
 </div>
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script src="${pageContext.request.contextPath}/js/login.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         var loginErrorMessage = $("#login-errorMessage");
@@ -228,7 +229,6 @@
         }
     });
 </script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script type="text/javascript">
     function getCaptcha() {
         $('#captcha-img').hide().attr(
@@ -237,5 +237,13 @@
                         .floor(Math.random() * 100)).fadeIn();
     }
 </script>
+<script src="${pageContext.request.contextPath}/js/soc/sco.message.js"></script>
+<script src="${pageContext.request.contextPath}/js/select2.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="${pageContext.request.contextPath}/js/template.js"></script>
+<script src="${pageContext.request.contextPath}/js/common.js"></script>
+<script src="http://webapi.amap.com/maps?v=1.3&key=002273d8cd1c3363f0d26dae6629472b"></script>
+<script src="${pageContext.request.contextPath}/js/map.js"></script>
 </body>
 </html>

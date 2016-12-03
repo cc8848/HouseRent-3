@@ -282,6 +282,6 @@
           COMMUNITY.ID id,
           COMMUNITY.NAME text
         FROM COMMUNITY
-        WHERE COMMUNITY.COMPANY_ID=#{#{companyId,jdbcType=INTEGER}} AND COMMUNITY.STATUS=2
+        WHERE COMMUNITY.COMPANY_ID=#{companyId,jdbcType=INTEGER} AND COMMUNITY.STATUS=2
     </select>
 </mapper>

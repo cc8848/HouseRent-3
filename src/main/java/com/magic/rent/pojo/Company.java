@@ -1,5 +1,7 @@
 package com.magic.rent.pojo;
 
+import com.magic.rent.util.DateUtil;
+
 import java.io.Serializable;
 import java.util.Date;
 
@@ -21,6 +23,8 @@ public class Company implements Serializable {
     private Date auditingTime;
 
     private Date operateTime;
+
+    private String operateTimeString;
 
     private String statusName;
 
@@ -87,6 +91,7 @@ public class Company implements Serializable {
 
     public void setOperateTime(Date operateTime) {
         this.operateTime = operateTime;
+        this.setOperateTimeString(DateUtil.formatToYMD(this.operateTime));
     }
 
     public void setStatusName(String statusName) {
@@ -96,6 +101,14 @@ public class Company implements Serializable {
     public String getStatusName() {
         this.setStatusName(SysStatus.idToName(this.status));
         return statusName;
+    }
+
+    public String getOperateTimeString() {
+        return operateTimeString;
+    }
+
+    public void setOperateTimeString(String operateTimeString) {
+        this.operateTimeString = operateTimeString;
     }
 
     @Override

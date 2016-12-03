@@ -2,12 +2,8 @@ package com.magic.rent.controller;
 
 import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.exception.custom.LoginTimeOutException;
-import com.magic.rent.pojo.SysMenu;
-import com.magic.rent.pojo.SysUsers;
-import com.magic.rent.pojo.UserSeller;
-import com.magic.rent.service.ISysMenuService;
-import com.magic.rent.service.IUserSellerService;
-import com.magic.rent.service.IUserService;
+import com.magic.rent.pojo.*;
+import com.magic.rent.service.*;
 import com.magic.rent.util.LogUtil;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -37,6 +33,9 @@ public class HomeController extends BaseController {
     @Autowired
     private ISysMenuService iSysMenuService;
 
+    @Autowired
+    private ICompanyService iCompanyService;
+
     private static Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping("/home")
@@ -47,16 +46,23 @@ public class HomeController extends BaseController {
         if (null == sessionUsers || null == sessionUsers.getUserId()) {
             throw new LoginTimeOutException(messageSourceAccessor.getMessage("LoginService.LoginTimeOut", "用户尚未登录或登录失效，请重新登录！"));
         }
-
+        Map<String, Object> model = new HashMap<String, Object>();
         UserSeller userSeller = iUserSellerService.selectSellerInfoByUserID(sessionUsers.getUserId());
+        model.put("seller", userSeller);
         LogUtil.LogPOJO(logger, userSeller);
 
         List<SysMenu> sysMenuList = iSysMenuService.selectSysMenusByUserID(sessionUsers.getUserId());
-        LogUtil.LogPOJO(logger,sysMenuList);
-
-        Map<String, Object> model = new HashMap<String, Object>();
-        model.put("seller", userSeller);
         model.put("sysMenuList", sysMenuList);
+        LogUtil.LogPOJO(logger, sysMenuList);
+
+        Company company = iCompanyService.getCurrentCompanyInfo(sessionUsers.getUserId());
+        if (null != company) {
+            model.put("haveCompany", true);
+            model.put("company", company);
+        } else {
+            model.put("haveCompany", false);
+        }
+
         return new ModelAndView("home", model);
     }
 }

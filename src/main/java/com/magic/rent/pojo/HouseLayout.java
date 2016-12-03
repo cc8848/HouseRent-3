@@ -26,6 +26,8 @@ public class HouseLayout implements Serializable {
         this.name = name == null ? null : name.trim();
     }
 
+
+
     @Override
     public String toString() {
         return "HouseLayout{" +

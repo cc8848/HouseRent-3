@@ -30,4 +30,6 @@ public interface ICommunityService {
     List<SelectPoJo> getSuccessCommunitiesForSelect(int userID) throws Exception;
 
     int countClassifyCommunity(int status, int userID) throws Exception;
+
+    Community getDetail(int communityID) throws Exception;
 }

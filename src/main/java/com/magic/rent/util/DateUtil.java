@@ -18,4 +18,9 @@ public class DateUtil {
         return simpleDateFormat.format(date);
     }
 
+    public static String formatToYMDHm(Date date) {
+        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        return simpleDateFormat.format(date);
+    }
+
 }

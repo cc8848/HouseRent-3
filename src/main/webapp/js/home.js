@@ -11,6 +11,8 @@ $(document).ready(function () {
     $("[href='#issue-house']").on('click', homeTemplate.issueHouseInit);
     $("[href='#create-project']").on('click', homeTemplate.createProjectInit);
     $("[href='#project-manage']").on('click', homeTemplate.projectManageInit);
+    $("[href='#house-manage']").on('click', homeTemplate.houseManageInit);
+
 });
 
 var modal = new Modal();
@@ -34,6 +36,12 @@ function HomeTemplate() {
             $('#PM-totalPage').html(data.data.pages);
             new ProjectManage().menuInit();
         });
+    };
+
+    this.houseManageInit = function () {
+        var selectUtil = new SelectUtil();
+        selectUtil.selectInitAjax($("[name='HM-project']"), "/community/select", {companyID: $('#HM-companyID').text()});
+        new HouseManage().menuInit();
     }
 }
 
@@ -51,14 +59,15 @@ function IssueHouse() {
         selectUtil.selectInitForJson(form.find("[name='face']"), "/json/house_face.json");
         selectUtil.selectInitForJson(form.find("[name='decoration']"), "/json/house_decoration.json");
         selectUtil.selectInitForJson(form.find("[name='layout']"), "/json/house_layout.json");
-        selectUtil.selectInitForJson(form.find("[name='status_sell']"), "/json/status_sell.json");
+        selectUtil.selectInitForJson(form.find("[name='houseStatus']"), "/json/status_sell.json");
         selectUtil.selectInitAjax(form.find("[name='community']"), "/community/select");
-        form.find("[name='issueSubmit']").on('click', _this.issueSubmit);
+        selectUtil.selectInitForJson(form.find("[name='elevatorType']"), "/json/house_elevator.json");
+        form.find("[name='issueSubmit']").on('click', _this.submit);
     };
 
-    this.issueSubmit = function () {
+    this.submit = function () {
         var httpUtil = new HttpUtil();
-        httpUtil.postCRF('/house/issue', {
+        httpUtil.postCRF('/house/create', {
             tittle: form.find("[name='tittle']").val(),
             desc: form.find("[name='desc']").val(),
             faceID: form.find("[name='face']").val(),
@@ -69,10 +78,14 @@ function IssueHouse() {
             floor: form.find("[name='floor']").val(),
             layout: form.find("[name='layout']").val(),
             decorationType: form.find("[name='decoration']").val(),
+            communityID: form.find("[name='community']").val(),
+            houseStatus: form.find("[name='houseStatus']").val(),
+            brokerage: form.find("[name='brokerage']").val(),
+            age: form.find("[name='age']").val(),
+            elevatorType: form.find("[name='elevatorType']").val(),
             province: location.getProvinceVal(),
             city: location.getCityVal(),
-            area: location.getAreaVal(),
-            houseStatus: form.find("[name='houseStatus']").val()
+            area: location.getAreaVal()
         }, function (backData) {
             modal.infoModal(backData.message);
             $('#infoModal').on('hidden.bs.modal', refresh);
@@ -80,6 +93,10 @@ function IssueHouse() {
     }
 }
 
+/**
+ * 创建项目
+ * @constructor
+ */
 function ProjectCreate() {
 
     var _this = this;
@@ -207,18 +224,23 @@ function ProjectCreate() {
         }
     }
 }
-
+/**
+ * 项目管理
+ * @constructor
+ */
 function ProjectManage() {
-
-    var _this = this;
 
     var pageNum = $('#PM-pageNum');
 
     var totalPage = $('#PM-totalPage');
 
+    var table = $('#PM-table');
+
+    var pageUtil = new PageUtil(pageNum, totalPage, '/community/myClassify', 'project-manage-template', table);
+
     this.menuInit = function () {
-        $('#PM-next').on('click', _this.nextPage);
-        $('#PM-pre').on('click', _this.prePage);
+        $('#PM-next').on('click', pageUtil.nextPage);
+        $('#PM-pre').on('click', pageUtil.prePage);
         $("[name='PM-cancel']").each(function () {
             $(this).click(function () {
                 var id = $(this).attr('id');
@@ -237,32 +259,46 @@ function ProjectManage() {
             });
         });
     };
-
-    this.nextPage = function () {
-        if (pageNum.text() >= totalPage.text()) {
-            $.scojs_message('已经是最后一页了！', $.scojs_message.TYPE_ERROR)
-        } else {
-            $.getJSON('/community/myClassify', {
-                pageNum: pageNum.text() + 1
-            }, function (data) {
-                $('#PM-table').html(template('project-manage-template', data));
-                $('#PM-pageNum').html(data.data.pageNum);
-                $('#PM-totalPage').html(data.data.pages);
-            })
-        }
-    };
-
-    this.prePage = function () {
-        if (pageNum.text() <= 1) {
-            $.scojs_message('已经是第一页了！', $.scojs_message.TYPE_ERROR)
-        } else {
-            $.getJSON('/community/myClassify', {
-                pageNum: pageNum.text() - 1
-            }, function (data) {
-                $('#PM-table').html(template('project-manage-template', data));
-                $('#PM-pageNum').html(data.data.pageNum);
-                $('#PM-totalPage').html(data.data.pages);
-            })
-        }
-    };
 }
+/**
+ * 房源管理
+ * @constructor
+ */
+function HouseManage() {
+
+    var pageNum = $('#HM-pageNum');
+
+    var totalPage = $('#HM-totalPage');
+
+    var table = $('#HM-table');
+
+    var data = {companyID: $('#HM-companyID').text()};
+
+    var pageUtil = new PageUtil(pageNum, totalPage, '/community/myClassify', 'house-manage-template', table, data);
+
+    this.menuInit = function () {
+        $('#HM-next').on('click', pageUtil.nextPage);
+        $('#HM-pre').on('click', pageUtil.prePage);
+        this.getAllHouse();
+        $("[name='HM-project']").on('select2:select', this.getCommunityHouse);
+    };
+
+    this.getAllHouse = function () {
+        $.getJSON('/house/myHouse', data, function (data) {
+            table.html(template('house-manage-template', data));
+            pageNum.html(data.data.pageNum);
+            totalPage.html(data.data.pages);
+        })
+    };
+
+
+    this.getCommunityHouse = function () {
+        data.communityID = $("[name='HM-project']").val();
+        $.getJSON('/house/myHouse', data, function (data) {
+            table.html(template('house-manage-template', data));
+            pageNum.html(data.data.pageNum);
+            totalPage.html(data.data.pages);
+        })
+    }
+}
+

@@ -41,8 +41,8 @@ public class HouseMapperTest {
 
     @Test
     public void selectByPrimaryKey() throws Exception {
-        House house = houseMapper.selectHouseDetails(1);
-        System.out.print(house);
+//        House house = houseMapper.selectHouseDetails(1);
+//        System.out.print(house);
     }
 
     @Test
@@ -63,7 +63,7 @@ public class HouseMapperTest {
         house.setCityId(350200);
         house.setAreaId(350205);
         house.setHouseStatus(1);
-        house.setEnabled(false);//待后台审核后可修改为可用
+//        house.setEnabled(false);//待后台审核后可修改为可用
         houseMapper.insertSelective(house);
         System.out.print(house.getId());
     }

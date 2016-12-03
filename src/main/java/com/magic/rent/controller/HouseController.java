@@ -1,12 +1,16 @@
 package com.magic.rent.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.pojo.*;
+import com.magic.rent.service.ICommunityService;
+import com.magic.rent.service.ICompanyService;
 import com.magic.rent.service.IHouseRecommendService;
 import com.magic.rent.service.IHouseService;
 import com.magic.rent.util.HttpUtil;
 import com.magic.rent.util.JsonResult;
 import com.magic.rent.util.MyStringUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,6 +36,12 @@ public class HouseController extends BaseController {
     @Autowired
     private IHouseRecommendService iHouseRecommendService;
 
+    @Autowired
+    private ICommunityService iCommunityService;
+
+    @Autowired
+    private ICompanyService iCompanyService;
+
     @ResponseBody
     @RequestMapping("/selectRecommend")//获取推荐楼房信息
     public JsonResult selectRecommend() throws Exception {
@@ -42,7 +52,7 @@ public class HouseController extends BaseController {
     }
 
     @ResponseBody
-    @RequestMapping(value = "/issue", method = RequestMethod.POST)
+    @RequestMapping(value = "/create", method = RequestMethod.POST)
     public JsonResult issueHouse(HttpServletRequest request) throws Exception {
 
         SysUsers sysUsers = HttpUtil.getSessionUser(request);
@@ -63,6 +73,9 @@ public class HouseController extends BaseController {
         int area = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("area"), "地区不能为空！"));
         int houseStatus = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("houseStatus"), "房屋状态不能为空！"));
         int communityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("communityID"), "项目编号不能为空！"));
+        int age = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("age"), "产权年限不能为空！"));
+        Double brokerage = Double.parseDouble(MyStringUtil.checkParameter(request.getParameter("brokerage"), "佣金不能为空！"));
+        int elevatorTypeID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("elevatorType"), "梯户类型不能为空！"));
 
         //封装对象
         House house = new House();
@@ -81,24 +94,60 @@ public class HouseController extends BaseController {
         house.setAreaId(area);
         house.setHouseStatus(houseStatus);
         house.setCommunityId(communityID);
-        house.setEnabled(false);//待后台审核后可修改为可用
+        house.setAge(age);
+        house.setBrokerage(brokerage);
+        house.setElevatorTypeId(elevatorTypeID);
 
-        //写入房屋数据
-        boolean issueHouse = iHouseService.issueHouse(house, sysUsers.getUserId());
-
-        if (issueHouse) {
-            return JsonResult.success("添加成功，请等待审核，审核成功后本公司将进行实地取景！");
+        if (iHouseService.create(house, sysUsers.getUserId())) {
+            return JsonResult.success().setMessage("发布成功，请等待审核！");
         } else {
             return JsonResult.error("添加失败，请联系管理员！");
         }
     }
 
-    @RequestMapping("/sell")
-    public ModelAndView getSellHouseDetails(HttpServletRequest request) throws Exception {
-        int houseID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("houseID"), "房屋编号不能为空！"));
-        Map<String, Object> dataMap = iHouseService.showHouseDetails(houseID);
-        House house = (House) dataMap.get("house");
-        Company company = (Company) dataMap.get("company");
-        return new ModelAndView("house_sell").addObject("house", house).addObject("company", company);
+    @ResponseBody
+    @RequestMapping("/myHouse")
+    public JsonResult getMyHouse(HttpServletRequest request) throws Exception {
+        Integer status = null;
+        Integer pageNum = 0;
+        Integer pageSize = 10;
+
+        if (StringUtils.isNotEmpty(request.getParameter("status"))) {
+            status = Integer.parseInt(request.getParameter("status"));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("pageNum"))) {
+            pageNum = Integer.parseInt(request.getParameter("pageNum"));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("pageSize"))) {
+            pageSize = Integer.parseInt(request.getParameter("pageSize"));
+        }
+
+        Integer companyID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("companyID"), "公司编号不能为空！"));
+
+        if (null == request.getParameter("communityID")) {
+            PageInfo<House> housePageInfo = iHouseService.getAllHouses(companyID, pageSize, pageNum);
+            return JsonResult.success(housePageInfo);
+        } else {
+            Integer communityID = Integer.parseInt(request.getParameter("communityID"));
+            PageInfo<House> housePageInfo = iHouseService.getCommunityHouses(communityID, pageSize, pageNum);
+            return JsonResult.success(housePageInfo);
+        }
+    }
+
+    @RequestMapping("/detail")
+    public ModelAndView detail(HttpServletRequest request) throws Exception {
+
+        ModelAndView modelAndView = new ModelAndView("house_sell");
+        Integer houseID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("houseID"), "房屋编号不能为空！"));
+        House house = iHouseService.getDetail(houseID);
+        modelAndView.addObject("house", house);
+        if (null != house) {
+            int communityID = house.getCommunity().getId();
+            Community community = iCommunityService.getDetail(communityID);
+            modelAndView.addObject("community", community);
+            Company company = iCompanyService.getDetail(community.getCompanyId());
+            modelAndView.addObject("company", company);
+        }
+        return modelAndView;
     }
 }

@@ -9,9 +9,7 @@
         <result column="FLOOR_AREA" property="floorArea" jdbcType="DOUBLE"/>
         <result column="POOL_AREA" property="poolArea" jdbcType="DOUBLE"/>
         <result column="EXPECT_PRICE" property="expectPrice" jdbcType="DOUBLE"/>
-        <result column="PROPERTY_FEE" property="propertyFee" jdbcType="DOUBLE"/>
-        <result column="THUMBNAIL_MODE" property="thumbnailMode" jdbcType="BIT"/>
-        <result column="VR_MODE" property="vrMode" jdbcType="BIT"/>
+        <result column="BROKERAGE" property="brokerage" jdbcType="DOUBLE"/>
         <result column="COMMUNITY_ID" property="communityId" jdbcType="INTEGER"/>
         <result column="FLOOR" property="floor" jdbcType="INTEGER"/>
         <result column="LAYOUT_ID" property="layoutId" jdbcType="INTEGER"/>
@@ -23,13 +21,14 @@
         <result column="ELEVATOR_TYPE_ID" property="elevatorTypeId" jdbcType="INTEGER"/>
         <result column="AGE" property="age" jdbcType="INTEGER"/>
         <result column="HOUSE_STATUS" property="houseStatus" jdbcType="INTEGER"/>
-        <result column="ENABLED" property="enabled" jdbcType="BIT"/>
         <result column="SYS_STATUS" property="sysStatus" jdbcType="INTEGER"/>
+        <result column="AUDITING_TIME" property="auditingTime" jdbcType="TIMESTAMP"/>
+        <result column="OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP"/>
     </resultMap>
     <sql id="Base_Column_List">
-    ID, TITTLE, DESCRIPTION, FACE_ID, FLOOR_AREA, POOL_AREA, EXPECT_PRICE, PROPERTY_FEE, 
-    THUMBNAIL_MODE, VR_MODE, COMMUNITY_ID, FLOOR, LAYOUT_ID, HOUSE_DECORATION_ID, PROVINCE_ID, 
-    CITY_ID, AREA_ID, ADDRESS, ELEVATOR_TYPE_ID, AGE, HOUSE_STATUS, ENABLED, SYS_STATUS
+    HOUSE.ID, HOUSE.TITTLE, HOUSE.DESCRIPTION, HOUSE.FACE_ID, HOUSE.FLOOR_AREA, HOUSE.POOL_AREA, HOUSE.EXPECT_PRICE, HOUSE.BROKERAGE,
+    HOUSE.COMMUNITY_ID, HOUSE.FLOOR, HOUSE.LAYOUT_ID, HOUSE.HOUSE_DECORATION_ID, HOUSE.PROVINCE_ID, HOUSE.CITY_ID, HOUSE.AREA_ID,
+    HOUSE.ADDRESS, HOUSE.ELEVATOR_TYPE_ID, HOUSE.AGE, HOUSE.HOUSE_STATUS, HOUSE.SYS_STATUS, HOUSE.AUDITING_TIME, HOUSE.OPERATE_TIME
   </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
         select
@@ -44,20 +43,20 @@
     <insert id="insert" parameterType="com.magic.rent.pojo.House">
     insert into HOUSE (ID, TITTLE, DESCRIPTION, 
       FACE_ID, FLOOR_AREA, POOL_AREA, 
-      EXPECT_PRICE, PROPERTY_FEE, THUMBNAIL_MODE, 
-      VR_MODE, COMMUNITY_ID, FLOOR, 
-      LAYOUT_ID, HOUSE_DECORATION_ID, PROVINCE_ID, 
-      CITY_ID, AREA_ID, ADDRESS, 
-      ELEVATOR_TYPE_ID, AGE, HOUSE_STATUS, 
-      ENABLED, SYS_STATUS)
+      EXPECT_PRICE, BROKERAGE, COMMUNITY_ID, 
+      FLOOR, LAYOUT_ID, HOUSE_DECORATION_ID, 
+      PROVINCE_ID, CITY_ID, AREA_ID, 
+      ADDRESS, ELEVATOR_TYPE_ID, AGE, 
+      HOUSE_STATUS, SYS_STATUS, AUDITING_TIME, 
+      OPERATE_TIME)
     values (#{id,jdbcType=INTEGER}, #{tittle,jdbcType=VARCHAR}, #{description,jdbcType=VARCHAR}, 
       #{faceId,jdbcType=INTEGER}, #{floorArea,jdbcType=DOUBLE}, #{poolArea,jdbcType=DOUBLE}, 
-      #{expectPrice,jdbcType=DOUBLE}, #{propertyFee,jdbcType=DOUBLE}, #{thumbnailMode,jdbcType=BIT}, 
-      #{vrMode,jdbcType=BIT}, #{communityId,jdbcType=INTEGER}, #{floor,jdbcType=INTEGER}, 
-      #{layoutId,jdbcType=INTEGER}, #{houseDecorationId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, 
-      #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, 
-      #{elevatorTypeId,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, #{houseStatus,jdbcType=INTEGER}, 
-      #{enabled,jdbcType=BIT}, #{sysStatus,jdbcType=INTEGER})
+      #{expectPrice,jdbcType=DOUBLE}, #{brokerage,jdbcType=DOUBLE}, #{communityId,jdbcType=INTEGER}, 
+      #{floor,jdbcType=INTEGER}, #{layoutId,jdbcType=INTEGER}, #{houseDecorationId,jdbcType=INTEGER}, 
+      #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, 
+      #{address,jdbcType=VARCHAR}, #{elevatorTypeId,jdbcType=INTEGER}, #{age,jdbcType=INTEGER}, 
+      #{houseStatus,jdbcType=INTEGER}, #{sysStatus,jdbcType=INTEGER}, #{auditingTime,jdbcType=TIMESTAMP}, 
+      #{operateTime,jdbcType=TIMESTAMP})
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.House">
         insert into HOUSE
@@ -83,14 +82,8 @@
             <if test="expectPrice != null">
                 EXPECT_PRICE,
             </if>
-            <if test="propertyFee != null">
-                PROPERTY_FEE,
-            </if>
-            <if test="thumbnailMode != null">
-                THUMBNAIL_MODE,
-            </if>
-            <if test="vrMode != null">
-                VR_MODE,
+            <if test="brokerage != null">
+                BROKERAGE,
             </if>
             <if test="communityId != null">
                 COMMUNITY_ID,
@@ -125,11 +118,14 @@
             <if test="houseStatus != null">
                 HOUSE_STATUS,
             </if>
-            <if test="enabled != null">
-                ENABLED,
-            </if>
             <if test="sysStatus != null">
                 SYS_STATUS,
+            </if>
+            <if test="auditingTime != null">
+                AUDITING_TIME,
+            </if>
+            <if test="operateTime != null">
+                OPERATE_TIME,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -154,14 +150,8 @@
             <if test="expectPrice != null">
                 #{expectPrice,jdbcType=DOUBLE},
             </if>
-            <if test="propertyFee != null">
-                #{propertyFee,jdbcType=DOUBLE},
-            </if>
-            <if test="thumbnailMode != null">
-                #{thumbnailMode,jdbcType=BIT},
-            </if>
-            <if test="vrMode != null">
-                #{vrMode,jdbcType=BIT},
+            <if test="brokerage != null">
+                #{brokerage,jdbcType=DOUBLE},
             </if>
             <if test="communityId != null">
                 #{communityId,jdbcType=INTEGER},
@@ -196,11 +186,14 @@
             <if test="houseStatus != null">
                 #{houseStatus,jdbcType=INTEGER},
             </if>
-            <if test="enabled != null">
-                #{enabled,jdbcType=BIT},
-            </if>
             <if test="sysStatus != null">
                 #{sysStatus,jdbcType=INTEGER},
+            </if>
+            <if test="auditingTime != null">
+                #{auditingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operateTime != null">
+                #{operateTime,jdbcType=TIMESTAMP},
             </if>
         </trim>
     </insert>
@@ -225,14 +218,8 @@
             <if test="expectPrice != null">
                 EXPECT_PRICE = #{expectPrice,jdbcType=DOUBLE},
             </if>
-            <if test="propertyFee != null">
-                PROPERTY_FEE = #{propertyFee,jdbcType=DOUBLE},
-            </if>
-            <if test="thumbnailMode != null">
-                THUMBNAIL_MODE = #{thumbnailMode,jdbcType=BIT},
-            </if>
-            <if test="vrMode != null">
-                VR_MODE = #{vrMode,jdbcType=BIT},
+            <if test="brokerage != null">
+                BROKERAGE = #{brokerage,jdbcType=DOUBLE},
             </if>
             <if test="communityId != null">
                 COMMUNITY_ID = #{communityId,jdbcType=INTEGER},
@@ -267,11 +254,14 @@
             <if test="houseStatus != null">
                 HOUSE_STATUS = #{houseStatus,jdbcType=INTEGER},
             </if>
-            <if test="enabled != null">
-                ENABLED = #{enabled,jdbcType=BIT},
-            </if>
             <if test="sysStatus != null">
                 SYS_STATUS = #{sysStatus,jdbcType=INTEGER},
+            </if>
+            <if test="auditingTime != null">
+                AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operateTime != null">
+                OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
             </if>
         </set>
         where ID = #{id,jdbcType=INTEGER}
@@ -284,9 +274,7 @@
       FLOOR_AREA = #{floorArea,jdbcType=DOUBLE},
       POOL_AREA = #{poolArea,jdbcType=DOUBLE},
       EXPECT_PRICE = #{expectPrice,jdbcType=DOUBLE},
-      PROPERTY_FEE = #{propertyFee,jdbcType=DOUBLE},
-      THUMBNAIL_MODE = #{thumbnailMode,jdbcType=BIT},
-      VR_MODE = #{vrMode,jdbcType=BIT},
+      BROKERAGE = #{brokerage,jdbcType=DOUBLE},
       COMMUNITY_ID = #{communityId,jdbcType=INTEGER},
       FLOOR = #{floor,jdbcType=INTEGER},
       LAYOUT_ID = #{layoutId,jdbcType=INTEGER},
@@ -298,106 +286,157 @@
       ELEVATOR_TYPE_ID = #{elevatorTypeId,jdbcType=INTEGER},
       AGE = #{age,jdbcType=INTEGER},
       HOUSE_STATUS = #{houseStatus,jdbcType=INTEGER},
-      ENABLED = #{enabled,jdbcType=BIT},
-      SYS_STATUS = #{sysStatus,jdbcType=INTEGER}
+      SYS_STATUS = #{sysStatus,jdbcType=INTEGER},
+      AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP},
+      OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=INTEGER}
   </update>
-    <resultMap id="HouseDetails" type="com.magic.rent.pojo.House">
-        <id column="ID" javaType="INTEGER" property="id"/>
-        <result column="ADDRESS" jdbcType="VARCHAR" property="address"/>
-        <result column="DESCRIPTION" jdbcType="VARCHAR" property="description"/>
-        <result column="FLOOR" jdbcType="INTEGER" property="floor"/>
-        <result column="EXPECT_PRICE" jdbcType="DOUBLE" property="expectPrice"/>
-        <result column="PROPERTY_FEE" jdbcType="DOUBLE" property="propertyFee"/>
-        <result column="TITTLE" jdbcType="VARCHAR" property="tittle"/>
-        <result column="POOL_AREA" jdbcType="VARCHAR" property="poolArea"/>
-        <result column="FLOOR_AREA" jdbcType="VARCHAR" property="floorArea"/>
-        <result column="AGE" jdbcType="INTEGER" property="age"/>
-        <association javaType="com.magic.rent.pojo.Province" property="province">
-            <id column="provinceID" jdbcType="INTEGER" property="id"/>
-            <result column="provinceName" jdbcType="VARCHAR" property="provinceName"/>
+    <select id="selectBySelective" parameterType="com.magic.rent.pojo.House" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        HOUSE
+        <where>
+            <if test="tittle != null">
+                AND TITTLE = #{tittle,jdbcType=VARCHAR}
+            </if>
+            <if test="description != null">
+                AND DESCRIPTION = #{description,jdbcType=VARCHAR}
+            </if>
+            <if test="faceId != null">
+                AND FACE_ID = #{faceId,jdbcType=INTEGER}
+            </if>
+            <if test="floorArea != null">
+                AND FLOOR_AREA = #{floorArea,jdbcType=DOUBLE}
+            </if>
+            <if test="poolArea != null">
+                AND POOL_AREA = #{poolArea,jdbcType=DOUBLE}
+            </if>
+            <if test="expectPrice != null">
+                AND EXPECT_PRICE = #{expectPrice,jdbcType=DOUBLE}
+            </if>
+            <if test="brokerage != null">
+                AND BROKERAGE = #{brokerage,jdbcType=DOUBLE}
+            </if>
+            <if test="communityId != null">
+                AND COMMUNITY_ID = #{communityId,jdbcType=INTEGER}
+            </if>
+            <if test="floor != null">
+                AND FLOOR = #{floor,jdbcType=INTEGER}
+            </if>
+            <if test="layoutId != null">
+                AND LAYOUT_ID = #{layoutId,jdbcType=INTEGER}
+            </if>
+            <if test="houseDecorationId != null">
+                AND HOUSE_DECORATION_ID = #{houseDecorationId,jdbcType=INTEGER}
+            </if>
+            <if test="provinceId != null">
+                AND PROVINCE_ID = #{provinceId,jdbcType=INTEGER}
+            </if>
+            <if test="cityId != null">
+                AND CITY_ID = #{cityId,jdbcType=INTEGER}
+            </if>
+            <if test="areaId != null">
+                AND AREA_ID = #{areaId,jdbcType=INTEGER}
+            </if>
+            <if test="address != null">
+                AND ADDRESS = #{address,jdbcType=VARCHAR}
+            </if>
+            <if test="elevatorTypeId != null">
+                AND ELEVATOR_TYPE_ID = #{elevatorTypeId,jdbcType=INTEGER}
+            </if>
+            <if test="age != null">
+                AND AGE = #{age,jdbcType=INTEGER}
+            </if>
+            <if test="houseStatus != null">
+                AND HOUSE_STATUS = #{houseStatus,jdbcType=INTEGER}
+            </if>
+            <if test="sysStatus != null">
+                AND SYS_STATUS = #{sysStatus,jdbcType=INTEGER}
+            </if>
+            <if test="auditingTime != null">
+                AND AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="operateTime != null">
+                AND OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </select>
+    <select id="selectByCompanyID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM
+        HOUSE
+        JOIN COMMUNITY ON HOUSE.COMMUNITY_ID = COMMUNITY.ID
+        JOIN COMPANY ON COMMUNITY.COMPANY_ID = COMPANY.ID
+        WHERE COMPANY.ID =#{id,jdbcType=INTEGER}
+    </select>
+    <resultMap id="detail" type="com.magic.rent.pojo.House">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="TITTLE" property="tittle" jdbcType="VARCHAR"/>
+        <result column="DESCRIPTION" property="description" jdbcType="VARCHAR"/>
+        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="AGE" property="age" jdbcType="INTEGER"/>
+        <result column="FACE_ID" property="faceId" jdbcType="INTEGER"/>
+        <result column="FLOOR_AREA" property="floorArea" jdbcType="DOUBLE"/>
+        <result column="POOL_AREA" property="poolArea" jdbcType="DOUBLE"/>
+        <result column="EXPECT_PRICE" property="expectPrice" jdbcType="DOUBLE"/>
+        <result column="FLOOR" property="floor" jdbcType="INTEGER"/>
+        <association property="province" javaType="com.magic.rent.pojo.Province">
+            <result column="provinceName" property="provinceName" jdbcType="VARCHAR"/>
         </association>
-        <association javaType="com.magic.rent.pojo.City" property="city">
-            <id column="cityID" jdbcType="INTEGER" property="id"/>
-            <result column="cityName" jdbcType="VARCHAR" property="cityName"/>
+        <association property="city" javaType="com.magic.rent.pojo.City">
+            <result column="cityName" property="cityName" jdbcType="VARCHAR"/>
         </association>
-        <association javaType="com.magic.rent.pojo.Area" property="area">
-            <id column="areaID" jdbcType="INTEGER" property="id"/>
-            <result column="areaName" jdbcType="VARCHAR" property="areaName"/>
-        </association>
-        <association javaType="com.magic.rent.pojo.Community" property="community">
-            <id column="communityID" jdbcType="INTEGER" property="id"/>
-            <result column="communityName" jdbcType="VARCHAR" property="name"/>
-            <result column="communityNameMapX" jdbcType="DOUBLE" property="mapX"/>
-            <result column="communityNameMapY" jdbcType="DOUBLE" property="mapY"/>
-            <result column="communityCompanyID" jdbcType="INTEGER" property="companyId"/>
-        </association>
-        <association javaType="com.magic.rent.pojo.HouseDecoration" property="houseDecoration">
-            <id column="decorationID" jdbcType="INTEGER" property="id"/>
-            <result column="decorationName" jdbcType="VARCHAR" property="name"/>
-        </association>
-        <association javaType="com.magic.rent.pojo.HouseFace" property="houseFace">
-            <id column="houseFaceID" jdbcType="INTEGER" property="id"/>
-            <result column="houseFaceName" jdbcType="VARCHAR" property="name"/>
+        <association property="area" javaType="com.magic.rent.pojo.Area">
+            <result column="areaName" property="areaName" jdbcType="VARCHAR"/>
         </association>
         <association property="houseLayout" javaType="com.magic.rent.pojo.HouseLayout">
-            <id column="houseLayoutID" jdbcType="INTEGER" property="id"/>
-            <result column="houseLayout" jdbcType="VARCHAR" property="name"/>
+            <result column="layoutName" property="name" jdbcType="VARCHAR"/>
         </association>
-        <association property="houseStatus" javaType="com.magic.rent.pojo.HouseStatus">
-            <id column="houseStatusID" jdbcType="INTEGER" property="id"/>
-            <result column="houseStatusName" jdbcType="VARCHAR" property="statusName"/>
+        <association property="community" javaType="com.magic.rent.pojo.Community">
+            <id column="communityID" property="id" jdbcType="INTEGER"/>
+            <result column="communityName" property="name" jdbcType="VARCHAR"/>
+            <result column="communityLng" property="lng" jdbcType="DOUBLE"/>
+            <result column="communityLat" property="lat" jdbcType="DOUBLE"/>
+        </association>
+        <association property="houseDecoration" javaType="com.magic.rent.pojo.HouseDecoration">
+            <result column="decorationName" property="name" jdbcType="VARCHAR"/>
         </association>
         <association property="houseElevator" javaType="com.magic.rent.pojo.HouseElevator">
-            <id column="elevatorID" jdbcType="INTEGER" property="id"/>
-            <result column="elevatorName" jdbcType="VARCHAR" property="name"/>
+            <result column="elevatorName" property="name" jdbcType="VARCHAR"/>
         </association>
     </resultMap>
-    <select id="selectHouseDetails" parameterType="java.lang.Integer" resultMap="HouseDetails">
-    SELECT
-      HOUSE.ID,
-      PROVINCE.id              provinceID,
-      PROVINCE.provinceName,
-      CITY.id                  cityID,
-      CITY.cityName,
-      AREA.id                  areaID,
-      AREA.areaName,
-      HOUSE.ADDRESS,
-      COMMUNITY.ID             communityID,
-      COMMUNITY.NAME           communityName,
-      COMMUNITY.LNG          communityNameMapX,
-      COMMUNITY.LAT          communityNameMapY,
-      COMMUNITY.COMPANY_ID     communityCompanyID,
-      HOUSE.DESCRIPTION,
-      HOUSE_DECORATION.ID      decorationID,
-      HOUSE_DECORATION.NAME    decorationName,
-      HOUSE.FLOOR,
-      HOUSE.EXPECT_PRICE,
-      HOUSE.PROPERTY_FEE,
-      HOUSE_FACE.ID            houseFaceID,
-      HOUSE_FACE.NAME          houseFaceName,
-      HOUSE_LAYOUT.ID          houseLayoutID,
-      HOUSE_LAYOUT.NAME        houseLayout,
-      HOUSE.TITTLE,
-      HOUSE.POOL_AREA,
-      HOUSE.FLOOR_AREA,
-      HOUSE_STATUS.ID          houseStatusID,
-      HOUSE_STATUS.STATUS_NAME houseStatusName,
-      HOUSE.ENABLED,
-      HOUSE.AGE,
-      HOUSE_ELEVATOR.ID        elevatorID,
-      HOUSE_ELEVATOR.NAME      elevatorName
-    FROM HOUSE
-      JOIN PROVINCE ON HOUSE.PROVINCE_ID = PROVINCE.provinceID
-      JOIN CITY ON HOUSE.CITY_ID = CITY.cityID
-      JOIN AREA ON HOUSE.AREA_ID = AREA.areaID
-      JOIN COMMUNITY ON HOUSE.COMMUNITY_ID = COMMUNITY.ID
-      JOIN HOUSE_DECORATION ON HOUSE.HOUSE_DECORATION_ID = HOUSE_DECORATION.ID
-      JOIN HOUSE_FACE ON HOUSE.FACE_ID = HOUSE_FACE.ID
-      JOIN HOUSE_LAYOUT ON HOUSE.LAYOUT_ID = HOUSE_LAYOUT.ID
-      JOIN HOUSE_STATUS ON HOUSE.HOUSE_STATUS = HOUSE_STATUS.ID
-      JOIN HOUSE_ELEVATOR ON HOUSE.ELEVATOR_TYPE_ID = HOUSE_ELEVATOR.ID
-    WHERE HOUSE.ID = #{id,jdbcType=INTEGER}
-      AND HOUSE.ENABLED > 0
-  </select>
+    <select id="selectDetailsByPrimaryKey" parameterType="java.lang.Integer" resultMap="detail">
+      SELECT
+          HOUSE.ID,
+          HOUSE.TITTLE,
+          HOUSE.DESCRIPTION,
+          HOUSE.ADDRESS,
+          HOUSE.AGE,
+          HOUSE.FACE_ID,
+          HOUSE.FLOOR_AREA,
+          HOUSE.POOL_AREA,
+          HOUSE.EXPECT_PRICE,
+          HOUSE.FLOOR,
+          PROVINCE.provinceName,
+          CITY.cityName,
+          AREA.areaName,
+          HOUSE_LAYOUT.NAME layoutName,
+          COMMUNITY.ID      communityID,
+          COMMUNITY.NAME    communityName,
+          COMMUNITY.LNG     communityLng,
+          COMMUNITY.LAT     communityLat,
+          HOUSE_DECORATION.NAME  decorationName,
+          HOUSE_ELEVATOR.NAME elevatorName
+        FROM HOUSE
+          JOIN HOUSE_DECORATION ON HOUSE.HOUSE_DECORATION_ID = HOUSE_DECORATION.ID
+          JOIN PROVINCE ON HOUSE.PROVINCE_ID = PROVINCE.provinceID
+          JOIN CITY ON HOUSE.CITY_ID = CITY.cityID
+          JOIN AREA ON HOUSE.AREA_ID = AREA.areaID
+          JOIN COMMUNITY ON HOUSE.COMMUNITY_ID = COMMUNITY.ID
+          JOIN HOUSE_LAYOUT ON HOUSE.LAYOUT_ID = HOUSE_LAYOUT.ID
+          JOIN HOUSE_ELEVATOR ON HOUSE.ELEVATOR_TYPE_ID = HOUSE_ELEVATOR.ID
+        WHERE HOUSE.ID = #{houseID,jdbcType=INTEGER}
+    </select>
 </mapper>

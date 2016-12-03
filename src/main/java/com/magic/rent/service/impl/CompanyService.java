@@ -139,4 +139,13 @@ public class CompanyService implements ICompanyService {
         query.setDeveloperId(userID);
         return companyMapper.selectCurrentCompanyInfo(userID);
     }
+
+    public Company getDetail(int companyID) throws Exception {
+        Company company=companyMapper.selectByPrimaryKey(companyID);
+        if (null==company){
+            throw new BusinessException("所查询的公司不存在！");
+        }else {
+            return company;
+        }
+    }
 }

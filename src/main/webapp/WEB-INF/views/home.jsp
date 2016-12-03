@@ -26,6 +26,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco.message.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar-head.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
+<script src="http://webapi.amap.com/maps?v=1.3&key=002273d8cd1c3363f0d26dae6629472b"></script>
 <body>
 <%--head start--%>
 <c:import url="/WEB-INF/common/showings_common_head.jsp"/>
@@ -49,8 +50,61 @@
                     <c:choose>
                         <%--账户信息--%>
                         <c:when test="${sysMenu.href=='account-info'}">
-                            <div id="${sysMenu.href}" class="tab-pane">
-
+                            <div id="${sysMenu.href}" class="tab-pane active">
+                                <c:if test="${haveCompany}">
+                                    <div class="col-lg-12 panel panel-default">
+                                        <div class="page-header">
+                                            <h1 class="hidden-xs">${sessionScope.user.name}
+                                                <small class="pull-right">No.${sessionScope.user.userId}</small>
+                                            </h1>
+                                            <h3 class="visible-xs">${sessionScope.user.name}
+                                                <small class="pull-right">No.${sessionScope.user.userId}</small>
+                                            </h3>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="btn-group">
+                                                    <button type="button" class="btn btn-danger">修改密码</button>
+                                                    <button type="button" class="btn btn-warning">修改手机</button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="white-divider-md"></div>
+                                        <div class="row">
+                                            <div class="col-lg-12 ">
+                                                <span class="pull-right">
+                                                <address>上次登录时间：${sessionScope.user.lastLoginString}</address>
+                                                <address>上次登录IP：${sessionScope.user.loginIp}</address>
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-12 panel panel-default">
+                                        <div class="page-header">
+                                            <h1 class="hidden-xs">${company.companyName}
+                                                <small class="pull-right">No.${company.id}</small>
+                                            </h1>
+                                            <h3 class="visible-xs">${company.companyName}
+                                                <small class="pull-right">No.${company.id}</small>
+                                            </h3>
+                                        </div>
+                                        <p>
+                                        <h3>企业服务</h3>
+                                        <div class="white-divider-md"></div>
+                                        服务状态：<span class="text-danger">${company.statusName}</span><br>
+                                        开通日期：<span class="text-danger">${company.operateTimeString}</span><br>
+                                        </p>
+                                        <div class="white-divider-md"></div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="pull-right">
+                                                    <address>公司地址：${company.address}</address>
+                                                    <address>联系电话：${company.phone}</address>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:if>
                             </div>
                         </c:when>
                         <c:when test="${sysMenu.href=='issue-house'}">
@@ -65,7 +119,7 @@
                         </c:when>
                         <c:when test="${sysMenu.href=='project-manage'}">
                             <div id="${sysMenu.href}" class="tab-pane">
-                                <div class="panel panel-primary">
+                                <div class="panel panel-default">
                                     <div class="panel-heading">
                                         <h3 class="panel-title">项目管理</h3>
                                     </div>
@@ -96,6 +150,48 @@
                                 </div>
                             </div>
                         </c:when>
+                        <c:when test="${sysMenu.href=='house-manage'}">
+                            <div id="${sysMenu.href}" class="tab-pane">
+                                <div class="panel panel-default col-lg-12">
+                                    <div class="page-header">
+                                        <h1>房源管理
+                                            <small class="pull-right">No.<span id="HM-companyID">${company.id}</span>
+                                            </small>
+                                        </h1>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-3">
+                                            <label class="control-label">项目</label>
+                                            <select class="select2 form-control" style="width: 100%"
+                                                    name="HM-project"></select>
+                                        </div>
+                                    </div>
+
+                                    <div class="panel-body table-responsive">
+                                        <table id="HM-table" class="table table-striped">
+
+                                        </table>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="btn-group-xs pull-right">
+                                                <button type="button" class="btn btn-default" id="HM-pre">
+                                                    <span class="glyphicon glyphicon-chevron-left"></span>
+                                                </button>
+                                                <label class="btn btn-default">
+                                                    <span id="HM-pageNum"></span>/
+                                                    <span id="HM-totalPage"></span>
+                                                </label>
+                                                <button type="button" class="btn btn-default" id="HM-next">
+                                                    <span class="glyphicon glyphicon-chevron-right"></span>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="white-divider-md"></div>
+                                </div>
+                            </div>
+                        </c:when>
                     </c:choose>
                 </c:forEach>
             </div>
@@ -109,18 +205,13 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/soc/sco.message.js"></script>
 <script src="${pageContext.request.contextPath}/js/select2.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/icheck.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/fileup/fileinput.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/fileup/zh.js"></script>
 <script src="${pageContext.request.contextPath}/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
 <script src="${pageContext.request.contextPath}/js/template.js"></script>
-<script src="${pageContext.request.contextPath}/js/map.js"></script>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/js/home.js"></script>
-<script src="http://webapi.amap.com/maps?v=1.3&key=002273d8cd1c3363f0d26dae6629472b"></script>
 <script id="create-project-template" type="text/html">
-    <div class="panel panel-primary">
+    <div class="panel panel-default">
         <div class="panel-heading">
             <h3 class="panel-title">创建项目</h3>
         </div>
@@ -166,7 +257,6 @@
                         <label class="control-label">物业公司</label>
                         <input type="text" class="form-control"
                                placeholder="请输入完整公司名称" name="estateManageCompany">
-
                     </div>
                 </div>
                 <div class="form-group row">
@@ -227,15 +317,15 @@
     </div>
 </script>
 <script id="issue-house-template" type="text/html">
-    <div class="panel panel-primary">
-        <div class="panel-heading">
-            <h3 class="panel-title">房源信息</h3>
+    <div class="panel panel-default col-lg-12">
+        <div class="page-header">
+            <h1>房源信息</h1>
         </div>
         <div class="panel-body">
             <form role="form" id="issue-house-form">
                 <div class="form-group row">
                     <div class="col-lg-12">
-                        <label class="control-label">社区名称</label>
+                        <label class="control-label">房源标题</label>
                         <input type="text" class="form-control"
                                placeholder="标题长度不超过15个中文" name="tittle">
                     </div>
@@ -257,18 +347,25 @@
                         </div>
 
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-3">
+                        <label class="control-label">佣金</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                   placeholder="最高不超过20%" name="brokerage">
+                            <span class="input-group-addon">%</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-3">
                         <label class="control-label">楼层</label>
                         <div class="input-group">
                             <input type="text" class="form-control"
                                    placeholder="房屋所在楼层" name="floor">
                             <span class="input-group-addon">层</span>
                         </div>
-
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <label class="control-label">建筑面积</label>
                         <div class="input-group">
                             <input type="text" class="form-control"
@@ -277,12 +374,20 @@
                         </div>
 
                     </div>
-                    <div class="col-lg-6">
+                    <div class="col-lg-4">
                         <label class="control-label">公摊面积</label>
                         <div class="input-group">
                             <input type="text" class="form-control"
                                    placeholder="面积保留小数点后2位" name="poolArea">
                             <span class="input-group-addon">㎡</span>
+                        </div>
+                    </div>
+                    <div class="col-lg-4">
+                        <label class="control-label">产权年限</label>
+                        <div class="input-group">
+                            <input type="text" class="form-control"
+                                   placeholder="最长不超过70年" name="age">
+                            <span class="input-group-addon">年</span>
                         </div>
                     </div>
                 </div>
@@ -309,27 +414,33 @@
                     </div>
                 </div>
                 <div class="form-group row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-6">
+                        <label class="control-label">梯户类型</label>
+                        <select class="select2 form-control" style="width: 100%"
+                                name="elevatorType"></select>
+                    </div>
+                    <div class="col-lg-6">
+                        <label class="control-label">项目/社区</label>
+                        <select class="select2 form-control" style="width: 100%"
+                                name="community"></select>
+                    </div>
+                </div>
+                <div class="form-group row">
+                    <div class="col-lg-4">
                         <label class="control-label">省份</label>
                         <select class="select2 form-control" style="width: 100%"
                                 name="province"></select>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <label class="control-label">城市</label>
                         <select class="select2 form-control" style="width: 100%"
                                 name="city"></select>
                     </div>
-                    <div class="col-lg-3">
+                    <div class="col-lg-4">
                         <label class="control-label">区域</label>
                         <select class="select2 form-control" style="width: 100%"
                                 name="area"></select>
                     </div>
-                    <div class="col-lg-3">
-                        <label class="control-label">项目</label>
-                        <select class="select2 form-control" style="width: 100%"
-                                name="community"></select>
-                    </div>
-
                 </div>
                 <div class="form-group row">
                     <div class="col-lg-12">
@@ -359,8 +470,6 @@
         <th>项目名称</th>
         <th>申请日期</th>
         <th>申请状态</th>
-        <th>物业公司</th>
-        <th>地图位置</th>
         <th>操作</th>
     </tr>
     </thead>
@@ -372,15 +481,50 @@
         <td>{{community.name}}</td>
         <td>{{community.auditingTimeString}}</td>
         <td>{{community.statusName}}</td>
-        <td>{{community.estateManageCompany}}</td>
-        <td>[{{community.lng,community.lat}}]</td>
         <td>
             <div class="btn-group-xs">
                 {{if community.status==2}}
-                <a href="#" class="btn btn-primary">预览</a>
+                <a href="#" class="btn btn-primary">详情</a>
                 {{/if}}
                 {{if community.status==1}}
                 <button id="PM-{{community.id}}" class="btn btn-danger" type="button" name="PM-cancel">取消</button>
+                {{/if}}
+            </div>
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</script>
+<script id="house-manage-template" type="text/html">
+    <thead>
+    <tr>
+        <th></th>
+        <th>#</th>
+        <th>标题</th>
+        <th>项目</th>
+        <th>售价</th>
+        <th>佣金</th>
+        <th>状态</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{each data.list as house index}}
+    <tr>
+        <td></td>
+        <td>{{house.id}}</td>
+        <td>{{house.tittle}}</td>
+        <td>项目</td>
+        <td>{{house.expectPrice}}</td>
+        <td>{{house.brokerage}}%</td>
+        <td>{{house.sysStatusName}}</td>
+        <td>
+            <div class="btn-group-xs">
+                {{if house.sysStatus==2}}
+                <a href="#" class="btn btn-primary">详情</a>
+                {{/if}}
+                {{if house.sysStatus==1}}
+                <button id="HM-{{house.id}}" class="btn btn-danger" type="button" name="HM-cancel">取消</button>
                 {{/if}}
             </div>
         </td>

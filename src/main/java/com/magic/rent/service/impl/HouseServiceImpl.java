@@ -1,10 +1,9 @@
 package com.magic.rent.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.exception.custom.BusinessException;
-import com.magic.rent.mapper.CompanyMapper;
-import com.magic.rent.mapper.HouseFileMapper;
-import com.magic.rent.mapper.HouseMapper;
-import com.magic.rent.mapper.HouseRelateUserMapper;
+import com.magic.rent.mapper.*;
 import com.magic.rent.pojo.*;
 import com.magic.rent.service.IHouseService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -12,7 +11,9 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.Date;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -27,86 +28,110 @@ public class HouseServiceImpl implements IHouseService {
     private HouseMapper houseMapper;
 
     @Autowired
-    private HouseRelateUserMapper houseRelateUserMapper;
-
-    @Autowired
-    private HouseFileMapper houseFileMapper;
-
-    @Autowired
     private CompanyMapper companyMapper;
 
+    @Autowired
+    private CommunityMapper communityMapper;
 
-    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public boolean issueHouse(House house, int userID) throws Exception {
-        int houseRows = houseMapper.insertSelective(house);
+    public boolean create(House house, int userID) throws Exception {
 
-        if (houseRows <= 0) {
-            throw new BusinessException("添加房屋信息失败！");
+        //校验是否有开通企业服务
+        Company query = new Company();
+        query.setDeveloperId(userID);
+        query.setStatus(SysStatus.SUCCESS);
+        List<Company> resultList = companyMapper.selectBySelective(query);
+        if (null == resultList || resultList.size() == 0) {
+            throw new BusinessException("用户尚未开通企业服务！");
         }
 
-        //今后发布房源的权限将从开发商的一手房逐渐开放到中介发布二手房，
-        //建立房屋与用户的关系，是为了方便中介用户进行管理自己发布的房态
-        //用户只能修改自己发布的房态信息
-        HouseRelateUser relate = new HouseRelateUser();
-        relate.setUserId(userID);
-        relate.setHouseId(house.getId());
+        //校验操作的是否本项目下的房源
+        Company company = resultList.get(0);
+        Community queryCommunity = new Community();
+        queryCommunity.setCompanyId(company.getId());
+        queryCommunity.setCompanyId(house.getCommunityId());
+        List<Community> communityList = communityMapper.selectBySelective(queryCommunity);
 
-        int relateRows = houseRelateUserMapper.insert(relate);
+        if (null == communityList || communityList.size() == 0) {
+            throw new BusinessException("不可为本公司以外的其他项目添加房源！");
+        } else {
+            house.setSysStatus(SysStatus.AUDITING);
+            house.setAuditingTime(new Date());
+            return houseMapper.insert(house) > 0;
+        }
+    }
 
-        if (relateRows <= 0) {
-            throw new BusinessException("建立房屋与用户关系失败！");
+    public boolean cancel(int houseID, int communityID, int userID) throws Exception {
+        //校验是否有开通企业服务
+        Company queryCompany = new Company();
+        queryCompany.setDeveloperId(userID);
+        queryCompany.setStatus(SysStatus.SUCCESS);
+        List<Company> companyList = companyMapper.selectBySelective(queryCompany);
+        if (null == companyList || companyList.size() == 0) {
+            throw new BusinessException("用户尚未开通企业服务！");
         }
 
-        return houseRows > 0 && relateRows > 0;
+        //校验操作的是否为本公司的社区
+        Community queryCommunity = new Community();
+        queryCommunity.setId(communityID);
+        queryCommunity.setCompanyId(companyList.get(0).getId());
+        queryCommunity.setStatus(SysStatus.SUCCESS);
+        List<Community> communityList = communityMapper.selectBySelective(queryCommunity);
+        if (null == communityList || communityList.size() == 0) {
+            throw new BusinessException("不可操作本公司以外的其他社区！");
+        }
+
+        House queryHouse = new House();
+        queryHouse.setId(houseID);
+        queryHouse.setSysStatus(SysStatus.AUDITING);
+        List<House> houseList = houseMapper.selectBySelective(queryHouse);
+
+        if (null == houseList || houseList.size() == 0) {
+            throw new BusinessException("此房源尚未处于审核状态，无法取消！");
+        } else {
+            House house = new House();
+            house.setId(houseID);
+            house.setSysStatus(SysStatus.CANCEL);
+            house.setOperateTime(new Date());
+            return houseMapper.updateByPrimaryKeySelective(house) > 0;
+        }
     }
 
-    public Map<String, Object> showHouseDetails(int houseID) throws Exception {
-        Map<String, Object> dataMap = new HashMap<String, Object>();
-
-        House house = houseMapper.selectHouseDetails(houseID);
-        dataMap.put("house", house);
-
-        Company company = companyMapper.selectByPrimaryKey(house.getCommunity().getCompanyId());
-        dataMap.put("company", company);
-
-        return dataMap;
-    }
-
-    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public boolean saveFile(int houseID, int viewMode, String newFileName, String oldFileName) throws Exception {
-
-        HouseFile houseFile = new HouseFile();
-        houseFile.setHouseId(houseID);
-        houseFile.setFileName(newFileName);
-        houseFile.setNickName(oldFileName);
-
+    public boolean pass(int houseID) throws Exception {
         House house = new House();
         house.setId(houseID);
-
-        switch (viewMode) {
-            case ViewMode.VRMode:
-                house.setVrMode(true);
-                houseFile.setViewMode(ViewMode.VRMode);
-                break;
-            case ViewMode.thumbnailMode:
-                house.setThumbnailMode(true);
-                houseFile.setViewMode(ViewMode.thumbnailMode);
-                break;
-            default:
-                throw new BusinessException("未找到符合的浏览模式!");
-        }
-        int row = houseMapper.updateByPrimaryKeySelective(house);
-        if (row <= 0) {
-            throw new BusinessException("修改房屋预览模式失败！");
-        }
-
-        int row2 = houseFileMapper.insertSelective(houseFile);
-
-        if ((row2 <= 0)) {
-            throw new BusinessException("记录文件名失败！");
-        }
-
-        return row > 0 && row2 > 0;
+        house.setSysStatus(SysStatus.SUCCESS);
+        house.setOperateTime(new Date());
+        return houseMapper.updateByPrimaryKeySelective(house) > 0;
     }
 
+    public boolean refuse(int houseID) throws Exception {
+        House house = new House();
+        house.setId(houseID);
+        house.setSysStatus(SysStatus.REFUSE);
+        house.setOperateTime(new Date());
+        return houseMapper.updateByPrimaryKeySelective(house) > 0;
+    }
+
+    public boolean update(House house, int userID) throws Exception {
+        return false;
+    }
+
+    public PageInfo<House> getCommunityHouses(int communityID, int pageSize, int pageNum) throws Exception {
+        House queryHouse = new House();
+        queryHouse.setCommunityId(communityID);
+        PageHelper.startPage(pageNum, pageSize);
+        List<House> houseList = houseMapper.selectBySelective(queryHouse);
+        return new PageInfo<House>(houseList);
+    }
+
+    public PageInfo<House> getAllHouses(int companyID, int pageSize, int pageNum) throws Exception {
+        PageHelper.startPage(pageNum, pageSize);
+        List<House> houseList = houseMapper.selectByCompanyID(companyID);
+        return new PageInfo<House>(houseList);
+    }
+
+    public House getDetail(int houseID) throws Exception {
+
+        return houseMapper.selectDetailsByPrimaryKey(houseID);
+    }
 }

@@ -1,11 +1,10 @@
 package com.magic.rent.pojo;
 
 import java.io.Serializable;
+import java.util.Date;
 
 public class House implements Serializable {
-
-    private static final long serialVersionUID = 562301848559597471L;
-
+    private static final long serialVersionUID = 8725709612109250370L;
     private Integer id;
 
     private String tittle;
@@ -13,8 +12,8 @@ public class House implements Serializable {
     private String description;
 
     private Integer faceId;
-
     private String faceName;
+
 
     private Double floorArea;
 
@@ -22,11 +21,9 @@ public class House implements Serializable {
 
     private Double expectPrice;
 
-    private Double propertyFee;
+    private Double unitPrice;
 
-    private Boolean thumbnailMode;
-
-    private Boolean vrMode;
+    private Double brokerage;
 
     private Integer communityId;
     private Community community;
@@ -34,10 +31,10 @@ public class House implements Serializable {
     private Integer floor;
 
     private Integer layoutId;
-
     private HouseLayout houseLayout;
 
     private Integer houseDecorationId;
+    private HouseDecoration houseDecoration;
 
     private Integer provinceId;
     private Province province;
@@ -56,12 +53,14 @@ public class House implements Serializable {
     private Integer age;
 
     private Integer houseStatus;
-    private String houseStatusName;
-
-    private Boolean enabled;
 
     private Integer sysStatus;
+
     private String sysStatusName;
+
+    private Date auditingTime;
+
+    private Date operateTime;
 
     public Integer getId() {
         return id;
@@ -93,16 +92,7 @@ public class House implements Serializable {
 
     public void setFaceId(Integer faceId) {
         this.faceId = faceId;
-        this.setFaceName(HouseFace.idToName(faceId));
-    }
-
-    public String getFaceName() {
-        return faceName;
-    }
-
-    public void setFaceName(String faceName) {
-        this.faceName = faceName;
-
+        this.setFaceName(HouseFace.idToName(this.faceId));
     }
 
     public Double getFloorArea() {
@@ -129,28 +119,20 @@ public class House implements Serializable {
         this.expectPrice = expectPrice;
     }
 
-    public Double getPropertyFee() {
-        return propertyFee;
+    public Double getUnitPrice() {
+        return unitPrice;
     }
 
-    public void setPropertyFee(Double propertyFee) {
-        this.propertyFee = propertyFee;
+    public void setUnitPrice(Double unitPrice) {
+        this.unitPrice = unitPrice;
     }
 
-    public Boolean getThumbnailMode() {
-        return thumbnailMode;
+    public Double getBrokerage() {
+        return brokerage;
     }
 
-    public void setThumbnailMode(Boolean thumbnailMode) {
-        this.thumbnailMode = thumbnailMode;
-    }
-
-    public Boolean getVrMode() {
-        return vrMode;
-    }
-
-    public void setVrMode(Boolean vrMode) {
-        this.vrMode = vrMode;
+    public void setBrokerage(Double brokerage) {
+        this.brokerage = brokerage;
     }
 
     public Integer getCommunityId() {
@@ -239,15 +221,6 @@ public class House implements Serializable {
 
     public void setHouseStatus(Integer houseStatus) {
         this.houseStatus = houseStatus;
-        this.setHouseStatusName(HouseStatus.idToName(houseStatus));
-    }
-
-    public Boolean getEnabled() {
-        return enabled;
-    }
-
-    public void setEnabled(Boolean enabled) {
-        this.enabled = enabled;
     }
 
     public Integer getSysStatus() {
@@ -256,7 +229,47 @@ public class House implements Serializable {
 
     public void setSysStatus(Integer sysStatus) {
         this.sysStatus = sysStatus;
-        this.setSysStatusName(SysStatus.idToName(sysStatus));
+        this.setSysStatusName(SysStatus.idToName(this.sysStatus));
+    }
+
+    public String getSysStatusName() {
+        return sysStatusName;
+    }
+
+    public void setSysStatusName(String sysStatusName) {
+        this.sysStatusName = sysStatusName;
+    }
+
+    public Date getAuditingTime() {
+        return auditingTime;
+    }
+
+    public void setAuditingTime(Date auditingTime) {
+        this.auditingTime = auditingTime;
+    }
+
+    public Date getOperateTime() {
+        return operateTime;
+    }
+
+    public void setOperateTime(Date operateTime) {
+        this.operateTime = operateTime;
+    }
+
+    public String getFaceName() {
+        return faceName;
+    }
+
+    public void setFaceName(String faceName) {
+        this.faceName = faceName;
+    }
+
+    public Community getCommunity() {
+        return community;
+    }
+
+    public void setCommunity(Community community) {
+        this.community = community;
     }
 
     public HouseLayout getHouseLayout() {
@@ -265,6 +278,14 @@ public class House implements Serializable {
 
     public void setHouseLayout(HouseLayout houseLayout) {
         this.houseLayout = houseLayout;
+    }
+
+    public HouseDecoration getHouseDecoration() {
+        return houseDecoration;
+    }
+
+    public void setHouseDecoration(HouseDecoration houseDecoration) {
+        this.houseDecoration = houseDecoration;
     }
 
     public Province getProvince() {
@@ -299,31 +320,6 @@ public class House implements Serializable {
         this.houseElevator = houseElevator;
     }
 
-    public String getHouseStatusName() {
-        return houseStatusName;
-    }
-
-    public void setHouseStatusName(String houseStatusName) {
-        this.houseStatusName = houseStatusName;
-    }
-
-    public String getSysStatusName() {
-        return sysStatusName;
-    }
-
-    public void setSysStatusName(String sysStatusName) {
-        this.sysStatusName = sysStatusName;
-    }
-
-
-    public Community getCommunity() {
-        return community;
-    }
-
-    public void setCommunity(Community community) {
-        this.community = community;
-    }
-
     @Override
     public String toString() {
         return "House{" +
@@ -335,14 +331,14 @@ public class House implements Serializable {
                 ", floorArea=" + floorArea +
                 ", poolArea=" + poolArea +
                 ", expectPrice=" + expectPrice +
-                ", propertyFee=" + propertyFee +
-                ", thumbnailMode=" + thumbnailMode +
-                ", vrMode=" + vrMode +
+                ", brokerage=" + brokerage +
                 ", communityId=" + communityId +
+                ", community=" + community +
                 ", floor=" + floor +
                 ", layoutId=" + layoutId +
                 ", houseLayout=" + houseLayout +
                 ", houseDecorationId=" + houseDecorationId +
+                ", houseDecoration=" + houseDecoration +
                 ", provinceId=" + provinceId +
                 ", province=" + province +
                 ", cityId=" + cityId +
@@ -354,10 +350,10 @@ public class House implements Serializable {
                 ", houseElevator=" + houseElevator +
                 ", age=" + age +
                 ", houseStatus=" + houseStatus +
-                ", houseStatusName='" + houseStatusName + '\'' +
-                ", enabled=" + enabled +
                 ", sysStatus=" + sysStatus +
                 ", sysStatusName='" + sysStatusName + '\'' +
+                ", auditingTime=" + auditingTime +
+                ", operateTime=" + operateTime +
                 '}';
     }
 }

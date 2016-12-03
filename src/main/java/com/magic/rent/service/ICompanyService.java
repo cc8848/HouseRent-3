@@ -24,4 +24,6 @@ public interface ICompanyService {
 
     Company getCurrentCompanyInfo(int userID) throws Exception;
 
+    Company getDetail(int companyID) throws Exception;
+
 }

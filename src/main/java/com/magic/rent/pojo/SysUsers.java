@@ -1,5 +1,7 @@
 package com.magic.rent.pojo;
 
+import com.magic.rent.util.DateUtil;
+import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -21,6 +23,8 @@ public class SysUsers implements UserDetails, Serializable {
     private Date dtCreate;//创建日期
 
     private Date lastLogin;//最后登录日期
+
+    private String lastLoginString;
 
     private Date deadline;//截止日期
 
@@ -108,6 +112,15 @@ public class SysUsers implements UserDetails, Serializable {
 
     public void setLastLogin(Date lastLogin) {
         this.lastLogin = lastLogin;
+        this.setLastLoginString(DateUtil.formatToYMDHm(this.lastLogin));
+    }
+
+    public String getLastLoginString() {
+        return lastLoginString;
+    }
+
+    public void setLastLoginString(String lastLoginString) {
+        this.lastLoginString = lastLoginString;
     }
 
     public Date getDeadline() {

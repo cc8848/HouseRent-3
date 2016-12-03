@@ -49,14 +49,15 @@ public class CommunityService implements ICommunityService {
         query.setDeveloperId(userID);
         query.setStatus(SysStatus.SUCCESS);
         List<Company> companyList = companyMapper.selectBySelective(query);
-        Company company = companyList.get(0);
 
-        if (null != company) {
+        if (null != companyList && companyList.size() != 0) {
+            Company company = companyList.get(0);
             community.setCompanyId(company.getId());
             community.setStatus(SysStatus.AUDITING);
         } else {
             throw new BusinessException("当前账户尚未开通企业服务！");
         }
+
         community.setAuditingTime(new Date());
         int rows = communityMapper.insert(community);
         return rows > 0;
@@ -92,6 +93,7 @@ public class CommunityService implements ICommunityService {
         //查询用户所在公司信息
         Company queryCompany = new Company();
         queryCompany.setDeveloperId(userID);
+        queryCompany.setStatus(SysStatus.SUCCESS);
         List<Company> companyList = companyMapper.selectBySelective(queryCompany);
         //校验公司信息是否存在
         if (null == companyList || companyList.size() == 0) {
@@ -102,28 +104,19 @@ public class CommunityService implements ICommunityService {
         Community query = new Community();
         query.setStatus(SysStatus.AUDITING);
         query.setCompanyId(company.getId());
+        query.setId(communityID);
         List<Community> communityList = communityMapper.selectBySelective(query);
         //校验用户是否发起过申请
         if (null == communityList || communityList.size() == 0) {
             throw new BusinessException("用户尚未申请创建社区项目！");
+        } else {
+            Community community = new Community();
+            community.setId(communityID);
+            community.setStatus(SysStatus.CANCEL);
+            community.setOperateTime(new Date());
+            int rows = communityMapper.updateByPrimaryKeySelective(community);
+            return rows > 0;
         }
-        //遍历找出要操作取消的那一笔
-        boolean flag = false;
-        for (Community DBCommunity : communityList) {
-            if (DBCommunity.getId().equals(communityID)) {
-                flag = true;
-                Community community = new Community();
-                community.setId(communityID);
-                community.setStatus(SysStatus.CANCEL);
-                community.setOperateTime(new Date());
-                int rows = communityMapper.updateByPrimaryKeySelective(community);
-                return rows > 0;
-            }
-        }
-        if (!flag) {
-            throw new BusinessException("未包含任何在途申请，无法取消！");
-        }
-        return false;
     }
 
     /**
@@ -226,7 +219,27 @@ public class CommunityService implements ICommunityService {
         if (null == selectPoJoList || selectPoJoList.size() == 0) {
             throw new BusinessException("当前还没有审核通过的项目！");
         } else {
+            SelectPoJo selectPoJo = new SelectPoJo();
+            selectPoJo.setId(0);
+            selectPoJo.setText("请选择项目");
+            selectPoJoList.add(0, selectPoJo);
             return selectPoJoList;
+        }
+    }
+
+    /**
+     * 查询社区详细内容
+     *
+     * @param communityID
+     * @return
+     * @throws Exception
+     */
+    public Community getDetail(int communityID) throws Exception {
+        Community community = communityMapper.selectByPrimaryKey(communityID);
+        if (null == community) {
+            throw new BusinessException("所查询的社区不存在！");
+        } else {
+            return community;
         }
     }
 }

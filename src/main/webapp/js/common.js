@@ -77,8 +77,8 @@ function SelectUtil() {
             });
         });
     };
-    this.selectInitAjax = function (target, URL) {
-        $.getJSON(URL, function (backData) {
+    this.selectInitAjax = function (target, URL, data) {
+        $.getJSON(URL, data, function (backData) {
             target.select2({
                 data: backData.data
             });
@@ -192,5 +192,45 @@ function Location(province, city, area) {
     this.getAreaText = function () {
         return area.select('data').text;
     }
+}
+
+function PageUtil(pageNum, totalPage, URL, templateID, tableID, data) {
+
+    var num = pageNum;
+
+    var total = totalPage;
+
+    var url = URL;
+
+    var temp = templateID;
+
+    var table = tableID;
+
+    var queryData = data;
+
+    this.nextPage = function () {
+        queryData.pageNum = num.text() + 1;
+        if (num.text() >= total.text()) {
+            $.scojs_message('已经是最后一页了！', $.scojs_message.TYPE_ERROR)
+        } else {
+            $.getJSON(url, queryData, function (data) {
+                table.html(template(temp, data));
+                num.html(data.data.pageNum);
+                total.html(data.data.pages);
+            })
+        }
+    };
+    this.prePage = function () {
+        queryData.pageNum = num.text() - 1;
+        if (num.text() <= 1) {
+            $.scojs_message('已经是第一页了！', $.scojs_message.TYPE_ERROR)
+        } else {
+            $.getJSON(url, queryData, function (data) {
+                table.html(template(temp, data));
+                num.html(data.data.pageNum);
+                total.html(data.data.pages);
+            })
+        }
+    };
 }
 

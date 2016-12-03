@@ -22,6 +22,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar-foot.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/icheckflat/blue.css">
+<script src="http://webapi.amap.com/maps?v=1.3&key=002273d8cd1c3363f0d26dae6629472b"></script>
 <body>
 <div class="container">
     <div class="row" id="view">
@@ -122,8 +123,13 @@
     <div id="info" class="row">
         <div class="col-lg-12">
             <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h3 class="panel-title">楼盘信息</h3>
+                <%--<div class="panel-heading">--%>
+                <%--<h3 class="panel-title">楼盘信息</h3>--%>
+                <%--</div>--%>
+                <div class="col-lg-12">
+                    <div class="page-header">
+                        <h1>楼盘信息</h1>
+                    </div>
                 </div>
                 <div class="panel-body">
                     <div class="col-lg-8">
@@ -131,7 +137,7 @@
                     </div>
                     <div class="col-lg-4">
                         <h2 class="text-danger text-right">
-                            ${house.unitPrice}
+                            ${house.expectPrice}
                             <small>元/㎡</small>
                         </h2>
                     </div>
@@ -162,9 +168,9 @@
                     <tr>
                         <td></td>
                         <td>房屋朝向：</td>
-                        <td id="face">${house.houseFace.name}</td>
+                        <td id="face">${house.faceName}</td>
                         <td>物业费：</td>
-                        <td id="propertyFee"><span>${house.propertyFee}</span>元/月</td>
+                        <td id="propertyFee"><span></span>元/月</td>
                         <td>梯户类型：</td>
                         <td>${house.houseElevator.name}</td>
                         <td></td>
@@ -182,13 +188,18 @@
     </div>
     <div id="map" class="row">
         <div class="col-lg-12">
-            <div class="panel panel-danger">
-                <div class="panel-heading">
-                    <h3 class="panel-title">地图及周边</h3>
+            <div class="panel panel-danger col-lg-12">
+                <%--<div class="panel-heading">--%>
+                <%--<h3 class="panel-title">地图及周边</h3>--%>
+                <%--</div>--%>
+                <div class="page-header">
+                    <h1>地图及周边</h1>
                 </div>
-                <div id="container" class="panel-body" style="height: 350px">
-                    <span id="mapX" hidden="hidden">${house.community.mapX}</span>
-                    <span id="mapY" hidden="hidden">${house.community.mapY}</span>
+                <div class="embed-responsive panel panel-default"
+                     style="height: 350px;margin-bottom: 0">
+                    <div id="container" class="embed-responsive-item"
+                         style="height: 350px">
+                    </div>
                 </div>
                 <ul class="list-group">
                     <li class="list-group-item">
@@ -213,11 +224,10 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/select2.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/template.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/map.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/house_sell.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/tour.js"></script>
-<script src="http://webapi.amap.com/maps?v=1.3&key=002273d8cd1c3363f0d26dae6629472b"></script>
+
 <script>
     embedpano({
         swf: "${pageContext.request.contextPath}/images/house/vtour/tour.swf",
@@ -232,7 +242,7 @@
     var map = new AMap.Map('container', {
         resizeEnable: true,
         zoom: 11,
-        center: [116.397428, 39.90923]
+        center: [${house.community.lng}, ${house.community.lat}]
     });
 </script>
 </body>
