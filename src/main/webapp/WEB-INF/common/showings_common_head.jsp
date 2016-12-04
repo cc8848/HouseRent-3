@@ -8,69 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<div id="infoModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-                        class="sr-only">Close</span></button>
-                <h4 id="info-modal-tittle" class="modal-title">提示</h4>
-            </div>
-            <div class="modal-body">
-                <p id="info-modal-message"></p>
-            </div>
-            <div class="modal-footer">
-                <button id="info-button" type="button" class="btn btn-primary" data-dismiss="modal">确认</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
-<div id="confirmModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-                        class="sr-only">Close</span></button>
-                <h4 id="confirm-modal-tittle" class="modal-title">确认提示</h4>
-            </div>
-            <div class="modal-body">
-                <p id="confirm-modal-message"></p>
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-primary" data-dismiss="modal">取消</button>
-                <button id="confirm-button" type="button" class="btn btn-danger" data-dismiss="modal">确认</button>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
-<div id="uploadViewModal" class="modal fade">
-    <div class="modal-dialog">
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span><span
-                        class="sr-only">Close</span></button>
-                <h4 id="upload-modal-tittle" class="modal-title">请上传房屋图片</h4>
-            </div>
-            <div class="modal-body">
-                <form role="form" method="post" enctype="multipart/form-data" action="/file/upload">
-                    <div class="form-group row">
-                        <div class="col-lg-12">
-                            <label for="file">图片上传</label>
-                            <input id="vrMode" class="radio radio-inline" type="radio"
-                                   name="viewMode" value="1" checked>
-                            <label for="vrMode">全景图</label>
-                            <input id="morePic" class="radio radio-inline" type="radio"
-                                   name="viewMode" value="2">
-                            <label for="morePic">普通图</label>
-                            <input id="file" name="file" class="file-input " type="file"/>
-                        </div>
-                    </div>
-                    <sec:csrfInput/>
-                </form>
-            </div>
-        </div><!-- /.modal-content -->
-    </div><!-- /.modal-dialog -->
-</div>
 <!-- /.modal -->
 <nav class="navbar navbar-fixed-top navbar-default" role="navigation" style="margin-bottom: 0">
     <div class="container">

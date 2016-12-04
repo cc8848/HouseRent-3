@@ -30,17 +30,11 @@ function HomeTemplate() {
     };
 
     this.projectManageInit = function () {
-        $.getJSON('/community/myClassify', function (data) {
-            $('#PM-table').html(template('project-manage-template', data));
-            $('#PM-pageNum').html(data.data.pageNum);
-            $('#PM-totalPage').html(data.data.pages);
-            new ProjectManage().menuInit();
-        });
+        new ProjectManage().menuInit();
     };
 
     this.houseManageInit = function () {
-        var selectUtil = new SelectUtil();
-        selectUtil.selectInitAjax($("[name='HM-project']"), "/community/select", {companyID: $('#HM-companyID').text()});
+        new SelectUtil().selectInitAjax($("[name='HM-project']"), "/community/select", {companyID: $('#HM-companyID').text()});
         new HouseManage().menuInit();
     }
 }
@@ -236,11 +230,8 @@ function ProjectManage() {
 
     var table = $('#PM-table');
 
-    var pageUtil = new PageUtil(pageNum, totalPage, '/community/myClassify', 'project-manage-template', table);
-
     this.menuInit = function () {
-        $('#PM-next').on('click', pageUtil.nextPage);
-        $('#PM-pre').on('click', pageUtil.prePage);
+        this.tableInit();
         $("[name='PM-cancel']").each(function () {
             $(this).click(function () {
                 var id = $(this).attr('id');
@@ -259,6 +250,57 @@ function ProjectManage() {
             });
         });
     };
+
+    this.tableInit = function () {
+        $.getJSON('/community/myClassify', function (data) {
+            if (data.status) {
+                table.html(template('PM-template', data));
+                var pages = data.data.pages;
+                var pageNum = data.data.pageNum;
+                var options = {
+                    bootstrapMajorVersion: 3,//bootstrap版本
+                    currentPage: pageNum, //当前页数
+                    totalPages: pages, //总页数
+                    itemTexts: function (type, page, current) {
+                        switch (type) {
+                            case "first":
+                                return "首页";
+                            case "prev":
+                                return "上一页";
+                            case "next":
+                                return "下一页";
+                            case "last":
+                                return "末页";
+                            case "page":
+                                return page;
+                        }
+                    },//点击事件，用于通过Ajax来刷新整个list列表
+                    onPageClicked: function (event, originalEvent, type, page) {
+                        $.getJSON('/community/myClassify', {pageNum: page}, function (data) {
+                            if (data.status) {
+                                table.html(template('PM-template', data));
+                            } else {
+                                var modal = $.scojs_modal({
+                                    keyboard: true,
+                                    title: '错误提示',
+                                    content: data.message
+                                });
+                                modal.show();
+                            }
+                        });
+                    }
+                };
+                $('#PM-page').bootstrapPaginator(options);
+            } else {
+                var modal = $.scojs_modal({
+                    keyboard: true,
+                    title: '错误提示',
+                    content: data.message
+                });
+                modal.show();
+            }
+        });
+    }
 }
 /**
  * 房源管理
@@ -266,39 +308,129 @@ function ProjectManage() {
  */
 function HouseManage() {
 
-    var pageNum = $('#HM-pageNum');
-
-    var totalPage = $('#HM-totalPage');
-
     var table = $('#HM-table');
 
-    var data = {companyID: $('#HM-companyID').text()};
-
-    var pageUtil = new PageUtil(pageNum, totalPage, '/community/myClassify', 'house-manage-template', table, data);
-
     this.menuInit = function () {
-        $('#HM-next').on('click', pageUtil.nextPage);
-        $('#HM-pre').on('click', pageUtil.prePage);
-        this.getAllHouse();
+        this.tableInit();
         $("[name='HM-project']").on('select2:select', this.getCommunityHouse);
     };
 
-    this.getAllHouse = function () {
-        $.getJSON('/house/myHouse', data, function (data) {
-            table.html(template('house-manage-template', data));
-            pageNum.html(data.data.pageNum);
-            totalPage.html(data.data.pages);
-        })
+    this.tableInit = function () {
+        $.getJSON('/house/myHouse', {companyID: $('#HM-companyID').text()}, function (data) {
+            if (data.status) {
+                table.html(template('HM-template', data));
+                var pages = data.data.pages;
+                var pageNum = data.data.pageNum;
+                var options = {
+                    bootstrapMajorVersion: 3,//bootstrap版本
+                    currentPage: pageNum, //当前页数
+                    totalPages: pages, //总页数
+                    itemTexts: function (type, page, current) {
+                        switch (type) {
+                            case "first":
+                                return "首页";
+                            case "prev":
+                                return "上一页";
+                            case "next":
+                                return "下一页";
+                            case "last":
+                                return "末页";
+                            case "page":
+                                return page;
+                        }
+                    },//点击事件，用于通过Ajax来刷新整个list列表
+                    onPageClicked: function (event, originalEvent, type, page) {
+                        $.getJSON('/house/myHouse', {
+                            pageNum: page,
+                            companyID: $('#HM-companyID').text()
+                        }, function (data) {
+                            if (data.status) {
+                                table.html(template('HM-template', data));
+                            } else {
+                                var modal = $.scojs_modal({
+                                    keyboard: true,
+                                    title: '错误提示',
+                                    content: data.message
+                                });
+                                modal.show();
+                            }
+                        });
+                    }
+                };
+                $('#HM-page').bootstrapPaginator(options);
+            } else {
+                var modal = $.scojs_modal({
+                    keyboard: true,
+                    title: '错误提示',
+                    content: data.message
+                });
+                modal.show();
+            }
+        });
     };
 
-
     this.getCommunityHouse = function () {
-        data.communityID = $("[name='HM-project']").val();
-        $.getJSON('/house/myHouse', data, function (data) {
-            table.html(template('house-manage-template', data));
-            pageNum.html(data.data.pageNum);
-            totalPage.html(data.data.pages);
-        })
+        var data = {companyID: $('#HM-companyID').text()};
+        if (0 != $("[name='HM-project']").val()) {
+            data.communityID = $("[name='HM-project']").val();
+        }
+        $.getJSON('/house/myHouse', data,
+            function (data) {
+                if (data.status) {
+                    table.html(template('HM-template', data));
+                    var pages = data.data.pages;
+                    var pageNum = data.data.pageNum;
+                    var options = {
+                        bootstrapMajorVersion: 3,//bootstrap版本
+                        currentPage: pageNum, //当前页数
+                        totalPages: pages, //总页数
+                        itemTexts: function (type, page, current) {
+                            switch (type) {
+                                case "first":
+                                    return "首页";
+                                case "prev":
+                                    return "上一页";
+                                case "next":
+                                    return "下一页";
+                                case "last":
+                                    return "末页";
+                                case "page":
+                                    return page;
+                            }
+                        },//点击事件，用于通过Ajax来刷新整个list列表
+                        onPageClicked: function (event, originalEvent, type, page) {
+                            var data = {
+                                pageNum: page,
+                                companyID: $('#HM-companyID').text()
+                            };
+                            if (0 != $("[name='HM-project']").val()) {
+                                data.communityID = $("[name='HM-project']").val();
+                            }
+                            $.getJSON('/house/myHouse', data, function (data) {
+                                if (data.status) {
+                                    table.html(template('HM-template', data));
+                                } else {
+                                    var modal = $.scojs_modal({
+                                        keyboard: true,
+                                        title: '错误提示',
+                                        content: data.message
+                                    });
+                                    modal.show();
+                                }
+                            });
+                        }
+                    };
+                    $('#HM-page').bootstrapPaginator(options);
+                } else {
+                    var modal = $.scojs_modal({
+                        keyboard: true,
+                        title: '错误提示',
+                        content: data.message
+                    });
+                    modal.show();
+                }
+            }
+        );
     }
 }
 

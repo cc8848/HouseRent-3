@@ -133,20 +133,13 @@
 
                                         </table>
                                     </div>
-                                    <div class="panel-footer">
-                                        <div class="btn-group-xs" style="margin-top: -2px">
-                                            <button type="button" class="btn btn-default" id="PM-pre">
-                                                <span class="glyphicon glyphicon-chevron-left"></span>
-                                            </button>
-                                            <label class="btn btn-default">
-                                                <span id="PM-pageNum"></span>/
-                                                <span id="PM-totalPage"></span>
-                                            </label>
-                                            <button type="button" class="btn btn-default" id="PM-next">
-                                                <span class="glyphicon glyphicon-chevron-right"></span>
-                                            </button>
-                                        </div>
-                                    </div>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <ul id="PM-page">
+
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </c:when>
@@ -159,7 +152,7 @@
                                             </small>
                                         </h1>
                                     </div>
-                                    <div class="row">
+                                    <div class="panel-body">
                                         <div class="col-lg-3">
                                             <label class="control-label">项目</label>
                                             <select class="select2 form-control" style="width: 100%"
@@ -167,28 +160,18 @@
                                         </div>
                                     </div>
 
-                                    <div class="panel-body table-responsive">
+                                    <div class="table-responsive">
                                         <table id="HM-table" class="table table-striped">
 
                                         </table>
                                     </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="btn-group-xs pull-right">
-                                                <button type="button" class="btn btn-default" id="HM-pre">
-                                                    <span class="glyphicon glyphicon-chevron-left"></span>
-                                                </button>
-                                                <label class="btn btn-default">
-                                                    <span id="HM-pageNum"></span>/
-                                                    <span id="HM-totalPage"></span>
-                                                </label>
-                                                <button type="button" class="btn btn-default" id="HM-next">
-                                                    <span class="glyphicon glyphicon-chevron-right"></span>
-                                                </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="white-divider-md"></div>
+                                    <ul class="list-group">
+                                        <li class="list-group-item">
+                                            <ul id="HM-page">
+
+                                            </ul>
+                                        </li>
+                                    </ul>
                                 </div>
                             </div>
                         </c:when>
@@ -204,9 +187,11 @@
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/soc/sco.message.js"></script>
+<script src="${pageContext.request.contextPath}/js/soc/sco.modal.js"></script>
 <script src="${pageContext.request.contextPath}/js/select2.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
+<script src="${pageContext.request.contextPath}/js/bootstrap-paginator.js"></script>
 <script src="${pageContext.request.contextPath}/js/template.js"></script>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/js/home.js"></script>
@@ -462,7 +447,7 @@
         </div>
     </div>
 </script>
-<script id="project-manage-template" type="text/html">
+<script id="PM-template" type="text/html">
     <thead>
     <tr>
         <th></th>
@@ -495,7 +480,7 @@
     {{/each}}
     </tbody>
 </script>
-<script id="house-manage-template" type="text/html">
+<script id="HM-template" type="text/html">
     <thead>
     <tr>
         <th></th>

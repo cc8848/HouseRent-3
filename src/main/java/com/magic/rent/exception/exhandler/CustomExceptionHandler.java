@@ -21,12 +21,12 @@ public class CustomExceptionHandler implements HandlerExceptionResolver {
     private static Logger logger = LoggerFactory.getLogger(CustomExceptionHandler.class);
 
     public ModelAndView resolveException(HttpServletRequest httpServletRequest, HttpServletResponse httpServletResponse, Object o, Exception ex) {
-        logger.info(ex.toString());
         return model(httpServletRequest, ex);
     }
 
     private ModelAndView model(HttpServletRequest request, Exception e) {
         if (isAjaxRequest(request)) {
+            logger.info(e.getMessage());
             return new ModelAndView(new MappingJackson2JsonView()).addObject("message", e.getMessage()).addObject("status", false);
         }
         return new ModelAndView("error").addObject("message", e.getMessage());
