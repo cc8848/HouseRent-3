@@ -201,8 +201,13 @@ function ProjectCreate() {
                     estateManageCompany: form.find("[name='estateManageCompany']").val()
                 },
                 function (data) {
-                    modal.infoModal(data.message);
-                    $('#infoModal').on('hidden.bs.modal', refresh);
+                    var modal = $.scojs_modal({
+                        keyboard: true,
+                        title: '操作提示',
+                        content: data.message,
+                        onClose: refresh
+                    });
+                    modal.show();
                 }
             )
         } else {
@@ -224,37 +229,20 @@ function ProjectCreate() {
  */
 function ProjectManage() {
 
-    var pageNum = $('#PM-pageNum');
-
-    var totalPage = $('#PM-totalPage');
+    var _this=this;
 
     var table = $('#PM-table');
 
     this.menuInit = function () {
         this.tableInit();
-        $("[name='PM-cancel']").each(function () {
-            $(this).click(function () {
-                var id = $(this).attr('id');
-                var array = id.split('-');
-                var httpUtil = new HttpUtil();
-                httpUtil.postCRF('/community/cancel', {
-                    communityID: array[1]
-                }, function (data) {
-                    if (data.status) {
-                        modal.infoModal(data.message);
-                        $('#infoModal').on('hidden.bs.modal', refresh);
-                    } else {
-                        modal.infoModal(data.message);
-                    }
-                });
-            });
-        });
+
     };
 
     this.tableInit = function () {
         $.getJSON('/community/myClassify', function (data) {
             if (data.status) {
                 table.html(template('PM-template', data));
+                _this.cancel();
                 var pages = data.data.pages;
                 var pageNum = data.data.pageNum;
                 var options = {
@@ -279,6 +267,7 @@ function ProjectManage() {
                         $.getJSON('/community/myClassify', {pageNum: page}, function (data) {
                             if (data.status) {
                                 table.html(template('PM-template', data));
+                                _this.cancel();
                             } else {
                                 var modal = $.scojs_modal({
                                     keyboard: true,
@@ -299,6 +288,27 @@ function ProjectManage() {
                 });
                 modal.show();
             }
+        });
+    };
+
+    this.cancel=function () {
+        $("[name='PM-cancel']").each(function () {
+            $(this).click(function () {
+                var id = $(this).attr('id');
+                var array = id.split('-');
+                var httpUtil = new HttpUtil();
+                httpUtil.postCRF('/community/cancel', {
+                    communityID: array[1]
+                }, function (data) {
+                    var modal = $.scojs_modal({
+                        keyboard: true,
+                        title: '操作提示',
+                        content: data.message,
+                        onClose: refresh
+                    });
+                    modal.show();
+                });
+            });
         });
     }
 }
