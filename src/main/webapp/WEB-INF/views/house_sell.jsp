@@ -41,6 +41,7 @@
                 </div>
             </div>
         </div>
+        <div class="white-divider-md visible-xs"></div>
         <div class="col-lg-3">
             <div class="btn-group btn-group-justified">
                 <div class="btn-group">
@@ -123,9 +124,6 @@
     <div id="info" class="row">
         <div class="col-lg-12">
             <div class="panel panel-danger">
-                <%--<div class="panel-heading">--%>
-                <%--<h3 class="panel-title">楼盘信息</h3>--%>
-                <%--</div>--%>
                 <div class="col-lg-12">
                     <div class="page-header">
                         <h1>楼盘信息</h1>
@@ -143,46 +141,48 @@
                     </div>
 
                 </div>
-                <table class="table table-responsive table-striped ">
-                    <tbody>
-                    <tr>
-                        <td></td>
-                        <td>楼盘名称：</td>
-                        <td id="community">${house.community.name}</td>
-                        <td>产权年限：</td>
-                        <td id="age"><span>${house.age}</span>年</td>
-                        <td>房屋格局：</td>
-                        <td id="layout">${house.houseLayout.name}</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>建筑面积：</td>
-                        <td id="floorArea"><span>${house.floorArea}</span>㎡</td>
-                        <td>公摊面积：</td>
-                        <td id="poolArea"><span>${house.poolArea}</span>㎡</td>
-                        <td>装修类型：</td>
-                        <td id="decoration">${house.houseDecoration.name}</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>房屋朝向：</td>
-                        <td id="face">${house.faceName}</td>
-                        <td>物业费：</td>
-                        <td id="propertyFee"><span></span>元/月</td>
-                        <td>梯户类型：</td>
-                        <td>${house.houseElevator.name}</td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td>楼盘地址：</td>
-                        <td colspan="5" id="address">${house.address}</td>
-                        <td></td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="table-responsive">
+                    <table class="table  table-striped ">
+                        <tbody>
+                        <tr>
+                            <td></td>
+                            <td>楼盘名称：</td>
+                            <td id="community">${house.community.name}</td>
+                            <td>产权年限：</td>
+                            <td id="age"><span>${house.age}</span>年</td>
+                            <td>房屋格局：</td>
+                            <td id="layout">${house.houseLayout.name}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>建筑面积：</td>
+                            <td id="floorArea"><span>${house.floorArea}</span>㎡</td>
+                            <td>公摊面积：</td>
+                            <td id="poolArea"><span>${house.poolArea}</span>㎡</td>
+                            <td>装修类型：</td>
+                            <td id="decoration">${house.houseDecoration.name}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>房屋朝向：</td>
+                            <td id="face">${house.faceName}</td>
+                            <td>物业费：</td>
+                            <td id="propertyFee"><span></span>元/月</td>
+                            <td>梯户类型：</td>
+                            <td>${house.houseElevator.name}</td>
+                            <td></td>
+                        </tr>
+                        <tr>
+                            <td></td>
+                            <td>楼盘地址：</td>
+                            <td colspan="5" id="address">${house.address}</td>
+                            <td></td>
+                        </tr>
+                        </tbody>
+                    </table>
+                </div>
             </div>
         </div>
     </div>
