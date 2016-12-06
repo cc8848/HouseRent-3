@@ -40,7 +40,7 @@ public class AddressController extends BaseController {
 
         List<SelectPoJo> selectPoJoList = iAddressService.getAllProvince();
 
-        return JsonResult.success("", selectPoJoList);
+        return JsonResult.success(selectPoJoList);
     }
 
 

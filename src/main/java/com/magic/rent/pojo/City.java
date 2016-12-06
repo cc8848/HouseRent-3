@@ -3,7 +3,7 @@ package com.magic.rent.pojo;
 import java.io.Serializable;
 import java.util.List;
 
-public class City implements Serializable, Address {
+public class City implements Serializable {
 
     private static final long serialVersionUID = -8104849430543056653L;
 
@@ -65,14 +65,6 @@ public class City implements Serializable, Address {
 
     public void setAreas(List<Area> areas) {
         this.areas = areas;
-    }
-
-    public int getAddressID() {
-        return getCityid();
-    }
-
-    public String getAddressName() {
-        return getCityName();
     }
 
     @Override

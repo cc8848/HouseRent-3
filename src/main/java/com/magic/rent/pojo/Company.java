@@ -6,8 +6,7 @@ import java.io.Serializable;
 import java.util.Date;
 
 public class Company implements Serializable {
-    private static final long serialVersionUID = 858996675606879242L;
-
+    private static final long serialVersionUID = 7120974156730495345L;
     private Integer id;
 
     private String companyName;
@@ -19,16 +18,22 @@ public class Company implements Serializable {
     private Integer developerId;
 
     private Integer status;
-
-    private Date auditingTime;
-
-    private String auditingTimeString;
+    private String statusName;
 
     private Date operateTime;
-
     private String operateTimeString;
 
-    private String statusName;
+    private Date auditingTime;
+    private String auditingTimeString;
+
+    private Integer provinceId;
+    private Province province;
+
+    private Integer cityId;
+    private City city;
+
+    private Integer areaId;
+    private Area area;
 
     public Integer getId() {
         return id;
@@ -79,15 +84,6 @@ public class Company implements Serializable {
         this.setStatusName(SysStatus.idToName(this.status));
     }
 
-    public Date getAuditingTime() {
-        return auditingTime;
-    }
-
-    public void setAuditingTime(Date auditingTime) {
-        this.auditingTime = auditingTime;
-        this.setAuditingTimeString(DateUtil.formatToYMD(this.auditingTime));
-    }
-
     public Date getOperateTime() {
         return operateTime;
     }
@@ -97,13 +93,69 @@ public class Company implements Serializable {
         this.setOperateTimeString(DateUtil.formatToYMD(this.operateTime));
     }
 
-    public void setStatusName(String statusName) {
-        this.statusName = statusName;
+    public Date getAuditingTime() {
+        return auditingTime;
+    }
+
+    public void setAuditingTime(Date auditingTime) {
+        this.auditingTime = auditingTime;
+        this.setAuditingTimeString(DateUtil.formatToYMD(this.auditingTime));
+    }
+
+    public Integer getProvinceId() {
+        return provinceId;
+    }
+
+    public void setProvinceId(Integer provinceId) {
+        this.provinceId = provinceId;
+    }
+
+    public Integer getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(Integer cityId) {
+        this.cityId = cityId;
+    }
+
+    public Integer getAreaId() {
+        return areaId;
+    }
+
+    public void setAreaId(Integer areaId) {
+        this.areaId = areaId;
+    }
+
+    public Province getProvince() {
+        return province;
+    }
+
+    public void setProvince(Province province) {
+        this.province = province;
+    }
+
+    public City getCity() {
+        return city;
+    }
+
+    public void setCity(City city) {
+        this.city = city;
+    }
+
+    public Area getArea() {
+        return area;
+    }
+
+    public void setArea(Area area) {
+        this.area = area;
     }
 
     public String getStatusName() {
-        this.setStatusName(SysStatus.idToName(this.status));
         return statusName;
+    }
+
+    public void setStatusName(String statusName) {
+        this.statusName = statusName;
     }
 
     public String getOperateTimeString() {
@@ -131,9 +183,17 @@ public class Company implements Serializable {
                 ", phone='" + phone + '\'' +
                 ", developerId=" + developerId +
                 ", status=" + status +
-                ", auditingTime=" + auditingTime +
-                ", operateTime=" + operateTime +
                 ", statusName='" + statusName + '\'' +
+                ", operateTime=" + operateTime +
+                ", operateTimeString='" + operateTimeString + '\'' +
+                ", auditingTime=" + auditingTime +
+                ", auditingTimeString='" + auditingTimeString + '\'' +
+                ", provinceId=" + provinceId +
+                ", province=" + province +
+                ", cityId=" + cityId +
+                ", city=" + city +
+                ", areaId=" + areaId +
+                ", area=" + area +
                 '}';
     }
 }

@@ -164,7 +164,11 @@ public class CommunityService implements ICommunityService {
 
         PageHelper.startPage(pageNum, pageSize);
         List<Community> communityList = communityMapper.selectBySelective(community);
-        return new PageInfo<Community>(communityList);
+        if (null == communityList || communityList.size() == 0) {
+            throw new BusinessException("查询不到数据！");
+        } else {
+            return new PageInfo<Community>(communityList);
+        }
     }
 
     /**

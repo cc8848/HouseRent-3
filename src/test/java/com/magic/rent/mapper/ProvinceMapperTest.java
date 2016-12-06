@@ -32,8 +32,8 @@ public class ProvinceMapperTest {
 
     @Test
     public void testSelectAllProvince() throws Exception {
-        List<Province> provinceList = provinceMapper.selectAllProvince();
-        System.out.print(provinceList);
+//        List<Province> provinceList = provinceMapper.selectAllProvince();
+//        System.out.print(provinceList);
     }
 
     @Test

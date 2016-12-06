@@ -1,11 +1,13 @@
 package com.magic.rent.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.pojo.Company;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.ICompanyService;
 import com.magic.rent.util.HttpUtil;
 import com.magic.rent.util.JsonResult;
 import com.magic.rent.util.MyStringUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -13,6 +15,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -34,15 +37,18 @@ public class CompanyController {
         SysUsers users = HttpUtil.getSessionUser(request);
 
         String companyName = MyStringUtil.checkParameter(request.getParameter("companyName"), "公司名称不能为空！");
-        String provinceName = MyStringUtil.checkParameter(request.getParameter("provinceName"), "省份不能为空！");
-        String cityName = MyStringUtil.checkParameter(request.getParameter("cityName"), "城市不能为空！");
-        String areaName = MyStringUtil.checkParameter(request.getParameter("areaName"), "地区不能为空！");
+        Integer provinceID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("provinceID"), "省份不能为空！"));
+        Integer cityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("cityID"), "城市不能为空！"));
+        Integer areaID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("areaID"), "地区不能为空！"));
         String address = MyStringUtil.checkParameter(request.getParameter("address"), "具体地址不能为空！");
         String phone = MyStringUtil.checkParameter(request.getParameter("phone"), "联系电话不能为空！");
         int userID = users.getUserId();
 
         Company company = new Company();
-        company.setAddress(provinceName + cityName + areaName + address);
+        company.setProvinceId(provinceID);
+        company.setCityId(cityID);
+        company.setAreaId(areaID);
+        company.setAddress(address);
         company.setPhone(phone);
         company.setDeveloperId(userID);
         company.setCompanyName(companyName);
@@ -93,5 +99,46 @@ public class CompanyController {
         } else {
             return JsonResult.error("操作失败！请联系技术人员！");
         }
+    }
+
+    @ResponseBody
+    @RequestMapping("/select")
+    public JsonResult select(HttpServletRequest request) throws Exception {
+
+        int pageSize = 10;
+        int pageNum = 0;
+
+        Company query = new Company();
+        if (StringUtils.isNotEmpty(request.getParameter("ID"))) {
+            query.setId(Integer.parseInt(request.getParameter("ID")));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("companyName"))) {
+            query.setCompanyName(request.getParameter("companyName"));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("address"))) {
+            query.setAddress(request.getParameter("address"));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("phone"))) {
+            query.setPhone(request.getParameter("phone"));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("status"))) {
+            query.setStatus(Integer.parseInt(request.getParameter("status")));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("provinceID"))) {
+            query.setProvinceId(Integer.parseInt(request.getParameter("provinceID")));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("cityID"))) {
+            query.setCityId(Integer.parseInt(request.getParameter("cityID")));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("areaID"))) {
+            query.setAreaId(Integer.parseInt(request.getParameter("areaID")));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("pageNum"))) {
+            pageNum = Integer.parseInt(request.getParameter("pageNum"));
+        }
+
+        PageInfo<Company> companyPageInfo = iCompanyService.getCompanies(query, pageNum, pageSize);
+
+        return JsonResult.success(companyPageInfo);
     }
 }

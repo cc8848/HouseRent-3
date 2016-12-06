@@ -35,9 +35,9 @@ public class CityMapperTest {
         Province province = new Province();
         province.setProvinceID(350000);
 
-        List<City> cityList = cityMapper.selectByProvinceID(province.getProvinceID());
-        for (City city : cityList) {
-            System.out.println(city.toString());
-        }
+//        List<City> cityList = cityMapper.selectByProvinceID(province.getProvinceID());
+//        for (City city : cityList) {
+//            System.out.println(city.toString());
+//        }
     }
 }

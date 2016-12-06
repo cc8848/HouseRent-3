@@ -104,17 +104,16 @@
       enable = #{enable,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectByProvinceID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    SELECT CITY.cityID,CITY.cityName
+    <select id="selectByProvinceID" parameterType="java.lang.Integer" resultType="com.magic.rent.pojo.SelectPoJo">
+    SELECT CITY.cityID  id,
+    CITY.cityName text
     FROM CITY
     JOIN PROVINCE ON CITY.provinceID=PROVINCE.provinceID
     WHERE PROVINCE.provinceID=${value}
-    AND CITY.enable > 0
-    AND PROVINCE.enable >0
   </select>
-    <select id="selectAllCity" resultMap="BaseResultMap">
-        SELECT CITY.cityID,CITY.cityName
+    <select id="selectAllCity" resultType="com.magic.rent.pojo.SelectPoJo">
+        SELECT CITY.cityID  id,
+        CITY.cityName   text
         FROM CITY
-        WHERE CITY.enable > 0
     </select>
 </mapper>

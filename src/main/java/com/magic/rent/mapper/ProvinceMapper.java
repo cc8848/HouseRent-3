@@ -1,6 +1,7 @@
 package com.magic.rent.mapper;
 
 import com.magic.rent.pojo.Province;
+import com.magic.rent.pojo.SelectPoJo;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -15,11 +16,11 @@ public interface ProvinceMapper {
 
     Province selectByPrimaryKey(Integer id);
 
-    List<Province> selectAllProvince();
-
     int updateByPrimaryKeySelective(Province record);
 
     int updateByPrimaryKey(Province record);
 
     List<Province> selectAllAddress();
+
+    List<SelectPoJo> selectAllProvince();
 }

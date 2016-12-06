@@ -104,12 +104,11 @@
       enable = #{enable,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectByCityID" parameterType="java.lang.Integer" resultMap="BaseResultMap">
-    SELECT AREA.areaID,AREA.areaName
+    <select id="selectByCityID" parameterType="java.lang.Integer" resultType="com.magic.rent.pojo.SelectPoJo">
+    SELECT AREA.areaID  id,
+    AREA.areaName  text
     FROM AREA
     JOIN CITY ON AREA.cityID=CITY.cityID
     WHERE CITY.cityID=${value}
-    AND AREA.enable >0
-    AND CITY.enable >0
   </select>
 </mapper>

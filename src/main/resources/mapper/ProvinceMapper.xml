@@ -92,10 +92,11 @@
       enable = #{enable,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectAllProvince" resultMap="BaseResultMap">
-    SELECT PROVINCE.provinceID,PROVINCE.provinceName
+    <select id="selectAllProvince" resultType="com.magic.rent.pojo.SelectPoJo">
+    SELECT
+    PROVINCE.provinceID      id,
+    PROVINCE.provinceName  text
     FROM PROVINCE
-    WHERE PROVINCE.enable > 0
   </select>
     <resultMap id="All" type="com.magic.rent.pojo.Province">
         <id column="p_ID" property="provinceID" jdbcType="INTEGER"/>

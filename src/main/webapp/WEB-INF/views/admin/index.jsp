@@ -44,8 +44,8 @@
                     <div id="M-custom" class="panel-collapse collapse in" role="tabpanel"
                          aria-labelledby="one">
                         <ul class="list-group">
-                            <li class="list-group-item">开发商管理</li>
-                            <li class="list-group-item">中介管理</li>
+                            <a href="#company" class="list-group-item" data-toggle="tab">开发商管理</a>
+                            <a href="#store" class="list-group-item" data-toggle="tab">中介管理</a>
                         </ul>
                     </div>
                     <div class="panel-heading" role="tab" id="two">
@@ -66,59 +66,57 @@
             </div>
         </div>
         <div id="right" class="col-lg-10">
-            <div class="panel panel-default col-lg-12">
-                <div class="page-header">
-                    <h2>开发商管理</h2>
-                </div>
-                <div class="row">
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-2"></div>
-                    <div class="col-lg-2">
-                        <button class="btn btn-primary btn-group-justified" type="button">查&nbsp;&nbsp;询</button>
+            <div class="tab-content">
+                <div id="sysInfo" class="tab-pane active"></div>
+                <div id="company" class="tab-pane">
+                    <div class="panel panel-default col-lg-12">
+                        <div class="page-header">
+                            <h2>开发商管理</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <select class="select2 form-control" style="width: 100%"
+                                        name="province"></select>
+                            </div>
+                            <div class="col-lg-2">
+                                <select class="select2 form-control" style="width: 100%"
+                                        name="city"></select>
+                            </div>
+                            <div class="col-lg-2">
+                                <select class="select2 form-control" style="width: 100%"
+                                        name="area"></select>
+                            </div>
+                            <div class="col-lg-2">
+                                <select class="select2 form-control" style="width: 100%"
+                                        name="status"></select>
+                            </div>
+                            <div class="col-lg-2">
+
+                            </div>
+                            <div class="col-lg-2">
+                                <button class="btn btn-primary btn-group-justified" type="button">查&nbsp;&nbsp;询</button>
+                            </div>
+                        </div>
+                        <div class="white-divider-md"></div>
+                        <div class="row">
+                            <div class="table-responsive col-lg-12">
+                                <table class="table" id="CA-table">
+
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="white-divider-md"></div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul id="CA-page"></ul>
+                            </div>
+                        </div>
                     </div>
                 </div>
-                <div class="white-divider-md"></div>
-                <div class="row">
-                    <div class="table-responsive col-lg-12">
-                        <table class="table">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>#</th>
-                                <th>公司名称</th>
-                                <th>公司地址</th>
-                                <th>联系电话</th>
-                                <th>申请状态</th>
-                                <th>申请日期</th>
-                                <th>操作</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            <tr>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                                <td></td>
-                            </tr>
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
-                <hr>
-                <div class="white-divider-md"></div>
-                <div class="row">
-                    <div class="col-lg-12">
-                        <ul id="DM-page"></ul>
-                    </div>
-                </div>
+                <div id="store" class="tab-pane"></div>
             </div>
+
         </div>
     </div>
 </div>
@@ -126,8 +124,49 @@
 <%--页脚--%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/soc/sco.collapse.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/select2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/template.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/soc/sco.modal.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap-paginator.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/admin/index.js"></script>
+<script id="CA-template" type="text/html">
+    <thead>
+    <tr>
+        <th></th>
+        <th>#</th>
+        <th>公司名称</th>
+        <th>公司地址</th>
+        <th>联系电话</th>
+        <th>申请状态</th>
+        <th>申请日期</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{each data.list as company}}
+    <tr>
+        <td></td>
+        <td>{{company.id}}</td>
+        <td>{{company.companyName}}</td>
+        <td>{{company.province.provinceName}}{{company.city.cityName}}{{company.area.areaName}}{{company.address}}</td>
+        <td>{{company.phone}}</td>
+        <td>{{company.statusName}}</td>
+        <td>{{company.auditingTimeString}}</td>
+        <td>
+            <div class="btn-group-xs">
+                {{if company.status==1}}
+                <button class="btn btn-success" type="button" name="CA-pass">通过</button>
+                <button class="btn btn-danger" type="button" name="CA-refuse">拒绝</button>
+                {{else}}
+                <button class="btn btn-primary" type="button" name="CA-detail">详情</button>
+                {{/if}}
+            </div>
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</script>
 </body>
 </html>
 

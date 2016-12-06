@@ -2,7 +2,7 @@ package com.magic.rent.pojo;
 
 import java.io.Serializable;
 
-public class Area implements Serializable, Address {
+public class Area implements Serializable {
 
     private static final long serialVersionUID = 3533014946638583863L;
 
@@ -15,14 +15,6 @@ public class Area implements Serializable, Address {
     private Integer cityid;
 
     private boolean enable;
-
-    public int getAddressID() {
-        return getAreaid();
-    }
-
-    public String getAddressName() {
-        return getAreaName();
-    }
 
     public Integer getId() {
         return id;

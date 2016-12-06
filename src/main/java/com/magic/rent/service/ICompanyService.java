@@ -1,5 +1,6 @@
 package com.magic.rent.service;
 
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.pojo.Company;
 
 import java.util.List;
@@ -20,7 +21,7 @@ public interface ICompanyService {
 
     boolean refuse(int companyID) throws Exception;
 
-    List<Company> getAuditingCompanies() throws Exception;
+    PageInfo<Company> getCompanies(Company query, int pageNum, int pageSize) throws Exception;
 
     Company getCurrentCompanyInfo(int userID) throws Exception;
 

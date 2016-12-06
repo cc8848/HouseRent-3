@@ -1,12 +1,11 @@
 package com.magic.rent.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.mapper.CompanyMapper;
 import com.magic.rent.mapper.UsersRelateRolesMapper;
-import com.magic.rent.pojo.SysStatus;
-import com.magic.rent.pojo.Company;
-import com.magic.rent.pojo.SysRoles;
-import com.magic.rent.pojo.UsersRelateRoles;
+import com.magic.rent.pojo.*;
 import com.magic.rent.service.ICompanyService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -128,10 +127,10 @@ public class CompanyService implements ICompanyService {
         return rows > 0;
     }
 
-    public List<Company> getAuditingCompanies() throws Exception {
-        Company company = new Company();
-        company.setStatus(SysStatus.AUDITING);
-        return companyMapper.selectBySelective(company);
+    public PageInfo<Company> getCompanies(Company query, int pageNum, int pageSize) throws Exception {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Company> companyList = companyMapper.selectBySelective(query);
+        return new PageInfo<Company>(companyList);
     }
 
     public Company getCurrentCompanyInfo(int userID) throws Exception {

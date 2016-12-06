@@ -106,7 +106,8 @@
                                         <div class="row">
                                             <div class="col-lg-12">
                                                 <div class="pull-right">
-                                                    <address>公司地址：${company.address}</address>
+                                                    <address>
+                                                        公司地址：${company.province.provinceName} ${company.city.cityName} ${company.area.areaName} ${company.address}</address>
                                                     <address>联系电话：${company.phone}</address>
                                                 </div>
                                             </div>

@@ -31,67 +31,43 @@ public class AddressServiceImpl implements IAddressService {
 
     public List<SelectPoJo> getAllProvince() throws Exception {
 
-        List<Province> provinceList = provinceMapper.selectAllProvince();
+        List<SelectPoJo> provinceList = provinceMapper.selectAllProvince();
 
-        List<SelectPoJo> selectPoJoList = AddressToSelectPoJo(provinceList);
+        provinceList.add(0, new SelectPoJo(0, "请选择省份"));
 
-        selectPoJoList.add(0, new SelectPoJo(0, "请选择省份"));
-
-        return selectPoJoList;
+        return provinceList;
     }
 
     public List<SelectPoJo> getCityByProvinceID(int provinceID) throws Exception {
 
-        List<City> cityList = cityMapper.selectByProvinceID(provinceID);
+        List<SelectPoJo> cityList = cityMapper.selectByProvinceID(provinceID);
 
-        List<SelectPoJo> selectPoJoList = AddressToSelectPoJo(cityList);
+        cityList.add(0, new SelectPoJo(0, "请选择城市"));
 
-        selectPoJoList.add(0, new SelectPoJo(0, "请选择城市"));
-
-        return selectPoJoList;
+        return cityList;
     }
 
     public List<SelectPoJo> getAllCity() throws Exception {
 
-        List<City> cityList = cityMapper.selectAllCity();
+        List<SelectPoJo> cityList = cityMapper.selectAllCity();
 
-        List<SelectPoJo> selectPoJoList = AddressToSelectPoJo(cityList);
+        cityList.add(0, new SelectPoJo(0, "请选择城市"));
 
-        selectPoJoList.add(0, new SelectPoJo(0, "请选择城市"));
-
-        return selectPoJoList;
+        return cityList;
 
     }
 
     public List<SelectPoJo> getAreaByCityID(int cityID) throws Exception {
 
-        List<Area> areaList = areaMapper.selectByCityID(cityID);
+        List<SelectPoJo> areaList = areaMapper.selectByCityID(cityID);
 
-        List<SelectPoJo> selectPoJoList = AddressToSelectPoJo(areaList);
+        areaList.add(0, new SelectPoJo(0, "地区"));
 
-        selectPoJoList.add(0, new SelectPoJo(0, "地区"));
-
-        return selectPoJoList;
+        return areaList;
     }
 
     public List<Province> getAllAddress() throws Exception {
         return provinceMapper.selectAllAddress();
     }
 
-    /**
-     * 地址转换为选项
-     *
-     * @param addressList
-     * @return
-     */
-    public static List<SelectPoJo> AddressToSelectPoJo(List<? extends Address> addressList) {
-        List<SelectPoJo> selectPoJoList = new ArrayList<SelectPoJo>();
-        for (Address address : addressList) {
-            SelectPoJo selectPOJO = new SelectPoJo();
-            selectPOJO.setId(address.getAddressID());
-            selectPOJO.setText(address.getAddressName());
-            selectPoJoList.add(selectPOJO);
-        }
-        return selectPoJoList;
-    }
 }

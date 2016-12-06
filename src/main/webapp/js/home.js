@@ -66,14 +66,11 @@ function AccountInfo() {
         location.locationInit();
         function ccSubmit() {
             var httpUtil = new HttpUtil();
-            var provinceName = location.getProvinceText();
-            var cityName = location.getCityText();
-            var areaName = location.getAreaText();
             httpUtil.postCRF('/company/create', {
                 companyName: form.find("[name='companyName']").val(),
-                provinceName: provinceName,
-                cityName: cityName,
-                areaName: areaName,
+                provinceID: location.getProvinceVal(),
+                cityID: location.getCityVal(),
+                areaID: location.getAreaVal(),
                 address: form.find("[name='address']").val(),
                 phone: form.find("[name='phone']").val()
             }, function (data) {
