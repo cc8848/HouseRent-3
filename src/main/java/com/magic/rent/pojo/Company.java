@@ -22,6 +22,8 @@ public class Company implements Serializable {
 
     private Date auditingTime;
 
+    private String auditingTimeString;
+
     private Date operateTime;
 
     private String operateTimeString;
@@ -83,6 +85,7 @@ public class Company implements Serializable {
 
     public void setAuditingTime(Date auditingTime) {
         this.auditingTime = auditingTime;
+        this.setAuditingTimeString(DateUtil.formatToYMD(this.auditingTime));
     }
 
     public Date getOperateTime() {
@@ -109,6 +112,14 @@ public class Company implements Serializable {
 
     public void setOperateTimeString(String operateTimeString) {
         this.operateTimeString = operateTimeString;
+    }
+
+    public String getAuditingTimeString() {
+        return auditingTimeString;
+    }
+
+    public void setAuditingTimeString(String auditingTimeString) {
+        this.auditingTimeString = auditingTimeString;
     }
 
     @Override

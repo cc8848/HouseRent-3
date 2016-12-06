@@ -2,11 +2,15 @@ package com.magic.rent.util;
 
 import com.magic.rent.exception.custom.LoginTimeOutException;
 import com.magic.rent.pojo.SysUsers;
+import org.springframework.security.web.DefaultRedirectStrategy;
+import org.springframework.security.web.RedirectStrategy;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.UnsupportedEncodingException;
+import java.net.URLEncoder;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -70,7 +74,7 @@ public class HttpUtil {
      * @return sysUsers
      */
     public static SysUsers getSessionUser(HttpServletRequest request) {
-
+        //当用户登录时，验证通过后就会将此值直接存入Session中，整个业务范围可以取值
         SysUsers sysUsers = (SysUsers) request.getSession().getAttribute("user");
 
         if (sysUsers == null) {
@@ -78,5 +82,13 @@ public class HttpUtil {
         } else {
             return sysUsers;
         }
+    }
+
+
+    public static void sendRedirect(String URL, String message, HttpServletRequest request, HttpServletResponse response) throws Exception {
+        String error = URLEncoder.encode("验证码输入错误!", "UTF-8");
+        String url = URL + "?error=" + error;
+        RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
+        redirectStrategy.sendRedirect(request, response, url);
     }
 }

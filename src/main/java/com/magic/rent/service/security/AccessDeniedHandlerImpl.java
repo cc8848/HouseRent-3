@@ -27,7 +27,7 @@ public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException, ServletException {
         if (isAjaxRequest(request)) {
             response.setContentType("application/json");
-            response.setHeader("contentType","text/html;charset=UTF-8");
+            response.setHeader("contentType", "text/html;charset=UTF-8");
             response.setCharacterEncoding("UTF-8");
             JsonResult jsonResult = JsonResult.error("对不起，您无权进行此操作！");
             String jsonObject = JSON.toJSONString(jsonResult);
@@ -40,6 +40,7 @@ public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
                 if (this.errorPage != null) {
                     request.setAttribute("SPRING_SECURITY_403_EXCEPTION", accessDeniedException);
                     response.setStatus(403);
+                    request.setAttribute("message", accessDeniedException.getMessage());
                     RequestDispatcher dispatcher = request.getRequestDispatcher(this.errorPage);
                     dispatcher.forward(request, response);
                 } else {

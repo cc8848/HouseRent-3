@@ -24,6 +24,7 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
+import java.net.URLEncoder;
 
 /**
  * 针对 JCaptcha 专门的过滤器(Filter)
@@ -51,6 +52,7 @@ public class JCaptchaFilter implements Filter {
     private String autoPassValue;
 
     private CaptchaService captchaService;
+
 
     private static Logger logger = LoggerFactory.getLogger(JCaptchaFilter.class);
 
@@ -180,13 +182,12 @@ public class JCaptchaFilter implements Filter {
     protected void redirectFailureUrl(final HttpServletRequest request, final HttpServletResponse response)
             throws IOException {
         logger.info("验证码验证失败:请求IP地址[{}]", HttpUtil.getIP(request));
-        JsonResult jsonResult = JsonResult.error("验证码输入错误!");
-        request.setAttribute("loginResult", jsonResult);
         try {
-            request.getRequestDispatcher(failureUrl).forward(request, response);
+            HttpUtil.sendRedirect(failureUrl, "验证码输入错误!", request, response);
         } catch (Exception e) {
-            logger.error("验证码验证失败后跳转", e);
+            logger.info(e.getMessage());
         }
+
     }
 
     /**

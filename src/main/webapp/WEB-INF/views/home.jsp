@@ -51,34 +51,35 @@
                         <%--账户信息--%>
                         <c:when test="${sysMenu.href=='account-info'}">
                             <div id="${sysMenu.href}" class="tab-pane active">
-                                <c:if test="${haveCompany}">
-                                    <div class="col-lg-12 panel panel-default">
-                                        <div class="page-header">
-                                            <h1 class="hidden-xs">${sessionScope.user.name}
-                                                <small class="pull-right">No.${sessionScope.user.userId}</small>
-                                            </h1>
-                                            <h3 class="visible-xs">${sessionScope.user.name}
-                                                <small class="pull-right">No.${sessionScope.user.userId}</small>
-                                            </h3>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="btn-group">
-                                                    <button type="button" class="btn btn-danger">修改密码</button>
-                                                    <button type="button" class="btn btn-warning">修改手机</button>
-                                                </div>
+                                <div class="col-lg-12 panel panel-default">
+                                    <div class="page-header">
+                                        <h1 class="hidden-xs">${sessionScope.user.name}
+                                            <small class="pull-right">No.${sessionScope.user.userId}</small>
+                                        </h1>
+                                        <h3 class="visible-xs">${sessionScope.user.name}
+                                            <small class="pull-right">No.${sessionScope.user.userId}</small>
+                                        </h3>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <div class="btn-group">
+                                                <button type="button" class="btn btn-danger">修改密码</button>
+                                                <button type="button" class="btn btn-warning">修改手机</button>
                                             </div>
                                         </div>
-                                        <div class="white-divider-md"></div>
-                                        <div class="row">
-                                            <div class="col-lg-12 ">
+                                    </div>
+                                    <div class="white-divider-md"></div>
+                                    <div class="row">
+                                        <div class="col-lg-12 ">
                                                 <span class="pull-right">
                                                 <address>上次登录时间：${sessionScope.user.lastLoginString}</address>
                                                 <address>上次登录IP：${sessionScope.user.loginIp}</address>
                                                 </span>
-                                            </div>
                                         </div>
                                     </div>
+                                </div>
+                                    <%--企业服务--%>
+                                <c:if test="${haveCompany}">
                                     <div class="col-lg-12 panel panel-default">
                                         <div class="page-header">
                                             <h1 class="hidden-xs">${company.companyName}
@@ -92,7 +93,14 @@
                                         <h3>企业服务</h3>
                                         <div class="white-divider-md"></div>
                                         服务状态：<span class="text-danger">${company.statusName}</span><br>
-                                        开通日期：<span class="text-danger">${company.operateTimeString}</span><br>
+                                        <c:choose>
+                                            <c:when test="${company.status==1}">
+                                                申请日期：<span class="text-danger">${company.auditingTimeString}</span><br>
+                                            </c:when>
+                                            <c:otherwise>
+                                                开通日期：<span class="text-danger">${company.operateTimeString}</span><br>
+                                            </c:otherwise>
+                                        </c:choose>
                                         </p>
                                         <div class="white-divider-md"></div>
                                         <div class="row">
@@ -102,6 +110,61 @@
                                                     <address>联系电话：${company.phone}</address>
                                                 </div>
                                             </div>
+                                        </div>
+                                    </div>
+                                </c:if>
+                                    <%--如果不是公司则显示开通信息--%>
+                                <c:if test="${!haveCompany}">
+                                    <div class="col-lg-12 panel panel-default">
+                                        <div class="page-header">
+                                            <h3>开通开发商企业服务</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <button id="CC-button" class="btn btn-primary" type="button">我要开通</button>
+                                        </div>
+                                    </div>
+                                </c:if>
+                                <c:if test="${haveStore}">
+                                    <div class="col-lg-12 panel panel-default">
+                                        <div class="page-header">
+                                            <h1 class="hidden-xs">${store.name}
+                                                <small class="pull-right">No.${store.id}</small>
+                                            </h1>
+                                            <h3 class="visible-xs">${store.name}
+                                                <small class="pull-right">No.${store.id}</small>
+                                            </h3>
+                                        </div>
+                                        <h3>机构门店</h3>
+                                        <div class="white-divider-md"></div>
+                                        服务状态：<span class="text-danger">${store.sysStatusName}</span><br>
+                                        <c:choose>
+                                            <c:when test="${store.sysStatus==1}">
+                                                申请日期：<span class="text-danger">${store.auditingTimeString}</span><br>
+                                            </c:when>
+                                            <c:otherwise>
+                                                开通日期：<span class="text-danger">${store.operateTimeString}</span><br>
+                                            </c:otherwise>
+                                        </c:choose>
+                                        </p>
+                                        <div class="white-divider-md"></div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="pull-right">
+                                                    <address>
+                                                        门店地址：${store.province.provinceName} ${store.city.cityName} ${store.area.areaName}</address>
+                                                    <address> ${store.address}</address>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </c:if>
+                                <c:if test="${!haveStore}">
+                                    <div class="col-lg-12 panel panel-default">
+                                        <div class="page-header">
+                                            <h3>开通机构门店服务</h3>
+                                        </div>
+                                        <div class="panel-body">
+                                            <button id="CS-button" class="btn btn-primary" type="button">我要开通</button>
                                         </div>
                                     </div>
                                 </c:if>
@@ -188,6 +251,7 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/soc/sco.message.js"></script>
 <script src="${pageContext.request.contextPath}/js/soc/sco.modal.js"></script>
+<script src="${pageContext.request.contextPath}/js/soc/sco.confirm.js"></script>
 <script src="${pageContext.request.contextPath}/js/select2.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
@@ -516,6 +580,89 @@
     </tr>
     {{/each}}
     </tbody>
+</script>
+<%--创建公司模板--%>
+<script id="CC-template" type="text/html">
+    <div class="page-header">
+        <h3>开通企业服务申请</h3>
+    </div>
+    <form role="form" id="CC-form">
+        <div class="form-group row">
+            <div class="col-lg-12">
+                <label class="control-label">公司名称</label>
+                <input type="text" class="form-control"
+                       placeholder="请输入公司全称" name="companyName">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-4">
+                <label class="control-label">省份</label>
+                <select class="select2 form-control" style="width: 100%"
+                        name="province"></select>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label">城市</label>
+                <select class="select2 form-control" style="width: 100%"
+                        name="city"></select>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label">区域</label>
+                <select class="select2 form-control" style="width: 100%"
+                        name="area"></select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-6">
+                <label class="control-label">具体地址</label>
+                <input type="text" class="form-control"
+                       placeholder="请输入详细地址" name="address">
+            </div>
+            <div class="col-lg-6">
+                <label class="control-label">联系电话</label>
+                <input type="text" class="form-control"
+                       placeholder="请输入座机电话(确保畅通)" name="phone">
+            </div>
+        </div>
+    </form>
+</script>
+<%--创建门店模板--%>
+<script id="CS-template" type="text/html">
+    <div class="page-header">
+        <h3>开通企业服务申请</h3>
+    </div>
+    <form role="form" id="CS-form">
+        <div class="form-group row">
+            <div class="col-lg-12">
+                <label class="control-label">公司名称</label>
+                <input type="text" class="form-control"
+                       placeholder="请输入门店名称" name="name">
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-4">
+                <label class="control-label">省份</label>
+                <select class="select2 form-control" style="width: 100%"
+                        name="province"></select>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label">城市</label>
+                <select class="select2 form-control" style="width: 100%"
+                        name="city"></select>
+            </div>
+            <div class="col-lg-4">
+                <label class="control-label">区域</label>
+                <select class="select2 form-control" style="width: 100%"
+                        name="area"></select>
+            </div>
+        </div>
+        <div class="form-group row">
+            <div class="col-lg-12">
+                <label class="control-label">具体地址</label>
+                <input type="text" class="form-control"
+                       placeholder="请输入详细地址" name="address">
+            </div>
+        </div>
+    </form>
 </script>
 </body>
 </html>

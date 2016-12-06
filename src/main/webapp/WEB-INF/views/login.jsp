@@ -19,7 +19,8 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
-
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/scojs.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco.message.css">
 <body>
 <div class="container-fluid">
     <div class="hidden-xs col-sm-1 col-md-2 col-lg-3"></div>
@@ -58,7 +59,7 @@
                             <div class="white-divider-xl"></div>
                             <!--用户名-->
                             <div class="form-group input-group input-group-sm">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></div>
                                 <input id="login-phone" name="username" type="text" class="form-control"
                                        placeholder="手机号">
                             </div>
@@ -93,14 +94,22 @@
                                 </button>
                             </div>
                             <div class="form-group">
-                                <div id="login-errorMessage" class="alert alert-danger alert-dismissible"
+                                <div id="login-errorMessage" class="alert alert-danger alert-dismissible hidden"
                                      role="alert">
                                     <button type="button" class="close" data-dismiss="alert">
                                         <span aria-hidden="true">&times;</span>
                                         <span class="sr-only">Close</span>
                                     </button>
                                     <span class="glyphicon glyphicon-remove-circle"></span>
-                                    <c:out value="${requestScope.loginResult.message}"/>
+                                    <%
+                                        String tmp = request.getParameter("error");
+                                        if (null!=tmp){
+                                            tmp = new String(tmp.getBytes("ISO-8859-1"), "UTF-8");
+                                        }else {
+                                            tmp="";
+                                        }
+                                    %>
+                                    <%=tmp%>
                                 </div>
                             </div>
                         </form><%--登录 end--%>
@@ -115,10 +124,19 @@
                             <div class="white-divider-xl"></div>
                             <!--用户名-->
                             <div class="form-group input-group input-group-sm">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></div>
                                 <input id="register-phone" name="username" type="text" class="form-control"
                                        placeholder="手机号">
                             </div>
+
+                            <div class="white-divider-xs"></div>
+                            <!--用户名-->
+                            <div class="form-group input-group input-group-sm">
+                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
+                                <input id="register-name" name="name" type="text" class="form-control"
+                                       placeholder="真实姓名">
+                            </div>
+
                             <div class="white-divider-xs"></div>
                             <!--密码-->
                             <div class="form-group input-group input-group-sm">
@@ -219,10 +237,12 @@
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script src="${pageContext.request.contextPath}/js/login.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/soc/sco.modal.js"></script>
+<script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
         var loginErrorMessage = $("#login-errorMessage");
-        if (${requestScope.loginResult.message!=null}) {
+        if (${param.error!=null}) {
             loginErrorMessage.removeClass("hidden");
         } else {
             loginErrorMessage.addClass("hidden");
@@ -232,18 +252,11 @@
 <script type="text/javascript">
     function getCaptcha() {
         $('#captcha-img').hide().attr(
-                'src',
-                '<c:url value="/jcaptcha.jpg"/>' + '?' + Math
-                        .floor(Math.random() * 100)).fadeIn();
+            'src',
+            '<c:url value="/jcaptcha.jpg"/>' + '?' + Math
+                .floor(Math.random() * 100)).fadeIn();
     }
 </script>
-<script src="${pageContext.request.contextPath}/js/soc/sco.message.js"></script>
-<script src="${pageContext.request.contextPath}/js/select2.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
-<script src="${pageContext.request.contextPath}/js/template.js"></script>
-<script src="${pageContext.request.contextPath}/js/common.js"></script>
-<script src="http://webapi.amap.com/maps?v=1.3&key=002273d8cd1c3363f0d26dae6629472b"></script>
-<script src="${pageContext.request.contextPath}/js/map.js"></script>
+
 </body>
 </html>

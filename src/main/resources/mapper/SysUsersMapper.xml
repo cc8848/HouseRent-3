@@ -47,7 +47,7 @@
       #{enabled,jdbcType=TINYINT}, #{accountNonExpired,jdbcType=TINYINT}, #{accountNonLocked,jdbcType=TINYINT}, 
       #{credentialsNonExpired,jdbcType=TINYINT})
   </insert>
-    <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysUsers">
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysUsers" keyColumn="USER_ID" keyProperty="userId" useGeneratedKeys="true">
         insert into SYS_USERS
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="username != null">

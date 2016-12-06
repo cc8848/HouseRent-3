@@ -3,7 +3,10 @@ package com.magic.rent.service.impl;
 import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.mapper.SysUsersMapper;
+import com.magic.rent.mapper.UsersRelateRolesMapper;
+import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
+import com.magic.rent.pojo.UsersRelateRoles;
 import com.magic.rent.service.BaseService;
 import com.magic.rent.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,6 +29,9 @@ public class UserServiceImpl extends BaseService implements IUserService {
 
     @Autowired
     private SysUsersMapper sysUsersMapper;
+
+    @Autowired
+    private UsersRelateRolesMapper usersRelateRolesMapper;
 
     @Autowired
     MessageDigestPasswordEncoder passwordEncoder;
@@ -99,14 +105,22 @@ public class UserServiceImpl extends BaseService implements IUserService {
         sysUsers.setEnabled(true);//账户可用:true-可用,false-不可用
         sysUsers.setAccountNonExpired(true);//账户未过期:true-未过期,false-过期
         sysUsers.setAccountNonLocked(true);//账户未锁定:true-未锁定,false-锁定
-        sysUsers.setCredentialsNonExpired(false);//证书未过期:true-未过期,false-过期
+        sysUsers.setCredentialsNonExpired(true);//密码凭证未过期:true-未过期,false-过期
         //对密码进行MD5加密
         String passwordMD5 = passwordEncoder.encodePassword(sysUsers.getPassword(), sysUsers.getUsername());
         sysUsers.setPassword(passwordMD5);
         //插入数据库并返回
         int isSuccess = sysUsersMapper.insertSelective(sysUsers);
         if (isSuccess <= 0) {
-            throw new BusinessException(messageSourceAccessor.getMessage("", "用户注册失败！"));
+            throw new BusinessException("创建用户信息失败！");
+        }
+
+        UsersRelateRoles usersRelateRoles = new UsersRelateRoles();
+        usersRelateRoles.setUserId(sysUsers.getUserId());
+        usersRelateRoles.setRoleId(SysRoles.MEMBER);
+        int isSetRole = usersRelateRolesMapper.insert(usersRelateRoles);
+        if (isSetRole <= 0) {
+            throw new BusinessException("创建用户角色失败！");
         }
         return true;
     }

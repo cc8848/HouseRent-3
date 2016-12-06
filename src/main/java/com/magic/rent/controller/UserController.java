@@ -4,6 +4,7 @@ import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
 import com.magic.rent.util.JsonResult;
+import com.magic.rent.util.MyStringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
@@ -48,8 +49,9 @@ public class UserController extends BaseController {
     @RequestMapping("/register")
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public JsonResult register(HttpServletRequest request) throws Exception {
-        String username = request.getParameter("username");
-        String password = request.getParameter("password");
+        String username = MyStringUtil.checkParameter(request.getParameter("username"), "手机号码不能为空！");
+        String password = MyStringUtil.checkParameter(request.getParameter("password"), "密码不能为空！");
+        String name = MyStringUtil.checkParameter(request.getParameter("name"), "真实姓名不能为空！");
         String captcha = request.getParameter("captcha");
 
         if (StringUtils.isEmpty(username))
@@ -62,10 +64,11 @@ public class UserController extends BaseController {
         SysUsers sysUsers = new SysUsers();
         sysUsers.setUsername(username);
         sysUsers.setPassword(password);
+        sysUsers.setName(name);
 
         //将用户信息写入数据库
         if (iUserService.register(sysUsers)) {
-            return JsonResult.success();
+            return JsonResult.success().setMessage("用户注册成功，请直接登录！");
         } else {
             return JsonResult.error("用户注册失败!");
         }

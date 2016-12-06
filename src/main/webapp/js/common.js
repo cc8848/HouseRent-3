@@ -148,7 +148,7 @@ function Location(province, city, area) {
     };
 
     this.getProvinceText = function () {
-        return province.select2('data').text;
+        return province.select2('data')[0].text;
     };
 
     this.cityInit = function () {
@@ -176,7 +176,7 @@ function Location(province, city, area) {
     };
 
     this.getCityText = function () {
-        return city.select2('data').text;
+        return city.select2('data')[0].text;
     };
 
     this.areaInit = function () {
@@ -190,7 +190,7 @@ function Location(province, city, area) {
     };
 
     this.getAreaText = function () {
-        return area.select('data').text;
+        return area.select2('data')[0].text;
     }
 }
 

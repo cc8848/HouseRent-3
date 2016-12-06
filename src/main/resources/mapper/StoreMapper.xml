@@ -1,0 +1,230 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.magic.rent.mapper.StoreMapper">
+    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Store">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="MANAGE_ID" property="manageId" jdbcType="INTEGER"/>
+        <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER"/>
+        <result column="CITY_ID" property="cityId" jdbcType="INTEGER"/>
+        <result column="AREA_ID" property="areaId" jdbcType="INTEGER"/>
+        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="SYS_STATUS" property="sysStatus" jdbcType="INTEGER"/>
+        <result column="AUDITING_TIME" property="auditingTime" jdbcType="TIMESTAMP"/>
+        <result column="OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    ID, NAME, MANAGE_ID, PROVINCE_ID, CITY_ID, AREA_ID, ADDRESS, SYS_STATUS,
+    AUDITING_TIME, OPERATE_TIME
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from STORE
+        where ID = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from STORE
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.magic.rent.pojo.Store" useGeneratedKeys="true" keyColumn="ID"
+            keyProperty="id">
+    insert into STORE (ID, NAME, MANAGE_ID, 
+       PROVINCE_ID, CITY_ID,
+      AREA_ID, ADDRESS, SYS_STATUS, 
+      AUDITING_TIME, OPERATE_TIME)
+    values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{manageId,jdbcType=INTEGER}, 
+      #{companyId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+      #{areaId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{sysStatus,jdbcType=INTEGER}, 
+      #{auditingTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP})
+  </insert>
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.Store" useGeneratedKeys="true" keyProperty="id"
+            keyColumn="ID">
+        insert into STORE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="name != null">
+                NAME,
+            </if>
+            <if test="manageId != null">
+                MANAGE_ID,
+            </if>
+            <if test="provinceId != null">
+                PROVINCE_ID,
+            </if>
+            <if test="cityId != null">
+                CITY_ID,
+            </if>
+            <if test="areaId != null">
+                AREA_ID,
+            </if>
+            <if test="address != null">
+                ADDRESS,
+            </if>
+            <if test="sysStatus != null">
+                SYS_STATUS,
+            </if>
+            <if test="auditingTime != null">
+                AUDITING_TIME,
+            </if>
+            <if test="operateTime != null">
+                OPERATE_TIME,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="name != null">
+                #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="manageId != null">
+                #{manageId,jdbcType=INTEGER},
+            </if>
+            <if test="companyId != null">
+                #{companyId,jdbcType=INTEGER},
+            </if>
+            <if test="provinceId != null">
+                #{provinceId,jdbcType=INTEGER},
+            </if>
+            <if test="cityId != null">
+                #{cityId,jdbcType=INTEGER},
+            </if>
+            <if test="areaId != null">
+                #{areaId,jdbcType=INTEGER},
+            </if>
+            <if test="address != null">
+                #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="sysStatus != null">
+                #{sysStatus,jdbcType=INTEGER},
+            </if>
+            <if test="auditingTime != null">
+                #{auditingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operateTime != null">
+                #{operateTime,jdbcType=TIMESTAMP},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Store">
+        update STORE
+        <set>
+            <if test="name != null">
+                NAME = #{name,jdbcType=VARCHAR},
+            </if>
+            <if test="manageId != null">
+                MANAGE_ID = #{manageId,jdbcType=INTEGER},
+            </if>
+            <if test="provinceId != null">
+                PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+            </if>
+            <if test="cityId != null">
+                CITY_ID = #{cityId,jdbcType=INTEGER},
+            </if>
+            <if test="areaId != null">
+                AREA_ID = #{areaId,jdbcType=INTEGER},
+            </if>
+            <if test="address != null">
+                ADDRESS = #{address,jdbcType=VARCHAR},
+            </if>
+            <if test="sysStatus != null">
+                SYS_STATUS = #{sysStatus,jdbcType=INTEGER},
+            </if>
+            <if test="auditingTime != null">
+                AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operateTime != null">
+                OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Store">
+    update STORE
+    set NAME = #{name,jdbcType=VARCHAR},
+      MANAGE_ID = #{manageId,jdbcType=INTEGER},
+      PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      ADDRESS = #{address,jdbcType=VARCHAR},
+      SYS_STATUS = #{sysStatus,jdbcType=INTEGER},
+      AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP},
+      OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+    <select id="selectBySelective" parameterType="com.magic.rent.pojo.Store" resultType="com.magic.rent.pojo.Store">
+        select
+        <include refid="Base_Column_List"/>
+        from STORE
+        <where>
+            <if test="name != null">
+                AND NAME = #{name,jdbcType=VARCHAR}
+            </if>
+            <if test="manageId != null">
+                AND MANAGE_ID = #{manageId,jdbcType=INTEGER}
+            </if>
+            <if test="provinceId != null">
+                AND PROVINCE_ID = #{provinceId,jdbcType=INTEGER}
+            </if>
+            <if test="cityId != null">
+                AND CITY_ID = #{cityId,jdbcType=INTEGER}
+            </if>
+            <if test="areaId != null">
+                AND AREA_ID = #{areaId,jdbcType=INTEGER}
+            </if>
+            <if test="address != null">
+                AND ADDRESS = #{address,jdbcType=VARCHAR}
+            </if>
+            <if test="sysStatus != null">
+                AND SYS_STATUS = #{sysStatus,jdbcType=INTEGER}
+            </if>
+            <if test="auditingTime != null">
+                AND AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="operateTime != null">
+                AND OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
+            </if>
+        </where>
+    </select>
+    <resultMap id="storeDetail" type="com.magic.rent.pojo.Store">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="NAME" property="name" jdbcType="VARCHAR"/>
+        <result column="MANAGE_ID" property="manageId" jdbcType="INTEGER"/>
+        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
+        <result column="SYS_STATUS" property="sysStatus" jdbcType="INTEGER"/>
+        <result column="AUDITING_TIME" property="auditingTime" jdbcType="TIMESTAMP"/>
+        <result column="OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP"/>
+        <association property="province" javaType="com.magic.rent.pojo.Province">
+            <result column="provinceName" property="provinceName" jdbcType="VARCHAR"/>
+        </association>
+        <association property="city" javaType="com.magic.rent.pojo.City">
+            <result column="cityName" property="cityName" jdbcType="VARCHAR"/>
+        </association>
+        <association property="area" javaType="com.magic.rent.pojo.Area">
+            <result column="areaName" property="areaName" jdbcType="VARCHAR"/>
+        </association>
+    </resultMap>
+    <select id="selectCurrentStoreInfo" parameterType="java.lang.Integer" resultMap="storeDetail">
+        SELECT
+          STORE.ID,
+          PROVINCE.provinceName,
+          CITY.cityName,
+          AREA.areaName,
+          STORE.ADDRESS,
+          STORE.NAME,
+          STORE.MANAGE_ID,
+          STORE.SYS_STATUS,
+          STORE.AUDITING_TIME,
+          STORE.OPERATE_TIME
+        FROM STORE
+        WHERE STORE.MANAGE_ID = #{manageID,jdbcType=INTEGER} AND STORE.AUDITING_TIME = (SELECT MAX(STORE.AUDITING_TIME)
+                                                                                        FROM
+                                                                                          STORE
+                                                                                        WHERE STORE.MANAGE_ID =
+                                                                                              #{manageID,jdbcType=INTEGER}
+                                                                                        GROUP BY STORE.MANAGE_ID)
+    </select>
+</mapper>

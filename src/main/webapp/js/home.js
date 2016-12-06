@@ -6,7 +6,7 @@
  */
 $(document).ready(function () {
     var homeTemplate = new HomeTemplate();
-
+    homeTemplate.accountInfoInit();
     $('.select2').select2();
     $("[href='#issue-house']").on('click', homeTemplate.issueHouseInit);
     $("[href='#create-project']").on('click', homeTemplate.createProjectInit);
@@ -15,9 +15,11 @@ $(document).ready(function () {
 
 });
 
-var modal = new Modal();
-
 function HomeTemplate() {
+
+    this.accountInfoInit = function () {
+        new AccountInfo().menuInit();
+    };
 
     this.issueHouseInit = function () {
         $('#issue-house').html(template('issue-house-template'));
@@ -36,6 +38,97 @@ function HomeTemplate() {
     this.houseManageInit = function () {
         new SelectUtil().selectInitAjax($("[name='HM-project']"), "/community/select", {companyID: $('#HM-companyID').text()});
         new HouseManage().menuInit();
+    }
+}
+
+function AccountInfo() {
+    var ccButton = $('#CC-button');
+    var csButton = $('#CS-button');
+
+    this.menuInit = function () {
+        if (null != ccButton) {
+            ccButton.on('click', this.createCompany)
+        }
+        if (null != csButton) {
+            csButton.on('click', this.createStore)
+        }
+    };
+
+    this.createCompany = function () {
+        var confirm = $.scojs_confirm({
+            target: '#CC-modal',
+            content: template('CC-template'),
+            action: ccSubmit
+        });
+        confirm.show();
+        var form = $("#CC-form");
+        var location = new Location(form.find("[name='province']"), form.find("[name='city']"), form.find("[name='area']"));
+        location.locationInit();
+        function ccSubmit() {
+            var httpUtil = new HttpUtil();
+            var provinceName = location.getProvinceText();
+            var cityName = location.getCityText();
+            var areaName = location.getAreaText();
+            httpUtil.postCRF('/company/create', {
+                companyName: form.find("[name='companyName']").val(),
+                provinceName: provinceName,
+                cityName: cityName,
+                areaName: areaName,
+                address: form.find("[name='address']").val(),
+                phone: form.find("[name='phone']").val()
+            }, function (data) {
+                if (data.status) {
+                    refresh();
+                } else {
+                    confirm.destroy();
+                    var modal = $.scojs_modal({
+                        keyboard: true,
+                        title: '错误提示',
+                        content: data.message,
+                        onClose: refresh
+                    });
+                    modal.show();
+                }
+            })
+        }
+    };
+
+    this.createStore = function () {
+        var confirm = $.scojs_confirm({
+            target: '#CS-modal',
+            content: template('CS-template'),
+            action: csSubmit
+        });
+        confirm.show();
+        var form = $("#CS-form");
+        var location = new Location(form.find("[name='province']"), form.find("[name='city']"), form.find("[name='area']"));
+        location.locationInit();
+        function csSubmit() {
+            var httpUtil = new HttpUtil();
+            var provinceName = location.getProvinceText();
+            var cityName = location.getCityText();
+            var areaName = location.getAreaText();
+            httpUtil.postCRF('/store/create', {
+                name: form.find("[name='name']").val(),
+                provinceID: provinceName,
+                cityID: cityName,
+                areaID: areaName,
+                address: form.find("[name='address']").val()
+            }, function (data) {
+                if (data.status) {
+                    refresh();
+                } else {
+                    confirm.destroy();
+                    var modal = $.scojs_modal({
+                        keyboard: true,
+                        title: '错误提示',
+                        content: data.message,
+                        onClose: refresh
+                    });
+                    modal.show();
+                }
+            })
+        }
     }
 }
 
@@ -80,9 +173,14 @@ function IssueHouse() {
             province: location.getProvinceVal(),
             city: location.getCityVal(),
             area: location.getAreaVal()
-        }, function (backData) {
-            modal.infoModal(backData.message);
-            $('#infoModal').on('hidden.bs.modal', refresh);
+        }, function (data) {
+            var modal = $.scojs_modal({
+                keyboard: true,
+                title: '操作提示',
+                content: data.message,
+                onClose: refresh
+            });
+            modal.show();
         });
     }
 }
@@ -229,7 +327,7 @@ function ProjectCreate() {
  */
 function ProjectManage() {
 
-    var _this=this;
+    var _this = this;
 
     var table = $('#PM-table');
 
@@ -291,7 +389,7 @@ function ProjectManage() {
         });
     };
 
-    this.cancel=function () {
+    this.cancel = function () {
         $("[name='PM-cancel']").each(function () {
             $(this).click(function () {
                 var id = $(this).attr('id');

@@ -25,6 +25,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.net.URLEncoder;
 import java.util.Date;
 import java.util.Locale;
 
@@ -75,21 +76,26 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
                 logger.error("登录异常:保存登录数据失败!", e);
             }
         } catch (Exception e) {
-            jsonResult = JsonResult.error("用户登录信息保存失败!");
             logger.error("登录异常:用户登录信息保存失败!", e);
-            request.setAttribute(AttrName, jsonResult);
+            String url = failURL + "?error=用户登录信息保存失败!" + e.getMessage();
+            redirectStrategy.sendRedirect(request, response, url);
+            try {
+                HttpUtil.sendRedirect(failURL, "用户登录信息保存失败!", request, response);
+            } catch (Exception e2) {
+                logger.error("登录异常:跳转页面失败！", e);
+            }
             return;
         }
         request.getSession().setAttribute("user", users);
-        httpReturn(request, response, true);
+        redirectStrategy.sendRedirect(request, response, successURL);
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         logger.info("登录失败:请求IP地址[{}];失败原因:{};", HttpUtil.getIP(request), exception.getMessage());
-        JsonResult jsonResult = JsonResult.error(exception.getMessage());
-        request.setAttribute(AttrName, jsonResult);
-        httpReturn(request, response, false);
+        String error = URLEncoder.encode(exception.getMessage(), "UTF-8");
+        String url = failURL + "?error=" + error;
+        redirectStrategy.sendRedirect(request, response, url);
     }
 
     public void afterPropertiesSet() throws Exception {
@@ -99,15 +105,5 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
             throw new ExceptionInInitializerError("失败后跳转的地址未设置!");
         if (StringUtils.isEmpty(AttrName))
             throw new ExceptionInInitializerError("Attr的Key值未设置!");
-    }
-
-    private void httpReturn(HttpServletRequest request, HttpServletResponse response, boolean success) throws IOException, ServletException {
-        if (success) {
-            logger.info("登录成功:直接转发至地址-[{}]", successURL);
-            redirectStrategy.sendRedirect(request, response, successURL);
-        } else {
-            logger.info("登录失败:直接转发至地址-[{}]", failURL);
-            request.getRequestDispatcher(this.failURL).forward(request, response);
-        }
     }
 }

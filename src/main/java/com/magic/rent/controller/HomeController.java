@@ -36,6 +36,9 @@ public class HomeController extends BaseController {
     @Autowired
     private ICompanyService iCompanyService;
 
+    @Autowired
+    private IStoreService iStoreService;
+
     private static Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping("/home")
@@ -55,12 +58,22 @@ public class HomeController extends BaseController {
         model.put("sysMenuList", sysMenuList);
         LogUtil.LogPOJO(logger, sysMenuList);
 
+        //查询公司信息
         Company company = iCompanyService.getCurrentCompanyInfo(sessionUsers.getUserId());
         if (null != company) {
             model.put("haveCompany", true);
             model.put("company", company);
         } else {
             model.put("haveCompany", false);
+        }
+
+        //查询门店信息
+        Store store = iStoreService.getCurrentStoreInfo(sessionUsers.getUserId());
+        if (null != store) {
+            model.put("haveStore", true);
+            model.put("store", store);
+        } else {
+            model.put("haveStore", false);
         }
 
         return new ModelAndView("home", model);

@@ -135,16 +135,14 @@ public class CompanyService implements ICompanyService {
     }
 
     public Company getCurrentCompanyInfo(int userID) throws Exception {
-        Company query = new Company();
-        query.setDeveloperId(userID);
         return companyMapper.selectCurrentCompanyInfo(userID);
     }
 
     public Company getDetail(int companyID) throws Exception {
-        Company company=companyMapper.selectByPrimaryKey(companyID);
-        if (null==company){
+        Company company = companyMapper.selectByPrimaryKey(companyID);
+        if (null == company) {
             throw new BusinessException("所查询的公司不存在！");
-        }else {
+        } else {
             return company;
         }
     }

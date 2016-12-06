@@ -35,16 +35,22 @@ function login() {
         $("#login-form").submit();
     }
 }
-$("#login-button").on('click',login);
+$("#login-button").on('click', login);
 
 function register() {
     var phone = $("#register-phone");
     var password = $("#register-password");
     var captcha = $("#register-captcha");
+    var name = $('#register-name');
     if (phone.val().trim().length == 0) {
         phone.addClass("alert alert-danger").attr("placeholder", "手机号不能为空!");
     } else {
         phone.removeClass("alert alert-danger").attr("placeholder", "手机号");
+    }
+    if (name.val().trim().length == 0) {
+        name.addClass("alert alert-danger").attr("placeholder", "真实姓名不能为空!");
+    } else {
+        phone.removeClass("alert alert-danger").attr("placeholder", "真实姓名");
     }
     if (password.val().trim().length == 0) {
         password.addClass("alert alert-danger").attr("placeholder", "密码不能为空!");
@@ -56,23 +62,20 @@ function register() {
     } else {
         captcha.removeClass("alert alert-danger").attr("placeholder", "验证码");
     }
-    if (!(phone.val().trim().length == 0) && !(password.val().trim().length == 0) && !(captcha.val().trim().length == 0)) {
+    if (!(name.val().trim().length == 0) && !(phone.val().trim().length == 0) && !(password.val().trim().length == 0) && !(captcha.val().trim().length == 0)) {
         $.getJSON("register", {
             username: phone.val(),
             password: password.val(),
-            captcha: captcha.val()
+            captcha: captcha.val(),
+            name: name.val()
         }, function (data) {
-            //判断请求是否成功
-            var errorMessage = $("#register-errorMessage");
-            //清空字段
-            var reset = errorMessage.children();
-            errorMessage.html(reset);
-            //请求失败
-            if (data.status == true) {
-                errorMessage.removeClass("alert-danger hidden").addClass("alert-success").append(data.message);
-            } else {
-                errorMessage.removeClass("alert-success hidden").addClass("alert-danger").append(data.message);
-            }
+            var modal = $.scojs_modal({
+                keyboard: true,
+                title: '操作提示',
+                content: data.message,
+                onClose: refresh
+            });
+            modal.show();
         });
     }
 }
