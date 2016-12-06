@@ -53,10 +53,10 @@ public class UserSellerController extends BaseController {
         userSeller.setEnabled(true);
         userSeller.setStatusId(UserStatus.AUDITING);//不论修改还是新增都需要进入审核状态
 
-        if (null != seller && storeID == seller.getSysStore().getId()) {
+        if (null != seller && storeID == seller.getStore().getId()) {
             //重复性验证：seller存在，且店铺ID和角色ID都相同的情况下，不可再次申请
             return JsonResult.error(messageSourceAccessor.getMessage("UserSellerService.AuditingCanNotRepeat", "不可重复申请！"));
-        } else if (null != seller && (storeID != seller.getSysStore().getId())) {
+        } else if (null != seller && (storeID != seller.getStore().getId())) {
             //修改：当Seller存在，且店铺id和岗位ID有一个不同，或全部不同的情况下，进行修改操作
 
             userSeller.setId(seller.getId());//修改时必须放入主键ID
@@ -159,7 +159,7 @@ public class UserSellerController extends BaseController {
 
         UserSeller userSeller = new UserSeller();
         userSeller.setStatusId(UserStatus.AUDITING);
-        userSeller.setStoreId(seller.getSysStore().getId());
+        userSeller.setStoreId(seller.getStore().getId());
 
         PageInfo<UserSeller> userSellerList = iUserSellerService.getAuditingList(userSeller, pageNum, pageSize);
 

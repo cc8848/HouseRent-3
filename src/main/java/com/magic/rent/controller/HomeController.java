@@ -50,9 +50,6 @@ public class HomeController extends BaseController {
             throw new LoginTimeOutException(messageSourceAccessor.getMessage("LoginService.LoginTimeOut", "用户尚未登录或登录失效，请重新登录！"));
         }
         Map<String, Object> model = new HashMap<String, Object>();
-        UserSeller userSeller = iUserSellerService.selectSellerInfoByUserID(sessionUsers.getUserId());
-        model.put("seller", userSeller);
-        LogUtil.LogPOJO(logger, userSeller);
 
         List<SysMenu> sysMenuList = iSysMenuService.selectSysMenusByUserID(sessionUsers.getUserId());
         model.put("sysMenuList", sysMenuList);

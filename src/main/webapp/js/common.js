@@ -194,4 +194,8 @@ function Location(province, city, area) {
     }
 }
 
-
+function Tools() {
+    this.content = function (message) {
+        return "<div class='col-xs-12'>" + message + "</div>";
+    }
+}

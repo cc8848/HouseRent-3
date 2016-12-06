@@ -105,9 +105,9 @@ function AccountInfo() {
         location.locationInit();
         function csSubmit() {
             var httpUtil = new HttpUtil();
-            var provinceName = location.getProvinceText();
-            var cityName = location.getCityText();
-            var areaName = location.getAreaText();
+            var provinceName = location.getProvinceVal();
+            var cityName = location.getCityVal();
+            var areaName = location.getAreaVal();
             httpUtil.postCRF('/store/create', {
                 name: form.find("[name='name']").val(),
                 provinceID: provinceName,

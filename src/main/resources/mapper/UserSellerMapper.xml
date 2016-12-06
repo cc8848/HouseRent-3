@@ -93,10 +93,10 @@
     <resultMap id="sellerDetails" type="com.magic.rent.pojo.UserSeller">
         <id column="ID" property="id" jdbcType="INTEGER"/>
         <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
-        <association property="sysStore" javaType="com.magic.rent.pojo.SysStore">
+        <association property="sysStore" javaType="com.magic.rent.pojo.Store">
             <id column="storeID" property="id" jdbcType="INTEGER"/>
-            <result column="storeName" property="storeName" jdbcType="VARCHAR"/>
-            <result column="storeNum" property="storeNumber" jdbcType="VARCHAR"/>
+            <result column="storeName" property="name" jdbcType="VARCHAR"/>
+            <result column="address" property="address" jdbcType="VARCHAR"/>
             <association property="company" javaType="com.magic.rent.pojo.Company">
                 <id column="companyID" property="id"/>
                 <result column="companyName" property="companyName" jdbcType="VARCHAR"/>
@@ -119,8 +119,8 @@
     <select id="selectByUserID" parameterType="java.lang.Integer" resultMap="sellerDetails">
        SELECT
           USER_SELLER.ID           ID,
-          SYS_STORE.ID             storeID,
-          SYS_STORE.STORE_NAME     storeName,
+          STORE.ID             storeID,
+          STORE.ADDRESS     address,
           PROVINCE.provinceName    provinceName,
           CITY.cityName            cityName,
           AREA.areaName            areaName,

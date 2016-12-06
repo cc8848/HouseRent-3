@@ -12,7 +12,7 @@ public class UserSeller implements Serializable {
     private SysUsers sysUsers;
 
     private Integer storeId;//归属门店、机构
-    private SysStore sysStore;
+    private Store store;
 
     private boolean enabled;
 
@@ -60,13 +60,12 @@ public class UserSeller implements Serializable {
         this.sysUsers = sysUsers;
     }
 
-
-    public SysStore getSysStore() {
-        return sysStore;
+    public Store getStore() {
+        return store;
     }
 
-    public void setSysStore(SysStore sysStore) {
-        this.sysStore = sysStore;
+    public void setStore(Store store) {
+        this.store = store;
     }
 
     public Integer getStatusId() {
@@ -92,7 +91,7 @@ public class UserSeller implements Serializable {
                 ", userId=" + userId +
                 ", sysUsers=" + sysUsers +
                 ", storeId=" + storeId +
-                ", sysStore=" + sysStore +
+                ", store=" + store +
                 ", enabled=" + enabled +
                 ", statusId=" + statusId +
                 ", userStatus=" + userStatus +

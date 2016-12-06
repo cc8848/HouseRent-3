@@ -34,7 +34,7 @@
       AREA_ID, ADDRESS, SYS_STATUS, 
       AUDITING_TIME, OPERATE_TIME)
     values (#{id,jdbcType=INTEGER}, #{name,jdbcType=VARCHAR}, #{manageId,jdbcType=INTEGER}, 
-      #{companyId,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER}, 
+       #{provinceId,jdbcType=INTEGER}, #{cityId,jdbcType=INTEGER},
       #{areaId,jdbcType=INTEGER}, #{address,jdbcType=VARCHAR}, #{sysStatus,jdbcType=INTEGER}, 
       #{auditingTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP})
   </insert>
@@ -82,9 +82,6 @@
             </if>
             <if test="manageId != null">
                 #{manageId,jdbcType=INTEGER},
-            </if>
-            <if test="companyId != null">
-                #{companyId,jdbcType=INTEGER},
             </if>
             <if test="provinceId != null">
                 #{provinceId,jdbcType=INTEGER},
@@ -155,7 +152,7 @@
       OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectBySelective" parameterType="com.magic.rent.pojo.Store" resultType="com.magic.rent.pojo.Store">
+    <select id="selectBySelective" parameterType="com.magic.rent.pojo.Store" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from STORE
@@ -208,23 +205,26 @@
         </association>
     </resultMap>
     <select id="selectCurrentStoreInfo" parameterType="java.lang.Integer" resultMap="storeDetail">
-        SELECT
-          STORE.ID,
-          PROVINCE.provinceName,
-          CITY.cityName,
-          AREA.areaName,
-          STORE.ADDRESS,
-          STORE.NAME,
-          STORE.MANAGE_ID,
-          STORE.SYS_STATUS,
-          STORE.AUDITING_TIME,
-          STORE.OPERATE_TIME
-        FROM STORE
-        WHERE STORE.MANAGE_ID = #{manageID,jdbcType=INTEGER} AND STORE.AUDITING_TIME = (SELECT MAX(STORE.AUDITING_TIME)
-                                                                                        FROM
-                                                                                          STORE
-                                                                                        WHERE STORE.MANAGE_ID =
-                                                                                              #{manageID,jdbcType=INTEGER}
-                                                                                        GROUP BY STORE.MANAGE_ID)
+       SELECT
+  STORE.ID,
+  PROVINCE.provinceName,
+  CITY.cityName,
+  AREA.areaName,
+  STORE.ADDRESS,
+  STORE.NAME,
+  STORE.MANAGE_ID,
+  STORE.SYS_STATUS,
+  STORE.AUDITING_TIME,
+  STORE.OPERATE_TIME
+FROM STORE
+  JOIN PROVINCE ON STORE.PROVINCE_ID = PROVINCE.provinceID
+  JOIN CITY ON STORE.CITY_ID = CITY.cityID
+  JOIN AREA ON STORE.AREA_ID = AREA.areaID
+WHERE STORE.MANAGE_ID = #{manageID,jdbcType=INTEGER} AND STORE.AUDITING_TIME = (SELECT MAX(STORE.AUDITING_TIME)
+                                                                                FROM
+                                                                                  STORE
+                                                                                WHERE STORE.MANAGE_ID =
+                                                                                      #{manageID,jdbcType=INTEGER}
+                                                                                GROUP BY STORE.MANAGE_ID)
     </select>
 </mapper>

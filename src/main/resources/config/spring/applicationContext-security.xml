@@ -24,6 +24,9 @@
 
     <!--权限配置及自定义登录界面 start-->
     <sec:http auto-config="true" access-decision-manager-ref="accessDecisionManager">
+        <sec:headers>
+            <sec:frame-options policy="SAMEORIGIN"/>
+        </sec:headers>
         <sec:form-login
                 login-page="/user/login"
                 login-processing-url="/login.do"

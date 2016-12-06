@@ -36,14 +36,17 @@ public class StoreServiceImpl implements IStoreService {
         query.setManageId(userID);
         //判断是否有在途或已经成功的申请
         List<Store> storeList = storeMapper.selectBySelective(query);
-        for (Store result : storeList) {
-            switch (result.getSysStatus()) {
-                case SysStatus.AUDITING:
-                    throw new BusinessException("当前账户已经有在途申请！");
-                case SysStatus.SUCCESS:
-                    throw new BusinessException("当前账户已经开通门店！");
+        if (null != storeList && storeList.size() > 0) {
+            for (Store result : storeList) {
+                switch (result.getSysStatus()) {
+                    case SysStatus.AUDITING:
+                        throw new BusinessException("当前账户已经有在途申请！");
+                    case SysStatus.SUCCESS:
+                        throw new BusinessException("当前账户已经开通门店！");
+                }
             }
         }
+
         //强制修改记录为申请状态并记录申请时间
         store.setAuditingTime(new Date());
         store.setSysStatus(SysStatus.AUDITING);

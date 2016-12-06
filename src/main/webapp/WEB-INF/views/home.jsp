@@ -628,12 +628,12 @@
 <%--创建门店模板--%>
 <script id="CS-template" type="text/html">
     <div class="page-header">
-        <h3>开通企业服务申请</h3>
+        <h3>开通门店申请</h3>
     </div>
     <form role="form" id="CS-form">
         <div class="form-group row">
             <div class="col-lg-12">
-                <label class="control-label">公司名称</label>
+                <label class="control-label">门店名称</label>
                 <input type="text" class="form-control"
                        placeholder="请输入门店名称" name="name">
             </div>

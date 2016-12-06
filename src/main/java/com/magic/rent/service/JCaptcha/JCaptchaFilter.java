@@ -7,15 +7,12 @@ package com.magic.rent.service.JCaptcha;
  */
 
 import com.magic.rent.util.HttpUtil;
-import com.magic.rent.util.JsonResult;
 import com.octo.captcha.service.CaptchaService;
 import com.octo.captcha.service.CaptchaServiceException;
 import org.apache.commons.lang3.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.context.ApplicationContext;
-import org.springframework.security.web.DefaultRedirectStrategy;
-import org.springframework.security.web.RedirectStrategy;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
 import javax.imageio.ImageIO;
@@ -24,7 +21,6 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
-import java.net.URLEncoder;
 
 /**
  * 针对 JCaptcha 专门的过滤器(Filter)
