@@ -37,6 +37,18 @@
         <div id="left-side" class="col-lg-3">
             <div class="panel panel-default">
                 <ul class="list-group">
+                    <li class="list-group-item">
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <img src="${pageContext.request.contextPath}/images/index/wifiOpen.png" class="img-circle img-thumbnail img-responsive">
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12 text-center">
+                                <h4>${sessionScope.user.name}</h4>
+                            </div>
+                        </div>
+                    </li>
                     <c:forEach items="${sysMenuList}" var="sysMenu">
                         <a href="#${sysMenu.href}" class="list-group-item" data-toggle="tab">${sysMenu.menuDesc}</a>
                     </c:forEach>
