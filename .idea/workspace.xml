@@ -8,8 +8,6 @@
   <component name="ChangeListManager">
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rent.log" afterPath="$PROJECT_DIR$/logs/rent.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home.jsp" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1461,14 +1459,7 @@
       <workItem from="1481003271992" duration="266000" />
       <workItem from="1481004921139" duration="13389000" />
       <workItem from="1481032040898" duration="9938000" />
-      <workItem from="1481045193812" duration="2493000" />
-    </task>
-    <task id="LOCAL-00017" summary="2016年11月05日09:49:06">
-      <created>1478310550190</created>
-      <option name="number" value="00017" />
-      <option name="presentableId" value="LOCAL-00017" />
-      <option name="project" value="LOCAL" />
-      <updated>1478310550190</updated>
+      <workItem from="1481045193812" duration="3105000" />
     </task>
     <task id="LOCAL-00018" summary="2016年11月05日09:49:06">
       <created>1478310569136</created>
@@ -1806,7 +1797,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481046713438</updated>
     </task>
-    <option name="localTasksCounter" value="66" />
+    <task id="LOCAL-00066" summary="2016年12月07日02:10:58">
+      <created>1481047866206</created>
+      <option name="number" value="00066" />
+      <option name="presentableId" value="LOCAL-00066" />
+      <option name="project" value="LOCAL" />
+      <updated>1481047866206</updated>
+    </task>
+    <option name="localTasksCounter" value="67" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1842,7 +1840,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="772631000" />
+    <option name="totallyTimeSpent" value="773243000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1962,7 +1960,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="2016年11月23日18:38:52" />
     <MESSAGE value="2016年11月23日20:29:00" />
     <MESSAGE value="2016年11月24日08:38:41" />
     <MESSAGE value="2016年11月24日10:35:36" />
@@ -1987,7 +1984,8 @@
     <MESSAGE value="2016年12月06日20:37:45" />
     <MESSAGE value="2016年12月06日20:38:16" />
     <MESSAGE value="2016年12月07日01:51:47" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年12月07日01:51:47" />
+    <MESSAGE value="2016年12月07日02:10:58" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年12月07日02:10:58" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
