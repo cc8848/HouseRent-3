@@ -63,7 +63,7 @@ function register() {
         captcha.removeClass("alert alert-danger").attr("placeholder", "验证码");
     }
     if (!(name.val().trim().length == 0) && !(phone.val().trim().length == 0) && !(password.val().trim().length == 0) && !(captcha.val().trim().length == 0)) {
-        $.getJSON("register", {
+        new HttpUtil().postCRF('/user/register', {
             username: phone.val(),
             password: password.val(),
             captcha: captcha.val(),
