@@ -1,16 +1,16 @@
 package com.magic.rent.controller;
 
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.controller.base.BaseController;
-import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.pojo.Store;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IStoreService;
 import com.magic.rent.util.HttpUtil;
 import com.magic.rent.util.JsonResult;
 import com.magic.rent.util.MyStringUtil;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -91,6 +91,47 @@ public class StoreController extends BaseController {
         } else {
             return JsonResult.error("拒绝申请失败！");
         }
+    }
+
+    @ResponseBody
+    @RequestMapping("/select")
+    public JsonResult select(HttpServletRequest request) throws Exception {
+
+        int pageSize = 10;
+        int pageNum = 0;
+
+        Store query = new Store();
+        if (StringUtils.isNotEmpty(request.getParameter("ID"))) {
+            query.setId(Integer.parseInt(request.getParameter("ID")));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("companyName"))) {
+            query.setName(request.getParameter("companyName"));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("address"))) {
+            query.setAddress(request.getParameter("address"));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("manage"))) {
+            query.setManageId(Integer.parseInt(request.getParameter("manage")));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("sysStatus"))) {
+            query.setSysStatus(Integer.parseInt(request.getParameter("sysStatus")));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("provinceID"))) {
+            query.setProvinceId(Integer.parseInt(request.getParameter("provinceID")));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("cityID"))) {
+            query.setCityId(Integer.parseInt(request.getParameter("cityID")));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("areaID"))) {
+            query.setAreaId(Integer.parseInt(request.getParameter("areaID")));
+        }
+        if (StringUtils.isNotEmpty(request.getParameter("pageNum"))) {
+            pageNum = Integer.parseInt(request.getParameter("pageNum"));
+        }
+
+        PageInfo<Store> storePageInfo = iStoreService.getStores(query, pageNum, pageSize);
+
+        return JsonResult.success(storePageInfo);
     }
 
 }

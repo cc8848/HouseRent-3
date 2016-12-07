@@ -94,7 +94,7 @@
 
                             </div>
                             <div class="col-lg-2">
-                                <button class="btn btn-primary btn-group-justified" type="button">查&nbsp;&nbsp;询</button>
+                                <button id="CA-query" class="btn btn-primary btn-group-justified" type="button">查&nbsp;&nbsp;询</button>
                             </div>
                         </div>
                         <div class="white-divider-md"></div>
@@ -114,7 +114,52 @@
                         </div>
                     </div>
                 </div>
-                <div id="store" class="tab-pane"></div>
+                <div id="store" class="tab-pane">
+                    <div class="panel panel-default col-lg-12">
+                        <div class="page-header">
+                            <h2>门店管理</h2>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-2">
+                                <select class="select2 form-control" style="width: 100%"
+                                        name="province"></select>
+                            </div>
+                            <div class="col-lg-2">
+                                <select class="select2 form-control" style="width: 100%"
+                                        name="city"></select>
+                            </div>
+                            <div class="col-lg-2">
+                                <select class="select2 form-control" style="width: 100%"
+                                        name="area"></select>
+                            </div>
+                            <div class="col-lg-2">
+                                <select class="select2 form-control" style="width: 100%"
+                                        name="status"></select>
+                            </div>
+                            <div class="col-lg-2">
+
+                            </div>
+                            <div class="col-lg-2">
+                                <button id="SA-query" class="btn btn-primary btn-group-justified" type="button">查&nbsp;&nbsp;询</button>
+                            </div>
+                        </div>
+                        <div class="white-divider-md"></div>
+                        <div class="row">
+                            <div class="table-responsive col-lg-12">
+                                <table class="table" id="SA-table">
+
+                                </table>
+                            </div>
+                        </div>
+                        <hr>
+                        <div class="white-divider-md"></div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul id="SA-page"></ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
 
         </div>
@@ -160,6 +205,43 @@
                 <button class="btn btn-danger" type="button" name="CA-refuse">拒绝</button>
                 {{else}}
                 <button class="btn btn-primary" type="button" name="CA-detail">详情</button>
+                {{/if}}
+            </div>
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
+</script>
+<script id="SA-template" type="text/html">
+    <thead>
+    <tr>
+        <th></th>
+        <th>#</th>
+        <th>门店名称</th>
+        <th>门店地址</th>
+        <th>负责人ID</th>
+        <th>申请状态</th>
+        <th>申请日期</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{each data.list as store index}}
+    <tr id="{{index}}">
+        <td></td>
+        <td>{{store.id}}</td>
+        <td>{{store.name}}</td>
+        <td>{{store.province.provinceName}}{{store.city.cityName}}{{store.area.areaName}}{{store.address}}</td>
+        <td>{{store.manageId}}</td>
+        <td>{{store.sysStatusName}}</td>
+        <td>{{store.auditingTimeString}}</td>
+        <td>
+            <div class="btn-group-xs">
+                {{if store.sysStatus==1}}
+                <button class="btn btn-success" type="button" name="SA-pass-{{store.id}}">通过</button>
+                <button class="btn btn-danger" type="button" name="SA-refuse-{{store.id}}">拒绝</button>
+                {{else}}
+                <button class="btn btn-primary" type="button" name="SA-detail-{{store.id}}">详情</button>
                 {{/if}}
             </div>
         </td>

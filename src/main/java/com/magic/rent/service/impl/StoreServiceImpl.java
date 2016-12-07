@@ -1,12 +1,11 @@
 package com.magic.rent.service.impl;
 
+import com.github.pagehelper.PageHelper;
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.mapper.StoreMapper;
 import com.magic.rent.mapper.UsersRelateRolesMapper;
-import com.magic.rent.pojo.Store;
-import com.magic.rent.pojo.SysRoles;
-import com.magic.rent.pojo.SysStatus;
-import com.magic.rent.pojo.UsersRelateRoles;
+import com.magic.rent.pojo.*;
 import com.magic.rent.service.IStoreService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -104,5 +103,12 @@ public class StoreServiceImpl implements IStoreService {
 
     public Store getCurrentStoreInfo(int userID) throws Exception {
         return storeMapper.selectCurrentStoreInfo(userID);
+    }
+
+
+    public PageInfo<Store> getStores(Store query, int pageNum, int pageSize) throws Exception {
+        PageHelper.startPage(pageNum, pageSize);
+        List<Store> storeList = storeMapper.selectBySelective(query);
+        return new PageInfo<Store>(storeList);
     }
 }

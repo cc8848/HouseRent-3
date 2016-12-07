@@ -1,5 +1,6 @@
 package com.magic.rent.service;
 
+import com.github.pagehelper.PageInfo;
 import com.magic.rent.pojo.Store;
 
 /**
@@ -54,5 +55,17 @@ public interface IStoreService {
      * @throws Exception
      */
     Store getCurrentStoreInfo(int userID) throws Exception;
+
+
+    /**
+     * 根据条件查询门店信息
+     *
+     * @param query
+     * @param pageNum
+     * @param pageSize
+     * @return
+     * @throws Exception
+     */
+    PageInfo<Store> getStores(Store query, int pageNum, int pageSize) throws Exception;
 }
 

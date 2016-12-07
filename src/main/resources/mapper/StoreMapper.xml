@@ -14,7 +14,7 @@
         <result column="OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP"/>
     </resultMap>
     <sql id="Base_Column_List">
-    ID, NAME, MANAGE_ID, PROVINCE_ID, CITY_ID, AREA_ID, ADDRESS, SYS_STATUS,
+    STORE.ID, NAME, MANAGE_ID, PROVINCE_ID, CITY_ID, AREA_ID, ADDRESS, SYS_STATUS,
     AUDITING_TIME, OPERATE_TIME
   </sql>
     <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
@@ -152,10 +152,16 @@
       OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectBySelective" parameterType="com.magic.rent.pojo.Store" resultMap="BaseResultMap">
+    <select id="selectBySelective" parameterType="com.magic.rent.pojo.Store" resultMap="storeDetail">
         select
-        <include refid="Base_Column_List"/>
+        <include refid="Base_Column_List"/>,
+        PROVINCE.provinceName,
+        CITY.cityName,
+        AREA.areaName
         from STORE
+        JOIN PROVINCE ON STORE.PROVINCE_ID = PROVINCE.provinceID
+        JOIN CITY ON STORE.CITY_ID = CITY.cityID
+        JOIN AREA ON STORE.AREA_ID = AREA.areaID
         <where>
             <if test="name != null">
                 AND NAME = #{name,jdbcType=VARCHAR}
@@ -186,14 +192,7 @@
             </if>
         </where>
     </select>
-    <resultMap id="storeDetail" type="com.magic.rent.pojo.Store">
-        <id column="ID" property="id" jdbcType="INTEGER"/>
-        <result column="NAME" property="name" jdbcType="VARCHAR"/>
-        <result column="MANAGE_ID" property="manageId" jdbcType="INTEGER"/>
-        <result column="ADDRESS" property="address" jdbcType="VARCHAR"/>
-        <result column="SYS_STATUS" property="sysStatus" jdbcType="INTEGER"/>
-        <result column="AUDITING_TIME" property="auditingTime" jdbcType="TIMESTAMP"/>
-        <result column="OPERATE_TIME" property="operateTime" jdbcType="TIMESTAMP"/>
+    <resultMap id="storeDetail" type="com.magic.rent.pojo.Store" extends="BaseResultMap">
         <association property="province" javaType="com.magic.rent.pojo.Province">
             <result column="provinceName" property="provinceName" jdbcType="VARCHAR"/>
         </association>
@@ -205,26 +204,20 @@
         </association>
     </resultMap>
     <select id="selectCurrentStoreInfo" parameterType="java.lang.Integer" resultMap="storeDetail">
-       SELECT
-  STORE.ID,
-  PROVINCE.provinceName,
-  CITY.cityName,
-  AREA.areaName,
-  STORE.ADDRESS,
-  STORE.NAME,
-  STORE.MANAGE_ID,
-  STORE.SYS_STATUS,
-  STORE.AUDITING_TIME,
-  STORE.OPERATE_TIME
-FROM STORE
-  JOIN PROVINCE ON STORE.PROVINCE_ID = PROVINCE.provinceID
-  JOIN CITY ON STORE.CITY_ID = CITY.cityID
-  JOIN AREA ON STORE.AREA_ID = AREA.areaID
-WHERE STORE.MANAGE_ID = #{manageID,jdbcType=INTEGER} AND STORE.AUDITING_TIME = (SELECT MAX(STORE.AUDITING_TIME)
-                                                                                FROM
-                                                                                  STORE
-                                                                                WHERE STORE.MANAGE_ID =
-                                                                                      #{manageID,jdbcType=INTEGER}
-                                                                                GROUP BY STORE.MANAGE_ID)
+        SELECT
+        <include refid="Base_Column_List"/>,
+        PROVINCE.provinceName,
+        CITY.cityName,
+        AREA.areaName
+        FROM STORE
+        JOIN PROVINCE ON STORE.PROVINCE_ID = PROVINCE.provinceID
+        JOIN CITY ON STORE.CITY_ID = CITY.cityID
+        JOIN AREA ON STORE.AREA_ID = AREA.areaID
+        WHERE STORE.MANAGE_ID = #{manageID,jdbcType=INTEGER} AND STORE.AUDITING_TIME = (SELECT MAX(STORE.AUDITING_TIME)
+        FROM
+        STORE
+        WHERE STORE.MANAGE_ID =
+        #{manageID,jdbcType=INTEGER}
+        GROUP BY STORE.MANAGE_ID)
     </select>
 </mapper>
