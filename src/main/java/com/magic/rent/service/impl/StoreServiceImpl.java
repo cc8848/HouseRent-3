@@ -111,4 +111,11 @@ public class StoreServiceImpl implements IStoreService {
         List<Store> storeList = storeMapper.selectBySelective(query);
         return new PageInfo<Store>(storeList);
     }
+
+    public List<SelectPoJo> getStoresByArea(int areaID) throws Exception {
+
+        List<SelectPoJo> selectPoJos = storeMapper.selectByArea(areaID);
+
+        return selectPoJos;
+    }
 }

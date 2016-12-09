@@ -236,7 +236,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/select2.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/template.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/search.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/views/search.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 <%--模板--%>
 <script id="recommendList" type="text/html">

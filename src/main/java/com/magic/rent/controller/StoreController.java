@@ -4,9 +4,11 @@ import com.github.pagehelper.PageInfo;
 import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.pojo.Store;
 import com.magic.rent.pojo.SysUsers;
+import com.magic.rent.pojo.UserSeller;
 import com.magic.rent.service.IStoreService;
+import com.magic.rent.service.IUserSellerService;
 import com.magic.rent.util.HttpUtil;
-import com.magic.rent.util.JsonResult;
+import com.magic.rent.pojo.JsonResult;
 import com.magic.rent.util.MyStringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -25,8 +27,12 @@ import javax.servlet.http.HttpServletRequest;
 @Controller
 @RequestMapping("/store")
 public class StoreController extends BaseController {
+
     @Autowired
     private IStoreService iStoreService;
+
+    @Autowired
+    private IUserSellerService iUserSellerService;
 
     @ResponseBody
     @RequestMapping("/create")
@@ -134,4 +140,40 @@ public class StoreController extends BaseController {
         return JsonResult.success(storePageInfo);
     }
 
+
+    @ResponseBody
+    @RequestMapping("/area")
+    public JsonResult selectByArea(HttpServletRequest request) throws Exception {
+        Integer areaID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("areaID"), "地区ID不能为空！"));
+        return JsonResult.success(iStoreService.getStoresByArea(areaID));
+    }
+
+
+    @ResponseBody
+    @RequestMapping("/sellers")
+    public JsonResult selectSellers(HttpServletRequest request) throws Exception {
+
+        int pageNum = 0;
+        int pageSize = 10;
+        if (StringUtils.isNotEmpty(request.getParameter("pageNum"))) {
+            pageNum = Integer.parseInt(request.getParameter("pageNum"));
+        }
+
+        UserSeller userSeller = new UserSeller();
+
+        //必选查询条件
+        Integer storeID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("storeID"), "门店ID不能为空！"));
+        userSeller.setStoreId(storeID);
+
+        //可选查询条件
+        if (StringUtils.isNotEmpty(request.getParameter("status")) && 0 != Integer.parseInt(request.getParameter("status"))) {
+            userSeller.setSysStatus(Integer.parseInt(request.getParameter("status")));
+        }
+
+        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+
+        PageInfo<UserSeller> userSellerPageInfo = iUserSellerService.getByStore(userSeller, sysUsers.getUserId(), pageNum, pageSize);
+
+        return JsonResult.success(userSellerPageInfo);
+    }
 }

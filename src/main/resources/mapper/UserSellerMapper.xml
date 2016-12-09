@@ -1,17 +1,18 @@
-<?xml version="1.0" encoding="UTF-8" ?>
-<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.magic.rent.mapper.UserSellerMapper">
     <resultMap id="BaseResultMap" type="com.magic.rent.pojo.UserSeller">
-        <id column="ID" property="id" jdbcType="INTEGER"/>
-        <result column="USER_ID" property="userId" jdbcType="INTEGER"/>
-        <result column="STORE_ID" property="storeId" jdbcType="INTEGER"/>
-        <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
-        <result column="STATUS_ID" property="statusId" jdbcType="INTEGER"/>
+        <id column="ID" jdbcType="INTEGER" property="id"/>
+        <result column="USER_ID" jdbcType="INTEGER" property="userId"/>
+        <result column="STORE_ID" jdbcType="INTEGER" property="storeId"/>
+        <result column="SYS_STATUS" jdbcType="INTEGER" property="sysStatus"/>
+        <result column="AUDITING_TIME" jdbcType="TIMESTAMP" property="auditingTime"/>
+        <result column="OPERATE_TIME" jdbcType="TIMESTAMP" property="operateTime"/>
     </resultMap>
     <sql id="Base_Column_List">
-    ID, USER_ID, STORE_ID, ENABLED,STATUS_ID
+    USER_SELLER.ID, USER_SELLER.USER_ID, STORE_ID, SYS_STATUS, AUDITING_TIME, OPERATE_TIME
   </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
         <include refid="Base_Column_List"/>
         from USER_SELLER
@@ -22,10 +23,12 @@
     where ID = #{id,jdbcType=INTEGER}
   </delete>
     <insert id="insert" parameterType="com.magic.rent.pojo.UserSeller">
-    insert into USER_SELLER (ID, USER_ID,
-      STORE_ID, ENABLED,STATUS_ID)
-    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER},
-      #{storeId,jdbcType=INTEGER}, #{enabled,jdbcType=TINYINT},#{statusId,jdbcType=INTEGER})
+    insert into USER_SELLER (ID, USER_ID, STORE_ID, 
+      SYS_STATUS, AUDITING_TIME, OPERATE_TIME
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{storeId,jdbcType=INTEGER}, 
+      #{sysStatus,jdbcType=INTEGER}, #{auditingTime,jdbcType=TIMESTAMP}, #{operateTime,jdbcType=TIMESTAMP}
+      )
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.UserSeller">
         insert into USER_SELLER
@@ -39,11 +42,14 @@
             <if test="storeId != null">
                 STORE_ID,
             </if>
-            <if test="enabled != null">
-                ENABLED,
+            <if test="sysStatus != null">
+                SYS_STATUS,
             </if>
-            <if test="statusId != null">
-                STATUS_ID,
+            <if test="auditingTime != null">
+                AUDITING_TIME,
+            </if>
+            <if test="operateTime != null">
+                OPERATE_TIME,
             </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
@@ -56,11 +62,14 @@
             <if test="storeId != null">
                 #{storeId,jdbcType=INTEGER},
             </if>
-            <if test="enabled != null">
-                #{enabled,jdbcType=TINYINT},
+            <if test="sysStatus != null">
+                #{sysStatus,jdbcType=INTEGER},
             </if>
-            <if test="statusId != null">
-                #{statusId,jdbcType=INTEGER},
+            <if test="auditingTime != null">
+                #{auditingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operateTime != null">
+                #{operateTime,jdbcType=TIMESTAMP},
             </if>
         </trim>
     </insert>
@@ -73,11 +82,14 @@
             <if test="storeId != null">
                 STORE_ID = #{storeId,jdbcType=INTEGER},
             </if>
-            <if test="enabled != null">
-                ENABLED = #{enabled,jdbcType=TINYINT},
+            <if test="sysStatus != null">
+                SYS_STATUS = #{sysStatus,jdbcType=INTEGER},
             </if>
-            <if test="statusId != null">
-                STATUS_ID = #{statusId,jdbcType=INTEGER},
+            <if test="auditingTime != null">
+                AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP},
+            </if>
+            <if test="operateTime != null">
+                OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP},
             </if>
         </set>
         where ID = #{id,jdbcType=INTEGER}
@@ -86,104 +98,41 @@
     update USER_SELLER
     set USER_ID = #{userId,jdbcType=INTEGER},
       STORE_ID = #{storeId,jdbcType=INTEGER},
-      ENABLED = #{enabled,jdbcType=TINYINT},
-      STATUS_ID = #{statusId,jdbcType=INTEGER}
+      SYS_STATUS = #{sysStatus,jdbcType=INTEGER},
+      AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP},
+      OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
     where ID = #{id,jdbcType=INTEGER}
   </update>
-    <resultMap id="sellerDetails" type="com.magic.rent.pojo.UserSeller">
-        <id column="ID" property="id" jdbcType="INTEGER"/>
-        <result column="ENABLED" property="enabled" jdbcType="TINYINT"/>
-        <association property="sysStore" javaType="com.magic.rent.pojo.Store">
-            <id column="storeID" property="id" jdbcType="INTEGER"/>
-            <result column="storeName" property="name" jdbcType="VARCHAR"/>
-            <result column="address" property="address" jdbcType="VARCHAR"/>
-            <association property="company" javaType="com.magic.rent.pojo.Company">
-                <id column="companyID" property="id"/>
-                <result column="companyName" property="companyName" jdbcType="VARCHAR"/>
-            </association>
-            <association property="province" javaType="com.magic.rent.pojo.Province">
-                <result column="provinceName" property="provinceName" jdbcType="VARCHAR"/>
-            </association>
-            <association property="city" javaType="com.magic.rent.pojo.City">
-                <result column="cityName" property="cityName" jdbcType="VARCHAR"/>
-            </association>
-            <association property="area" javaType="com.magic.rent.pojo.Area">
-                <result column="areaName" property="areaName" jdbcType="VARCHAR"/>
-            </association>
-        </association>
-        <association property="userStatus" javaType="com.magic.rent.pojo.UserStatus">
-            <id column="statusID" property="id" jdbcType="INTEGER"/>
-            <result column="statusName" property="statusName" jdbcType="VARCHAR"/>
-        </association>
-    </resultMap>
-    <select id="selectByUserID" parameterType="java.lang.Integer" resultMap="sellerDetails">
-       SELECT
-          USER_SELLER.ID           ID,
-          STORE.ID             storeID,
-          STORE.ADDRESS     address,
-          PROVINCE.provinceName    provinceName,
-          CITY.cityName            cityName,
-          AREA.areaName            areaName,
-          SYS_STORE.STORE_NUMBER   storeNum,
-          COMPANY.ID           companyID,
-          COMPANY.COMPANY_NAME companyName,
-          USER_SELLER.ENABLED,
-          USER_STATUS.ID           statusID,
-          USER_STATUS.STATUS_NAME  statusName
-        FROM USER_SELLER
-          JOIN SYS_STORE ON USER_SELLER.STORE_ID = SYS_STORE.ID
-          JOIN COMPANY ON SYS_STORE.COMPANY_ID = COMPANY.ID
-          JOIN PROVINCE ON SYS_STORE.PROVINCE_ID = PROVINCE.provinceID
-          JOIN CITY ON SYS_STORE.CITY_ID = CITY.cityID
-          JOIN AREA ON SYS_STORE.AREA_ID = AREA.areaID
-          JOIN USER_STATUS ON USER_SELLER.STATUS_ID = USER_STATUS.ID
-        WHERE USER_SELLER.USER_ID =  #{id,jdbcType=INTEGER}
-  </select>
-    <delete id="deleteByUserID" parameterType="java.lang.Integer">
-        DELETE FROM USER_SELLER
-        WHERE USER_SELLER.USER_ID=#{userID,jdbcType=INTEGER}
-    </delete>
-    <update id="updateByUserIDSelective" parameterType="com.magic.rent.pojo.UserSeller">
-        update USER_SELLER
-        <set>
-            <if test="userId != null">
-                USER_ID = #{userId,jdbcType=INTEGER},
-            </if>
-            <if test="storeId != null">
-                STORE_ID = #{storeId,jdbcType=INTEGER},
-            </if>
-            <if test="enabled != null">
-                ENABLED = #{enabled,jdbcType=TINYINT},
-            </if>
-            <if test="statusId != null">
-                STATUS_ID = #{statusId,jdbcType=INTEGER},
-            </if>
-        </set>
-        where ID = #{userId,jdbcType=INTEGER}
-    </update>
-    <resultMap id="waitToAuditing" type="com.magic.rent.pojo.UserSeller">
-        <id column="sellerID" property="id" jdbcType="INTEGER"/>
-        <association property="sysUsers" javaType="com.magic.rent.pojo.SysUsers">
+    <resultMap id="sellerDetail" type="com.magic.rent.pojo.UserSeller" extends="BaseResultMap">
+        <association property="user" javaType="com.magic.rent.pojo.SysUsers">
             <id column="userID" property="userId" jdbcType="INTEGER"/>
-            <result column="name" property="name" jdbcType="VARCHAR"/>
-            <result column="account" property="username" jdbcType="VARCHAR"/>
+            <result column="USERNAME" property="username" jdbcType="VARCHAR"/>
+            <result column="NAME" property="name" jdbcType="VARCHAR"/>
         </association>
     </resultMap>
-    <select id="selectSellersByStoreIDAndStatusID" parameterType="com.magic.rent.pojo.UserSeller"
-            resultMap="waitToAuditing">
-        SELECT
-        USER_SELLER.ID sellerID,
+    <select id="selectBySelective" parameterType="com.magic.rent.pojo.Store" resultMap="BaseResultMap">
+        select
+        <include refid="Base_Column_List"/>,
         SYS_USERS.USER_ID userID,
-        SYS_USERS.NAME name,
-        SYS_USERS.USERNAME account
-        FROM USER_SELLER
+        SYS_USERS.NAME,
+        SYS_USERS.USERNAME
+        from USER_SELLER
         JOIN SYS_USERS ON USER_SELLER.USER_ID = SYS_USERS.USER_ID
         <where>
-            <if test="statusId != null">
-                AND USER_SELLER.STATUS_ID = #{statusId,jdbcType=INTEGER}
+            <if test="userId != null">
+                AND USER_SELLER.USER_ID = #{userId,jdbcType=INTEGER}
             </if>
             <if test="storeId != null">
-                AND USER_SELLER.STORE_ID = #{storeId,jdbcType=INTEGER}
+                AND STORE_ID = #{storeId,jdbcType=INTEGER}
+            </if>
+            <if test="sysStatus != null">
+                AND SYS_STATUS = #{sysStatus,jdbcType=INTEGER}
+            </if>
+            <if test="auditingTime != null">
+                AND AUDITING_TIME = #{auditingTime,jdbcType=TIMESTAMP}
+            </if>
+            <if test="operateTime != null">
+                AND OPERATE_TIME = #{operateTime,jdbcType=TIMESTAMP}
             </if>
         </where>
     </select>

@@ -24,9 +24,9 @@ public class IUserSellerServiceTest {
 
     @Test
     public void selectSellerInfoByUserID() throws Exception {
-        IUserSellerService iUserSellerService = applicationContext.getBean(IUserSellerService.class);
-        UserSeller userSeller = iUserSellerService.selectSellerInfoByUserID(1);
-        System.out.println(userSeller.toString());
+//        IUserSellerService iUserSellerService = applicationContext.getBean(IUserSellerService.class);
+//        UserSeller userSeller = iUserSellerService.selectSellerInfoByUserID(1);
+//        System.out.println(userSeller.toString());
 
     }
 

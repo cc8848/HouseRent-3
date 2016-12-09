@@ -1,7 +1,7 @@
 package com.magic.rent.service.security;
 
 import com.alibaba.fastjson.JSON;
-import com.magic.rent.util.JsonResult;
+import com.magic.rent.pojo.JsonResult;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.util.StringUtils;

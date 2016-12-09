@@ -15,8 +15,8 @@ $(document).ready(function () {
 
 function Init() {
     this.companyInit = function () {
-        var adminCompany = new AdminCompany();
-        adminCompany.menuInit();
+        // var adminCompany = new AdminCompany();
+        // adminCompany.menuInit();
     };
 
     this.storeInit = function () {
@@ -34,6 +34,23 @@ function AdminCompany() {
         new SelectUtil().selectInitForJson(company.find("[name='status']"), '/json/status_sys.json');
         this.tableInit();
         $("#CA-query").on('click', this.query);
+        table.find("[name='CA-pass']").each(function () {
+            var id = $(this).parent().attr('id');
+            $(this).on('click', function () {
+                var httpUtil = new HttpUtil();
+                httpUtil.postCRF('/company/pass', {
+                    companyID: id
+                }, function (data) {
+                    var modal = $.scojs_modal({
+                        keyboard: true,
+                        title: '操作提示',
+                        content: data.message,
+                        onClose: refresh
+                    });
+                    modal.show();
+                });
+            });
+        })
     };
 
     this.tableInit = function () {
@@ -148,6 +165,28 @@ function AdminCompany() {
                 });
                 modal.show();
             }
+        });
+    };
+
+    this.passInit = function () {
+        var buttons = table.find("[name='CA-pass']");
+        for (var i = 0; i < buttons.length; i++) {
+
+        }
+    };
+
+    this.refuse = function () {
+        var httpUtil = new HttpUtil();
+        httpUtil.postCRF('/company/pass', {
+            companyID: id
+        }, function (data) {
+            var modal = $.scojs_modal({
+                keyboard: true,
+                title: '操作提示',
+                content: data.message,
+                onClose: refresh
+            });
+            modal.show();
         });
     }
 }
@@ -276,7 +315,6 @@ function AdminStore() {
         });
     };
     this.pass = function () {
-
         var httpUtil = new HttpUtil();
         httpUtil.postCRF('/store/pass', {
             storeID: id
@@ -305,3 +343,4 @@ function AdminStore() {
         });
     }
 }
+

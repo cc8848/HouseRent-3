@@ -3,127 +3,146 @@ package com.magic.rent.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.magic.rent.exception.custom.BusinessException;
-import com.magic.rent.mapper.SysRolesMapper;
-import com.magic.rent.mapper.SysUsersMapper;
+import com.magic.rent.mapper.StoreMapper;
 import com.magic.rent.mapper.UserSellerMapper;
-import com.magic.rent.pojo.SysRoles;
-import com.magic.rent.pojo.SysUsers;
+import com.magic.rent.pojo.Store;
+import com.magic.rent.pojo.SysStatus;
 import com.magic.rent.pojo.UserSeller;
-import com.magic.rent.service.BaseService;
-import com.magic.rent.service.ISysRoleService;
 import com.magic.rent.service.IUserSellerService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.transaction.annotation.Propagation;
-import org.springframework.transaction.annotation.Transactional;
 
-import java.util.HashMap;
+import java.util.Date;
 import java.util.List;
-import java.util.Map;
 
 /**
- * Created by wu on 2016/11/17.
+ * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
+ * 创建者: wu   创建时间: 2016/11/17
+ * 类说明:
+ * 更新记录：
  */
 @Service
-public class UserSellerServiceImpl extends BaseService implements IUserSellerService {
+public class UserSellerServiceImpl implements IUserSellerService {
 
     @Autowired
     private UserSellerMapper userSellerMapper;
 
     @Autowired
-    private SysRolesMapper sysRolesMapper;
+    private StoreMapper storeMapper;
 
-    public UserSeller selectSellerInfoByUserID(int userID) throws Exception {
 
-        return userSellerMapper.selectByUserID(userID);
-    }
+    public boolean create(UserSeller userSeller) throws Exception {
 
-    /**
-     * 本方法的逻辑是，当用户退出团队时，先去查询其具有的所有角色，再把经理、职业经纪人的角色删掉，
-     * 当所有都删除成功之后，再删除其在UserSeller表的其他数据，以表示其目前退出机构
-     * 方法本身具有事务，如果有任何一个环节出错，则抛出异常，所有操作回滚,同时抛出异常。
-     *
-     * @param userID
-     * @return true 则成功退出，若退出失败会抛出异常
-     * @throws Exception
-     */
-    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public boolean auditingSecede(int userID) throws Exception {
-        List<Integer> roleIDList = sysRolesMapper.selectRolesIDByUserID(userID);
-        for (int id : roleIDList) {//遍历其所具有的所有角色
-            switch (id) {
-                case SysRoles.SELLER://当存在职业经纪人角色时
-                    Map<String, Integer> deleteSeller = new HashMap<String, Integer>();
-                    deleteSeller.put("userID", userID);
-                    deleteSeller.put("roleID", SysRoles.SELLER);
-                    //删除职业经纪人角色
-                    int isSuccessForSeller = sysRolesMapper.deleteUsersRoleByUserIDAndRoleID(deleteSeller);
-                    if (isSuccessForSeller <= 0) {
-                        throw new BusinessException(messageSourceAccessor.getMessage("UserSellerService.CanNotDeleteSeller", "去除职业经纪人角色失败！"));
-                    }
-                    break;
-                case SysRoles.MANAGER://当存在经理人角色时
-                    Map<String, Integer> deleteManager = new HashMap<String, Integer>();
-                    deleteManager.put("userID", userID);
-                    deleteManager.put("roleID", SysRoles.MANAGER);
-                    //删除经理人角色
-                    int isSuccessForManager = sysRolesMapper.deleteUsersRoleByUserIDAndRoleID(deleteManager);
-                    if (isSuccessForManager <= 0) {
-                        throw new BusinessException(messageSourceAccessor.getMessage("UserSellerService.CanNotDeleteManager", "去除经理人角色失败！"));
-                    }
-                    break;
-                default:
-                    break;
+        List<UserSeller> userSellerList = userSellerMapper.selectBySelective(userSeller);
+
+        if (null != userSellerList && userSellerList.size() != 0) {
+            for (UserSeller DBUserSeller : userSellerList) {
+                switch (DBUserSeller.getSysStatus()) {
+                    case SysStatus.AUDITING:
+                    case SysStatus.SUCCESS:
+                        throw new BusinessException("当前已经有在途申请或已经加入了门店！");
+                }
             }
         }
-        //删除UserSellerInfo
-        int deleteSellerInfo = userSellerMapper.deleteByUserID(userID);
-        if (deleteSellerInfo <= 0) {
-            throw new BusinessException(messageSourceAccessor.getMessage("UserSellerService.CanNotDeleteSellerInfo", "删除经纪人职业信息失败！"));
+        userSeller.setSysStatus(SysStatus.AUDITING);
+        userSeller.setAuditingTime(new Date());
+        int row = userSellerMapper.insert(userSeller);
+        return row > 0;
+    }
+
+    public boolean cancel(int userID) throws Exception {
+        UserSeller query = new UserSeller();
+        query.setUserId(userID);
+        query.setSysStatus(SysStatus.AUDITING);
+
+        List<UserSeller> userSellerList = userSellerMapper.selectBySelective(query);
+
+        if (null == userSellerList || userSellerList.size() == 0) {
+            throw new BusinessException("当前未查询到有在途的申请，无法取消！");
+        } else {
+            UserSeller userSeller = userSellerList.get(0);//获取此申请数据
+            return userSellerMapper.deleteByPrimaryKey(userSeller.getId()) > 0;
         }
-
-        return true;
     }
 
-    public boolean auditingSubmit(UserSeller userSeller) throws Exception {
+    public boolean pass(int userID) throws Exception {
+        UserSeller query = new UserSeller();
+        query.setUserId(userID);
+        query.setSysStatus(SysStatus.AUDITING);
 
-        int isSuccess = userSellerMapper.insertSelective(userSeller);
+        List<UserSeller> userSellerList = userSellerMapper.selectBySelective(query);
 
-        return isSuccess > 0;
-
+        if (null == userSellerList || userSellerList.size() == 0) {
+            throw new BusinessException("当前未查询到有在途的申请，无法审批通过！");
+        } else {
+            UserSeller userSeller = userSellerList.get(0);//获取此申请数据
+            userSeller.setSysStatus(SysStatus.SUCCESS);//修改系统状态
+            userSeller.setOperateTime(new Date());//设置操作时间
+            return userSellerMapper.updateByPrimaryKeySelective(userSeller) > 0;
+        }
     }
 
-    public boolean auditingUpdate(UserSeller userSeller) throws Exception {
+    public boolean refuse(int userID) throws Exception {
+        UserSeller query = new UserSeller();
+        query.setUserId(userID);
+        query.setSysStatus(SysStatus.AUDITING);
 
-        int isSuccess = userSellerMapper.updateByPrimaryKeySelective(userSeller);
+        List<UserSeller> userSellerList = userSellerMapper.selectBySelective(query);
 
-        return isSuccess > 0;
+        if (null == userSellerList || userSellerList.size() == 0) {
+            throw new BusinessException("当前未查询到有在途的申请，无法审批拒绝！");
+        } else {
+            UserSeller userSeller = userSellerList.get(0);//获取此申请数据
+            userSeller.setSysStatus(SysStatus.REFUSE);//修改系统状态
+            userSeller.setOperateTime(new Date());//设置操作时间
+            return userSellerMapper.updateByPrimaryKeySelective(userSeller) > 0;
+        }
     }
 
-    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public boolean auditingPass(UserSeller userSeller) throws Exception {
+    public boolean quit(int userID) throws Exception {
+        UserSeller query = new UserSeller();
+        query.setUserId(userID);
+        query.setSysStatus(SysStatus.SUCCESS);
 
-        int isSuccessForSeller = userSellerMapper.updateByUserIDSelective(userSeller);
+        List<UserSeller> userSellerList = userSellerMapper.selectBySelective(query);
 
-        Map<String, Integer> userAndRole = new HashMap<String, Integer>();
-        userAndRole.put("userID", userSeller.getUserId());
-        userAndRole.put("roleID", SysRoles.SELLER);
-
-        int isSuccessForRole = sysRolesMapper.insertRolesByUserID(userAndRole);
-
-        return isSuccessForSeller > 0 && isSuccessForRole > 0;
+        if (null == userSellerList || userSellerList.size() == 0) {
+            throw new BusinessException("当前未查询到有加入门店的记录，无法退出！");
+        } else {
+            UserSeller userSeller = userSellerList.get(0);//获取此申请数据
+            userSeller.setSysStatus(SysStatus.CANCEL);//修改系统状态
+            userSeller.setOperateTime(new Date());//设置操作时间
+            return userSellerMapper.updateByPrimaryKeySelective(userSeller) > 0;
+        }
     }
 
-    public boolean auditingRefuse(UserSeller userSeller) throws Exception {
+    public Store myStore(int userID) throws Exception {
+        UserSeller query1 = new UserSeller();
+        query1.setUserId(userID);
+        query1.setSysStatus(SysStatus.SUCCESS);
 
-        int isSuccess = userSellerMapper.updateByUserIDSelective(userSeller);
+        List<UserSeller> userSellerList = userSellerMapper.selectBySelective(query1);
 
-        return isSuccess > 0;
+        if (null == userSellerList || userSellerList.size() == 0) {
+            //记录不存在说明并没有加入任何门店
+            return null;
+        } else {
+            return storeMapper.selectByPrimaryKey(userSellerList.get(0).getStoreId());
+        }
     }
 
-    public PageInfo<UserSeller> getAuditingList(UserSeller userSeller, int pageNum, int pageSize) throws Exception {
-        PageHelper.startPage(pageNum, pageSize);
-        List<UserSeller> userSellerList = userSellerMapper.selectSellersByStoreIDAndStatusID(userSeller);
-        return new PageInfo<UserSeller>(userSellerList);
+    public PageInfo<UserSeller> getByStore(UserSeller userSeller, int manageID, int pageNum, int pageSize) throws Exception {
+        //校验查询的合法性
+        Store query = new Store();
+        query.setId(userSeller.getStoreId());
+        query.setManageId(manageID);
+        List<Store> storeList = storeMapper.selectBySelective(query);
+        if (null == storeList || storeList.size() == 0) {
+            throw new BusinessException("只能查询本账号下的门店销售员信息！");
+        } else {
+            PageHelper.startPage(pageNum, pageSize);
+            List<UserSeller> userSellerList = userSellerMapper.selectBySelective(userSeller);
+            return new PageInfo<UserSeller>(userSellerList);
+        }
     }
 }

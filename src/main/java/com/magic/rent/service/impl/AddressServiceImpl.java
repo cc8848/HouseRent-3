@@ -33,8 +33,6 @@ public class AddressServiceImpl implements IAddressService {
 
         List<SelectPoJo> provinceList = provinceMapper.selectAllProvince();
 
-        provinceList.add(0, new SelectPoJo(0, "请选择省份"));
-
         return provinceList;
     }
 
@@ -42,7 +40,6 @@ public class AddressServiceImpl implements IAddressService {
 
         List<SelectPoJo> cityList = cityMapper.selectByProvinceID(provinceID);
 
-        cityList.add(0, new SelectPoJo(0, "请选择城市"));
 
         return cityList;
     }
@@ -51,7 +48,6 @@ public class AddressServiceImpl implements IAddressService {
 
         List<SelectPoJo> cityList = cityMapper.selectAllCity();
 
-        cityList.add(0, new SelectPoJo(0, "请选择城市"));
 
         return cityList;
 
@@ -60,8 +56,6 @@ public class AddressServiceImpl implements IAddressService {
     public List<SelectPoJo> getAreaByCityID(int cityID) throws Exception {
 
         List<SelectPoJo> areaList = areaMapper.selectByCityID(cityID);
-
-        areaList.add(0, new SelectPoJo(0, "地区"));
 
         return areaList;
     }

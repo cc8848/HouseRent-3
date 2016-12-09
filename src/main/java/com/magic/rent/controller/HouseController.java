@@ -5,10 +5,9 @@ import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.pojo.*;
 import com.magic.rent.service.ICommunityService;
 import com.magic.rent.service.ICompanyService;
-import com.magic.rent.service.IHouseRecommendService;
 import com.magic.rent.service.IHouseService;
 import com.magic.rent.util.HttpUtil;
-import com.magic.rent.util.JsonResult;
+import com.magic.rent.pojo.JsonResult;
 import com.magic.rent.util.MyStringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,7 +18,6 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.util.Map;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -34,22 +32,10 @@ public class HouseController extends BaseController {
     private IHouseService iHouseService;
 
     @Autowired
-    private IHouseRecommendService iHouseRecommendService;
-
-    @Autowired
     private ICommunityService iCommunityService;
 
     @Autowired
     private ICompanyService iCompanyService;
-
-    @ResponseBody
-    @RequestMapping("/selectRecommend")//获取推荐楼房信息
-    public JsonResult selectRecommend() throws Exception {
-
-        HouseRecommend houseRecommend = iHouseRecommendService.selectTodayRecommend();
-
-        return JsonResult.success(houseRecommend);
-    }
 
     @ResponseBody
     @RequestMapping(value = "/create", method = RequestMethod.POST)

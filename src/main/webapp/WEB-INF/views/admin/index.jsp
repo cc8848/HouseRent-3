@@ -19,6 +19,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrapTable/bootstrap-table.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar-head.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/scojs.css">
@@ -99,11 +100,18 @@
                         </div>
                         <div class="white-divider-md"></div>
                         <div class="row">
-                            <div class="table-responsive col-lg-12">
-                                <table class="table" id="CA-table">
-
-                                </table>
+                            <div id="toolbar" class="btn-group">
+                                <button id="btn_add" type="button" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
+                                </button>
+                                <button id="btn_edit" type="button" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
+                                </button>
+                                <button id="btn_delete" type="button" class="btn btn-default">
+                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
+                                </button>
                             </div>
+                            <table id="tb_departments"></table>
                         </div>
                         <hr>
                         <div class="white-divider-md"></div>
@@ -169,6 +177,8 @@
 <%--页脚--%>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/table/bootstrap-table.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/table/bootstrap-table-zh-CN.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/select2.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/template.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/soc/sco.modal.js"></script>
@@ -199,7 +209,7 @@
         <td>{{company.statusName}}</td>
         <td>{{company.auditingTimeString}}</td>
         <td>
-            <div class="btn-group-xs">
+            <div class="btn-group-xs" id="{{company.id}}">
                 {{if company.status==1}}
                 <button class="btn btn-success" type="button" name="CA-pass">通过</button>
                 <button class="btn btn-danger" type="button" name="CA-refuse">拒绝</button>

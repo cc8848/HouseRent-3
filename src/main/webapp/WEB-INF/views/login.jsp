@@ -235,7 +235,7 @@
     </div>
 </div>
 <script src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script src="${pageContext.request.contextPath}/js/login.js"></script>
+<script src="${pageContext.request.contextPath}/js/views/login.js"></script>
 <script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/soc/sco.modal.js"></script>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>

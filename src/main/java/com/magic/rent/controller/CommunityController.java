@@ -6,7 +6,7 @@ import com.magic.rent.pojo.SelectPoJo;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.ICommunityService;
 import com.magic.rent.util.HttpUtil;
-import com.magic.rent.util.JsonResult;
+import com.magic.rent.pojo.JsonResult;
 import com.magic.rent.util.MyStringUtil;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;

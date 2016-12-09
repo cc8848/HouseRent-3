@@ -19,11 +19,5 @@ public interface UserSellerMapper {
 
     int updateByPrimaryKey(UserSeller record);
 
-    UserSeller selectByUserID(Integer userID);
-
-    int deleteByUserID(Integer userID);
-
-    int updateByUserIDSelective(UserSeller record);
-
-    List<UserSeller> selectSellersByStoreIDAndStatusID(UserSeller userSeller);
+    List<UserSeller> selectBySelective(UserSeller query);
 }

@@ -40,7 +40,8 @@
                     <li class="list-group-item">
                         <div class="row">
                             <div class="col-lg-12">
-                                <img src="${pageContext.request.contextPath}/images/index/wifiOpen.png" class="img-circle img-thumbnail img-responsive">
+                                <img src="${pageContext.request.contextPath}/images/index/wifiOpen.png"
+                                     class="img-circle img-thumbnail img-responsive">
                             </div>
                         </div>
                         <div class="row">
@@ -63,124 +64,181 @@
                         <%--账户信息--%>
                         <c:when test="${sysMenu.href=='account-info'}">
                             <div id="${sysMenu.href}" class="tab-pane active">
-                                <div class="col-lg-12 panel panel-default">
-                                    <div class="page-header">
-                                        <h1 class="hidden-xs">${sessionScope.user.name}
-                                            <small class="pull-right">No.${sessionScope.user.userId}</small>
-                                        </h1>
-                                        <h3 class="visible-xs">${sessionScope.user.name}
-                                            <small class="pull-right">No.${sessionScope.user.userId}</small>
-                                        </h3>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-lg-12">
-                                            <div class="btn-group">
-                                                <button type="button" class="btn btn-danger">修改密码</button>
-                                                <button type="button" class="btn btn-warning">修改手机</button>
+                                <div class="panel panel-default">
+                                    <div class="panel-body">
+                                        <div class="page-header">
+                                            <h1 class="hidden-xs">账户信息
+                                                <small class="pull-right">No.${sessionScope.user.userId}</small>
+                                            </h1>
+                                            <h3 class="visible-xs">账户信息
+                                                <small class="pull-right">No.${sessionScope.user.userId}</small>
+                                            </h3>
+                                        </div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <div class="btn-group pull-right">
+                                                    <button type="button" class="btn btn-danger">修改密码</button>
+                                                    <button type="button" class="btn btn-warning">修改手机</button>
+                                                    <c:if test="${!isSeller}">
+                                                        <button type="button" class="btn btn-primary" name="join">加入门店
+                                                        </button>
+                                                    </c:if>
+                                                    <c:if test="${isSeller && storeForSeller.sysStatus==1}">
+                                                        <button type="button" class="btn btn-primary" name="cancel">
+                                                            取消申请
+                                                        </button>
+                                                    </c:if>
+                                                    <c:if test="${isSeller && storeForSeller.sysStatus==2}">
+                                                        <button type="button" class="btn btn-primary" name="quit">退出门店
+                                                        </button>
+                                                    </c:if>
+                                                    <c:if test="${isSeller && storeForSeller.sysStatus==3}">
+                                                        <button type="button" class="btn btn-primary" name="repeat">
+                                                            重新申请门店
+                                                        </button>
+                                                    </c:if>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="white-divider-md"></div>
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                <dl class="dl-horizontal">
+                                                    <dt>真实姓名：</dt>
+                                                    <dd>${sessionScope.user.name}</dd>
+                                                    <dt>手机号码：</dt>
+                                                    <dd>${sessionScope.user.username}</dd>
+                                                    <dt>上次登录：</dt>
+                                                    <dd>${sessionScope.user.lastLoginString}</dd>
+                                                </dl>
+                                                <c:if test="${isSeller}">
+                                                    <dl class="dl-horizontal">
+                                                        <dt>所属中介:</dt>
+                                                        <dd>${storeForSeller.name}</dd>
+                                                        <dt>门店地址:</dt>
+                                                        <dd>${storeForSeller.province.provinceName}${storeForSeller.city.cityName}${storeForSeller.area.areaName}${storeForSeller.address}</dd>
+                                                    </dl>
+                                                </c:if>
+                                                <c:if test="${!isSeller}">
+                                                    <dl class="dl-horizontal">
+                                                        <dt>所属中介：</dt>
+                                                        <dd>尚未加入任何中介机构</dd>
+                                                    </dl>
+                                                </c:if>
                                             </div>
                                         </div>
                                     </div>
-                                    <div class="white-divider-md"></div>
-                                    <div class="row">
-                                        <div class="col-lg-12 ">
-                                                <span class="pull-right">
-                                                <address>上次登录时间：${sessionScope.user.lastLoginString}</address>
-                                                <address>上次登录IP：${sessionScope.user.loginIp}</address>
-                                                </span>
-                                        </div>
-                                    </div>
+                                    <ul class="list-group">
+                                            <%--如果不是公司则显示开通信息--%>
+                                        <c:if test="${!haveCompany}">
+                                            <li class="list-group-item">
+                                                <h3>开发商企业服务
+                                                    <button id="CC-button" class="btn btn-primary pull-right"
+                                                            type="button">我要开通
+                                                    </button>
+                                                </h3>
+                                            </li>
+                                        </c:if>
+                                            <%--企业服务--%>
+                                        <c:if test="${haveCompany}">
+                                            <li class="list-group-item">
+                                                <div class="page-header">
+                                                    <h1>${company.companyName}
+                                                        <small class="pull-right">No.${company.id}</small>
+                                                    </h1>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <dl class="dl-horizontal">
+                                                            <dt>服务类型：</dt>
+                                                            <dd>开发商企业服务</dd>
+                                                            <dt>服务状态：</dt>
+                                                            <dd class="text-danger">${company.statusName}</dd>
+                                                            <c:choose>
+                                                                <c:when test="${company.status==1}">
+                                                                    <dt>申请日期：</dt>
+                                                                    <dd class="text-danger">${company.auditingTimeString}</dd>
+                                                                </c:when>
+                                                                <c:when test="${company.status==3}">
+                                                                    <dt>申请日期：</dt>
+                                                                    <dd class="text-danger">${company.auditingTimeString}</dd>
+                                                                    <button id="CCR-button" class="btn btn-primary"
+                                                                            type="button">重新申请
+                                                                    </button>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <dt>开通日期：</dt>
+                                                                    <dd class="text-danger">${company.operateTimeString}</dd>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </dl>
+                                                        <dl class="dl-horizontal">
+                                                            <dt>公司地址：</dt>
+                                                            <dd>${company.province.provinceName} ${company.city.cityName} ${company.area.areaName} ${company.address}</dd>
+                                                            <dt>联系电话：</dt>
+                                                            <dd>${company.phone}</dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </c:if>
+                                        <c:if test="${!haveStore}">
+                                            <li class="list-group-item">
+                                                <h3>中介门店服务
+                                                    <button id="CS-button" class="btn btn-primary pull-right"
+                                                            type="button">
+                                                        我要开通
+                                                    </button>
+                                                </h3>
+                                            </li>
+                                        </c:if>
+                                        <c:if test="${haveStore}">
+                                            <li class="list-group-item">
+                                                <div class="page-header">
+                                                    <h1 class="hidden-xs">${store.name}
+                                                        <small class="pull-right">No.${store.id}</small>
+                                                    </h1>
+                                                    <h3 class="visible-xs">${store.name}
+                                                        <small class="pull-right">No.${store.id}</small>
+                                                    </h3>
+                                                </div>
+                                                <div class="row">
+                                                    <div class="col-lg-12">
+                                                        <dl class="dl-horizontal">
+                                                            <dt>服务类型：</dt>
+                                                            <dd>中介门店服务</dd>
+                                                            <dt>服务状态：</dt>
+                                                            <dd class="text-danger">${store.sysStatusName}</dd>
+                                                            <c:choose>
+                                                                <c:when test="${store.sysStatus==1}">
+                                                                    <dt>申请日期：</dt>
+                                                                    <dd class="text-danger">${store.auditingTimeString}</dd>
+                                                                </c:when>
+                                                                <c:when test="${store.sysStatus==3}">
+                                                                    <dt>申请日期：</dt>
+                                                                    <dd class="text-danger">${store.auditingTimeString}</dd>
+                                                                    <button id="CSR-button" class="btn btn-primary"
+                                                                            type="button">重新申请
+                                                                    </button>
+                                                                </c:when>
+                                                                <c:otherwise>
+                                                                    <dt>开通日期：</dt>
+                                                                    <dd class="text-danger">${store.operateTimeString}</dd>
+                                                                </c:otherwise>
+                                                            </c:choose>
+                                                        </dl>
+                                                        <dl class="dl-horizontal">
+                                                            <dt>门店地址：</dt>
+                                                            <dd>${store.province.provinceName} ${store.city.cityName} ${store.area.areaName}</dd>
+                                                            <dt></dt>
+                                                            <dd>${store.address}</dd>
+                                                        </dl>
+                                                    </div>
+                                                </div>
+                                            </li>
+                                        </c:if>
+                                    </ul>
                                 </div>
-                                    <%--企业服务--%>
-                                <c:if test="${haveCompany}">
-                                    <div class="col-lg-12 panel panel-default">
-                                        <div class="page-header">
-                                            <h1 class="hidden-xs">${company.companyName}
-                                                <small class="pull-right">No.${company.id}</small>
-                                            </h1>
-                                            <h3 class="visible-xs">${company.companyName}
-                                                <small class="pull-right">No.${company.id}</small>
-                                            </h3>
-                                        </div>
-                                        <p>
-                                        <h3>企业服务</h3>
-                                        <div class="white-divider-md"></div>
-                                        服务状态：<span class="text-danger">${company.statusName}</span><br>
-                                        <c:choose>
-                                            <c:when test="${company.status==1}">
-                                                申请日期：<span class="text-danger">${company.auditingTimeString}</span><br>
-                                            </c:when>
-                                            <c:otherwise>
-                                                开通日期：<span class="text-danger">${company.operateTimeString}</span><br>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        </p>
-                                        <div class="white-divider-md"></div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="pull-right">
-                                                    <address>
-                                                        公司地址：${company.province.provinceName} ${company.city.cityName} ${company.area.areaName} ${company.address}</address>
-                                                    <address>联系电话：${company.phone}</address>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </c:if>
-                                    <%--如果不是公司则显示开通信息--%>
-                                <c:if test="${!haveCompany}">
-                                    <div class="col-lg-12 panel panel-default">
-                                        <div class="page-header">
-                                            <h3>开通开发商企业服务</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <button id="CC-button" class="btn btn-primary" type="button">我要开通</button>
-                                        </div>
-                                    </div>
-                                </c:if>
-                                <c:if test="${haveStore}">
-                                    <div class="col-lg-12 panel panel-default">
-                                        <div class="page-header">
-                                            <h1 class="hidden-xs">${store.name}
-                                                <small class="pull-right">No.${store.id}</small>
-                                            </h1>
-                                            <h3 class="visible-xs">${store.name}
-                                                <small class="pull-right">No.${store.id}</small>
-                                            </h3>
-                                        </div>
-                                        <h3>机构门店</h3>
-                                        <div class="white-divider-md"></div>
-                                        服务状态：<span class="text-danger">${store.sysStatusName}</span><br>
-                                        <c:choose>
-                                            <c:when test="${store.sysStatus==1}">
-                                                申请日期：<span class="text-danger">${store.auditingTimeString}</span><br>
-                                            </c:when>
-                                            <c:otherwise>
-                                                开通日期：<span class="text-danger">${store.operateTimeString}</span><br>
-                                            </c:otherwise>
-                                        </c:choose>
-                                        </p>
-                                        <div class="white-divider-md"></div>
-                                        <div class="row">
-                                            <div class="col-lg-12">
-                                                <div class="pull-right">
-                                                    <address>
-                                                        门店地址：${store.province.provinceName} ${store.city.cityName} ${store.area.areaName}</address>
-                                                    <address> ${store.address}</address>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </c:if>
-                                <c:if test="${!haveStore}">
-                                    <div class="col-lg-12 panel panel-default">
-                                        <div class="page-header">
-                                            <h3>开通机构门店服务</h3>
-                                        </div>
-                                        <div class="panel-body">
-                                            <button id="CS-button" class="btn btn-primary" type="button">我要开通</button>
-                                        </div>
-                                    </div>
-                                </c:if>
                             </div>
                         </c:when>
                         <c:when test="${sysMenu.href=='issue-house'}">
@@ -251,6 +309,55 @@
                                 </div>
                             </div>
                         </c:when>
+                        <c:when test="${sysMenu.href=='group-manage'}">
+                            <div id="${sysMenu.href}" class="tab-pane">
+                                <div class="panel panel-default col-lg-12">
+                                    <div class="page-header">
+                                        <h2>团队管理
+                                            <small class="pull-right">No.<span id="GM-storeID">${store.id}</span>
+                                            </small>
+                                        </h2>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col-lg-2">
+                                            <select class="select2 form-control" style="width: 100%"
+                                                    name="status"></select>
+                                        </div>
+                                        <div class="col-lg-2">
+                                        </div>
+                                        <div class="col-lg-2">
+
+                                        </div>
+                                        <div class="col-lg-2">
+
+                                        </div>
+                                        <div class="col-lg-2">
+
+                                        </div>
+                                        <div class="col-lg-2">
+                                            <button id="GM-query" class="btn btn-primary btn-group-justified"
+                                                    type="button">查&nbsp;&nbsp;询
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="white-divider-md"></div>
+                                    <div class="row">
+                                        <div class="table-responsive col-lg-12">
+                                            <table class="table">
+
+                                            </table>
+                                        </div>
+                                    </div>
+                                    <hr>
+                                    <div class="white-divider-md"></div>
+                                    <div class="row">
+                                        <div class="col-lg-12">
+                                            <ul id="GM-page"></ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </c:when>
                     </c:choose>
                 </c:forEach>
             </div>
@@ -271,7 +378,7 @@
 <script src="${pageContext.request.contextPath}/js/bootstrap-paginator.js"></script>
 <script src="${pageContext.request.contextPath}/js/template.js"></script>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
-<script src="${pageContext.request.contextPath}/js/home.js"></script>
+<script src="${pageContext.request.contextPath}/js/views/home.js"></script>
 <script id="create-project-template" type="text/html">
     <div class="panel panel-default">
         <div class="panel-heading">
@@ -676,6 +783,39 @@
             </div>
         </div>
     </form>
+</script>
+<%--团队管理模板--%>
+<script id="GM-template" type="text/html">
+    <thead>
+    <tr>
+        <th></th>
+        <th>#</th>
+        <th>姓名</th>
+        <th>电话</th>
+        <th>申请日期</th>
+        <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    {{each data.list as seller}}
+    <tr>
+        <td></td>
+        <td>{{seller.user.id}}</td>
+        <td>{{seller.user.name}}</td>
+        <td>{{seller.user.username}}</td>
+        <td>{{seller.status}}</td>
+        <td>{{seller.auditingTimeString}}</td>
+        <td>
+            {{if seller.status==1}}
+            <div class="btn-group-xs">
+                <button class="btn btn-success" type="button" name="GM-pass">通过</button>
+                <button class="btn btn-danger" type="button" name="GM-refuse">拒绝</button>
+            </div>
+            {{/if}}
+        </td>
+    </tr>
+    {{/each}}
+    </tbody>
 </script>
 </body>
 </html>

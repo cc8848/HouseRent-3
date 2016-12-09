@@ -19,5 +19,4 @@ public interface IUserService {
 
     boolean register(SysUsers sysUsers) throws Exception;
 
-
 }

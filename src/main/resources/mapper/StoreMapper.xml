@@ -17,10 +17,16 @@
     STORE.ID, NAME, MANAGE_ID, PROVINCE_ID, CITY_ID, AREA_ID, ADDRESS, SYS_STATUS,
     AUDITING_TIME, OPERATE_TIME
   </sql>
-    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+    <select id="selectByPrimaryKey" resultMap="storeDetail" parameterType="java.lang.Integer">
         select
-        <include refid="Base_Column_List"/>
-        from STORE
+        <include refid="Base_Column_List"/>,
+        PROVINCE.provinceName,
+        CITY.cityName,
+        AREA.areaName
+        FROM STORE
+        JOIN PROVINCE ON STORE.PROVINCE_ID = PROVINCE.provinceID
+        JOIN CITY ON STORE.CITY_ID = CITY.cityID
+        JOIN AREA ON STORE.AREA_ID = AREA.areaID
         where ID = #{id,jdbcType=INTEGER}
     </select>
     <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
@@ -219,5 +225,13 @@
         WHERE STORE.MANAGE_ID =
         #{manageID,jdbcType=INTEGER}
         GROUP BY STORE.MANAGE_ID)
+        AND STORE.SYS_STATUS !=4
+    </select>
+    <select id="selectPoJo" parameterType="java.lang.Integer" resultType="com.magic.rent.pojo.SelectPoJo">
+       SELECT
+          STORE.ID id,
+          STORE.NAME text
+        FROM STORE
+        WHERE STORE.AREA_ID= #{manageID,jdbcType=INTEGER}
     </select>
 </mapper>

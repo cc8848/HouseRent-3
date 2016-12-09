@@ -36,30 +36,21 @@ public class CompanyService implements ICompanyService {
         Company query = new Company();
         query.setDeveloperId(company.getDeveloperId());
         List<Company> companyList = companyMapper.selectBySelective(query);
-
-        boolean flag = true;//用于判断是否包含在途申请或已经申请成功的企业服务
-        for (Company DBCompany : companyList) {
-            int status = DBCompany.getStatus();
-            switch (status) {
-                case SysStatus.AUDITING:
-                case SysStatus.SUCCESS:
-                    flag = false;
-                    break;
-            }
-            if (!flag) {
-                //只要存在在途的申请或已经成功的申请，则跳出循环
-                break;
+        if (null != companyList && companyList.size() != 0) {
+            for (Company DBCompany : companyList) {
+                int status = DBCompany.getStatus();
+                switch (status) {
+                    case SysStatus.AUDITING:
+                    case SysStatus.SUCCESS:
+                        throw new BusinessException("一个账户只能为一家公司开通企业服务！");
+                }
             }
         }
-        if (flag) {
-            Date date = new Date();
-            company.setAuditingTime(date);
-            company.setStatus(SysStatus.AUDITING);
-            int rows = companyMapper.insert(company);
-            return rows > 0;
-        } else {
-            throw new BusinessException("一个账户只能为一家公司开通企业服务！");
-        }
+        Date date = new Date();
+        company.setAuditingTime(date);
+        company.setStatus(SysStatus.AUDITING);
+        int rows = companyMapper.insert(company);
+        return rows > 0;
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
@@ -95,25 +86,17 @@ public class CompanyService implements ICompanyService {
         if (null == companyList || companyList.size() == 0) {
             throw new BusinessException("此账户尚未申请开通企业服务，无法取消！");
         }
-        //遍历查询结果
-        boolean flag = false;
-        for (Company DBCompany : companyList) {
-            //遍历结果，获取正在申请的公司
-            if (DBCompany.getId().equals(companyID)) {
-                flag = true;
-                Company company = new Company();
-                company.setId(companyID);
-                company.setStatus(SysStatus.CANCEL);
-                company.setOperateTime(new Date());
-                int rows = companyMapper.updateByPrimaryKeySelective(company);
-                return rows > 0;
-            }
-        }
-        if (!flag) {
+        //遍历结果，获取正在申请的公司
+        if (companyList.get(0).getId().equals(companyID)) {
+            Company company = new Company();
+            company.setId(companyID);
+            company.setStatus(SysStatus.CANCEL);
+            company.setOperateTime(new Date());
+            int rows = companyMapper.updateByPrimaryKeySelective(company);
+            return rows > 0;
+        } else {
             throw new BusinessException("未包含在途的申请，无法取消");
         }
-
-        return false;
     }
 
     public boolean refuse(int companyID) throws Exception {

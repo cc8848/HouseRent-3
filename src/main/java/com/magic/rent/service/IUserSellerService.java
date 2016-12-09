@@ -1,9 +1,8 @@
 package com.magic.rent.service;
 
 import com.github.pagehelper.PageInfo;
+import com.magic.rent.pojo.Store;
 import com.magic.rent.pojo.UserSeller;
-
-import java.util.List;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -12,17 +11,69 @@ import java.util.List;
  */
 public interface IUserSellerService {
 
-    UserSeller selectSellerInfoByUserID(int userID) throws Exception;
 
-    boolean auditingSecede(int userID) throws Exception;
+    /**
+     * 发起加入门店申请
+     *
+     * @param userSeller
+     * @return
+     * @throws Exception
+     */
+    boolean create(UserSeller userSeller) throws Exception;
 
-    boolean auditingSubmit(UserSeller userSeller) throws Exception;
+    /**
+     * 取消在途的加入申请
+     *
+     * @param userID
+     * @return
+     * @throws Exception
+     */
+    boolean cancel(int userID) throws Exception;
 
-    boolean auditingUpdate(UserSeller userSeller) throws Exception;
+    /**
+     * 门店审批通过
+     *
+     * @param userID
+     * @return
+     * @throws Exception
+     */
+    boolean pass(int userID) throws Exception;
 
-    boolean auditingPass(UserSeller userSeller) throws Exception;
+    /**
+     * 门店审批拒绝
+     *
+     * @param userID
+     * @return
+     * @throws Exception
+     */
+    boolean refuse(int userID) throws Exception;
 
-    boolean auditingRefuse(UserSeller userSeller) throws Exception;
+    /**
+     * 销售员退出门店
+     *
+     * @param userID
+     * @return
+     * @throws Exception
+     */
+    boolean quit(int userID) throws Exception;
 
-    PageInfo<UserSeller> getAuditingList(UserSeller userSeller, int pageNum, int pageSize) throws Exception;
+    /**
+     * 查询我的店铺信息
+     *
+     * @param userID
+     * @return
+     * @throws Exception
+     */
+    Store myStore(int userID) throws Exception;
+
+    /**
+     * 查询本店铺下的业务员数据
+     * @param userSeller
+     * @param userID
+     * @param pageNum
+     * @param pageSize
+     * @return
+     * @throws Exception
+     */
+    PageInfo<UserSeller> getByStore(UserSeller userSeller, int userID,int pageNum, int pageSize) throws Exception;
 }

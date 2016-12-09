@@ -1,7 +1,10 @@
 package com.magic.rent.service;
 
 import com.github.pagehelper.PageInfo;
+import com.magic.rent.pojo.SelectPoJo;
 import com.magic.rent.pojo.Store;
+
+import java.util.List;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -67,5 +70,14 @@ public interface IStoreService {
      * @throws Exception
      */
     PageInfo<Store> getStores(Store query, int pageNum, int pageSize) throws Exception;
+
+    /**
+     * 根据地区获取商铺
+     *
+     * @param areaID
+     * @return
+     * @throws Exception
+     */
+    List<SelectPoJo> getStoresByArea(int areaID) throws Exception;
 }
 

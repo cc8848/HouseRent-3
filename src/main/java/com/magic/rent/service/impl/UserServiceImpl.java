@@ -7,8 +7,8 @@ import com.magic.rent.mapper.UsersRelateRolesMapper;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.pojo.UsersRelateRoles;
-import com.magic.rent.service.BaseService;
 import com.magic.rent.service.IUserService;
+import com.magic.rent.service.base.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder;
@@ -114,7 +114,6 @@ public class UserServiceImpl extends BaseService implements IUserService {
         if (isSuccess <= 0) {
             throw new BusinessException("创建用户信息失败！");
         }
-
         UsersRelateRoles usersRelateRoles = new UsersRelateRoles();
         usersRelateRoles.setUserId(sysUsers.getUserId());
         usersRelateRoles.setRoleId(SysRoles.MEMBER);
@@ -124,6 +123,4 @@ public class UserServiceImpl extends BaseService implements IUserService {
         }
         return true;
     }
-
-
 }

@@ -4,7 +4,7 @@ import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.pojo.SelectPoJo;
 import com.magic.rent.service.IAddressService;
-import com.magic.rent.util.JsonResult;
+import com.magic.rent.pojo.JsonResult;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.StringUtils;
@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
 import java.util.List;
 
 /**
@@ -39,7 +38,6 @@ public class AddressController extends BaseController {
     public JsonResult getAllProvince() throws Exception {
 
         List<SelectPoJo> selectPoJoList = iAddressService.getAllProvince();
-
         return JsonResult.success(selectPoJoList);
     }
 

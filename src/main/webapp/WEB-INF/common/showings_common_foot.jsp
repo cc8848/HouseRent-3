@@ -50,7 +50,7 @@
                         <small>©2012-2016 Showings 版权所有</small>
                     </h4>
                     <h4 class="text-center">
-                        <small>京ICP备15000327号</small>
+                        <small>闽ICP备16035278号</small>
                     </h4>
                 </div>
             </div>

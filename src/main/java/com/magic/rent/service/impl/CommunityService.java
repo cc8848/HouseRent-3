@@ -223,10 +223,6 @@ public class CommunityService implements ICommunityService {
         if (null == selectPoJoList || selectPoJoList.size() == 0) {
             throw new BusinessException("当前还没有审核通过的项目！");
         } else {
-            SelectPoJo selectPoJo = new SelectPoJo();
-            selectPoJo.setId(0);
-            selectPoJo.setText("请选择项目");
-            selectPoJoList.add(0, selectPoJo);
             return selectPoJoList;
         }
     }

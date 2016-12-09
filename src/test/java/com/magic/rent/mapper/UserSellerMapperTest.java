@@ -25,7 +25,7 @@ public class UserSellerMapperTest {
 
     @Test
     public void selectByUserID() throws Exception {
-        System.out.println(userSellerMapper.selectByUserID(1));
+//        System.out.println(userSellerMapper.selectByUserID(1));
 
     }
 
@@ -39,6 +39,6 @@ public class UserSellerMapperTest {
         UserSeller userSeller = new UserSeller();
         userSeller.setStoreId(1);
 
-        System.out.print(userSellerMapper.selectSellersByStoreIDAndStatusID(userSeller));
+//        System.out.print(userSellerMapper.selectSellersByStoreIDAndStatusID(userSeller));
     }
 }

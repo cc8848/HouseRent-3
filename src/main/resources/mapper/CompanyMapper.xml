@@ -243,5 +243,6 @@
         WHERE DEVELOPER_ID =
         #{developerId,jdbcType=INTEGER}
         GROUP BY COMPANY.DEVELOPER_ID)
+        AND COMPANY.STATUS!=4
     </select>
 </mapper>

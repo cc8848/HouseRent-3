@@ -1,5 +1,6 @@
 package com.magic.rent.mapper;
 
+import com.magic.rent.pojo.SelectPoJo;
 import com.magic.rent.pojo.Store;
 import org.springframework.stereotype.Repository;
 
@@ -22,4 +23,6 @@ public interface StoreMapper {
     List<Store> selectBySelective(Store store);
 
     Store selectCurrentStoreInfo(int userID);
+
+    List<SelectPoJo> selectByArea(int areaID);
 }

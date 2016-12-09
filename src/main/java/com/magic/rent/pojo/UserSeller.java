@@ -1,23 +1,20 @@
 package com.magic.rent.pojo;
 
-import java.io.Serializable;
+import java.util.Date;
 
-public class UserSeller implements Serializable {
-
-    private static final long serialVersionUID = 1801950405948724304L;
-
+public class UserSeller {
     private Integer id;
 
-    private Integer userId;//对应用户信息
-    private SysUsers sysUsers;
+    private Integer userId;
+    private SysUsers user;
 
-    private Integer storeId;//归属门店、机构
-    private Store store;
+    private Integer storeId;
 
-    private boolean enabled;
+    private Integer sysStatus;
 
-    private Integer statusId;
-    private UserStatus userStatus;
+    private Date auditingTime;
+
+    private Date operateTime;
 
     public Integer getId() {
         return id;
@@ -35,7 +32,6 @@ public class UserSeller implements Serializable {
         this.userId = userId;
     }
 
-
     public Integer getStoreId() {
         return storeId;
     }
@@ -44,57 +40,35 @@ public class UserSeller implements Serializable {
         this.storeId = storeId;
     }
 
-    public boolean isEnabled() {
-        return enabled;
+    public Integer getSysStatus() {
+        return sysStatus;
     }
 
-    public void setEnabled(boolean enabled) {
-        this.enabled = enabled;
+    public void setSysStatus(Integer sysStatus) {
+        this.sysStatus = sysStatus;
     }
 
-    public SysUsers getSysUsers() {
-        return sysUsers;
+    public Date getAuditingTime() {
+        return auditingTime;
     }
 
-    public void setSysUsers(SysUsers sysUsers) {
-        this.sysUsers = sysUsers;
+    public void setAuditingTime(Date auditingTime) {
+        this.auditingTime = auditingTime;
     }
 
-    public Store getStore() {
-        return store;
+    public Date getOperateTime() {
+        return operateTime;
     }
 
-    public void setStore(Store store) {
-        this.store = store;
+    public void setOperateTime(Date operateTime) {
+        this.operateTime = operateTime;
     }
 
-    public Integer getStatusId() {
-        return statusId;
+    public SysUsers getUser() {
+        return user;
     }
 
-    public void setStatusId(Integer statusId) {
-        this.statusId = statusId;
-    }
-
-    public UserStatus getUserStatus() {
-        return userStatus;
-    }
-
-    public void setUserStatus(UserStatus userStatus) {
-        this.userStatus = userStatus;
-    }
-
-    @Override
-    public String toString() {
-        return "UserSeller{" +
-                "id=" + id +
-                ", userId=" + userId +
-                ", sysUsers=" + sysUsers +
-                ", storeId=" + storeId +
-                ", store=" + store +
-                ", enabled=" + enabled +
-                ", statusId=" + statusId +
-                ", userStatus=" + userStatus +
-                '}';
+    public void setUser(SysUsers user) {
+        this.user = user;
     }
 }
