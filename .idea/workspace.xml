@@ -6,16 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/auditing.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home_account_seller.jsp" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home_group.jsp" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/test.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/_account.jsp" />
+    <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="2016年12月09日19:18:32">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CompanyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CompanyController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/JsonResult.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/JsonResult.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/index.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/admin/index.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/admin/index.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/admin/index.js" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1568,14 +1560,7 @@
       <workItem from="1481183718351" duration="280000" />
       <workItem from="1481184194497" duration="21532000" />
       <workItem from="1481268318315" duration="1201000" />
-      <workItem from="1481270888027" duration="5530000" />
-    </task>
-    <task id="LOCAL-00020" summary="2016年11月05日14:46:45">
-      <created>1478328414512</created>
-      <option name="number" value="00020" />
-      <option name="presentableId" value="LOCAL-00020" />
-      <option name="project" value="LOCAL" />
-      <updated>1478328414513</updated>
+      <workItem from="1481270888027" duration="5729000" />
     </task>
     <task id="LOCAL-00021" summary="2016年11月09日20:27:59">
       <created>1478694490755</created>
@@ -1913,7 +1898,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481274877246</updated>
     </task>
-    <option name="localTasksCounter" value="69" />
+    <task id="LOCAL-00069" summary="2016年12月09日19:18:32">
+      <created>1481282325985</created>
+      <option name="number" value="00069" />
+      <option name="presentableId" value="LOCAL-00069" />
+      <option name="project" value="LOCAL" />
+      <updated>1481282325986</updated>
+    </task>
+    <option name="localTasksCounter" value="70" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1949,7 +1941,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="809356000" />
+    <option name="totallyTimeSpent" value="809555000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -2070,7 +2062,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="2016年11月24日10:35:36" />
     <MESSAGE value="2016年11月26日14:13:34" />
     <MESSAGE value="2016年11月26日20:44:27" />
     <MESSAGE value="2016年11月27日08:49:47" />
@@ -2095,7 +2086,8 @@
     <MESSAGE value="2016年12月07日02:10:58" />
     <MESSAGE value="2016年12月07日07:31:18" />
     <MESSAGE value="2016年12月09日17:12:25" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年12月09日17:12:25" />
+    <MESSAGE value="2016年12月09日19:18:32" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年12月09日19:18:32" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
