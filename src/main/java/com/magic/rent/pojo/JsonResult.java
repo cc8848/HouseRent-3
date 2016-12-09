@@ -6,7 +6,10 @@ import org.slf4j.LoggerFactory;
 import java.io.Serializable;
 
 /**
- * Created by wuxinzhe on 16/9/20.
+ * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
+ * 创建者: wuxinzhe   创建时间: 16/9/20
+ * 类说明:
+ * 更新记录：
  */
 public class JsonResult implements Serializable {
 
@@ -16,7 +19,7 @@ public class JsonResult implements Serializable {
     private String message;
     private Object data;
     private Object rows;
-    private int total;
+    private long total;
     private static Logger logger = LoggerFactory.getLogger(JsonResult.class);
 
     public JsonResult() {
@@ -79,7 +82,7 @@ public class JsonResult implements Serializable {
         return jsonResult;
     }
 
-    private static JsonResult table(Object rows, int total) {
+    public static JsonResult table(Object rows, long total) {
         JsonResult jsonResult = success().setRows(rows).setTotal(total);
         logger.info(jsonResult.toString());
         return jsonResult;
@@ -94,11 +97,11 @@ public class JsonResult implements Serializable {
         return this;
     }
 
-    public int getTotal() {
+    public long getTotal() {
         return total;
     }
 
-    public JsonResult setTotal(int total) {
+    public JsonResult setTotal(long total) {
         this.total = total;
         return this;
     }

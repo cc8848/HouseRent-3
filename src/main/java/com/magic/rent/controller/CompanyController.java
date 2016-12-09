@@ -138,6 +138,6 @@ public class CompanyController {
 
         PageInfo<Company> companyPageInfo = iCompanyService.getCompanies(query, pageNum, pageSize);
 
-        return JsonResult.success(companyPageInfo);
+        return JsonResult.table(companyPageInfo.getList(),companyPageInfo.getTotal());
     }
 }

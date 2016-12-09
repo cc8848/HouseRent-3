@@ -45,8 +45,9 @@
                     <div id="M-custom" class="panel-collapse collapse in" role="tabpanel"
                          aria-labelledby="one">
                         <ul class="list-group">
-                            <a href="#company" class="list-group-item" data-toggle="tab">开发商管理</a>
-                            <a href="#store" class="list-group-item" data-toggle="tab">中介管理</a>
+                            <li class="list-group-item"><a href="${pageContext.request.contextPath}/" target="box">开发商管理</a>
+                            </li>
+                            <li class="list-group-item"><a href="#" target="box">中介管理</a></li>
                         </ul>
                     </div>
                     <div class="panel-heading" role="tab" id="two">
@@ -67,109 +68,9 @@
             </div>
         </div>
         <div id="right" class="col-lg-10">
-            <div class="tab-content">
-                <div id="sysInfo" class="tab-pane active"></div>
-                <div id="company" class="tab-pane">
-                    <div class="panel panel-default col-lg-12">
-                        <div class="page-header">
-                            <h2>开发商管理</h2>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <select class="select2 form-control" style="width: 100%"
-                                        name="province"></select>
-                            </div>
-                            <div class="col-lg-2">
-                                <select class="select2 form-control" style="width: 100%"
-                                        name="city"></select>
-                            </div>
-                            <div class="col-lg-2">
-                                <select class="select2 form-control" style="width: 100%"
-                                        name="area"></select>
-                            </div>
-                            <div class="col-lg-2">
-                                <select class="select2 form-control" style="width: 100%"
-                                        name="status"></select>
-                            </div>
-                            <div class="col-lg-2">
-
-                            </div>
-                            <div class="col-lg-2">
-                                <button id="CA-query" class="btn btn-primary btn-group-justified" type="button">查&nbsp;&nbsp;询</button>
-                            </div>
-                        </div>
-                        <div class="white-divider-md"></div>
-                        <div class="row">
-                            <div id="toolbar" class="btn-group">
-                                <button id="btn_add" type="button" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>新增
-                                </button>
-                                <button id="btn_edit" type="button" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-pencil" aria-hidden="true"></span>修改
-                                </button>
-                                <button id="btn_delete" type="button" class="btn btn-default">
-                                    <span class="glyphicon glyphicon-remove" aria-hidden="true"></span>删除
-                                </button>
-                            </div>
-                            <table id="tb_departments"></table>
-                        </div>
-                        <hr>
-                        <div class="white-divider-md"></div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <ul id="CA-page"></ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div id="store" class="tab-pane">
-                    <div class="panel panel-default col-lg-12">
-                        <div class="page-header">
-                            <h2>门店管理</h2>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-2">
-                                <select class="select2 form-control" style="width: 100%"
-                                        name="province"></select>
-                            </div>
-                            <div class="col-lg-2">
-                                <select class="select2 form-control" style="width: 100%"
-                                        name="city"></select>
-                            </div>
-                            <div class="col-lg-2">
-                                <select class="select2 form-control" style="width: 100%"
-                                        name="area"></select>
-                            </div>
-                            <div class="col-lg-2">
-                                <select class="select2 form-control" style="width: 100%"
-                                        name="status"></select>
-                            </div>
-                            <div class="col-lg-2">
-
-                            </div>
-                            <div class="col-lg-2">
-                                <button id="SA-query" class="btn btn-primary btn-group-justified" type="button">查&nbsp;&nbsp;询</button>
-                            </div>
-                        </div>
-                        <div class="white-divider-md"></div>
-                        <div class="row">
-                            <div class="table-responsive col-lg-12">
-                                <table class="table" id="SA-table">
-
-                                </table>
-                            </div>
-                        </div>
-                        <hr>
-                        <div class="white-divider-md"></div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <ul id="SA-page"></ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+            <div class="embed-responsive embed-responsive-16by9">
+                <iframe name="box" src="#" class="embed-responsive-item"></iframe>
             </div>
-
         </div>
     </div>
 </div>
@@ -185,80 +86,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap-paginator.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin/index.js"></script>
-<script id="CA-template" type="text/html">
-    <thead>
-    <tr>
-        <th></th>
-        <th>#</th>
-        <th>公司名称</th>
-        <th>公司地址</th>
-        <th>联系电话</th>
-        <th>申请状态</th>
-        <th>申请日期</th>
-        <th>操作</th>
-    </tr>
-    </thead>
-    <tbody>
-    {{each data.list as company}}
-    <tr>
-        <td></td>
-        <td>{{company.id}}</td>
-        <td>{{company.companyName}}</td>
-        <td>{{company.province.provinceName}}{{company.city.cityName}}{{company.area.areaName}}{{company.address}}</td>
-        <td>{{company.phone}}</td>
-        <td>{{company.statusName}}</td>
-        <td>{{company.auditingTimeString}}</td>
-        <td>
-            <div class="btn-group-xs" id="{{company.id}}">
-                {{if company.status==1}}
-                <button class="btn btn-success" type="button" name="CA-pass">通过</button>
-                <button class="btn btn-danger" type="button" name="CA-refuse">拒绝</button>
-                {{else}}
-                <button class="btn btn-primary" type="button" name="CA-detail">详情</button>
-                {{/if}}
-            </div>
-        </td>
-    </tr>
-    {{/each}}
-    </tbody>
-</script>
-<script id="SA-template" type="text/html">
-    <thead>
-    <tr>
-        <th></th>
-        <th>#</th>
-        <th>门店名称</th>
-        <th>门店地址</th>
-        <th>负责人ID</th>
-        <th>申请状态</th>
-        <th>申请日期</th>
-        <th>操作</th>
-    </tr>
-    </thead>
-    <tbody>
-    {{each data.list as store index}}
-    <tr id="{{index}}">
-        <td></td>
-        <td>{{store.id}}</td>
-        <td>{{store.name}}</td>
-        <td>{{store.province.provinceName}}{{store.city.cityName}}{{store.area.areaName}}{{store.address}}</td>
-        <td>{{store.manageId}}</td>
-        <td>{{store.sysStatusName}}</td>
-        <td>{{store.auditingTimeString}}</td>
-        <td>
-            <div class="btn-group-xs">
-                {{if store.sysStatus==1}}
-                <button class="btn btn-success" type="button" name="SA-pass-{{store.id}}">通过</button>
-                <button class="btn btn-danger" type="button" name="SA-refuse-{{store.id}}">拒绝</button>
-                {{else}}
-                <button class="btn btn-primary" type="button" name="SA-detail-{{store.id}}">详情</button>
-                {{/if}}
-            </div>
-        </td>
-    </tr>
-    {{/each}}
-    </tbody>
-</script>
 </body>
 </html>
 
