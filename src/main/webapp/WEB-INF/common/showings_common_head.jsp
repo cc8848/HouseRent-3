@@ -8,7 +8,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" isELIgnored="false" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="sec" uri="http://www.springframework.org/security/tags" %>
-<!-- /.modal -->
 <nav class="navbar navbar-fixed-top navbar-default" role="navigation" style="margin-bottom: 0">
     <div class="container">
         <div class="row">
@@ -46,7 +45,7 @@
                                    data-toggle="dropdown">你好,&nbsp;${sessionScope.user.name}
                                     <span class="caret"></span></a>
                                 <ul class="dropdown-menu" role="menu">
-                                    <li><a href="${pageContext.request.contextPath}/user/home">我的账户</a></li>
+                                    <li><a href="${pageContext.request.contextPath}/home">我的账户</a></li>
                                     <li class="divider"></li>
                                     <form id="logout-form" role="form"
                                           action="${pageContext.request.contextPath}/logout.do" method="post">
@@ -63,3 +62,4 @@
         </div>
     </div>
 </nav>
+

@@ -40,8 +40,6 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
 
     private String failURL;
 
-    private String AttrName;
-
     private static Logger logger = LoggerFactory.getLogger(LoginAuthenticationController.class);
 
     private RedirectStrategy redirectStrategy = new DefaultRedirectStrategy();
@@ -54,14 +52,9 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
         this.failURL = failURL;
     }
 
-    public void setAttrName(String attrName) {
-        AttrName = attrName;
-    }
-
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public void onAuthenticationSuccess(HttpServletRequest request, HttpServletResponse response, Authentication authentication) throws IOException, ServletException {
         SysUsers users;
-        JsonResult jsonResult;
         try {
             users = (SysUsers) authentication.getPrincipal();
             Date date = new Date();
@@ -100,7 +93,5 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
             throw new ExceptionInInitializerError("成功后跳转的地址未设置!");
         if (StringUtils.isEmpty(failURL))
             throw new ExceptionInInitializerError("失败后跳转的地址未设置!");
-        if (StringUtils.isEmpty(AttrName))
-            throw new ExceptionInInitializerError("Attr的Key值未设置!");
     }
 }

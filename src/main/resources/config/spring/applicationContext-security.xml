@@ -44,9 +44,8 @@
 
     <!--自定义验证结果控制器-->
     <bean id="loginController" class="com.magic.rent.controller.LoginAuthenticationController">
-        <property name="successURL" value="/user/home"/>
+        <property name="successURL" value="/home"/>
         <property name="failURL" value="/user/login"/>
-        <property name="attrName" value="loginResult"/>
     </bean>
 
     <!--认证管理器-->

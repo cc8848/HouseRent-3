@@ -24,7 +24,7 @@ import java.util.Map;
  * 更新记录：
  */
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/home")
 public class HomeController extends BaseController {
 
     @Autowired
@@ -39,9 +39,7 @@ public class HomeController extends BaseController {
     @Autowired
     private IStoreService iStoreService;
 
-    private static Logger logger = LoggerFactory.getLogger(HomeController.class);
-
-    @RequestMapping("/home")
+    @RequestMapping
     public ModelAndView home(HttpServletRequest request) throws Exception {
         //此数据在登录成功时存入Session。详情在LoginAuthenticationController中可查找
         SysUsers sessionUsers = (SysUsers) request.getSession().getAttribute("user");
@@ -53,39 +51,20 @@ public class HomeController extends BaseController {
 
         List<SysMenu> sysMenuList = iSysMenuService.selectSysMenusByUserID(sessionUsers.getUserId());
         model.put("sysMenuList", sysMenuList);
-        LogUtil.LogPOJO(logger, sysMenuList);
 
-        boolean haveCompany = false;
-        boolean haveStore = false;
-        boolean isSeller = false;
-
-        //查询公司信息
-        Company company = iCompanyService.getCurrentCompanyInfo(sessionUsers.getUserId());
-        if (null != company) {
-            haveCompany = true;
-            model.put("haveCompany", haveCompany);
-            model.put("company", company);
-        } else {
-            model.put("haveCompany", haveCompany);
-        }
-        //查询门店信息
-        Store store = iStoreService.getCurrentStoreInfo(sessionUsers.getUserId());
-        if (null != store) {
-            haveStore = true;
-            model.put("haveStore", haveStore);
-            model.put("store", store);
-        } else {
-            model.put("haveStore", haveStore);
-        }
-        Store storeForSeller = iUserSellerService.myStore(sessionUsers.getUserId());
-        if (null != storeForSeller) {
-            isSeller = true;
-            model.put("isSeller", isSeller);
-            model.put("storeForSeller", storeForSeller);
-        } else {
-            model.put("isSeller", isSeller);
-        }
         //查询销售员所门店信息
-        return new ModelAndView("home", model);
+        return new ModelAndView("home_box", model);
+    }
+
+    @RequestMapping("/account")
+    public ModelAndView account(HttpServletRequest request) throws Exception {
+
+        return new ModelAndView("home/_account");
+    }
+
+    @RequestMapping("/account_update")
+    public ModelAndView accountUpdate(HttpServletRequest request) throws Exception {
+
+        return new ModelAndView("home/_account_update");
     }
 }

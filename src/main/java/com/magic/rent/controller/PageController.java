@@ -23,5 +23,8 @@ public class PageController extends BaseController {
         return "error";
     }
 
-
+    @RequestMapping("/server")
+    public String server(){
+        return "server";
+    }
 }

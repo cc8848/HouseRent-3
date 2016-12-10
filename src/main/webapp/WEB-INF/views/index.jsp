@@ -47,19 +47,19 @@
     <div class="container text-center">
         <div class="col-lg-2"></div>
         <div class="col-lg-2 ">
-            <i class="index-iconfont-lg">&#xe645;</i>
+            <i class="iconFont-lg">&#xe645;</i>
             <p>VR看房</p>
         </div>
         <div class="col-lg-2">
-            <i class="index-iconfont-lg">&#xe63f;</i>
+            <i class="iconFont-lg">&#xe63f;</i>
             <p>轻松分发</p>
         </div>
         <div class="col-lg-2">
-            <i class="index-iconfont-lg">&#xe694;</i>
+            <i class="iconFont-lg">&#xe694;</i>
             <p>附近周边</p>
         </div>
         <div class="col-lg-2">
-            <i class="index-iconfont-lg">&#xe643;</i>
+            <i class="iconFont-lg">&#xe643;</i>
             <p>海量房源</p>
         </div>
         <div class="col-lg-2"></div>
@@ -67,56 +67,61 @@
 </div>
 <div class="jumbotron index-bg-white">
     <div class="container">
-        <div class="col-lg-5">
-            <h2><i class="index-iconfont-md">&#xe645;</i>&nbsp;VR全景在线看房</h2>
-            <p>
-                <small>身临其境的VR看房体验，多场景组合，摆脱单调的2D照片，更加生动的展示房屋特点，提高成交率！</small>
-            </p>
+        <div class="col-lg-6">
+            <div class="page-header">
+                <h2>VR全景</h2>
+            </div>
+            <dl class="dl-horizontal">
+                <dt>项目展示：</dt>
+                <dd>VR全景展示、社区信息展示、房屋信息展示</dd>
+                <dt>周边展示：</dt>
+                <dd>地图展示</dd>
+            </dl>
         </div>
-        <div class="col-lg-7">
-            <img src="${pageContext.request.contextPath}/images/index/VRshowings.png" class="img-responsive img-rounded img-thumbnail">
+        <div class="col-lg-6">
+
         </div>
     </div>
 </div>
 <div class="jumbotron index-bg-gray">
+    <div class="col-lg-6">
+
+    </div>
     <div class="container">
-        <div class="col-lg-7">
-            <img src="${pageContext.request.contextPath}/images/index/VRshowings.png" class="img-responsive img-rounded img-thumbnail">
+        <div class="col-lg-6">
+            <div class="page-header-black">
+                <h2>项目管理</h2>
+            </div>
+            <dl class="dl-horizontal">
+                <dt>项目配置：</dt>
+                <dd>公司基础信息、项目基础信息</dd>
+                <dt>房屋管理：</dt>
+                <dd>楼栋管理、户型管理、房屋管理</dd>
+            </dl>
         </div>
-        <div class="col-lg-5">
-            <h2><i class="index-iconfont-md">&#xe63f;</i>&nbsp;多种方式轻松分发</h2>
-            <p>
-                <small>多种灵活的分发方式，无缝嵌入式房源展示页面，以及最适合微信等移动终端上传播的二维码！</small>
-            </p>
-        </div>
+
     </div>
 </div>
 <div class="jumbotron index-bg-white">
     <div class="container">
-        <div class="col-lg-5">
-            <h2><i class="index-iconfont-md">&#xe643;</i>&nbsp;海量房库任你挑选</h2>
-            <p>
-                <small>全网互联，房库共享，只需要向房源提供者发送申请，即可分享房源，互利共赢，再也不会因房源不足而流失到手的客户！</small>
-            </p>
+
+        <div class="col-lg-6">
+            <div class="page-header">
+                <h2>销售管理</h2>
+            </div>
+            <dl class="dl-horizontal">
+                <dt>销售管理：</dt>
+                <dd>分销商看房报备、销控表、促销活动</dd>
+                <dt>客户管理：</dt>
+                <dd>电销客户管理、上门客户管理、公共客户池管理</dd>
+            </dl>
         </div>
-        <div class="col-lg-7">
-            <img src="${pageContext.request.contextPath}/images/index/VRshowings.png" class="img-responsive img-rounded img-thumbnail">
-        </div>
-    </div>
-</div>
-<div class="jumbotron index-bg-gray">
-    <div class="container">
-        <div class="col-lg-7">
-            <img src="${pageContext.request.contextPath}/images/index/VRshowings.png" class="img-responsive img-rounded img-thumbnail">
-        </div>
-        <div class="col-lg-5">
-            <h2><i class="index-iconfont-md">&#xe694;</i>&nbsp;周边信息一网打尽</h2>
-            <p>
-                <small>在线地图直接展示房源周边环境，配套设施，智能地图规划，不论工作上班、学习上学，最适合你的才是最好的。</small>
-            </p>
+        <div class="col-lg-6">
+
         </div>
     </div>
 </div>
+
 <div class="jumbotron index-bg-gray">
     <div class="container">
         <div class="col-lg-12">
