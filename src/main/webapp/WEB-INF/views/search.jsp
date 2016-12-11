@@ -232,10 +232,10 @@
 
 </div>
 
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/select2.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/template.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/select2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/table/template.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/views/search.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 <%--模板--%>

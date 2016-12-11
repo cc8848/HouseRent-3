@@ -4,9 +4,6 @@ import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.exception.custom.LoginTimeOutException;
 import com.magic.rent.pojo.*;
 import com.magic.rent.service.*;
-import com.magic.rent.util.LogUtil;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -28,16 +25,7 @@ import java.util.Map;
 public class HomeController extends BaseController {
 
     @Autowired
-    private IUserSellerService iUserSellerService;
-
-    @Autowired
     private ISysMenuService iSysMenuService;
-
-    @Autowired
-    private ICompanyService iCompanyService;
-
-    @Autowired
-    private IStoreService iStoreService;
 
     @RequestMapping
     public ModelAndView home(HttpServletRequest request) throws Exception {
@@ -53,18 +41,18 @@ public class HomeController extends BaseController {
         model.put("sysMenuList", sysMenuList);
 
         //查询销售员所门店信息
-        return new ModelAndView("home_box", model);
+        return new ModelAndView("/home/home_box", model);
     }
 
     @RequestMapping("/account")
     public ModelAndView account(HttpServletRequest request) throws Exception {
 
-        return new ModelAndView("home/_account");
+        return new ModelAndView("home/account");
     }
 
     @RequestMapping("/account_update")
     public ModelAndView accountUpdate(HttpServletRequest request) throws Exception {
 
-        return new ModelAndView("home/_account_update");
+        return new ModelAndView("home/account_update");
     }
 }

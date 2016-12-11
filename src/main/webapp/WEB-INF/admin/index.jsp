@@ -76,14 +76,14 @@
 </div>
 
 <%--页脚--%>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/table/bootstrap-table.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/table/bootstrap-table-zh-CN.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/select2.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/template.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/select2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/table/template.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/soc/sco.modal.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap-paginator.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap-paginator.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin/index.js"></script>
 </body>

@@ -234,9 +234,9 @@
         <span class="hidden-xs col-sm-2 col-md-3 col-lg-4"></span>
     </div>
 </div>
-<script src="${pageContext.request.contextPath}/js/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
 <script src="${pageContext.request.contextPath}/js/views/login.js"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/soc/sco.modal.js"></script>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript">

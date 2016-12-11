@@ -220,13 +220,13 @@
 <%--foot start--%>
 <c:import url="/WEB-INF/common/house_common_foot.jsp"/>
 <%--foot end--%>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/select2.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/template.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/select2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/table/template.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/house_sell.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/tour.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/table/tour.js"></script>
 
 <script>
     embedpano({

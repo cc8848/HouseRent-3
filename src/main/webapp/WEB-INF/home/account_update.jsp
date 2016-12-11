@@ -13,6 +13,7 @@
     <meta charset="UTF-8">
     <title>Showings · 房库 - 信息修改</title>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
@@ -27,10 +28,12 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">账户信息修改</h3>
+                <h3 class="panel-title">账户信息修改
+                    <button type="button" class="btn btn-xs btn-primary pull-right">提交修改</button>
+                </h3>
             </div>
             <div class="panel-body">
-                <form role="form" id="CC-form">
+                <form role="form">
                     <div class="form-group row">
                         <div class="col-sm-12">
                             <label class="control-label">公司名称</label>
@@ -42,25 +45,22 @@
                         <div class="col-sm-12">
                             <label class="control-label">营业执照</label>
                             <input type="text" class="form-control"
-                                   placeholder="请输入公司营业执照或统一信用代码" name="companyName">
+                                   placeholder="请输入公司营业执照或统一信用代码" name="license">
                         </div>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-4">
-                            <label class="control-label">省份</label>
+                            <label class="control-label ">省份</label>
                             <select class="select2 form-control" style="width: 100%"
                                     name="province"></select>
                         </div>
-                        <div class="col-sm-4">
-                            <label class="control-label">城市</label>
+
+                        <label class="control-label col-sm-4">城市
                             <select class="select2 form-control" style="width: 100%"
-                                    name="city"></select>
-                        </div>
-                        <div class="col-sm-4">
-                            <label class="control-label">区域</label>
+                                    name="city"></select></label>
+                        <label class="control-label col-sm-4">区域
                             <select class="select2 form-control" style="width: 100%"
-                                    name="area"></select>
-                        </div>
+                                    name="area"></select></label>
                     </div>
                     <div class="form-group row">
                         <div class="col-sm-6">
@@ -78,16 +78,10 @@
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="panel panel-default">
-            <div class="panel-heading">
-                <h2 class="panel-title">123</h2>
-            </div>
-        </div>
-    </div>
 </div>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
-
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/select2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/views/_account_update.js"></script>
 </body>
 </html>

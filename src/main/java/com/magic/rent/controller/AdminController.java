@@ -14,42 +14,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class AdminController {
     @RequestMapping("/index")
     public String admin() {
-        return "admin/index";
+        return "/admin/index";
     }
 
-    @RequestMapping("/welcome")
-    public String welcome() {
-        return "../admin/welcome";
-    }
-
-    @RequestMapping("/pic-list")
-    public String picture() {
-        return "../admin/picture-list";
-    }
-
-
-    @RequestMapping("/art-list")
-    public String article() {
-        return "../admin/article-list";
-    }
-
-    @RequestMapping("/pro-company")
-    public String company() {
-        return "../admin/product-company";
-    }
-
-    @RequestMapping("/pro-store")
-    public String store() {
-        return "../admin/product-store";
-    }
-
-    @RequestMapping("/pro-house")
-    public String house() {
-        return "../admin/product-house";
-    }
-
-    @RequestMapping("pro-store-add")
-    public String storeAdd() {
-        return "../admin/product-store-add";
-    }
 }

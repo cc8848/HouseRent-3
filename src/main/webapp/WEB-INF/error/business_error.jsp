@@ -18,7 +18,7 @@
 ${requestScope.ex}
 
 
-<link href="${pageContext.request.contextPath}/js/jquery.js">
-<link href="${pageContext.request.contextPath}/js/bootstrap.min.js">
+<link href="${pageContext.request.contextPath}/js/plugin/jquery.js">
+<link href="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js">
 </body>
 </html>

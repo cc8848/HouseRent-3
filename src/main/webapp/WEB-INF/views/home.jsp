@@ -367,16 +367,16 @@
 <%--foot start--%>
 <c:import url="/WEB-INF/common/showings_common_foot.jsp"/>
 <%--foot end--%>
-<script src="${pageContext.request.contextPath}/js/jquery.js"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
+<script src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/soc/sco.message.js"></script>
 <script src="${pageContext.request.contextPath}/js/soc/sco.modal.js"></script>
 <script src="${pageContext.request.contextPath}/js/soc/sco.confirm.js"></script>
-<script src="${pageContext.request.contextPath}/js/select2.min.js"></script>
+<script src="${pageContext.request.contextPath}/js/plugin/select2.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/datetimepicker/bootstrap-datetimepicker.min.js"></script>
 <script src="${pageContext.request.contextPath}/js/datetimepicker/bootstrap-datetimepicker.zh-CN.js"></script>
-<script src="${pageContext.request.contextPath}/js/bootstrap-paginator.js"></script>
-<script src="${pageContext.request.contextPath}/js/template.js"></script>
+<script src="${pageContext.request.contextPath}/js/plugin/bootstrap-paginator.js"></script>
+<script src="${pageContext.request.contextPath}/js/plugin/table/template.js"></script>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script src="${pageContext.request.contextPath}/js/views/home.js"></script>
 <script id="create-project-template" type="text/html">
