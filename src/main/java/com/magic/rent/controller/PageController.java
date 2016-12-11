@@ -15,16 +15,17 @@ public class PageController extends BaseController {
 
     @RequestMapping
     public String index() {
-        return "index";
+        return "views/index";
     }
 
     @RequestMapping("/error")
     public String error() {
-        return "error";
+        return "views/error";
     }
 
-    @RequestMapping("/server")
-    public String server(){
-        return "server";
+    @RequestMapping("register")
+    public String register() {
+        return "views/register";
     }
+
 }

@@ -32,16 +32,10 @@ public class UserController extends BaseController {
     public ModelAndView login(HttpServletRequest request) {
         SysUsers sysUsers = (SysUsers) request.getSession().getAttribute("user");
         if (sysUsers == null) {
-            return new ModelAndView("login");
+            return new ModelAndView("views/login");
         } else {
-            return new ModelAndView("error").addObject("message", "用户尚未登录或登录超时，请重新登录！");
+            return new ModelAndView("views/error").addObject("message", "用户尚未登录或登录超时，请重新登录！");
         }
-
-    }
-
-    @RequestMapping("/timeout")
-    public String timeOut() {
-        return "time_out";
     }
 
     @ResponseBody

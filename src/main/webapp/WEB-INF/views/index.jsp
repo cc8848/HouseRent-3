@@ -36,7 +36,7 @@
         <div class="white-divider-md"></div>
         <div class="white-divider-md"></div>
         <p class="text-right">
-            <a class="btn btn-success btn-lg" href="#" role="button"><span class="glyphicon glyphicon-edit"></span>&nbsp;免费注册</a>
+            <a class="btn btn-success btn-lg" href="${pageContext.request.contextPath}/register" role="button"><span class="glyphicon glyphicon-edit"></span>&nbsp;免费注册</a>
             <a class="btn btn-primary btn-lg" href="${pageContext.request.contextPath}/house/detail?houseID=1"
                role="button"><span
                     class="glyphicon glyphicon-camera"></span>&nbsp;在线体验</a>
@@ -99,7 +99,6 @@
                 <dd>楼栋管理、户型管理、房屋管理</dd>
             </dl>
         </div>
-
     </div>
 </div>
 <div class="jumbotron index-bg-white">

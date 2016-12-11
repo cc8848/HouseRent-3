@@ -41,7 +41,7 @@ public class HomeController extends BaseController {
         model.put("sysMenuList", sysMenuList);
 
         //查询销售员所门店信息
-        return new ModelAndView("/home/home_box", model);
+        return new ModelAndView("home/home", model);
     }
 
     @RequestMapping("/account")

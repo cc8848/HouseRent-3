@@ -17,7 +17,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/scojs.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco.message.css">
@@ -237,7 +236,7 @@
 <script src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
 <script src="${pageContext.request.contextPath}/js/views/login.js"></script>
 <script src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
-<script src="${pageContext.request.contextPath}/js/soc/sco.modal.js"></script>
+<script src="${pageContext.request.contextPath}/js/plugin/soc/sco.modal.js"></script>
 <script src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript">
     $(document).ready(function () {
