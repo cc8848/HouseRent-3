@@ -6,6 +6,8 @@ import com.magic.rent.pojo.*;
 import com.magic.rent.service.*;
 import com.magic.rent.util.FileUtil;
 import com.magic.rent.util.HttpUtil;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,6 +31,9 @@ public class HomeController extends BaseController {
 
     @Autowired
     private ISysMenuService iSysMenuService;
+
+
+    private static Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping
     public ModelAndView home(HttpServletRequest request) throws Exception {
@@ -66,10 +71,8 @@ public class HomeController extends BaseController {
         int userID = sysUsers.getUserId();
         //获取文件路径
         String filePath = FileUtil.getPortraitPath(userID);
-        File file = new File(filePath);
-        File[] files = file.listFiles();
-        if (null != files) {
-        }
+        List<File> fileList = FileUtil.getListFiles(filePath);
+        logger.info(fileList.toString());
 
 
         return new ModelAndView("home/portrait");
