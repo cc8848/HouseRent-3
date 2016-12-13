@@ -5,6 +5,7 @@ import com.magic.rent.pojo.ViewMode;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
+import java.io.File;
 import java.util.Date;
 
 /**
@@ -23,41 +24,36 @@ public class FileUtil {
      * @return 根目录
      */
     public static String getWebRootPath() {
-
         return System.getProperty("web.root");
     }
 
     /**
-     * 获取VR目录
+     * 获取头像目录，若不存在则直接创建一个
      *
-     * @param houseID
+     * @param userID
      * @return
      */
-    public static String getFilePath(int houseID, int viewMode) {
-        switch (viewMode) {
-            case ViewMode.VRMode:
-                return getWebRootPath() + "images/house/vtour/" + houseID + "/";
-            case ViewMode.thumbnailMode:
-                return getWebRootPath() + "images/house/thumbnail/" + houseID + "/";
-            default:
-                throw new BusinessException("为找到符合的浏览模式！");
+    public static String getPortraitPath(int userID) {
+        String realPath = getWebRootPath() + "/img/portrait/" + userID + "/";
+        File file = new File(realPath);
+        //判断文件夹是否存在，不存在则创建一个
+        if (!file.exists() || !file.isDirectory()) {
+            if (!file.mkdirs()) {
+                throw new BusinessException("创建头像文件夹失败！");
+            }
         }
+        return realPath;
     }
 
     /**
-     * 根据房屋ID创建新文件名
+     * 重命名头像文件
      *
-     * @param oldFileName
-     * @param houseID
+     * @param fileName
      * @return
-     * @throws Exception
      */
-    public static String getNewFileNameByHouseID(String oldFileName, int houseID) throws Exception {
-        if (oldFileName.contains(".")) {
-            String prefix = oldFileName.substring(oldFileName.lastIndexOf(".") + 1);
-            return new StringBuffer("ID").append(houseID).append("-").append(DateUtil.formatToNo(new Date())).append(".").append(prefix).toString();
-        } else {
-            throw new BusinessException("文件名不符合规范，没有'.'作为后缀的分割符！");
-        }
+    public static String getPortraitFileName(String fileName) {
+        // 获取文件后缀
+        String extension = fileName.substring(fileName.lastIndexOf("."));
+        return "portrait" + extension.toLowerCase();
     }
 }

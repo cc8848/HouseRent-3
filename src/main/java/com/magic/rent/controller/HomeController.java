@@ -55,4 +55,10 @@ public class HomeController extends BaseController {
 
         return new ModelAndView("home/account_update");
     }
+
+    @RequestMapping("/portrait")
+    public ModelAndView portrait(HttpServletRequest request) throws Exception {
+
+        return new ModelAndView("home/portrait");
+    }
 }

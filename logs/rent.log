@@ -29,7 +29,7 @@
 2016-12-11 17:11:25.554 [ http-bio-8080-exec-3 ] - [ INFO  ] [ c.m.r.s.security.MethodSecurityMetadataSource : 52 ] - 获取Method-资源:[com.magic.rent.service.ISysMenuService.selectSysMenusByUserID]->[[]]
 2016-12-11 17:11:25.683 [ http-bio-8080-exec-9 ] - [ INFO  ] [ c.m.r.s.security.ResourceSecurityMetadataSource : 47 ] - 请求资源->资源:[/js/plugin/bootstrap.min.js]->[[]]
 2016-12-11 17:11:25.686 [ http-bio-8080-exec-3 ] - [ INFO  ] [ c.m.r.s.security.ResourceSecurityMetadataSource : 47 ] - 请求资源->资源:[/js/plugin/jquery.js]->[[]]
-2016-12-11 17:11:25.687 [ http-bio-8080-exec-1 ] - [ INFO  ] [ c.m.r.s.security.ResourceSecurityMetadataSource : 47 ] - 请求资源->资源:[/js/views/home_box.js]->[[]]
+2016-12-11 17:11:25.687 [ http-bio-8080-exec-1 ] - [ INFO  ] [ c.m.r.s.security.ResourceSecurityMetadataSource : 47 ] - 请求资源->资源:[/js/views/home.js]->[[]]
 2016-12-11 17:11:25.719 [ http-bio-8080-exec-3 ] - [ INFO  ] [ c.m.r.s.security.ResourceSecurityMetadataSource : 47 ] - 请求资源->资源:[/home/account]->[[]]
 2016-12-11 17:11:25.806 [ http-bio-8080-exec-1 ] - [ INFO  ] [ c.m.r.s.security.ResourceSecurityMetadataSource : 47 ] - 请求资源->资源:[/js/plugin/bootstrap.min.js]->[[]]
 2016-12-11 17:11:25.806 [ http-bio-8080-exec-3 ] - [ INFO  ] [ c.m.r.s.security.ResourceSecurityMetadataSource : 47 ] - 请求资源->资源:[/js/plugin/jquery.js]->[[]]

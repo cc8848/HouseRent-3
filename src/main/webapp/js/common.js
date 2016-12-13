@@ -7,65 +7,9 @@
 
 
 
-function Modal() {
-    this.infoModal = function (message, tittle) {
-        if (arguments.length == 2) {
-            $('#info-modal-tittle').html(tittle);
-            $('#info-modal-message').html(message);
-        } else {
-            $('#info-modal-message').html(message);
-        }
-        $('#infoModal').modal();
-    };
-
-    this.confirmModal = function (message, fun, tittle) {
-        if (arguments.length == 3) {
-            $('#confirm-modal-tittle').html(tittle);
-            $('#confirm-modal-message').html(message);
-        } else {
-            $('#confirm-modal-message').html(message);
-        }
-        $('#confirm-button').on('click', fun);
-        $('#confirmModal').modal();
-    };
-
-    this.uploadModal = function (houseID) {
-        var header = $("meta[name='_csrf_header']").attr("content");
-        var token = $("meta[name='_csrf']").attr("content");
-        var viewMode = $("input[name='viewMode']:checked").val();
-
-        $('#uploadViewModal').modal();
-        // 初始化Check组件
-        $('.radio').iCheck({
-            radioClass: 'iradio_flat-red'
-        });
-        //初始化文件上传组件
-        $('#file').fileinput({
-            language: 'zh',//语言
-            uploadUrl: '/file/upload',//上传的地址
-            initialCaption: '请上传房屋图片...',//文本框初始化标题
-            allowedFileExtensions: ['jpg'],//接收的文件后缀
-            showCaption: true,//是否显示标题
-            dropZoneEnabled: true,//是否显示拖拽区域
-            maxFileSize: 2048,//单位为kb，如果为0表示不限制文件大小
-            maxFileCount: 2,//表示允许同时上传的最大文件个数
-            validateInitialCount: true,
-            overwriteInitial: false,
-            showDrag: true,
-            showAjaxErrorDetails: true,
-            enctype: 'multipart/form-data',
-            msgFilesTooMany: "选择上传的文件数量({n}) 超过允许的最大数值{m}",
-            ajaxSettings: {
-                beforeSend: function (xhr) {
-                    xhr.setRequestHeader(header, token);
-                }
-            },
-            uploadExtraData: {
-                houseID: houseID,
-                viewMode: viewMode
-            }
-        });
-
+function ModalTools() {
+    this.p = function (content) {
+        return '<p style="padding: 10px 20px">' + content + '</p>';
     }
 }
 
@@ -86,9 +30,36 @@ function SelectUtil() {
     };
 }
 
+function FileUpload() {
+    var header = $("meta[name='_csrf_header']").attr("content");
+    var token = $("meta[name='_csrf']").attr("content");
+    this.initFileInput = function (target, uploadUrl) {
+        target.fileinput({
+            language: 'zh', //设置语言
+            dropZoneEnabled: false,//是否显示拖拽区域
+            uploadUrl: uploadUrl, //上传的地址
+            allowedFileExtensions: ['jpg', 'png', 'gif'],//接收的文件后缀
+            showUpload: true, //是否显示上传按钮
+            showCaption: true,//是否显示标题
+            browseClass: "btn btn-primary", //按钮样式
+            previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            ajaxSettings: {
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader(header, token);
+                }
+            }
+        });
+    }
+}
+
 function refresh() {
     window.location.reload();
 }
+
+function forward(href) {
+    window.location.href = href;
+}
+
 
 function HttpUtil() {
     this.postCRF = function (URL, data, callback) {
@@ -194,8 +165,4 @@ function Location(province, city, area) {
     }
 }
 
-function Tools() {
-    this.content = function (message) {
-        return "<div class='col-xs-12'>" + message + "</div>";
-    }
-}
+

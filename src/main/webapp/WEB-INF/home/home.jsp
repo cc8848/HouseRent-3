@@ -45,7 +45,15 @@
                             </li>
                             <li class="list-group-item">
                                 <a href="${pageContext.request.contextPath}/home/account_update"
-                                   target="frame-box" id="info" >信息修改</a>
+                                   target="frame-box">信息修改</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="${pageContext.request.contextPath}/home/portrait"
+                                   target="frame-box">头像设置</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="${pageContext.request.contextPath}/home/account_update"
+                                   target="frame-box">安全设置</a>
                             </li>
                         </ul>
                     </div>
@@ -75,6 +83,6 @@
 </div>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/views/home_box.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/views/home.js"></script>
 </body>
 </html>

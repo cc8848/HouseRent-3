@@ -25,122 +25,140 @@
     <div class="row">
         <div class="col-lg-12">
             <div class="page-header">
-                <h2>Showings · 注册账号</h2>
+                <h2>Showings · 注册账号
+                    <a href="${pageContext.request.contextPath}/" class="btn btn-xs btn-primary pull-right">返回首页</a>
+                </h2>
             </div>
         </div>
     </div>
     <div class="row">
-        <form role="form" class="col-lg-3" id="account">
-            <div class="form-group">
-                <label class="label label-primary control-label">账号信息</label>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="username">手机号码</label>
-                <div class="input-group">
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
-                    <input type="text" class="form-control" id="username" name="username" placeholder="手机号码">
+        <form role="form" id="account">
+            <div class="col-lg-3">
+
+                <div class="form-group">
+                    <label class="label label-primary control-label">账号信息</label>
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="password">密码</label>
-                <div class="input-group">
-                    <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
-                    <input type="text" class="form-control" id="password" name="password" placeholder="6-10位字母或数字的组合">
-                </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="captcha">验证码</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-qrcode"></span>
+                <div class="form-group">
+                    <label class="control-label" for="username">手机号码</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
+                        <input type="text" class="form-control" id="username" name="username" placeholder="手机号码">
                     </div>
-                    <input type="text" id="captcha" class="form-control" name="captcha" placeholder="6位验证码">
-                    <div class="input-group-btn">
-                        <button class="btn btn-default" type="button" name="send">发送验证码</button>
+                    <span class="help-block"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="password">密码</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        <input type="password" class="form-control" id="password" name="password"
+                               placeholder="6-10位字母或数字的组合">
                     </div>
                 </div>
-            </div>
-        </form>
-        <form class="col-lg-3" role="form" id="person">
-            <div class="form-group">
-                <label class="label label-primary control-label">个人信息</label>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="name">真实姓名</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <span class="glyphicon glyphicon-user"></span>
+                <div class="form-group">
+                    <label class="control-label" for="check">再次确认密码</label>
+                    <div class="input-group">
+                        <span class="input-group-addon"><span class="glyphicon glyphicon-lock"></span></span>
+                        <input type="password" class="form-control" id="check" name="check" placeholder="请输入相同的密码">
                     </div>
-                    <input type="text" class="form-control" placeholder="真实姓名" id="name">
                 </div>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="license">身份证号</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <i class="iconFont-xs">&#xe6d2;</i>
+                <div class="form-group">
+                    <label class="control-label" for="captcha">验证码</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-qrcode"></span>
+                        </div>
+                        <input type="text" id="captcha" class="form-control" name="captcha" placeholder="6位验证码">
+                        <div class="input-group-btn">
+                            <button class="btn btn-default" type="button" name="send">发送验证码</button>
+                        </div>
                     </div>
-                    <input type="text" class="form-control" placeholder="18位证件号码" id="license">
                 </div>
+
             </div>
-            <div class="form-group">
-                <label class="control-label" for="sex">性别</label>
-                <select class="form-control" id="sex" title="sex">
-                    <option value="0">请选择</option>
-                    <option value="1">男</option>
-                    <option value="2">女</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="job">职业类型</label>
-                <select class="form-control" id="job" title="job">
-                    <option value="0">请选择</option>
-                    <option value="1">公司任职</option>
-                    <option value="2">独立经纪人</option>
-                </select>
-            </div>
-            <div class="form-group">
-                <label class="control-label" for="company">公司名称</label>
-                <div class="input-group">
-                    <div class="input-group-addon">
-                        <i class="iconFont-xs">&#xe66d;</i>
+            <div class="col-lg-3">
+                <div class="form-group">
+                    <label class="label label-primary control-label">个人信息</label>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="name">真实姓名</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <span class="glyphicon glyphicon-user"></span>
+                        </div>
+                        <input type="text" class="form-control" placeholder="真实姓名" id="name" name="name">
                     </div>
-                    <input type="text" class="form-control" placeholder="输入公司简称即可" id="company">
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="license">身份证号</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="iconFont-xs">&#xe6d2;</i>
+                        </div>
+                        <input type="text" class="form-control" placeholder="18位证件号码" id="license" name="license">
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="sex">性别</label>
+                    <select class="form-control" id="sex" name="sex">
+                        <option value="0">-- 请选择 --</option>
+                        <option value="1">男</option>
+                        <option value="2">女</option>
+                    </select>
+                    <span class="help-block"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="job">职业类型</label>
+                    <select class="form-control" id="job" name="job">
+                        <option value="0">-- 请选择 --</option>
+                        <option value="1">公司任职</option>
+                        <option value="2">独立经纪人</option>
+                    </select>
+                    <span class="help-block"></span>
+                </div>
+                <div class="form-group">
+                    <label class="control-label" for="company">公司简称（6个汉字以内）</label>
+                    <div class="input-group">
+                        <div class="input-group-addon">
+                            <i class="iconFont-xs">&#xe66d;</i>
+                        </div>
+                        <input type="text" class="form-control" placeholder="未就职可填写'独立经纪人'" id="company" name="company">
+                    </div>
                 </div>
             </div>
-        </form>
-        <div class="col-lg-6">
-            <div class="form-group">
-                <label class="label label-primary control-label">法规条款</label>
-            </div>
-            <div class="panel panel-default">
-                <div class="panel-body ">
-                    <h4>网站注册服务条款</h4>
+            <div class="col-lg-6">
+                <div class="form-group">
+                    <label class="label label-primary control-label">服务条款</label>
                 </div>
-                <ul class="list-group">
-                    <li class="list-group-item pre-scrollable">
-                        <c:import url="/WEB-INF/views/register_service.jsp"/>
-                    </li>
-                </ul>
-                <div class="panel-footer">
-                    <form role="form" id="service">
+                <div class="panel panel-default">
+                    <div class="panel-body ">
+                        <h4>网站注册服务条款</h4>
+                    </div>
+                    <ul class="list-group">
+                        <li class="list-group-item pre-scrollable">
+                            <c:import url="/WEB-INF/views/register_service.jsp"/>
+                        </li>
+                    </ul>
+                    <div class="panel-footer">
                         <div class="checkbox" style="margin: 0">
-                            <label>
+                            <label class="control-label">
                                 <input type="checkbox" id="agree" value="1"> 我同意
                             </label>
                         </div>
-                    </form>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <button type="button" class="btn btn-primary form-control" name="register">注册账号</button>
                 </div>
             </div>
-            <div class="form-group">
-                <button type="button" class="btn btn-primary form-control" name="register">注册账号</button>
-            </div>
-        </div>
+        </form>
     </div>
 </div>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/soc/sco.valid.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/soc/sco.modal.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/soc/sco.message.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/views/register.js"></script>
 </body>
 </html>

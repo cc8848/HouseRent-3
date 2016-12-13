@@ -42,9 +42,6 @@
                 <li id="login-tab" class="active">
                     <a href="#login-content" data-toggle="tab">登录</a>
                 </li>
-                <li id="register-tab">
-                    <a href="#register-content" data-toggle="tab">注册</a>
-                </li>
                 <li id="reset-tab">
                     <a href="#reset-content" data-toggle="tab">找回密码</a>
                 </li>
@@ -112,70 +109,6 @@
                                 </div>
                             </div>
                         </form><%--登录 end--%>
-                    </div>
-                    <div class="col-xs-1 col-sm-2"></div>
-                </div>
-                <div class="tab-pane" id="register-content">
-                    <div class="col-xs-1 col-sm-2"></div>
-                    <div class="col-xs-10 col-sm-8">
-                        <%--注册 start--%>
-                        <form id="register-form" class="form" role="form">
-                            <div class="white-divider-xl"></div>
-                            <!--用户名-->
-                            <div class="form-group input-group input-group-sm">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></div>
-                                <input id="register-phone" name="username" type="text" class="form-control"
-                                       placeholder="手机号">
-                            </div>
-
-                            <div class="white-divider-xs"></div>
-                            <!--用户名-->
-                            <div class="form-group input-group input-group-sm">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-user"></span></div>
-                                <input id="register-name" name="name" type="text" class="form-control"
-                                       placeholder="真实姓名">
-                            </div>
-
-                            <div class="white-divider-xs"></div>
-                            <!--密码-->
-                            <div class="form-group input-group input-group-sm">
-                                <div class="input-group-addon"><span class="glyphicon glyphicon-lock"></span>
-                                </div>
-                                <input id="register-password" type="password" name="password" class="form-control"
-                                       placeholder="密码">
-                            </div>
-                            <div class="white-divider-xs"></div>
-                            <!--手机验证码-->
-                            <div class="form-group input-group input-group-sm">
-                                <div class="input-group-addon">
-                                    <span class="glyphicon glyphicon-qrcode"></span>
-                                </div>
-                                <input id="register-captcha" type="text" name="captcha" class="form-control"
-                                       placeholder="手机验证码">
-                                <span class="input-group-btn">
-                                      <button class="btn btn-default" type="button" onclick="getSMS()">发送验证码</button>
-                                </span>
-                            </div>
-                            <div class="white-divider-xs"></div>
-                            <%--注册按钮--%>
-                            <div class="form-group">
-                                <button type="button" class="btn btn-sm btn-primary btn-block"
-                                        onclick="register()">注册
-                                </button>
-                            </div>
-                            <!--提示信息-->
-                            <div class="form-group">
-                                <div id="register-errorMessage" class="alert alert-danger alert-dismissible hidden"
-                                     role="alert">
-                                    <button type="button" class="close" data-dismiss="alert">
-                                        <span aria-hidden="true">&times;</span>
-                                        <span class="sr-only">Close</span>
-                                    </button>
-                                    <span class="glyphicon glyphicon-remove-circle"></span>
-                                </div>
-                            </div>
-                        </form>
-                        <%--注册 end--%>
                     </div>
                     <div class="col-xs-1 col-sm-2"></div>
                 </div>

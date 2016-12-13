@@ -97,7 +97,7 @@ public class UserServiceImpl extends BaseService implements IUserService {
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     public boolean register(SysUsers sysUsers) throws Exception {
         if (null != sysUsersMapper.selectByUserName(sysUsers.getUsername())) {
-            throw new BusinessException(messageSourceAccessor.getMessage("UserService.UserNameIsExist", "用户名已存在！"));
+            throw new BusinessException(messageSourceAccessor.getMessage("UserService.UserNameIsExist", "手机号码已存在！"));
         }
         //初始化用户信息
         Date createDate = new Date();

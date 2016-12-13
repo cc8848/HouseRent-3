@@ -1,6 +1,5 @@
 package com.magic.rent.mapper;
 
-
 import com.magic.rent.pojo.SysUsers;
 import org.springframework.stereotype.Repository;
 
@@ -18,9 +17,5 @@ public interface SysUsersMapper {
 
     int updateByPrimaryKey(SysUsers record);
 
-    SysUsers selectBySelective(SysUsers sysUsers);
-
     SysUsers selectByUserName(String userName);
-
-
 }

@@ -45,19 +45,21 @@ public class UserController extends BaseController {
         String username = MyStringUtil.checkParameter(request.getParameter("username"), "手机号码不能为空！");
         String password = MyStringUtil.checkParameter(request.getParameter("password"), "密码不能为空！");
         String name = MyStringUtil.checkParameter(request.getParameter("name"), "真实姓名不能为空！");
-        String captcha = request.getParameter("captcha");
-
-        if (StringUtils.isEmpty(username))
-            return JsonResult.error("用户名不能为空!");
-
-        if (StringUtils.isEmpty(password))
-            return JsonResult.error("密码不能为空!");
+        String captcha = MyStringUtil.checkParameter(request.getParameter("captcha"), "手机验证码不能为空！");
+        String license = MyStringUtil.checkParameter(request.getParameter("license"), "身份证号码不能为空！");
+        Integer sex = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("sex"), "性别不能为空！"));
+        Integer job = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("job"), "工作类型不能为空！"));
+        String companyAbbr = MyStringUtil.checkParameter(request.getParameter("companyAbbr"), "公司简称不能为空！");
 
         //封装对象
         SysUsers sysUsers = new SysUsers();
         sysUsers.setUsername(username);
         sysUsers.setPassword(password);
         sysUsers.setName(name);
+        sysUsers.setLicense(license);
+        sysUsers.setSex(sex == 1);//1是男，0是女
+        sysUsers.setJob(job);
+        sysUsers.setCompanyAbbr(companyAbbr);
 
         //将用户信息写入数据库
         if (iUserService.register(sysUsers)) {
@@ -66,5 +68,6 @@ public class UserController extends BaseController {
             return JsonResult.error("用户注册失败!");
         }
     }
+
 
 }

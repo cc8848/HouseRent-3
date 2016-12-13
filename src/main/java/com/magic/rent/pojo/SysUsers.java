@@ -1,70 +1,52 @@
 package com.magic.rent.pojo;
 
 import com.magic.rent.util.DateUtil;
-import org.apache.commons.lang3.time.DateUtils;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
-import javax.servlet.http.HttpServletRequest;
 import java.io.Serializable;
 import java.util.Collection;
 import java.util.Date;
 
-public class SysUsers implements UserDetails, Serializable {
-    private static final long serialVersionUID = -2056222251872727820L;
-    private Integer userId;//用户id
+public class SysUsers implements Serializable, UserDetails {
+    private static final long serialVersionUID = 7757250372112303787L;
 
-    private String username;//账户名
+    private Integer userId;
 
-    private String name;//用户姓名
+    private String username;
 
-    private String password;//密码
+    private String name;
 
-    private Date dtCreate;//创建日期
+    private String password;
 
-    private Date lastLogin;//最后登录日期
+    private Boolean sex;
 
+    private String license;
+
+    private Integer job;
+
+    private String companyAbbr;
+
+    private Date dtCreate;
+
+    private Date lastLogin;
     private String lastLoginString;
 
-    private Date deadline;//截止日期
+    private Date deadline;
 
-    private String loginIp;//最后登录IP
+    private String loginIp;
 
-    private String vQzjgid;//所属机构id
+    private boolean enabled;
 
-    private String vQzjgmc;//所属机构名称
+    private boolean accountNonExpired;
 
-    private String depId;//地区编号
+    private boolean accountNonLocked;
 
-    private String depName;//地区名字
-
-    private boolean enabled;//账户是否可用
-
-    private boolean accountNonExpired;//账户是否过期
-
-    private boolean accountNonLocked;//账户是否锁定
-
-    private boolean credentialsNonExpired;//用户证书是否有效
+    private boolean credentialsNonExpired;
 
     private Collection<? extends SysRoles> sysRoles;//用户权限
 
     private Collection<? extends GrantedAuthority> SysAuthorities;//权限列表
-
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return SysAuthorities;
-    }
-
-    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
-        SysAuthorities = authorities;
-    }
-
-    public Collection<? extends SysRoles> getSysRoles() {
-        return sysRoles;
-    }
-
-    public void setSysRoles(Collection<? extends SysRoles> sysRoles) {
-        this.sysRoles = sysRoles;
-    }
 
     public Integer getUserId() {
         return userId;
@@ -98,6 +80,38 @@ public class SysUsers implements UserDetails, Serializable {
         this.password = password == null ? null : password.trim();
     }
 
+    public Boolean getSex() {
+        return sex;
+    }
+
+    public void setSex(Boolean sex) {
+        this.sex = sex;
+    }
+
+    public String getLicense() {
+        return license;
+    }
+
+    public void setLicense(String license) {
+        this.license = license == null ? null : license.trim();
+    }
+
+    public Integer getJob() {
+        return job;
+    }
+
+    public void setJob(Integer job) {
+        this.job = job;
+    }
+
+    public String getCompanyAbbr() {
+        return companyAbbr;
+    }
+
+    public void setCompanyAbbr(String companyAbbr) {
+        this.companyAbbr = companyAbbr == null ? null : companyAbbr.trim();
+    }
+
     public Date getDtCreate() {
         return dtCreate;
     }
@@ -112,15 +126,7 @@ public class SysUsers implements UserDetails, Serializable {
 
     public void setLastLogin(Date lastLogin) {
         this.lastLogin = lastLogin;
-        this.setLastLoginString(DateUtil.formatToYMDHm(this.lastLogin));
-    }
-
-    public String getLastLoginString() {
-        return lastLoginString;
-    }
-
-    public void setLastLoginString(String lastLoginString) {
-        this.lastLoginString = lastLoginString;
+        this.setLastLoginString(DateUtil.formatToYMD(this.lastLogin));
     }
 
     public Date getDeadline() {
@@ -139,127 +145,70 @@ public class SysUsers implements UserDetails, Serializable {
         this.loginIp = loginIp == null ? null : loginIp.trim();
     }
 
-    public String getvQzjgid() {
-        return vQzjgid;
-    }
-
-    public void setvQzjgid(String vQzjgid) {
-        this.vQzjgid = vQzjgid == null ? null : vQzjgid.trim();
-    }
-
-    public String getvQzjgmc() {
-        return vQzjgmc;
-    }
-
-    public void setvQzjgmc(String vQzjgmc) {
-        this.vQzjgmc = vQzjgmc == null ? null : vQzjgmc.trim();
-    }
-
-    public String getDepId() {
-        return depId;
-    }
-
-    public void setDepId(String depId) {
-        this.depId = depId == null ? null : depId.trim();
-    }
-
-    public String getDepName() {
-        return depName;
-    }
-
-    public void setDepName(String depName) {
-        this.depName = depName == null ? null : depName.trim();
-    }
-
-    public boolean isEnabled() {
-        return enabled;
-    }
-
     public void setEnabled(boolean enabled) {
         this.enabled = enabled;
-    }
-
-    public boolean isAccountNonExpired() {
-        return accountNonExpired;
     }
 
     public void setAccountNonExpired(boolean accountNonExpired) {
         this.accountNonExpired = accountNonExpired;
     }
 
-    public boolean isAccountNonLocked() {
-        return accountNonLocked;
-    }
-
     public void setAccountNonLocked(boolean accountNonLocked) {
         this.accountNonLocked = accountNonLocked;
-    }
-
-    public boolean isCredentialsNonExpired() {
-        return credentialsNonExpired;
     }
 
     public void setCredentialsNonExpired(boolean credentialsNonExpired) {
         this.credentialsNonExpired = credentialsNonExpired;
     }
 
-    /**
-     * 是否具有角色
-     *
-     * @param role
-     * @return
-     */
-    public boolean haveRoles(int roleID) {
-        for (Object sysRoles : this.sysRoles) {
-            if (roleID == ((SysRoles) sysRoles).getRoleId()) {
-                return true;
-            }
-        }
-        return false;
+
+    public boolean isEnabled() {
+        return enabled;
     }
 
-    /**
-     * 获取指定角色ID的角色
-     *
-     * @param roleID
-     * @return
-     */
-    public SysRoles getRole(int roleID) {
-        if (haveRoles(roleID)) {
-            for (Object sysRoles : this.sysRoles) {
-                if (roleID == ((SysRoles) sysRoles).getRoleId()) {
-                    return (SysRoles) sysRoles;
-                }
-            }
-        }
-        return null;
+    public boolean isAccountNonExpired() {
+        return accountNonExpired;
     }
 
-    public void updateSessionInfo(HttpServletRequest request) {
-        request.getSession().setAttribute("usr", this);
+    public boolean isAccountNonLocked() {
+        return accountNonLocked;
     }
 
-    @Override
-    public String toString() {
-        return "SysUsers{" +
-                "userId=" + userId +
-                ", username='" + username + '\'' +
-                ", name='" + name + '\'' +
-                ", password='" + password + '\'' +
-                ", dtCreate=" + dtCreate +
-                ", lastLogin=" + lastLogin +
-                ", deadline=" + deadline +
-                ", loginIp='" + loginIp + '\'' +
-                ", vQzjgid='" + vQzjgid + '\'' +
-                ", vQzjgmc='" + vQzjgmc + '\'' +
-                ", depId='" + depId + '\'' +
-                ", depName='" + depName + '\'' +
-                ", enabled=" + enabled +
-                ", accountNonExpired=" + accountNonExpired +
-                ", accountNonLocked=" + accountNonLocked +
-                ", credentialsNonExpired=" + credentialsNonExpired +
-                ", sysRoles=" + sysRoles +
-                ", Authorities=" + SysAuthorities +
-                '}';
+    public boolean isCredentialsNonExpired() {
+        return credentialsNonExpired;
     }
+
+    public Collection<? extends SysRoles> getSysRoles() {
+        return sysRoles;
+    }
+
+    public void setSysRoles(Collection<? extends SysRoles> sysRoles) {
+        this.sysRoles = sysRoles;
+    }
+
+    public Collection<? extends GrantedAuthority> getSysAuthorities() {
+        return SysAuthorities;
+    }
+
+    public void setSysAuthorities(Collection<? extends GrantedAuthority> sysAuthorities) {
+        SysAuthorities = sysAuthorities;
+    }
+
+    public String getLastLoginString() {
+        return lastLoginString;
+    }
+
+    public void setLastLoginString(String lastLoginString) {
+        this.lastLoginString = lastLoginString;
+    }
+
+
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        return this.getSysAuthorities();
+    }
+
+    public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
+        this.setSysAuthorities(authorities);
+    }
+
 }
