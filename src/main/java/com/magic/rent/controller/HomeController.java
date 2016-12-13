@@ -4,12 +4,15 @@ import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.exception.custom.LoginTimeOutException;
 import com.magic.rent.pojo.*;
 import com.magic.rent.service.*;
+import com.magic.rent.util.FileUtil;
+import com.magic.rent.util.HttpUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -58,6 +61,16 @@ public class HomeController extends BaseController {
 
     @RequestMapping("/portrait")
     public ModelAndView portrait(HttpServletRequest request) throws Exception {
+        //获取用户ID用于指向对应文件夹
+        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        int userID = sysUsers.getUserId();
+        //获取文件路径
+        String filePath = FileUtil.getPortraitPath(userID);
+        File file = new File(filePath);
+        File[] files = file.listFiles();
+        if (null != files) {
+        }
+
 
         return new ModelAndView("home/portrait");
     }

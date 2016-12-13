@@ -16,6 +16,9 @@ import java.util.Date;
  */
 public class FileUtil {
 
+    public static final int IMG = 1;
+
+
     private static Logger logger = LoggerFactory.getLogger(FileUtil.class);
 
     /**
@@ -34,7 +37,7 @@ public class FileUtil {
      * @return
      */
     public static String getPortraitPath(int userID) {
-        String realPath = getWebRootPath() + "/img/portrait/" + userID + "/";
+        String realPath = getWebRootPath() + "img/portrait/" + userID + "/";
         File file = new File(realPath);
         //判断文件夹是否存在，不存在则创建一个
         if (!file.exists() || !file.isDirectory()) {
@@ -55,5 +58,29 @@ public class FileUtil {
         // 获取文件后缀
         String extension = fileName.substring(fileName.lastIndexOf("."));
         return "portrait" + extension.toLowerCase();
+    }
+
+    /**
+     * 将文件地址转成链接地址
+     *
+     * @param filePath
+     * @param fileType
+     * @return
+     */
+    public static String filePathToHref(String filePath, int fileType) {
+        String href = "";
+        if (null != filePath && !filePath.equals("")) {
+            switch (fileType) {
+                case IMG:
+                    if (filePath.contains("/img/")) {
+                        int index = filePath.indexOf("/img/");
+                        href = filePath.substring(index);
+                    } else {
+                        href = "";
+                    }
+                    return href;
+            }
+        }
+        return href;
     }
 }

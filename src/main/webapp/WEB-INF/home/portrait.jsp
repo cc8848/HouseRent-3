@@ -21,21 +21,21 @@
 <body>
 <div class="container-fluid">
     <div class="row">
-        <div class="col-sm-12">
-            <ol class="breadcrumb">
-                <li><a href="${pageContext.request.contextPath}/home/account">我的账户</a></li>
-                <li class="active">头像设置</li>
-            </ol>
-        </div>
+        <ol class="breadcrumb">
+            <li><a href="${pageContext.request.contextPath}/home/account">我的账户</a></li>
+            <li class="active">头像设置</li>
+        </ol>
     </div>
     <div class="row">
         <div class="col-sm-8" style="min-height: 400px">
-            <form role="form" enctype="multipart/form-data">
-                <div class="form-group">
-                    <label class="control-label" for="portrait">请选择文件</label>
-                    <input id="portrait" type="file" name="portrait">
-                </div>
-            </form>
+            <div class="row">
+                <form role="form" enctype="multipart/form-data">
+                    <div class="form-group">
+                        <label class="control-label" for="portrait">请选择文件</label>
+                        <input id="portrait" type="file" name="portrait">
+                    </div>
+                </form>
+            </div>
         </div>
         <div class="col-sm-4"></div>
     </div>

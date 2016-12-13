@@ -37,14 +37,15 @@ public class FileUploadController extends BaseController {
     @ResponseBody
     @RequestMapping(value = "/portrait", method = {RequestMethod.POST})
     public JsonResult upload(HttpServletRequest request) throws Exception {
-
+        //获取用户ID用于指向对应文件夹
         SysUsers sysUsers = HttpUtil.getSessionUser(request);
         int userID = sysUsers.getUserId();
-
+        //获取文件路径
         String filePath = FileUtil.getPortraitPath(userID);
 
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(
                 request.getSession().getServletContext());
+
         String path = "";
         //检查form中是否有enctype="multipart/form-data"
         if (multipartResolver.isMultipart(request)) {
@@ -62,6 +63,6 @@ public class FileUploadController extends BaseController {
                 }
             }
         }
-        return JsonResult.success(path).setMessage("头像上传成功！");
+        return JsonResult.success(FileUtil.filePathToHref(path, FileUtil.IMG)).setMessage("头像上传成功！");
     }
 }
