@@ -44,6 +44,8 @@ public class SysUsers implements Serializable, UserDetails {
 
     private boolean credentialsNonExpired;
 
+    private Integer major;
+
     private Collection<? extends SysRoles> sysRoles;//用户权限
 
     private Collection<? extends GrantedAuthority> SysAuthorities;//权限列表
@@ -210,5 +212,15 @@ public class SysUsers implements Serializable, UserDetails {
     public void setAuthorities(Collection<? extends GrantedAuthority> authorities) {
         this.setSysAuthorities(authorities);
     }
+
+
+    public Integer getMajor() {
+        return major;
+    }
+
+    public void setMajor(Integer major) {
+        this.major = major;
+    }
+
 
 }

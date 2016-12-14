@@ -13,6 +13,37 @@ function Portrait() {
     var fileUp = new FileUpload();
     var portrait = $('#portrait');
     this.init = function () {
-        fileUp.initFileInput(portrait, '/file/portrait');
+        fileUp.sampleInit(portrait, '/file/portrait');
+
+    };
+}
+
+//定义一个全局api，这样操作起来比较灵活
+var api = null;
+var img = $('#cut-img');
+function readURL(input) {
+    if (input.files && input.files[0]) {
+        var reader = new FileReader();
+        reader.readAsDataURL(input.files[0]);
+        reader.onload = function (e) {
+            img.removeAttr('src');
+            img.attr('src', e.target.result);
+            img.Jcrop({
+                handleSize: 15,
+                aspectRatio: 1,
+                onSelect: updateCoords
+            }, function () {
+                api = this;
+            });
+        };
+        if (api != undefined) {
+            api.destroy();
+        }
     }
+    function updateCoords(obj) {
+        $("#x").val(obj.x);
+        $("#y").val(obj.y);
+        $("#w").val(obj.w);
+        $("#h").val(obj.h);
+    };
 }

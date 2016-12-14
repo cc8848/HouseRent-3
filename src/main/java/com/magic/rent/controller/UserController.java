@@ -1,9 +1,12 @@
 package com.magic.rent.controller;
 
 import com.magic.rent.controller.base.BaseController;
+import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
 import com.magic.rent.pojo.JsonResult;
+import com.magic.rent.util.FileUtil;
+import com.magic.rent.util.HttpUtil;
 import com.magic.rent.util.MyStringUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -15,6 +18,8 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
+import java.io.File;
+import java.util.List;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -50,6 +55,7 @@ public class UserController extends BaseController {
         Integer sex = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("sex"), "性别不能为空！"));
         Integer job = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("job"), "工作类型不能为空！"));
         String companyAbbr = MyStringUtil.checkParameter(request.getParameter("companyAbbr"), "公司简称不能为空！");
+        Integer major = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("major"), "专业方向不能为空！"));
 
         //封装对象
         SysUsers sysUsers = new SysUsers();
@@ -57,7 +63,14 @@ public class UserController extends BaseController {
         sysUsers.setPassword(password);
         sysUsers.setName(name);
         sysUsers.setLicense(license);
-        sysUsers.setSex(sex == 1);//1是男，0是女
+        sysUsers.setMajor(major);
+        if (sex == 1) {
+            sysUsers.setSex(true);//1是男，2是女
+        } else if (sex == 2) {
+            sysUsers.setSex(false);
+        } else {
+            throw new BusinessException("请选择正确的性别！");
+        }
         sysUsers.setJob(job);
         sysUsers.setCompanyAbbr(companyAbbr);
 
@@ -68,6 +81,5 @@ public class UserController extends BaseController {
             return JsonResult.error("用户注册失败!");
         }
     }
-
 
 }

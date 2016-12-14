@@ -45,15 +45,7 @@
                             </li>
                             <li class="list-group-item">
                                 <a href="${pageContext.request.contextPath}/home/account_update"
-                                   target="frame-box">信息修改</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="${pageContext.request.contextPath}/home/portrait"
-                                   target="frame-box">头像设置</a>
-                            </li>
-                            <li class="list-group-item">
-                                <a href="${pageContext.request.contextPath}/home/account_update"
-                                   target="frame-box">安全设置</a>
+                                   target="frame-box">账户安全</a>
                             </li>
                         </ul>
                     </div>

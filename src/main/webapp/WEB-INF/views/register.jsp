@@ -116,6 +116,16 @@
                     <span class="help-block"></span>
                 </div>
                 <div class="form-group">
+                    <label class="control-label" for="major">擅长的领域</label>
+                    <select class="form-control" id="major" name="major">
+                        <option value="0">-- 请选择 --</option>
+                        <option value="1">改善购房</option>
+                        <option value="2">投资购房</option>
+                        <option value="3">刚需购房</option>
+                    </select>
+                    <span class="help-block"></span>
+                </div>
+                <div class="form-group">
                     <label class="control-label" for="company">公司简称（6个汉字以内）</label>
                     <div class="input-group">
                         <div class="input-group-addon">

@@ -20,6 +20,7 @@ function Register() {
     var sex = $('#sex');
     var job = $('#job');
     var companyAbbr = $('#company');
+    var major = $('#major');
     // ——————————————————————————
     var agree = $('#agree');
 
@@ -33,6 +34,7 @@ function Register() {
             license: ['not_empty', {regex: /^[1-9]\d{5}[1-9]\d{3}((0\d)|(1[0-2]))(([0|1|2]\d)|3[0-1])\d{3}([0-9]|X)$/}],
             sex: ['not_empty', {regex: /[1-9]/}],
             job: ['not_empty', {regex: /[1-9]/}],
+            major: ['not_empty', {regex: /[1-9]/}],
             company: ['not_empty', {regex: /^[\u4e00-\u9fa5]{1,6}$/}]
         },
         messages: {
@@ -44,9 +46,8 @@ function Register() {
             license: {not_empty: '此处必须输入', regex: '身份证号码不正确'},
             sex: {not_empty: '此处必须输入', regex: '此处必须输入'},
             job: {not_empty: '此处必须输入', regex: '此处必须输入'},
+            major: {not_empty: '此处必须输入', regex: '此处必须输入'},
             company: {not_empty: '此处必须输入', regex: '6个汉字以内'}
-        },
-        onSuccess: function (response, validator, $form) {
         }
     });
 
@@ -69,7 +70,7 @@ function Register() {
                     job: job.val(),
                     companyAbbr: companyAbbr.val()
                 }, function (data) {
-                    var tools=new ModalTools();
+                    var tools = new ModalTools();
                     var model = {};
                     if (data.status) {
                         model = $.scojs_modal({
@@ -90,7 +91,7 @@ function Register() {
                     model.show();
                 })
             } else {
-                $.scojs_message('同意《网站注册服务条款》方可进行注册！', $.scojs_message.TYPE_ERROR)
+                $.scojs_message('请同意《网站注册服务条款》方可进行注册！', $.scojs_message.TYPE_ERROR)
             }
         }
     };

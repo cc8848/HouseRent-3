@@ -15,38 +15,34 @@
     <sec:csrfMetaTags/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/file-input.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/scojs.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jcrop/jquery.Jcrop.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/file-input.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
 <body>
-<div class="container-fluid">
-    <div class="row">
-        <ol class="breadcrumb">
-            <li><a href="${pageContext.request.contextPath}/home/account">我的账户</a></li>
-            <li class="active">头像设置</li>
-        </ol>
+<div class="row">
+    <div class="col-xs-12">
+        <form role="form" enctype="multipart/form-data" action="${pageContext.request.contextPath}/file/portrait"
+              method="post">
+            <img alt="" src="" id="cut-img" class="img-responsive"/>
+            <div class="white-divider-md"></div>
+            <input type="file" name="imgFile" id="portrait" onchange="readURL(this);"/>
+            <input type="hidden" id="x" name="x"/>
+            <input type="hidden" id="y" name="y"/>
+            <input type="hidden" id="w" name="w"/>
+            <input type="hidden" id="h" name="h"/>
+        </form>
     </div>
-    <div class="row">
-        <div class="col-sm-8" style="min-height: 400px">
-            <div class="row">
-                <form role="form" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <label class="control-label" for="portrait">请选择文件</label>
-                        <input id="portrait" type="file" name="portrait">
-                    </div>
-                </form>
-            </div>
-        </div>
-        <div class="col-sm-4"></div>
-    </div>
-
 </div>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jcrop/jquery.Jcrop.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/fileup/file-input.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/fileup/zh.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/views/portrait.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 </body>
 </html>
 

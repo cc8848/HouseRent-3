@@ -23,6 +23,6 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/views/_account.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/views/account.js"></script>
 </body>
 </html>

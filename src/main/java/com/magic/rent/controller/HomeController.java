@@ -6,6 +6,7 @@ import com.magic.rent.pojo.*;
 import com.magic.rent.service.*;
 import com.magic.rent.util.FileUtil;
 import com.magic.rent.util.HttpUtil;
+import com.sun.org.apache.xpath.internal.operations.Mod;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -54,8 +55,20 @@ public class HomeController extends BaseController {
 
     @RequestMapping("/account")
     public ModelAndView account(HttpServletRequest request) throws Exception {
+        ModelAndView modelAndView = new ModelAndView("home/account");
+        //获取用户ID用于指向对应文件夹
+        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        modelAndView.addObject("user", sysUsers);
 
-        return new ModelAndView("home/account");
+        //获取头像路径
+        int userID = sysUsers.getUserId();
+        String filePath = FileUtil.getPortraitPath(userID);
+        List<File> fileList = FileUtil.getListFiles(filePath);
+        String src = FileUtil.filePathToSRC(fileList.get(0).toString(), FileUtil.IMG);
+        modelAndView.addObject("portrait_src", src);
+
+
+        return modelAndView;
     }
 
     @RequestMapping("/account_update")
@@ -64,17 +77,17 @@ public class HomeController extends BaseController {
         return new ModelAndView("home/account_update");
     }
 
-    @RequestMapping("/portrait")
-    public ModelAndView portrait(HttpServletRequest request) throws Exception {
-        //获取用户ID用于指向对应文件夹
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
-        int userID = sysUsers.getUserId();
-        //获取文件路径
-        String filePath = FileUtil.getPortraitPath(userID);
-        List<File> fileList = FileUtil.getListFiles(filePath);
-        logger.info(fileList.toString());
+    @RequestMapping("/portrait/upload")
+    public ModelAndView portraitUpload(HttpServletRequest request) throws Exception {
 
 
         return new ModelAndView("home/portrait");
+    }
+
+    @RequestMapping("/portrait/modify")
+    public ModelAndView portraitModify(HttpServletRequest request) throws Exception {
+
+
+        return null;
     }
 }

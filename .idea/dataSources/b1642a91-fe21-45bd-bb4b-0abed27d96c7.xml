@@ -1729,6 +1729,7 @@
       <Position>3</Position>
       <Comment>用户名</Comment>
       <DataType>varchar(100)|0</DataType>
+      <NotNull>1</NotNull>
     </column>
     <column id="382" parent="43" name="PASSWORD">
       <Position>4</Position>
@@ -1737,196 +1738,203 @@
       <NotNull>1</NotNull>
     </column>
     <column id="383" parent="43" name="DT_CREATE">
-      <Position>5</Position>
+      <Position>9</Position>
       <Comment>创建日期</Comment>
       <DataType>datetime|0</DataType>
       <DefaultExpression>CURRENT_TIMESTAMP</DefaultExpression>
     </column>
     <column id="384" parent="43" name="LAST_LOGIN">
-      <Position>6</Position>
+      <Position>10</Position>
       <Comment>最后登录时间</Comment>
       <DataType>datetime|0</DataType>
     </column>
     <column id="385" parent="43" name="DEADLINE">
-      <Position>7</Position>
+      <Position>11</Position>
       <Comment>截止日期</Comment>
       <DataType>datetime|0</DataType>
     </column>
     <column id="386" parent="43" name="LOGIN_IP">
-      <Position>8</Position>
+      <Position>12</Position>
       <Comment>最后登录IP</Comment>
       <DataType>varchar(100)|0</DataType>
     </column>
-    <column id="387" parent="43" name="V_QZJGID">
-      <Position>9</Position>
-      <Comment>所属机构ID</Comment>
-      <DataType>varchar(100)|0</DataType>
-    </column>
-    <column id="388" parent="43" name="V_QZJGMC">
-      <Position>10</Position>
-      <Comment>所属机构名称</Comment>
-      <DataType>varchar(100)|0</DataType>
-    </column>
-    <column id="389" parent="43" name="DEP_ID">
-      <Position>11</Position>
-      <Comment>地区编号</Comment>
-      <DataType>varchar(100)|0</DataType>
-    </column>
-    <column id="390" parent="43" name="DEP_NAME">
-      <Position>12</Position>
-      <Comment>地区名称</Comment>
-      <DataType>varchar(100)|0</DataType>
-    </column>
-    <column id="391" parent="43" name="ENABLED">
+    <column id="387" parent="43" name="ENABLED">
       <Position>13</Position>
       <Comment>是否可用</Comment>
-      <DataType>tinyint(2)|0</DataType>
+      <DataType>tinyint(1)|0</DataType>
     </column>
-    <column id="392" parent="43" name="ACCOUNT_NON_EXPIRED">
+    <column id="388" parent="43" name="ACCOUNT_NON_EXPIRED">
       <Position>14</Position>
       <Comment>是否过期</Comment>
-      <DataType>tinyint(2)|0</DataType>
+      <DataType>tinyint(1)|0</DataType>
     </column>
-    <column id="393" parent="43" name="ACCOUNT_NON_LOCKED">
+    <column id="389" parent="43" name="ACCOUNT_NON_LOCKED">
       <Position>15</Position>
       <Comment>是否锁定</Comment>
-      <DataType>tinyint(2)|0</DataType>
+      <DataType>tinyint(1)|0</DataType>
     </column>
-    <column id="394" parent="43" name="CREDENTIALS_NON_EXPIRED">
+    <column id="390" parent="43" name="CREDENTIALS_NON_EXPIRED">
       <Position>16</Position>
       <Comment>证书是否有效</Comment>
-      <DataType>tinyint(2)|0</DataType>
+      <DataType>tinyint(1)|0</DataType>
     </column>
-    <key id="395" parent="43" name="PRIMARY">
+    <column id="391" parent="43" name="SEX">
+      <Position>5</Position>
+      <Comment>性别</Comment>
+      <DataType>tinyint(1)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="392" parent="43" name="LICENSE">
+      <Position>6</Position>
+      <DataType>varchar(18)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="393" parent="43" name="JOB">
+      <Position>7</Position>
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="394" parent="43" name="COMPANY_ABBR">
+      <Position>8</Position>
+      <DataType>varchar(18)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <column id="395" parent="43" name="MAJOR">
+      <Position>17</Position>
+      <Comment>导购专业</Comment>
+      <DataType>int(2)|0</DataType>
+      <NotNull>1</NotNull>
+    </column>
+    <key id="396" parent="43" name="PRIMARY">
       <ColNames>USER_ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="396" parent="44" name="ID">
+    <column id="397" parent="44" name="ID">
       <Position>1</Position>
       <DataType>int(100)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="397" parent="44" name="ROLE_ID">
+    <column id="398" parent="44" name="ROLE_ID">
       <Position>2</Position>
       <DataType>int(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="398" parent="44" name="USER_ID">
+    <column id="399" parent="44" name="USER_ID">
       <Position>3</Position>
       <DataType>int(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <index id="399" parent="44" name="FK_Reference_1">
+    <index id="400" parent="44" name="FK_Reference_1">
       <ColNames>USER_ID</ColNames>
     </index>
-    <index id="400" parent="44" name="FK_Reference_2">
+    <index id="401" parent="44" name="FK_Reference_2">
       <ColNames>ROLE_ID</ColNames>
     </index>
-    <key id="401" parent="44" name="PRIMARY">
+    <key id="402" parent="44" name="PRIMARY">
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="402" parent="44" name="FK_Reference_2">
+    <foreign-key id="403" parent="44" name="FK_Reference_2">
       <ColNames>ROLE_ID</ColNames>
       <RefSchemaName>db_house_rent</RefSchemaName>
       <RefTableName>SYS_ROLES</RefTableName>
       <RefColNames>ROLE_ID</RefColNames>
     </foreign-key>
-    <foreign-key id="403" parent="44" name="FK_Reference_1">
+    <foreign-key id="404" parent="44" name="FK_Reference_1">
       <ColNames>USER_ID</ColNames>
       <RefSchemaName>db_house_rent</RefSchemaName>
       <RefTableName>SYS_USERS</RefTableName>
       <RefColNames>USER_ID</RefColNames>
     </foreign-key>
-    <column id="404" parent="45" name="ID">
+    <column id="405" parent="45" name="ID">
       <Position>1</Position>
       <DataType>int(100)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="405" parent="45" name="USER_ID">
+    <column id="406" parent="45" name="USER_ID">
       <Position>2</Position>
       <DataType>int(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="406" parent="45" name="STORE_ID">
+    <column id="407" parent="45" name="STORE_ID">
       <Position>3</Position>
       <DataType>int(100)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="407" parent="45" name="SYS_STATUS">
+    <column id="408" parent="45" name="SYS_STATUS">
       <Position>4</Position>
       <DataType>int(2)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <column id="408" parent="45" name="AUDITING_TIME">
+    <column id="409" parent="45" name="AUDITING_TIME">
       <Position>5</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <column id="409" parent="45" name="OPERATE_TIME">
+    <column id="410" parent="45" name="OPERATE_TIME">
       <Position>6</Position>
       <DataType>datetime|0</DataType>
     </column>
-    <index id="410" parent="45" name="STATUS_ID">
+    <index id="411" parent="45" name="STATUS_ID">
       <ColNames>SYS_STATUS</ColNames>
     </index>
-    <index id="411" parent="45" name="STORE_ID">
+    <index id="412" parent="45" name="STORE_ID">
       <ColNames>STORE_ID</ColNames>
     </index>
-    <index id="412" parent="45" name="USER_ID">
+    <index id="413" parent="45" name="USER_ID">
       <ColNames>USER_ID</ColNames>
     </index>
-    <key id="413" parent="45" name="PRIMARY">
+    <key id="414" parent="45" name="PRIMARY">
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <foreign-key id="414" parent="45" name="FK_SELLER_USER">
+    <foreign-key id="415" parent="45" name="FK_SELLER_USER">
       <ColNames>USER_ID</ColNames>
       <RefSchemaName>db_house_rent</RefSchemaName>
       <RefTableName>SYS_USERS</RefTableName>
       <RefColNames>USER_ID</RefColNames>
     </foreign-key>
-    <foreign-key id="415" parent="45" name="FK_THIS_STORE">
+    <foreign-key id="416" parent="45" name="FK_THIS_STORE">
       <ColNames>STORE_ID</ColNames>
       <RefSchemaName>db_house_rent</RefSchemaName>
       <RefTableName>SYS_STORE</RefTableName>
       <RefKeyName>PRIMARY</RefKeyName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <foreign-key id="416" parent="45" name="FK_SELLER_STATUS">
+    <foreign-key id="417" parent="45" name="FK_SELLER_STATUS">
       <ColNames>SYS_STATUS</ColNames>
       <RefSchemaName>db_house_rent</RefSchemaName>
       <RefTableName>SYS_STATUS</RefTableName>
       <RefColNames>ID</RefColNames>
     </foreign-key>
-    <column id="417" parent="46" name="ID">
+    <column id="418" parent="46" name="ID">
       <Position>1</Position>
       <DataType>int(2)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="418" parent="46" name="STATUS_NAME">
+    <column id="419" parent="46" name="STATUS_NAME">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="419" parent="46" name="PRIMARY">
+    <key id="420" parent="46" name="PRIMARY">
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>
-    <column id="420" parent="47" name="ID">
+    <column id="421" parent="47" name="ID">
       <Position>1</Position>
       <DataType>int(10)|0</DataType>
       <NotNull>1</NotNull>
       <SequenceIdentity>1</SequenceIdentity>
     </column>
-    <column id="421" parent="47" name="NAME">
+    <column id="422" parent="47" name="NAME">
       <Position>2</Position>
       <DataType>varchar(20)|0</DataType>
       <NotNull>1</NotNull>
     </column>
-    <key id="422" parent="47" name="PRIMARY">
+    <key id="423" parent="47" name="PRIMARY">
       <ColNames>ID</ColNames>
       <Primary>1</Primary>
     </key>

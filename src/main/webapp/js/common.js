@@ -21,21 +21,15 @@ function SelectUtil() {
             });
         });
     };
-    this.selectInitAjax = function (target, URL, data) {
-        $.getJSON(URL, data, function (backData) {
-            target.select2({
-                data: backData.data
-            });
-        });
-    };
 }
 
 function FileUpload() {
     var header = $("meta[name='_csrf_header']").attr("content");
     var token = $("meta[name='_csrf']").attr("content");
-    this.initFileInput = function (target, uploadUrl) {
+    this.sampleInit = function (target, uploadUrl) {
         target.fileinput({
             language: 'zh', //设置语言
+            showPreview: false,
             dropZoneEnabled: false,//是否显示拖拽区域
             uploadUrl: uploadUrl, //上传的地址
             allowedFileExtensions: ['jpg', 'png', 'gif'],//接收的文件后缀
@@ -81,8 +75,6 @@ function HttpUtil() {
 }
 
 function Location(province, city, area) {
-
-    var modal = new Modal();
 
     this.locationInit = function () {
         this.provinceInit();

@@ -18,10 +18,11 @@
         <result column="ACCOUNT_NON_EXPIRED" jdbcType="BIT" property="accountNonExpired"/>
         <result column="ACCOUNT_NON_LOCKED" jdbcType="BIT" property="accountNonLocked"/>
         <result column="CREDENTIALS_NON_EXPIRED" jdbcType="BIT" property="credentialsNonExpired"/>
+        <result column="MAJOR" jdbcType="INTEGER" property="major"/>
     </resultMap>
     <sql id="Base_Column_List">
     USER_ID, USERNAME, NAME, PASSWORD, SEX, LICENSE, JOB, COMPANY_ABBR, DT_CREATE, LAST_LOGIN, 
-    DEADLINE, LOGIN_IP, ENABLED, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED
+    DEADLINE, LOGIN_IP, ENABLED, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, CREDENTIALS_NON_EXPIRED,MAJOR
   </sql>
     <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
         select
@@ -40,13 +41,13 @@
       JOB, COMPANY_ABBR, DT_CREATE, 
       LAST_LOGIN, DEADLINE, LOGIN_IP, 
       ENABLED, ACCOUNT_NON_EXPIRED, ACCOUNT_NON_LOCKED, 
-      CREDENTIALS_NON_EXPIRED)
+      CREDENTIALS_NON_EXPIRED,MAJOR)
     values (#{userId,jdbcType=INTEGER}, #{username,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, 
       #{password,jdbcType=VARCHAR}, #{sex,jdbcType=BIT}, #{license,jdbcType=VARCHAR}, 
       #{job,jdbcType=INTEGER}, #{companyAbbr,jdbcType=VARCHAR}, #{dtCreate,jdbcType=TIMESTAMP}, 
       #{lastLogin,jdbcType=TIMESTAMP}, #{deadline,jdbcType=TIMESTAMP}, #{loginIp,jdbcType=VARCHAR}, 
       #{enabled,jdbcType=BIT}, #{accountNonExpired,jdbcType=BIT}, #{accountNonLocked,jdbcType=BIT}, 
-      #{credentialsNonExpired,jdbcType=BIT})
+      #{credentialsNonExpired,jdbcType=BIT},#{major,jdbcType=INTEGER})
   </insert>
     <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysUsers" keyProperty="userId" keyColumn="USER_ID"
             useGeneratedKeys="true">
@@ -100,6 +101,9 @@
             <if test="credentialsNonExpired != null">
                 CREDENTIALS_NON_EXPIRED,
             </if>
+            <if test="major != null">
+                MAJOR,
+            </if>
         </trim>
         <trim prefix="values (" suffix=")" suffixOverrides=",">
             <if test="userId != null">
@@ -149,6 +153,9 @@
             </if>
             <if test="credentialsNonExpired != null">
                 #{credentialsNonExpired,jdbcType=BIT},
+            </if>
+            <if test="major != null">
+                #{major,jdbcType=INTEGER},
             </if>
         </trim>
     </insert>
@@ -200,6 +207,9 @@
             <if test="credentialsNonExpired != null">
                 CREDENTIALS_NON_EXPIRED = #{credentialsNonExpired,jdbcType=BIT},
             </if>
+            <if test="major != null">
+                MAJOR = #{major,jdbcType=INTEGER},
+            </if>
         </set>
         where USER_ID = #{userId,jdbcType=INTEGER}
     </update>
@@ -220,18 +230,12 @@
       ACCOUNT_NON_EXPIRED = #{accountNonExpired,jdbcType=BIT},
       ACCOUNT_NON_LOCKED = #{accountNonLocked,jdbcType=BIT},
       CREDENTIALS_NON_EXPIRED = #{credentialsNonExpired,jdbcType=BIT}
+      MAJOR=#{major,jdbcType=INTEGER}
     where USER_ID = #{userId,jdbcType=INTEGER}
   </update>
     <select id="selectByUserName" parameterType="com.magic.rent.pojo.SysUsers" resultMap="BaseResultMap">
     SELECT
-      SYS_USERS.USER_ID,
-      SYS_USERS.USERNAME ,
-      SYS_USERS.NAME     miniName,
-      SYS_USERS.PASSWORD ,
-      SYS_USERS.ENABLED,
-      SYS_USERS.ACCOUNT_NON_EXPIRED,
-      SYS_USERS.ACCOUNT_NON_LOCKED,
-      SYS_USERS.CREDENTIALS_NON_EXPIRED
+        <include refid="Base_Column_List"/>
     FROM SYS_USERS
     WHERE SYS_USERS.USERNAME = #{username}
     </select>

@@ -34,44 +34,16 @@
             </div>
             <div class="panel-body">
                 <form role="form">
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <label class="control-label">公司名称</label>
-                            <input type="text" class="form-control"
-                                   placeholder="请输入公司全称" name="companyName">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-12">
-                            <label class="control-label">营业执照</label>
-                            <input type="text" class="form-control"
-                                   placeholder="请输入公司营业执照或统一信用代码" name="license">
-                        </div>
-                    </div>
-                    <div class="form-group row">
-                        <div class="col-sm-4">
-                            <label class="control-label ">省份</label>
-                            <select class="select2 form-control" style="width: 100%"
-                                    name="province"></select>
-                        </div>
-
-                        <label class="control-label col-sm-4">城市
-                            <select class="select2 form-control" style="width: 100%"
-                                    name="city"></select></label>
-                        <label class="control-label col-sm-4">区域
-                            <select class="select2 form-control" style="width: 100%"
-                                    name="area"></select></label>
-                    </div>
-                    <div class="form-group row">
+                    <div class="form-group">
                         <div class="col-sm-6">
-                            <label class="control-label">具体地址</label>
+                            <label class="control-label">真实姓名</label>
                             <input type="text" class="form-control"
-                                   placeholder="请输入详细地址" name="address">
+                                   placeholder="此姓名将用于前台展示，请勿填写简称如：小王" name="name">
                         </div>
                         <div class="col-sm-6">
-                            <label class="control-label">联系电话</label>
+                            <label class="control-label">证件号码</label>
                             <input type="text" class="form-control"
-                                   placeholder="请输入座机电话(确保畅通)" name="phone">
+                                   placeholder="请输入18位证件号码" name="license">
                         </div>
                     </div>
                 </form>

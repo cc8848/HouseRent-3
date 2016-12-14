@@ -49,31 +49,133 @@
         </div>
     </div>
     <div class="row">
-        <div class="panel panel-info">
+        <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">基本信息<span class="btn btn-primary btn-xs pull-right">修改信息</span></h3>
+                <h3 class="panel-title">基本信息<span id="modify" class="btn btn-primary btn-xs pull-right">修改信息</span></h3>
             </div>
             <div class="panel-body">
-                <dl class="dl-horizontal">
-                    <dt>姓名：</dt>
-                    <dd>${sessionScope.user.name}</dd>
-                    <dt>性别：</dt>
-                    <dd>男</dd>
-                    <dt>年龄：</dt>
-                    <dd>17岁</dd>
-                    <dt>隶属公司：</dt>
-                    <dd>厦门中鼎信实业有限公司</dd>
-                    <dt>上次登录：</dt>
-                    <dd>${sessionScope.user.lastLoginString}</dd>
-                </dl>
+                <form role="form">
+                    <div class="row">
+                        <div class="col-sm-4">
+                            <img src="${pageContext.request.contextPath}${portrait_src}" class="img-thumbnail">
+                            <div class="white-divider-md"></div>
+                            <div class=" btn-group btn-group-justified">
+                                <a data-toggle="confirm" data-title="上传头像" class="btn btn-primary"
+                                   href="${pageContext.request.contextPath}/home/portrait/upload">上传头像</a>
+                                <a data-toggle="modal" data-tittle="修改头像" class="btn btn-primary" href="#">修改头像</a>
+                            </div>
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label" for="name">真实姓名</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-user"></span>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="真实姓名" id="name" name="name"
+                                           value="${user.name}" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="license">身份证号</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="iconFont-xs">&#xe6d2;</i>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="18位证件号码" id="license"
+                                           name="license" value="${user.license}" disabled>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="sex">性别</label>
+                                <select class="form-control" id="sex" name="sex" disabled>
+                                    <option value="0">-- 请选择 --</option>
+                                    <option value="1">男</option>
+                                    <option value="2">女</option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+
+                        </div>
+                        <div class="col-sm-4">
+                            <div class="form-group">
+                                <label class="control-label" for="job">职业类型</label>
+                                <select class="form-control" id="job" name="job" disabled>
+                                    <option value="0">-- 请选择 --</option>
+                                    <option value="1">公司任职</option>
+                                    <option value="2">独立经纪人</option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="major">擅长的领域</label>
+                                <select class="form-control" id="major" name="major" disabled>
+                                    <option value="0">-- 请选择 --</option>
+                                    <option value="1">改善购房</option>
+                                    <option value="2">投资购房</option>
+                                    <option value="3">刚需购房</option>
+                                </select>
+                                <span class="help-block"></span>
+                            </div>
+                            <div class="form-group">
+                                <label class="control-label" for="company">公司简称（6个汉字以内）</label>
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <i class="iconFont-xs">&#xe66d;</i>
+                                    </div>
+                                    <input type="text" class="form-control" placeholder="未就职可填写'独立经纪人'" id="company"
+                                           name="company" value="${user.companyAbbr}" disabled>
+                                </div>
+                            </div>
+                            <div class="white-divider-md"></div>
+                            <div class="form-group hidden">
+                                <div class="btn-group btn-group-justified pull-right">
+                                    <div class="btn-group">
+                                        <button type="button" name="modifySubmit" class="btn btn-success">提交修改</button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" name="modifyCancel" class="btn btn-danger">取消修改</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>
 </div>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jcrop/jquery.Jcrop.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/views/_account.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/views/account.js"></script>
 
+<script type="text/javascript">
+    $(document).ready(init());
+
+    function init() {
+        setSelect();
+        $('#modify').on('click', changeModify);
+        $("[name='modifyCancel']").on('click', refresh);
+    }
+
+    function setSelect() {
+        if (${user.sex}) {
+            $('#sex').val("1");
+        } else {
+            $('#sex').val("2");
+        }
+        $('#job').val(${user.job});
+        $('#major').val(${user.major});
+    }
+
+    function changeModify() {
+        $('.form-control').each(function () {
+            $(this).removeAttr('disabled');
+        });
+        $('.hidden').removeClass('hidden');
+    }
+</script>
 </body>
 </html>
