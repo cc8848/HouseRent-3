@@ -2,13 +2,11 @@ package com.magic.rent.controller;
 
 import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.exception.custom.LoginTimeOutException;
-import com.magic.rent.pojo.*;
-import com.magic.rent.service.*;
+import com.magic.rent.pojo.SysMenu;
+import com.magic.rent.pojo.SysUsers;
+import com.magic.rent.service.ISysMenuService;
 import com.magic.rent.util.FileUtil;
 import com.magic.rent.util.HttpUtil;
-import com.sun.org.apache.xpath.internal.operations.Mod;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -32,9 +30,6 @@ public class HomeController extends BaseController {
 
     @Autowired
     private ISysMenuService iSysMenuService;
-
-
-    private static Logger logger = LoggerFactory.getLogger(HomeController.class);
 
     @RequestMapping
     public ModelAndView home(HttpServletRequest request) throws Exception {
@@ -75,13 +70,6 @@ public class HomeController extends BaseController {
     public ModelAndView accountUpdate(HttpServletRequest request) throws Exception {
 
         return new ModelAndView("home/account_update");
-    }
-
-    @RequestMapping("/portrait/upload")
-    public ModelAndView portraitUpload(HttpServletRequest request) throws Exception {
-
-
-        return new ModelAndView("home/portrait");
     }
 
     @RequestMapping("/portrait/modify")

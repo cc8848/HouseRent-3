@@ -1,7 +1,9 @@
 package com.magic.rent.controller;
 
 import com.magic.rent.controller.base.BaseController;
+import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.pojo.SysUsers;
+import com.magic.rent.util.CompressPic;
 import com.magic.rent.util.FileUtil;
 import com.magic.rent.pojo.JsonResult;
 import com.magic.rent.util.HttpUtil;
@@ -35,10 +37,17 @@ public class FileUploadController extends BaseController {
     @ResponseBody
     @RequestMapping(value = "/portrait", method = {RequestMethod.POST})
     public JsonResult upload(HttpServletRequest request) throws Exception {
-        Integer x = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("x"), "图片截取异常！"));
-        Integer y = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("y"), "图片截取异常！"));
-        Integer w = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("w"), "图片截取异常！"));
-        Integer h = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("h"), "图片截取异常！"));
+        Integer x = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("x"), "图片截取异常:X！"));
+        Integer y = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("y"), "图片截取异常:Y！"));
+        Integer w = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("w"), "图片截取异常:W！"));
+        Integer h = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("h"), "图片截取异常:H！"));
+        String scaleWidthString = MyStringUtil.checkParameter(request.getParameter("sw"), "图片截取异常：SW！");
+        int swIndex = scaleWidthString.indexOf("px");
+        Integer sw = Integer.parseInt(scaleWidthString.substring(0, swIndex));
+        String scaleHeightString = MyStringUtil.checkParameter(request.getParameter("sh"), "图片截取异常：SH！");
+        int shIndex = scaleHeightString.indexOf("px");
+        Integer sh = Integer.parseInt(scaleHeightString.substring(0, shIndex));
+
 
         //获取用户ID用于指向对应文件夹
         SysUsers sysUsers = HttpUtil.getSessionUser(request);
@@ -49,7 +58,7 @@ public class FileUploadController extends BaseController {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(
                 request.getSession().getServletContext());
 
-        String path = "";
+        String path;
         //检查form中是否有enctype="multipart/form-data"
         if (multipartResolver.isMultipart(request)) {
             //将request变成多部分request
@@ -60,14 +69,27 @@ public class FileUploadController extends BaseController {
                 //一次遍历所有文件
                 MultipartFile multipartFile = multiRequest.getFile(iterator.next().toString());
                 if (multipartFile != null) {
+                    String[] allowSuffix = {".jpg",".JPG"};
+                    if (!FileUtil.checkSuffix(multipartFile.getOriginalFilename(), allowSuffix)) {
+                        throw new BusinessException("文件后缀名不符合要求！");
+                    }
                     path = filePath + FileUtil.getPortraitFileName(multipartFile.getOriginalFilename());
                     //存入硬盘
                     multipartFile.transferTo(new File(path));
                     //图片截取
-                    FileUtil.imgCut(path, x, y, w, h);
+                    if (FileUtil.imgCut(path, x, y, w, h, sw, sh)) {
+                        CompressPic compressPic = new CompressPic();
+                        if (compressPic.simpleCompress(new File(path))) {
+                            return JsonResult.success(FileUtil.filePathToSRC(path, FileUtil.IMG));
+                        } else {
+                            return JsonResult.error("图片压缩失败！请重新上传！");
+                        }
+                    } else {
+                        return JsonResult.error("图片截取失败！请重新上传！");
+                    }
                 }
             }
         }
-        return JsonResult.success(FileUtil.filePathToSRC(path, FileUtil.IMG)).setMessage("头像上传成功！");
+        return JsonResult.error("图片获取失败！请重新上传！");
     }
 }

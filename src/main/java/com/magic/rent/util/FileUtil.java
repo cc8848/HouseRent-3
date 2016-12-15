@@ -26,9 +26,6 @@ public class FileUtil {
 
     public static final int IMG = 1;
 
-
-    private static Logger logger = LoggerFactory.getLogger(FileUtil.class);
-
     /**
      * 获取项目根目录
      *
@@ -41,7 +38,7 @@ public class FileUtil {
     /**
      * 获取头像目录，若不存在则直接创建一个
      *
-     * @param userID
+     * @param userID 用户ID
      * @return
      */
     public static String getPortraitPath(int userID) {
@@ -59,20 +56,44 @@ public class FileUtil {
     /**
      * 重命名头像文件
      *
-     * @param fileName
+     * @param fileName 文件名
      * @return
      */
     public static String getPortraitFileName(String fileName) {
         // 获取文件后缀
-        String extension = fileName.substring(fileName.lastIndexOf("."));
-        return "portrait" + extension.toLowerCase();
+        String suffix = getSuffix(fileName);
+        return "portrait" + suffix;
+    }
+
+    /**
+     * 判断文件后缀是否符合要求
+     *
+     * @param fileName    文件名
+     * @param allowSuffix 允许的后缀集合
+     * @return
+     * @throws Exception
+     */
+    public static boolean checkSuffix(String fileName, String[] allowSuffix) throws Exception {
+        String fileExtension = getSuffix(fileName);
+        boolean flag = false;
+        for (String extension : allowSuffix) {
+            if (fileExtension.equals(extension)) {
+                flag = true;
+            }
+        }
+        return flag;
+    }
+
+
+    public static String getSuffix(String fileName) {
+        return fileName.substring(fileName.lastIndexOf("/.")).toLowerCase();
     }
 
     /**
      * 将文件地址转成链接地址
      *
-     * @param filePath
-     * @param fileType
+     * @param filePath 文件路径
+     * @param fileType 文件类型
      * @return
      */
     public static String filePathToSRC(String filePath, int fileType) {
@@ -95,15 +116,15 @@ public class FileUtil {
     /**
      * 获取指定文件或文件路径下的所有文件清单
      *
-     * @param obj
+     * @param fileOrPath 文件或文件路径
      * @return
      */
-    public static ArrayList<File> getListFiles(Object obj) {
+    public static ArrayList<File> getListFiles(Object fileOrPath) {
         File directory;
-        if (obj instanceof File) {
-            directory = (File) obj;
+        if (fileOrPath instanceof File) {
+            directory = (File) fileOrPath;
         } else {
-            directory = new File(obj.toString());
+            directory = new File(fileOrPath.toString());
         }
 
         ArrayList<File> files = new ArrayList<File>();
@@ -125,37 +146,45 @@ public class FileUtil {
 
 
     /**
-     * 截取图片
+     * 截图工具，根据截取的比例进行缩放裁剪
      *
-     * @param srcImageFile 原图片地址
-     * @param x            截取时的x坐标
-     * @param y            截取时的y坐标
-     * @param desWidth     截取的宽度
-     * @param desHeight    截取的高度
+     * @param path        图片路径
+     * @param zoomX       缩放后的X坐标
+     * @param zoomY       缩放后的Y坐标
+     * @param zoomW       缩放后的截取宽度
+     * @param zoomH       缩放后的截取高度
+     * @param scaleWidth  缩放后图片的宽度
+     * @param scaleHeight 缩放后的图片高度
+     * @return 是否成功
+     * @throws Exception 任何异常均抛出
      */
-    public static void imgCut(String srcImageFile, int x, int y, int desWidth,
-                              int desHeight) {
-        try {
-            Image img;
-            ImageFilter cropFilter;
-            BufferedImage bi = ImageIO.read(new File(srcImageFile + "_src.jpg"));
-            int srcWidth = bi.getWidth();
-            int srcHeight = bi.getHeight();
-            if (srcWidth >= desWidth && srcHeight >= desHeight) {
-                Image image = bi.getScaledInstance(srcWidth, srcHeight, Image.SCALE_DEFAULT);
-                cropFilter = new CropImageFilter(x, y, desWidth, desHeight);
-                img = Toolkit.getDefaultToolkit().createImage(
-                        new FilteredImageSource(image.getSource(), cropFilter));
-                BufferedImage tag = new BufferedImage(desWidth, desHeight,
-                        BufferedImage.TYPE_INT_RGB);
-                Graphics g = tag.getGraphics();
-                g.drawImage(img, 0, 0, null);
-                g.dispose();
-                //输出文件
-                ImageIO.write(tag, "JPEG", new File(srcImageFile + "_cut.jpg"));
-            }
-        } catch (Exception e) {
-            e.printStackTrace();
+    public static boolean imgCut(String path, int zoomX, int zoomY, int zoomW,
+                                 int zoomH, int scaleWidth, int scaleHeight) throws Exception {
+        Image img;
+        ImageFilter cropFilter;
+        BufferedImage bi = ImageIO.read(new File(path));
+        int fileWidth = bi.getWidth();
+        int fileHeight = bi.getHeight();
+        double scale = (double) fileWidth / (double) scaleWidth;
+
+        double realX = zoomX * scale;
+        double realY = zoomY * scale;
+        double realW = zoomW * scale;
+        double realH = zoomH * scale;
+
+        if (fileWidth >= realW && fileHeight >= realH) {
+            Image image = bi.getScaledInstance(fileWidth, fileHeight, Image.SCALE_DEFAULT);
+            cropFilter = new CropImageFilter((int) realX, (int) realY, (int) realW, (int) realH);
+            img = Toolkit.getDefaultToolkit().createImage(
+                    new FilteredImageSource(image.getSource(), cropFilter));
+            BufferedImage bufferedImage = new BufferedImage((int) realW, (int) realH, BufferedImage.TYPE_INT_RGB);
+            Graphics g = bufferedImage.getGraphics();
+            g.drawImage(img, 0, 0, null);
+            g.dispose();
+            //输出文件
+            return ImageIO.write(bufferedImage, "JPEG", new File(path));
+        } else {
+            return true;
         }
     }
 }

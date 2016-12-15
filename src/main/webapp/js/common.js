@@ -43,6 +43,27 @@ function FileUpload() {
                 }
             }
         });
+    };
+    this.portrait = function (target, uploadUrl, data) {
+        target.fileinput({
+            language: 'zh', //设置语言
+            maxFileSize: 2048,
+            uploadExtraData: data,
+            showPreview: false,
+            uploadAsync: true,
+            dropZoneEnabled: false,//是否显示拖拽区域
+            uploadUrl: uploadUrl, //上传的地址
+            allowedFileExtensions: ['jpg'],//接收的文件后缀
+            showUpload: true, //是否显示上传按钮
+            showCaption: true,//是否显示标题
+            browseClass: "btn btn-primary", //按钮样式
+            previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
+            ajaxSettings: {
+                beforeSend: function (xhr) {
+                    xhr.setRequestHeader(header, token);
+                }
+            }
+        });
     }
 }
 

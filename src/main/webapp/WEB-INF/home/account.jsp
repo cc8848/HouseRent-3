@@ -14,6 +14,10 @@
     <title>Showings · 房库 - 账户信息</title>
     <sec:csrfMetaTags/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/scojs.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco.message.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/jcrop/jquery.Jcrop.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/file-input.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
@@ -60,9 +64,15 @@
                             <img src="${pageContext.request.contextPath}${portrait_src}" class="img-thumbnail">
                             <div class="white-divider-md"></div>
                             <div class=" btn-group btn-group-justified">
-                                <a data-toggle="confirm" data-title="上传头像" class="btn btn-primary"
-                                   href="${pageContext.request.contextPath}/home/portrait/upload">上传头像</a>
-                                <a data-toggle="modal" data-tittle="修改头像" class="btn btn-primary" href="#">修改头像</a>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" type="button" name="upload">上传头像</button>
+                                </div>
+                                <div class="btn-group">
+                                    <button class="btn btn-primary" type="button" name="modify">修改头像</button>
+                                </div>
+                                <%--<a data-toggle="confirm" data-title="上传头像" class="btn btn-primary"--%>
+                                <%--href="${pageContext.request.contextPath}/home/portrait/upload">上传头像</a>--%>
+                                <%--<a data-toggle="modal" data-tittle="修改头像" class="btn btn-primary" href="#">修改头像</a>--%>
                             </div>
                         </div>
                         <div class="col-sm-4">
@@ -148,18 +158,14 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jcrop/jquery.Jcrop.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/soc/sco.modal.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/template.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/fileup/file-input.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/fileup/zh.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/views/account.js"></script>
-
 <script type="text/javascript">
-    $(document).ready(init());
-
-    function init() {
-        setSelect();
-        $('#modify').on('click', changeModify);
-        $("[name='modifyCancel']").on('click', refresh);
-    }
-
+    $(document).ready(setSelect);
     function setSelect() {
         if (${user.sex}) {
             $('#sex').val("1");
@@ -169,13 +175,21 @@
         $('#job').val(${user.job});
         $('#major').val(${user.major});
     }
-
-    function changeModify() {
-        $('.form-control').each(function () {
-            $(this).removeAttr('disabled');
-        });
-        $('.hidden').removeClass('hidden');
-    }
+</script>
+<script id="portraitUpload" type="text/html">
+    <div style="padding: 10px 20px">
+        <form role="form" enctype="multipart/form-data" method="post">
+            <img alt="" src="${pageContext.request.contextPath}/img/showings.jpg" id="cut-img" class="img-responsive"/>
+            <div class="white-divider-md"></div>
+            <input type="file" name="imgFile" id="fileUpload"/>
+            <div class="white-divider-md"></div>
+            <div id="alert" class="alert alert-danger hidden" role="alert"></div>
+            <input type="hidden" id="x" name="x"/>
+            <input type="hidden" id="y" name="y"/>
+            <input type="hidden" id="w" name="w"/>
+            <input type="hidden" id="h" name="h"/>
+        </form>
+    </div>
 </script>
 </body>
 </html>
