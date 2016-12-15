@@ -25,12 +25,11 @@ public class CustomExceptionHandler implements HandlerExceptionResolver {
     }
 
     private ModelAndView model(HttpServletRequest request, Exception e) {
-        logger.info(e.getMessage());
+        e.printStackTrace();
         if (isAjaxRequest(request)) {
-
             return new ModelAndView(new MappingJackson2JsonView()).addObject("message", e.getMessage()).addObject("status", false);
         }
-        return new ModelAndView("error").addObject("message", e.getMessage());
+        return new ModelAndView("views/error").addObject("exception", e);
     }
 
 

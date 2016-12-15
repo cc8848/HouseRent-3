@@ -22,8 +22,7 @@
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar-head.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <body>
-
-${message}
+${exception.printStackTrace()}
 
 <link href="${pageContext.request.contextPath}/js/plugin/jquery.js">
 <link href="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js">

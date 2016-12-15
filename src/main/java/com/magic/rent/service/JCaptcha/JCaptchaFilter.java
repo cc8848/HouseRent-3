@@ -30,16 +30,16 @@ import java.io.IOException;
 public class JCaptchaFilter implements Filter {
 
     //web.xml中的参数名定义
-    public static final String PARAM_CAPTCHA_PARAMETER_NAME = "captchaParameterName";
-    public static final String PARAM_CAPTCHA_SERVICE_ID = "captchaServiceId";
-    public static final String PARAM_FILTER_PROCESSES_URL = "filterProcessesUrl";
-    public static final String PARAM_FAILURE_URL = "failureUrl";
-    public static final String PARAM_AUTO_PASS_VALUE = "autoPassValue";
+    private static final String PARAM_CAPTCHA_PARAMETER_NAME = "captchaParameterName";
+    private static final String PARAM_CAPTCHA_SERVICE_ID = "captchaServiceId";
+    private static final String PARAM_FILTER_PROCESSES_URL = "filterProcessesUrl";
+    private static final String PARAM_FAILURE_URL = "failureUrl";
+    private static final String PARAM_AUTO_PASS_VALUE = "autoPassValue";
 
     //默认值定义
-    public static final String DEFAULT_FILTER_PROCESSES_URL = "/login.do";
-    public static final String DEFAULT_CAPTCHA_SERVICE_ID = "captchaService";
-    public static final String DEFAULT_CAPTCHA_PARAMETER_NAME = "captcha";
+    private static final String DEFAULT_FILTER_PROCESSES_URL = "/login.do";
+    private static final String DEFAULT_CAPTCHA_SERVICE_ID = "captchaService";
+    private static final String DEFAULT_CAPTCHA_PARAMETER_NAME = "captcha";
 
     private String failureUrl;
     private String filterProcessesUrl = DEFAULT_FILTER_PROCESSES_URL;
@@ -181,9 +181,8 @@ public class JCaptchaFilter implements Filter {
         try {
             HttpUtil.sendRedirect(failureUrl, "验证码输入错误!", request, response);
         } catch (Exception e) {
-            logger.info(e.getMessage());
+           e.printStackTrace();
         }
-
     }
 
     /**

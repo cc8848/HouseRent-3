@@ -59,10 +59,13 @@ public class HomeController extends BaseController {
         int userID = sysUsers.getUserId();
         String filePath = FileUtil.getPortraitPath(userID);
         List<File> fileList = FileUtil.getListFiles(filePath);
-        String src = FileUtil.filePathToSRC(fileList.get(0).toString(), FileUtil.IMG);
-        modelAndView.addObject("portrait_src", src);
-
-
+        if (null == fileList || fileList.size() == 0) {
+            String defaultSrc = "/img/default.jpg";
+            modelAndView.addObject("portrait_src", defaultSrc);
+        } else {
+            String src = FileUtil.filePathToSRC(fileList.get(0).toString(), FileUtil.IMG);
+            modelAndView.addObject("portrait_src", src);
+        }
         return modelAndView;
     }
 

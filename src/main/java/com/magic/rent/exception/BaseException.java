@@ -7,7 +7,9 @@ package com.magic.rent.exception;
  */
 public class BaseException extends RuntimeException {
 
-    public BaseException() {
+    private static final long serialVersionUID = -4203517384247373855L;
+
+    protected BaseException() {
     }
 
     public BaseException(String message) {

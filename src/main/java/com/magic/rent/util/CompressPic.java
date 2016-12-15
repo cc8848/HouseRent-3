@@ -143,8 +143,8 @@ public class CompressPic {
 
     public static void main(String[] args) throws Exception {
         CompressPic compressPic = new CompressPic();
-        compressPic.setInputInfo("/Users/wu/Downloads/showings.jpg", "showings.jpg");
-        compressPic.setOutputInfo("/Users/wu/Downloads/showings2.jpg", "showings2.jpg", 330, 600, false);
+        compressPic.setInputInfo("/Users/wu/Downloads/default.jpg", "default.jpg");
+        compressPic.setOutputInfo("/Users/wu/Downloads/default2.jpg", "default2.jpg", 300, 300, false);
         compressPic.compress();
     }
 

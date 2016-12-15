@@ -68,7 +68,7 @@ function PageInit() {
                     setSelect: [20, 20, 200, 200],
                     handleSize: 10,
                     aspectRatio: 1,
-                    onSelect: updateCoords
+                    onSelect: updateCords
                 }, function () {
                     api = this;
                 });
@@ -77,7 +77,7 @@ function PageInit() {
                 api.destroy();
             }
         }
-        function updateCoords(obj) {
+        function updateCords(obj) {
             $("#x").val(obj.x);
             $("#y").val(obj.y);
             $("#w").val(obj.w);

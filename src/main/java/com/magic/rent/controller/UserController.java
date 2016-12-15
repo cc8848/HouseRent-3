@@ -39,7 +39,7 @@ public class UserController extends BaseController {
         if (sysUsers == null) {
             return new ModelAndView("views/login");
         } else {
-            return new ModelAndView("views/error").addObject("message", "用户尚未登录或登录超时，请重新登录！");
+            return new ModelAndView("home/home");
         }
     }
 

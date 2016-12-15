@@ -70,9 +70,6 @@
                                 <div class="btn-group">
                                     <button class="btn btn-primary" type="button" name="modify">修改头像</button>
                                 </div>
-                                <%--<a data-toggle="confirm" data-title="上传头像" class="btn btn-primary"--%>
-                                <%--href="${pageContext.request.contextPath}/home/portrait/upload">上传头像</a>--%>
-                                <%--<a data-toggle="modal" data-tittle="修改头像" class="btn btn-primary" href="#">修改头像</a>--%>
                             </div>
                         </div>
                         <div class="col-sm-4">
