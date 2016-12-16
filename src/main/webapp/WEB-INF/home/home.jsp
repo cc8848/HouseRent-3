@@ -44,7 +44,7 @@
                                 <a href="${pageContext.request.contextPath}/home/account" target="frame-box">账户信息</a>
                             </li>
                             <li class="list-group-item">
-                                <a href="${pageContext.request.contextPath}/home/account_update"
+                                <a href="${pageContext.request.contextPath}/home/account_security"
                                    target="frame-box">账户安全</a>
                             </li>
                         </ul>

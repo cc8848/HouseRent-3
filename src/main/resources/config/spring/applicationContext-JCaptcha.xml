@@ -6,7 +6,8 @@
     <!-- Jcaptcha相关的配置 -->
     <bean id="captchaService"
           class="com.octo.captcha.service.image.DefaultManageableImageCaptchaService">
-        <property name="captchaEngine" ref="GMailEngine"/>
+        <property name="captchaEngine" ref="engine"/>
         <property name="minGuarantedStorageDelayInSeconds" value="180"/>
     </bean>
+    <bean id="engine" class="com.magic.rent.service.jcaptcha.GMailEngine"/>
 </beans>

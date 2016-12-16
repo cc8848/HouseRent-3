@@ -82,6 +82,7 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
         logger.info("登录失败:请求IP地址[{}];失败原因:{};", HttpTools.getIP(request), exception.getMessage());
+        exception.printStackTrace();
         String error = URLEncoder.encode(exception.getMessage(), "UTF-8");
         String url = failURL + "?error=" + error;
         redirectStrategy.sendRedirect(request, response, url);

@@ -115,7 +115,7 @@
                 <div class="tab-pane" id="reset-content">
                     <div class="col-xs-1 col-sm-2"></div>
                     <div class="col-xs-10 col-sm-8">
-                        <form id="reset-form" class="form" role="form" method="post" action="/register">
+                        <form id="reset-form" class="form" role="form" method="post" action="/reset">
                             <div class="white-divider-xl"></div>
                             <!--用户名-->
                             <div id="reset-phone-box" class="form-group input-group input-group-sm">

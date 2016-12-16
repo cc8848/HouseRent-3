@@ -13,10 +13,12 @@ public interface IUserService {
 
     SysUsers findUserByUserID(int userID) throws Exception;
 
-    int changePassword(SysUsers sysUsers) throws Exception;
+    boolean changePassword(String newPwd, String oldPwd, SysUsers sysUsers) throws Exception;
 
     int updateUserLoginInfo(SysUsers sysUsers) throws Exception;
 
     boolean register(SysUsers sysUsers) throws Exception;
+
+    boolean modify(SysUsers sysUsers) throws Exception;
 
 }

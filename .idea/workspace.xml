@@ -7,35 +7,43 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/tools/CompressTools.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/tools/DateTools.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/tools/FileTools.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/tools/HttpTools.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/tools/MyStringTools.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/tools/UTF8Tools.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/magic/rent/util/DateUtilTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/util/DateToolsTest.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/test/java/com/magic/rent/util/FileUtilTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/util/FileToolsTest.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/img/index/background.jpg" afterPath="$PROJECT_DIR$/src/main/webapp/img/index/background.jpg" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/MajorAreaMapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/MajorArea.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IMajorAreaService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/MajorAreaService.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/resources/mapper/MajorAreaMapper.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/webapp/js/views/account_security.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/MajorAreaMapperTest.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/service/IMajorAreaServiceTest.java" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/CompressPic.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/DateUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/FileUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/HttpUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/LogUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/MyStringUtil.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/UTF8Util.java" afterPath="" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/js/views/_account_update.js" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/JCaptcha/GMailEngine.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/jcaptcha/GMailEngine.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/JCaptcha/JCaptchaFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/jcaptcha/JCaptchaFilter.java" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/account_update.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/account_security.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b1642a91-fe21-45bd-bb4b-0abed27d96c7.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/b1642a91-fe21-45bd-bb4b-0abed27d96c7.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rent.log" afterPath="$PROJECT_DIR$/logs/rent.log" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CompanyController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CompanyController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/FileUploadController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/FileUploadController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HomeController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HomeController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HouseController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HouseController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/LoginAuthenticationController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/LoginAuthenticationController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/StoreController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/StoreController.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Community.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Company.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Company.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/HouseRecommend.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/HouseRecommend.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Store.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/Store.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysUsers.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysUsers.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/JCaptcha/JCaptchaFilter.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/JCaptcha/JCaptchaFilter.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserService.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserService.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserServiceImpl.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-JCaptcha.xml" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-JCaptcha.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysUsersMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysUsersMapper.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/account.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/account.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/home.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/views/account.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/views/account.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/views/register.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/views/register.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/test/java/com/magic/rent/service/IUserSellerServiceTest.java" afterPath="$PROJECT_DIR$/src/test/java/com/magic/rent/service/IUserSellerServiceTest.java" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -67,27 +75,24 @@
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - db_house_rent@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="SYS_USERS" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
   </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FavoritesManager">
     <favorites_list name="HouseRent" />
   </component>
   <component name="FileEditorManager">
-    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300" />
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="account_security.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/js/views/account_security.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="400">
+              <caret line="49" column="40" lean-forward="false" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -97,8 +102,8 @@
         <option value="HTML File" />
         <option value="Jsp File" />
         <option value="JavaScript File" />
-        <option value="JUnit4 Test Class" />
         <option value="Class" />
+        <option value="JUnit4 Test Class" />
       </list>
     </option>
   </component>
@@ -179,27 +184,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/js/views/_account_update.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/_account.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/common/showings_common_head.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home_box.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/views/home_box.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/views/_accoutn_update.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/views/_account_update.js" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/_account_update.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/AdminController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/album.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/PageController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/index.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/css/select2.min.css" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/views/register_service.html" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register_service.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/plugin/soc/sco.valid.js" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysUsersMapper.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserServiceImpl.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/WebUserDetailsService.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/plugin/fileup/canvas-to-blob.min.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/common.css" />
         <option value="$PROJECT_DIR$/src/main/resources/config/spring/spring-mvc.xml" />
         <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-security.xml" />
@@ -208,28 +192,49 @@
         <option value="$PROJECT_DIR$/src/main/webapp/css/jquery.Jcrop.min.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/css/jcrop/jquery.Jcrop.min.css" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/account_update.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysUsers.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/views/register.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/mapper/SysUsersMapper.xml" />
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/home.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/portrait.jsp" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/FileUploadController.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/views/portrait.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/house_sell.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/exhandler/CustomExceptionHandler.java" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserController.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/MethodSecurityMetadataSource.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/JCaptcha/JCaptchaFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/BaseException.java" />
-        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HomeController.java" />
-        <option value="$PROJECT_DIR$/src/main/webapp/js/common.js" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/util/FileUtil.java" />
         <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/util/CompressPic.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysUsers.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/HouseMapperTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/magic/rent/mapper/MajorAreaMapperTest.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/HouseMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/MajorArea.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/MajorAreaMapper.java" />
+        <option value="$APPLICATION_CONFIG_DIR$/consoles/db/b1642a91-fe21-45bd-bb4b-0abed27d96c7/console.sql" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/MajorAreaMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IMajorAreaService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/MajorAreaService.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/magic/rent/service/IUserSellerServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/test/java/com/magic/rent/service/IMajorAreaServiceTest.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/views/register.js" />
+        <option value="$PROJECT_DIR$/src/main/resources/mapper/SysUsersMapper.xml" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/views/account.js" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/account.jsp" />
-        <option value="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/home.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HomeController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/LoginAuthenticationController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/jcaptcha/JCaptchaFilter.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/jcaptcha/GMailEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-JCaptcha.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/views/_account_update.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/account_security.jsp" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/common.js" />
+        <option value="$PROJECT_DIR$/src/main/webapp/js/views/account_security.js" />
+        <option value="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserController.java" />
       </list>
     </option>
   </component>
@@ -343,20 +348,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -366,6 +357,20 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="target" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -535,11 +540,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="webapp" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="img" />
+              <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -564,6 +565,66 @@
               <option name="myItemId" value="resources" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="resources" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="config" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="spring" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
           </PATH>
           <PATH>
             <PATH_ELEMENT>
@@ -591,7 +652,7 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="tools" />
+              <option name="myItemId" value="service" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -618,13 +679,129 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="rent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="jcaptcha" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="service" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="impl" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="exception" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="main" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="java" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="rent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="controller" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
-      <pane id="Scratches" />
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="HouseRent" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="Scope" />
+      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -649,26 +826,11 @@
   </component>
   <component name="RecentsManager">
     <key name="CreateTestDialog.RecentsKey">
-      <recent name="com.magic.rent.util" />
+      <recent name="com.magic.rent.service" />
       <recent name="com.magic.rent.mapper" />
+      <recent name="com.magic.rent.util" />
       <recent name="com.magic.rent.service.impl" />
-      <recent name="com.magic.rent.service" />
       <recent name="com.magic.rent.controller" />
-    </key>
-    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
-      <recent name="com.magic.rent.service.impl" />
-      <recent name="com.magic.rent.service" />
-      <recent name="com.magic.rent.service.security" />
-    </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/src/main/webapp/img/index" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/img" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/css/jcrop" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/css" />
-      <recent name="$PROJECT_DIR$/src/main/webapp/js/plugin/jcrop" />
-    </key>
-    <key name="CreateTestDialog.Recents.Supers">
-      <recent name="" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/main/webapp/css/jcrop" />
@@ -677,60 +839,23 @@
       <recent name="$PROJECT_DIR$/src/main/webapp/static" />
       <recent name="$PROJECT_DIR$/src/main/webapp/WEB-INF/home" />
     </key>
+    <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
+      <recent name="com.magic.rent.service.impl" />
+      <recent name="com.magic.rent.service" />
+      <recent name="com.magic.rent.service.security" />
+    </key>
+    <key name="CreateTestDialog.Recents.Supers">
+      <recent name="" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/webapp/img/index" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/img" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/css/jcrop" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/css" />
+      <recent name="$PROJECT_DIR$/src/main/webapp/js/plugin/jcrop" />
+    </key>
   </component>
   <component name="RunManager" selected="Tomcat Server.LocalHost">
-    <configuration default="false" name="HouseServiceImplTest.getDetail" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.magic.rent.service.base.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="HouseRent" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.magic.rent.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.magic.rent.service.impl.HouseServiceImplTest" />
-      <option name="METHOD_NAME" value="getDetail" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
-    <configuration default="false" name="StoreServiceImplTest.create" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
-        <pattern>
-          <option name="PATTERN" value="com.magic.rent.service.base.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <module name="HouseRent" />
-      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
-      <option name="ALTERNATIVE_JRE_PATH" />
-      <option name="PACKAGE_NAME" value="com.magic.rent.service.impl" />
-      <option name="MAIN_CLASS_NAME" value="com.magic.rent.service.impl.StoreServiceImplTest" />
-      <option name="METHOD_NAME" value="create" />
-      <option name="TEST_OBJECT" value="method" />
-      <option name="VM_PARAMETERS" value="-ea" />
-      <option name="PARAMETERS" />
-      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
-      <option name="ENV_VARIABLES" />
-      <option name="PASS_PARENT_ENVS" value="true" />
-      <option name="TEST_SEARCH_SCOPE">
-        <value defaultName="singleModule" />
-      </option>
-      <envs />
-      <patterns />
-      <method />
-    </configuration>
     <configuration default="false" name="StoreMapperTest.selectCurrentStoreInfo" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
         <pattern>
@@ -801,6 +926,58 @@
       <option name="PASS_PARENT_ENVS" value="true" />
       <module name="HouseRent" />
       <envs />
+      <method />
+    </configuration>
+    <configuration default="false" name="MajorAreaMapperTest.selectBySelective" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.magic.rent.mapper.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="HouseRent" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.magic.rent.mapper" />
+      <option name="MAIN_CLASS_NAME" value="com.magic.rent.mapper.MajorAreaMapperTest" />
+      <option name="METHOD_NAME" value="selectBySelective" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
+      <method />
+    </configuration>
+    <configuration default="false" name="IMajorAreaServiceTest.getMyMajorArea" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage" enabled="false" merge="false" sample_coverage="true" runner="idea">
+        <pattern>
+          <option name="PATTERN" value="com.magic.rent.service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <module name="HouseRent" />
+      <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="false" />
+      <option name="ALTERNATIVE_JRE_PATH" />
+      <option name="PACKAGE_NAME" value="com.magic.rent.service" />
+      <option name="MAIN_CLASS_NAME" value="com.magic.rent.service.IMajorAreaServiceTest" />
+      <option name="METHOD_NAME" value="getMyMajorArea" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="VM_PARAMETERS" value="-ea" />
+      <option name="PARAMETERS" />
+      <option name="WORKING_DIRECTORY" value="$MODULE_DIR$" />
+      <option name="ENV_VARIABLES" />
+      <option name="PASS_PARENT_ENVS" value="true" />
+      <option name="TEST_SEARCH_SCOPE">
+        <value defaultName="singleModule" />
+      </option>
+      <envs />
+      <patterns />
       <method />
     </configuration>
     <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" ALTERNATIVE_JRE_ENABLED="false">
@@ -1292,19 +1469,19 @@
     </configuration>
     <list size="6">
       <item index="0" class="java.lang.String" itemvalue="Tomcat Server.LocalHost" />
-      <item index="1" class="java.lang.String" itemvalue="JUnit.HouseServiceImplTest.getDetail" />
-      <item index="2" class="java.lang.String" itemvalue="JUnit.StoreServiceImplTest.create" />
-      <item index="3" class="java.lang.String" itemvalue="JUnit.StoreMapperTest.selectCurrentStoreInfo" />
-      <item index="4" class="java.lang.String" itemvalue="JUnit.FileToolsTest.getListFiles" />
-      <item index="5" class="java.lang.String" itemvalue="Application.CompressUtil" />
+      <item index="1" class="java.lang.String" itemvalue="JUnit.StoreMapperTest.selectCurrentStoreInfo" />
+      <item index="2" class="java.lang.String" itemvalue="JUnit.FileToolsTest.getListFiles" />
+      <item index="3" class="java.lang.String" itemvalue="Application.CompressUtil" />
+      <item index="4" class="java.lang.String" itemvalue="JUnit.MajorAreaMapperTest.selectBySelective" />
+      <item index="5" class="java.lang.String" itemvalue="JUnit.IMajorAreaServiceTest.getMyMajorArea" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Application.CompressUtil" />
-        <item index="1" class="java.lang.String" itemvalue="JUnit.FileToolsTest.getListFiles" />
-        <item index="2" class="java.lang.String" itemvalue="JUnit.StoreMapperTest.selectCurrentStoreInfo" />
-        <item index="3" class="java.lang.String" itemvalue="JUnit.StoreServiceImplTest.create" />
-        <item index="4" class="java.lang.String" itemvalue="JUnit.HouseServiceImplTest.getDetail" />
+        <item index="0" class="java.lang.String" itemvalue="JUnit.IMajorAreaServiceTest.getMyMajorArea" />
+        <item index="1" class="java.lang.String" itemvalue="JUnit.MajorAreaMapperTest.selectBySelective" />
+        <item index="2" class="java.lang.String" itemvalue="Application.CompressUtil" />
+        <item index="3" class="java.lang.String" itemvalue="JUnit.FileToolsTest.getListFiles" />
+        <item index="4" class="java.lang.String" itemvalue="JUnit.StoreMapperTest.selectCurrentStoreInfo" />
       </list>
     </recent_temporary>
     <configuration default="true" type="AndroidRunConfigurationType" factoryName="Android Application">
@@ -1484,14 +1661,10 @@
       <workItem from="1481803731279" duration="5496000" />
       <workItem from="1481843911097" duration="12000" />
       <workItem from="1481844164440" duration="4233000" />
-      <workItem from="1481855447361" duration="125000" />
-    </task>
-    <task id="LOCAL-00026" summary="2016年11月16日17:38:27">
-      <created>1479289157941</created>
-      <option name="number" value="00026" />
-      <option name="presentableId" value="LOCAL-00026" />
-      <option name="project" value="LOCAL" />
-      <updated>1479289157941</updated>
+      <workItem from="1481855447361" duration="7680000" />
+      <workItem from="1481866067495" duration="7058000" />
+      <workItem from="1481875251313" duration="2800000" />
+      <workItem from="1481880168202" duration="490000" />
     </task>
     <task id="LOCAL-00027" summary="2016年11月17日00:55:30">
       <created>1479315334744</created>
@@ -1829,43 +2002,50 @@
       <option name="project" value="LOCAL" />
       <updated>1481812779105</updated>
     </task>
-    <option name="localTasksCounter" value="75" />
+    <task id="LOCAL-00075" summary="2016年12月16日10:33:02">
+      <created>1481855734082</created>
+      <option name="number" value="00075" />
+      <option name="presentableId" value="LOCAL-00075" />
+      <option name="project" value="LOCAL" />
+      <updated>1481855734083</updated>
+    </task>
+    <option name="localTasksCounter" value="76" />
     <servers />
   </component>
   <component name="TestHistory">
-    <history-entry file="FileUtilTest_getListFiles - 2016.12.14 at 07h 30m 45s.xml">
-      <configuration name="FileUtilTest.getListFiles" configurationId="JUnit" />
+    <history-entry file="IMajorAreaServiceTest_getMyMajorArea - 2016.12.16 at 12h 51m 28s.xml">
+      <configuration name="IMajorAreaServiceTest.getMyMajorArea" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileUtilTest_getListFiles - 2016.12.14 at 07h 32m 01s.xml">
-      <configuration name="FileUtilTest.getListFiles" configurationId="JUnit" />
+    <history-entry file="MajorAreaMapperTest_selectBySelective - 2016.12.16 at 11h 10m 19s.xml">
+      <configuration name="MajorAreaMapperTest.selectBySelective" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="FileUtilTest_getListFiles - 2016.12.14 at 07h 33m 16s.xml">
-      <configuration name="FileUtilTest.getListFiles" configurationId="JUnit" />
+    <history-entry file="MajorAreaMapperTest_selectBySelective - 2016.12.16 at 11h 14m 18s.xml">
+      <configuration name="MajorAreaMapperTest.selectBySelective" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StoreMapperTest_selectCurrentStoreInfo - 2016.12.07 at 23h 01m 48s.xml">
-      <configuration name="StoreMapperTest.selectCurrentStoreInfo" configurationId="JUnit" />
+    <history-entry file="MajorAreaMapperTest_selectBySelective - 2016.12.16 at 11h 15m 42s.xml">
+      <configuration name="MajorAreaMapperTest.selectBySelective" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StoreMapperTest_selectCurrentStoreInfo - 2016.12.07 at 23h 02m 27s.xml">
-      <configuration name="StoreMapperTest.selectCurrentStoreInfo" configurationId="JUnit" />
+    <history-entry file="MajorAreaMapperTest_selectBySelective - 2016.12.16 at 11h 17m 55s.xml">
+      <configuration name="MajorAreaMapperTest.selectBySelective" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StoreMapperTest_selectCurrentStoreInfo - 2016.12.07 at 23h 02m 52s.xml">
-      <configuration name="StoreMapperTest.selectCurrentStoreInfo" configurationId="JUnit" />
+    <history-entry file="MajorAreaMapperTest_selectBySelective - 2016.12.16 at 11h 21m 19s.xml">
+      <configuration name="MajorAreaMapperTest.selectBySelective" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StoreServiceImplTest_create - 2016.12.06 at 12h 46m 30s.xml">
-      <configuration name="StoreServiceImplTest.create" configurationId="JUnit" />
+    <history-entry file="MajorAreaMapperTest_selectBySelective - 2016.12.16 at 11h 22m 30s.xml">
+      <configuration name="MajorAreaMapperTest.selectBySelective" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StoreServiceImplTest_create - 2016.12.06 at 12h 48m 21s.xml">
-      <configuration name="StoreServiceImplTest.create" configurationId="JUnit" />
+    <history-entry file="MajorAreaMapperTest_selectBySelective - 2016.12.16 at 11h 23m 57s.xml">
+      <configuration name="MajorAreaMapperTest.selectBySelective" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StoreServiceImplTest_create - 2016.12.06 at 12h 52m 28s.xml">
-      <configuration name="StoreServiceImplTest.create" configurationId="JUnit" />
+    <history-entry file="MajorAreaMapperTest_selectBySelective - 2016.12.16 at 11h 35m 33s.xml">
+      <configuration name="MajorAreaMapperTest.selectBySelective" configurationId="JUnit" />
     </history-entry>
-    <history-entry file="StoreServiceImplTest_create - 2016.12.06 at 12h 53m 25s.xml">
-      <configuration name="StoreServiceImplTest.create" configurationId="JUnit" />
+    <history-entry file="MajorAreaMapperTest_selectBySelective - 2016.12.16 at 11h 38m 03s.xml">
+      <configuration name="MajorAreaMapperTest.selectBySelective" configurationId="JUnit" />
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="939645000" />
+    <option name="totallyTimeSpent" value="957548000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1878,7 +2058,7 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1366" height="768" extended-state="0" />
-    <editor active="false" />
+    <editor active="true" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -1888,32 +2068,32 @@
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17749244" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17673716" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24924472" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39255014" sideWeight="0.4886707" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66905445" sideWeight="0.4886707" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41117477" sideWeight="0.4886707" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32079208" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.6733524" sideWeight="0.4886707" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31948423" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22885196" sideWeight="0.48280802" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.23791541" sideWeight="0.48280802" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23791541" sideWeight="0.517192" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31805158" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1925982" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43266475" sideWeight="0.48640484" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31087288" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30802292" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31805158" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
     </layout>
     <layout-to-restore>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
@@ -1921,33 +2101,33 @@
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41690543" sideWeight="0.51359516" order="4" side_tool="true" content_ui="tabs" />
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32650602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3939828" sideWeight="0.5113293" order="4" side_tool="true" content_ui="tabs" />
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3252149" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18806647" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17824773" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.17673716" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24924472" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.66905445" sideWeight="0.49697885" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.39255014" sideWeight="0.4886707" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4340974" sideWeight="0.48640484" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43266475" sideWeight="0.48640484" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41260746" sideWeight="0.4886707" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32079208" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41117477" sideWeight="0.4886707" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31948423" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31087288" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26510575" sideWeight="0.48280802" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.30802292" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.22885196" sideWeight="0.48280802" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23791541" sideWeight="0.517192" order="5" side_tool="true" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31948423" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31805158" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="true" content_ui="tabs" />
     </layout-to-restore>
@@ -1986,7 +2166,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="2016年11月28日21:40:33" />
     <MESSAGE value="2016年11月30日02:14:00" />
     <MESSAGE value="2016年11月30日02:18:42" />
     <MESSAGE value="2016年11月30日20:41:18" />
@@ -2011,19 +2190,20 @@
     <MESSAGE value="2016年12月12日20:05:05" />
     <MESSAGE value="2016年12月14日07:21:33" />
     <MESSAGE value="2016年12月15日22:39:30" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年12月15日22:39:30" />
+    <MESSAGE value="2016年12月16日10:33:02" />
+    <option name="LAST_COMMIT_MESSAGE" value="2016年12月16日10:33:02" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
-          <url>file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/StoreServiceImpl.java</url>
-          <line>38</line>
+          <url>jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.1.3.RELEASE/spring-security-core-4.1.3.RELEASE.jar!/org/springframework/security/authentication/dao/AbstractUserDetailsAuthenticationProvider.class</url>
+          <line>184</line>
           <properties />
-          <option name="timeStamp" value="100" />
+          <option name="timeStamp" value="127" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="127" />
+      <option name="time" value="128" />
     </breakpoint-manager>
     <watches-manager />
   </component>
@@ -2032,79 +2212,158 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/target/showings/img/portrait/15/portrait.png" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/com/sun/image/codec/jpeg/JPEGCodec.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/IHouseService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="66" column="39" lean-forward="false" selection-start-line="66" selection-start-column="39" selection-end-line="66" selection-end-column="39" />
+        <state relative-caret-position="15">
+          <caret line="10" column="17" lean-forward="false" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/FileUploadController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/MajorAreaMapper.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="175">
-          <caret line="72" column="39" lean-forward="false" selection-start-line="72" selection-start-column="39" selection-end-line="72" selection-end-column="39" />
-          <folding />
+        <state relative-caret-position="345">
+          <caret line="23" column="19" lean-forward="false" selection-start-line="23" selection-start-column="8" selection-end-line="23" selection-end-column="19" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/views/portrait.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/house_sell.js" />
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/plugin/fileup/file-input.min.js">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/CommunityMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1331">
-          <caret line="764" column="24" lean-forward="false" selection-start-line="764" selection-start-column="24" selection-end-line="764" selection-end-column="24" />
+        <state relative-caret-position="391">
+          <caret line="275" column="13" lean-forward="true" selection-start-line="272" selection-start-column="3" selection-end-line="275" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/showings.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/base/TetController.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/Throwable.java">
+    <entry file="file://$APPLICATION_CONFIG_DIR$/consoles/db/b1642a91-fe21-45bd-bb4b-0abed27d96c7/console.sql">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="319">
-          <caret line="641" column="16" lean-forward="false" selection-start-line="641" selection-start-column="16" selection-end-line="641" selection-end-column="16" />
+        <state relative-caret-position="15">
+          <caret line="1" column="50" lean-forward="false" selection-start-line="1" selection-start-column="50" selection-end-line="1" selection-end-column="50" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/CommunityController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/AddressController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-32">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/MajorAreaMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="315">
-          <caret line="40" column="16" lean-forward="true" selection-start-line="40" selection-start-column="16" selection-end-line="40" selection-end-column="16" />
+          <caret line="21" column="13" lean-forward="false" selection-start-line="21" selection-start-column="13" selection-end-line="21" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/StoreServiceImpl.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-362">
+          <caret line="38" column="0" lean-forward="false" selection-start-line="38" selection-start-column="0" selection-end-line="38" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/magic/rent/service/IUserSellerServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="26" column="0" lean-forward="true" selection-start-line="26" selection-start-column="0" selection-end-line="26" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/com/magic/rent/service/IMajorAreaServiceTest.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="570">
+          <caret line="46" column="38" lean-forward="false" selection-start-line="46" selection-start-column="38" selection-end-line="46" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/MajorAreaService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="436">
+          <caret line="47" column="5" lean-forward="true" selection-start-line="47" selection-start-column="5" selection-end-line="47" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/IMajorAreaService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="14" lean-forward="true" selection-start-line="19" selection-start-column="14" selection-end-line="19" selection-end-column="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/views/login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysStatusMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HouseMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="5940">
+          <caret line="396" column="82" lean-forward="false" selection-start-line="396" selection-start-column="82" selection-end-line="396" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/UserSellerMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HouseStatusMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/StoreMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/HouseFileMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/AreaMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" column="12" lean-forward="true" selection-start-line="3" selection-start-column="3" selection-end-line="9" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/ehcache.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserSellerController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mapper/SysUsersMapper.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-          <folding />
+        <state relative-caret-position="-89">
+          <caret line="9" column="12" lean-forward="true" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/AccessDeniedHandlerImpl.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/ResourceSecurityMetadataSource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
+        <state relative-caret-position="90">
+          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/WebUserDetailsService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-119">
+          <caret line="49" column="54" lean-forward="false" selection-start-line="49" selection-start-column="38" selection-end-line="49" selection-end-column="54" />
         </state>
       </provider>
     </entry>
@@ -2115,119 +2374,94 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/MethodSecurityMetadataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-120">
-          <caret line="20" column="8" lean-forward="true" selection-start-line="20" selection-start-column="8" selection-end-line="20" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/ResourceSecurityMetadataSource.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-377">
-          <caret line="20" column="13" lean-forward="false" selection-start-line="20" selection-start-column="13" selection-end-line="20" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/WebUserDetailsService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="88">
-          <caret line="42" column="68" lean-forward="false" selection-start-line="42" selection-start-column="68" selection-end-line="42" selection-end-column="68" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/JCaptcha/JCaptchaFilter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="183" column="31" lean-forward="true" selection-start-line="183" selection-start-column="31" selection-end-line="183" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/JCaptcha/GMailEngine.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="30" column="13" lean-forward="false" selection-start-line="30" selection-start-column="13" selection-end-line="30" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/AddressServiceImpl.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="19" column="13" lean-forward="false" selection-start-line="19" selection-start-column="13" selection-end-line="19" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/CommunityService.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/exception/exhandler/CustomExceptionHandler.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="27" column="10" lean-forward="true" selection-start-line="27" selection-start-column="10" selection-end-line="27" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/exception/BaseException.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/AccessDeniedHandlerImpl.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="105">
-          <caret line="7" column="52" lean-forward="false" selection-start-line="7" selection-start-column="52" selection-end-line="7" selection-end-column="52" />
+          <caret line="18" column="13" lean-forward="false" selection-start-line="18" selection-start-column="13" selection-end-line="18" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/PageController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/MethodSecurityMetadataSource.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="13" column="13" lean-forward="false" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="15">
+          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/error.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/home/account.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="360">
-          <caret line="24" column="30" lean-forward="true" selection-start-line="24" selection-start-column="30" selection-end-line="24" selection-end-column="30" />
+        <state relative-caret-position="424">
+          <caret line="57" column="42" lean-forward="false" selection-start-line="57" selection-start-column="42" selection-end-line="57" selection-end-column="42" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/views/home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="40" column="30" lean-forward="true" selection-start-line="40" selection-start-column="30" selection-end-line="40" selection-end-column="30" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="dbDummy://dbtable:/4ff353ed/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_USERS">
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+      <provider selected="true" editor-type-id="com.intellij.database.editor.DatabaseTableFileEditorProvider">
+        <state>
+          <filtering enabled="true" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.1.3.RELEASE/spring-security-core-4.1.3.RELEASE.jar!/org/springframework/security/authentication/dao/AbstractUserDetailsAuthenticationProvider.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="115">
+          <caret line="78" column="0" lean-forward="false" selection-start-line="78" selection-start-column="0" selection-end-line="78" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/LoginAuthenticationController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="42" column="70" lean-forward="true" selection-start-line="42" selection-start-column="70" selection-end-line="42" selection-end-column="70" />
+        <state relative-caret-position="376">
+          <caret line="84" column="36" lean-forward="false" selection-start-line="84" selection-start-column="36" selection-end-line="84" selection-end-column="36" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/StoreController.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HomeController.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="28" column="13" lean-forward="false" selection-start-line="28" selection-start-column="13" selection-end-line="28" selection-end-column="13" />
+        <state relative-caret-position="505">
+          <caret line="77" column="0" lean-forward="true" selection-start-line="77" selection-start-column="0" selection-end-line="77" selection-end-column="0" />
+          <folding>
+            <element signature="e#1600#1616#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/home/home.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="465">
+          <caret line="46" column="97" lean-forward="false" selection-start-line="46" selection-start-column="81" selection-end-line="46" selection-end-column="97" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/target/showings/img/portrait/1/portrait.jpg" />
-    <entry file="dbDummy://dbtable:/59786d56/b1642a91-fe21-45bd-bb4b-0abed27d96c7/db_house_rent.SYS_USERS" />
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-web/4.1.3.RELEASE/spring-security-web-4.1.3.RELEASE.jar!/org/springframework/security/web/authentication/session/ConcurrentSessionControlAuthenticationStrategy.class">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-transaction.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-270">
-          <caret line="23" column="13" lean-forward="false" selection-start-line="23" selection-start-column="13" selection-end-line="23" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/security/spring-security-core/4.1.3.RELEASE/spring-security-core-4.1.3.RELEASE.jar!/org/springframework/security/core/session/SessionRegistryImpl.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-884">
-          <caret line="25" column="13" lean-forward="false" selection-start-line="25" selection-start-column="13" selection-end-line="25" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-security.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="112" column="110" lean-forward="false" selection-start-line="112" selection-start-column="110" selection-end-line="112" selection-end-column="110" />
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -2235,126 +2469,129 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/home/account_update.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-security.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/HomeController.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="568">
-          <caret line="63" column="63" lean-forward="true" selection-start-line="63" selection-start-column="63" selection-end-line="63" selection-end-column="63" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/tools/HttpTools.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/jcaptcha/JCaptchaFilter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="313">
-          <caret line="73" column="23" lean-forward="true" selection-start-line="73" selection-start-column="23" selection-end-line="73" selection-end-column="23" />
+        <state relative-caret-position="165">
+          <caret line="29" column="39" lean-forward="false" selection-start-line="29" selection-start-column="39" selection-end-line="29" selection-end-column="39" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_111.jdk/Contents/Home/src.zip!/java/lang/String.java">
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-JCaptcha.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="1926" column="0" lean-forward="false" selection-start-line="1926" selection-start-column="0" selection-end-line="1926" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$MAVEN_REPOSITORY$/org/springframework/spring-web/4.3.3.RELEASE/spring-web-4.3.3.RELEASE.jar!/org/springframework/web/method/support/InvocableHandlerMethod.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="141" column="0" lean-forward="false" selection-start-line="141" selection-start-column="0" selection-end-line="141" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/common.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="508">
-          <caret line="65" column="10" lean-forward="false" selection-start-line="65" selection-start-column="10" selection-end-line="65" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/index/background.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/tools/FileTools.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="304">
-          <caret line="88" column="56" lean-forward="false" selection-start-line="88" selection-start-column="56" selection-end-line="88" selection-end-column="56" />
+        <state relative-caret-position="120">
+          <caret line="8" column="50" lean-forward="false" selection-start-line="8" selection-start-column="50" selection-end-line="8" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/index/realHouse.png">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/img/default.jpg">
-      <provider selected="true" editor-type-id="images">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/tools/CompressTools.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/jcaptcha/GMailEngine.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="271">
-          <caret line="129" column="36" lean-forward="true" selection-start-line="129" selection-start-column="36" selection-end-line="129" selection-end-column="36" />
+        <state relative-caret-position="210">
+          <caret line="34" column="26" lean-forward="true" selection-start-line="34" selection-start-column="26" selection-end-line="34" selection-end-column="26" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/home/account.jsp">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/login.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="226">
-          <caret line="139" column="82" lean-forward="false" selection-start-line="139" selection-start-column="82" selection-end-line="139" selection-end-column="82" />
+        <state relative-caret-position="195">
+          <caret line="118" column="64" lean-forward="true" selection-start-line="118" selection-start-column="64" selection-end-line="118" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/views/register.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="480">
+          <caret line="73" column="26" lean-forward="true" selection-start-line="65" selection-start-column="19" selection-end-line="73" selection-end-column="26" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/main/webapp/js/views/account.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="180">
-          <caret line="18" column="6" lean-forward="true" selection-start-line="18" selection-start-column="6" selection-end-line="18" selection-end-column="6" />
+        <state relative-caret-position="430">
+          <caret line="46" column="11" lean-forward="true" selection-start-line="29" selection-start-column="8" selection-end-line="46" selection-end-column="11" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/resources/generatorConfig.xml">
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/home/account_security.jsp">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="48" column="36" lean-forward="false" selection-start-line="48" selection-start-column="36" selection-end-line="48" selection-end-column="36" />
+        <state relative-caret-position="15">
+          <caret line="35" column="50" lean-forward="false" selection-start-line="35" selection-start-column="42" selection-end-line="35" selection-end-column="50" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/tools/DateTools.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserServiceImpl.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="8" column="13" lean-forward="false" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        <state relative-caret-position="331">
+          <caret line="76" column="0" lean-forward="true" selection-start-line="76" selection-start-column="0" selection-end-line="76" selection-end-column="0" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/tools/LogTools.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserService.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        <state relative-caret-position="225">
+          <caret line="15" column="74" lean-forward="false" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/tools/MyStringTools.java">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/JsonResult.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="150">
-          <caret line="11" column="13" lean-forward="false" selection-start-line="11" selection-start-column="13" selection-end-line="11" selection-end-column="13" />
+        <state relative-caret-position="-90">
+          <caret line="58" column="38" lean-forward="true" selection-start-line="58" selection-start-column="38" selection-end-line="58" selection-end-column="38" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/common/showings_common_head.jsp">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="376">
+          <caret line="50" column="94" lean-forward="false" selection-start-line="50" selection-start-column="84" selection-end-line="50" selection-end-column="94" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="565">
+          <caret line="180" column="0" lean-forward="true" selection-start-line="180" selection-start-column="0" selection-end-line="180" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/views/register.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="430">
+          <caret line="89" column="26" lean-forward="true" selection-start-line="89" selection-start-column="26" selection-end-line="89" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="526">
+          <caret line="117" column="47" lean-forward="true" selection-start-line="117" selection-start-column="47" selection-end-line="117" selection-end-column="47" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/js/views/account_security.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="400">
+          <caret line="49" column="40" lean-forward="false" selection-start-line="49" selection-start-column="40" selection-end-line="49" selection-end-column="40" />
           <folding />
         </state>
       </provider>

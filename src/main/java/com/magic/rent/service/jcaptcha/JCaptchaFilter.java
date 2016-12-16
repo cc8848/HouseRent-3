@@ -1,4 +1,4 @@
-package com.magic.rent.service.JCaptcha;
+package com.magic.rent.service.jcaptcha;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -23,7 +23,7 @@ import java.awt.image.BufferedImage;
 import java.io.IOException;
 
 /**
- * 针对 JCaptcha 专门的过滤器(Filter)
+ * 针对 jcaptcha2 专门的过滤器(Filter)
  *
  * @author liukai
  */

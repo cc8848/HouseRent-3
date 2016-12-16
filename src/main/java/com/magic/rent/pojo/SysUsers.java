@@ -222,5 +222,29 @@ public class SysUsers implements Serializable, UserDetails {
         this.major = major;
     }
 
-
+    @Override
+    public String toString() {
+        return "SysUsers{" +
+                "userId=" + userId +
+                ", username='" + username + '\'' +
+                ", name='" + name + '\'' +
+                ", password='" + password + '\'' +
+                ", sex=" + sex +
+                ", license='" + license + '\'' +
+                ", job=" + job +
+                ", companyAbbr='" + companyAbbr + '\'' +
+                ", dtCreate=" + dtCreate +
+                ", lastLogin=" + lastLogin +
+                ", lastLoginString='" + lastLoginString + '\'' +
+                ", deadline=" + deadline +
+                ", loginIp='" + loginIp + '\'' +
+                ", enabled=" + enabled +
+                ", accountNonExpired=" + accountNonExpired +
+                ", accountNonLocked=" + accountNonLocked +
+                ", credentialsNonExpired=" + credentialsNonExpired +
+                ", major=" + major +
+                ", sysRoles=" + sysRoles +
+                ", SysAuthorities=" + SysAuthorities +
+                '}';
+    }
 }

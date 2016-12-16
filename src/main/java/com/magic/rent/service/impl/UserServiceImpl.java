@@ -43,7 +43,6 @@ public class UserServiceImpl extends BaseService implements IUserService {
      * @return 用户信息
      * @throws Exception
      */
-    @Cacheable(value = "userCache")
     public SysUsers findSysUserByUserName(String userName) throws Exception {
         return sysUsersMapper.selectByUserName(userName);
     }
@@ -54,21 +53,31 @@ public class UserServiceImpl extends BaseService implements IUserService {
      * @param userID
      * @return 用户信息
      */
-    @Cacheable(value = "userCache")
     public SysUsers findUserByUserID(int userID) throws Exception {
         return sysUsersMapper.selectByPrimaryKey(userID);
     }
 
     /**
-     * 更改用户密码
-     *
-     * @param sysUsers
-     * @return 用户ID
+     * @param newPwd   新密码
+     * @param oldPwd   原密码
+     * @param sysUsers 用户名
+     * @return
      * @throws Exception
      */
-    public int changePassword(SysUsers sysUsers) throws Exception {
+    public boolean changePassword(String newPwd, String oldPwd, SysUsers sysUsers) throws Exception {
+        //对原密码校验
+        String passwordMD5 = passwordEncoder.encodePassword(oldPwd, sysUsers.getUsername());
+        if (passwordMD5.equals(sysUsers.getPassword())) {
+            throw new BusinessException("原密码不符，修改密码失败！");
+        }
+        String password = passwordEncoder.encodePassword(newPwd, sysUsers.getUsername());
+        SysUsers modifyUser = new SysUsers();
+        modifyUser.setUserId(sysUsers.getUserId());
+        modifyUser.setPassword(password);
 
-        return 0;
+        int rows = sysUsersMapper.updateByPrimaryKeySelective(modifyUser);
+
+        return rows > 0;
     }
 
     /**
@@ -79,12 +88,6 @@ public class UserServiceImpl extends BaseService implements IUserService {
      * @throws Exception
      */
     public int updateUserLoginInfo(SysUsers sysUsers) throws Exception {
-        if (StringUtils.isEmpty(sysUsers.getUserId()))
-            throw new ParameterException("用户ID为空");
-        if (StringUtils.isEmpty(sysUsers.getLoginIp()))
-            throw new ParameterException("用户登录IP为空");
-        if (null == sysUsers.getLastLogin())
-            throw new ParameterException("用户登录时间为空");
         return sysUsersMapper.updateByPrimaryKeySelective(sysUsers);
     }
 
@@ -122,5 +125,12 @@ public class UserServiceImpl extends BaseService implements IUserService {
             throw new BusinessException("创建用户角色失败！");
         }
         return true;
+    }
+
+    public boolean modify(SysUsers sysUsers) throws Exception {
+
+        int rows = sysUsersMapper.updateByPrimaryKeySelective(sysUsers);
+
+        return rows > 0;
     }
 }

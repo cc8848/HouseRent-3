@@ -4,6 +4,7 @@ import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.exception.custom.LoginTimeOutException;
 import com.magic.rent.pojo.SysMenu;
 import com.magic.rent.pojo.SysUsers;
+import com.magic.rent.service.IMajorAreaService;
 import com.magic.rent.service.ISysMenuService;
 import com.magic.rent.tools.FileTools;
 import com.magic.rent.tools.HttpTools;
@@ -31,6 +32,9 @@ public class HomeController extends BaseController {
     @Autowired
     private ISysMenuService iSysMenuService;
 
+    @Autowired
+    private IMajorAreaService iMajorAreaService;
+
     @RequestMapping
     public ModelAndView home(HttpServletRequest request) throws Exception {
         //此数据在登录成功时存入Session。详情在LoginAuthenticationController中可查找
@@ -44,7 +48,6 @@ public class HomeController extends BaseController {
         List<SysMenu> sysMenuList = iSysMenuService.selectSysMenusByUserID(sessionUsers.getUserId());
         model.put("sysMenuList", sysMenuList);
 
-        //查询销售员所门店信息
         return new ModelAndView("home/home", model);
     }
 
@@ -66,19 +69,14 @@ public class HomeController extends BaseController {
             String src = FileTools.filePathToSRC(fileList.get(0).toString(), FileTools.IMG);
             modelAndView.addObject("portrait_src", src);
         }
+
         return modelAndView;
     }
 
-    @RequestMapping("/account_update")
+    @RequestMapping("/account_security")
     public ModelAndView accountUpdate(HttpServletRequest request) throws Exception {
 
-        return new ModelAndView("home/account_update");
+        return new ModelAndView("home/account_security");
     }
 
-    @RequestMapping("/portrait/modify")
-    public ModelAndView portraitModify(HttpServletRequest request) throws Exception {
-
-
-        return null;
-    }
 }

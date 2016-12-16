@@ -55,10 +55,10 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">基本信息</h3>
+                <h3 class="panel-title">账户信息</h3>
             </div>
             <div class="panel-body">
-                <form role="form">
+                <form role="form" id="account">
                     <div class="row">
                         <div class="col-sm-4">
                             <img src="${pageContext.request.contextPath}${portrait_src}"
@@ -127,30 +127,13 @@
                                 <span class="help-block"></span>
                             </div>
                             <div class="form-group">
-                                <label class="control-label" for="company">公司简称（6个汉字以内）</label>
+                                <label class="control-label" for="companyAbbr">公司简称（6个汉字以内）</label>
                                 <div class="input-group">
                                     <div class="input-group-addon">
                                         <i class="iconFont-xs">&#xe66d;</i>
                                     </div>
-                                    <input type="text" class="form-control" placeholder="未就职可填写'独立经纪人'" id="company"
-                                           name="company" value="${user.companyAbbr}" disabled>
-                                </div>
-                            </div>
-                            <div class="form-group">
-                                <label class="control-label" for="company">擅长地区(最多3个)</label>
-                                <div class="btn-group btn-group-justified">
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-primary">厦门</button>
-                                    </div>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-primary">泉州</button>
-                                    </div>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-primary">福州</button>
-                                    </div>
-                                    <div class="btn-group">
-                                        <button type="button" class="btn btn-danger">修改</button>
-                                    </div>
+                                    <input type="text" class="form-control" placeholder="未就职可填写'独立经纪人'" id="companyAbbr"
+                                           name="companyAbbr" value="${user.companyAbbr}" disabled>
                                 </div>
                             </div>
                             <div class="white-divider-md"></div>
@@ -175,6 +158,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jcrop/jquery.Jcrop.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/soc/sco.modal.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/soc/sco.valid.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/template.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/fileup/file-input.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/fileup/zh.js"></script>

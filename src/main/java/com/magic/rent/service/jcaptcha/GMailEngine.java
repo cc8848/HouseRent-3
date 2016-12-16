@@ -1,4 +1,4 @@
-package com.magic.rent.service.JCaptcha;
+package com.magic.rent.service.jcaptcha;
 
 import com.octo.captcha.component.image.backgroundgenerator.BackgroundGenerator;
 import com.octo.captcha.component.image.backgroundgenerator.UniColorBackgroundGenerator;
@@ -27,7 +27,6 @@ import java.awt.image.ImageFilter;
  * 创建者: wu   创建时间: 16/9/28
  * 类说明:
  */
-@Service
 public class GMailEngine extends ListImageCaptchaEngine {
     @Override
     protected void buildInitialFactories() {

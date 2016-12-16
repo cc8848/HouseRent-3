@@ -68,13 +68,14 @@ function Register() {
                     license: license.val(),
                     sex: sex.val(),
                     job: job.val(),
-                    companyAbbr: companyAbbr.val()
+                    companyAbbr: companyAbbr.val(),
+                    major: major.val()
                 }, function (data) {
                     var tools = new ModalTools();
                     var model = {};
                     if (data.status) {
                         model = $.scojs_modal({
-                                title: '错误信息',
+                                title: '注册成功',
                                 content: tools.p(data.message),
                                 onClose: function () {
                                     forward('/user/login');
@@ -83,7 +84,7 @@ function Register() {
                         );
                     } else {
                         model = $.scojs_modal({
-                                title: '提示信息',
+                                title: '错误信息',
                                 content: tools.p(data.message)
                             }
                         );

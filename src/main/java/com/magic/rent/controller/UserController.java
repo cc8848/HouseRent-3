@@ -5,6 +5,7 @@ import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
 import com.magic.rent.pojo.JsonResult;
+import com.magic.rent.tools.HttpTools;
 import com.magic.rent.tools.MyStringTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -40,7 +41,6 @@ public class UserController extends BaseController {
 
     @ResponseBody
     @RequestMapping("/register")
-    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public JsonResult register(HttpServletRequest request) throws Exception {
         String username = MyStringTools.checkParameter(request.getParameter("username"), "手机号码不能为空！");
         String password = MyStringTools.checkParameter(request.getParameter("password"), "密码不能为空！");
@@ -59,13 +59,7 @@ public class UserController extends BaseController {
         sysUsers.setName(name);
         sysUsers.setLicense(license);
         sysUsers.setMajor(major);
-        if (sex == 1) {
-            sysUsers.setSex(true);//1是男，2是女
-        } else if (sex == 2) {
-            sysUsers.setSex(false);
-        } else {
-            throw new BusinessException("请选择正确的性别！");
-        }
+        sysUsers.setSex(sex == 1);
         sysUsers.setJob(job);
         sysUsers.setCompanyAbbr(companyAbbr);
 
@@ -77,4 +71,51 @@ public class UserController extends BaseController {
         }
     }
 
+    @ResponseBody
+    @RequestMapping("/modify")
+    public JsonResult modify(HttpServletRequest request) throws Exception {
+        SysUsers sessionUser = HttpTools.getSessionUser(request);
+
+        String name = MyStringTools.checkParameter(request.getParameter("name"), "真实姓名不能为空！");
+        String license = MyStringTools.checkParameter(request.getParameter("license"), "身份证号码不能为空！");
+        Integer sex = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("sex"), "性别不能为空！"));
+        Integer job = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("job"), "工作类型不能为空！"));
+        String companyAbbr = MyStringTools.checkParameter(request.getParameter("companyAbbr"), "公司简称不能为空！");
+        Integer major = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("major"), "专业方向不能为空！"));
+
+        //封装对象
+        SysUsers sysUsers = new SysUsers();
+        sysUsers.setUserId(sessionUser.getUserId());
+        sysUsers.setName(name);
+        sysUsers.setLicense(license);
+        sysUsers.setMajor(major);
+        sysUsers.setSex(sex == 1);
+        sysUsers.setJob(job);
+        sysUsers.setCompanyAbbr(companyAbbr);
+
+        //将用户信息写入数据库
+        if (iUserService.modify(sysUsers)) {
+            SysUsers newUserInfo = iUserService.findUserByUserID(sessionUser.getUserId());
+            request.getSession().setAttribute("user", newUserInfo);
+            return JsonResult.success().setMessage("信息修改成功！");
+        } else {
+            return JsonResult.error("用户信息修改失败!");
+        }
+    }
+
+    @ResponseBody
+    @RequestMapping("/security/password")
+    public JsonResult password(HttpServletRequest request) throws Exception {
+        String old = MyStringTools.checkParameter(request.getParameter("old"), "原密码不能为空！");
+        String newPwd = MyStringTools.checkParameter(request.getParameter("new"), "新密码不能为空！");
+        String captcha = MyStringTools.checkParameter(request.getParameter("captcha"), "验证码不能为空！");
+
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
+
+        if (iUserService.changePassword(newPwd, old, sysUsers)) {
+            return JsonResult.success().setMessage("密码修改成功！");
+        } else {
+            return JsonResult.error("密码修改失败！");
+        }
+    }
 }

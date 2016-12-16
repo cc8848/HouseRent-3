@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.magic.rent.mapper.MajorAreaMapper">
+    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.MajorArea">
+        <id column="ID" property="id" jdbcType="INTEGER"/>
+        <result column="USER_ID" property="userId" jdbcType="INTEGER"/>
+        <result column="AREA_ID" property="areaId" jdbcType="INTEGER"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    MAJOR_AREA.ID, MAJOR_AREA.USER_ID, MAJOR_AREA.AREA_ID
+  </sql>
+    <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        from MAJOR_AREA
+        where ID = #{id,jdbcType=INTEGER}
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from MAJOR_AREA
+    where ID = #{id,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.magic.rent.pojo.MajorArea">
+    insert into MAJOR_AREA (ID, USER_ID, AREA_ID
+      )
+    values (#{id,jdbcType=INTEGER}, #{userId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}
+      )
+  </insert>
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.MajorArea">
+        insert into MAJOR_AREA
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                ID,
+            </if>
+            <if test="userId != null">
+                USER_ID,
+            </if>
+            <if test="areaId != null">
+                AREA_ID,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="id != null">
+                #{id,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="areaId != null">
+                #{areaId,jdbcType=INTEGER},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.MajorArea">
+        update MAJOR_AREA
+        <set>
+            <if test="userId != null">
+                USER_ID = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="areaId != null">
+                AREA_ID = #{areaId,jdbcType=INTEGER},
+            </if>
+        </set>
+        where ID = #{id,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.MajorArea">
+    update MAJOR_AREA
+    set USER_ID = #{userId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER}
+    where ID = #{id,jdbcType=INTEGER}
+  </update>
+    <resultMap id="details" type="com.magic.rent.pojo.MajorArea" extends="BaseResultMap">
+        <association property="area" javaType="com.magic.rent.pojo.Area">
+            <result column="areaName" property="areaName" jdbcType="VARCHAR"/>
+        </association>
+    </resultMap>
+    <select id="selectBySelective" parameterType="com.magic.rent.pojo.MajorArea" resultMap="details">
+        SELECT
+        <include refid="Base_Column_List"/>,
+        AREA.areaName
+        FROM MAJOR_AREA
+        JOIN AREA ON MAJOR_AREA.AREA_ID = AREA.areaID
+        <where>
+            <if test="userId != null">
+                AND MAJOR_AREA.USER_ID = #{userId,jdbcType=INTEGER}
+            </if>
+            <if test="areaId != null">
+                AND MAJOR_AREA.AREA_ID = #{areaId,jdbcType=INTEGER}
+            </if>
+        </where>
+    </select>
+    <select id="countByUser" parameterType="java.lang.Integer" resultType="java.lang.Integer">
+        SELECT
+          count(MAJOR_AREA.ID)
+        FROM MAJOR_AREA
+         WHERE MAJOR_AREA.USER_ID=#{userID,jdbcType=INTEGER}
+    </select>
+</mapper>
