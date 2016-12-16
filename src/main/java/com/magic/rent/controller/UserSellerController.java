@@ -4,9 +4,9 @@ import com.magic.rent.controller.base.BaseController;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.pojo.UserSeller;
 import com.magic.rent.service.IUserSellerService;
-import com.magic.rent.util.HttpUtil;
+import com.magic.rent.tools.HttpTools;
 import com.magic.rent.pojo.JsonResult;
-import com.magic.rent.util.MyStringUtil;
+import com.magic.rent.tools.MyStringTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -29,8 +29,8 @@ public class UserSellerController extends BaseController {
     @ResponseBody
     @RequestMapping("/create")
     public JsonResult create(HttpServletRequest request) throws Exception {
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
-        Integer storeID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("storeID"), "店铺ID不能为空！"));
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
+        Integer storeID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("storeID"), "店铺ID不能为空！"));
 
         UserSeller userSeller = new UserSeller();
         userSeller.setUserId(sysUsers.getUserId());
@@ -45,7 +45,7 @@ public class UserSellerController extends BaseController {
     @ResponseBody
     @RequestMapping("/cancel")
     public JsonResult cancel(HttpServletRequest request) throws Exception {
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
 
         if (iUserSellerService.cancel(sysUsers.getUserId())) {
             return JsonResult.success();
@@ -58,7 +58,7 @@ public class UserSellerController extends BaseController {
     @RequestMapping("/pass")
     public JsonResult pass(HttpServletRequest request) throws Exception {
 
-        Integer userID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("userID"), "用户ID不能为空！"));
+        Integer userID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("userID"), "用户ID不能为空！"));
 
         if (iUserSellerService.pass(userID)) {
             return JsonResult.success();
@@ -70,7 +70,7 @@ public class UserSellerController extends BaseController {
     @ResponseBody
     @RequestMapping("/refuse")
     public JsonResult refuse(HttpServletRequest request) throws Exception {
-        Integer userID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("userID"), "用户ID不能为空！"));
+        Integer userID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("userID"), "用户ID不能为空！"));
 
         if (iUserSellerService.refuse(userID)) {
             return JsonResult.success();
@@ -83,7 +83,7 @@ public class UserSellerController extends BaseController {
     @RequestMapping("/quit")
     public JsonResult quit(HttpServletRequest request) throws Exception {
 
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
 
         if (iUserSellerService.quit(sysUsers.getUserId())) {
             return JsonResult.success();

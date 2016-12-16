@@ -10,10 +10,10 @@ import static org.junit.Assert.*;
  * 类说明:家访问控制器
  * 更新记录：
  */
-public class DateUtilTest {
+public class DateToolsTest {
     @Test
     public void formatToNo() throws Exception {
-//        String str = FileUtil.getNewFileNameByHouseID("abc.jpg", "1");
+//        String str = FileTools.getNewFileNameByHouseID("abc.jpg", "1");
         String str="abc.jpg";
         boolean abc=str.contains(".");
         System.out.print(abc);

@@ -13,7 +13,7 @@ function PageInit() {
     var api = null;
     var _this = this;
     this.init = function () {
-        $('#modify').on('click', this.modifyInfo);
+        $("[name='modify']").on('click', this.modifyInfo);
         $("[name='modifyCancel']").on('click', refresh);
         $("[name='upload']").on('click', this.portraitUpload)
     };
@@ -38,21 +38,21 @@ function PageInit() {
         var alert = $('#alert');
         fileUp.portrait(portrait, '/file/portrait', _this.getExtraData);
         portrait.on('change', _this.readURL);
-        portrait.on('fileerror', function (event, data, msg) {
-            console.log(data.id);
-            console.log(data.index);
-            console.log(data.file);
-            console.log(data.reader);
-            console.log(data.files);
-            // get message
-            alert(msg);
-        });
         portrait.on('fileuploaderror', function (event, data, msg) {
             alert.removeClass('hidden').html(msg);
+            fileUp.fileinput('disable');
         });
         portrait.on('fileclear', function (event) {
             alert.addClass('hidden').html();
         });
+        portrait.on('fileloaded', function (event, file, previewId, index, reader) {
+            alert.addClass('hidden').html();
+        });
+        portrait.on('fileuploaded', function (event, data) {
+            if (!data.response.status) {
+                alert.html(data.response.message).removeClass('hidden');
+            }
+        })
     };
 
     this.readURL = function () {

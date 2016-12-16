@@ -1,6 +1,6 @@
 package com.magic.rent.pojo;
 
-import com.magic.rent.util.DateUtil;
+import com.magic.rent.tools.DateTools;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
@@ -128,7 +128,7 @@ public class SysUsers implements Serializable, UserDetails {
 
     public void setLastLogin(Date lastLogin) {
         this.lastLogin = lastLogin;
-        this.setLastLoginString(DateUtil.formatToYMD(this.lastLogin));
+        this.setLastLoginString(DateTools.formatToYMD(this.lastLogin));
     }
 
     public Date getDeadline() {

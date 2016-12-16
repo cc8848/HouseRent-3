@@ -1,6 +1,6 @@
 package com.magic.rent.pojo;
 
-import com.magic.rent.util.DateUtil;
+import com.magic.rent.tools.DateTools;
 
 import java.io.Serializable;
 import java.util.Date;
@@ -130,7 +130,7 @@ public class Community implements Serializable {
 
     public void setAuditingTime(Date auditingTime) {
         this.auditingTime = auditingTime;
-        this.setAuditingTimeString(DateUtil.formatToYMD(this.auditingTime));
+        this.setAuditingTimeString(DateTools.formatToYMD(this.auditingTime));
     }
 
     public String getAuditingTimeString() {

@@ -2,8 +2,7 @@ package com.magic.rent.controller;
 
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
-import com.magic.rent.util.HttpUtil;
-import com.magic.rent.pojo.JsonResult;
+import com.magic.rent.tools.HttpTools;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.InitializingBean;
@@ -59,7 +58,7 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
             users = (SysUsers) authentication.getPrincipal();
             Date date = new Date();
             users.setLastLogin(date);
-            users.setLoginIp(HttpUtil.getIP(request));
+            users.setLoginIp(HttpTools.getIP(request));
             try {
                 iUserService.updateUserLoginInfo(users);
             } catch (DataAccessException e) {
@@ -70,7 +69,7 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
             String url = failURL + "?error=用户登录信息保存失败!" + e.getMessage();
             redirectStrategy.sendRedirect(request, response, url);
             try {
-                HttpUtil.sendRedirect(failURL, "用户登录信息保存失败!", request, response);
+                HttpTools.sendRedirect(failURL, "用户登录信息保存失败!", request, response);
             } catch (Exception e2) {
                 logger.error("登录异常:跳转页面失败！", e);
             }
@@ -82,7 +81,7 @@ public class LoginAuthenticationController implements AuthenticationSuccessHandl
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public void onAuthenticationFailure(HttpServletRequest request, HttpServletResponse response, AuthenticationException exception) throws IOException, ServletException {
-        logger.info("登录失败:请求IP地址[{}];失败原因:{};", HttpUtil.getIP(request), exception.getMessage());
+        logger.info("登录失败:请求IP地址[{}];失败原因:{};", HttpTools.getIP(request), exception.getMessage());
         String error = URLEncoder.encode(exception.getMessage(), "UTF-8");
         String url = failURL + "?error=" + error;
         redirectStrategy.sendRedirect(request, response, url);

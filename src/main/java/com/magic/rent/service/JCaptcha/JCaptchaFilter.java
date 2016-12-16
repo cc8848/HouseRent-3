@@ -6,7 +6,7 @@ package com.magic.rent.service.JCaptcha;
  * 类说明:
  */
 
-import com.magic.rent.util.HttpUtil;
+import com.magic.rent.tools.HttpTools;
 import com.octo.captcha.service.CaptchaService;
 import com.octo.captcha.service.CaptchaServiceException;
 import org.apache.commons.lang3.StringUtils;
@@ -177,9 +177,9 @@ public class JCaptchaFilter implements Filter {
      */
     protected void redirectFailureUrl(final HttpServletRequest request, final HttpServletResponse response)
             throws IOException {
-        logger.info("验证码验证失败:请求IP地址[{}]", HttpUtil.getIP(request));
+        logger.info("验证码验证失败:请求IP地址[{}]", HttpTools.getIP(request));
         try {
-            HttpUtil.sendRedirect(failureUrl, "验证码输入错误!", request, response);
+            HttpTools.sendRedirect(failureUrl, "验证码输入错误!", request, response);
         } catch (Exception e) {
            e.printStackTrace();
         }

@@ -5,21 +5,16 @@ import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IUserService;
 import com.magic.rent.pojo.JsonResult;
-import com.magic.rent.util.FileUtil;
-import com.magic.rent.util.HttpUtil;
-import com.magic.rent.util.MyStringUtil;
+import com.magic.rent.tools.MyStringTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.util.List;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -47,15 +42,15 @@ public class UserController extends BaseController {
     @RequestMapping("/register")
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = {Exception.class})
     public JsonResult register(HttpServletRequest request) throws Exception {
-        String username = MyStringUtil.checkParameter(request.getParameter("username"), "手机号码不能为空！");
-        String password = MyStringUtil.checkParameter(request.getParameter("password"), "密码不能为空！");
-        String name = MyStringUtil.checkParameter(request.getParameter("name"), "真实姓名不能为空！");
-        String captcha = MyStringUtil.checkParameter(request.getParameter("captcha"), "手机验证码不能为空！");
-        String license = MyStringUtil.checkParameter(request.getParameter("license"), "身份证号码不能为空！");
-        Integer sex = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("sex"), "性别不能为空！"));
-        Integer job = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("job"), "工作类型不能为空！"));
-        String companyAbbr = MyStringUtil.checkParameter(request.getParameter("companyAbbr"), "公司简称不能为空！");
-        Integer major = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("major"), "专业方向不能为空！"));
+        String username = MyStringTools.checkParameter(request.getParameter("username"), "手机号码不能为空！");
+        String password = MyStringTools.checkParameter(request.getParameter("password"), "密码不能为空！");
+        String name = MyStringTools.checkParameter(request.getParameter("name"), "真实姓名不能为空！");
+        String captcha = MyStringTools.checkParameter(request.getParameter("captcha"), "手机验证码不能为空！");
+        String license = MyStringTools.checkParameter(request.getParameter("license"), "身份证号码不能为空！");
+        Integer sex = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("sex"), "性别不能为空！"));
+        Integer job = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("job"), "工作类型不能为空！"));
+        String companyAbbr = MyStringTools.checkParameter(request.getParameter("companyAbbr"), "公司简称不能为空！");
+        Integer major = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("major"), "专业方向不能为空！"));
 
         //封装对象
         SysUsers sysUsers = new SysUsers();

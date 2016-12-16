@@ -7,9 +7,9 @@ import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.pojo.UserSeller;
 import com.magic.rent.service.IStoreService;
 import com.magic.rent.service.IUserSellerService;
-import com.magic.rent.util.HttpUtil;
+import com.magic.rent.tools.HttpTools;
 import com.magic.rent.pojo.JsonResult;
-import com.magic.rent.util.MyStringUtil;
+import com.magic.rent.tools.MyStringTools;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,12 +37,12 @@ public class StoreController extends BaseController {
     @ResponseBody
     @RequestMapping("/create")
     public JsonResult create(HttpServletRequest request) throws Exception {
-        String name = MyStringUtil.checkParameter(request.getParameter("name"), "店铺名不能为空！");
-        Integer provinceID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("provinceID"), "省份不能为空！"));
-        Integer cityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("cityID"), "城市不能为空！"));
-        Integer areaID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("areaID"), "地区不能为空！"));
-        String address = MyStringUtil.checkParameter(request.getParameter("address"), "地址不能为空！");
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        String name = MyStringTools.checkParameter(request.getParameter("name"), "店铺名不能为空！");
+        Integer provinceID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("provinceID"), "省份不能为空！"));
+        Integer cityID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("cityID"), "城市不能为空！"));
+        Integer areaID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("areaID"), "地区不能为空！"));
+        String address = MyStringTools.checkParameter(request.getParameter("address"), "地址不能为空！");
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
 
         Store store = new Store();
         store.setName(name);
@@ -63,8 +63,8 @@ public class StoreController extends BaseController {
     @ResponseBody
     @RequestMapping("/cancel")
     public JsonResult cancel(HttpServletRequest request) throws Exception {
-        Integer storeID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("storeID"), "店铺ID不能为空！"));
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        Integer storeID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("storeID"), "店铺ID不能为空！"));
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
         boolean isSuccess = iStoreService.cancel(storeID, sysUsers.getUserId());
         if (isSuccess) {
             return JsonResult.success();
@@ -76,7 +76,7 @@ public class StoreController extends BaseController {
     @ResponseBody
     @RequestMapping("/pass")
     public JsonResult pass(HttpServletRequest request) throws Exception {
-        Integer storeID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("storeID"), "店铺ID不能为空！"));
+        Integer storeID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("storeID"), "店铺ID不能为空！"));
         boolean isSuccess = iStoreService.pass(storeID);
 
         if (isSuccess) {
@@ -89,7 +89,7 @@ public class StoreController extends BaseController {
     @ResponseBody
     @RequestMapping("/refuse")
     public JsonResult refuse(HttpServletRequest request) throws Exception {
-        Integer storeID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("storeID"), "店铺ID不能为空！"));
+        Integer storeID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("storeID"), "店铺ID不能为空！"));
         boolean isSuccess = iStoreService.refuse(storeID);
 
         if (isSuccess) {
@@ -144,7 +144,7 @@ public class StoreController extends BaseController {
     @ResponseBody
     @RequestMapping("/area")
     public JsonResult selectByArea(HttpServletRequest request) throws Exception {
-        Integer areaID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("areaID"), "地区ID不能为空！"));
+        Integer areaID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("areaID"), "地区ID不能为空！"));
         return JsonResult.success(iStoreService.getStoresByArea(areaID));
     }
 
@@ -162,7 +162,7 @@ public class StoreController extends BaseController {
         UserSeller userSeller = new UserSeller();
 
         //必选查询条件
-        Integer storeID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("storeID"), "门店ID不能为空！"));
+        Integer storeID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("storeID"), "门店ID不能为空！"));
         userSeller.setStoreId(storeID);
 
         //可选查询条件
@@ -170,7 +170,7 @@ public class StoreController extends BaseController {
             userSeller.setSysStatus(Integer.parseInt(request.getParameter("status")));
         }
 
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
 
         PageInfo<UserSeller> userSellerPageInfo = iUserSellerService.getByStore(userSeller, sysUsers.getUserId(), pageNum, pageSize);
 

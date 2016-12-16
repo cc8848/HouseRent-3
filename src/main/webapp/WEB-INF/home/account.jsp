@@ -55,23 +55,25 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">基本信息<span id="modify" class="btn btn-primary btn-xs pull-right">修改信息</span></h3>
+                <h3 class="panel-title">基本信息</h3>
             </div>
             <div class="panel-body">
                 <form role="form">
                     <div class="row">
                         <div class="col-sm-4">
-                            <img src="${pageContext.request.contextPath}${portrait_src}" class="img-thumbnail">
+                            <img src="${pageContext.request.contextPath}${portrait_src}"
+                                 class="img-thumbnail pic-align-center">
                             <div class="white-divider-md"></div>
                             <div class=" btn-group btn-group-justified">
                                 <div class="btn-group">
                                     <button class="btn btn-primary" type="button" name="upload">上传头像</button>
                                 </div>
                                 <div class="btn-group">
-                                    <button class="btn btn-primary" type="button" name="modify">修改头像</button>
+                                    <button class="btn btn-primary" type="button" name="modify">修改信息</button>
                                 </div>
                             </div>
                         </div>
+                        <div class="white-divider-md visible-xs"></div>
                         <div class="col-sm-4">
                             <div class="form-group">
                                 <label class="control-label" for="name">真实姓名</label>
@@ -134,6 +136,23 @@
                                            name="company" value="${user.companyAbbr}" disabled>
                                 </div>
                             </div>
+                            <div class="form-group">
+                                <label class="control-label" for="company">擅长地区(最多3个)</label>
+                                <div class="btn-group btn-group-justified">
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">厦门</button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">泉州</button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-primary">福州</button>
+                                    </div>
+                                    <div class="btn-group">
+                                        <button type="button" class="btn btn-danger">修改</button>
+                                    </div>
+                                </div>
+                            </div>
                             <div class="white-divider-md"></div>
                             <div class="form-group hidden">
                                 <div class="btn-group btn-group-justified pull-right">
@@ -176,7 +195,12 @@
 <script id="portraitUpload" type="text/html">
     <div style="padding: 10px 20px">
         <form role="form" enctype="multipart/form-data" method="post">
-            <img alt="" src="${pageContext.request.contextPath}/img/showings.jpg" id="cut-img" class="img-responsive"/>
+            <div class="embed-responsive embed-responsive-16by9">
+                <div class="embed-responsive-item pre-scrollable">
+                    <img alt="" src="${pageContext.request.contextPath}/img/showings.jpg" id="cut-img"
+                         class="img-responsive img-thumbnail"/>
+                </div>
+            </div>
             <div class="white-divider-md"></div>
             <input type="file" name="imgFile" id="fileUpload"/>
             <div class="white-divider-md"></div>

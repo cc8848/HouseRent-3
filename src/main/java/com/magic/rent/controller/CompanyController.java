@@ -4,9 +4,9 @@ import com.github.pagehelper.PageInfo;
 import com.magic.rent.pojo.Company;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.ICompanyService;
-import com.magic.rent.util.HttpUtil;
+import com.magic.rent.tools.HttpTools;
 import com.magic.rent.pojo.JsonResult;
-import com.magic.rent.util.MyStringUtil;
+import com.magic.rent.tools.MyStringTools;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -33,14 +33,14 @@ public class CompanyController {
     @RequestMapping(value = "/create", method = RequestMethod.POST)
     public JsonResult createCompany(HttpServletRequest request) throws Exception {
 
-        SysUsers users = HttpUtil.getSessionUser(request);
+        SysUsers users = HttpTools.getSessionUser(request);
 
-        String companyName = MyStringUtil.checkParameter(request.getParameter("companyName"), "公司名称不能为空！");
-        Integer provinceID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("provinceID"), "省份不能为空！"));
-        Integer cityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("cityID"), "城市不能为空！"));
-        Integer areaID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("areaID"), "地区不能为空！"));
-        String address = MyStringUtil.checkParameter(request.getParameter("address"), "具体地址不能为空！");
-        String phone = MyStringUtil.checkParameter(request.getParameter("phone"), "联系电话不能为空！");
+        String companyName = MyStringTools.checkParameter(request.getParameter("companyName"), "公司名称不能为空！");
+        Integer provinceID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("provinceID"), "省份不能为空！"));
+        Integer cityID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("cityID"), "城市不能为空！"));
+        Integer areaID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("areaID"), "地区不能为空！"));
+        String address = MyStringTools.checkParameter(request.getParameter("address"), "具体地址不能为空！");
+        String phone = MyStringTools.checkParameter(request.getParameter("phone"), "联系电话不能为空！");
         int userID = users.getUserId();
 
         Company company = new Company();
@@ -64,7 +64,7 @@ public class CompanyController {
     @ResponseBody
     @RequestMapping(value = "/pass", method = RequestMethod.POST)
     public JsonResult passCompany(HttpServletRequest request) throws Exception {
-        Integer companyID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("companyID"), "公司编号不能为空！"));
+        Integer companyID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("companyID"), "公司编号不能为空！"));
 
         if (iCompanyService.pass(companyID)) {
             return JsonResult.success();
@@ -76,7 +76,7 @@ public class CompanyController {
     @ResponseBody
     @RequestMapping(value = "/refuse", method = RequestMethod.POST)
     public JsonResult refuseCompany(HttpServletRequest request) throws Exception {
-        Integer companyID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("companyID"), "公司编号不能为空！"));
+        Integer companyID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("companyID"), "公司编号不能为空！"));
 
         if (iCompanyService.refuse(companyID)) {
             return JsonResult.success();
@@ -88,9 +88,9 @@ public class CompanyController {
     @ResponseBody
     @RequestMapping(value = "/cancel", method = RequestMethod.POST)
     public JsonResult cancelCompany(HttpServletRequest request) throws Exception {
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
 
-        Integer companyID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("companyID"), "公司ID不能为空！"));
+        Integer companyID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("companyID"), "公司ID不能为空！"));
 
 
         if (iCompanyService.cancel(companyID, sysUsers.getUserId())) {

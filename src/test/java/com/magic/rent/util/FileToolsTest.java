@@ -1,11 +1,10 @@
 package com.magic.rent.util;
 
+import com.magic.rent.tools.FileTools;
 import org.junit.Before;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
-
-import static org.junit.Assert.*;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -13,7 +12,7 @@ import static org.junit.Assert.*;
  * 类说明:
  * 更新记录：
  */
-public class FileUtilTest {
+public class FileToolsTest {
 
     private ApplicationContext applicationContext;
 
@@ -49,9 +48,9 @@ public class FileUtilTest {
 
     @Test
     public void getListFiles() throws Exception {
-        String path = FileUtil.getWebRootPath();
+        String path = FileTools.getWebRootPath();
         System.out.println(path);
-        System.out.print(FileUtil.getListFiles(path));
+        System.out.print(FileTools.getListFiles(path));
     }
 
 }

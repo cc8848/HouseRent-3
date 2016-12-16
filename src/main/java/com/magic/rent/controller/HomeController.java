@@ -5,8 +5,8 @@ import com.magic.rent.exception.custom.LoginTimeOutException;
 import com.magic.rent.pojo.SysMenu;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.ISysMenuService;
-import com.magic.rent.util.FileUtil;
-import com.magic.rent.util.HttpUtil;
+import com.magic.rent.tools.FileTools;
+import com.magic.rent.tools.HttpTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -52,18 +52,18 @@ public class HomeController extends BaseController {
     public ModelAndView account(HttpServletRequest request) throws Exception {
         ModelAndView modelAndView = new ModelAndView("home/account");
         //获取用户ID用于指向对应文件夹
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
         modelAndView.addObject("user", sysUsers);
 
         //获取头像路径
         int userID = sysUsers.getUserId();
-        String filePath = FileUtil.getPortraitPath(userID);
-        List<File> fileList = FileUtil.getListFiles(filePath);
+        String filePath = FileTools.getPortraitPath(userID);
+        List<File> fileList = FileTools.getListFiles(filePath);
         if (null == fileList || fileList.size() == 0) {
             String defaultSrc = "/img/default.jpg";
             modelAndView.addObject("portrait_src", defaultSrc);
         } else {
-            String src = FileUtil.filePathToSRC(fileList.get(0).toString(), FileUtil.IMG);
+            String src = FileTools.filePathToSRC(fileList.get(0).toString(), FileTools.IMG);
             modelAndView.addObject("portrait_src", src);
         }
         return modelAndView;

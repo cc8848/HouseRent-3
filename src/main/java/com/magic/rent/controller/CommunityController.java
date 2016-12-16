@@ -5,9 +5,9 @@ import com.magic.rent.pojo.Community;
 import com.magic.rent.pojo.SelectPoJo;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.ICommunityService;
-import com.magic.rent.util.HttpUtil;
+import com.magic.rent.tools.HttpTools;
 import com.magic.rent.pojo.JsonResult;
-import com.magic.rent.util.MyStringUtil;
+import com.magic.rent.tools.MyStringTools;
 import org.apache.commons.lang3.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,17 +37,17 @@ public class CommunityController {
     @RequestMapping(value = "/create", method = {RequestMethod.POST})
     public JsonResult create(HttpServletRequest request) throws Exception {
 
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
-        String communityName = MyStringUtil.checkParameter(request.getParameter("communityName"), "社区名称不能为空！");
-        Integer provinceID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("provinceID"), "省份ID不能为空！"));
-        Integer cityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("cityID"), "城市ID不能为空！"));
-        Integer areaID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("areaID"), "地区ID不能为空！"));
-        Double lng = Double.parseDouble(MyStringUtil.checkParameter(request.getParameter("lng"), "地图数据获取失败！"));
-        Double lat = Double.parseDouble(MyStringUtil.checkParameter(request.getParameter("lat"), "地图数据获取失败！"));
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
+        String communityName = MyStringTools.checkParameter(request.getParameter("communityName"), "社区名称不能为空！");
+        Integer provinceID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("provinceID"), "省份ID不能为空！"));
+        Integer cityID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("cityID"), "城市ID不能为空！"));
+        Integer areaID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("areaID"), "地区ID不能为空！"));
+        Double lng = Double.parseDouble(MyStringTools.checkParameter(request.getParameter("lng"), "地图数据获取失败！"));
+        Double lat = Double.parseDouble(MyStringTools.checkParameter(request.getParameter("lat"), "地图数据获取失败！"));
         String openTimeString = request.getParameter("openTime");
         String realEstateTimeString = request.getParameter("realEstateTime");
         String estateManageCompany = request.getParameter("estateManageCompany");
-        String address = MyStringUtil.checkParameter(request.getParameter("address"), "地址不能为空！");
+        String address = MyStringTools.checkParameter(request.getParameter("address"), "地址不能为空！");
 
         Community community = new Community();
         community.setProvinceId(provinceID);
@@ -82,8 +82,8 @@ public class CommunityController {
     @ResponseBody
     @RequestMapping(value = "/cancel", method = RequestMethod.POST)
     public JsonResult cancel(HttpServletRequest request) throws Exception {
-        Integer communityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("communityID"), "社区编号不能为空！"));
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        Integer communityID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("communityID"), "社区编号不能为空！"));
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
 
         boolean isSuccess = iCommunityService.cancel(communityID, sysUsers.getUserId());
 
@@ -98,7 +98,7 @@ public class CommunityController {
     @ResponseBody
     @RequestMapping("/pass")
     public JsonResult pass(HttpServletRequest request) throws Exception {
-        Integer communityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("communityID"), "社区编号不能为空！"));
+        Integer communityID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("communityID"), "社区编号不能为空！"));
         boolean isSuccess = iCommunityService.pass(communityID);
 
         if (isSuccess) {
@@ -111,7 +111,7 @@ public class CommunityController {
     @ResponseBody
     @RequestMapping("/refuse")
     public JsonResult refuse(HttpServletRequest request) throws Exception {
-        Integer communityID = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("communityID"), "社区编号不能为空！"));
+        Integer communityID = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("communityID"), "社区编号不能为空！"));
         boolean isSuccess = iCommunityService.refuse(communityID);
 
         if (isSuccess) {
@@ -131,9 +131,9 @@ public class CommunityController {
     @ResponseBody
     @RequestMapping("/classify")
     public JsonResult getClassify(HttpServletRequest request) throws Exception {
-        Integer status = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("status"), "状态不能为空！"));
-        Integer pageNum = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("pageNum"), "查询页数不能为空！"));
-        Integer pageSize = Integer.parseInt(MyStringUtil.checkParameter(request.getParameter("pageSize"), "查询笔数不能为空！"));
+        Integer status = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("status"), "状态不能为空！"));
+        Integer pageNum = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("pageNum"), "查询页数不能为空！"));
+        Integer pageSize = Integer.parseInt(MyStringTools.checkParameter(request.getParameter("pageSize"), "查询笔数不能为空！"));
         Integer userID = null;
         if (StringUtils.isNotEmpty(request.getParameter("userID"))) {
             userID = Integer.parseInt(request.getParameter("userID"));
@@ -153,7 +153,7 @@ public class CommunityController {
     @ResponseBody
     @RequestMapping("/success")
     public JsonResult getSuccess(HttpServletRequest request) throws Exception {
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
         List<Community> communityList = iCommunityService.getSuccessCommunities(sysUsers.getUserId());
         return JsonResult.success(communityList);
     }
@@ -183,7 +183,7 @@ public class CommunityController {
             pageSize = Integer.parseInt(request.getParameter("pageSize"));
         }
 
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
 
         PageInfo<Community> communityPageInfo = iCommunityService.getClassifyCommunities(status, sysUsers.getUserId(), pageNum, pageSize);
 
@@ -193,7 +193,7 @@ public class CommunityController {
     @ResponseBody
     @RequestMapping("/select")
     public JsonResult getSuccessSelect(HttpServletRequest request) throws Exception {
-        SysUsers sysUsers = HttpUtil.getSessionUser(request);
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
 
         List<SelectPoJo> selectPoJos = iCommunityService.getSuccessCommunitiesForSelect(sysUsers.getUserId());
 
