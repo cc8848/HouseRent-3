@@ -67,13 +67,17 @@ public class UserServiceImpl extends BaseService implements IUserService {
     public boolean changePassword(String newPwd, String oldPwd, SysUsers sysUsers) throws Exception {
         //对原密码校验
         String passwordMD5 = passwordEncoder.encodePassword(oldPwd, sysUsers.getUsername());
-        if (passwordMD5.equals(sysUsers.getPassword())) {
+        if (!passwordMD5.equals(sysUsers.getPassword())) {
             throw new BusinessException("原密码不符，修改密码失败！");
         }
         String password = passwordEncoder.encodePassword(newPwd, sysUsers.getUsername());
         SysUsers modifyUser = new SysUsers();
         modifyUser.setUserId(sysUsers.getUserId());
         modifyUser.setPassword(password);
+        modifyUser.setEnabled(true);
+        modifyUser.setAccountNonExpired(true);
+        modifyUser.setAccountNonLocked(true);
+        modifyUser.setCredentialsNonExpired(true);
 
         int rows = sysUsersMapper.updateByPrimaryKeySelective(modifyUser);
 

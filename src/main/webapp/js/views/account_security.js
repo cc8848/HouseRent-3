@@ -10,7 +10,7 @@ $(document).ready(function () {
 
 function PageInit() {
     this.init = function () {
-        $('#passwordSubmit').on('click', this.passwordChange);
+        $("[name='passwordSubmit']").on('click', this.passwordChange);
     };
 
     this.passwordChange = function () {

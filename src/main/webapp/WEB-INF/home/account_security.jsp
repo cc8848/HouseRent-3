@@ -12,6 +12,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Showings · 房库 - 信息修改</title>
+    <sec:csrfMetaTags/>
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/scojs.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco.message.css">
@@ -37,22 +38,37 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label">当前密码</label>
-                                <input type="password" class="form-control"
-                                       placeholder="6-10位字母或数字的组合" name="old">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-lock"></span>
+                                    </div>
+                                    <input type="password" class="form-control"
+                                           placeholder="6-10位字母或数字组合" name="old">
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label">新密码</label>
-                                <input type="password" class="form-control"
-                                       placeholder="6-10位字母或数字的组合" name="new">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-lock"></span>
+                                    </div>
+                                    <input type="password" class="form-control"
+                                           placeholder="6-10位字母或数字组合" name="new">
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label">再次确认</label>
-                                <input type="password" class="form-control"
-                                       placeholder="6-10位字母或数字的组合" name="check">
+                                <div class="input-group">
+                                    <div class="input-group-addon">
+                                        <span class="glyphicon glyphicon-lock"></span>
+                                    </div>
+                                    <input type="password" class="form-control"
+                                           placeholder="6-10位字母或数字组合" name="check">
+                                </div>
                             </div>
                         </div>
                         <div class="col-sm-3">
@@ -73,7 +89,8 @@
             <div class="panel-footer">
                 <div class="row">
                     <div class="col-sm-12">
-                        <button name="passwordSubmit" type="button" class="btn btn-xs btn-primary pull-right">提交修改</button>
+                        <button name="passwordSubmit" type="button" class="btn btn-xs btn-primary pull-right">提交修改
+                        </button>
                     </div>
                 </div>
             </div>
@@ -84,6 +101,7 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/soc/sco.valid.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/soc/sco.modal.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/views/account_security.js"></script>
 </body>
 </html>

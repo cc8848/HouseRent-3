@@ -40,7 +40,7 @@ public class SysUsers implements Serializable, UserDetails {
 
     private boolean accountNonExpired;
 
-    private boolean accountNonLocked;
+    private boolean accountNonLocked ;
 
     private boolean credentialsNonExpired;
 

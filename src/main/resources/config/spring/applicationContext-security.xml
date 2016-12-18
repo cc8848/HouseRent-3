@@ -53,22 +53,22 @@
     </sec:authentication-manager>
 
 
-    <!--权限查询服务-->
-    <bean id="cachingUserDetailsService"
-          class="org.springframework.security.config.authentication.CachingUserDetailsService">
-        <constructor-arg name="delegate" ref="webUserDetailsService"/>
-        <property name="userCache">
-            <bean class="org.springframework.security.core.userdetails.cache.EhCacheBasedUserCache">
-                <property name="cache" ref="userEhCacheFactory"/>
-            </bean>
-        </property>
-    </bean>
+    <!--&lt;!&ndash;权限查询服务&ndash;&gt;-->
+    <!--<bean id="cachingUserDetailsService"-->
+          <!--class="org.springframework.security.config.authentication.CachingUserDetailsService">-->
+        <!--<constructor-arg name="delegate" ref="webUserDetailsService"/>-->
+        <!--<property name="userCache">-->
+            <!--<bean class="org.springframework.security.core.userdetails.cache.EhCacheBasedUserCache">-->
+                <!--<property name="cache" ref="userEhCacheFactory"/>-->
+            <!--</bean>-->
+        <!--</property>-->
+    <!--</bean>-->
 
     <bean id="daoAuthenticationProvider"
           class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
         <property name="messageSource" ref="messageSource"/>
         <property name="passwordEncoder" ref="messageDigestPasswordEncoder"/>
-        <property name="userDetailsService" ref="cachingUserDetailsService"/>
+        <property name="userDetailsService" ref="webUserDetailsService"/>
         <property name="saltSource" ref="saltSource"/>
         <property name="hideUserNotFoundExceptions" value="false"/>
     </bean>
@@ -132,6 +132,6 @@
 
     <!--无权限时返回403-->
     <bean id="myAccessDeniedHandler" class="com.magic.rent.service.security.AccessDeniedHandlerImpl">
-        <property name="errorPage" value="/error"/>
+        <property name="errorPage" value="/views/error"/>
     </bean>
 </beans>

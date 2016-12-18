@@ -12,17 +12,8 @@ public class SysMenu implements Serializable {
     private String menuDesc;//菜单名称
 
     private Integer sceneId;//场景码
-    private SysScene sysScene;
 
     private Integer orderNum;
-
-    public SysScene getSysScene() {
-        return sysScene;
-    }
-
-    public void setSysScene(SysScene sysScene) {
-        this.sysScene = sysScene;
-    }
 
     public Integer getId() {
         return id;
@@ -71,7 +62,6 @@ public class SysMenu implements Serializable {
                 ", href='" + href + '\'' +
                 ", menuDesc='" + menuDesc + '\'' +
                 ", sceneId=" + sceneId +
-                ", sysScene=" + sysScene +
                 ", orderNum=" + orderNum +
                 '}';
     }
