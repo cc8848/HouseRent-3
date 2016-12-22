@@ -1,21 +1,18 @@
 package com.magic.rent.service.impl;
 
 import com.magic.rent.exception.custom.BusinessException;
-import com.magic.rent.exception.custom.ParameterException;
 import com.magic.rent.mapper.SysUsersMapper;
 import com.magic.rent.mapper.UsersRelateRolesMapper;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.pojo.UsersRelateRoles;
 import com.magic.rent.service.IUserService;
-import com.magic.rent.service.base.BaseService;
+import com.magic.rent.service.impl.base.BaseService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.cache.annotation.Cacheable;
 import org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.StringUtils;
 
 import java.util.Date;
 

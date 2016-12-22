@@ -1,0 +1,501 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.magic.rent.mapper.HandHouseMapper">
+    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.HandHouse">
+        <id column="HOUSE_ID" property="houseId" jdbcType="INTEGER"/>
+        <result column="USER_ID" property="userId" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="ResultMapWithPrice" type="com.magic.rent.pojo.HandHousePrice" extends="BaseResultMap">
+        <result column="PROPERTY_RIGHTS_FOR_TWO_YEARS" property="propertyRightsForTwoYears" jdbcType="BIT"/>
+        <result column="ONLY_HOUSING" property="onlyHousing" jdbcType="BIT"/>
+        <result column="PRICE" property="price" jdbcType="INTEGER"/>
+    </resultMap>
+    <resultMap id="ResultMapWithDetail" type="com.magic.rent.pojo.HandHouseDetail" extends="ResultMapWithPrice">
+        <result column="TITLE" property="title" jdbcType="VARCHAR"/>
+        <result column="HOUSE_DETAILS" property="houseDetails" jdbcType="LONGVARCHAR"/>
+        <result column="OWNER_MENTALITY" property="ownerMentality" jdbcType="LONGVARCHAR"/>
+        <result column="SUPPORTING_FACILITY" property="supportingFacility" jdbcType="LONGVARCHAR"/>
+        <result column="PROFESSIONAL_SERVICE" property="professionalService" jdbcType="LONGVARCHAR"/>
+    </resultMap>
+    <resultMap id="ResultMapWithBase" type="com.magic.rent.pojo.HandHouse" extends="ResultMapWithDetail">
+        <result column="SERIAL_NUM" property="serialNum" jdbcType="INTEGER"/>
+        <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER"/>
+        <result column="CITY_ID" property="cityId" jdbcType="INTEGER"/>
+        <result column="AREA_ID" property="areaId" jdbcType="INTEGER"/>
+        <result column="COMMUNITY_NAME" property="communityName" jdbcType="VARCHAR"/>
+        <result column="ROOM_QUANTITY" property="roomQuantity" jdbcType="INTEGER"/>
+        <result column="HALL_QUANTITY" property="hallQuantity" jdbcType="INTEGER"/>
+        <result column="BATHROOM_QUANTITY" property="bathroomQuantity" jdbcType="INTEGER"/>
+        <result column="TYPE" property="type" jdbcType="INTEGER"/>
+        <result column="DECORATION" property="decoration" jdbcType="INTEGER"/>
+        <result column="ORIENTATION" property="orientation" jdbcType="INTEGER"/>
+        <result column="CURRENT_FLOOR" property="currentFloor" jdbcType="INTEGER"/>
+        <result column="TOTAL_FLOOR" property="totalFloor" jdbcType="INTEGER"/>
+        <result column="FLOOR_AREA" property="floorArea" jdbcType="DOUBLE"/>
+        <result column="BUILD_AGE" property="buildAge" jdbcType="INTEGER"/>
+        <result column="PANORAMA_SRC" property="panoramaSrc" jdbcType="VARCHAR"/>
+    </resultMap>
+    <sql id="Base_Column_List">
+    HOUSE_ID,USER_ID
+    </sql>
+    <sql id="Price_Column_List">
+    PROPERTY_RIGHTS_FOR_TWO_YEARS, ONLY_HOUSING, PRICE
+    </sql>
+    <sql id="Detail_Column_List">
+        TITLE, HOUSE_DETAILS, OWNER_MENTALITY, SUPPORTING_FACILITY, PROFESSIONAL_SERVICE
+    </sql>
+    <sql id="BaseInfo_Column_List">
+    SERIAL_NUM, PROVINCE_ID, CITY_ID, AREA_ID, COMMUNITY_NAME, ROOM_QUANTITY,
+    HALL_QUANTITY, BATHROOM_QUANTITY, TYPE, DECORATION, ORIENTATION, CURRENT_FLOOR, TOTAL_FLOOR,
+    FLOOR_AREA, BUILD_AGE,PANORAMA_SRC
+    </sql>
+    <select id="selectBaseByPrimaryKey" resultMap="BaseResultMap" parameterType="com.magic.rent.pojo.HandHouse">
+        select
+        <include refid="Base_Column_List"/>
+        from HAND_HOUSE
+        where HOUSE_ID = #{houseId,jdbcType=INTEGER}
+    </select>
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithBase" parameterType="java.lang.Integer">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Price_Column_List"/>
+        ,
+        <include refid="Detail_Column_List"/>
+        ,
+        <include refid="BaseInfo_Column_List"/>
+        from HAND_HOUSE
+        where HOUSE_ID = #{houseId,jdbcType=INTEGER}
+    </select>
+    <select id="selectBySelective" resultMap="ResultMapWithBase" parameterType="com.magic.rent.pojo.HandHouseBase">
+        select
+        <include refid="Base_Column_List"/>
+        ,
+        <include refid="Price_Column_List"/>
+        ,
+        <include refid="Detail_Column_List"/>
+        ,
+        <include refid="BaseInfo_Column_List"/>
+        from HAND_HOUSE
+        <where>
+            <if test="userId != null">
+                AND USER_ID = #{userId,jdbcType=INTEGER}
+            </if>
+            <if test="propertyRightsForTwoYears != null">
+                AND PROPERTY_RIGHTS_FOR_TWO_YEARS = #{propertyRightsForTwoYears,jdbcType=BIT}
+            </if>
+            <if test="onlyHousing != null">
+                AND ONLY_HOUSING = #{onlyHousing,jdbcType=BIT}
+            </if>
+            <if test="price != null">
+                AND PRICE = #{price,jdbcType=INTEGER}
+            </if>
+            <if test="serialNum != null">
+                AND SERIAL_NUM = #{serialNum,jdbcType=INTEGER}
+            </if>
+            <if test="provinceId != null">
+                AND PROVINCE_ID = #{provinceId,jdbcType=INTEGER}
+            </if>
+            <if test="cityId != null">
+                AND CITY_ID = #{cityId,jdbcType=INTEGER}
+            </if>
+            <if test="areaId != null">
+                AND AREA_ID = #{areaId,jdbcType=INTEGER}
+            </if>
+            <if test="communityName != null">
+                AND COMMUNITY_NAME = #{communityName,jdbcType=VARCHAR}
+            </if>
+            <if test="roomQuantity != null">
+                AND ROOM_QUANTITY = #{roomQuantity,jdbcType=INTEGER}
+            </if>
+            <if test="hallQuantity != null">
+                AND HALL_QUANTITY = #{hallQuantity,jdbcType=INTEGER}
+            </if>
+            <if test="bathroomQuantity != null">
+                AND BATHROOM_QUANTITY = #{bathroomQuantity,jdbcType=INTEGER}
+            </if>
+            <if test="type != null">
+                AND TYPE = #{type,jdbcType=INTEGER}
+            </if>
+            <if test="decoration != null">
+                AND DECORATION = #{decoration,jdbcType=INTEGER}
+            </if>
+            <if test="orientation != null">
+                AND ORIENTATION = #{orientation,jdbcType=INTEGER}
+            </if>
+            <if test="currentFloor != null">
+                AND CURRENT_FLOOR = #{currentFloor,jdbcType=INTEGER}
+            </if>
+            <if test="totalFloor != null">
+                AND TOTAL_FLOOR = #{totalFloor,jdbcType=INTEGER}
+            </if>
+            <if test="floorArea != null">
+                AND FLOOR_AREA = #{floorArea,jdbcType=DOUBLE}
+            </if>
+            <if test="buildAge != null">
+                AND  BUILD_AGE = #{buildAge,jdbcType=INTEGER}
+            </if>
+            <if test="panoramaSrc != null">
+                AND PANORAMA_SRC = #{panoramaSrc,jdbcType=VARCHAR}
+            </if>
+            <if test="title != null">
+                AND  TITLE = #{title,jdbcType=VARCHAR}
+            </if>
+            <if test="houseDetails != null">
+                AND  HOUSE_DETAILS = #{houseDetails,jdbcType=LONGVARCHAR}
+            </if>
+            <if test="ownerMentality != null">
+                AND  OWNER_MENTALITY = #{ownerMentality,jdbcType=LONGVARCHAR}
+            </if>
+            <if test="supportingFacility != null">
+                AND SUPPORTING_FACILITY = #{supportingFacility,jdbcType=LONGVARCHAR}
+            </if>
+            <if test="professionalService != null">
+                AND PROFESSIONAL_SERVICE = #{professionalService,jdbcType=LONGVARCHAR}
+            </if>
+        </where>
+    </select>
+    <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    delete from HAND_HOUSE
+    where HOUSE_ID = #{houseId,jdbcType=INTEGER}
+  </delete>
+    <insert id="insert" parameterType="com.magic.rent.pojo.HandHouseBase" useGeneratedKeys="true" keyColumn="HOUSE_ID"
+            keyProperty="houseId">
+    insert into HAND_HOUSE (HOUSE_ID, USER_ID,
+      PROPERTY_RIGHTS_FOR_TWO_YEARS, ONLY_HOUSING,PRICE,
+      TITLE, HOUSE_DETAILS, OWNER_MENTALITY, SUPPORTING_FACILITY,PROFESSIONAL_SERVICE,
+      SERIAL_NUM, PROVINCE_ID,
+      CITY_ID, AREA_ID, COMMUNITY_NAME, 
+      ROOM_QUANTITY, HALL_QUANTITY, BATHROOM_QUANTITY, 
+      TYPE, DECORATION, ORIENTATION, 
+      CURRENT_FLOOR, TOTAL_FLOOR, FLOOR_AREA, 
+      BUILD_AGE,PANORAMA_SRC)
+    values (#{houseId,jdbcType=INTEGER},#{userId,jdbcType=INTEGER},#{propertyRightsForTwoYears,jdbcType=BIT}, #{onlyHousing,jdbcType=BIT},
+      #{price,jdbcType=INTEGER},
+      #{title,jdbcType=VARCHAR},
+      #{houseDetails,jdbcType=LONGVARCHAR}, #{ownerMentality,jdbcType=LONGVARCHAR}, #{supportingFacility,jdbcType=LONGVARCHAR},
+      #{professionalService,jdbcType=LONGVARCHAR},
+      #{serialNum,jdbcType=INTEGER}, #{provinceId,jdbcType=INTEGER},
+      #{cityId,jdbcType=INTEGER}, #{areaId,jdbcType=INTEGER}, #{communityName,jdbcType=VARCHAR}, 
+      #{roomQuantity,jdbcType=INTEGER}, #{hallQuantity,jdbcType=INTEGER}, #{bathroomQuantity,jdbcType=INTEGER}, 
+      #{type,jdbcType=INTEGER}, #{decoration,jdbcType=INTEGER}, #{orientation,jdbcType=INTEGER}, 
+      #{currentFloor,jdbcType=INTEGER}, #{totalFloor,jdbcType=INTEGER}, #{floorArea,jdbcType=DOUBLE}, 
+      #{buildAge,jdbcType=INTEGER}, #{panoramaSrc,jdbcType=VARCHAR})
+  </insert>
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.HandHouseDetail" useGeneratedKeys="true"
+            keyColumn="HOUSE_ID"
+            keyProperty="houseId">
+        insert into HAND_HOUSE
+        <trim prefix="(" suffix=")" suffixOverrides=",">
+            <if test="houseId != null">
+                HOUSE_ID,
+            </if>
+            <if test="userId != null">
+                USER_ID,
+            </if>
+            <if test="propertyRightsForTwoYears != null">
+                PROPERTY_RIGHTS_FOR_TWO_YEARS,
+            </if>
+            <if test="onlyHousing != null">
+                ONLY_HOUSING,
+            </if>
+            <if test="price != null">
+                PRICE,
+            </if>
+            <if test="title != null">
+                TITLE,
+            </if>
+            <if test="houseDetails != null">
+                HOUSE_DETAILS,
+            </if>
+            <if test="ownerMentality != null">
+                OWNER_MENTALITY,
+            </if>
+            <if test="supportingFacility != null">
+                SUPPORTING_FACILITY,
+            </if>
+            <if test="professionalService != null">
+                PROFESSIONAL_SERVICE,
+            </if>
+            <if test="serialNum != null">
+                SERIAL_NUM,
+            </if>
+            <if test="provinceId != null">
+                PROVINCE_ID,
+            </if>
+            <if test="cityId != null">
+                CITY_ID,
+            </if>
+            <if test="areaId != null">
+                AREA_ID,
+            </if>
+            <if test="communityName != null">
+                COMMUNITY_NAME,
+            </if>
+            <if test="roomQuantity != null">
+                ROOM_QUANTITY,
+            </if>
+            <if test="hallQuantity != null">
+                HALL_QUANTITY,
+            </if>
+            <if test="bathroomQuantity != null">
+                BATHROOM_QUANTITY,
+            </if>
+            <if test="type != null">
+                TYPE,
+            </if>
+            <if test="decoration != null">
+                DECORATION,
+            </if>
+            <if test="orientation != null">
+                ORIENTATION,
+            </if>
+            <if test="currentFloor != null">
+                CURRENT_FLOOR,
+            </if>
+            <if test="totalFloor != null">
+                TOTAL_FLOOR,
+            </if>
+            <if test="floorArea != null">
+                FLOOR_AREA,
+            </if>
+            <if test="buildAge != null">
+                BUILD_AGE,
+            </if>
+            <if test="panoramaSrc != null">
+                PANORAMA_SRC,
+            </if>
+        </trim>
+        <trim prefix="values (" suffix=")" suffixOverrides=",">
+            <if test="houseId != null">
+                #{houseId,jdbcType=INTEGER},
+            </if>
+            <if test="userId != null">
+                #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="propertyRightsForTwoYears != null">
+                #{propertyRightsForTwoYears,jdbcType=BIT},
+            </if>
+            <if test="onlyHousing != null">
+                #{onlyHousing,jdbcType=BIT},
+            </if>
+            <if test="price != null">
+                #{price,jdbcType=INTEGER},
+            </if>
+            <if test="title != null">
+                #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="houseDetails != null">
+                #{houseDetails,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ownerMentality != null">
+                #{ownerMentality,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="supportingFacility != null">
+                #{supportingFacility,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="professionalService != null">
+                #{professionalService,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="serialNum != null">
+                #{serialNum,jdbcType=INTEGER},
+            </if>
+            <if test="provinceId != null">
+                #{provinceId,jdbcType=INTEGER},
+            </if>
+            <if test="cityId != null">
+                #{cityId,jdbcType=INTEGER},
+            </if>
+            <if test="areaId != null">
+                #{areaId,jdbcType=INTEGER},
+            </if>
+            <if test="communityName != null">
+                #{communityName,jdbcType=VARCHAR},
+            </if>
+            <if test="roomQuantity != null">
+                #{roomQuantity,jdbcType=INTEGER},
+            </if>
+            <if test="hallQuantity != null">
+                #{hallQuantity,jdbcType=INTEGER},
+            </if>
+            <if test="bathroomQuantity != null">
+                #{bathroomQuantity,jdbcType=INTEGER},
+            </if>
+            <if test="type != null">
+                #{type,jdbcType=INTEGER},
+            </if>
+            <if test="decoration != null">
+                #{decoration,jdbcType=INTEGER},
+            </if>
+            <if test="orientation != null">
+                #{orientation,jdbcType=INTEGER},
+            </if>
+            <if test="currentFloor != null">
+                #{currentFloor,jdbcType=INTEGER},
+            </if>
+            <if test="totalFloor != null">
+                #{totalFloor,jdbcType=INTEGER},
+            </if>
+            <if test="floorArea != null">
+                #{floorArea,jdbcType=DOUBLE},
+            </if>
+            <if test="buildAge != null">
+                #{buildAge,jdbcType=INTEGER},
+            </if>
+            <if test="panoramaSrc != null">
+                #{panoramaSrc,jdbcType=VARCHAR},
+            </if>
+        </trim>
+    </insert>
+    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.HandHouseBase">
+        update HAND_HOUSE
+        <set>
+            <if test="userId != null">
+                USER_ID = #{userId,jdbcType=INTEGER},
+            </if>
+            <if test="propertyRightsForTwoYears != null">
+                PROPERTY_RIGHTS_FOR_TWO_YEARS = #{propertyRightsForTwoYears,jdbcType=BIT},
+            </if>
+            <if test="onlyHousing != null">
+                ONLY_HOUSING = #{onlyHousing,jdbcType=BIT},
+            </if>
+            <if test="price != null">
+                PRICE = #{price,jdbcType=INTEGER},
+            </if>
+            <if test="serialNum != null">
+                SERIAL_NUM = #{serialNum,jdbcType=INTEGER},
+            </if>
+            <if test="provinceId != null">
+                PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+            </if>
+            <if test="cityId != null">
+                CITY_ID = #{cityId,jdbcType=INTEGER},
+            </if>
+            <if test="areaId != null">
+                AREA_ID = #{areaId,jdbcType=INTEGER},
+            </if>
+            <if test="communityName != null">
+                COMMUNITY_NAME = #{communityName,jdbcType=VARCHAR},
+            </if>
+            <if test="roomQuantity != null">
+                ROOM_QUANTITY = #{roomQuantity,jdbcType=INTEGER},
+            </if>
+            <if test="hallQuantity != null">
+                HALL_QUANTITY = #{hallQuantity,jdbcType=INTEGER},
+            </if>
+            <if test="bathroomQuantity != null">
+                BATHROOM_QUANTITY = #{bathroomQuantity,jdbcType=INTEGER},
+            </if>
+            <if test="type != null">
+                TYPE = #{type,jdbcType=INTEGER},
+            </if>
+            <if test="decoration != null">
+                DECORATION = #{decoration,jdbcType=INTEGER},
+            </if>
+            <if test="orientation != null">
+                ORIENTATION = #{orientation,jdbcType=INTEGER},
+            </if>
+            <if test="currentFloor != null">
+                CURRENT_FLOOR = #{currentFloor,jdbcType=INTEGER},
+            </if>
+            <if test="totalFloor != null">
+                TOTAL_FLOOR = #{totalFloor,jdbcType=INTEGER},
+            </if>
+            <if test="floorArea != null">
+                FLOOR_AREA = #{floorArea,jdbcType=DOUBLE},
+            </if>
+            <if test="buildAge != null">
+                BUILD_AGE = #{buildAge,jdbcType=INTEGER},
+            </if>
+            <if test="panoramaSrc != null">
+                PANORAMA_SRC = #{panoramaSrc,jdbcType=VARCHAR},
+            </if>
+            <if test="title != null">
+                TITLE = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="houseDetails != null">
+                HOUSE_DETAILS = #{houseDetails,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ownerMentality != null">
+                OWNER_MENTALITY = #{ownerMentality,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="supportingFacility != null">
+                SUPPORTING_FACILITY = #{supportingFacility,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="professionalService != null">
+                PROFESSIONAL_SERVICE = #{professionalService,jdbcType=LONGVARCHAR},
+            </if>
+        </set>
+        where HOUSE_ID = #{houseId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyForDetail" parameterType="com.magic.rent.pojo.HandHouseDetail">
+    update HAND_HOUSE
+    set
+      USER_ID = #{userId,jdbcType=INTEGER},
+      PROPERTY_RIGHTS_FOR_TWO_YEARS = #{propertyRightsForTwoYears,jdbcType=BIT},
+      ONLY_HOUSING = #{onlyHousing,jdbcType=BIT},
+      PRICE = #{price,jdbcType=INTEGER},
+      SERIAL_NUM = #{serialNum,jdbcType=INTEGER},
+      PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+      CITY_ID = #{cityId,jdbcType=INTEGER},
+      AREA_ID = #{areaId,jdbcType=INTEGER},
+      COMMUNITY_NAME = #{communityName,jdbcType=VARCHAR},
+      ROOM_QUANTITY = #{roomQuantity,jdbcType=INTEGER},
+      HALL_QUANTITY = #{hallQuantity,jdbcType=INTEGER},
+      BATHROOM_QUANTITY = #{bathroomQuantity,jdbcType=INTEGER},
+      TYPE = #{type,jdbcType=INTEGER},
+      DECORATION = #{decoration,jdbcType=INTEGER},
+      ORIENTATION = #{orientation,jdbcType=INTEGER},
+      CURRENT_FLOOR = #{currentFloor,jdbcType=INTEGER},
+      TOTAL_FLOOR = #{totalFloor,jdbcType=INTEGER},
+      FLOOR_AREA = #{floorArea,jdbcType=DOUBLE},
+      BUILD_AGE = #{buildAge,jdbcType=INTEGER},
+      PANORAMA_SRC = #{panoramaSrc,jdbcType=VARCHAR},
+      TITLE = #{title,jdbcType=VARCHAR},
+      HOUSE_DETAILS = #{houseDetails,jdbcType=LONGVARCHAR},
+      OWNER_MENTALITY = #{ownerMentality,jdbcType=LONGVARCHAR},
+      SUPPORTING_FACILITY = #{supportingFacility,jdbcType=LONGVARCHAR},
+      PROFESSIONAL_SERVICE = #{professionalService,jdbcType=LONGVARCHAR}
+    where HOUSE_ID = #{houseId,jdbcType=INTEGER}
+  </update>
+    <update id="updateByPrimaryKeyForBase" parameterType="com.magic.rent.pojo.HandHouseBase">
+        update HAND_HOUSE
+        set
+        USER_ID = #{userId,jdbcType=INTEGER},
+        PROPERTY_RIGHTS_FOR_TWO_YEARS = #{propertyRightsForTwoYears,jdbcType=BIT},
+        ONLY_HOUSING = #{onlyHousing,jdbcType=BIT},
+        PRICE = #{price,jdbcType=INTEGER},
+        SERIAL_NUM = #{serialNum,jdbcType=INTEGER},
+        PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
+        CITY_ID = #{cityId,jdbcType=INTEGER},
+        AREA_ID = #{areaId,jdbcType=INTEGER},
+        COMMUNITY_NAME = #{communityName,jdbcType=VARCHAR},
+        ROOM_QUANTITY = #{roomQuantity,jdbcType=INTEGER},
+        HALL_QUANTITY = #{hallQuantity,jdbcType=INTEGER},
+        BATHROOM_QUANTITY = #{bathroomQuantity,jdbcType=INTEGER},
+        TYPE = #{type,jdbcType=INTEGER},
+        DECORATION = #{decoration,jdbcType=INTEGER},
+        ORIENTATION = #{orientation,jdbcType=INTEGER},
+        CURRENT_FLOOR = #{currentFloor,jdbcType=INTEGER},
+        TOTAL_FLOOR = #{totalFloor,jdbcType=INTEGER},
+        FLOOR_AREA = #{floorArea,jdbcType=DOUBLE},
+        BUILD_AGE = #{buildAge,jdbcType=INTEGER},
+        PANORAMA_SRC = #{panoramaSrc,jdbcType=VARCHAR},
+        where HOUSE_ID = #{houseId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyForPrice" parameterType="com.magic.rent.pojo.HandHousePrice">
+    update HAND_HOUSE
+    set
+     USER_ID = #{userId,jdbcType=INTEGER},
+     PROPERTY_RIGHTS_FOR_TWO_YEARS = #{propertyRightsForTwoYears,jdbcType=BIT},
+     ONLY_HOUSING = #{onlyHousing,jdbcType=BIT},
+     PRICE = #{price,jdbcType=INTEGER},
+    where HOUSE_ID = #{houseId,jdbcType=INTEGER}
+  </update>
+    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.HandHouse">
+        update HAND_HOUSE
+        set
+        USER_ID = #{userId,jdbcType=INTEGER},
+        where HOUSE_ID = #{houseId,jdbcType=INTEGER}
+    </update>
+</mapper>

@@ -52,18 +52,6 @@
         <sec:authentication-provider ref="daoAuthenticationProvider"/>
     </sec:authentication-manager>
 
-
-    <!--&lt;!&ndash;权限查询服务&ndash;&gt;-->
-    <!--<bean id="cachingUserDetailsService"-->
-          <!--class="org.springframework.security.config.authentication.CachingUserDetailsService">-->
-        <!--<constructor-arg name="delegate" ref="webUserDetailsService"/>-->
-        <!--<property name="userCache">-->
-            <!--<bean class="org.springframework.security.core.userdetails.cache.EhCacheBasedUserCache">-->
-                <!--<property name="cache" ref="userEhCacheFactory"/>-->
-            <!--</bean>-->
-        <!--</property>-->
-    <!--</bean>-->
-
     <bean id="daoAuthenticationProvider"
           class="org.springframework.security.authentication.dao.DaoAuthenticationProvider">
         <property name="messageSource" ref="messageSource"/>
@@ -131,7 +119,7 @@
     <!--session管理器 end-->
 
     <!--无权限时返回403-->
-    <bean id="myAccessDeniedHandler" class="com.magic.rent.service.security.AccessDeniedHandlerImpl">
+    <bean id="myAccessDeniedHandler" class="com.magic.rent.service.impl.security.AccessDeniedHandlerImpl">
         <property name="errorPage" value="/views/error"/>
     </bean>
 </beans>

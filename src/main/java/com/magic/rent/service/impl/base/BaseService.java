@@ -1,4 +1,4 @@
-package com.magic.rent.service.base;
+package com.magic.rent.service.impl.base;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.support.MessageSourceAccessor;

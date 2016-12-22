@@ -1,4 +1,4 @@
-package com.magic.rent.service.security;
+package com.magic.rent.service.impl.security;
 
 import com.magic.rent.mapper.SysResourcesMapper;
 import com.magic.rent.pojo.MethodKey;
@@ -52,7 +52,7 @@ public class MethodSecurityMetadataSource extends AbstractMethodSecurityMetadata
                 break;
             }
         }
-        logger.info("获取Method-资源:[{}]->[{}]", key.getFullMethodName(), attrs);
+        logger.info("请求的方法:[{}]", key.getFullMethodName());
         return attrs;
     }
 

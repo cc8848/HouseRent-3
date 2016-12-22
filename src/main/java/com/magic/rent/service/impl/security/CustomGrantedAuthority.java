@@ -1,7 +1,6 @@
-package com.magic.rent.service.security;
+package com.magic.rent.service.impl.security;
 
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.stereotype.Service;
 import org.springframework.util.Assert;
 
 import java.io.Serializable;

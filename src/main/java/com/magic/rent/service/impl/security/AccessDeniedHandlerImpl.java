@@ -1,4 +1,4 @@
-package com.magic.rent.service.security;
+package com.magic.rent.service.impl.security;
 
 import com.alibaba.fastjson.JSON;
 import com.magic.rent.pojo.JsonResult;
@@ -14,7 +14,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 
 /**
- * Created by wu on 2016/11/22.
+ * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
+ * 创建者: wu   创建时间: 2016/11/22
+ * 类说明:
+ * 更新记录：
  */
 public class AccessDeniedHandlerImpl implements AccessDeniedHandler {
 

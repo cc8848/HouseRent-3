@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.magic.rent.mapper.HouseImageMapper" >
+  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.HouseImage" >
+    <id column="IMAGE_ID" property="imageId" jdbcType="INTEGER" />
+    <result column="HOUSE_ID" property="houseId" jdbcType="INTEGER" />
+    <result column="IMAGE_SRC" property="imageSrc" jdbcType="VARCHAR" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    IMAGE_ID, HOUSE_ID, IMAGE_SRC
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="java.lang.Integer" >
+    select 
+    <include refid="Base_Column_List" />
+    from HOUSE_IMAGE
+    where IMAGE_ID = #{imageId,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer" >
+    delete from HOUSE_IMAGE
+    where IMAGE_ID = #{imageId,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" parameterType="com.magic.rent.pojo.HouseImage" >
+    insert into HOUSE_IMAGE (IMAGE_ID, HOUSE_ID, IMAGE_SRC
+      )
+    values (#{imageId,jdbcType=INTEGER}, #{houseId,jdbcType=INTEGER}, #{imageSrc,jdbcType=VARCHAR}
+      )
+  </insert>
+  <insert id="insertSelective" parameterType="com.magic.rent.pojo.HouseImage" >
+    insert into HOUSE_IMAGE
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="imageId != null" >
+        IMAGE_ID,
+      </if>
+      <if test="houseId != null" >
+        HOUSE_ID,
+      </if>
+      <if test="imageSrc != null" >
+        IMAGE_SRC,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="imageId != null" >
+        #{imageId,jdbcType=INTEGER},
+      </if>
+      <if test="houseId != null" >
+        #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="imageSrc != null" >
+        #{imageSrc,jdbcType=VARCHAR},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.HouseImage" >
+    update HOUSE_IMAGE
+    <set >
+      <if test="houseId != null" >
+        HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      </if>
+      <if test="imageSrc != null" >
+        IMAGE_SRC = #{imageSrc,jdbcType=VARCHAR},
+      </if>
+    </set>
+    where IMAGE_ID = #{imageId,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.HouseImage" >
+    update HOUSE_IMAGE
+    set HOUSE_ID = #{houseId,jdbcType=INTEGER},
+      IMAGE_SRC = #{imageSrc,jdbcType=VARCHAR}
+    where IMAGE_ID = #{imageId,jdbcType=INTEGER}
+  </update>
+</mapper>

@@ -47,10 +47,10 @@ function FileUpload() {
     this.portrait = function (target, uploadUrl, data) {
         target.fileinput({
             language: 'zh', //设置语言
-            maxFileSize: 2048,
-            uploadExtraData: data,
-            showPreview: false,
-            uploadAsync: true,
+            maxFileSize: 2048,//文件最大容量
+            uploadExtraData: data,//上传时除了文件以外的其他额外数据
+            showPreview: false,//隐藏预览
+            uploadAsync: true,//ajax同步
             dropZoneEnabled: false,//是否显示拖拽区域
             uploadUrl: uploadUrl, //上传的地址
             allowedFileExtensions: ['jpg'],//接收的文件后缀
@@ -58,7 +58,7 @@ function FileUpload() {
             showCaption: true,//是否显示标题
             browseClass: "btn btn-primary", //按钮样式
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
-            ajaxSettings: {
+            ajaxSettings: {//这个是因为我使用了SpringSecurity框架，有csrf跨域提交防御，所需需要设置这个值
                 beforeSend: function (xhr) {
                     xhr.setRequestHeader(header, token);
                 }

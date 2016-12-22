@@ -47,7 +47,7 @@ public class MajorAreaService implements IMajorAreaService {
         }
     }
 
-    public List<MajorArea> getMyMajorArea(int userID) throws Exception {
+    public List<MajorArea> getMajorAreaByUser(int userID) throws Exception {
         MajorArea majorArea = new MajorArea();
         majorArea.setUserId(userID);
         return majorAreaMapper.selectBySelective(majorArea);

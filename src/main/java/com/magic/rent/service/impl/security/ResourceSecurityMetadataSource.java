@@ -1,4 +1,4 @@
-package com.magic.rent.service.security;
+package com.magic.rent.service.impl.security;
 
 import com.magic.rent.mapper.SysResourcesMapper;
 import org.slf4j.Logger;
@@ -22,6 +22,8 @@ public class ResourceSecurityMetadataSource implements FilterInvocationSecurityM
 
     private final static List<ConfigAttribute> NULL_CONFIG_ATTRIBUTE = Collections.emptyList();
 
+    private final static String USER_ID = "NotLogin";
+
     //权限集合
     private Map<RequestMatcher, Collection<ConfigAttribute>> requestMap;
 
@@ -43,8 +45,7 @@ public class ResourceSecurityMetadataSource implements FilterInvocationSecurityM
                 break;
             }
         }
-
-        logger.info("请求资源->资源:[{}]->[{}]", request.getRequestURI(), attrs);
+        logger.info("请求资源:{}", request.getRequestURI());
         return attrs;
     }
 

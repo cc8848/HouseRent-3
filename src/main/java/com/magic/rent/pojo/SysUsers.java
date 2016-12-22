@@ -25,6 +25,8 @@ public class SysUsers implements Serializable, UserDetails {
 
     private Integer job;
 
+    private Integer major;
+
     private String companyAbbr;
 
     private Date dtCreate;
@@ -44,7 +46,7 @@ public class SysUsers implements Serializable, UserDetails {
 
     private boolean credentialsNonExpired;
 
-    private Integer major;
+
 
     private Collection<? extends SysRoles> sysRoles;//用户权限
 

@@ -32,5 +32,5 @@ public interface IMajorAreaService {
      */
     boolean remove(int userID, int areaID) throws Exception;
 
-    List<MajorArea> getMyMajorArea(int userID) throws Exception;
+    List<MajorArea> getMajorAreaByUser(int userID) throws Exception;
 }

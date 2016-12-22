@@ -9,5 +9,5 @@
         <property name="captchaEngine" ref="engine"/>
         <property name="minGuarantedStorageDelayInSeconds" value="180"/>
     </bean>
-    <bean id="engine" class="com.magic.rent.service.jcaptcha.GMailEngine"/>
+    <bean id="engine" class="com.magic.rent.service.impl.CaptchaService"/>
 </beans>

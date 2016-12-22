@@ -19,6 +19,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
+                <div contenteditable="true"
                 <a class="navbar-brand" href="${pageContext.request.contextPath}/">Showings · VR房库</a>
             </div>
             <div id="navbar_items" class="collapse navbar-collapse">
