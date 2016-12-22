@@ -13,7 +13,7 @@
         </commentGenerator>
         <!--数据库连接的信息：驱动类、连接地址、用户名、密码 -->
         <jdbcConnection driverClass="com.mysql.jdbc.Driver"
-                        connectionURL="jdbc:mysql://127.0.0.1:3306/db_house_rent?characterEncoding=UTF-8"
+                        connectionURL="jdbc:mysql://127.0.0.1:3306/showings?characterEncoding=UTF-8"
                         userId="root"
                         password="199176">
         </jdbcConnection>
