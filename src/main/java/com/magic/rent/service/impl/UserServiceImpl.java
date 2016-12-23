@@ -1,25 +1,32 @@
 package com.magic.rent.service.impl;
 
 import com.magic.rent.exception.custom.BusinessException;
+import com.magic.rent.exception.custom.FileBusinessException;
 import com.magic.rent.mapper.SysUsersMapper;
 import com.magic.rent.mapper.UsersRelateRolesMapper;
+import com.magic.rent.pojo.JsonResult;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.pojo.UsersRelateRoles;
 import com.magic.rent.service.IUserService;
 import com.magic.rent.service.impl.base.BaseService;
+import com.magic.rent.tools.CompressTools;
+import com.magic.rent.tools.FileTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
 import java.util.Date;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
  * 创建者: wu   创建时间: 16/9/19
- * 类说明:
+ * 类说明: 用户相关服务实现
+ * 更新记录：
  */
 @Service
 public class UserServiceImpl extends BaseService implements IUserService {
@@ -31,36 +38,19 @@ public class UserServiceImpl extends BaseService implements IUserService {
     private UsersRelateRolesMapper usersRelateRolesMapper;
 
     @Autowired
-    MessageDigestPasswordEncoder passwordEncoder;
+    private MessageDigestPasswordEncoder passwordEncoder;
 
-    /**
-     * 根据用户名查询用户信息
-     *
-     * @param userName
-     * @return 用户信息
-     * @throws Exception
-     */
+
     public SysUsers findSysUserByUserName(String userName) throws Exception {
         return sysUsersMapper.selectByUserName(userName);
     }
 
-    /**
-     * 根据用户ID查找用户
-     *
-     * @param userID
-     * @return 用户信息
-     */
+
     public SysUsers findUserByUserID(int userID) throws Exception {
         return sysUsersMapper.selectByPrimaryKey(userID);
     }
 
-    /**
-     * @param newPwd   新密码
-     * @param oldPwd   原密码
-     * @param sysUsers 用户名
-     * @return
-     * @throws Exception
-     */
+
     public boolean changePassword(String newPwd, String oldPwd, SysUsers sysUsers) throws Exception {
         //对原密码校验
         String passwordMD5 = passwordEncoder.encodePassword(oldPwd, sysUsers.getUsername());
@@ -81,23 +71,12 @@ public class UserServiceImpl extends BaseService implements IUserService {
         return rows > 0;
     }
 
-    /**
-     * 更新用户登录信息
-     *
-     * @param sysUsers
-     * @return 用户ID
-     * @throws Exception
-     */
+
     public int updateUserLoginInfo(SysUsers sysUsers) throws Exception {
         return sysUsersMapper.updateByPrimaryKeySelective(sysUsers);
     }
 
-    /**
-     * 用户注册
-     *
-     * @param sysUsers
-     * @return
-     */
+
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     public boolean register(SysUsers sysUsers) throws Exception {
         if (null != sysUsersMapper.selectByUserName(sysUsers.getUsername())) {
@@ -128,10 +107,30 @@ public class UserServiceImpl extends BaseService implements IUserService {
         return true;
     }
 
+
     public boolean modify(SysUsers sysUsers) throws Exception {
 
         int rows = sysUsersMapper.updateByPrimaryKeySelective(sysUsers);
 
         return rows > 0;
+    }
+
+
+    public String safePortrait(MultipartFile multipartFile, Integer userID, int x, int y, int w, int h, int sw, int sh) throws Exception {
+        String path = FileTools.getPortraitPath(userID) + FileTools.getPortraitFileName(multipartFile.getOriginalFilename());
+        //存入硬盘
+        multipartFile.transferTo(new File(path));
+
+        //图片截取
+        if (FileTools.imgCut(path, x, y, w, h, sw, sh)) {
+            CompressTools compressTools = new CompressTools(new File(path));
+            if (compressTools.simpleCompress(300, 300, true)) {
+                return FileTools.filePathToSRC(path, FileTools.IMG);
+            } else {
+                throw new FileBusinessException("图片压缩异常！");
+            }
+        } else {
+            throw new FileBusinessException("图片裁剪异常！");
+        }
     }
 }

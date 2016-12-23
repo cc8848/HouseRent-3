@@ -224,11 +224,8 @@ public class FileTools {
      */
     public static List<MultipartFile> getFilesFromRequest(HttpServletRequest request, String[] allowSuffix) throws Exception {
         CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
-
         if (multipartResolver.isMultipart(request)) {
-
             MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
-
             Iterator iterator = multipartRequest.getFileNames();
             List<MultipartFile> multipartFiles = new ArrayList<MultipartFile>();
             while (iterator.hasNext()) {

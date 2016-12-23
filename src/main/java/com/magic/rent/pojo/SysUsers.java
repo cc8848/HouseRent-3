@@ -38,15 +38,13 @@ public class SysUsers implements Serializable, UserDetails {
 
     private String loginIp;
 
-    private boolean enabled;
+    private Boolean enabled;
 
-    private boolean accountNonExpired;
+    private Boolean accountNonExpired;
 
-    private boolean accountNonLocked ;
+    private Boolean accountNonLocked ;
 
-    private boolean credentialsNonExpired;
-
-
+    private Boolean credentialsNonExpired;
 
     private Collection<? extends SysRoles> sysRoles;//用户权限
 
