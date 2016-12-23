@@ -17,7 +17,7 @@
         <result column="SUPPORTING_FACILITY" property="supportingFacility" jdbcType="LONGVARCHAR"/>
         <result column="PROFESSIONAL_SERVICE" property="professionalService" jdbcType="LONGVARCHAR"/>
     </resultMap>
-    <resultMap id="ResultMapWithBase" type="com.magic.rent.pojo.HandHouse" extends="ResultMapWithDetail">
+    <resultMap id="ResultMapWithInfo" type="com.magic.rent.pojo.HandHouse" extends="ResultMapWithDetail">
         <result column="SERIAL_NUM" property="serialNum" jdbcType="INTEGER"/>
         <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER"/>
         <result column="CITY_ID" property="cityId" jdbcType="INTEGER"/>
@@ -55,7 +55,7 @@
         from HAND_HOUSE
         where HOUSE_ID = #{houseId,jdbcType=INTEGER}
     </select>
-    <select id="selectByPrimaryKey" resultMap="ResultMapWithBase" parameterType="java.lang.Integer">
+    <select id="selectByPrimaryKey" resultMap="ResultMapWithInfo" parameterType="java.lang.Integer">
         select
         <include refid="Base_Column_List"/>
         ,
@@ -67,7 +67,7 @@
         from HAND_HOUSE
         where HOUSE_ID = #{houseId,jdbcType=INTEGER}
     </select>
-    <select id="selectBySelective" resultMap="ResultMapWithBase" parameterType="com.magic.rent.pojo.HandHouseBase">
+    <select id="selectBySelective" resultMap="ResultMapWithInfo" parameterType="com.magic.rent.pojo.HandHouseInfo">
         select
         <include refid="Base_Column_List"/>
         ,
@@ -78,6 +78,9 @@
         <include refid="BaseInfo_Column_List"/>
         from HAND_HOUSE
         <where>
+            <if test="houseId != null">
+                AND HOUSE_ID = #{houseId,jdbcType=INTEGER}
+            </if>
             <if test="userId != null">
                 AND USER_ID = #{userId,jdbcType=INTEGER}
             </if>
@@ -133,19 +136,19 @@
                 AND FLOOR_AREA = #{floorArea,jdbcType=DOUBLE}
             </if>
             <if test="buildAge != null">
-                AND  BUILD_AGE = #{buildAge,jdbcType=INTEGER}
+                AND BUILD_AGE = #{buildAge,jdbcType=INTEGER}
             </if>
             <if test="panoramaSrc != null">
                 AND PANORAMA_SRC = #{panoramaSrc,jdbcType=VARCHAR}
             </if>
             <if test="title != null">
-                AND  TITLE = #{title,jdbcType=VARCHAR}
+                AND TITLE = #{title,jdbcType=VARCHAR}
             </if>
             <if test="houseDetails != null">
-                AND  HOUSE_DETAILS = #{houseDetails,jdbcType=LONGVARCHAR}
+                AND HOUSE_DETAILS = #{houseDetails,jdbcType=LONGVARCHAR}
             </if>
             <if test="ownerMentality != null">
-                AND  OWNER_MENTALITY = #{ownerMentality,jdbcType=LONGVARCHAR}
+                AND OWNER_MENTALITY = #{ownerMentality,jdbcType=LONGVARCHAR}
             </if>
             <if test="supportingFacility != null">
                 AND SUPPORTING_FACILITY = #{supportingFacility,jdbcType=LONGVARCHAR}
@@ -159,7 +162,7 @@
     delete from HAND_HOUSE
     where HOUSE_ID = #{houseId,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.magic.rent.pojo.HandHouseBase" useGeneratedKeys="true" keyColumn="HOUSE_ID"
+    <insert id="insert" parameterType="com.magic.rent.pojo.HandHouseInfo" useGeneratedKeys="true" keyColumn="HOUSE_ID"
             keyProperty="houseId">
     insert into HAND_HOUSE (HOUSE_ID, USER_ID,
       PROPERTY_RIGHTS_FOR_TWO_YEARS, ONLY_HOUSING,PRICE,
@@ -182,7 +185,7 @@
       #{currentFloor,jdbcType=INTEGER}, #{totalFloor,jdbcType=INTEGER}, #{floorArea,jdbcType=DOUBLE}, 
       #{buildAge,jdbcType=INTEGER}, #{panoramaSrc,jdbcType=VARCHAR})
   </insert>
-    <insert id="insertSelective" parameterType="com.magic.rent.pojo.HandHouseDetail" useGeneratedKeys="true"
+    <insert id="insertSelective" parameterType="com.magic.rent.pojo.HandHouseInfo" useGeneratedKeys="true"
             keyColumn="HOUSE_ID"
             keyProperty="houseId">
         insert into HAND_HOUSE
@@ -347,7 +350,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.HandHouseBase">
+    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.HandHouseInfo">
         update HAND_HOUSE
         <set>
             <if test="userId != null">
@@ -361,6 +364,21 @@
             </if>
             <if test="price != null">
                 PRICE = #{price,jdbcType=INTEGER},
+            </if>
+            <if test="title != null">
+                TITLE = #{title,jdbcType=VARCHAR},
+            </if>
+            <if test="houseDetails != null">
+                HOUSE_DETAILS = #{houseDetails,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="ownerMentality != null">
+                OWNER_MENTALITY = #{ownerMentality,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="supportingFacility != null">
+                SUPPORTING_FACILITY = #{supportingFacility,jdbcType=LONGVARCHAR},
+            </if>
+            <if test="professionalService != null">
+                PROFESSIONAL_SERVICE = #{professionalService,jdbcType=LONGVARCHAR},
             </if>
             <if test="serialNum != null">
                 SERIAL_NUM = #{serialNum,jdbcType=INTEGER},
@@ -410,22 +428,22 @@
             <if test="panoramaSrc != null">
                 PANORAMA_SRC = #{panoramaSrc,jdbcType=VARCHAR},
             </if>
-            <if test="title != null">
-                TITLE = #{title,jdbcType=VARCHAR},
-            </if>
-            <if test="houseDetails != null">
-                HOUSE_DETAILS = #{houseDetails,jdbcType=LONGVARCHAR},
-            </if>
-            <if test="ownerMentality != null">
-                OWNER_MENTALITY = #{ownerMentality,jdbcType=LONGVARCHAR},
-            </if>
-            <if test="supportingFacility != null">
-                SUPPORTING_FACILITY = #{supportingFacility,jdbcType=LONGVARCHAR},
-            </if>
-            <if test="professionalService != null">
-                PROFESSIONAL_SERVICE = #{professionalService,jdbcType=LONGVARCHAR},
-            </if>
         </set>
+        where HOUSE_ID = #{houseId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyForBase" parameterType="com.magic.rent.pojo.HandHouse">
+        update HAND_HOUSE
+        set
+        USER_ID = #{userId,jdbcType=INTEGER},
+        where HOUSE_ID = #{houseId,jdbcType=INTEGER}
+    </update>
+    <update id="updateByPrimaryKeyForPrice" parameterType="com.magic.rent.pojo.HandHousePrice">
+        update HAND_HOUSE
+        set
+        USER_ID = #{userId,jdbcType=INTEGER},
+        PROPERTY_RIGHTS_FOR_TWO_YEARS = #{propertyRightsForTwoYears,jdbcType=BIT},
+        ONLY_HOUSING = #{onlyHousing,jdbcType=BIT},
+        PRICE = #{price,jdbcType=INTEGER},
         where HOUSE_ID = #{houseId,jdbcType=INTEGER}
     </update>
     <update id="updateByPrimaryKeyForDetail" parameterType="com.magic.rent.pojo.HandHouseDetail">
@@ -435,36 +453,25 @@
       PROPERTY_RIGHTS_FOR_TWO_YEARS = #{propertyRightsForTwoYears,jdbcType=BIT},
       ONLY_HOUSING = #{onlyHousing,jdbcType=BIT},
       PRICE = #{price,jdbcType=INTEGER},
-      SERIAL_NUM = #{serialNum,jdbcType=INTEGER},
-      PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
-      CITY_ID = #{cityId,jdbcType=INTEGER},
-      AREA_ID = #{areaId,jdbcType=INTEGER},
-      COMMUNITY_NAME = #{communityName,jdbcType=VARCHAR},
-      ROOM_QUANTITY = #{roomQuantity,jdbcType=INTEGER},
-      HALL_QUANTITY = #{hallQuantity,jdbcType=INTEGER},
-      BATHROOM_QUANTITY = #{bathroomQuantity,jdbcType=INTEGER},
-      TYPE = #{type,jdbcType=INTEGER},
-      DECORATION = #{decoration,jdbcType=INTEGER},
-      ORIENTATION = #{orientation,jdbcType=INTEGER},
-      CURRENT_FLOOR = #{currentFloor,jdbcType=INTEGER},
-      TOTAL_FLOOR = #{totalFloor,jdbcType=INTEGER},
-      FLOOR_AREA = #{floorArea,jdbcType=DOUBLE},
-      BUILD_AGE = #{buildAge,jdbcType=INTEGER},
-      PANORAMA_SRC = #{panoramaSrc,jdbcType=VARCHAR},
       TITLE = #{title,jdbcType=VARCHAR},
       HOUSE_DETAILS = #{houseDetails,jdbcType=LONGVARCHAR},
       OWNER_MENTALITY = #{ownerMentality,jdbcType=LONGVARCHAR},
       SUPPORTING_FACILITY = #{supportingFacility,jdbcType=LONGVARCHAR},
-      PROFESSIONAL_SERVICE = #{professionalService,jdbcType=LONGVARCHAR}
+      PROFESSIONAL_SERVICE = #{professionalService,jdbcType=LONGVARCHAR},
     where HOUSE_ID = #{houseId,jdbcType=INTEGER}
   </update>
-    <update id="updateByPrimaryKeyForBase" parameterType="com.magic.rent.pojo.HandHouseBase">
+    <update id="updateByPrimaryKeyForInfo" parameterType="com.magic.rent.pojo.HandHouseInfo">
         update HAND_HOUSE
         set
         USER_ID = #{userId,jdbcType=INTEGER},
         PROPERTY_RIGHTS_FOR_TWO_YEARS = #{propertyRightsForTwoYears,jdbcType=BIT},
         ONLY_HOUSING = #{onlyHousing,jdbcType=BIT},
         PRICE = #{price,jdbcType=INTEGER},
+        TITLE = #{title,jdbcType=VARCHAR},
+        HOUSE_DETAILS = #{houseDetails,jdbcType=LONGVARCHAR},
+        OWNER_MENTALITY = #{ownerMentality,jdbcType=LONGVARCHAR},
+        SUPPORTING_FACILITY = #{supportingFacility,jdbcType=LONGVARCHAR},
+        PROFESSIONAL_SERVICE = #{professionalService,jdbcType=LONGVARCHAR},
         SERIAL_NUM = #{serialNum,jdbcType=INTEGER},
         PROVINCE_ID = #{provinceId,jdbcType=INTEGER},
         CITY_ID = #{cityId,jdbcType=INTEGER},
@@ -481,21 +488,6 @@
         FLOOR_AREA = #{floorArea,jdbcType=DOUBLE},
         BUILD_AGE = #{buildAge,jdbcType=INTEGER},
         PANORAMA_SRC = #{panoramaSrc,jdbcType=VARCHAR},
-        where HOUSE_ID = #{houseId,jdbcType=INTEGER}
-    </update>
-    <update id="updateByPrimaryKeyForPrice" parameterType="com.magic.rent.pojo.HandHousePrice">
-    update HAND_HOUSE
-    set
-     USER_ID = #{userId,jdbcType=INTEGER},
-     PROPERTY_RIGHTS_FOR_TWO_YEARS = #{propertyRightsForTwoYears,jdbcType=BIT},
-     ONLY_HOUSING = #{onlyHousing,jdbcType=BIT},
-     PRICE = #{price,jdbcType=INTEGER},
-    where HOUSE_ID = #{houseId,jdbcType=INTEGER}
-  </update>
-    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.HandHouse">
-        update HAND_HOUSE
-        set
-        USER_ID = #{userId,jdbcType=INTEGER},
         where HOUSE_ID = #{houseId,jdbcType=INTEGER}
     </update>
 </mapper>

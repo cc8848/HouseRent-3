@@ -1,5 +1,7 @@
 package com.magic.rent.pojo;
 
+import com.magic.rent.service.impl.select.HouseItemsSource;
+
 import java.io.Serializable;
 
 /**
@@ -8,7 +10,7 @@ import java.io.Serializable;
  * 类说明:
  * 更新记录：
  */
-public class HandHouseBase extends HandHousePrice implements Serializable {
+public class HandHouseInfo extends HandHouseDetail implements Serializable {
 
     private static final long serialVersionUID = -2675783518156859490L;
 
@@ -114,9 +116,9 @@ public class HandHouseBase extends HandHousePrice implements Serializable {
 
     public String getTypeName() {
         if (null == this.type) {
-            return HandHouse.UNDEFINED;
+            return HouseItemsSource.UNDEFINED;
         } else {
-            return HandHouse.TYPE_MAP.get(this.type);
+            return HouseItemsSource.TYPE_MAP.get(this.type);
         }
     }
 
@@ -130,9 +132,9 @@ public class HandHouseBase extends HandHousePrice implements Serializable {
 
     public String getDecorationName() {
         if (null == this.decoration) {
-            return HandHouse.UNDEFINED;
+            return HouseItemsSource.UNDEFINED;
         } else {
-            return HandHouse.DECORATION_MAP.get(this.decoration);
+            return HouseItemsSource.DECORATION_MAP.get(this.decoration);
         }
     }
 
@@ -146,9 +148,9 @@ public class HandHouseBase extends HandHousePrice implements Serializable {
 
     public String getOrientationName() {
         if (null == this.orientation) {
-            return HandHouse.UNDEFINED;
+            return HouseItemsSource.UNDEFINED;
         } else {
-            return HandHouse.ORIENTATION_MAP.get(this.orientation);
+            return HouseItemsSource.ORIENTATION_MAP.get(this.orientation);
         }
     }
 
@@ -196,10 +198,9 @@ public class HandHouseBase extends HandHousePrice implements Serializable {
         this.panoramaSrc = panoramaSrc == null ? null : panoramaSrc.trim();
     }
 
-
     @Override
     public String toString() {
-        return "HandHouseBase{" +
+        return "HandHouseInfo{" +
                 "serialNum=" + serialNum +
                 ", provinceId=" + provinceId +
                 ", cityId=" + cityId +

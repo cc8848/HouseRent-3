@@ -1,7 +1,7 @@
 package com.magic.rent.mapper;
 
 import com.magic.rent.pojo.HandHouse;
-import com.magic.rent.pojo.HandHouseBase;
+import com.magic.rent.pojo.HandHouseInfo;
 import com.magic.rent.pojo.HandHouseDetail;
 import com.magic.rent.pojo.HandHousePrice;
 import org.springframework.stereotype.Repository;
@@ -13,23 +13,23 @@ public interface HandHouseMapper {
 
     int deleteByPrimaryKey(Integer houseId);
 
-    int insert(HandHouseDetail handHouseDetail);
+    int insert(HandHouseInfo handHouseInfo);
 
-    int insertSelective(HandHouseDetail handHouseDetail);
+    int insertSelective(HandHouseInfo handHouseInfo);
 
     HandHouse selectBaseByPrimaryKey(Integer houseId);
 
     HandHouseDetail selectByPrimaryKey(Integer houseId);
 
-    List<HandHouseDetail> selectBySelective(HandHouseDetail handHouseDetail);
+    List<HandHouseInfo> selectBySelective(HandHouseInfo handHouseInfo);
 
-    int updateByPrimaryKeySelective(HandHouseDetail handHouseDetail);
+    int updateByPrimaryKeySelective(HandHouseInfo handHouseInfo);
 
     int updateByPrimaryKeyForDetail(HandHouseDetail handHouseDetail);
 
-    int updateByPrimaryKeyForBase(HandHouseBase handHouseBase);
+    int updateByPrimaryKeyForInfo(HandHouseInfo handHouseInfo);
 
-    int updateByPrimaryKeyWithPrice(HandHousePrice handHousePrice);
+    int updateByPrimaryKeyForPrice(HandHousePrice handHousePrice);
 
-    int updateByPrimaryKey(HandHouse handHouse);
+    int updateByPrimaryKeyForBase(HandHouse handHouse);
 }

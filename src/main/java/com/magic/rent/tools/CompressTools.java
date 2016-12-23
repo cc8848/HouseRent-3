@@ -7,7 +7,8 @@ package com.magic.rent.tools;
  * 更新记录：
  */
 
-import com.magic.rent.exception.custom.BusinessException;
+import com.magic.rent.exception.custom.FileBusinessException;
+import com.magic.rent.exception.custom.TargetNotFoundException;
 import com.sun.image.codec.jpeg.JPEGCodec;
 import com.sun.image.codec.jpeg.JPEGImageEncoder;
 import org.slf4j.Logger;
@@ -21,115 +22,71 @@ import java.io.FileOutputStream;
 
 public class CompressTools {
     private File file; // 文件对象
-    private String inputDir; // 输入图路径
+    private Image image;
     private String outputDir; // 输出图路径
-    private String inputFileName; // 输入图文件名
     private String outputFileName; // 输出图文件名
-    private int outputWidth = 100; // 默认输出图片宽
-    private int outputHeight = 100; // 默认输出图片高
+    private int outputWidth; // 输出图片宽
+    private int outputHeight; // 输出图片高
     private boolean proportion = true; // 是否等比缩放标记(默认为等比缩放)
+
     private static Logger logger = LoggerFactory.getLogger(CompressTools.class);
 
-
-    public CompressTools() {
-    }
-
-    public CompressTools(boolean proportion) {
-        this.proportion = proportion;
-    }
-
-    /**
-     * 设置输入参数
-     *
-     * @param inputDir
-     * @param inputFileName
-     * @return
-     */
-    public CompressTools setInputInfo(String inputDir, String inputFileName) {
-        this.inputDir = inputDir;
-        this.inputFileName = inputFileName;
-        return this;
-    }
-
-    /**
-     * 设置输出参数
-     *
-     * @param outputDir
-     * @param outputFileName
-     * @param outputHeight
-     * @param outputWidth
-     * @param proportion
-     * @return
-     */
-    public CompressTools setOutputInfo(String outputDir, String outputFileName, int outputHeight, int outputWidth, boolean proportion) {
-        this.outputDir = outputDir;
-        this.outputFileName = outputFileName;
-        this.outputWidth = outputWidth;
-        this.outputHeight = outputHeight;
-        this.proportion = proportion;
-        return this;
-    }
-
-
-    // 图片处理
-    public boolean compress() throws Exception {
-        //获得源文件
-        file = new File(inputDir);
-        if (!file.exists()) {
-            throw new BusinessException("文件不存在！");
-        }
-        Image img = ImageIO.read(file);
-        // 判断图片格式是否正确
-        if (img.getWidth(null) == -1) {
-            System.out.println(" can't read,retry!" + "<BR>");
-            return false;
-        } else {
-            int newWidth;
-            int newHeight;
-            // 判断是否是等比缩放
-            if (this.proportion) {
-                // 为等比缩放计算输出的图片宽度及高度
-                double rate1 = ((double) img.getWidth(null)) / (double) outputWidth + 0.1;
-                double rate2 = ((double) img.getHeight(null)) / (double) outputHeight + 0.1;
-                // 根据缩放比率大的进行缩放控制
-                double rate = rate1 > rate2 ? rate1 : rate2;
-                newWidth = (int) (((double) img.getWidth(null)) / rate);
-                newHeight = (int) (((double) img.getHeight(null)) / rate);
+    public CompressTools(File file) throws Exception {
+        //判断文件是否存在，并且赋予初始值
+        if (file.exists()) {
+            this.file = file;
+            this.outputDir = file.getPath();
+            this.outputFileName = file.getName();
+            this.image = ImageIO.read(file);
+            if (image.getWidth(null) == -1) {
+                throw new FileBusinessException("文件信息读取失败！");
             } else {
-                newWidth = outputWidth; // 输出的图片宽度
-                newHeight = outputHeight; // 输出的图片高度
+                this.outputWidth = image.getWidth(null);
+                this.outputHeight = image.getHeight(null);
             }
-            long start = System.currentTimeMillis();
-            BufferedImage tag = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_RGB);
-            /*
-             * Image.SCALE_SMOOTH 的缩略算法 生成缩略图片的平滑度的
-             * 优先级比速度高 生成的图片质量比较好 但速度慢
-             */
-            tag.getGraphics().drawImage(img.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH), 0, 0, null);
-            FileOutputStream out = new FileOutputStream(outputDir);
-
-            // JPEGImageEncoder可适用于其他图片类型的转换
-            JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
-            encoder.encode(tag);
-            out.close();
-            long time = System.currentTimeMillis() - start;
-            logger.info("[输出路径]：" + outputDir + "\t[图片名称]：" + outputFileName + "\t[压缩前大小]：" + getPicSize() + "\t[耗时]：" + time + "毫秒");
-            return true;
+        } else {
+            throw new TargetNotFoundException("目标文件不存在");
         }
     }
 
+    public String getOutputDir() {
+        return outputDir;
+    }
 
-    /**
-     * 简单压缩方法，压缩后图片将直接覆盖源文件
-     *
-     * @param images
-     * @return
-     * @throws Exception
-     */
-    public boolean simpleCompress(File images) throws Exception {
-        setInputInfo(images.getPath(), images.getName());
-        setOutputInfo(images.getPath(), images.getName(), 300, 300, true);
-        return compress();
+    public void setOutputDir(String outputDir) {
+        this.outputDir = outputDir;
+    }
+
+    public String getOutputFileName() {
+        return outputFileName;
+    }
+
+    public void setOutputFileName(String outputFileName) {
+        this.outputFileName = outputFileName;
+    }
+
+    public int getOutputWidth() {
+        return outputWidth;
+    }
+
+    public void setOutputWidth(int outputWidth) {
+        this.outputWidth = outputWidth;
+    }
+
+    public int getOutputHeight() {
+        return outputHeight;
+    }
+
+    public void setOutputHeight(int outputHeight) {
+        this.outputHeight = outputHeight;
+    }
+
+    public boolean isProportion() {
+        return proportion;
+    }
+
+    public void setProportion(boolean proportion) {
+        this.proportion = proportion;
     }
 
     /**
@@ -141,11 +98,61 @@ public class CompressTools {
         return file.length() / 1024 + "KB";
     }
 
-    public static void main(String[] args) throws Exception {
-        CompressTools compressTools = new CompressTools();
-        compressTools.setInputInfo("/Users/wu/Downloads/background.jpg", "background.jpg");
-        compressTools.setOutputInfo("/Users/wu/Downloads/background2.jpg", "background2.jpg", 633, 1920, false);
-        compressTools.compress();
+
+    /**
+     * 简单压缩方法
+     *
+     * @param outputHeight 输出高度
+     * @param outputWidth  输出宽度
+     * @param proportion   是否等比压缩
+     * @return
+     * @throws Exception
+     */
+    public boolean simpleCompress(int outputHeight, int outputWidth, boolean proportion) throws Exception {
+        setOutputHeight(outputHeight);
+        setOutputWidth(outputWidth);
+        setProportion(proportion);
+        return startCompress();
+    }
+
+
+    /**
+     * 图片压缩处理
+     *
+     * @return
+     * @throws Exception
+     */
+    public boolean startCompress() throws Exception {
+        int newWidth;
+        int newHeight;
+        // 判断是否是等比缩放
+        if (this.proportion) {
+            // 为等比缩放计算输出的图片宽度及高度
+            double rate1 = ((double) image.getWidth(null)) / (double) outputWidth + 0.1;
+            double rate2 = ((double) image.getHeight(null)) / (double) outputHeight + 0.1;
+            // 根据缩放比率大的进行缩放控制
+            double rate = rate1 > rate2 ? rate1 : rate2;
+            newWidth = (int) (((double) image.getWidth(null)) / rate);
+            newHeight = (int) (((double) image.getHeight(null)) / rate);
+        } else {
+            newWidth = outputWidth; // 输出的图片宽度
+            newHeight = outputHeight; // 输出的图片高度
+        }
+        long start = System.currentTimeMillis();
+
+        BufferedImage tag = new BufferedImage(newWidth, newHeight, BufferedImage.TYPE_INT_RGB);
+        //Image.SCALE_SMOOTH的缩略算法,生成缩略图片的平滑度的优先级比速度高,生成的图片质量比较好,但速度慢
+        tag.getGraphics().drawImage(image.getScaledInstance(newWidth, newHeight, Image.SCALE_SMOOTH), 0, 0, null);
+        FileOutputStream out = new FileOutputStream(outputDir);
+        // JPEGImageEncoder可适用于其他图片类型的转换
+        JPEGImageEncoder encoder = JPEGCodec.createJPEGEncoder(out);
+        encoder.encode(tag);
+        out.close();
+
+        long time = System.currentTimeMillis() - start;
+        logger.info("[输出路径]：" + outputDir + "\t[图片名称]：" + outputFileName + "\t[压缩前大小]：" + getPicSize() + "\t[耗时]：" + time + "毫秒");
+
+        return true;
     }
 
 }

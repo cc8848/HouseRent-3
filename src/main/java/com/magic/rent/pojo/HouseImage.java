@@ -1,14 +1,11 @@
 package com.magic.rent.pojo;
 
-import java.io.Serializable;
-
-public class HouseImage implements Serializable {
-
-    private static final long serialVersionUID = 1910267041702457611L;
-
+public class HouseImage {
     private Integer imageId;
 
     private Integer houseId;
+
+    private Integer userId;
 
     private String imageSrc;
 
@@ -26,6 +23,14 @@ public class HouseImage implements Serializable {
 
     public void setHouseId(Integer houseId) {
         this.houseId = houseId;
+    }
+
+    public Integer getUserId() {
+        return userId;
+    }
+
+    public void setUserId(Integer userId) {
+        this.userId = userId;
     }
 
     public String getImageSrc() {

@@ -87,7 +87,7 @@ function PageInit() {
         var fileUp = new FileUpload();
         var portrait = $('#fileUpload');
         var alert = $('#alert');
-        fileUp.portrait(portrait, '/file/portrait', _this.getExtraData);
+        fileUp.portrait(portrait, '/upload/portrait', _this.getExtraData);
         portrait.on('change', _this.readURL);
         portrait.on('fileuploaderror', function (event, data, msg) {
             alert.removeClass('hidden').html(msg);

@@ -22,8 +22,6 @@ public class ResourceSecurityMetadataSource implements FilterInvocationSecurityM
 
     private final static List<ConfigAttribute> NULL_CONFIG_ATTRIBUTE = Collections.emptyList();
 
-    private final static String USER_ID = "NotLogin";
-
     //权限集合
     private Map<RequestMatcher, Collection<ConfigAttribute>> requestMap;
 
@@ -82,7 +80,7 @@ public class ResourceSecurityMetadataSource implements FilterInvocationSecurityM
         return resourceLinkMap;
     }
 
-    protected Map<RequestMatcher, Collection<ConfigAttribute>> bindRequestMap() {
+    private Map<RequestMatcher, Collection<ConfigAttribute>> bindRequestMap() {
         Map<RequestMatcher, Collection<ConfigAttribute>> map =
                 new LinkedHashMap<RequestMatcher, Collection<ConfigAttribute>>();
         Map<String, String> resMap = this.loadResource();

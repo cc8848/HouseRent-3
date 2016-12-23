@@ -1,15 +1,22 @@
 package com.magic.rent.tools;
 
 import com.magic.rent.exception.custom.BusinessException;
+import com.magic.rent.exception.custom.FileBusinessException;
+import com.magic.rent.exception.custom.ParameterException;
+import org.springframework.web.multipart.MultipartFile;
+import org.springframework.web.multipart.MultipartHttpServletRequest;
+import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import javax.imageio.ImageIO;
+import javax.servlet.http.HttpServletRequest;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.awt.image.CropImageFilter;
 import java.awt.image.FilteredImageSource;
 import java.awt.image.ImageFilter;
 import java.io.File;
-import java.util.ArrayList;
+import java.util.*;
+import java.util.List;
 
 /**
  * 知识产权声明:本文件自创建起,其内容的知识产权即归属于原作者,任何他人不可擅自复制或模仿.
@@ -49,6 +56,24 @@ public class FileTools {
     }
 
     /**
+     * 获取房屋照片目录，若不存在则直接创建一个
+     *
+     * @param userID 用户ID
+     * @return
+     */
+    public static String getHousePicPath(int userID) {
+        String realPath = getWebRootPath() + "img/house/" + userID + "/pic/";
+        File file = new File(realPath);
+        //判断文件夹是否存在，不存在则创建一个
+        if (!file.exists() || !file.isDirectory()) {
+            if (!file.mkdirs()) {
+                throw new BusinessException("创建头像文件夹失败！");
+            }
+        }
+        return realPath;
+    }
+
+    /**
      * 重命名头像文件
      *
      * @param fileName 文件名
@@ -58,6 +83,12 @@ public class FileTools {
         // 获取文件后缀
         String suffix = getSuffix(fileName);
         return "portrait" + suffix;
+    }
+
+    public static String getPicFileName(String fileName) {
+        // 获取文件后缀
+        String suffix = getSuffix(fileName);
+        return "pic_" + DateTools.formatToYMD(new Date()).replace("-", "_") + "_" + System.currentTimeMillis() + suffix;
     }
 
     /**
@@ -182,4 +213,43 @@ public class FileTools {
             return true;
         }
     }
+
+    /**
+     * 从request中获取分部文件
+     *
+     * @param request     Http请求
+     * @param allowSuffix 允许的文件后缀名
+     * @return
+     * @throws Exception
+     */
+    public static List<MultipartFile> getFilesFromRequest(HttpServletRequest request, String[] allowSuffix) throws Exception {
+        CommonsMultipartResolver multipartResolver = new CommonsMultipartResolver(request.getSession().getServletContext());
+
+        if (multipartResolver.isMultipart(request)) {
+
+            MultipartHttpServletRequest multipartRequest = (MultipartHttpServletRequest) request;
+
+            Iterator iterator = multipartRequest.getFileNames();
+            List<MultipartFile> multipartFiles = new ArrayList<MultipartFile>();
+            while (iterator.hasNext()) {
+                MultipartFile multipartFile = multipartRequest.getFile(iterator.next().toString());
+                if (null != multipartFile) {
+                    if (FileTools.checkSuffix(multipartFile.getOriginalFilename(), allowSuffix)) {
+                        multipartFiles.add(multipartFile);
+                    } else {
+                        throw new BusinessException("文件后缀名不符合要求！");
+                    }
+                }
+            }
+            if (multipartFiles.size() == 0) {
+                throw new FileBusinessException("分部获取的文件容量为空！");
+            } else {
+                return multipartFiles;
+            }
+        } else {
+            throw new ParameterException("form表单中[enctype]参数未设置！");
+        }
+    }
+
+
 }

@@ -2,7 +2,7 @@ package com.magic.rent.pojo;
 
 import java.io.Serializable;
 
-public class HandHouseDetail extends HandHouseBase implements Serializable {
+public class HandHouseDetail extends HandHousePrice implements Serializable {
 
     private static final long serialVersionUID = 1207987731565226615L;
 

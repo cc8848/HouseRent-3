@@ -57,10 +57,10 @@ public class JCaptchaFilter implements Filter {
         initCaptchaService(filterConfig);
     }
 
-    public void doFilter(ServletRequest theRequest, ServletResponse theResponse,
+    public void doFilter(ServletRequest servletRequest, ServletResponse servletResponse,
                          FilterChain chain) throws IOException, ServletException {
-        HttpServletRequest request = (HttpServletRequest) theRequest;
-        HttpServletResponse response = (HttpServletResponse) theResponse;
+        HttpServletRequest request = (HttpServletRequest) servletRequest;
+        HttpServletResponse response = (HttpServletResponse) servletResponse;
         String servletPath = request.getServletPath();
         //符合filterProcessesUrl为验证处理请求,其余为生成验证图片请求.
         if (StringUtils.startsWith(servletPath, filterProcessesUrl)) {

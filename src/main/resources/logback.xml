@@ -19,7 +19,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
         -->
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>
-                [%d{yyyy-MM-dd HH:mm:ss}] [%X{userID}] [%logger{50}] %n[%-5level] %msg %n %n
+                %n[%d{yyyy-MM-dd HH:mm:ss}] [userID:%X{userID}] [%logger{50}] %n[%-5level] %msg %n
             </pattern>
         </layout>
     </appender>
@@ -57,7 +57,7 @@ debug：当此属性设置为true时，将打印出logback内部日志信息，�
         -->
         <layout class="ch.qos.logback.classic.PatternLayout">
             <pattern>
-                [%d{yyyy-MM-dd HH:mm:ss}] [%X{userID}] [%logger{50}] %n[%-5level] %msg %n %n
+                %n[%d{yyyy-MM-dd HH:mm:ss}] [userID:%X{userID}] [%logger{50}] %n[%-5level] %msg %n
             </pattern>
         </layout>
     </appender>

@@ -47,7 +47,7 @@ public class HomeController extends BaseController {
         String filePath = FileTools.getPortraitPath(userID);
         List<File> fileList = FileTools.getListFiles(filePath);
         if (null == fileList || fileList.size() == 0) {
-            String defaultSrc = "/img/default.jpg";
+            String defaultSrc = "/img/default_portrait.jpg";
             modelAndView.addObject("portrait_src", defaultSrc);
         } else {
             String src = FileTools.filePathToSRC(fileList.get(0).toString(), FileTools.IMG);
