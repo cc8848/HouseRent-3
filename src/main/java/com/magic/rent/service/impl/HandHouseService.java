@@ -3,6 +3,8 @@ package com.magic.rent.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.magic.rent.exception.custom.AuthorityOverstepException;
+import com.magic.rent.exception.custom.BusinessException;
+import com.magic.rent.exception.custom.HouseImageSaveException;
 import com.magic.rent.exception.custom.TargetNotFoundException;
 import com.magic.rent.mapper.HandHouseMapper;
 import com.magic.rent.mapper.HouseImageMapper;
@@ -12,6 +14,8 @@ import com.magic.rent.tools.CompressTools;
 import com.magic.rent.tools.FileTools;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
@@ -41,8 +45,32 @@ public class HandHouseService implements IHandHouseService {
         return new PageInfo<HandHouseInfo>(houseDetailList);
     }
 
-    public boolean issueHouse(HandHouseInfo handHouseInfo) throws Exception {
-        return handHouseMapper.insert(handHouseInfo) > 0;
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
+    public boolean issueHouse(HandHouseInfo handHouseInfo, List<HouseImage> houseImages) throws Exception {
+        int rows = handHouseMapper.insert(handHouseInfo);
+        if (rows > 0) {
+            List<HouseImage> errorImages = new ArrayList<HouseImage>();
+            for (HouseImage houseImage : houseImages) {
+                //连续查询数据库这样其实是不合适的，但是当前还想不到更好的办法解决这个问题，暂且先这样处理
+                HouseImage result = houseImageMapper.selectByImageAndUserID(houseImage);
+                if (null == result) {
+                    errorImages.add(houseImage);
+                } else {
+                    houseImage.setHouseId(handHouseInfo.getHouseId());
+                    int row = houseImageMapper.updateByPrimaryKeySelective(houseImage);
+                    if (row <= 0) {
+                        errorImages.add(houseImage);
+                    }
+                }
+            }
+            if (errorImages.isEmpty()) {
+                return true;
+            } else {
+                throw new HouseImageSaveException("房源图片保存失败！", errorImages);
+            }
+        } else {
+            return false;
+        }
     }
 
     public boolean deleteHouse(Integer houseID, Integer userID) throws Exception {
@@ -89,7 +117,7 @@ public class HandHouseService implements IHandHouseService {
         }
     }
 
-    public List<HouseImage> safeHousePictures(List<MultipartFile> multipartFileList, Integer userID) throws Exception {
+    public List<HouseImage> saveHousePictures(List<MultipartFile> multipartFileList, Integer userID) throws Exception {
 
         List<HouseImage> houseImageList = new ArrayList<HouseImage>();
 

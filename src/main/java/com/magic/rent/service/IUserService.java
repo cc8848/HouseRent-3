@@ -77,5 +77,14 @@ public interface IUserService {
      * @return 头像图片SRC地址
      * @throws Exception
      */
-    String safePortrait(MultipartFile multipartFile, Integer userID, int x, int y, int w, int h, int sw, int sh) throws Exception;
+    String savePortrait(MultipartFile multipartFile, Integer userID, int x, int y, int w, int h, int sw, int sh) throws Exception;
+
+    /**
+     * 检查用户状态
+     *
+     * @param sysUsers 用户信息
+     * @return
+     * @throws Exception
+     */
+    boolean statusCheck(SysUsers sysUsers) throws Exception;
 }

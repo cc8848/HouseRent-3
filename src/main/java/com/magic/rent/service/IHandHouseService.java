@@ -35,7 +35,7 @@ public interface IHandHouseService {
      * @return
      * @throws Exception
      */
-    boolean issueHouse(HandHouseInfo handHouseInfo) throws Exception;
+    boolean issueHouse(HandHouseInfo handHouseInfo,List<HouseImage> houseImages) throws Exception;
 
     /**
      * 删除房源信息
@@ -82,5 +82,5 @@ public interface IHandHouseService {
      * @return
      * @throws Exception
      */
-    List<HouseImage> safeHousePictures(List<MultipartFile> multipartFiles, Integer userID) throws Exception;
+    List<HouseImage> saveHousePictures(List<MultipartFile> multipartFiles, Integer userID) throws Exception;
 }

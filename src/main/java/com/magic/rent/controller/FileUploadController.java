@@ -1,12 +1,10 @@
 package com.magic.rent.controller;
 
 import com.magic.rent.controller.base.BaseController;
-import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.pojo.HouseImage;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IHandHouseService;
 import com.magic.rent.service.IUserService;
-import com.magic.rent.tools.CompressTools;
 import com.magic.rent.tools.FileTools;
 import com.magic.rent.pojo.JsonResult;
 import com.magic.rent.tools.HttpTools;
@@ -17,12 +15,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
-import org.springframework.web.multipart.MultipartHttpServletRequest;
-import org.springframework.web.multipart.commons.CommonsMultipartResolver;
 
 import javax.servlet.http.HttpServletRequest;
-import java.io.File;
-import java.util.Iterator;
 import java.util.List;
 
 /**
@@ -67,7 +61,7 @@ public class FileUploadController extends BaseController {
 
         MultipartFile multipartFile = multipartFileList.get(0);
 
-        String src = iUserService.safePortrait(multipartFile, sysUsers.getUserId(), x, y, w, h, sw, sh);
+        String src = iUserService.savePortrait(multipartFile, sysUsers.getUserId(), x, y, w, h, sw, sh);
 
         return JsonResult.success(src);
     }
@@ -80,7 +74,7 @@ public class FileUploadController extends BaseController {
 
         SysUsers sysUsers = HttpTools.getSessionUser(request);
 
-        List<HouseImage> houseImageList = iHandHouseService.safeHousePictures(multipartFileList, sysUsers.getUserId());
+        List<HouseImage> houseImageList = iHandHouseService.saveHousePictures(multipartFileList, sysUsers.getUserId());
 
         return JsonResult.success(houseImageList);
     }

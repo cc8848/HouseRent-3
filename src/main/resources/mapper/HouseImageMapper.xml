@@ -82,4 +82,10 @@
       IMAGE_SRC = #{imageSrc,jdbcType=VARCHAR}
     where IMAGE_ID = #{imageId,jdbcType=INTEGER}
   </update>
+    <select id="selectByImageAndUserID" parameterType="com.magic.rent.pojo.HouseImage" resultMap="BaseResultMap">
+        SELECT
+        <include refid="Base_Column_List"/>
+        FROM HOUSE_IMAGE
+        WHERE HOUSE_IMAGE.IMAGE_ID = #{imageId,jdbcType=INTEGER} AND HOUSE_IMAGE.USER_ID = #{userId,jdbcType=INTEGER}
+    </select>
 </mapper>

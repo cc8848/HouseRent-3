@@ -38,13 +38,13 @@ public class SysUsers implements Serializable, UserDetails {
 
     private String loginIp;
 
-    private Boolean enabled;
+    private boolean enabled;
 
-    private Boolean accountNonExpired;
+    private boolean accountNonExpired;
 
-    private Boolean accountNonLocked ;
+    private boolean accountNonLocked ;
 
-    private Boolean credentialsNonExpired;
+    private boolean credentialsNonExpired;
 
     private Collection<? extends SysRoles> sysRoles;//用户权限
 
@@ -147,22 +147,21 @@ public class SysUsers implements Serializable, UserDetails {
         this.loginIp = loginIp == null ? null : loginIp.trim();
     }
 
-    public void setEnabled(boolean enabled) {
+    public void setEnabled(Boolean enabled) {
         this.enabled = enabled;
     }
 
-    public void setAccountNonExpired(boolean accountNonExpired) {
+    public void setAccountNonExpired(Boolean accountNonExpired) {
         this.accountNonExpired = accountNonExpired;
     }
 
-    public void setAccountNonLocked(boolean accountNonLocked) {
+    public void setAccountNonLocked(Boolean accountNonLocked) {
         this.accountNonLocked = accountNonLocked;
     }
 
-    public void setCredentialsNonExpired(boolean credentialsNonExpired) {
+    public void setCredentialsNonExpired(Boolean credentialsNonExpired) {
         this.credentialsNonExpired = credentialsNonExpired;
     }
-
 
     public boolean isEnabled() {
         return enabled;

@@ -13,6 +13,10 @@ import com.magic.rent.service.impl.base.BaseService;
 import com.magic.rent.tools.CompressTools;
 import com.magic.rent.tools.FileTools;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.authentication.AccountExpiredException;
+import org.springframework.security.authentication.CredentialsExpiredException;
+import org.springframework.security.authentication.DisabledException;
+import org.springframework.security.authentication.LockedException;
 import org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -109,14 +113,18 @@ public class UserServiceImpl extends BaseService implements IUserService {
 
 
     public boolean modify(SysUsers sysUsers) throws Exception {
-
-        int rows = sysUsersMapper.updateByPrimaryKeySelective(sysUsers);
-
-        return rows > 0;
+        //先查询用户信息
+        SysUsers query = sysUsersMapper.selectByPrimaryKey(sysUsers.getUserId());
+        sysUsers.setAccountNonExpired(query.isAccountNonExpired());
+        sysUsers.setAccountNonLocked(query.isAccountNonLocked());
+        sysUsers.setEnabled(query.isEnabled());
+        sysUsers.setCredentialsNonExpired(query.isCredentialsNonExpired());
+        //判断用户状态
+        return statusCheck(sysUsers) && sysUsersMapper.updateByPrimaryKeySelective(sysUsers) > 0;
     }
 
 
-    public String safePortrait(MultipartFile multipartFile, Integer userID, int x, int y, int w, int h, int sw, int sh) throws Exception {
+    public String savePortrait(MultipartFile multipartFile, Integer userID, int x, int y, int w, int h, int sw, int sh) throws Exception {
         String path = FileTools.getPortraitPath(userID) + FileTools.getPortraitFileName(multipartFile.getOriginalFilename());
         //存入硬盘
         multipartFile.transferTo(new File(path));
@@ -131,6 +139,20 @@ public class UserServiceImpl extends BaseService implements IUserService {
             }
         } else {
             throw new FileBusinessException("图片裁剪异常！");
+        }
+    }
+
+    public boolean statusCheck(SysUsers sysUsers) throws Exception {
+        if (!sysUsers.isEnabled()) {
+            throw new DisabledException("账户不可用！");
+        } else if (!sysUsers.isAccountNonLocked()) {
+            throw new LockedException("账户被锁定！");
+        } else if (!sysUsers.isAccountNonExpired()) {
+            throw new AccountExpiredException("账户已过期！");
+        } else if (!sysUsers.isCredentialsNonExpired()) {
+            throw new CredentialsExpiredException("密码凭证已过期！请立即更换！");
+        } else {
+            return true;
         }
     }
 }

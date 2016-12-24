@@ -1,6 +1,7 @@
 package com.magic.rent.tools;
 
 import com.magic.rent.exception.custom.ParameterException;
+import org.springframework.util.ObjectUtils;
 import org.springframework.util.StringUtils;
 
 /**
@@ -25,4 +26,6 @@ public class MyStringTools {
             return str;
         }
     }
+
+
 }
