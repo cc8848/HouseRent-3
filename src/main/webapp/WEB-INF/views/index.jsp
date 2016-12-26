@@ -16,10 +16,9 @@
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar-head.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/plugin/select/select2.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/views/navbar-head.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <body>
 <%--head start--%>

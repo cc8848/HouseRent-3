@@ -58,9 +58,12 @@ public class HomeController extends BaseController {
     }
 
     @RequestMapping("/account_security")
-    public ModelAndView accountUpdate(HttpServletRequest request) throws Exception {
-
-        return new ModelAndView("home/account_security");
+    public String accountUpdate() throws Exception {
+        return "home/account_security";
     }
 
+    @RequestMapping("/hand_house_issue")
+    public String handHouseIssue() throws Exception{
+        return "home/hand_house_issue";
+    }
 }

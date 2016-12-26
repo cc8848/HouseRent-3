@@ -40,7 +40,7 @@ public class CustomExceptionHandler implements HandlerExceptionResolver {
             return modelAndView;
         } else {
             modelAndView.setViewName("views/error");
-            modelAndView.addObject("exception", ex);
+            modelAndView.addObject("exception", ex.getMessage());
             return modelAndView;
         }
     }

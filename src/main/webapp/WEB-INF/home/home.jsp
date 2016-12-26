@@ -16,8 +16,8 @@
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar-head.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/views/navbar-head.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <body>
 <%--head start--%>
@@ -51,16 +51,22 @@
                     </div>
                     <div class="panel-heading" role="tab" id="two">
                         <h4 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#menu" href="#M-user" aria-expanded="false"
+                            <a data-toggle="collapse" data-parent="#menu" href="#hand-house" aria-expanded="false"
                                aria-controls="two">
-                                用户管理
+                                二手房管理
                             </a>
                         </h4>
                     </div>
-                    <div id="M-user" class="panel-collapse collapse" role="tabpanel"
+                    <div id="hand-house" class="panel-collapse collapse in" role="tabpanel"
                          aria-labelledby="two">
                         <ul class="list-group">
-                            <li class="list-group-item">用户查询</li>
+                            <li class="list-group-item">
+                                <a href="${pageContext.request.contextPath}/home/hand_house_issue" target="frame-box">二手房发布</a>
+                            </li>
+                            <li class="list-group-item">
+                                <a href="${pageContext.request.contextPath}/#"
+                                   target="frame-box">账户安全</a>
+                            </li>
                         </ul>
                     </div>
                 </div>

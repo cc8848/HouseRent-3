@@ -16,14 +16,14 @@
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/select2.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/select/select2.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap-theme.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrapTable/bootstrap-table.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/navbar-head.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/views/navbar-head.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/scojs.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco.message.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco/scojs.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco/sco.message.css">
 <body>
 <%--head start--%>
 <c:import url="/WEB-INF/common/showings_common_head.jsp"/>
@@ -80,10 +80,10 @@
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/table/bootstrap-table.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/table/bootstrap-table-zh-CN.min.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/select2.min.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/select2/select2.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/table/template.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/soc/sco.modal.js"></script>
-<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap-paginator.js"></script>
+<script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/paginator/bootstrap-paginator.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/common.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/admin/index.js"></script>
 </body>

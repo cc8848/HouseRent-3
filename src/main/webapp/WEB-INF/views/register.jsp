@@ -16,9 +16,9 @@
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/scojs.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco.message.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco/scojs.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco/sco.message.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
 <body>
 <div class="container">
@@ -34,7 +34,6 @@
     <div class="row">
         <form role="form" id="account">
             <div class="col-lg-3">
-
                 <div class="form-group">
                     <label class="label label-primary control-label">账号信息</label>
                 </div>
@@ -44,7 +43,6 @@
                         <span class="input-group-addon"><span class="glyphicon glyphicon-phone"></span></span>
                         <input type="text" class="form-control" id="username" name="username" placeholder="手机号码">
                     </div>
-                    <span class="help-block"></span>
                 </div>
                 <div class="form-group">
                     <label class="control-label" for="password">密码</label>
@@ -73,7 +71,6 @@
                         </div>
                     </div>
                 </div>
-
             </div>
             <div class="col-lg-3">
                 <div class="form-group">

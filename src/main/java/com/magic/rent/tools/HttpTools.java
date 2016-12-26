@@ -2,6 +2,7 @@ package com.magic.rent.tools;
 
 import com.magic.rent.exception.custom.LoginTimeOutException;
 import com.magic.rent.pojo.SysUsers;
+import org.apache.commons.lang3.StringUtils;
 import org.springframework.security.web.DefaultRedirectStrategy;
 import org.springframework.security.web.RedirectStrategy;
 
@@ -81,6 +82,28 @@ public class HttpTools {
         } else {
             return sysUsers;
         }
+    }
+
+    /**
+     * 获取分页大小
+     *
+     * @param request 请求参数
+     * @return
+     */
+    public static int getPageSize(HttpServletRequest request) {
+        int pageSize = 10;
+        return null == request.getParameter("pageSize") ? pageSize : Integer.parseInt(request.getParameter("pageSize"));
+    }
+
+    /**
+     * 获取分页页码
+     *
+     * @param request 请求参数
+     * @return
+     */
+    public static int getPageNum(HttpServletRequest request) {
+        int pageNum = 0;
+        return null == request.getParameter("pageNum") ? pageNum : Integer.parseInt(request.getParameter("pageNum"));
     }
 
 

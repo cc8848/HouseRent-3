@@ -16,10 +16,10 @@
     <sec:csrfMetaTags/>
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css">
 <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/scojs.css">
-<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco.message.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco/scojs.css">
+<link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco/sco.message.css">
 <body>
 <div class="container-fluid">
     <div class="hidden-xs col-sm-1 col-md-2 col-lg-3"></div>

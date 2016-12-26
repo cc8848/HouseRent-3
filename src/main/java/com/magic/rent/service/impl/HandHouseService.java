@@ -86,37 +86,20 @@ public class HandHouseService implements IHandHouseService {
 
     public boolean modifyPrice(HandHousePrice housePrice) throws Exception {
         HandHouse handHouse = handHouseMapper.selectBaseByPrimaryKey(housePrice.getHouseId());
-        if (null == handHouse) {
-            throw new TargetNotFoundException("对应房源不存在！");
-        } else if (!handHouse.getUserId().equals(housePrice.getUserId())) {//判断房屋对应的用户ID是否与当前操作用户相同
-            throw new AuthorityOverstepException("您没有权限修改他人的房源！");
-        } else {
-            return handHouseMapper.updateByPrimaryKeyForPrice(housePrice) > 0;
-        }
+        return validate(handHouse, housePrice) && handHouseMapper.updateByPrimaryKeyForPrice(housePrice) > 0;
     }
 
     public boolean modifyDetail(HandHouseDetail houseDetail) throws Exception {
         HandHouse handHouse = handHouseMapper.selectBaseByPrimaryKey(houseDetail.getHouseId());
-        if (null == handHouse) {
-            throw new TargetNotFoundException("对应房源不存在！");
-        } else if (!handHouse.getUserId().equals(houseDetail.getUserId())) {//判断房屋对应的用户ID是否与当前操作用户相同
-            throw new AuthorityOverstepException("您没有权限修改他人的房源！");
-        } else {
-            return handHouseMapper.updateByPrimaryKeyForDetail(houseDetail) > 0;
-        }
+        return validate(handHouse, houseDetail) && handHouseMapper.updateByPrimaryKeyForDetail(houseDetail) > 0;
     }
 
     public boolean modifyInfo(HandHouseInfo houseInfo) throws Exception {
         HandHouse handHouse = handHouseMapper.selectBaseByPrimaryKey(houseInfo.getHouseId());
-        if (null == handHouse) {
-            throw new TargetNotFoundException("对应房源不存在！");
-        } else if (!handHouse.getUserId().equals(houseInfo.getUserId())) {//判断房屋对应的用户ID是否与当前操作用户相同
-            throw new AuthorityOverstepException("您没有权限修改他人的房源！");
-        } else {
-            return handHouseMapper.updateByPrimaryKeyForInfo(houseInfo) > 0;
-        }
+        return validate(handHouse, houseInfo) && handHouseMapper.updateByPrimaryKeyForInfo(houseInfo) > 0;
     }
 
+    @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
     public List<HouseImage> saveHousePictures(List<MultipartFile> multipartFileList, Integer userID) throws Exception {
 
         List<HouseImage> houseImageList = new ArrayList<HouseImage>();
@@ -147,5 +130,23 @@ public class HandHouseService implements IHandHouseService {
         }
 
         return houseImageList;
+    }
+
+    /**
+     * 校验修改权限：校验所修改的房源对应的用户是否相同
+     *
+     * @param standard 数据库中查询得到的标准对象
+     * @param target   外部传入的需要校验的目标对象
+     * @return
+     * @throws Exception
+     */
+    private boolean validate(HandHouse standard, HandHouse target) throws Exception {
+        if (null == standard) {
+            throw new TargetNotFoundException("对应房源不存在！");
+        } else if (!standard.getUserId().equals(target.getUserId())) {//判断房屋对应的用户ID是否与当前操作用户相同
+            throw new AuthorityOverstepException("您没有权限修改他人的房源！");
+        } else {
+            return true;
+        }
     }
 }

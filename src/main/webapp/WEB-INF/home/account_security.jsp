@@ -13,9 +13,9 @@
     <meta charset="UTF-8">
     <title>Showings · 房库 - 信息修改</title>
     <sec:csrfMetaTags/>
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap.min.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/scojs.css">
-    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco.message.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/bootstrap/bootstrap.min.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco/scojs.css">
+    <link rel="stylesheet" href="${pageContext.request.contextPath}/css/sco/sco.message.css">
     <link rel="stylesheet" href="${pageContext.request.contextPath}/css/common.css">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 </head>
