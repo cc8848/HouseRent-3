@@ -12,7 +12,22 @@ $(document).ready(function () {
 function HandHouseIssue() {
 
     this.Init = function () {
-        $('.switch').bootstrapSwitch();
+        $("[name='propertyRightsForTwoYears'],[name='onlyHousing']").bootstrapSwitch({
+            onText: "是",
+            offText: "否",
+            onColor: "success",
+            offColor: "danger",
+            size: "small",
+            onSwitchChange: function (event, state) {
+                if (state == true) {
+                    $(this).val("1");
+                } else {
+                    $(this).val("0");
+                }
+            }
+        });
+        var location = new Location($("[name='province']"), $("[name='city']"), $("[name='area']"));
+        location.locationInit();
     }
 
 }
