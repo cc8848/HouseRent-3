@@ -20,7 +20,7 @@ import java.net.URLEncoder;
 public class HttpTools {
 
     /**
-     * Servlet模式下返回Json数据
+     * 返回Json数据
      *
      * @param response
      * @param jsonString

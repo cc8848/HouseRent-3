@@ -27,6 +27,7 @@ public class MyFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         SysUsers sysUsers = (SysUsers) request.getSession().getAttribute("user");
         if (null != sysUsers) {
+            //MDC是用于当然不仅可用于，logback日志当中，存放特定数据的。
             MDC.put("userID", sysUsers.getUserId().toString());
         } else {
             MDC.put("userID", USER_ID);
