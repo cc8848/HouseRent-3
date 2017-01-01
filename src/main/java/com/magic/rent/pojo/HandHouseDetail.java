@@ -6,15 +6,15 @@ public class HandHouseDetail extends HandHousePrice implements Serializable {
 
     private static final long serialVersionUID = 1207987731565226615L;
 
-    private String title;
+    private String title;//标题
 
-    private String houseDetails;
+    private String houseDetails;//房屋详情
 
-    private String ownerMentality;
+    private String ownerMentality;//房东心态
 
-    private String supportingFacility;
+    private String supportingFacility;//小区配套
 
-    private String professionalService;
+    private String professionalService;//服务介绍
 
     public String getTitle() {
         return title;

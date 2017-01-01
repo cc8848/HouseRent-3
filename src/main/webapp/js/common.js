@@ -29,7 +29,7 @@ function FileUpload() {
     this.sampleInit = function (target, uploadUrl) {
         target.fileinput({
             language: 'zh', //设置语言
-            showPreview: false,
+            showPreview: true,
             dropZoneEnabled: false,//是否显示拖拽区域
             uploadUrl: uploadUrl, //上传的地址
             allowedFileExtensions: ['jpg', 'png', 'gif'],//接收的文件后缀

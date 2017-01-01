@@ -37,7 +37,7 @@
                 <h3 class="panel-title">二手房源信息发布</h3>
             </div>
             <div class="panel-body">
-                <form role="form" id="hand_house_issue">
+                <form role="form" id="hand_house_issue" enctype="multipart/form-data">
                     <div class="page-header">
                         <h4>基础信息</h4>
                     </div>
@@ -91,7 +91,8 @@
                             <div class="form-group">
                                 <label>房屋户型</label>
                                 <div class="input-group">
-                                    <input type="number" min="0" value="0"  class="form-control" id="roomQuantity" name="roomQuantity">
+                                    <input type="number" min="0" value="0" class="form-control" id="roomQuantity"
+                                           name="roomQuantity">
                                     <span class="input-group-addon">室</span>
                                 </div>
                             </div>
@@ -100,7 +101,8 @@
                             <div class="form-group">
                                 <label>&nbsp;</label>
                                 <div class="input-group">
-                                    <input type="number" min="0" value="0"  class="form-control" id="hallQuantity" name="hallQuantity">
+                                    <input type="number" min="0" value="0" class="form-control" id="hallQuantity"
+                                           name="hallQuantity">
                                     <span class="input-group-addon">厅</span>
                                 </div>
                             </div>
@@ -109,7 +111,8 @@
                             <div class="form-group">
                                 <label>&nbsp;</label>
                                 <div class="input-group">
-                                    <input type="number" min="0" value="0" class="form-control" id="bathroomQuantity" name="bathroomQuantity">
+                                    <input type="number" min="0" value="0" class="form-control" id="bathroomQuantity"
+                                           name="bathroomQuantity">
                                     <span class="input-group-addon">卫</span>
                                 </div>
                             </div>
@@ -141,7 +144,8 @@
                             <div class="form-group">
                                 <label for="currentFloor">楼层</label>
                                 <div class="input-group">
-                                    <input type="number" min="1" value="1"  class="form-control" id="currentFloor" name="currentFloor">
+                                    <input type="number" min="1" value="1" class="form-control" id="currentFloor"
+                                           name="currentFloor">
                                     <span class="input-group-addon">楼</span>
                                 </div>
                             </div>
@@ -151,7 +155,8 @@
                                 <label for="totalFloor">&nbsp;</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">共</span>
-                                    <input type="number" min="1" value="1"  class="form-control" id="totalFloor" name="totalFloor">
+                                    <input type="number" min="1" value="1" class="form-control" id="totalFloor"
+                                           name="totalFloor">
                                     <span class="input-group-addon">层</span>
                                 </div>
                             </div>
@@ -160,7 +165,8 @@
                             <div class="form-group">
                                 <label for="floorArea">建筑面积</label>
                                 <div class="input-group">
-                                    <input type="number" min="0" value="0"  class="form-control" id="floorArea" name="floorArea">
+                                    <input type="number" min="0" value="0" class="form-control" id="floorArea"
+                                           name="floorArea">
                                     <span class="input-group-addon">㎡</span>
                                 </div>
                             </div>
@@ -169,13 +175,13 @@
                             <div class="form-group">
                                 <label for="buildAge">建造年代</label>
                                 <div class="input-group">
-                                    <input type="number" min="1988" value="1999"  class="form-control" id="buildAge" name="buildAge">
+                                    <input type="number" min="1988" value="1999" class="form-control" id="buildAge"
+                                           name="buildAge">
                                     <span class="input-group-addon">年</span>
                                 </div>
                             </div>
                         </div>
                     </div>
-
                     <div class="page-header">
                         <h4>价格信息</h4>
                     </div>
@@ -190,8 +196,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="row">
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label" for="propertyRightsForTwoYears">产权证是否已经满两年？</label>
@@ -201,9 +205,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <div class="row">
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label" for="onlyHousing">是否是唯一性住房？</label>
@@ -213,9 +214,88 @@
                             </div>
                         </div>
                     </div>
+                    <div class="row">
 
+                    </div>
+                    <div class="row">
+
+                    </div>
                     <div class="page-header">
                         <h4>详细信息</h4>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="alert alert-danger" role="alert">
+                                不能出现任意联系方式（包含但不限于QQ、微信、电话、网址、MSN、邮箱等）；<br>请勿添加其他小区广告，请勿输入与出售房源无关内容或非法信息。
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="form-group">
+                                <label class="control-label" for="title">房屋标题</label>
+                                <div class="input-group">
+                                    <span class="input-group-addon">#</span>
+                                    <input type="text" class="form-control" id="title" name="title">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="houseDetails">房屋详情</label>
+                                <textarea id="houseDetails" role="textbox" class="form-control" rows="6"></textarea>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="ownerMentality">房东心态</label>
+                                <textarea id="ownerMentality" role="textbox" class="form-control" rows="6"></textarea>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="supportingFacility">小区配套</label>
+                                <textarea id="supportingFacility" role="textbox" class="form-control"
+                                          rows="6"></textarea>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-3">
+                            <div class="form-group">
+                                <label for="professionalService">服务介绍</label>
+                                <textarea id="professionalService" role="textbox" class="form-control"
+                                          rows="6"></textarea>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <ul class="nav nav-tabs" role="tablist">
+                                <li role="presentation" class="active"><a href="#" data-toggle="tab" role="tab">多图模式</a>
+                                </li>
+                                <li role="presentation" ><a href="#" data-toggle="tab" role="tab">VR全景模式</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input id="thumbnail" name="thumbnail" type="file" multiple>
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
+                        <div class="col-sm-6">
+                            <div class="form-group">
+                                <input id="panorama" name="panorama" type="file">
+                                <span class="help-block"></span>
+                            </div>
+                        </div>
                     </div>
                 </form>
             </div>

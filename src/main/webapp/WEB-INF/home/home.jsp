@@ -23,7 +23,7 @@
 <%--head start--%>
 <c:import url="/WEB-INF/common/showings_common_head.jsp"/>
 <%--head end--%>
-<div class="white-divider-md"></div>
+<div id="divider" class="white-divider-md"></div>
 <div class="container">
     <div class="row">
         <div id="left-side" class="col-lg-2">
@@ -74,13 +74,19 @@
         </div>
         <div id="right-side" class="col-lg-10">
             <iframe id="frame-box" name="frame-box"
-                    src="${pageContext.request.contextPath}/home/account" scrolling="no" frameborder="no"
-                    width="100%" onload="setIFrameHeight()"></iframe>
+                    src="${pageContext.request.contextPath}/home/account" frameborder="no"
+                    width="100%"></iframe>
         </div>
     </div>
 </div>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/views/home.js"></script>
+<script type="text/javascript">
+    window.onload = function () {
+        var iframe = document.getElementById("frame-box");
+        iframe.style.height = (window.innerHeight - $("#header").outerHeight() - 30) + 'px';
+    };
+</script>
 </body>
 </html>

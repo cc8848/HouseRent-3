@@ -28,6 +28,9 @@ function HandHouseIssue() {
         });
         var location = new Location($("[name='province']"), $("[name='city']"), $("[name='area']"));
         location.locationInit();
+        var fileInput=new FileUpload();
+        fileInput.sampleInit($("[name='thumbnail']"),'/upload/house');
+        fileInput.sampleInit($("[name='panorama']"),'/upload/house')
     }
 
 }

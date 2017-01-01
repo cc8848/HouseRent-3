@@ -55,7 +55,12 @@
     <div class="row">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">账户信息</h3>
+                <h3 class="panel-title">账户信息
+                    <div class=" btn-group-xs pull-right" style="margin-top: -2px;">
+                        <button class="btn btn-primary" type="button" name="upload">上传头像</button>
+                        <button class="btn btn-primary" type="button" name="modify">修改信息</button>
+                    </div>
+                </h3>
             </div>
             <div class="panel-body">
                 <form role="form" id="account">
@@ -63,15 +68,6 @@
                         <div class="col-sm-4">
                             <img src="${pageContext.request.contextPath}${portrait_src}"
                                  class="img-thumbnail pic-align-center">
-                            <div class="white-divider-md"></div>
-                            <div class=" btn-group btn-group-justified">
-                                <div class="btn-group">
-                                    <button class="btn btn-primary" type="button" name="upload">上传头像</button>
-                                </div>
-                                <div class="btn-group">
-                                    <button class="btn btn-primary" type="button" name="modify">修改信息</button>
-                                </div>
-                            </div>
                         </div>
                         <div class="white-divider-md visible-xs"></div>
                         <div class="col-sm-4">
@@ -140,10 +136,10 @@
                             <div class="form-group hidden">
                                 <div class="btn-group btn-group-justified pull-right">
                                     <div class="btn-group">
-                                        <button type="button" name="modifySubmit" class="btn btn-success">提交修改</button>
+                                        <button type="button" name="modifySubmit" class="btn btn-primary">提交修改</button>
                                     </div>
                                     <div class="btn-group">
-                                        <button type="button" name="modifyCancel" class="btn btn-danger">取消修改</button>
+                                        <button type="button" name="modifyCancel" class="btn btn-primary">取消修改</button>
                                     </div>
                                 </div>
                             </div>
