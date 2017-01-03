@@ -214,12 +214,6 @@
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-
-                    </div>
-                    <div class="row">
-
-                    </div>
                     <div class="page-header">
                         <h4>详细信息</h4>
                     </div>
@@ -276,28 +270,37 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#" data-toggle="tab" role="tab">多图模式</a>
+                                <li role="presentation" class="active"><a href="#thum" data-toggle="tab"
+                                                                          role="tab">多图模式</a>
                                 </li>
-                                <li role="presentation" ><a href="#" data-toggle="tab" role="tab">VR全景模式</a>
+                                <li role="presentation"><a href="#pano" data-toggle="tab" role="tab">VR全景模式</a>
                                 </li>
                             </ul>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input id="thumbnail" name="thumbnail" type="file" multiple>
-                                <span class="help-block"></span>
-                            </div>
-                        </div>
-                        <div class="col-sm-6">
-                            <div class="form-group">
-                                <input id="panorama" name="panorama" type="file">
-                                <span class="help-block"></span>
+                            <div class="white-divider-md"></div>
+                            <div class="tab-content">
+                                <div class="tab-pane active" role="tabpanel" id="thum">
+                                    <div class="form-group">
+                                        <input id="thumbnail" name="thumbnail" type="file" multiple="multiple">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
+                                <div class="tab-pane" role="tabpanel" id="pano">
+                                    <div class="form-group">
+                                        <input id="panorama" name="panorama" type="file">
+                                        <span class="help-block"></span>
+                                    </div>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </form>
+            </div>
+            <div class="panel-footer">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button class="btn btn-primary btn-xs pull-right" type="button" name="issue">发布房源</button>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

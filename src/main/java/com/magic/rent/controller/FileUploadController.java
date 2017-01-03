@@ -26,7 +26,6 @@ import java.util.List;
  * 更新记录：
  */
 @Controller
-@RequestMapping("/upload")
 public class FileUploadController extends BaseController {
 
     private static final String[] PORTRAIT_ALLOW_SUFFIX = {".jpg", ".JPG"};

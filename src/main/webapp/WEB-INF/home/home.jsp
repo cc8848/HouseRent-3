@@ -85,7 +85,7 @@
 <script type="text/javascript">
     window.onload = function () {
         var iframe = document.getElementById("frame-box");
-        iframe.style.height = (window.innerHeight - $("#header").outerHeight() - 30) + 'px';
+        iframe.style.height = (window.innerHeight - $("#header").outerHeight() - 20) + 'px';
     };
 </script>
 </body>
