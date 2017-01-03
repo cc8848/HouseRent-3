@@ -6,12 +6,8 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="2016年12月27日22:58:20">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/webapp/img/house/thumbnail/1/thumbnail.jpg" afterPath="" />
+    <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/FileUploadController.java" afterPath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/FileUploadController.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/hand_house_issue.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/hand_house_issue.jsp" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/home.jsp" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/home/home.jsp" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -1373,14 +1369,7 @@
       <workItem from="1482623863241" duration="9525000" />
       <workItem from="1482766300662" duration="5436000" />
       <workItem from="1482852426949" duration="9333000" />
-      <workItem from="1483233341630" duration="3948000" />
-    </task>
-    <task id="LOCAL-00033" summary="2016年11月17日17:43:21">
-      <created>1479375818034</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1479375818034</updated>
+      <workItem from="1483233341630" duration="3959000" />
     </task>
     <task id="LOCAL-00034" summary="2016年11月17日20:46:05">
       <created>1479386816892</created>
@@ -1718,7 +1707,14 @@
       <option name="project" value="LOCAL" />
       <updated>1483233184341</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="2017年01月03日23:11:15">
+      <created>1483456283607</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1483456283608</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1754,7 +1750,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1059883000" />
+    <option name="totallyTimeSpent" value="1059894000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1875,7 +1871,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="2016年12月02日02:04:20" />
     <MESSAGE value="2016年12月02日13:51:18" />
     <MESSAGE value="2016年12月02日19:33:35" />
     <MESSAGE value="2016年12月04日01:42:33" />
@@ -1900,7 +1895,8 @@
     <MESSAGE value="2016年12月24日02:39:13" />
     <MESSAGE value="2016年12月27日01:15:38" />
     <MESSAGE value="2016年12月27日22:58:20" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年12月27日22:58:20" />
+    <MESSAGE value="2017年01月03日23:11:15" />
+    <option name="LAST_COMMIT_MESSAGE" value="2017年01月03日23:11:15" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
