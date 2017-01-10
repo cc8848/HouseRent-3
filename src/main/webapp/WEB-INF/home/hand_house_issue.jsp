@@ -44,7 +44,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label class="control-label" for="price">房屋编号</label>
+                                <label class="control-label" for="serialNum">房屋编号</label>
                                 <div class="input-group">
                                     <span class="input-group-addon">#</span>
                                     <input type="text" class="form-control" id="serialNum" name="serialNum"
@@ -56,28 +56,28 @@
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label" for="province">省份</label>
+                                <label class="control-label" for="province">省份<span class="text-danger">*</span></label>
                                 <select class="form-control" id="province" name="province"></select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label" for="city">城市</label>
+                                <label class="control-label" for="city">城市<span class="text-danger">*</span></label>
                                 <select class="form-control" id="city" name="city"></select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label" for="area">地区</label>
+                                <label class="control-label" for="area">地区<span class="text-danger">*</span></label>
                                 <select class="form-control" id="area" name="area"></select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label" for="community">社区名称</label>
+                                <label class="control-label" for="community">社区名称<span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-addon">#</span>
                                     <input type="text" class="form-control" id="community" name="community"
@@ -89,7 +89,7 @@
                     <div class="row">
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <label>房屋户型</label>
+                                <label>房屋户型<span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <input type="number" min="0" value="0" class="form-control" id="roomQuantity"
                                            name="roomQuantity">
@@ -119,21 +119,21 @@
                         </div>
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <label class="control-label" for="type">房屋类型</label>
+                                <label class="control-label" for="type">房屋类型<span class="text-danger">*</span></label>
                                 <select class="form-control" id="type" name="type"></select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <label class="control-label" for="decoration">装修类型</label>
+                                <label class="control-label" for="decoration">装修类型<span class="text-danger">*</span></label>
                                 <select class="form-control" id="decoration" name="decoration"></select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <label class="control-label" for="orientation">房屋朝向</label>
+                                <label class="control-label" for="orientation">房屋朝向<span class="text-danger">*</span></label>
                                 <select class="form-control" id="orientation" name="orientation"></select>
                                 <span class="help-block"></span>
                             </div>
@@ -142,7 +142,7 @@
                     <div class="row">
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="currentFloor">楼层</label>
+                                <label for="currentFloor">楼层<span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <input type="number" min="1" value="1" class="form-control" id="currentFloor"
                                            name="currentFloor">
@@ -163,7 +163,7 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="floorArea">建筑面积</label>
+                                <label for="floorArea">建筑面积<span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <input type="number" min="0" value="0" class="form-control" id="floorArea"
                                            name="floorArea">
@@ -173,7 +173,7 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label for="buildAge">建造年代</label>
+                                <label for="buildAge">建造年代<span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <input type="number" min="1988" value="1999" class="form-control" id="buildAge"
                                            name="buildAge">
@@ -188,7 +188,7 @@
                     <div class="row">
                         <div class="col-sm-6">
                             <div class="form-group">
-                                <label class="control-label" for="price">出售价格</label>
+                                <label class="control-label" for="price">出售价格<span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-addon">￥</span>
                                     <input type="text" class="form-control" id="price" name="price" placeholder="请输入价格">
@@ -198,7 +198,7 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label" for="propertyRightsForTwoYears">产权证是否已经满两年？</label>
+                                <label class="control-label" for="propertyRightsForTwoYears">产权证是否已经满两年？<small class="text-danger">*</small></label>
                                 <div class="input-group">
                                     <input name="propertyRightsForTwoYears" id="propertyRightsForTwoYears"
                                            type="checkbox"/>
@@ -207,7 +207,7 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label" for="onlyHousing">是否是唯一性住房？</label>
+                                <label class="control-label" for="onlyHousing">是否是唯一性住房？<span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <input name="onlyHousing" id="onlyHousing" type="checkbox"/>
                                 </div>
@@ -227,7 +227,7 @@
                     <div class="row">
                         <div class="col-sm-12">
                             <div class="form-group">
-                                <label class="control-label" for="title">房屋标题</label>
+                                <label class="control-label" for="title">房屋标题<span class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-addon">#</span>
                                     <input type="text" class="form-control" id="title" name="title">
@@ -264,32 +264,6 @@
                                 <textarea id="professionalService" role="textbox" class="form-control"
                                           rows="6"></textarea>
                                 <span class="help-block"></span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col-sm-12">
-                            <ul class="nav nav-tabs" role="tablist">
-                                <li role="presentation" class="active"><a href="#thum" data-toggle="tab"
-                                                                          role="tab">多图模式</a>
-                                </li>
-                                <li role="presentation"><a href="#pano" data-toggle="tab" role="tab">VR全景模式</a>
-                                </li>
-                            </ul>
-                            <div class="white-divider-md"></div>
-                            <div class="tab-content">
-                                <div class="tab-pane active" role="tabpanel" id="thum">
-                                    <div class="form-group">
-                                        <input id="thumbnail" name="thumbnail" type="file" multiple="multiple">
-                                        <span class="help-block"></span>
-                                    </div>
-                                </div>
-                                <div class="tab-pane" role="tabpanel" id="pano">
-                                    <div class="form-group">
-                                        <input id="panorama" name="panorama" type="file">
-                                        <span class="help-block"></span>
-                                    </div>
-                                </div>
                             </div>
                         </div>
                     </div>

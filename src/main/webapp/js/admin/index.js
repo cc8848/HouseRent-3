@@ -37,7 +37,7 @@ function AdminCompany() {
         table.find("[name='CA-pass']").each(function () {
             var id = $(this).parent().attr('id');
             $(this).on('click', function () {
-                var httpUtil = new HttpUtil();
+                var httpUtil = new HttpTools();
                 httpUtil.postCRF('/company/pass', {
                     companyID: id
                 }, function (data) {
@@ -176,7 +176,7 @@ function AdminCompany() {
     };
 
     this.refuse = function () {
-        var httpUtil = new HttpUtil();
+        var httpUtil = new HttpTools();
         httpUtil.postCRF('/company/pass', {
             companyID: id
         }, function (data) {
@@ -315,7 +315,7 @@ function AdminStore() {
         });
     };
     this.pass = function () {
-        var httpUtil = new HttpUtil();
+        var httpUtil = new HttpTools();
         httpUtil.postCRF('/store/pass', {
             storeID: id
         }, function (data) {
@@ -329,7 +329,7 @@ function AdminStore() {
         });
     };
     this.refuse = function () {
-        var httpUtil = new HttpUtil();
+        var httpUtil = new HttpTools();
         httpUtil.postCRF('/store/pass', {
             storeID: id
         }, function (data) {

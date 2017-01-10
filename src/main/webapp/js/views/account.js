@@ -46,7 +46,7 @@ function PageInit() {
             }
         });
         if (validAccount.validate()) {
-            var http = new HttpUtil();
+            var http = new HttpTools();
             http.postCRF('/user/modify', {
                 name: $("[name='name']").val(),
                 license: $("[name='license']").val(),
@@ -86,24 +86,8 @@ function PageInit() {
         model.show();
         var fileUp = new FileUpload();
         var portrait = $('#fileUpload');
-        var alert = $('#alert');
-        fileUp.portrait(portrait, '/upload/portrait', _this.getExtraData);
+        fileUp.portrait(portrait, '/upload/portrait', _this.getExtraData, $('#alert'));
         portrait.on('change', _this.readURL);
-        portrait.on('fileuploaderror', function (event, data, msg) {
-            alert.removeClass('hidden').html(msg);
-            fileUp.fileinput('disable');
-        });
-        portrait.on('fileclear', function (event) {
-            alert.addClass('hidden').html();
-        });
-        portrait.on('fileloaded', function (event, file, previewId, index, reader) {
-            alert.addClass('hidden').html();
-        });
-        portrait.on('fileuploaded', function (event, data) {
-            if (!data.response.status) {
-                alert.html(data.response.message).removeClass('hidden');
-            }
-        })
     };
 
     this.readURL = function () {

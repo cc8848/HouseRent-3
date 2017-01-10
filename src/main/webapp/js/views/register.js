@@ -59,7 +59,7 @@ function Register() {
         if (validAccount.validate()) {
             //服务条款是否同意
             if ($('#agree').is(':checked')) {
-                var http = new HttpUtil();
+                var http = new HttpTools();
                 http.postCRF('/user/register', {
                     username: username.val(),
                     password: password.val(),

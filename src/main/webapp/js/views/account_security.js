@@ -30,7 +30,7 @@ function PageInit() {
         });
 
         if (validSecurity.validate()) {
-            var http = new HttpUtil();
+            var http = new HttpTools();
             http.postCRF('/user/security/password', {
                 old: $("[name='old']").val(),
                 new: $("[name='new']").val(),

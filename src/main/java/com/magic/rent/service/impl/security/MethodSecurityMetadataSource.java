@@ -40,7 +40,6 @@ public class MethodSecurityMetadataSource extends AbstractMethodSecurityMetadata
      * @param method      访问的方法
      * @param targetClass 方法所属的类
      */
-
     public Collection<ConfigAttribute> getAttributes(Method method,
                                                      Class<?> targetClass) {
         MethodKey key = new MethodKey(method);

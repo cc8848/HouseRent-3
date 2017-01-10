@@ -28,17 +28,16 @@ public class HandHouseController extends BaseController {
 
     @RequestMapping("/issue")
     @ResponseBody
-    public JsonResult issueHouse(HandHouseInfo handHouseInfo, HouseImageListForm houseImageListForm) throws Exception {
+    public JsonResult issueHouse(HandHouseInfo handHouseInfo, HttpServletRequest request) throws Exception {
 
-        JsonResult jsonResult;
+        SysUsers sysUsers = HttpTools.getSessionUser(request);
+        handHouseInfo.setUserId(sysUsers.getUserId());
 
-        if (iHandHouseService.issueHouse(handHouseInfo, houseImageListForm.getHouseImages())) {
-            jsonResult = JsonResult.success();
+        if (iHandHouseService.issueHouse(handHouseInfo)) {
+            return JsonResult.success();
         } else {
-            jsonResult = JsonResult.error("发布房源失败！");
+            return JsonResult.error("发布房源失败！");
         }
-
-        return jsonResult;
     }
 
     @RequestMapping("/query")

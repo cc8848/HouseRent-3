@@ -1,6 +1,7 @@
 package com.magic.rent.controller;
 
 import com.magic.rent.controller.base.BaseController;
+import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.pojo.HouseImage;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.service.IHandHouseService;
@@ -13,6 +14,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
@@ -26,6 +28,7 @@ import java.util.List;
  * 更新记录：
  */
 @Controller
+@RequestMapping("/upload")
 public class FileUploadController extends BaseController {
 
     private static final String[] PORTRAIT_ALLOW_SUFFIX = {".jpg", ".JPG"};
@@ -67,14 +70,16 @@ public class FileUploadController extends BaseController {
 
     @ResponseBody
     @RequestMapping(value = "/house", method = {RequestMethod.POST})
-    public JsonResult houseUpload(HttpServletRequest request) throws Exception {
+    public JsonResult houseUpload(HttpServletRequest request, @RequestParam("thumbnail") MultipartFile file) throws Exception {
 
-        List<MultipartFile> multipartFileList = FileTools.getFilesFromRequest(request, HOUSE_ALLOW_SUFFIX);
+        if (FileTools.checkSuffix(file.getOriginalFilename(), HOUSE_ALLOW_SUFFIX)) {
+            SysUsers sysUsers = HttpTools.getSessionUser(request);
 
-        SysUsers sysUsers = HttpTools.getSessionUser(request);
+            HouseImage houseImage = iHandHouseService.saveHousePictures(file, sysUsers.getUserId());
 
-        List<HouseImage> houseImageList = iHandHouseService.saveHousePictures(multipartFileList, sysUsers.getUserId());
-
-        return JsonResult.success(houseImageList);
+            return JsonResult.success(houseImage);
+        } else {
+            throw new BusinessException("文件后缀名不符！");
+        }
     }
 }

@@ -26,7 +26,8 @@ function SelectUtil() {
 function FileUpload() {
     var header = $("meta[name='_csrf_header']").attr("content");
     var token = $("meta[name='_csrf']").attr("content");
-    this.sampleInit = function (target, uploadUrl) {
+    var _this = this;
+    this.sampleInit = function (target, uploadUrl, alert) {
         target.fileinput({
             language: 'zh', //设置语言
             showPreview: true,
@@ -35,6 +36,7 @@ function FileUpload() {
             allowedFileExtensions: ['jpg', 'png', 'gif'],//接收的文件后缀
             showUpload: true, //是否显示上传按钮
             showCaption: true,//是否显示标题
+            elErrorContainer: alert,//错误信息内容容器
             browseClass: "btn btn-primary", //按钮样式
             previewFileIcon: "<i class='glyphicon glyphicon-king'></i>",
             ajaxSettings: {
@@ -43,8 +45,9 @@ function FileUpload() {
                 }
             }
         });
+        this.alert(target, alert);
     };
-    this.portrait = function (target, uploadUrl, data) {
+    this.portrait = function (target, uploadUrl, data, alert) {
         target.fileinput({
             language: 'zh', //设置语言
             maxFileSize: 2048,//文件最大容量
@@ -53,6 +56,7 @@ function FileUpload() {
             uploadAsync: true,//ajax同步
             dropZoneEnabled: false,//是否显示拖拽区域
             uploadUrl: uploadUrl, //上传的地址
+            elErrorContainer: alert,//错误信息内容容器
             allowedFileExtensions: ['jpg'],//接收的文件后缀
             showUpload: true, //是否显示上传按钮
             showCaption: true,//是否显示标题
@@ -64,7 +68,25 @@ function FileUpload() {
                 }
             }
         });
-    }
+        this.alert(target, alert);
+    };
+    this.alert = function (target, alert) {
+        target.on('fileuploaderror', function (event, data, msg) {
+            alert.removeClass('hidden').html(msg);
+            _this.fileinput('disable');
+        });
+        target.on('fileclear', function (event) {
+            alert.addClass('hidden').html();
+        });
+        target.on('fileloaded', function (event, file, previewId, index, reader) {
+            alert.addClass('hidden').html();
+        });
+        target.on('fileuploaded', function (event, data) {
+            if (!data.response.status) {
+                alert.html(data.response.message).removeClass('hidden');
+            }
+        });
+    };
 }
 
 function refresh() {
@@ -76,7 +98,7 @@ function forward(href) {
 }
 
 
-function HttpUtil() {
+function HttpTools() {
     this.postCRF = function (URL, data, callback) {
         var header = $("meta[name='_csrf_header']").attr("content");
         var token = $("meta[name='_csrf']").attr("content");

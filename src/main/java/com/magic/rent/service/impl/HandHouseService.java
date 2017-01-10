@@ -20,6 +20,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
 
 /**
@@ -46,31 +47,9 @@ public class HandHouseService implements IHandHouseService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public boolean issueHouse(HandHouseInfo handHouseInfo, List<HouseImage> houseImages) throws Exception {
+    public boolean issueHouse(HandHouseInfo handHouseInfo) throws Exception {
         int rows = handHouseMapper.insert(handHouseInfo);
-        if (rows > 0) {
-            List<HouseImage> errorImages = new ArrayList<HouseImage>();
-            for (HouseImage houseImage : houseImages) {
-                //连续查询数据库这样其实是不合适的，但是当前还想不到更好的办法解决这个问题，暂且先这样处理
-                HouseImage result = houseImageMapper.selectByImageAndUserID(houseImage);
-                if (null == result) {
-                    errorImages.add(houseImage);
-                } else {
-                    houseImage.setHouseId(handHouseInfo.getHouseId());
-                    int row = houseImageMapper.updateByPrimaryKeySelective(houseImage);
-                    if (row <= 0) {
-                        errorImages.add(houseImage);
-                    }
-                }
-            }
-            if (errorImages.isEmpty()) {
-                return true;
-            } else {
-                throw new HouseImageSaveException("房源图片保存失败！", errorImages);
-            }
-        } else {
-            return false;
-        }
+        return rows > 0;
     }
 
     public boolean deleteHouse(Integer houseID, Integer userID) throws Exception {
@@ -100,36 +79,27 @@ public class HandHouseService implements IHandHouseService {
     }
 
     @Transactional(propagation = Propagation.REQUIRED, rollbackFor = Exception.class)
-    public List<HouseImage> saveHousePictures(List<MultipartFile> multipartFileList, Integer userID) throws Exception {
+    public HouseImage saveHousePictures(MultipartFile multipartFile, Integer userID) throws Exception {
 
-        List<HouseImage> houseImageList = new ArrayList<HouseImage>();
+        // 创建存储路径并重命名文件名
+        String path = FileTools.getHousePicPath(userID) + FileTools.getPicFileName(multipartFile.getOriginalFilename());
 
-        for (MultipartFile multipartFile : multipartFileList) {
-            // 创建存储路径并重命名文件名
-            String path = FileTools.getHousePicPath(userID) + FileTools.getPicFileName(multipartFile.getOriginalFilename());
+        File file = new File(path);
 
-            File file = new File(path);
+        // 写入磁盘
+        multipartFile.transferTo(file);
 
-            // 写入磁盘
-            multipartFile.transferTo(file);
+        //压缩图片
+        CompressTools compressTools = new CompressTools(file);
+        compressTools.startCompress();
 
-            //压缩图片
-            CompressTools compressTools = new CompressTools(file);
-            compressTools.startCompress();
+        //创建图片对象
+        HouseImage houseImage = new HouseImage();
+        houseImage.setUserId(userID);
+        houseImage.setImageSrc(FileTools.filePathToSRC(path, FileTools.IMG));
 
-            //创建图片对象
-            HouseImage houseImage = new HouseImage();
-            houseImage.setUserId(userID);
-            houseImage.setImageSrc(FileTools.filePathToSRC(path, FileTools.IMG));
-
-            int rows = houseImageMapper.insert(houseImage);
-
-            if (rows > 0) {//操作成功后，将对象添加到集合当中
-                houseImageList.add(houseImage);
-            }
-        }
-
-        return houseImageList;
+        int rows = houseImageMapper.insert(houseImage);
+        return houseImage;
     }
 
     /**

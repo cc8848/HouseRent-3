@@ -184,7 +184,7 @@
             <div class="white-divider-md"></div>
             <input type="file" name="imgFile" id="fileUpload"/>
             <div class="white-divider-md"></div>
-            <div id="alert" class="alert alert-danger hidden" role="alert"></div>
+            <div id="alert" class="alert alert-danger" role="alert"></div>
             <input type="hidden" id="x" name="x"/>
             <input type="hidden" id="y" name="y"/>
             <input type="hidden" id="w" name="w"/>
