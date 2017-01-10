@@ -1,14 +1,13 @@
 package com.magic.rent.service.impl;
 
-import com.magic.rent.mapper.AreaMapper;
-import com.magic.rent.mapper.CityMapper;
-import com.magic.rent.mapper.ProvinceMapper;
+import com.magic.rent.dao.mapper.AreaMapper;
+import com.magic.rent.dao.mapper.CityMapper;
+import com.magic.rent.dao.mapper.ProvinceMapper;
 import com.magic.rent.pojo.*;
 import com.magic.rent.service.IAddressService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

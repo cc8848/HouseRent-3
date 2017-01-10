@@ -3,11 +3,9 @@ package com.magic.rent.service.impl;
 import com.github.pagehelper.PageHelper;
 import com.github.pagehelper.PageInfo;
 import com.magic.rent.exception.custom.AuthorityOverstepException;
-import com.magic.rent.exception.custom.BusinessException;
-import com.magic.rent.exception.custom.HouseImageSaveException;
 import com.magic.rent.exception.custom.TargetNotFoundException;
-import com.magic.rent.mapper.HandHouseMapper;
-import com.magic.rent.mapper.HouseImageMapper;
+import com.magic.rent.dao.mapper.HandHouseMapper;
+import com.magic.rent.dao.mapper.HouseImageMapper;
 import com.magic.rent.pojo.*;
 import com.magic.rent.service.IHandHouseService;
 import com.magic.rent.tools.CompressTools;
@@ -19,8 +17,6 @@ import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 /**

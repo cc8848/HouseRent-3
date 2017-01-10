@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.magic.rent.mapper.SysModulesMapper">
+<mapper namespace="com.magic.rent.dao.mapper.SysModulesMapper">
   <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysModules">
     <id column="MODULE_ID" jdbcType="INTEGER" property="moduleId" />
     <result column="MODULE_NAME" jdbcType="VARCHAR" property="moduleName" />

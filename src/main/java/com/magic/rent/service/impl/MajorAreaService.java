@@ -1,7 +1,7 @@
 package com.magic.rent.service.impl;
 
 import com.magic.rent.exception.custom.BusinessException;
-import com.magic.rent.mapper.MajorAreaMapper;
+import com.magic.rent.dao.mapper.MajorAreaMapper;
 import com.magic.rent.pojo.MajorArea;
 import com.magic.rent.service.IMajorAreaService;
 import org.springframework.beans.factory.annotation.Autowired;

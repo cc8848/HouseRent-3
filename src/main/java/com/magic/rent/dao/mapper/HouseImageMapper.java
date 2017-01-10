@@ -1,9 +1,7 @@
-package com.magic.rent.mapper;
+package com.magic.rent.dao.mapper;
 
 import com.magic.rent.pojo.HouseImage;
 import org.springframework.stereotype.Repository;
-
-import java.util.List;
 
 @Repository
 public interface HouseImageMapper {

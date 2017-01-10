@@ -1,6 +1,6 @@
 package com.magic.rent.service.impl.security;
 
-import com.magic.rent.mapper.SysResourcesMapper;
+import com.magic.rent.dao.mapper.SysResourcesMapper;
 import com.magic.rent.pojo.MethodKey;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;

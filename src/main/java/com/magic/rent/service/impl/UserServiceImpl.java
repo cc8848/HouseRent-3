@@ -2,9 +2,8 @@ package com.magic.rent.service.impl;
 
 import com.magic.rent.exception.custom.BusinessException;
 import com.magic.rent.exception.custom.FileBusinessException;
-import com.magic.rent.mapper.SysUsersMapper;
-import com.magic.rent.mapper.UsersRelateRolesMapper;
-import com.magic.rent.pojo.JsonResult;
+import com.magic.rent.dao.mapper.SysUsersMapper;
+import com.magic.rent.dao.mapper.UsersRelateRolesMapper;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;
 import com.magic.rent.pojo.UsersRelateRoles;

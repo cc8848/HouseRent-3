@@ -1,7 +1,6 @@
-package com.magic.rent.mapper;
+package com.magic.rent.dao.mapper;
 
 import com.magic.rent.pojo.City;
-import com.magic.rent.pojo.Province;
 import com.magic.rent.pojo.SelectPoJo;
 import org.springframework.stereotype.Repository;
 

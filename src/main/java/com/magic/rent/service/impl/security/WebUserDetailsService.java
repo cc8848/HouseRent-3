@@ -6,9 +6,9 @@ package com.magic.rent.service.impl.security;
  * 类说明:
  */
 
-import com.magic.rent.mapper.SysAuthoritiesMapper;
-import com.magic.rent.mapper.SysRolesMapper;
-import com.magic.rent.mapper.SysUsersMapper;
+import com.magic.rent.dao.mapper.SysAuthoritiesMapper;
+import com.magic.rent.dao.mapper.SysRolesMapper;
+import com.magic.rent.dao.mapper.SysUsersMapper;
 import com.magic.rent.pojo.SysAuthorities;
 import com.magic.rent.pojo.SysRoles;
 import com.magic.rent.pojo.SysUsers;

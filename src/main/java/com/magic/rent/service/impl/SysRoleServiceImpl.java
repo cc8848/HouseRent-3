@@ -1,6 +1,6 @@
 package com.magic.rent.service.impl;
 
-import com.magic.rent.mapper.SysRolesMapper;
+import com.magic.rent.dao.mapper.SysRolesMapper;
 import com.magic.rent.service.ISysRoleService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

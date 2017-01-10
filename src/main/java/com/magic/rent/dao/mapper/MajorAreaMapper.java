@@ -1,4 +1,4 @@
-package com.magic.rent.mapper;
+package com.magic.rent.dao.mapper;
 
 import com.magic.rent.pojo.MajorArea;
 import org.springframework.stereotype.Repository;

@@ -1,4 +1,4 @@
-package com.magic.rent.mapper;
+package com.magic.rent.dao.mapper;
 
 import org.springframework.stereotype.Repository;
 
