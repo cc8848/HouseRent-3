@@ -31,13 +31,29 @@
             <li class="active">二手房发布</li>
         </ol>
     </div>
-    <div class="row">
+    <div class="row" id="image-form">
         <div class="panel panel-default">
             <div class="panel-heading">
-                <h3 class="panel-title">二手房源信息发布</h3>
+                <h3 class="panel-title">房源图片</h3>
             </div>
             <div class="panel-body">
-                <form role="form" id="hand_house_issue" enctype="multipart/form-data">
+                <div class="col-sm-12">
+                    <form role="form" enctype="multipart/form-data">
+
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row" id="info-form" style="display: none;">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h3 class="panel-title">房源信息
+                    <span class="pull-right">No.<span id="house-id"></span></span>
+                </h3>
+            </div>
+            <div class="panel-body">
+                <form role="form" id="info">
                     <div class="page-header">
                         <h4>基础信息</h4>
                     </div>
@@ -57,27 +73,28 @@
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label" for="province">省份<span class="text-danger">*</span></label>
-                                <select class="form-control" id="province" name="province"></select>
+                                <select class="form-control" id="province" name="province" style="width: 100%"></select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label" for="city">城市<span class="text-danger">*</span></label>
-                                <select class="form-control" id="city" name="city"></select>
+                                <select class="form-control" id="city" name="city" style="width: 100%"></select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
                                 <label class="control-label" for="area">地区<span class="text-danger">*</span></label>
-                                <select class="form-control" id="area" name="area"></select>
+                                <select class="form-control" id="area" name="area" style="width: 100%"></select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label" for="community">社区名称<span class="text-danger">*</span></label>
+                                <label class="control-label" for="community">社区名称<span
+                                        class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <span class="input-group-addon">#</span>
                                     <input type="text" class="form-control" id="community" name="community"
@@ -120,21 +137,25 @@
                         <div class="col-sm-2">
                             <div class="form-group">
                                 <label class="control-label" for="type">房屋类型<span class="text-danger">*</span></label>
-                                <select class="form-control" id="type" name="type"></select>
+                                <select class="form-control" id="type" name="type" style="width: 100%"></select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <label class="control-label" for="decoration">装修类型<span class="text-danger">*</span></label>
-                                <select class="form-control" id="decoration" name="decoration"></select>
+                                <label class="control-label" for="decoration">装修类型<span
+                                        class="text-danger">*</span></label>
+                                <select class="form-control" id="decoration" name="decoration"
+                                        style="width: 100%"></select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
                         <div class="col-sm-2">
                             <div class="form-group">
-                                <label class="control-label" for="orientation">房屋朝向<span class="text-danger">*</span></label>
-                                <select class="form-control" id="orientation" name="orientation"></select>
+                                <label class="control-label" for="orientation">房屋朝向<span
+                                        class="text-danger">*</span></label>
+                                <select class="form-control" id="orientation" name="orientation"
+                                        style="width: 100%"></select>
                                 <span class="help-block"></span>
                             </div>
                         </div>
@@ -198,7 +219,9 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label" for="propertyRightsForTwoYears">产权证是否已经满两年？<small class="text-danger">*</small></label>
+                                <label class="control-label" for="propertyRightsForTwoYears">产权证是否已经满两年？
+                                    <small class="text-danger">*</small>
+                                </label>
                                 <div class="input-group">
                                     <input name="propertyRightsForTwoYears" id="propertyRightsForTwoYears"
                                            type="checkbox"/>
@@ -207,7 +230,8 @@
                         </div>
                         <div class="col-sm-3">
                             <div class="form-group">
-                                <label class="control-label" for="onlyHousing">是否是唯一性住房？<span class="text-danger">*</span></label>
+                                <label class="control-label" for="onlyHousing">是否是唯一性住房？<span
+                                        class="text-danger">*</span></label>
                                 <div class="input-group">
                                     <input name="onlyHousing" id="onlyHousing" type="checkbox"/>
                                 </div>
@@ -279,7 +303,6 @@
         </div>
     </div>
 </div>
-
 
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/jquery.js"></script>
 <script type="text/javascript" src="${pageContext.request.contextPath}/js/plugin/bootstrap.min.js"></script>

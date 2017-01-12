@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.magic.rent.dao.mapper.AreaMapper">
+<mapper namespace="cn.com.showings.dao.mapper.AreaMapper">
     <cache type="org.mybatis.caches.ehcache.LoggingEhcache">
         <property name="timeToIdleSeconds" value="3600"/><!--1 hour-->
         <property name="timeToLiveSeconds" value="3600"/><!--1 hour-->
@@ -8,14 +8,14 @@
         <property name="maxEntriesLocalDisk" value="10000000"/>
         <property name="memoryStoreEvictionPolicy" value="LRU"/>
     </cache>
-    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.Area">
+    <resultMap id="BaseResultMap" type="cn.com.showings.pojo.Area">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="areaID" property="areaid" jdbcType="INTEGER"/>
         <result column="areaName" property="areaName" jdbcType="VARCHAR"/>
         <result column="cityID" property="cityid" jdbcType="INTEGER"/>
         <result column="enable" property="enable" jdbcType="TINYINT"/>
     </resultMap>
-    <resultMap id="area" type="com.magic.rent.pojo.Area">
+    <resultMap id="area" type="cn.com.showings.pojo.Area">
         <id column="id" property="id" jdbcType="INTEGER"/>
         <result column="areaID" property="areaid" jdbcType="INTEGER"/>
         <result column="areaName" property="areaName" jdbcType="VARCHAR"/>
@@ -35,13 +35,13 @@
     delete from AREA
     where id = #{id,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.magic.rent.pojo.Area">
+    <insert id="insert" parameterType="cn.com.showings.pojo.Area">
     insert into AREA (id, areaID, areaName, 
       cityID, enable)
     values (#{id,jdbcType=INTEGER}, #{areaid,jdbcType=INTEGER}, #{areaName,jdbcType=VARCHAR},
       #{cityid,jdbcType=INTEGER}, #{enable,jdbcType=TINYINT})
   </insert>
-    <insert id="insertSelective" parameterType="com.magic.rent.pojo.Area">
+    <insert id="insertSelective" parameterType="cn.com.showings.pojo.Area">
         insert into AREA
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="id != null">
@@ -78,7 +78,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.Area">
+    <update id="updateByPrimaryKeySelective" parameterType="cn.com.showings.pojo.Area">
         update AREA
         <set>
             <if test="areaid != null">
@@ -96,7 +96,7 @@
         </set>
         where id = #{id,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.Area">
+    <update id="updateByPrimaryKey" parameterType="cn.com.showings.pojo.Area">
     update AREA
     set areaID = #{areaid,jdbcType=INTEGER},
       areaName = #{areaname,jdbcType=VARCHAR},
@@ -104,7 +104,7 @@
       enable = #{enable,jdbcType=TINYINT}
     where id = #{id,jdbcType=INTEGER}
   </update>
-    <select id="selectByCityID" parameterType="java.lang.Integer" resultType="com.magic.rent.pojo.SelectPoJo">
+    <select id="selectByCityID" parameterType="java.lang.Integer" resultType="cn.com.showings.pojo.SelectPoJo">
     SELECT AREA.areaID  id,
     AREA.areaName  text
     FROM AREA

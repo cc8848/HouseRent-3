@@ -42,7 +42,7 @@
     </sec:http>
 
     <!--自定义验证结果控制器-->
-    <bean id="loginController" class="com.magic.rent.controller.LoginAuthenticationController">
+    <bean id="loginController" class="cn.com.showings.controller.LoginAuthenticationController">
         <property name="successURL" value="/home"/>
         <property name="failURL" value="/user/login"/>
     </bean>
@@ -98,7 +98,7 @@
         <property name="securityMetadataSource" ref="methodSecurityMetadataSource"/>
     </bean>
     <aop:config>
-        <aop:advisor advice-ref="methodSecurityInterceptor" pointcut="execution(* com.magic.rent.service.*.*(..))"
+        <aop:advisor advice-ref="methodSecurityInterceptor" pointcut="execution(* cn.com.showings.service.*.*(..))"
                      order="1"/>
     </aop:config>
     <!--方法拦截器 end-->
@@ -119,7 +119,7 @@
     <!--session管理器 end-->
 
     <!--无权限时返回403-->
-    <bean id="myAccessDeniedHandler" class="com.magic.rent.service.impl.security.AccessDeniedHandlerImpl">
+    <bean id="myAccessDeniedHandler" class="cn.com.showings.service.impl.security.AccessDeniedHandlerImpl">
         <property name="errorPage" value="/views/error"/>
     </bean>
 </beans>

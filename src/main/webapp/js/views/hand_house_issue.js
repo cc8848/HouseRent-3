@@ -74,6 +74,9 @@ function HandHouseIssue() {
             });
         });
         $("[name='issue']").on('click', this.issueSubmit);
+        $("[name='info-start']").on('click', function () {
+            $('#issue-info').fadeIn();
+        })
     };
 
     this.issueSubmit = function () {

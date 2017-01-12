@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.magic.rent.dao.mapper.SysAuthoritiesMapper">
-    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysAuthorities">
+<mapper namespace="cn.com.showings.dao.mapper.SysAuthoritiesMapper">
+    <resultMap id="BaseResultMap" type="cn.com.showings.pojo.SysAuthorities">
         <id column="AUTHORITY_ID" jdbcType="INTEGER" property="authorityId"/>
         <result column="AUTHORITY_MARK" jdbcType="VARCHAR" property="authorityMark"/>
         <result column="AUTHORITY_NAME" jdbcType="VARCHAR" property="authorityName"/>
@@ -23,7 +23,7 @@
     delete from SYS_AUTHORITIES
     where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.magic.rent.pojo.SysAuthorities">
+    <insert id="insert" parameterType="cn.com.showings.pojo.SysAuthorities">
     insert into SYS_AUTHORITIES (AUTHORITY_ID, AUTHORITY_MARK, AUTHORITY_NAME, 
       AUTHORITY_DESC, MESSAGE, ENABLE, 
       ISSYS)
@@ -31,7 +31,7 @@
       #{authorityDesc,jdbcType=VARCHAR}, #{message,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT}, 
       #{system,jdbcType=TINYINT})
   </insert>
-    <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysAuthorities">
+    <insert id="insertSelective" parameterType="cn.com.showings.pojo.SysAuthorities">
         insert into SYS_AUTHORITIES
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="authorityId != null">
@@ -80,7 +80,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysAuthorities">
+    <update id="updateByPrimaryKeySelective" parameterType="cn.com.showings.pojo.SysAuthorities">
         update SYS_AUTHORITIES
         <set>
             <if test="authorityMark != null">
@@ -104,7 +104,7 @@
         </set>
         where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysAuthorities">
+    <update id="updateByPrimaryKey" parameterType="cn.com.showings.pojo.SysAuthorities">
     update SYS_AUTHORITIES
     set AUTHORITY_MARK = #{authorityMark,jdbcType=VARCHAR},
       AUTHORITY_NAME = #{authorityName,jdbcType=VARCHAR},
@@ -114,7 +114,7 @@
       ISSYS = #{system,jdbcType=TINYINT},
     where AUTHORITY_ID = #{authorityId,jdbcType=INTEGER}
   </update>
-    <select id="selectByRole" parameterType="com.magic.rent.pojo.SysRoles" resultMap="BaseResultMap">
+    <select id="selectByRole" parameterType="cn.com.showings.pojo.SysRoles" resultMap="BaseResultMap">
     SELECT
       SYS_AUTHORITIES.AUTHORITY_ID,
       SYS_AUTHORITIES.AUTHORITY_MARK,

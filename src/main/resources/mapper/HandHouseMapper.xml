@@ -1,23 +1,23 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.magic.rent.dao.mapper.HandHouseMapper">
-    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.HandHouse">
+<mapper namespace="cn.com.showings.dao.mapper.HandHouseMapper">
+    <resultMap id="BaseResultMap" type="cn.com.showings.pojo.HandHouse">
         <id column="HOUSE_ID" property="houseId" jdbcType="INTEGER"/>
         <result column="USER_ID" property="userId" jdbcType="INTEGER"/>
     </resultMap>
-    <resultMap id="ResultMapWithPrice" type="com.magic.rent.pojo.HandHousePrice" extends="BaseResultMap">
+    <resultMap id="ResultMapWithPrice" type="cn.com.showings.pojo.HandHousePrice" extends="BaseResultMap">
         <result column="PROPERTY_RIGHTS_FOR_TWO_YEARS" property="propertyRightsForTwoYears" jdbcType="BIT"/>
         <result column="ONLY_HOUSING" property="onlyHousing" jdbcType="BIT"/>
         <result column="PRICE" property="price" jdbcType="INTEGER"/>
     </resultMap>
-    <resultMap id="ResultMapWithDetail" type="com.magic.rent.pojo.HandHouseDetail" extends="ResultMapWithPrice">
+    <resultMap id="ResultMapWithDetail" type="cn.com.showings.pojo.HandHouseDetail" extends="ResultMapWithPrice">
         <result column="TITLE" property="title" jdbcType="VARCHAR"/>
         <result column="HOUSE_DETAILS" property="houseDetails" jdbcType="LONGVARCHAR"/>
         <result column="OWNER_MENTALITY" property="ownerMentality" jdbcType="LONGVARCHAR"/>
         <result column="SUPPORTING_FACILITY" property="supportingFacility" jdbcType="LONGVARCHAR"/>
         <result column="PROFESSIONAL_SERVICE" property="professionalService" jdbcType="LONGVARCHAR"/>
     </resultMap>
-    <resultMap id="ResultMapWithInfo" type="com.magic.rent.pojo.HandHouse" extends="ResultMapWithDetail">
+    <resultMap id="ResultMapWithInfo" type="cn.com.showings.pojo.HandHouse" extends="ResultMapWithDetail">
         <result column="SERIAL_NUM" property="serialNum" jdbcType="INTEGER"/>
         <result column="PROVINCE_ID" property="provinceId" jdbcType="INTEGER"/>
         <result column="CITY_ID" property="cityId" jdbcType="INTEGER"/>
@@ -49,7 +49,7 @@
     HALL_QUANTITY, BATHROOM_QUANTITY, TYPE, DECORATION, ORIENTATION, CURRENT_FLOOR, TOTAL_FLOOR,
     FLOOR_AREA, BUILD_AGE,PANORAMA_SRC
     </sql>
-    <select id="selectBaseByPrimaryKey" resultMap="BaseResultMap" parameterType="com.magic.rent.pojo.HandHouse">
+    <select id="selectBaseByPrimaryKey" resultMap="BaseResultMap" parameterType="cn.com.showings.pojo.HandHouse">
         select
         <include refid="Base_Column_List"/>
         from HAND_HOUSE
@@ -67,7 +67,7 @@
         from HAND_HOUSE
         where HOUSE_ID = #{houseId,jdbcType=INTEGER}
     </select>
-    <select id="selectBySelective" resultMap="ResultMapWithInfo" parameterType="com.magic.rent.pojo.HandHouseInfo">
+    <select id="selectBySelective" resultMap="ResultMapWithInfo" parameterType="cn.com.showings.pojo.HandHouseInfo">
         select
         <include refid="Base_Column_List"/>
         ,
@@ -162,7 +162,7 @@
     delete from HAND_HOUSE
     where HOUSE_ID = #{houseId,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.magic.rent.pojo.HandHouseInfo" useGeneratedKeys="true" keyColumn="HOUSE_ID"
+    <insert id="insert" parameterType="cn.com.showings.pojo.HandHouseInfo" useGeneratedKeys="true" keyColumn="HOUSE_ID"
             keyProperty="houseId">
     insert into HAND_HOUSE (HOUSE_ID, USER_ID,
       PROPERTY_RIGHTS_FOR_TWO_YEARS, ONLY_HOUSING,PRICE,
@@ -185,7 +185,7 @@
       #{currentFloor,jdbcType=INTEGER}, #{totalFloor,jdbcType=INTEGER}, #{floorArea,jdbcType=DOUBLE}, 
       #{buildAge,jdbcType=INTEGER}, #{panoramaSrc,jdbcType=VARCHAR})
   </insert>
-    <insert id="insertSelective" parameterType="com.magic.rent.pojo.HandHouseInfo" useGeneratedKeys="true"
+    <insert id="insertSelective" parameterType="cn.com.showings.pojo.HandHouseInfo" useGeneratedKeys="true"
             keyColumn="HOUSE_ID"
             keyProperty="houseId">
         insert into HAND_HOUSE
@@ -350,7 +350,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.HandHouseInfo">
+    <update id="updateByPrimaryKeySelective" parameterType="cn.com.showings.pojo.HandHouseInfo">
         update HAND_HOUSE
         <set>
             <if test="userId != null">
@@ -431,13 +431,13 @@
         </set>
         where HOUSE_ID = #{houseId,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKeyForBase" parameterType="com.magic.rent.pojo.HandHouse">
+    <update id="updateByPrimaryKeyForBase" parameterType="cn.com.showings.pojo.HandHouse">
         update HAND_HOUSE
         set
         USER_ID = #{userId,jdbcType=INTEGER},
         where HOUSE_ID = #{houseId,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKeyForPrice" parameterType="com.magic.rent.pojo.HandHousePrice">
+    <update id="updateByPrimaryKeyForPrice" parameterType="cn.com.showings.pojo.HandHousePrice">
         update HAND_HOUSE
         set
         USER_ID = #{userId,jdbcType=INTEGER},
@@ -446,7 +446,7 @@
         PRICE = #{price,jdbcType=INTEGER},
         where HOUSE_ID = #{houseId,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKeyForDetail" parameterType="com.magic.rent.pojo.HandHouseDetail">
+    <update id="updateByPrimaryKeyForDetail" parameterType="cn.com.showings.pojo.HandHouseDetail">
     update HAND_HOUSE
     set
       USER_ID = #{userId,jdbcType=INTEGER},
@@ -460,7 +460,7 @@
       PROFESSIONAL_SERVICE = #{professionalService,jdbcType=LONGVARCHAR},
     where HOUSE_ID = #{houseId,jdbcType=INTEGER}
   </update>
-    <update id="updateByPrimaryKeyForInfo" parameterType="com.magic.rent.pojo.HandHouseInfo">
+    <update id="updateByPrimaryKeyForInfo" parameterType="cn.com.showings.pojo.HandHouseInfo">
         update HAND_HOUSE
         set
         USER_ID = #{userId,jdbcType=INTEGER},

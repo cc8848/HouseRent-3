@@ -40,7 +40,7 @@
     <!--自定义filter-->
     <filter>
         <filter-name>MyFilter</filter-name>
-        <filter-class>com.magic.rent.filter.MyFilter</filter-class>
+        <filter-class>cn.com.showings.filter.MyFilter</filter-class>
     </filter>
     <filter-mapping>
         <filter-name>MyFilter</filter-name>
@@ -49,7 +49,7 @@
     <!-- JCaptcha2`s filter -->
     <filter>
         <filter-name>JCaptchaFilter</filter-name>
-        <filter-class>com.magic.rent.filter.JCaptchaFilter</filter-class>
+        <filter-class>cn.com.showings.filter.JCaptchaFilter</filter-class>
         <init-param>
             <param-name>failureUrl</param-name>
             <param-value>/user/login</param-value>

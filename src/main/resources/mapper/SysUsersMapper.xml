@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.magic.rent.dao.mapper.SysUsersMapper">
+<mapper namespace="cn.com.showings.dao.mapper.SysUsersMapper">
     <cache type="org.mybatis.caches.ehcache.LoggingEhcache">
         <property name="timeToIdleSeconds" value="3600"/><!--1 hour-->
         <property name="timeToLiveSeconds" value="3600"/><!--1 hour-->
@@ -8,7 +8,7 @@
         <property name="maxEntriesLocalDisk" value="10000000"/>
         <property name="memoryStoreEvictionPolicy" value="LRU"/>
     </cache>
-    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysUsers">
+    <resultMap id="BaseResultMap" type="cn.com.showings.pojo.SysUsers">
         <id column="USER_ID" jdbcType="INTEGER" property="userId"/>
         <result column="USERNAME" jdbcType="VARCHAR" property="username"/>
         <result column="NAME" jdbcType="VARCHAR" property="name"/>
@@ -41,7 +41,7 @@
     delete from SYS_USERS
     where USER_ID = #{userId,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.magic.rent.pojo.SysUsers" keyProperty="userId" keyColumn="USER_ID"
+    <insert id="insert" parameterType="cn.com.showings.pojo.SysUsers" keyProperty="userId" keyColumn="USER_ID"
             useGeneratedKeys="true">
     insert into SYS_USERS (USER_ID, USERNAME, NAME, 
       PASSWORD, SEX, LICENSE, 
@@ -56,7 +56,7 @@
       #{enabled,jdbcType=BIT}, #{accountNonExpired,jdbcType=BIT}, #{accountNonLocked,jdbcType=BIT}, 
       #{credentialsNonExpired,jdbcType=BIT},#{major,jdbcType=INTEGER})
   </insert>
-    <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysUsers" keyProperty="userId" keyColumn="USER_ID"
+    <insert id="insertSelective" parameterType="cn.com.showings.pojo.SysUsers" keyProperty="userId" keyColumn="USER_ID"
             useGeneratedKeys="true">
         insert into SYS_USERS
         <trim prefix="(" suffix=")" suffixOverrides=",">
@@ -166,7 +166,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysUsers">
+    <update id="updateByPrimaryKeySelective" parameterType="cn.com.showings.pojo.SysUsers">
         update SYS_USERS
         <set>
             <if test="username != null">
@@ -220,7 +220,7 @@
         </set>
         where USER_ID = #{userId,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysUsers">
+    <update id="updateByPrimaryKey" parameterType="cn.com.showings.pojo.SysUsers">
     update SYS_USERS
     set USERNAME = #{username,jdbcType=VARCHAR},
       NAME = #{name,jdbcType=VARCHAR},
@@ -240,7 +240,7 @@
       MAJOR=#{major,jdbcType=INTEGER}
     where USER_ID = #{userId,jdbcType=INTEGER}
   </update>
-    <select id="selectByUserName" parameterType="com.magic.rent.pojo.SysUsers" resultMap="BaseResultMap">
+    <select id="selectByUserName" parameterType="cn.com.showings.pojo.SysUsers" resultMap="BaseResultMap">
     SELECT
         <include refid="Base_Column_List"/>
     FROM SYS_USERS

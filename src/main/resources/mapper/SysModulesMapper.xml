@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.magic.rent.dao.mapper.SysModulesMapper">
-  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysModules">
+<mapper namespace="cn.com.showings.dao.mapper.SysModulesMapper">
+  <resultMap id="BaseResultMap" type="cn.com.showings.pojo.SysModules">
     <id column="MODULE_ID" jdbcType="INTEGER" property="moduleId" />
     <result column="MODULE_NAME" jdbcType="VARCHAR" property="moduleName" />
     <result column="MODULE_DESC" jdbcType="VARCHAR" property="moduleDesc" />
@@ -29,7 +29,7 @@
     delete from SYS_MODULES
     where MODULE_ID = #{moduleId,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.magic.rent.pojo.SysModules">
+  <insert id="insert" parameterType="cn.com.showings.pojo.SysModules">
     insert into SYS_MODULES (MODULE_ID, MODULE_NAME, MODULE_DESC, 
       MODULE_TYPE, PARENT, MODULE_URL, 
       I_LEVEL, LEAF, APPLICATION, 
@@ -41,7 +41,7 @@
       #{controller,jdbcType=VARCHAR}, #{enable,jdbcType=DECIMAL}, #{priority,jdbcType=DECIMAL}
       )
   </insert>
-  <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysModules">
+  <insert id="insertSelective" parameterType="cn.com.showings.pojo.SysModules">
     insert into SYS_MODULES
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="moduleId != null">
@@ -120,7 +120,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysModules">
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.showings.pojo.SysModules">
     update SYS_MODULES
     <set>
       <if test="moduleName != null">
@@ -159,7 +159,7 @@
     </set>
     where MODULE_ID = #{moduleId,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysModules">
+  <update id="updateByPrimaryKey" parameterType="cn.com.showings.pojo.SysModules">
     update SYS_MODULES
     set MODULE_NAME = #{moduleName,jdbcType=VARCHAR},
       MODULE_DESC = #{moduleDesc,jdbcType=VARCHAR},

@@ -5,9 +5,9 @@
        xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
 
     <!--扫描service-->
-    <context:component-scan base-package="com.magic.rent.service"/>
+    <context:component-scan base-package="cn.com.showings.service"/>
     <!--注册统一异常控制-->
-    <bean id="exception" class="com.magic.rent.exception.exhandler.CustomExceptionHandler"/>
+    <bean id="exception" class="cn.com.showings.controller.ExceptionController"/>
 
     <bean id="messageDigestPasswordEncoder"
           class="org.springframework.security.authentication.encoding.MessageDigestPasswordEncoder">
