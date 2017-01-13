@@ -6,88 +6,12 @@
     </artifacts-to-build>
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="2016年12月14日21:34:19">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/rent-2016-12-09-0.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/rent-2016-12-10-0.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/rent-2016-12-13-0.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/rent-2016-12-14-0.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/rent-2016-12-16-0.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/rent-2016-12-17-0.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/showings-2016-12-22-0.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/showings-2016-12-24-0.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/showings-2016-12-26-0.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/showings-2016-12-27-0.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/showings-2016-12-29-0.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/showings-2016-12-31-0.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/logs/showings.log" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/impl/security/CustomGrantedAuthority.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/FileUploadController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/base/TetController.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/CustomGrantedAuthority.java" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/LoginAuthenticationController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/controller/LoginAuthenticationController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/PageController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/controller/PageController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/UserController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/controller/UserController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/controller/base/BaseController.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/controller/base/BaseController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/BaseException.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/exception/BaseException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/custom/BusinessException.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/exception/BusinessException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/custom/LoginTimeOutException.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/exception/LoginTimeOutException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/custom/ParameterException.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/exception/ParameterException.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/exception/exhandler/CustomExceptionHandler.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/controller/ExceptionController.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/PersistentLoginsMapper.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/mapper/PersistentLoginsMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysAuthoritiesMapper.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/mapper/SysAuthoritiesMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysModulesMapper.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/mapper/SysModulesMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysResourcesMapper.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/mapper/SysResourcesMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysRolesMapper.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/mapper/SysRolesMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysStatusMapper.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/mapper/SysStatusMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/SysUsersMapper.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/mapper/SysUsersMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/mapper/UsersRelateRolesMapper.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/mapper/UsersRelateRolesMapper.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/JsonResult.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/JsonResult.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/MethodKey.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/MethodKey.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/PersistentLogins.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/PersistentLogins.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysAuthorities.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/SysAuthorities.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysModules.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/SysModules.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysResources.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/SysResources.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysRoles.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/SysRoles.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysStatus.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/SysStatus.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/SysUsers.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/SysUsers.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/UserStatus.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/UserStatus.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/pojo/UsersRelateRoles.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/pojo/UsersRelateRoles.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/ISysRoleService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/ISysRoleService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/IUserService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/IUserService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/JCaptcha/GMailEngine.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/impl/captcha/GMailEngine.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/JCaptcha/JCaptchaFilter.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/filter/JCaptchaFilter.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/base/BaseService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/impl/base/BaseService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/SysRoleServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/impl/SysRoleServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/impl/UserServiceImpl.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/impl/UserServiceImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/AccessDeniedHandlerImpl.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/impl/security/AccessDeniedHandlerImpl.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/MethodSecurityMetadataSource.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/impl/security/MethodSecurityMetadataSource.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/ResourceSecurityMetadataSource.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/impl/security/ResourceSecurityMetadataSource.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/service/security/WebUserDetailsService.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/impl/security/WebUserDetailsService.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/DateUtil.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/util/DateUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/FileUtil.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/util/FileUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/HttpUtil.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/util/HttpUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/LogUtil.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/util/LogUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/MyStringUtil.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/util/MyStringUtil.java" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/magic/rent/util/UTF8Util.java" afterPath="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/util/UTF8Util.java" />
+    <list default="true" id="9ab40e3f-dbfe-4047-82c4-92ed13725105" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources.xml" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/dataSources/b1642a91-fe21-45bd-bb4b-0abed27d96c7.xml" afterPath="$PROJECT_DIR$/.idea/dataSources/b1642a91-fe21-45bd-bb4b-0abed27d96c7.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-dao.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-security.xml" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-security.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/applicationContext-service.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/spring/spring-mvc.xml" afterPath="$PROJECT_DIR$/src/main/resources/config/spring/spring-mvc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" afterPath="$PROJECT_DIR$/src/main/resources/generatorConfig.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/PersistentLoginsMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/PersistentLoginsMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysAuthoritiesMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysAuthoritiesMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysModulesMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysModulesMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysResourcesMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysResourcesMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysRolesMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysRolesMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/SysUsersMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/SysUsersMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/UserStatusMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UserStatusMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/mapper/UsersRelateRolesMapper.xml" afterPath="$PROJECT_DIR$/src/main/resources/mapper/UsersRelateRolesMapper.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" afterPath="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/plugin/jquery.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/plugin/jquery.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/plugin/soc/sco.valid.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/plugin/soc/sco.valid.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/plugin/table/extensions/toolbar/bootstrap-table-toolbar.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/plugin/table/extensions/toolbar/bootstrap-table-toolbar.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/webapp/js/plugin/table/extensions/toolbar/bootstrap-table-toolbar.min.js" afterPath="$PROJECT_DIR$/src/main/webapp/js/plugin/table/extensions/toolbar/bootstrap-table-toolbar.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/logs/rent.log" afterPath="$PROJECT_DIR$/logs/rent.log" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/resources/config/db.properties" afterPath="$PROJECT_DIR$/src/main/resources/config/db.properties" />
     </list>
     <ignored path=".idea/dataSources.local.xml" />
     <ignored path="$PROJECT_DIR$/target/" />
@@ -115,21 +39,7 @@
         <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
       </PATH_ELEMENT>
       <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - db_house_rent@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-    </PATH>
-    <PATH>
-      <PATH_ELEMENT>
-        <option name="myItemId" />
-        <option name="myItemType" value="com.intellij.database.view.DatabaseStructure$Root" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="MySQL - db_house_rent@localhost" />
-        <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
-      </PATH_ELEMENT>
-      <PATH_ELEMENT>
-        <option name="myItemId" value="SYS_USERS" />
+        <option name="myItemId" value="localhost" />
         <option name="myItemType" value="com.intellij.database.view.DbNodeDescriptor" />
       </PATH_ELEMENT>
     </PATH>
@@ -236,7 +146,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/server.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/js/views/_account_update.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/views/home/_account.jsp" />
         <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/common/showings_common_head.jsp" />
@@ -287,6 +196,7 @@
         <option value="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/filter/JCaptchaFilter.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/impl/GMailEngine.java" />
         <option value="$PROJECT_DIR$/src/main/java/cn/com/showings/lottery/service/impl/captcha/GMailEngine.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/config/db.properties" />
       </list>
     </option>
   </component>
@@ -316,38 +226,6 @@
         <PATH_ELEMENT>
           <option name="myItemId" value="showings" />
           <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="showings" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Plugins" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
-        </PATH_ELEMENT>
-      </PATH>
-      <PATH>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$RootNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="showings" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$ProjectNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="Plugins" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginsNode" />
-        </PATH_ELEMENT>
-        <PATH_ELEMENT>
-          <option name="myItemId" value="mybatis-generator" />
-          <option name="myItemType" value="org.jetbrains.idea.maven.navigator.MavenProjectsStructure$PluginNode" />
         </PATH_ELEMENT>
       </PATH>
     </treeState>
@@ -409,50 +287,6 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="HouseRent" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="src" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="main" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="java" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="lottery" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -1335,14 +1169,7 @@
       <workItem from="1481707434559" duration="4143000" />
       <workItem from="1481721144472" duration="1387000" />
       <workItem from="1484283273406" duration="200000" />
-      <workItem from="1484303602773" duration="307000" />
-    </task>
-    <task id="LOCAL-00027" summary="2016年11月17日00:55:30">
-      <created>1479315334744</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1479315334744</updated>
+      <workItem from="1484303602773" duration="582000" />
     </task>
     <task id="LOCAL-00028" summary="2016年11月17日01:29:15">
       <created>1479317360929</created>
@@ -1680,7 +1507,14 @@
       <option name="project" value="LOCAL" />
       <updated>1481721278372</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="2017年01月13日18:38:33">
+      <created>1484303950906</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1484303950906</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TestHistory">
@@ -1716,7 +1550,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="911508000" />
+    <option name="totallyTimeSpent" value="911783000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -1735,25 +1569,26 @@
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41690543" sideWeight="0.51359516" order="4" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32650602" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.18806647" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.1874106" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Properties" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17824773" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.17811158" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.24924472" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.66905445" sideWeight="0.49697885" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.43373495" sideWeight="0.48640484" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Java Enterprise" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32871288" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.41260746" sideWeight="0.4886707" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4120482" sideWeight="0.4886707" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31948423" sideWeight="0.4978678" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Spring" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.5" order="14" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32891566" sideWeight="0.4978678" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.26824033" sideWeight="0.48280802" order="7" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20600858" sideWeight="0.48280802" order="7" side_tool="false" content_ui="combo" />
       <window_info id="Web" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.23791541" sideWeight="0.517192" order="5" side_tool="true" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3192771" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -1762,7 +1597,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="9" side_tool="false" content_ui="combo" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4340974" sideWeight="0.48640484" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Database Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.31087288" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
     </layout>
@@ -1837,7 +1671,6 @@
   </component>
   <component name="VcsManagerConfiguration">
     <option name="LOCAL_CHANGES_DETAILS_PREVIEW_SHOWN" value="true" />
-    <MESSAGE value="2016年11月30日02:14:00" />
     <MESSAGE value="2016年11月30日02:18:42" />
     <MESSAGE value="2016年11月30日20:41:18" />
     <MESSAGE value="2016年12月01日07:11:10" />
@@ -1862,7 +1695,8 @@
     <MESSAGE value="2016年12月14日07:21:33" />
     <MESSAGE value="2016年12月14日21:00:11" />
     <MESSAGE value="2016年12月14日21:14:34" />
-    <option name="LAST_COMMIT_MESSAGE" value="2016年12月14日21:14:34" />
+    <MESSAGE value="2017年01月13日18:38:33" />
+    <option name="LAST_COMMIT_MESSAGE" value="2017年01月13日18:38:33" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -2053,6 +1887,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="643">
           <caret line="154" column="29" lean-forward="false" selection-start-line="154" selection-start-column="24" selection-end-line="154" selection-end-column="29" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/config/db.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="4" column="0" lean-forward="true" selection-start-line="4" selection-start-column="0" selection-end-line="4" selection-end-column="0" />
           <folding />
         </state>
       </provider>
