@@ -1872,7 +1872,7 @@
                     "PSEUDO": function( pseudo, argument ) {
                         // pseudo-class names are case-insensitive
                         // http://www.w3.org/TR/selectors/#pseudo-classes
-                        // Prioritize by case sensitivity in case custom pseudos are added with uppercase letters
+                        // Prioritize by case sensitivity in case exception pseudos are added with uppercase letters
                         // Remember that setFilters inherits from pseudos
                         var args,
                             fn = Expr.pseudos[ pseudo ] || Expr.setFilters[ pseudo.toLowerCase() ] ||
@@ -4236,7 +4236,7 @@
                     }
 
                     // Attempt to "discover" the data in
-                    // HTML5 custom data-* attrs
+                    // HTML5 exception data-* attrs
                     data = dataAttr( elem, key );
                     if ( data !== undefined ) {
                         return data;
@@ -4887,7 +4887,7 @@
                 return;
             }
 
-            // Caller can pass in an object of custom data in lieu of the handler
+            // Caller can pass in an object of exception data in lieu of the handler
             if ( handler.handler ) {
                 handleObjIn = handler;
                 handler = handleObjIn.handler;
@@ -7220,7 +7220,7 @@
         };
     } );
 
-// Generate shortcuts for custom animations
+// Generate shortcuts for exception animations
     jQuery.each( {
         slideDown: genFx( "show" ),
         slideUp: genFx( "hide" ),
@@ -8331,7 +8331,7 @@
         rprotocol = /^\/\//,
 
         /* Prefilters
-         * 1) They are useful to introduce custom dataTypes (see ajax/jsonp.js for an example)
+         * 1) They are useful to introduce exception dataTypes (see ajax/jsonp.js for an example)
          * 2) These are called:
          *    - BEFORE asking for a transport
          *    - AFTER param serialization (s.data is a string if s.processData is true)
@@ -8661,7 +8661,7 @@
             },
 
             // For options that shouldn't be deep extended:
-            // you can add your own custom options here if
+            // you can add your own exception options here if
             // and when you create one that shouldn't be
             // deep extended (see ajaxExtend)
             flatOptions: {
@@ -8952,7 +8952,7 @@
                 jqXHR.setRequestHeader( i, s.headers[ i ] );
             }
 
-            // Allow custom headers/mimetypes and early abort
+            // Allow exception headers/mimetypes and early abort
             if ( s.beforeSend &&
                 ( s.beforeSend.call( callbackContext, jqXHR, s ) === false || completed ) ) {
 
@@ -9286,7 +9286,7 @@
                         options.password
                     );
 
-                    // Apply custom fields if provided
+                    // Apply exception fields if provided
                     if ( options.xhrFields ) {
                         for ( i in options.xhrFields ) {
                             xhr[ i ] = options.xhrFields[ i ];

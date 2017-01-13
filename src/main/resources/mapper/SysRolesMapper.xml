@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.magic.rent.mapper.SysRolesMapper">
-    <resultMap id="BaseResultMap" type="com.magic.rent.pojo.SysRoles">
+<mapper namespace="cn.com.showings.lottery.mapper.SysRolesMapper">
+    <resultMap id="BaseResultMap" type="cn.com.showings.lottery.pojo.SysRoles">
         <id column="ROLE_ID" jdbcType="INTEGER" property="roleId"/>
         <result column="ROLE_NAME" jdbcType="VARCHAR" property="roleName"/>
         <result column="ROLE_DESC" jdbcType="VARCHAR" property="roleDesc"/>
@@ -21,11 +21,11 @@
     delete from SYS_ROLES
     where ROLE_ID = #{roleId,jdbcType=INTEGER}
   </delete>
-    <insert id="insert" parameterType="com.magic.rent.pojo.SysRoles">
+    <insert id="insert" parameterType="cn.com.showings.lottery.pojo.SysRoles">
     insert into SYS_ROLES (ROLE_ID, ROLE_NAME, ROLE_DESC, ENABLE, ISSYS)
     values (#{roleId,jdbcType=INTEGER}, #{roleName,jdbcType=VARCHAR}, #{roleDesc,jdbcType=VARCHAR}, #{enable,jdbcType=TINYINT}, #{system,jdbcType=TINYINT})
   </insert>
-    <insert id="insertSelective" parameterType="com.magic.rent.pojo.SysRoles">
+    <insert id="insertSelective" parameterType="cn.com.showings.lottery.pojo.SysRoles">
         insert into SYS_ROLES
         <trim prefix="(" suffix=")" suffixOverrides=",">
             <if test="roleId != null">
@@ -62,7 +62,7 @@
             </if>
         </trim>
     </insert>
-    <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.SysRoles">
+    <update id="updateByPrimaryKeySelective" parameterType="cn.com.showings.lottery.pojo.SysRoles">
         update SYS_ROLES
         <set>
             <if test="roleName != null">
@@ -80,7 +80,7 @@
         </set>
         where ROLE_ID = #{roleId,jdbcType=INTEGER}
     </update>
-    <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.SysRoles">
+    <update id="updateByPrimaryKey" parameterType="cn.com.showings.lottery.pojo.SysRoles">
     update SYS_ROLES
     set ROLE_NAME = #{roleName,jdbcType=VARCHAR},
       ROLE_DESC = #{roleDesc,jdbcType=VARCHAR},

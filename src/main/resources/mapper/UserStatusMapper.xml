@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
-<mapper namespace="com.magic.rent.mapper.UserStatusMapper" >
-  <resultMap id="BaseResultMap" type="com.magic.rent.pojo.UserStatus" >
+<mapper namespace="cn.com.showings.lottery.mapper.UserStatusMapper" >
+  <resultMap id="BaseResultMap" type="cn.com.showings.lottery.pojo.UserStatus" >
     <id column="ID" property="id" jdbcType="INTEGER" />
     <result column="STATUS_NAME" property="statusName" jdbcType="VARCHAR" />
   </resultMap>
@@ -18,11 +18,11 @@
     delete from USER_STATUS
     where ID = #{id,jdbcType=INTEGER}
   </delete>
-  <insert id="insert" parameterType="com.magic.rent.pojo.UserStatus" >
+  <insert id="insert" parameterType="cn.com.showings.lottery.pojo.UserStatus" >
     insert into USER_STATUS (ID, STATUS_NAME)
     values (#{id,jdbcType=INTEGER}, #{statusName,jdbcType=VARCHAR})
   </insert>
-  <insert id="insertSelective" parameterType="com.magic.rent.pojo.UserStatus" >
+  <insert id="insertSelective" parameterType="cn.com.showings.lottery.pojo.UserStatus" >
     insert into USER_STATUS
     <trim prefix="(" suffix=")" suffixOverrides="," >
       <if test="id != null" >
@@ -41,7 +41,7 @@
       </if>
     </trim>
   </insert>
-  <update id="updateByPrimaryKeySelective" parameterType="com.magic.rent.pojo.UserStatus" >
+  <update id="updateByPrimaryKeySelective" parameterType="cn.com.showings.lottery.pojo.UserStatus" >
     update USER_STATUS
     <set >
       <if test="statusName != null" >
@@ -50,7 +50,7 @@
     </set>
     where ID = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="com.magic.rent.pojo.UserStatus" >
+  <update id="updateByPrimaryKey" parameterType="cn.com.showings.lottery.pojo.UserStatus" >
     update USER_STATUS
     set STATUS_NAME = #{statusName,jdbcType=VARCHAR}
     where ID = #{id,jdbcType=INTEGER}

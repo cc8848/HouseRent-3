@@ -21,7 +21,7 @@
             vModal += "   <button type=\"button\" class=\"close\" data-dismiss=\"modal\" aria-hidden=\"true\" >&times;</button>";
             vModal += sprintf("   <h4 class=\"modal-title\">%s</h4>", searchTitle);
             vModal += "  </div>";
-            vModal += "  <div class=\"modal-body modal-body-custom\">";
+            vModal += "  <div class=\"modal-body modal-body-exception\">";
             vModal += sprintf("   <div class=\"container-fluid\" id=\"avdSearchModalContent%s\" style=\"padding-right: 0px;padding-left: 0px;\" >", "_" + that.options.idTable);
             vModal += "   </div>";
             vModal += "  </div>";

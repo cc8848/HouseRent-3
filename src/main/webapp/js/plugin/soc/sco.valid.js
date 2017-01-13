@@ -400,6 +400,6 @@
     $.fn[pluginName].defaults = {
         wrapper: 'label'	// the html tag that wraps the field and which defines a "row" of the form
         , rules: {}			// array of rules to check the form against. Each value should be either a string with the name of the method to use as rule or a hash like {method: <method params>}
-        , messages: {}		// custom error messages like {username: {not_empty: 'hey you forgot to enter your username', min_length: 'come on, more than 2 chars, ok?'}, password: {....}}
+        , messages: {}		// exception error messages like {username: {not_empty: 'hey you forgot to enter your username', min_length: 'come on, more than 2 chars, ok?'}, password: {....}}
     };
 })(jQuery);

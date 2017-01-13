@@ -41,7 +41,7 @@
     <!-- JCaptcha`s filter -->
     <filter>
         <filter-name>JCaptchaFilter</filter-name>
-        <filter-class>com.magic.rent.service.JCaptcha.JCaptchaFilter</filter-class>
+        <filter-class>cn.com.showings.lottery.filter.JCaptchaFilter</filter-class>
         <init-param>
             <param-name>failureUrl</param-name>
             <param-value>/user/login</param-value>

@@ -1,0 +1,423 @@
+
+[2016-12-24 01:49:48] [userID:] [com.mchange.v2.log.MLog] 
+[INFO ] MLog clients using slf4j logging. 
+
+[2016-12-24 01:49:53] [userID:] [com.mchange.v2.c3p0.C3P0Registry] 
+[INFO ] Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+
+[2016-12-24 01:49:59] [userID:] [c.m.v2.c3p0.impl.AbstractPoolBackedDataSource] 
+[INFO ] Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hge1hh9lcfj16qw6rxbt|717de441, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hge1hh9lcfj16qw6rxbt|717de441, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/showings?characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ] 
+
+[2016-12-24 01:50:00] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 资源文件权限参数初始化:资源列表[{Ant [pattern='/user/home']=[ROLE_BASE], Ant [pattern='/community/create']=[ROLE_DEVELOPER], Ant [pattern='/community/cancel']=[ROLE_DEVELOPER], Ant [pattern='/community/pass']=[ROLE_BS_ADMIN], Ant [pattern='/community/refuse']=[ROLE_BS_ADMIN], Ant [pattern='/community/classify']=[ROLE_BS_ADMIN], Ant [pattern='/community/success']=[ROLE_DEVELOPER], Ant [pattern='/community/myClassify']=[ROLE_DEVELOPER], Ant [pattern='/house/issue']=[ROLE_DEVELOPER], Ant [pattern='/admin/index']=[ROLE_BS_ADMIN]}] 
+
+[2016-12-24 01:50:00] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/cp/user/login 
+
+[2016-12-24 02:31:44] [userID:] [com.mchange.v2.log.MLog] 
+[INFO ] MLog clients using slf4j logging. 
+
+[2016-12-24 02:31:49] [userID:] [com.mchange.v2.c3p0.C3P0Registry] 
+[INFO ] Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+
+[2016-12-24 02:31:55] [userID:] [c.m.v2.c3p0.impl.AbstractPoolBackedDataSource] 
+[INFO ] Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hge1hh9lch0yk8wmvf0o|226ab2dc, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hge1hh9lch0yk8wmvf0o|226ab2dc, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/showings?characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ] 
+
+[2016-12-24 02:31:56] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 资源文件权限参数初始化:资源列表[{Ant [pattern='/user/home']=[ROLE_BASE], Ant [pattern='/community/create']=[ROLE_DEVELOPER], Ant [pattern='/community/cancel']=[ROLE_DEVELOPER], Ant [pattern='/community/pass']=[ROLE_BS_ADMIN], Ant [pattern='/community/refuse']=[ROLE_BS_ADMIN], Ant [pattern='/community/classify']=[ROLE_BS_ADMIN], Ant [pattern='/community/success']=[ROLE_DEVELOPER], Ant [pattern='/community/myClassify']=[ROLE_DEVELOPER], Ant [pattern='/house/issue']=[ROLE_DEVELOPER], Ant [pattern='/admin/index']=[ROLE_BS_ADMIN]}] 
+
+[2016-12-24 02:31:56] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/cp/user/login 
+
+[2016-12-24 02:31:56] [userID:] [com.magic.rent.filter.JCaptchaFilter] 
+[INFO ] 参数初始化:验证失败后跳转的链接地址为-[/user/login] 
+
+[2016-12-24 02:31:58] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 02:31:59] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 02:32:01] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 02:32:01] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 02:32:02] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 02:32:03] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 02:38:03] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 02:38:04] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 02:38:05] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/user/login 
+
+[2016-12-24 02:38:05] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 02:38:13] [userID:NotLogin] [c.m.r.service.impl.security.WebUserDetailsService] 
+[INFO ] 读取用户角色对应权限[[ROLE_BASE]] 
+
+[2016-12-24 02:38:13] [userID:NotLogin] [c.m.rent.controller.LoginAuthenticationController] 
+[INFO ] 登录失败:请求IP地址[0:0:0:0:0:0:0:1];失败原因:用户帐号已被锁定; 
+
+[2016-12-24 02:38:13] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/user/login 
+
+[2016-12-24 02:38:13] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 02:40:39] [userID:] [com.mchange.v2.log.MLog] 
+[INFO ] MLog clients using slf4j logging. 
+
+[2016-12-24 02:40:44] [userID:] [com.mchange.v2.c3p0.C3P0Registry] 
+[INFO ] Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+
+[2016-12-24 02:40:50] [userID:] [c.m.v2.c3p0.impl.AbstractPoolBackedDataSource] 
+[INFO ] Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hge1hh9lchcf56zf3wda|7f225678, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hge1hh9lchcf56zf3wda|7f225678, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/showings?characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ] 
+
+[2016-12-24 02:40:50] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 资源文件权限参数初始化:资源列表[{Ant [pattern='/user/home']=[ROLE_BASE], Ant [pattern='/community/create']=[ROLE_DEVELOPER], Ant [pattern='/community/cancel']=[ROLE_DEVELOPER], Ant [pattern='/community/pass']=[ROLE_BS_ADMIN], Ant [pattern='/community/refuse']=[ROLE_BS_ADMIN], Ant [pattern='/community/classify']=[ROLE_BS_ADMIN], Ant [pattern='/community/success']=[ROLE_DEVELOPER], Ant [pattern='/community/myClassify']=[ROLE_DEVELOPER], Ant [pattern='/house/issue']=[ROLE_DEVELOPER], Ant [pattern='/admin/index']=[ROLE_BS_ADMIN]}] 
+
+[2016-12-24 02:40:51] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/cp/user/login 
+
+[2016-12-24 02:40:51] [userID:] [com.magic.rent.filter.JCaptchaFilter] 
+[INFO ] 参数初始化:验证失败后跳转的链接地址为-[/user/login] 
+
+[2016-12-24 02:40:52] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 02:40:53] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 02:40:53] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 02:40:54] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 02:42:05] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/user/login 
+
+[2016-12-24 02:42:06] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 02:42:14] [userID:NotLogin] [c.m.r.service.impl.security.WebUserDetailsService] 
+[INFO ] 读取用户角色对应权限[[ROLE_BASE]] 
+
+[2016-12-24 02:42:14] [userID:NotLogin] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.updateUserLoginInfo]
+
+[2016-12-24 02:42:14] [userID:NotLogin] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.updateUserLoginInfo]
+
+[2016-12-24 02:42:14] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-24 02:42:14] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-24 02:42:14] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 02:42:38] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/upload/portrait 
+
+[2016-12-24 02:42:39] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[savePortrait]
+
+[2016-12-24 02:42:39] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[savePortrait]
+
+[2016-12-24 02:42:39] [userID:15] [com.magic.rent.tools.CompressTools] 
+[INFO ] [输出路径]：/Users/wu/IdeaProjects/HouseRent/target/showings/img/portrait/15/portrait.jpg	[图片名称]：portrait.jpg	[压缩前大小]：9KB	[耗时]：47毫秒 
+
+[2016-12-24 02:42:39] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=/img/portrait/15/portrait.jpg} 
+
+[2016-12-24 02:42:41] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-24 02:42:48] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/user/modify 
+
+[2016-12-24 02:42:48] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.modify]
+
+[2016-12-24 02:42:48] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.modify]
+
+[2016-12-24 02:44:24] [userID:] [com.mchange.v2.log.MLog] 
+[INFO ] MLog clients using slf4j logging. 
+
+[2016-12-24 02:44:29] [userID:] [com.mchange.v2.c3p0.C3P0Registry] 
+[INFO ] Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+
+[2016-12-24 02:56:15] [userID:] [com.mchange.v2.log.MLog] 
+[INFO ] MLog clients using slf4j logging. 
+
+[2016-12-24 02:56:20] [userID:] [com.mchange.v2.c3p0.C3P0Registry] 
+[INFO ] Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+
+[2016-12-24 03:19:01] [userID:] [com.mchange.v2.log.MLog] 
+[INFO ] MLog clients using slf4j logging. 
+
+[2016-12-24 03:19:06] [userID:] [com.mchange.v2.c3p0.C3P0Registry] 
+[INFO ] Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+
+[2016-12-24 03:19:13] [userID:] [c.m.v2.c3p0.impl.AbstractPoolBackedDataSource] 
+[INFO ] Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hge1hh9lciprgdm164lc|7824cf3d, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hge1hh9lciprgdm164lc|7824cf3d, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/showings?characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ] 
+
+[2016-12-24 03:19:14] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 资源文件权限参数初始化:资源列表[{Ant [pattern='/user/home']=[ROLE_BASE], Ant [pattern='/community/create']=[ROLE_DEVELOPER], Ant [pattern='/community/cancel']=[ROLE_DEVELOPER], Ant [pattern='/community/pass']=[ROLE_BS_ADMIN], Ant [pattern='/community/refuse']=[ROLE_BS_ADMIN], Ant [pattern='/community/classify']=[ROLE_BS_ADMIN], Ant [pattern='/community/success']=[ROLE_DEVELOPER], Ant [pattern='/community/myClassify']=[ROLE_DEVELOPER], Ant [pattern='/house/issue']=[ROLE_DEVELOPER], Ant [pattern='/admin/index']=[ROLE_BS_ADMIN]}] 
+
+[2016-12-24 03:19:14] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/cp/user/login 
+
+[2016-12-24 03:19:14] [userID:] [com.magic.rent.filter.JCaptchaFilter] 
+[INFO ] 参数初始化:验证失败后跳转的链接地址为-[/user/login] 
+
+[2016-12-24 03:19:16] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 03:19:17] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 03:19:18] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 03:19:19] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 03:19:30] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/user/login 
+
+[2016-12-24 03:19:30] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 03:20:07] [userID:NotLogin] [c.m.r.service.impl.security.WebUserDetailsService] 
+[INFO ] 读取用户角色对应权限[[ROLE_BASE]] 
+
+[2016-12-24 03:25:01] [userID:NotLogin] [c.m.rent.controller.LoginAuthenticationController] 
+[INFO ] 登录失败:请求IP地址[0:0:0:0:0:0:0:1];失败原因:用户帐号已被锁定; 
+
+[2016-12-24 03:25:01] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/user/login 
+
+[2016-12-24 03:25:01] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 03:26:51] [userID:] [com.mchange.v2.log.MLog] 
+[INFO ] MLog clients using slf4j logging. 
+
+[2016-12-24 03:26:56] [userID:] [com.mchange.v2.c3p0.C3P0Registry] 
+[INFO ] Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+
+[2016-12-24 03:27:03] [userID:] [c.m.v2.c3p0.impl.AbstractPoolBackedDataSource] 
+[INFO ] Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hge1hh9lcizukb168dyk7|3a6a6fef, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hge1hh9lcizukb168dyk7|3a6a6fef, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/showings?characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ] 
+
+[2016-12-24 03:27:04] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 资源文件权限参数初始化:资源列表[{Ant [pattern='/user/home']=[ROLE_BASE], Ant [pattern='/community/create']=[ROLE_DEVELOPER], Ant [pattern='/community/cancel']=[ROLE_DEVELOPER], Ant [pattern='/community/pass']=[ROLE_BS_ADMIN], Ant [pattern='/community/refuse']=[ROLE_BS_ADMIN], Ant [pattern='/community/classify']=[ROLE_BS_ADMIN], Ant [pattern='/community/success']=[ROLE_DEVELOPER], Ant [pattern='/community/myClassify']=[ROLE_DEVELOPER], Ant [pattern='/house/issue']=[ROLE_DEVELOPER], Ant [pattern='/admin/index']=[ROLE_BS_ADMIN]}] 
+
+[2016-12-24 03:27:04] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/cp/user/login 
+
+[2016-12-24 03:27:04] [userID:] [com.magic.rent.filter.JCaptchaFilter] 
+[INFO ] 参数初始化:验证失败后跳转的链接地址为-[/user/login] 
+
+[2016-12-24 03:27:06] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 03:27:07] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 03:27:08] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 03:27:08] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 03:27:11] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/user/login 
+
+[2016-12-24 03:27:11] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 03:27:25] [userID:NotLogin] [c.m.r.service.impl.security.WebUserDetailsService] 
+[INFO ] 读取用户角色对应权限[[ROLE_BASE]] 
+
+[2016-12-24 03:30:56] [userID:NotLogin] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.updateUserLoginInfo]
+
+[2016-12-24 03:30:56] [userID:NotLogin] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.updateUserLoginInfo]
+
+[2016-12-24 03:30:56] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-24 03:30:56] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-24 03:30:57] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 03:31:58] [userID:] [com.mchange.v2.log.MLog] 
+[INFO ] MLog clients using slf4j logging. 
+
+[2016-12-24 03:32:03] [userID:] [com.mchange.v2.c3p0.C3P0Registry] 
+[INFO ] Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+
+[2016-12-24 03:32:09] [userID:] [c.m.v2.c3p0.impl.AbstractPoolBackedDataSource] 
+[INFO ] Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hge1hh9lcj6f4l1n9t17a|6cc12f5e, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hge1hh9lcj6f4l1n9t17a|6cc12f5e, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/showings?characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ] 
+
+[2016-12-24 03:32:10] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 资源文件权限参数初始化:资源列表[{Ant [pattern='/user/home']=[ROLE_BASE], Ant [pattern='/community/create']=[ROLE_DEVELOPER], Ant [pattern='/community/cancel']=[ROLE_DEVELOPER], Ant [pattern='/community/pass']=[ROLE_BS_ADMIN], Ant [pattern='/community/refuse']=[ROLE_BS_ADMIN], Ant [pattern='/community/classify']=[ROLE_BS_ADMIN], Ant [pattern='/community/success']=[ROLE_DEVELOPER], Ant [pattern='/community/myClassify']=[ROLE_DEVELOPER], Ant [pattern='/house/issue']=[ROLE_DEVELOPER], Ant [pattern='/admin/index']=[ROLE_BS_ADMIN]}] 
+
+[2016-12-24 03:32:10] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/cp/user/login 
+
+[2016-12-24 03:32:10] [userID:] [com.magic.rent.filter.JCaptchaFilter] 
+[INFO ] 参数初始化:验证失败后跳转的链接地址为-[/user/login] 
+
+[2016-12-24 03:32:11] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 03:32:12] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 03:32:13] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 03:32:14] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 03:32:15] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/user/login 
+
+[2016-12-24 03:32:16] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 03:32:24] [userID:NotLogin] [c.m.r.service.impl.security.WebUserDetailsService] 
+[INFO ] 读取用户角色对应权限[[ROLE_BASE]] 
+
+[2016-12-24 03:32:24] [userID:NotLogin] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.updateUserLoginInfo]
+
+[2016-12-24 03:32:24] [userID:NotLogin] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.updateUserLoginInfo]
+
+[2016-12-24 03:32:24] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-24 03:32:24] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-24 03:32:24] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 03:32:35] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/upload/portrait 
+
+[2016-12-24 03:32:35] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[savePortrait]
+
+[2016-12-24 03:32:35] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[savePortrait]
+
+[2016-12-24 03:32:35] [userID:15] [com.magic.rent.tools.CompressTools] 
+[INFO ] [输出路径]：/Users/wu/IdeaProjects/HouseRent/target/showings/img/portrait/15/portrait.jpg	[图片名称]：portrait.jpg	[压缩前大小]：8KB	[耗时]：47毫秒 
+
+[2016-12-24 03:32:35] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=/img/portrait/15/portrait.jpg} 
+
+[2016-12-24 03:32:36] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-24 03:32:42] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/user/modify 
+
+[2016-12-24 03:32:42] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.modify]
+
+[2016-12-24 03:32:42] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.modify]
+
+[2016-12-24 03:32:42] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.findUserByUserID]
+
+[2016-12-24 03:32:42] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.findUserByUserID]
+
+[2016-12-24 03:32:43] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-24 03:32:49] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-24 03:32:49] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-24 03:32:49] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 03:32:54] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/user/modify 
+
+[2016-12-24 03:32:54] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.modify]
+
+[2016-12-24 03:32:54] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.modify]
+
+[2016-12-24 03:32:54] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.findUserByUserID]
+
+[2016-12-24 03:32:54] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IUserService.findUserByUserID]
+
+[2016-12-24 03:32:55] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-24 16:58:17] [userID:] [com.mchange.v2.log.MLog] 
+[INFO ] MLog clients using slf4j logging. 
+
+[2016-12-24 16:58:23] [userID:] [com.mchange.v2.c3p0.C3P0Registry] 
+[INFO ] Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+
+[2016-12-24 16:58:29] [userID:] [c.m.v2.c3p0.impl.AbstractPoolBackedDataSource] 
+[INFO ] Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hge1hh9ldbzd0psql3wq|2db0af49, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hge1hh9ldbzd0psql3wq|2db0af49, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/showings?characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ] 
+
+[2016-12-24 16:58:29] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 资源文件权限参数初始化:资源列表[{Ant [pattern='/user/home']=[ROLE_BASE], Ant [pattern='/community/create']=[ROLE_DEVELOPER], Ant [pattern='/community/cancel']=[ROLE_DEVELOPER], Ant [pattern='/community/pass']=[ROLE_BS_ADMIN], Ant [pattern='/community/refuse']=[ROLE_BS_ADMIN], Ant [pattern='/community/classify']=[ROLE_BS_ADMIN], Ant [pattern='/community/success']=[ROLE_DEVELOPER], Ant [pattern='/community/myClassify']=[ROLE_DEVELOPER], Ant [pattern='/house/issue']=[ROLE_DEVELOPER], Ant [pattern='/admin/index']=[ROLE_BS_ADMIN]}] 
+
+[2016-12-24 16:58:30] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/cp/user/login 
+
+[2016-12-24 16:58:30] [userID:] [com.magic.rent.filter.JCaptchaFilter] 
+[INFO ] 参数初始化:验证失败后跳转的链接地址为-[/user/login] 
+
+[2016-12-24 16:58:31] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 16:58:32] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 16:58:34] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 16:58:34] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-24 16:58:35] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-24 16:58:35] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 

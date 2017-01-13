@@ -1,0 +1,600 @@
+
+[2016-12-27 00:00:50] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:01:29] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:01:29] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:01:29] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:01:30] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:08:27] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:08:27] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:08:27] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:08:28] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:09:17] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:09:17] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:09:18] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:09:19] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:09:19] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:09:19] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:09:19] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:09:20] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:10:03] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:10:03] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:10:03] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:10:04] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:10:04] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:10:04] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:10:04] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:10:04] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:10:08] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getCityByProvince 
+
+[2016-12-27 00:10:08] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getCityByProvinceID]
+
+[2016-12-27 00:10:08] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getCityByProvinceID]
+
+[2016-12-27 00:10:08] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=420100, text='武汉市'}, SelectPoJo{id=420200, text='黄石市'}, SelectPoJo{id=420300, text='十堰市'}, SelectPoJo{id=420500, text='宜昌市'}, SelectPoJo{id=420600, text='襄樊市'}, SelectPoJo{id=420700, text='鄂州市'}, SelectPoJo{id=420800, text='荆门市'}, SelectPoJo{id=420900, text='孝感市'}, SelectPoJo{id=421000, text='荆州市'}, SelectPoJo{id=421100, text='黄冈市'}, SelectPoJo{id=421200, text='咸宁市'}, SelectPoJo{id=421300, text='随州市'}, SelectPoJo{id=422800, text='恩施土家族苗族自治州'}, SelectPoJo{id=429000, text='省直辖行政单位'}]} 
+
+[2016-12-27 00:10:10] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAreaByCity 
+
+[2016-12-27 00:10:10] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAreaByCityID]
+
+[2016-12-27 00:10:10] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAreaByCityID]
+
+[2016-12-27 00:10:10] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=420501, text='市辖区'}, SelectPoJo{id=420502, text='西陵区'}, SelectPoJo{id=420503, text='伍家岗区'}, SelectPoJo{id=420504, text='点军区'}, SelectPoJo{id=420505, text='猇亭区'}, SelectPoJo{id=420506, text='夷陵区'}, SelectPoJo{id=420525, text='远安县'}, SelectPoJo{id=420526, text='兴山县'}, SelectPoJo{id=420527, text='秭归县'}, SelectPoJo{id=420528, text='长阳土家族自治县'}, SelectPoJo{id=420529, text='五峰土家族自治县'}, SelectPoJo{id=420581, text='宜都市'}, SelectPoJo{id=420582, text='当阳市'}, SelectPoJo{id=420583, text='枝江市'}]} 
+
+[2016-12-27 00:10:40] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getCityByProvince 
+
+[2016-12-27 00:10:40] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getCityByProvinceID]
+
+[2016-12-27 00:10:40] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getCityByProvinceID]
+
+[2016-12-27 00:10:40] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=440100, text='广州市'}, SelectPoJo{id=440200, text='韶关市'}, SelectPoJo{id=440300, text='深圳市'}, SelectPoJo{id=440400, text='珠海市'}, SelectPoJo{id=440500, text='汕头市'}, SelectPoJo{id=440600, text='佛山市'}, SelectPoJo{id=440700, text='江门市'}, SelectPoJo{id=440800, text='湛江市'}, SelectPoJo{id=440900, text='茂名市'}, SelectPoJo{id=441200, text='肇庆市'}, SelectPoJo{id=441300, text='惠州市'}, SelectPoJo{id=441400, text='梅州市'}, SelectPoJo{id=441500, text='汕尾市'}, SelectPoJo{id=441600, text='河源市'}, SelectPoJo{id=441700, text='阳江市'}, SelectPoJo{id=441800, text='清远市'}, SelectPoJo{id=441900, text='东莞市'}, SelectPoJo{id=442000, text='中山市'}, SelectPoJo{id=445100, text='潮州市'}, SelectPoJo{id=445200, text='揭阳市'}, SelectPoJo{id=445300, text='云浮市'}]} 
+
+[2016-12-27 00:10:43] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAreaByCity 
+
+[2016-12-27 00:10:43] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAreaByCityID]
+
+[2016-12-27 00:10:43] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAreaByCityID]
+
+[2016-12-27 00:10:43] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=440401, text='市辖区'}, SelectPoJo{id=440402, text='香洲区'}, SelectPoJo{id=440403, text='斗门区'}, SelectPoJo{id=440404, text='金湾区'}]} 
+
+[2016-12-27 00:14:43] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:14:43] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:14:43] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:14:44] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:14:44] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:14:44] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:14:44] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:14:44] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:15:36] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:15:36] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:15:36] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:15:36] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:15:36] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:15:47] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:15:48] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:15:48] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:15:48] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:15:48] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:15:57] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:15:57] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:15:58] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:15:59] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:15:59] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:15:59] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:15:59] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:15:59] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:16:04] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:16:05] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:16:05] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:16:05] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:16:05] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:16:39] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:16:40] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:16:40] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:16:41] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:16:41] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:16:41] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:16:41] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:16:41] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:16:52] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:16:52] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:16:52] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:16:54] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:16:54] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:16:54] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:16:54] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:16:54] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:17:24] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:17:24] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:17:25] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:17:25] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:17:25] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:17:25] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:17:25] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:17:25] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:18:09] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:18:09] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:18:09] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:18:10] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:18:11] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:18:11] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:18:11] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:18:11] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:20:08] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:20:08] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:20:08] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:20:09] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:20:09] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:20:09] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:20:09] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:20:09] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:20:34] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:20:34] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:20:34] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:20:35] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:20:35] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:20:35] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:20:35] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:20:35] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:20:45] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:20:46] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:20:46] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:20:46] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:20:46] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:22:40] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:22:41] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:22:41] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:22:41] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:22:41] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:23:18] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:23:18] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:23:18] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:23:19] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:23:19] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:23:19] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:23:19] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:23:19] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:23:34] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:23:34] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:23:34] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:23:35] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:23:35] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:23:35] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:23:35] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:23:35] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:26:36] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:26:36] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:26:36] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:26:36] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:26:37] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:26:37] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:26:37] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:26:37] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:28:52] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:28:52] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:28:52] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:28:53] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:28:53] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:28:53] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:28:53] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:28:53] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:29:07] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:29:07] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:29:07] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:29:08] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:29:08] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:29:08] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:29:08] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:29:08] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 00:29:29] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home 
+
+[2016-12-27 00:29:29] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/account 
+
+[2016-12-27 00:29:29] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 00:29:30] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/home/hand_house_issue 
+
+[2016-12-27 00:29:31] [userID:15] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/address/getAllProvince 
+
+[2016-12-27 00:29:31] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:29:31] [userID:15] [c.m.r.s.impl.security.MethodSecurityMetadataSource] 
+[INFO ] 请求的方法:[cn.com.showings.lottery.service.IAddressService.getAllProvince]
+
+[2016-12-27 00:29:31] [userID:15] [cn.com.showings.lottery.pojo.JsonResult]
+[INFO ] JsonResult{status=true, message='null', data=[SelectPoJo{id=110000, text='北京市'}, SelectPoJo{id=120000, text='天津市'}, SelectPoJo{id=130000, text='河北省'}, SelectPoJo{id=140000, text='山西省'}, SelectPoJo{id=150000, text='内蒙古自治区'}, SelectPoJo{id=210000, text='辽宁省'}, SelectPoJo{id=220000, text='吉林省'}, SelectPoJo{id=230000, text='黑龙江省'}, SelectPoJo{id=310000, text='上海市'}, SelectPoJo{id=320000, text='江苏省'}, SelectPoJo{id=330000, text='浙江省'}, SelectPoJo{id=340000, text='安徽省'}, SelectPoJo{id=350000, text='福建省'}, SelectPoJo{id=360000, text='江西省'}, SelectPoJo{id=370000, text='山东省'}, SelectPoJo{id=410000, text='河南省'}, SelectPoJo{id=420000, text='湖北省'}, SelectPoJo{id=430000, text='湖南省'}, SelectPoJo{id=440000, text='广东省'}, SelectPoJo{id=450000, text='广西壮族自治区'}, SelectPoJo{id=460000, text='海南省'}, SelectPoJo{id=500000, text='重庆市'}, SelectPoJo{id=510000, text='四川省'}, SelectPoJo{id=520000, text='贵州省'}, SelectPoJo{id=530000, text='云南省'}, SelectPoJo{id=540000, text='西藏自治区'}, SelectPoJo{id=610000, text='陕西省'}, SelectPoJo{id=620000, text='甘肃省'}, SelectPoJo{id=630000, text='青海省'}, SelectPoJo{id=640000, text='宁夏回族自治区'}, SelectPoJo{id=650000, text='新疆维吾尔自治区'}, SelectPoJo{id=710000, text='台湾省'}, SelectPoJo{id=810000, text='香港特别行政区'}, SelectPoJo{id=820000, text='澳门特别行政区'}]} 
+
+[2016-12-27 23:42:17] [userID:] [com.mchange.v2.log.MLog] 
+[INFO ] MLog clients using slf4j logging. 
+
+[2016-12-27 23:42:22] [userID:] [com.mchange.v2.c3p0.C3P0Registry] 
+[INFO ] Initializing c3p0-0.9.5.1 [built 16-June-2015 00:06:36 -0700; debug? true; trace: 10] 
+
+[2016-12-27 23:42:28] [userID:] [c.m.v2.c3p0.impl.AbstractPoolBackedDataSource] 
+[INFO ] Initializing c3p0 pool... com.mchange.v2.c3p0.ComboPooledDataSource [ acquireIncrement -> 3, acquireRetryAttempts -> 30, acquireRetryDelay -> 1000, autoCommitOnClose -> false, automaticTestTable -> null, breakAfterAcquireFailure -> false, checkoutTimeout -> 0, connectionCustomizerClassName -> null, connectionTesterClassName -> com.mchange.v2.c3p0.impl.DefaultConnectionTester, contextClassLoaderSource -> caller, dataSourceName -> 1hge1hh9li0qg4oqtdr20|5f2d4a13, debugUnreturnedConnectionStackTraces -> false, description -> null, driverClass -> com.mysql.jdbc.Driver, extensions -> {}, factoryClassLocation -> null, forceIgnoreUnresolvedTransactions -> false, forceSynchronousCheckins -> false, forceUseNamedDriverClass -> false, identityToken -> 1hge1hh9li0qg4oqtdr20|5f2d4a13, idleConnectionTestPeriod -> 0, initialPoolSize -> 3, jdbcUrl -> jdbc:mysql://127.0.0.1:3306/showings?characterEncoding=UTF-8, maxAdministrativeTaskTime -> 0, maxConnectionAge -> 0, maxIdleTime -> 60, maxIdleTimeExcessConnections -> 0, maxPoolSize -> 50, maxStatements -> 0, maxStatementsPerConnection -> 0, minPoolSize -> 2, numHelperThreads -> 3, preferredTestQuery -> null, privilegeSpawnedThreads -> false, properties -> {user=******, password=******}, propertyCycle -> 0, statementCacheNumDeferredCloseThreads -> 0, testConnectionOnCheckin -> false, testConnectionOnCheckout -> false, unreturnedConnectionTimeout -> 0, userOverrides -> {}, usesTraditionalReflectiveProxies -> false ] 
+
+[2016-12-27 23:42:29] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 资源文件权限参数初始化:资源列表[{Ant [pattern='/user/home']=[ROLE_BASE], Ant [pattern='/community/create']=[ROLE_DEVELOPER], Ant [pattern='/community/cancel']=[ROLE_DEVELOPER], Ant [pattern='/community/pass']=[ROLE_BS_ADMIN], Ant [pattern='/community/refuse']=[ROLE_BS_ADMIN], Ant [pattern='/community/classify']=[ROLE_BS_ADMIN], Ant [pattern='/community/success']=[ROLE_DEVELOPER], Ant [pattern='/community/myClassify']=[ROLE_DEVELOPER], Ant [pattern='/house/issue']=[ROLE_DEVELOPER], Ant [pattern='/admin/index']=[ROLE_BS_ADMIN]}] 
+
+[2016-12-27 23:42:29] [userID:] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/cp/user/login 
+
+[2016-12-27 23:42:29] [userID:] [com.magic.rent.filter.JCaptchaFilter] 
+[INFO ] 参数初始化:验证失败后跳转的链接地址为-[/user/login] 
+
+[2016-12-27 23:42:31] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-27 23:42:32] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-27 23:42:32] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-27 23:42:33] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 23:42:39] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/register 
+
+[2016-12-27 23:42:40] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 23:42:42] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-27 23:42:42] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 23:42:43] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/house/detail 
+
+[2016-12-27 23:42:43] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 23:42:46] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-27 23:42:46] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 23:42:52] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/user/login 
+
+[2016-12-27 23:42:52] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
+
+[2016-12-27 23:42:57] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/ 
+
+[2016-12-27 23:42:57] [userID:NotLogin] [c.m.r.s.i.security.ResourceSecurityMetadataSource] 
+[INFO ] 请求资源:/favicon.ico 
