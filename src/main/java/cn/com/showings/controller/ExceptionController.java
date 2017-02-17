@@ -45,7 +45,6 @@ public class ExceptionController implements HandlerExceptionResolver {
         }
     }
 
-
     private boolean isAjaxRequest(HttpServletRequest request) {
         return "XMLHttpRequest".equals(request.getHeader("X-Requested-With")) || !StringUtils.isEmpty(request.getParameter("jsonp"));
     }
